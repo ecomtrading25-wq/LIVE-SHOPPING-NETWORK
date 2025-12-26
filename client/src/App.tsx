@@ -14,6 +14,8 @@ import Packer from "./pages/warehouse/Packer";
 import Account from "./pages/Account";
 import OrderTracking from "./pages/OrderTracking";
 import Wishlist from "./pages/Wishlist";
+import Compare from "./pages/Compare";
+import Rewards from "./pages/Rewards";
 import AdminDashboard from "@/pages/Admin";
 
 function Router() {
@@ -30,6 +32,8 @@ function Router() {
       <Route path="/account" component={Account} />
       <Route path="/orders/:id" component={OrderTracking} />
       <Route path="/wishlist" component={Wishlist} />
+      <Route path="/compare" component={Compare} />
+      <Route path="/rewards" component={Rewards} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

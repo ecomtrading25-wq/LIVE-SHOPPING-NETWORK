@@ -347,6 +347,8 @@ function AnalyticsPage() {
   return <AnalyticsPageComponent />;
 }
 
+import SettingsPageComponent from "./admin/Settings";
+
 function SettingsPage() {
-  return <div className="text-white">Settings - Coming Soon</div>;
+  return <SettingsPageComponent />;
 }
