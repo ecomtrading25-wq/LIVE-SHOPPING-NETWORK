@@ -26,12 +26,14 @@ import RequestReturn from "./pages/RequestReturn";
 import NotificationPreferences from "./pages/NotificationPreferences";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PWAInstallPrompt from "@/components/PWAInstallPrompt";
 import AdminDashboard from "@/pages/Admin";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <>
+      <PWAInstallPrompt />
       <Header />
       <Switch>
         <Route path="/" component={Home} />

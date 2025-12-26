@@ -22,6 +22,7 @@ import {
   Upload,
   RotateCcw,
   Activity,
+  FileText,
 } from "lucide-react";
 
 /**
@@ -52,6 +53,7 @@ export default function AdminDashboard() {
     { path: "/admin/suppliers", icon: Building2, label: "Suppliers" },
     { path: "/admin/analytics", icon: BarChart3, label: "Analytics" },
     { path: "/admin/performance", icon: Activity, label: "Performance" },
+    { path: "/admin/reports", icon: FileText, label: "Reports" },
     { path: "/admin/bulk-import", icon: Upload, label: "Bulk Import" },
     { path: "/admin/users", icon: Users, label: "Users" },
     { path: "/admin/returns", icon: RotateCcw, label: "Returns" },
@@ -181,6 +183,7 @@ export default function AdminDashboard() {
             <Route path="/admin/suppliers" component={SuppliersPage} />
             <Route path="/admin/analytics" component={AnalyticsPage} />
             <Route path="/admin/performance" component={PerformancePage} />
+            <Route path="/admin/reports" component={ReportsPage} />
             <Route path="/admin/bulk-import" component={BulkImportPage} />
             <Route path="/admin/users" component={UsersPage} />
             <Route path="/admin/returns" component={ReturnsPage} />
@@ -363,6 +366,7 @@ import BulkImportPageComponent from "./admin/BulkImport";
 import UsersPageComponent from "./admin/Users";
 import ReturnsPageComponent from "./admin/Returns";
 import PerformancePageComponent from "./admin/Performance";
+import ReportsPageComponent from "./admin/Reports";
 
 function BulkImportPage() {
   return <BulkImportPageComponent />;
@@ -382,4 +386,8 @@ function ReturnsPage() {
 
 function PerformancePage() {
   return <PerformancePageComponent />;
+}
+
+function ReportsPage() {
+  return <ReportsPageComponent />;
 }
