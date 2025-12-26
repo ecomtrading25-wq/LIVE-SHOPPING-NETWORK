@@ -282,8 +282,10 @@ function ChannelsPage() {
   return <ChannelsPageComponent />;
 }
 
+import ProductsPageComponent from "./admin/Products";
+
 function ProductsPage() {
-  return <div className="text-white">Products Management - Coming Soon</div>;
+  return <ProductsPageComponent />;
 }
 
 import OrdersPageComponent from "./admin/Orders";
@@ -292,12 +294,16 @@ function OrdersPage() {
   return <OrdersPageComponent />;
 }
 
+import FulfillmentPageComponent from "./admin/Fulfillment";
+
 function FulfillmentPage() {
-  return <div className="text-white">Fulfillment Management - Coming Soon</div>;
+  return <FulfillmentPageComponent />;
 }
 
+import LiveShoppingPageComponent from "./admin/LiveShopping";
+
 function LiveShoppingPage() {
-  return <div className="text-white">Live Shopping Management - Coming Soon</div>;
+  return <LiveShoppingPageComponent />;
 }
 
 function CreatorsPage() {
