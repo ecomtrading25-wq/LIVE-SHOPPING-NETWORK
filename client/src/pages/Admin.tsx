@@ -306,12 +306,16 @@ function LiveShoppingPage() {
   return <LiveShoppingPageComponent />;
 }
 
+import CreatorsPageComponent from "./admin/Creators";
+
 function CreatorsPage() {
-  return <div className="text-white">Creators Management - Coming Soon</div>;
+  return <CreatorsPageComponent />;
 }
 
+import DisputesPageComponent from "./admin/Disputes";
+
 function DisputesPage() {
-  return <div className="text-white">Disputes Management - Coming Soon</div>;
+  return <DisputesPageComponent />;
 }
 
 function SettlementsPage() {
