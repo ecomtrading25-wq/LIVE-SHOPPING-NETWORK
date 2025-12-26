@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { trpc } from "@/lib/trpc";
+import { LiveChatButton } from "@/components/LiveChat";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -245,6 +246,9 @@ export default function Home() {
         </div>
       </div>
       
+      {/* Live Chat (only show if there's an active session) */}
+      <LiveChatButton sessionId={liveSession.id} />
+
       {/* Below the Fold - Additional Content */}
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">

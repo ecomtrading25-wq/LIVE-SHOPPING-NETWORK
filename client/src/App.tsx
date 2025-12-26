@@ -19,6 +19,7 @@ import Rewards from "./pages/Rewards";
 import Creator from "./pages/Creator";
 import Search from "./pages/Search";
 import Referrals from "./pages/Referrals";
+import Download from "./pages/Download";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AdminDashboard from "@/pages/Admin";
@@ -44,6 +45,7 @@ function Router() {
       <Route path="/creator" component={Creator} />
       <Route path="/search" component={Search} />
       <Route path="/referrals" component={Referrals} />
+      <Route path="/download" component={Download} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
