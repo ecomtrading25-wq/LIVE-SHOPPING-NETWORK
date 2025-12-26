@@ -57,6 +57,10 @@ export default function AdminDashboard() {
     { path: "/admin/dynamic-pricing", icon: DollarSign, label: "Dynamic Pricing" },
     { path: "/admin/flash-sales", icon: Zap, label: "Flash Sales" },
     { path: "/admin/automation", icon: Bot, label: "Automation" },
+    { path: "/admin/customer-segments", icon: Users, label: "Customer Segments" },
+    { path: "/admin/campaigns", icon: TrendingUp, label: "Campaigns" },
+    { path: "/admin/affiliates", icon: Users, label: "Affiliates" },
+    { path: "/admin/dropshipping", icon: Package, label: "Dropshipping" },
     { path: "/admin/analytics", icon: BarChart3, label: "Analytics" },
     { path: "/admin/performance", icon: Activity, label: "Performance" },
     { path: "/admin/reports", icon: FileText, label: "Reports" },
@@ -194,6 +198,10 @@ export default function AdminDashboard() {
             <Route path="/admin/dynamic-pricing" component={DynamicPricingPage} />
             <Route path="/admin/flash-sales" component={FlashSalesPage} />
             <Route path="/admin/automation" component={AutomationPage} />
+            <Route path="/admin/customer-segments" component={CustomerSegmentsPage} />
+            <Route path="/admin/campaigns" component={CampaignsPage} />
+            <Route path="/admin/affiliates" component={AffiliatesPage} />
+            <Route path="/admin/dropshipping" component={DropshippingPage} />
             <Route path="/admin/bulk-import" component={BulkImportPage} />
             <Route path="/admin/users" component={UsersPage} />
             <Route path="/admin/returns" component={ReturnsPage} />
@@ -381,6 +389,10 @@ import InventoryForecastingPageComponent from "./admin/InventoryForecasting";
 import DynamicPricingPageComponent from "./admin/DynamicPricing";
 import FlashSalesPageComponent from "./admin/FlashSales";
 import AutomationPageComponent from "./admin/Automation";
+import CustomerSegmentsPageComponent from "./admin/CustomerSegments";
+import CampaignsPageComponent from "./admin/Campaigns";
+import AffiliatesPageComponent from "./admin/Affiliates";
+import DropshippingPageComponent from "./admin/Dropshipping";
 
 function BulkImportPage() {
   return <BulkImportPageComponent />;
@@ -420,4 +432,20 @@ function FlashSalesPage() {
 
 function AutomationPage() {
   return <AutomationPageComponent />;
+}
+
+function CustomerSegmentsPage() {
+  return <CustomerSegmentsPageComponent />;
+}
+
+function CampaignsPage() {
+  return <CampaignsPageComponent />;
+}
+
+function AffiliatesPage() {
+  return <AffiliatesPageComponent />;
+}
+
+function DropshippingPage() {
+  return <DropshippingPageComponent />;
 }
