@@ -34,6 +34,14 @@ const randomChoice = (arr) => arr[randomInt(0, arr.length - 1)];
 try {
   // 1. Create Channels
   console.log("📺 Creating channels...");
+  
+  // Check if data already exists
+  const existingChannels = await db.select().from(schema.channels).limit(1);
+  if (existingChannels.length > 0) {
+    console.log("⚠️  Database already has data. Skipping seeding to avoid duplicates.");
+    console.log("💡 To re-seed, manually clear the database first.");
+    process.exit(0);
+  }
   const channelIds = [];
   const channels = [
     { name: "TikTok Shop Main", platform: "tiktok_shop", slug: "tiktok-main" },
@@ -102,6 +110,7 @@ try {
     productIds.push(id);
     await db.insert(schema.products).values({
       id,
+      channelId: channelIds[0], // Assign to first channel
       name: product.name,
       sku: product.sku,
       description: product.description,
