@@ -33,6 +33,8 @@ import PWAInstallPrompt from "./components/PWAInstallPrompt";
 import CustomerServiceChatbot from "./components/CustomerServiceChatbot";
 import MobileDeepLink from "./components/MobileDeepLink";
 import InfluencerPage from "./pages/Influencer";
+import AffiliateApply from "./pages/AffiliateApply";
+import SupplierApply from "./pages/SupplierApply";
 import AdminDashboard from "@/pages/Admin";
 
 function Router() {
@@ -68,6 +70,8 @@ function Router() {
       <Route path="/blog" component={Blog} />
       <Route path="/orders/:orderId/return" component={RequestReturn} />
       <Route path="/notifications" component={NotificationPreferences} />
+      <Route path="/affiliates/apply" component={AffiliateApply} />
+      <Route path="/dropshipping/suppliers" component={SupplierApply} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
