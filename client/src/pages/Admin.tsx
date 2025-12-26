@@ -318,8 +318,10 @@ function DisputesPage() {
   return <DisputesPageComponent />;
 }
 
+import SettlementsPageComponent from "./admin/Settlements";
+
 function SettlementsPage() {
-  return <div className="text-white">Settlements Management - Coming Soon</div>;
+  return <SettlementsPageComponent />;
 }
 
 function SettingsPage() {
