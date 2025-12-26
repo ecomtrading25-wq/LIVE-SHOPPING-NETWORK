@@ -24,6 +24,7 @@ import {
   Activity,
   FileText,
   Zap,
+  Bot,
 } from "lucide-react";
 
 /**
@@ -55,6 +56,7 @@ export default function AdminDashboard() {
     { path: "/admin/inventory-forecasting", icon: TrendingUp, label: "Forecasting" },
     { path: "/admin/dynamic-pricing", icon: DollarSign, label: "Dynamic Pricing" },
     { path: "/admin/flash-sales", icon: Zap, label: "Flash Sales" },
+    { path: "/admin/automation", icon: Bot, label: "Automation" },
     { path: "/admin/analytics", icon: BarChart3, label: "Analytics" },
     { path: "/admin/performance", icon: Activity, label: "Performance" },
     { path: "/admin/reports", icon: FileText, label: "Reports" },
@@ -191,6 +193,7 @@ export default function AdminDashboard() {
             <Route path="/admin/inventory-forecasting" component={InventoryForecastingPage} />
             <Route path="/admin/dynamic-pricing" component={DynamicPricingPage} />
             <Route path="/admin/flash-sales" component={FlashSalesPage} />
+            <Route path="/admin/automation" component={AutomationPage} />
             <Route path="/admin/bulk-import" component={BulkImportPage} />
             <Route path="/admin/users" component={UsersPage} />
             <Route path="/admin/returns" component={ReturnsPage} />
@@ -377,6 +380,7 @@ import ReportsPageComponent from "./admin/Reports";
 import InventoryForecastingPageComponent from "./admin/InventoryForecasting";
 import DynamicPricingPageComponent from "./admin/DynamicPricing";
 import FlashSalesPageComponent from "./admin/FlashSales";
+import AutomationPageComponent from "./admin/Automation";
 
 function BulkImportPage() {
   return <BulkImportPageComponent />;
@@ -412,4 +416,8 @@ function DynamicPricingPage() {
 
 function FlashSalesPage() {
   return <FlashSalesPageComponent />;
+}
+
+function AutomationPage() {
+  return <AutomationPageComponent />;
 }

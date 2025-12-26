@@ -29,7 +29,9 @@ import RequestReturn from "./pages/RequestReturn";
 import NotificationPreferences from "./pages/NotificationPreferences";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PWAInstallPrompt from "@/components/PWAInstallPrompt";
+import PWAInstallPrompt from "./components/PWAInstallPrompt";
+import CustomerServiceChatbot from "./components/CustomerServiceChatbot";
+import MobileDeepLink from "./components/MobileDeepLink";
 import AdminDashboard from "@/pages/Admin";
 
 function Router() {
@@ -37,6 +39,8 @@ function Router() {
   return (
     <>
       <PWAInstallPrompt />
+      <CustomerServiceChatbot />
+      <MobileDeepLink />
       <Header />
       <Switch>
         <Route path="/" component={Home} />
