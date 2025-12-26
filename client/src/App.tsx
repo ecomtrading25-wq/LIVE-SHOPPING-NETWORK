@@ -32,6 +32,7 @@ import Footer from "@/components/Footer";
 import PWAInstallPrompt from "./components/PWAInstallPrompt";
 import CustomerServiceChatbot from "./components/CustomerServiceChatbot";
 import MobileDeepLink from "./components/MobileDeepLink";
+import InfluencerPage from "./pages/Influencer";
 import AdminDashboard from "@/pages/Admin";
 
 function Router() {
@@ -59,6 +60,7 @@ function Router() {
       <Route path="/search" component={Search} />
       <Route path="/referrals" component={Referrals} />
       <Route path="/download" component={Download} />
+      <Route path="/influencer" component={InfluencerPage} />
       <Route path="/testimonials" component={Testimonials} />
       <Route path="/gift-cards" component={GiftCards} />
       <Route path="/subscription-boxes" component={SubscriptionBoxes} />
