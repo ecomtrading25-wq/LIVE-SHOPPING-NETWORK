@@ -17,6 +17,8 @@ import {
   TrendingUp,
   Menu,
   X,
+  Building2,
+  BarChart3,
 } from "lucide-react";
 
 /**
@@ -43,7 +45,9 @@ export default function AdminDashboard() {
     { path: "/admin/creators", icon: Users, label: "Creators" },
     { path: "/admin/disputes", icon: AlertCircle, label: "Disputes" },
     { path: "/admin/settlements", icon: DollarSign, label: "Settlements" },
-    { path: "/admin/analytics", icon: TrendingUp, label: "Analytics" },
+    { path: "/admin/warehouse", icon: Warehouse, label: "Warehouse" },
+    { path: "/admin/suppliers", icon: Building2, label: "Suppliers" },
+    { path: "/admin/analytics", icon: BarChart3, label: "Analytics" },
     { path: "/admin/settings", icon: Settings, label: "Settings" },
   ];
 
@@ -166,6 +170,8 @@ export default function AdminDashboard() {
             <Route path="/admin/creators" component={CreatorsPage} />
             <Route path="/admin/disputes" component={DisputesPage} />
             <Route path="/admin/settlements" component={SettlementsPage} />
+            <Route path="/admin/warehouse" component={WarehousePage} />
+            <Route path="/admin/suppliers" component={SuppliersPage} />
             <Route path="/admin/analytics" component={AnalyticsPage} />
             <Route path="/admin/settings" component={SettingsPage} />
           </Switch>
@@ -321,10 +327,20 @@ function DisputesPage() {
 }
 
 import SettlementsPageComponent from "./admin/Settlements";
+import WarehousePageComponent from "./admin/Warehouse";
+import SuppliersPageComponent from "./admin/Suppliers";
 import AnalyticsPageComponent from "./admin/Analytics";
 
 function SettlementsPage() {
   return <SettlementsPageComponent />;
+}
+
+function WarehousePage() {
+  return <WarehousePageComponent />;
+}
+
+function SuppliersPage() {
+  return <SuppliersPageComponent />;
 }
 
 function AnalyticsPage() {

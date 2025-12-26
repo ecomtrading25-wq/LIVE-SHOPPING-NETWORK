@@ -13,6 +13,7 @@ import Picker from "./pages/warehouse/Picker";
 import Packer from "./pages/warehouse/Packer";
 import Account from "./pages/Account";
 import OrderTracking from "./pages/OrderTracking";
+import Wishlist from "./pages/Wishlist";
 import AdminDashboard from "@/pages/Admin";
 
 function Router() {
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/warehouse/packer" component={Packer} />
       <Route path="/account" component={Account} />
       <Route path="/orders/:id" component={OrderTracking} />
+      <Route path="/wishlist" component={Wishlist} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
