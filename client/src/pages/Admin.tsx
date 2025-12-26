@@ -61,6 +61,7 @@ export default function AdminDashboard() {
     { path: "/admin/campaigns", icon: TrendingUp, label: "Campaigns" },
     { path: "/admin/affiliates", icon: Users, label: "Affiliates" },
     { path: "/admin/dropshipping", icon: Package, label: "Dropshipping" },
+    { path: "/admin/shipping-rules", icon: TrendingUp, label: "Shipping Rules" },
     { path: "/admin/analytics", icon: BarChart3, label: "Analytics" },
     { path: "/admin/performance", icon: Activity, label: "Performance" },
     { path: "/admin/reports", icon: FileText, label: "Reports" },
@@ -202,6 +203,7 @@ export default function AdminDashboard() {
             <Route path="/admin/campaigns" component={CampaignsPage} />
             <Route path="/admin/affiliates" component={AffiliatesPage} />
             <Route path="/admin/dropshipping" component={DropshippingPage} />
+            <Route path="/admin/shipping-rules" component={ShippingRulesPage} />
             <Route path="/admin/bulk-import" component={BulkImportPage} />
             <Route path="/admin/users" component={UsersPage} />
             <Route path="/admin/returns" component={ReturnsPage} />
@@ -393,6 +395,7 @@ import CustomerSegmentsPageComponent from "./admin/CustomerSegments";
 import CampaignsPageComponent from "./admin/Campaigns";
 import AffiliatesPageComponent from "./admin/Affiliates";
 import DropshippingPageComponent from "./admin/Dropshipping";
+import ShippingRulesPageComponent from "./admin/ShippingRules";
 
 function BulkImportPage() {
   return <BulkImportPageComponent />;
@@ -448,4 +451,8 @@ function AffiliatesPage() {
 
 function DropshippingPage() {
   return <DropshippingPageComponent />;
+}
+
+function ShippingRulesPage() {
+  return <ShippingRulesPageComponent />;
 }
