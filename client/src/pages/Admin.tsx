@@ -19,6 +19,7 @@ import {
   X,
   Building2,
   BarChart3,
+  Upload,
 } from "lucide-react";
 
 /**
@@ -48,6 +49,7 @@ export default function AdminDashboard() {
     { path: "/admin/warehouse", icon: Warehouse, label: "Warehouse" },
     { path: "/admin/suppliers", icon: Building2, label: "Suppliers" },
     { path: "/admin/analytics", icon: BarChart3, label: "Analytics" },
+    { path: "/admin/bulk-import", icon: Upload, label: "Bulk Import" },
     { path: "/admin/settings", icon: Settings, label: "Settings" },
   ];
 
@@ -173,6 +175,7 @@ export default function AdminDashboard() {
             <Route path="/admin/warehouse" component={WarehousePage} />
             <Route path="/admin/suppliers" component={SuppliersPage} />
             <Route path="/admin/analytics" component={AnalyticsPage} />
+            <Route path="/admin/bulk-import" component={BulkImportPage} />
             <Route path="/admin/settings" component={SettingsPage} />
           </Switch>
         </main>
@@ -348,6 +351,11 @@ function AnalyticsPage() {
 }
 
 import SettingsPageComponent from "./admin/Settings";
+import BulkImportPageComponent from "./admin/BulkImport";
+
+function BulkImportPage() {
+  return <BulkImportPageComponent />;
+}
 
 function SettingsPage() {
   return <SettingsPageComponent />;
