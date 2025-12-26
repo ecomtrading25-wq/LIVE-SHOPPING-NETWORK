@@ -21,6 +21,8 @@ import Search from "./pages/Search";
 import Referrals from "./pages/Referrals";
 import Download from "./pages/Download";
 import Testimonials from "./pages/Testimonials";
+import GiftCards from "./pages/GiftCards";
+import SubscriptionBoxes from "./pages/SubscriptionBoxes";
 import FAQ from "./pages/FAQ";
 import Blog from "./pages/Blog";
 import RequestReturn from "./pages/RequestReturn";
@@ -54,6 +56,8 @@ function Router() {
       <Route path="/referrals" component={Referrals} />
       <Route path="/download" component={Download} />
       <Route path="/testimonials" component={Testimonials} />
+      <Route path="/gift-cards" component={GiftCards} />
+      <Route path="/subscription-boxes" component={SubscriptionBoxes} />
       <Route path="/faq" component={FAQ} />
       <Route path="/blog" component={Blog} />
       <Route path="/orders/:orderId/return" component={RequestReturn} />
