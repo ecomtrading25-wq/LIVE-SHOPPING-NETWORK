@@ -16,12 +16,16 @@ import OrderTracking from "./pages/OrderTracking";
 import Wishlist from "./pages/Wishlist";
 import Compare from "./pages/Compare";
 import Rewards from "./pages/Rewards";
+import Creator from "./pages/Creator";
+import Header from "@/components/Header";
 import AdminDashboard from "@/pages/Admin";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
-    <Switch>
+    <>
+      <Header />
+      <Switch>
         <Route path="/" component={Home} />
       <Route path="/products" component={Products} />
       <Route path="/products/:id" component={ProductDetail} />
@@ -34,11 +38,13 @@ function Router() {
       <Route path="/wishlist" component={Wishlist} />
       <Route path="/compare" component={Compare} />
       <Route path="/rewards" component={Rewards} />
+      <Route path="/creator" component={Creator} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
-    </Switch>
+      </Switch>
+    </>
   );
 }
 
