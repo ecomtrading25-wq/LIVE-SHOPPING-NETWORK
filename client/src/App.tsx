@@ -22,6 +22,8 @@ import Referrals from "./pages/Referrals";
 import Download from "./pages/Download";
 import FAQ from "./pages/FAQ";
 import Blog from "./pages/Blog";
+import RequestReturn from "./pages/RequestReturn";
+import NotificationPreferences from "./pages/NotificationPreferences";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AdminDashboard from "@/pages/Admin";
@@ -50,6 +52,8 @@ function Router() {
       <Route path="/download" component={Download} />
       <Route path="/faq" component={FAQ} />
       <Route path="/blog" component={Blog} />
+      <Route path="/orders/:orderId/return" component={RequestReturn} />
+      <Route path="/notifications" component={NotificationPreferences} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
