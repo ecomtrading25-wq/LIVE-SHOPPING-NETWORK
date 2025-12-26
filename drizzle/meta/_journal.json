@@ -1,5 +1,27 @@
 {
   "version": "7",
   "dialect": "mysql",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1766566590313,
+      "tag": "0000_open_cobalt_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1766570105761,
+      "tag": "0001_robust_zombie",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1766742419386,
+      "tag": "0002_cuddly_cobalt_man",
+      "breakpoints": true
+    }
+  ]
 }
