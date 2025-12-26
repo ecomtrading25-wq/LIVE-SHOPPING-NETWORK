@@ -275,17 +275,21 @@ function DashboardOverview() {
   );
 }
 
-// Placeholder components for other pages
+// Import actual Channels page
+import ChannelsPageComponent from "./admin/Channels";
+
 function ChannelsPage() {
-  return <div className="text-white">Channels Management - Coming Soon</div>;
+  return <ChannelsPageComponent />;
 }
 
 function ProductsPage() {
   return <div className="text-white">Products Management - Coming Soon</div>;
 }
 
+import OrdersPageComponent from "./admin/Orders";
+
 function OrdersPage() {
-  return <div className="text-white">Orders Management - Coming Soon</div>;
+  return <OrdersPageComponent />;
 }
 
 function FulfillmentPage() {
