@@ -16,6 +16,7 @@ import {
   Minus,
 } from "lucide-react";
 import { toast } from "sonner";
+import { useCart } from "@/contexts/CartContext";
 
 /**
  * Product Detail Page
@@ -26,6 +27,7 @@ export default function ProductDetailPage() {
   const params = useParams();
   const productId = params.id as string;
   const [quantity, setQuantity] = useState(1);
+  const { addItem, totalItems } = useCart();
 
   const { data: product, isLoading } = trpc.products.getById.useQuery({ id: productId });
   const { data: relatedProducts } = trpc.products.getRelated.useQuery({ id: productId });
@@ -60,8 +62,14 @@ export default function ProductDetailPage() {
     : 0;
 
   const handleAddToCart = () => {
+    if (!product) return;
+    addItem({
+      productId: product.id,
+      name: product.name,
+      price: product.price,
+      quantity,
+    });
     toast.success(`Added ${quantity}x ${product.name} to cart!`);
-    // TODO: Implement cart functionality
   };
 
   return (
@@ -79,9 +87,11 @@ export default function ProductDetailPage() {
               <Link href="/cart">
                 <Button variant="outline" className="relative">
                   <ShoppingCart className="w-5 h-5" />
-                  <span className="absolute -top-2 -right-2 w-5 h-5 bg-purple-600 rounded-full text-xs flex items-center justify-center">
-                    0
-                  </span>
+                  {totalItems > 0 && (
+                    <span className="absolute -top-2 -right-2 w-5 h-5 bg-purple-600 rounded-full text-xs flex items-center justify-center">
+                      {totalItems}
+                    </span>
+                  )}
                 </Button>
               </Link>
             </div>

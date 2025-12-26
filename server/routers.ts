@@ -2,8 +2,10 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
+import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import * as db from "./db";
+import { createCheckoutSession } from "./stripe";
 
 /**
  * Live Shopping Network - Complete API Router
@@ -546,6 +548,59 @@ export const appRouter = router({
       .input(z.object({ supplierId: z.string().optional() }))
       .query(async ({ input }) => {
         return await db.getPurchaseOrders(input);
+      }),
+  }),
+
+  // ============================================================================
+  // CHECKOUT & PAYMENTS
+  // ============================================================================
+  
+  checkout: router({
+    createSession: protectedProcedure
+      .input(
+        z.object({
+          items: z.array(
+            z.object({
+              productId: z.string(),
+              quantity: z.number().min(1),
+            })
+          ),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        // Get product details for the items
+        const productIds = input.items.map((item) => item.productId);
+        const products = await Promise.all(
+          productIds.map((id) => db.getProduct(id))
+        );
+
+        // Build items with names and prices
+        const items = input.items.map((item) => {
+          const product = products.find((p: any) => p?.id === item.productId);
+          if (!product) {
+            throw new TRPCError({
+              code: "NOT_FOUND",
+              message: `Product ${item.productId} not found`,
+            });
+          }
+          return {
+            productId: item.productId,
+            quantity: item.quantity,
+            name: product.name,
+            price: product.price,
+          };
+        });
+
+        // Create Stripe checkout session
+        const session = await createCheckoutSession({
+          items,
+          userId: ctx.user.id.toString(),
+          userEmail: ctx.user.email || "no-email@example.com",
+          userName: ctx.user.name || undefined,
+          origin: ctx.req.headers.origin || "http://localhost:3000",
+        });
+
+        return session;
       }),
   }),
 

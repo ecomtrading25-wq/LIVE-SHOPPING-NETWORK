@@ -13,6 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Search, ShoppingCart, Star, TrendingUp, Zap } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
 
 /**
  * Customer-Facing Products Catalog
@@ -23,6 +24,7 @@ export default function ProductsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("featured");
   const [categoryFilter, setCategoryFilter] = useState("all");
+  const { totalItems } = useCart();
 
   const { data: products, isLoading } = trpc.products.list.useQuery({
     search: searchQuery || undefined,
@@ -46,9 +48,11 @@ export default function ProductsPage() {
               <Link href="/cart">
                 <Button variant="outline" className="relative">
                   <ShoppingCart className="w-5 h-5" />
-                  <span className="absolute -top-2 -right-2 w-5 h-5 bg-purple-600 rounded-full text-xs flex items-center justify-center">
-                    0
-                  </span>
+                  {totalItems > 0 && (
+                    <span className="absolute -top-2 -right-2 w-5 h-5 bg-purple-600 rounded-full text-xs flex items-center justify-center">
+                      {totalItems}
+                    </span>
+                  )}
                 </Button>
               </Link>
             </div>
