@@ -51,6 +51,8 @@ export default function AdminDashboard() {
     { path: "/admin/settlements", icon: DollarSign, label: "Settlements" },
     { path: "/admin/warehouse", icon: Warehouse, label: "Warehouse" },
     { path: "/admin/suppliers", icon: Building2, label: "Suppliers" },
+    { path: "/admin/inventory-forecasting", icon: TrendingUp, label: "Forecasting" },
+    { path: "/admin/dynamic-pricing", icon: DollarSign, label: "Dynamic Pricing" },
     { path: "/admin/analytics", icon: BarChart3, label: "Analytics" },
     { path: "/admin/performance", icon: Activity, label: "Performance" },
     { path: "/admin/reports", icon: FileText, label: "Reports" },
@@ -184,6 +186,8 @@ export default function AdminDashboard() {
             <Route path="/admin/analytics" component={AnalyticsPage} />
             <Route path="/admin/performance" component={PerformancePage} />
             <Route path="/admin/reports" component={ReportsPage} />
+            <Route path="/admin/inventory-forecasting" component={InventoryForecastingPage} />
+            <Route path="/admin/dynamic-pricing" component={DynamicPricingPage} />
             <Route path="/admin/bulk-import" component={BulkImportPage} />
             <Route path="/admin/users" component={UsersPage} />
             <Route path="/admin/returns" component={ReturnsPage} />
@@ -367,6 +371,8 @@ import UsersPageComponent from "./admin/Users";
 import ReturnsPageComponent from "./admin/Returns";
 import PerformancePageComponent from "./admin/Performance";
 import ReportsPageComponent from "./admin/Reports";
+import InventoryForecastingPageComponent from "./admin/InventoryForecasting";
+import DynamicPricingPageComponent from "./admin/DynamicPricing";
 
 function BulkImportPage() {
   return <BulkImportPageComponent />;
@@ -390,4 +396,12 @@ function PerformancePage() {
 
 function ReportsPage() {
   return <ReportsPageComponent />;
+}
+
+function InventoryForecastingPage() {
+  return <InventoryForecastingPageComponent />;
+}
+
+function DynamicPricingPage() {
+  return <DynamicPricingPageComponent />;
 }
