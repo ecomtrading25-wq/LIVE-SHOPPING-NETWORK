@@ -42,6 +42,11 @@ import Footer from "@/components/Footer";
 import PWAInstallPrompt from "./components/PWAInstallPrompt";
 import CustomerServiceChatbot from "./components/CustomerServiceChatbot";
 import MobileDeepLink from "./components/MobileDeepLink";
+import AIShoppingChatbot from "./components/AIShoppingChatbot";
+import VoiceShoppingAssistant from "./components/VoiceShoppingAssistant";
+import SavedSearches from "./pages/SavedSearches";
+import Subscriptions from "./pages/Subscriptions";
+import BackInStockAlerts from "./pages/BackInStockAlerts";
 import InfluencerPage from "./pages/Influencer";
 import AffiliateApply from "./pages/AffiliateApply";
 import SupplierApply from "./pages/SupplierApply";
@@ -75,6 +80,8 @@ function Router() {
     <>
       <PWAInstallPrompt />
       <CustomerServiceChatbot />
+      <AIShoppingChatbot />
+      <VoiceShoppingAssistant />
       <MobileDeepLink />
       <Header />
       <Switch>
@@ -140,6 +147,9 @@ function Router() {
       <Route path="/orders" component={OrderHistory} />
       <Route path="/categories" component={Categories} />
       <Route path="/search" component={SearchResults} />
+      <Route path="/saved-searches" component={SavedSearches} />
+      <Route path="/subscriptions" component={Subscriptions} />
+      <Route path="/alerts" component={BackInStockAlerts} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
