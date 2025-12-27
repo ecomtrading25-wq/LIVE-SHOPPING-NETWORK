@@ -21,6 +21,9 @@ import Loyalty from "./pages/Loyalty";
 import ShoppingAssistant from "./pages/ShoppingAssistant";
 import SubscriptionManage from "./pages/SubscriptionManage";
 import InfluencerAnalytics from "./pages/InfluencerAnalytics";
+import VoiceShop from "./pages/VoiceShop";
+import ARPreview from "./pages/ARPreview";
+import SocialShop from "./pages/SocialShop";
 import Creator from "./pages/Creator";
 import Search from "./pages/Search";
 import Referrals from "./pages/Referrals";
@@ -68,6 +71,9 @@ function Router() {
       <Route path="/assistant" component={ShoppingAssistant} />
       <Route path="/subscription/manage" component={SubscriptionManage} />
       <Route path="/influencer/analytics" component={InfluencerAnalytics} />
+      <Route path="/voice-shop" component={VoiceShop} />
+      <Route path="/ar-preview" component={ARPreview} />
+      <Route path="/social-shop" component={SocialShop} />
       <Route path="/creator" component={Creator} />
       <Route path="/search" component={Search} />
       <Route path="/referrals" component={Referrals} />
