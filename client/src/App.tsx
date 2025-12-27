@@ -66,6 +66,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import OrderHistory from "./pages/OrderHistory";
 import Categories from "./pages/Categories";
+import SearchResults from "./pages/SearchResults";
 import AdminDashboard from "@/pages/Admin";
 
 function Router() {
@@ -138,6 +139,7 @@ function Router() {
       <Route path="/reset-password/:token" component={ResetPassword} />
       <Route path="/orders" component={OrderHistory} />
       <Route path="/categories" component={Categories} />
+      <Route path="/search" component={SearchResults} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

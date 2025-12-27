@@ -86,6 +86,13 @@ export default function Header() {
               </Button>
             </Link>
 
+            <Link href="/categories">
+              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white">
+                <Package className="w-4 h-4 mr-2" />
+                Categories
+              </Button>
+            </Link>
+
             <Link href="/rewards">
               <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white">
                 <Trophy className="w-4 h-4 mr-2" />
