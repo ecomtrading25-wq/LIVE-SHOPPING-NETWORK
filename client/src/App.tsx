@@ -24,6 +24,7 @@ import InfluencerAnalytics from "./pages/InfluencerAnalytics";
 import VoiceShop from "./pages/VoiceShop";
 import ARPreview from "./pages/ARPreview";
 import SocialShop from "./pages/SocialShop";
+import LoyaltyNFT from "./pages/LoyaltyNFT";
 import Creator from "./pages/Creator";
 import Search from "./pages/Search";
 import Referrals from "./pages/Referrals";
@@ -74,6 +75,7 @@ function Router() {
       <Route path="/voice-shop" component={VoiceShop} />
       <Route path="/ar-preview" component={ARPreview} />
       <Route path="/social-shop" component={SocialShop} />
+      <Route path="/loyalty/nft" component={LoyaltyNFT} />
       <Route path="/creator" component={Creator} />
       <Route path="/search" component={Search} />
       <Route path="/referrals" component={Referrals} />

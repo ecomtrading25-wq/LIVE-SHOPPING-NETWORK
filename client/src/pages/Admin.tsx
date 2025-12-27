@@ -25,6 +25,8 @@ import {
   FileText,
   Zap,
   Bot,
+  Brain,
+  Globe,
 } from "lucide-react";
 
 /**
@@ -66,6 +68,8 @@ export default function AdminDashboard() {
     { path: "/admin/live-scheduler", icon: Video, label: "Live Scheduler" },
     { path: "/admin/advanced-analytics", icon: BarChart3, label: "Advanced Analytics" },
     { path: "/admin/fulfillment-automation", icon: Warehouse, label: "Fulfillment Automation" },
+    { path: "/admin/inventory-ai", icon: Brain, label: "Inventory AI" },
+    { path: "/admin/global-expansion", icon: Globe, label: "Global Expansion" },
     { path: "/admin/analytics", icon: BarChart3, label: "Analytics" },
     { path: "/admin/performance", icon: Activity, label: "Performance" },
     { path: "/admin/reports", icon: FileText, label: "Reports" },
@@ -212,6 +216,8 @@ export default function AdminDashboard() {
             <Route path="/admin/live-scheduler" component={LiveSchedulerPage} />
             <Route path="/admin/advanced-analytics" component={AdvancedAnalyticsPage} />
             <Route path="/admin/fulfillment-automation" component={FulfillmentAutomationPage} />
+            <Route path="/admin/inventory-ai" component={InventoryAIPage} />
+            <Route path="/admin/global-expansion" component={GlobalExpansionPage} />
             <Route path="/admin/bulk-import" component={BulkImportPage} />
             <Route path="/admin/users" component={UsersPage} />
             <Route path="/admin/returns" component={ReturnsPage} />
@@ -484,7 +490,17 @@ function AdvancedAnalyticsPage() {
 }
 
 import FulfillmentAutomationPageComponent from "./admin/FulfillmentAutomation";
+import InventoryAIPageComponent from "./admin/InventoryAI";
+import GlobalExpansionPageComponent from "./admin/GlobalExpansion";
 
 function FulfillmentAutomationPage() {
   return <FulfillmentAutomationPageComponent />;
+}
+
+function InventoryAIPage() {
+  return <InventoryAIPageComponent />;
+}
+
+function GlobalExpansionPage() {
+  return <GlobalExpansionPageComponent />;
 }
