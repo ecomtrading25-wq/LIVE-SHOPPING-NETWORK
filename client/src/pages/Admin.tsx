@@ -32,6 +32,8 @@ import {
   Mail,
   Shield,
   Users as UsersIcon,
+  Target,
+  MessageCircle,
 } from "lucide-react";
 
 /**
@@ -80,6 +82,8 @@ export default function AdminDashboard() {
     { path: "/admin/marketing-automation", icon: Mail, label: "Marketing Automation" },
     { path: "/admin/fraud-detection", icon: Shield, label: "Fraud Detection" },
     { path: "/admin/customer-360", icon: UsersIcon, label: "Customer 360" },
+    { path: "/admin/competitive-intel", icon: Target, label: "Competitive Intel" },
+    { path: "/admin/communications", icon: MessageCircle, label: "Communications" },
     { path: "/admin/analytics", icon: BarChart3, label: "Analytics" },
     { path: "/admin/performance", icon: Activity, label: "Performance" },
     { path: "/admin/reports", icon: FileText, label: "Reports" },
@@ -233,6 +237,8 @@ export default function AdminDashboard() {
             <Route path="/admin/marketing-automation" component={MarketingAutomationPage} />
             <Route path="/admin/fraud-detection" component={FraudDetectionPage} />
             <Route path="/admin/customer-360" component={Customer360Page} />
+            <Route path="/admin/competitive-intel" component={CompetitiveIntelPage} />
+            <Route path="/admin/communications" component={CommunicationsPage} />
             <Route path="/admin/bulk-import" component={BulkImportPage} />
             <Route path="/admin/users" component={UsersPage} />
             <Route path="/admin/returns" component={ReturnsPage} />
@@ -512,6 +518,8 @@ import SupplyChainPageComponent from "./admin/SupplyChain";
 import MarketingAutomationPageComponent from "./admin/MarketingAutomation";
 import FraudDetectionPageComponent from "./admin/FraudDetection";
 import Customer360PageComponent from "./admin/Customer360";
+import CompetitiveIntelPageComponent from "./admin/CompetitiveIntel";
+import CommunicationsPageComponent from "./admin/Communications";
 
 function FulfillmentAutomationPage() {
   return <FulfillmentAutomationPageComponent />;
@@ -543,4 +551,12 @@ function FraudDetectionPage() {
 
 function Customer360Page() {
   return <Customer360PageComponent />;
+}
+
+function CompetitiveIntelPage() {
+  return <CompetitiveIntelPageComponent />;
+}
+
+function CommunicationsPage() {
+  return <CommunicationsPageComponent />;
 }
