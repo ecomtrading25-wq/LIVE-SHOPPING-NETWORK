@@ -5,7 +5,8 @@ import { LiveActivityFeed } from "@/components/SocialProof";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingCart, Users, Play, Pause } from "lucide-react";
+import { ShoppingCart, Users, Play, Pause, Eye, Zap } from "lucide-react";
+import { Link } from "wouter";
 import ProductRecommendations from "@/components/ProductRecommendations";
 import Hls from "hls.js";
 
@@ -125,6 +126,12 @@ export default function Home() {
             <p className="text-2xl mb-8 text-gray-300">
               No live shows at the moment. Check back soon!
             </p>
+            <Link href="/live">
+              <Button size="lg" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold px-8 py-6 text-lg mb-12">
+                <Play className="w-5 h-5 mr-2" />
+                Explore Live Shows
+              </Button>
+            </Link>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
               <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
                 <h3 className="text-xl font-bold mb-2">Shop Live</h3>

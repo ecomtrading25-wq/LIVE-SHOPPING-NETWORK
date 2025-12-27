@@ -59,6 +59,8 @@ import GiftRegistry from "./pages/GiftRegistry";
 import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import LiveShows from "./pages/LiveShows";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import AdminDashboard from "@/pages/Admin";
 
 function Router() {
@@ -124,6 +126,8 @@ function Router() {
       <Route path="/checkout" component={Checkout} />
       <Route path="/order-confirmation" component={OrderConfirmation} />
       <Route path="/live" component={LiveShows} />
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
