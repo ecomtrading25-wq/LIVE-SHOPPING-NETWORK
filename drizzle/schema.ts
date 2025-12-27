@@ -745,6 +745,93 @@ export const secrets = mysqlTable("secrets", {
 });
 
 // ============================================================================
+// CUSTOMER ENGAGEMENT: Saved Searches, Subscriptions, Alerts
+// ============================================================================
+
+export const savedSearches = mysqlTable("saved_searches", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  userId: int("user_id").notNull().references(() => users.id),
+  name: varchar("name", { length: 255 }).notNull(),
+  query: text("query").notNull(),
+  filters: json("filters"),
+  notifyOnMatch: boolean("notify_on_match").default(true).notNull(),
+  lastNotifiedAt: timestamp("last_notified_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+});
+
+export const productSubscriptions = mysqlTable("product_subscriptions", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  userId: int("user_id").notNull().references(() => users.id),
+  productId: varchar("product_id", { length: 64 }).notNull().references(() => products.id),
+  frequency: mysqlEnum("frequency", ["weekly", "biweekly", "monthly"]).notNull(),
+  quantity: int("quantity").default(1).notNull(),
+  status: mysqlEnum("status", ["active", "paused", "cancelled"]).default("active").notNull(),
+  nextDeliveryAt: timestamp("next_delivery_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+});
+
+export const stockAlerts = mysqlTable("stock_alerts", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  userId: int("user_id").notNull().references(() => users.id),
+  productId: varchar("product_id", { length: 64 }).notNull().references(() => products.id),
+  variantId: varchar("variant_id", { length: 64 }).references(() => productVariants.id),
+  alertType: mysqlEnum("alert_type", ["back_in_stock", "price_drop"]).notNull(),
+  targetPrice: decimal("target_price", { precision: 10, scale: 2 }),
+  notified: boolean("notified").default(false).notNull(),
+  notifiedAt: timestamp("notified_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// ============================================================================
+// MARKETING: Email Campaigns & Referrals
+// ============================================================================
+
+export const emailCampaigns = mysqlTable("email_campaigns", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  type: mysqlEnum("type", ["abandoned_cart", "win_back", "product_recommendation", "promotional"]).notNull(),
+  subject: varchar("subject", { length: 500 }).notNull(),
+  content: text("content").notNull(),
+  status: mysqlEnum("status", ["draft", "active", "paused"]).default("draft").notNull(),
+  targetSegment: json("target_segment"),
+  sentCount: int("sent_count").default(0).notNull(),
+  openedCount: int("opened_count").default(0).notNull(),
+  clickedCount: int("clicked_count").default(0).notNull(),
+  revenue: decimal("revenue", { precision: 10, scale: 2 }).default("0.00").notNull(),
+  lastSentAt: timestamp("last_sent_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+});
+
+export const referrals = mysqlTable("referrals", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  referrerId: int("referrer_id").notNull().references(() => users.id),
+  referredUserId: int("referred_user_id").references(() => users.id),
+  referralCode: varchar("referral_code", { length: 32 }).notNull().unique(),
+  email: varchar("email", { length: 320 }),
+  status: mysqlEnum("status", ["pending", "signed_up", "purchased"]).default("pending").notNull(),
+  rewardAmount: decimal("reward_amount", { precision: 10, scale: 2 }).default("0.00").notNull(),
+  rewardPaid: boolean("reward_paid").default(false).notNull(),
+  rewardPaidAt: timestamp("reward_paid_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+});
+
+export const notifications = mysqlTable("notifications", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  userId: int("user_id").notNull().references(() => users.id),
+  type: varchar("type", { length: 64 }).notNull(),
+  title: varchar("title", { length: 255 }).notNull(),
+  message: text("message").notNull(),
+  data: json("data"),
+  read: boolean("read").default(false).notNull(),
+  readAt: timestamp("read_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// ============================================================================
 // TYPES
 // ============================================================================
 
@@ -775,3 +862,9 @@ export type Incident = typeof incidents.$inferSelect;
 export type PrintJob = typeof printJobs.$inferSelect;
 export type Settlement = typeof settlements.$inferSelect;
 export type AppSetting = typeof appSettings.$inferSelect;
+export type SavedSearch = typeof savedSearches.$inferSelect;
+export type ProductSubscription = typeof productSubscriptions.$inferSelect;
+export type StockAlert = typeof stockAlerts.$inferSelect;
+export type EmailCampaign = typeof emailCampaigns.$inferSelect;
+export type Referral = typeof referrals.$inferSelect;
+export type Notification = typeof notifications.$inferSelect;

@@ -51,6 +51,8 @@ import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 import InventoryManagement from "./pages/InventoryManagement";
 import EmailCampaigns from "./pages/EmailCampaigns";
 import SupplierPortal from "./pages/SupplierPortal";
+import OperationsCenter from "./pages/OperationsCenter";
+import ReferralDashboard from "./pages/ReferralDashboard";
 import InfluencerPage from "./pages/Influencer";
 import AffiliateApply from "./pages/AffiliateApply";
 import SupplierApply from "./pages/SupplierApply";
@@ -158,6 +160,8 @@ function Router() {
       <Route path="/inventory" component={InventoryManagement} />
       <Route path="/email-campaigns" component={EmailCampaigns} />
       <Route path="/supplier-portal" component={SupplierPortal} />
+      <Route path="/operations-center" component={OperationsCenter} />
+      <Route path="/referral-dashboard" component={ReferralDashboard} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

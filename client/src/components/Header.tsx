@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
+import AdminNav from "./AdminNav";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -118,6 +119,8 @@ export default function Header() {
                 Subscriptions
               </Button>
             </Link>
+
+            <AdminNav />
 
             <div className="w-px h-6 bg-zinc-700 mx-2"></div>
 

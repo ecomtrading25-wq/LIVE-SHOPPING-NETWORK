@@ -28,6 +28,12 @@ import {
   carrierAccounts,
   liveSessions,
   pinnedProducts,
+  savedSearches,
+  productSubscriptions,
+  stockAlerts,
+  emailCampaigns,
+  referrals,
+  notifications,
   liveScripts,
   liveScriptNodes,
   creators,
@@ -1053,4 +1059,219 @@ export async function getInventoryAnalytics(params: { warehouseId?: string }) {
     totalAvailable: result?.totalAvailable || 0,
     totalReserved: result?.totalReserved || 0,
   };
+}
+
+
+// ============================================================================
+// CUSTOMER ENGAGEMENT: Saved Searches, Subscriptions, Alerts
+// ============================================================================
+
+export async function getSavedSearches(userId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(savedSearches).where(eq(savedSearches.userId, userId));
+}
+
+export async function createSavedSearch(data: { userId: number; name: string; query: string; filters?: any; notifyOnMatch: boolean }) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  const id = nanoid();
+  await db.insert(savedSearches).values({ id, ...data });
+  return { id, ...data };
+}
+
+export async function deleteSavedSearch(id: string, userId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db.delete(savedSearches).where(and(eq(savedSearches.id, id), eq(savedSearches.userId, userId)));
+  return { success: true };
+}
+
+export async function getSubscriptions(userId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(productSubscriptions).where(eq(productSubscriptions.userId, userId));
+}
+
+export async function createSubscription(data: { userId: number; productId: string; frequency: "weekly" | "biweekly" | "monthly"; quantity: number }) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  const id = nanoid();
+  const nextDeliveryAt = new Date();
+  nextDeliveryAt.setDate(nextDeliveryAt.getDate() + (data.frequency === "weekly" ? 7 : data.frequency === "biweekly" ? 14 : 30));
+  
+  await db.insert(productSubscriptions).values({ id, ...data, nextDeliveryAt });
+  return { id, ...data, nextDeliveryAt };
+}
+
+export async function updateSubscription(id: string, userId: number, data: { status?: "active" | "paused" | "cancelled"; frequency?: "weekly" | "biweekly" | "monthly"; quantity?: number }) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db.update(productSubscriptions)
+    .set(data)
+    .where(and(eq(productSubscriptions.id, id), eq(productSubscriptions.userId, userId)));
+  
+  return { success: true };
+}
+
+export async function cancelSubscription(id: string, userId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db.update(productSubscriptions)
+    .set({ status: "cancelled" })
+    .where(and(eq(productSubscriptions.id, id), eq(productSubscriptions.userId, userId)));
+  
+  return { success: true };
+}
+
+export async function getStockAlerts(userId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(stockAlerts).where(eq(stockAlerts.userId, userId));
+}
+
+export async function createStockAlert(data: { userId: number; productId: string; variantId?: string; alertType: "back_in_stock" | "price_drop"; targetPrice?: number }) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  const id = nanoid();
+  await db.insert(stockAlerts).values({ id, ...data });
+  return { id, ...data };
+}
+
+export async function deleteStockAlert(id: string, userId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db.delete(stockAlerts).where(and(eq(stockAlerts.id, id), eq(stockAlerts.userId, userId)));
+  return { success: true };
+}
+
+// ============================================================================
+// MARKETING: Email Campaigns & Referrals
+// ============================================================================
+
+export async function getEmailCampaigns() {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(emailCampaigns);
+}
+
+export async function getEmailCampaign(id: string) {
+  const db = await getDb();
+  if (!db) return null;
+  const [campaign] = await db.select().from(emailCampaigns).where(eq(emailCampaigns.id, id));
+  return campaign;
+}
+
+export async function createEmailCampaign(data: { name: string; type: "abandoned_cart" | "win_back" | "product_recommendation" | "promotional"; subject: string; content: string; targetSegment?: any }) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  const id = nanoid();
+  await db.insert(emailCampaigns).values({ id, ...data });
+  return { id, ...data };
+}
+
+export async function updateEmailCampaign(id: string, data: { status?: "draft" | "active" | "paused"; name?: string; subject?: string; content?: string }) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db.update(emailCampaigns).set(data).where(eq(emailCampaigns.id, id));
+  return { success: true };
+}
+
+export async function deleteEmailCampaign(id: string) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db.delete(emailCampaigns).where(eq(emailCampaigns.id, id));
+  return { success: true };
+}
+
+export async function getReferrals(userId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(referrals).where(eq(referrals.referrerId, userId));
+}
+
+export async function getReferralCode(userId: number) {
+  const db = await getDb();
+  if (!db) return null;
+  
+  const [existing] = await db.select().from(referrals).where(eq(referrals.referrerId, userId)).limit(1);
+  if (existing) return existing.referralCode;
+  
+  // Generate new code
+  const code = `LIVE${userId}${nanoid(6).toUpperCase()}`;
+  return code;
+}
+
+export async function getReferralStats(userId: number) {
+  const db = await getDb();
+  if (!db) return { total: 0, successful: 0, totalEarned: 0 };
+  
+  const allReferrals = await db.select().from(referrals).where(eq(referrals.referrerId, userId));
+  
+  return {
+    total: allReferrals.length,
+    successful: allReferrals.filter(r => r.status === "purchased").length,
+    totalEarned: allReferrals.reduce((sum, r) => sum + parseFloat(r.rewardAmount), 0),
+  };
+}
+
+export async function createReferral(referrerId: number, email: string) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  const id = nanoid();
+  const referralCode = `LIVE${referrerId}${nanoid(6).toUpperCase()}`;
+  
+  await db.insert(referrals).values({
+    id,
+    referrerId,
+    referralCode,
+    email,
+    status: "pending",
+    rewardAmount: "0.00",
+  });
+  
+  return { id, referralCode, email };
+}
+
+// ============================================================================
+// NOTIFICATIONS
+// ============================================================================
+
+export async function getNotifications(userId: number, limit: number = 50) {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(notifications).where(eq(notifications.userId, userId)).limit(limit);
+}
+
+export async function markNotificationAsRead(id: string, userId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db.update(notifications)
+    .set({ read: true, readAt: new Date() })
+    .where(and(eq(notifications.id, id), eq(notifications.userId, userId)));
+  
+  return { success: true };
+}
+
+export async function markAllNotificationsAsRead(userId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db.update(notifications)
+    .set({ read: true, readAt: new Date() })
+    .where(eq(notifications.userId, userId));
+  
+  return { success: true };
 }

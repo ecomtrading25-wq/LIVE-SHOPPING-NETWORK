@@ -635,6 +635,191 @@ export const appRouter = router({
         return await db.getInventoryAnalytics(input);
       }),
   }),
+
+  // ============================================================================
+  // CUSTOMER ENGAGEMENT: Saved Searches, Subscriptions, Alerts
+  // ============================================================================
+  
+  savedSearches: router({
+    list: protectedProcedure.query(async ({ ctx }) => {
+      if (!ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" });
+      return await db.getSavedSearches(ctx.user.id);
+    }),
+    
+    create: protectedProcedure
+      .input(z.object({
+        name: z.string(),
+        query: z.string(),
+        filters: z.any().optional(),
+        notifyOnMatch: z.boolean().default(true),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        if (!ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" });
+        return await db.createSavedSearch({ ...input, userId: ctx.user.id });
+      }),
+    
+    delete: protectedProcedure
+      .input(z.object({ id: z.string() }))
+      .mutation(async ({ ctx, input }) => {
+        if (!ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" });
+        return await db.deleteSavedSearch(input.id, ctx.user.id);
+      }),
+  }),
+  
+  subscriptions: router({
+    list: protectedProcedure.query(async ({ ctx }) => {
+      if (!ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" });
+      return await db.getSubscriptions(ctx.user.id);
+    }),
+    
+    create: protectedProcedure
+      .input(z.object({
+        productId: z.string(),
+        frequency: z.enum(["weekly", "biweekly", "monthly"]),
+        quantity: z.number().default(1),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        if (!ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" });
+        return await db.createSubscription({ ...input, userId: ctx.user.id });
+      }),
+    
+    update: protectedProcedure
+      .input(z.object({
+        id: z.string(),
+        status: z.enum(["active", "paused", "cancelled"]).optional(),
+        frequency: z.enum(["weekly", "biweekly", "monthly"]).optional(),
+        quantity: z.number().optional(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        if (!ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" });
+        return await db.updateSubscription(input.id, ctx.user.id, input);
+      }),
+    
+    cancel: protectedProcedure
+      .input(z.object({ id: z.string() }))
+      .mutation(async ({ ctx, input }) => {
+        if (!ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" });
+        return await db.cancelSubscription(input.id, ctx.user.id);
+      }),
+  }),
+  
+  stockAlerts: router({
+    list: protectedProcedure.query(async ({ ctx }) => {
+      if (!ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" });
+      return await db.getStockAlerts(ctx.user.id);
+    }),
+    
+    create: protectedProcedure
+      .input(z.object({
+        productId: z.string(),
+        variantId: z.string().optional(),
+        alertType: z.enum(["back_in_stock", "price_drop"]),
+        targetPrice: z.number().optional(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        if (!ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" });
+        return await db.createStockAlert({ ...input, userId: ctx.user.id });
+      }),
+    
+    delete: protectedProcedure
+      .input(z.object({ id: z.string() }))
+      .mutation(async ({ ctx, input }) => {
+        if (!ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" });
+        return await db.deleteStockAlert(input.id, ctx.user.id);
+      }),
+  }),
+
+  // ============================================================================
+  // MARKETING: Email Campaigns & Referrals
+  // ============================================================================
+  
+  emailCampaigns: router({
+    list: protectedProcedure.query(async () => {
+      return await db.getEmailCampaigns();
+    }),
+    
+    get: protectedProcedure
+      .input(z.object({ id: z.string() }))
+      .query(async ({ input }) => {
+        return await db.getEmailCampaign(input.id);
+      }),
+    
+    create: protectedProcedure
+      .input(z.object({
+        name: z.string(),
+        type: z.enum(["abandoned_cart", "win_back", "product_recommendation", "promotional"]),
+        subject: z.string(),
+        content: z.string(),
+        targetSegment: z.any().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        return await db.createEmailCampaign(input);
+      }),
+    
+    update: protectedProcedure
+      .input(z.object({
+        id: z.string(),
+        status: z.enum(["draft", "active", "paused"]).optional(),
+        name: z.string().optional(),
+        subject: z.string().optional(),
+        content: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        return await db.updateEmailCampaign(input.id, input);
+      }),
+    
+    delete: protectedProcedure
+      .input(z.object({ id: z.string() }))
+      .mutation(async ({ input }) => {
+        return await db.deleteEmailCampaign(input.id);
+      }),
+  }),
+  
+  referrals: router({
+    myReferrals: protectedProcedure.query(async ({ ctx }) => {
+      if (!ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" });
+      return await db.getReferrals(ctx.user.id);
+    }),
+    
+    myCode: protectedProcedure.query(async ({ ctx }) => {
+      if (!ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" });
+      return await db.getReferralCode(ctx.user.id);
+    }),
+    
+    stats: protectedProcedure.query(async ({ ctx }) => {
+      if (!ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" });
+      return await db.getReferralStats(ctx.user.id);
+    }),
+    
+    createReferral: protectedProcedure
+      .input(z.object({ email: z.string().email() }))
+      .mutation(async ({ ctx, input }) => {
+        if (!ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" });
+        return await db.createReferral(ctx.user.id, input.email);
+      }),
+  }),
+  
+  notifications: router({
+    list: protectedProcedure
+      .input(z.object({ limit: z.number().default(50) }))
+      .query(async ({ ctx, input }) => {
+        if (!ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" });
+        return await db.getNotifications(ctx.user.id, input.limit);
+      }),
+    
+    markAsRead: protectedProcedure
+      .input(z.object({ id: z.string() }))
+      .mutation(async ({ ctx, input }) => {
+        if (!ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" });
+        return await db.markNotificationAsRead(input.id, ctx.user.id);
+      }),
+    
+    markAllAsRead: protectedProcedure
+      .mutation(async ({ ctx }) => {
+        if (!ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" });
+        return await db.markAllNotificationsAsRead(ctx.user.id);
+      }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;
