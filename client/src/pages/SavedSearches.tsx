@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { trpc } from "@/lib/trpc";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -37,34 +38,23 @@ interface SavedSearch {
  * Save search queries with filters and get notified of new matches
  */
 export default function SavedSearchesPage() {
-  const [searches, setSearches] = useState<SavedSearch[]>([
-    {
-      id: "search-1",
-      query: "wireless headphones",
-      filters: {
-        category: "Electronics",
-        maxPrice: 300,
-        inStockOnly: true,
-      },
-      notifications: true,
-      createdAt: "2024-01-15",
-      lastChecked: "2024-01-20",
-      newResults: 3,
-    },
-    {
-      id: "search-2",
-      query: "running shoes",
-      filters: {
-        category: "Sports",
-        minPrice: 50,
-        maxPrice: 150,
-      },
-      notifications: false,
-      createdAt: "2024-01-10",
-      lastChecked: "2024-01-19",
-      newResults: 0,
-    },
-  ]);
+  const { data: searchesData = [], isLoading, refetch } = trpc.savedSearches.list.useQuery();
+  const deleteMutation = trpc.savedSearches.delete.useMutation({
+    onSuccess: () => refetch(),
+  });
+
+  // Transform tRPC data to component format
+  const searches: SavedSearch[] = searchesData.map((s: any) => ({
+    id: s.id,
+    query: s.query,
+    filters: s.filters || {},
+    notifications: s.notifyOnMatch,
+    createdAt: s.createdAt?.toString() || new Date().toISOString(),
+    lastChecked: s.lastNotifiedAt?.toString() || s.createdAt?.toString() || new Date().toISOString(),
+    newResults: 0,
+  }));
+
+  const [, setSearches] = useState<SavedSearch[]>([]);
 
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editQuery, setEditQuery] = useState("");
@@ -80,7 +70,9 @@ export default function SavedSearchesPage() {
   };
 
   const handleDeleteSearch = (searchId: string) => {
-    setSearches(searches.filter((search) => search.id !== searchId));
+    if (confirm("Are you sure you want to delete this saved search?")) {
+      deleteMutation.mutate({ id: searchId });
+    }
   };
 
   const handleStartEdit = (search: SavedSearch) => {
