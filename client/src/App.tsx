@@ -45,6 +45,7 @@ import MobileDeepLink from "./components/MobileDeepLink";
 import InfluencerPage from "./pages/Influencer";
 import AffiliateApply from "./pages/AffiliateApply";
 import SupplierApply from "./pages/SupplierApply";
+import SupplierDashboard from "./pages/SupplierDashboard";
 import AdminDashboard from "@/pages/Admin";
 
 function Router() {
@@ -92,6 +93,7 @@ function Router() {
       <Route path="/notifications" component={NotificationPreferences} />
       <Route path="/affiliates/apply" component={AffiliateApply} />
       <Route path="/dropshipping/suppliers" component={SupplierApply} />
+      <Route path="/supplier/dashboard" component={SupplierDashboard} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

@@ -37,6 +37,7 @@ import {
   Users as UsersIcon2,
   FileText as FileTextIcon,
   Brain as BrainIcon,
+  Star,
 } from "lucide-react";
 
 /**
@@ -91,6 +92,8 @@ export default function AdminDashboard() {
     { path: "/admin/affiliate-program", icon: UsersIcon2, label: "Affiliate Program" },
     { path: "/admin/cms", icon: FileTextIcon, label: "CMS" },
     { path: "/admin/bi-suite", icon: BrainIcon, label: "BI Suite" },
+    { path: "/admin/live-studio", icon: Video, label: "Live Studio" },
+    { path: "/admin/customer-feedback", icon: Star, label: "Customer Feedback" },
     { path: "/admin/analytics", icon: BarChart3, label: "Analytics" },
     { path: "/admin/performance", icon: Activity, label: "Performance" },
     { path: "/admin/reports", icon: FileText, label: "Reports" },
@@ -250,6 +253,8 @@ export default function AdminDashboard() {
             <Route path="/admin/affiliate-program" component={AffiliateProgramPage} />
             <Route path="/admin/cms" component={CMSPage} />
             <Route path="/admin/bi-suite" component={BISuitePage} />
+            <Route path="/admin/live-studio" component={LiveStudioPage} />
+            <Route path="/admin/customer-feedback" component={CustomerFeedbackPage} />
             <Route path="/admin/bulk-import" component={BulkImportPage} />
             <Route path="/admin/users" component={UsersPage} />
             <Route path="/admin/returns" component={ReturnsPage} />
@@ -535,6 +540,8 @@ import ReturnsAutomationPageComponent from "./admin/ReturnsAutomation";
 import AffiliateProgramPageComponent from "./admin/AffiliateProgram";
 import CMSPageComponent from "./admin/CMS";
 import BISuitePageComponent from "./admin/BISuite";
+import LiveStudioPageComponent from "./admin/LiveStudio";
+import CustomerFeedbackPageComponent from "./admin/CustomerFeedback";
 
 function FulfillmentAutomationPage() {
   return <FulfillmentAutomationPageComponent />;
@@ -590,4 +597,12 @@ function CMSPage() {
 
 function BISuitePage() {
   return <BISuitePageComponent />;
+}
+
+function LiveStudioPage() {
+  return <LiveStudioPageComponent />;
+}
+
+function CustomerFeedbackPage() {
+  return <CustomerFeedbackPageComponent />;
 }
