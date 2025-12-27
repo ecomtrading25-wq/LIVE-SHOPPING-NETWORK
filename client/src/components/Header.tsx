@@ -15,6 +15,10 @@ import {
   Trophy,
   Home,
   Package,
+  Bookmark,
+  Calendar,
+  Bell,
+  BarChart3,
 } from "lucide-react";
 
 /**
@@ -98,6 +102,20 @@ export default function Header() {
               <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white">
                 <Trophy className="w-4 h-4 mr-2" />
                 Rewards
+              </Button>
+            </Link>
+
+            <Link href="/saved-searches">
+              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white">
+                <Bookmark className="w-4 h-4 mr-2" />
+                Saved
+              </Button>
+            </Link>
+
+            <Link href="/subscriptions">
+              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white">
+                <Calendar className="w-4 h-4 mr-2" />
+                Subscriptions
               </Button>
             </Link>
 
@@ -195,6 +213,50 @@ export default function Header() {
               >
                 <Trophy className="w-4 h-4 mr-3" />
                 Rewards
+              </Button>
+            </Link>
+
+            <Link href="/saved-searches">
+              <Button
+                variant="ghost"
+                className="w-full justify-start text-gray-300 hover:text-white"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Bookmark className="w-4 h-4 mr-3" />
+                Saved Searches
+              </Button>
+            </Link>
+
+            <Link href="/subscriptions">
+              <Button
+                variant="ghost"
+                className="w-full justify-start text-gray-300 hover:text-white"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Calendar className="w-4 h-4 mr-3" />
+                Subscriptions
+              </Button>
+            </Link>
+
+            <Link href="/alerts">
+              <Button
+                variant="ghost"
+                className="w-full justify-start text-gray-300 hover:text-white"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Bell className="w-4 h-4 mr-3" />
+                Stock Alerts
+              </Button>
+            </Link>
+
+            <Link href="/analytics">
+              <Button
+                variant="ghost"
+                className="w-full justify-start text-gray-300 hover:text-white"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <BarChart3 className="w-4 h-4 mr-3" />
+                Analytics
               </Button>
             </Link>
 
