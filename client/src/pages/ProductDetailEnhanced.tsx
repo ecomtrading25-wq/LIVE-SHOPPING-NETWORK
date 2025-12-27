@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useParams } from "wouter";
+import RecentlyViewed from "@/components/RecentlyViewed";
+import SizeGuide from "@/components/SizeGuide";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -33,6 +35,31 @@ export default function ProductDetailEnhancedPage() {
   const [showLightbox, setShowLightbox] = useState(false);
   const [showQAForm, setShowQAForm] = useState(false);
   const [newQuestion, setNewQuestion] = useState("");
+  const [showSizeGuide, setShowSizeGuide] = useState(false);
+
+  // Track recently viewed products
+  useEffect(() => {
+    const addToRecentlyViewed = () => {
+      const recentlyViewed = JSON.parse(localStorage.getItem("recentlyViewed") || "[]");
+      const productData = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.images[0],
+        timestamp: Date.now(),
+      };
+      
+      // Remove if already exists
+      const filtered = recentlyViewed.filter((p: any) => p.id !== product.id);
+      // Add to beginning
+      filtered.unshift(productData);
+      // Keep only last 10
+      const updated = filtered.slice(0, 10);
+      localStorage.setItem("recentlyViewed", JSON.stringify(updated));
+    };
+    
+    addToRecentlyViewed();
+  }, [product.id]);
 
   const product = {
     id: id || "1",
@@ -215,17 +242,27 @@ export default function ProductDetailEnhancedPage() {
             <p className="text-gray-300 mb-6">{product.description}</p>
 
             {/* Size Selector */}
-            <div className="mb-6">
-              <h3 className="text-white font-semibold mb-3">Size</h3>
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <label className="block text-sm font-medium text-gray-300">
+                  Size
+                </label>
+                <button
+                  onClick={() => setShowSizeGuide(true)}
+                  className="text-sm text-purple-400 hover:text-purple-300"
+                >
+                  Size Guide
+                </button>
+              </div>
               <div className="flex gap-2">
                 {product.sizes.map((size) => (
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`px-4 py-2 rounded-lg border-2 transition-all ${
+                    className={`px-4 py-2 rounded-lg border transition-all ${
                       selectedSize === size
                         ? "border-purple-500 bg-purple-500/20 text-white"
-                        : "border-white/20 text-gray-300 hover:border-white/40"
+                        : "border-gray-700 text-gray-400 hover:border-gray-600"
                     }`}
                   >
                     {size}
@@ -446,6 +483,16 @@ export default function ProductDetailEnhancedPage() {
           </div>
         </Card>
       </div>
+
+      {/* Recently Viewed Products */}
+      <div className="container mx-auto px-4 py-8">
+        <RecentlyViewed currentProductId={product.id} />
+      </div>
+
+      {/* Size Guide Modal */}
+      {showSizeGuide && (
+        <SizeGuide onClose={() => setShowSizeGuide(false)} />
+      )}
 
       {/* Lightbox Modal */}
       {showLightbox && (
