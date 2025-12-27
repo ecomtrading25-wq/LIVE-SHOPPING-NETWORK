@@ -52,6 +52,7 @@ import InventoryManagement from "./pages/InventoryManagement";
 import EmailCampaigns from "./pages/EmailCampaigns";
 import SupplierPortal from "./pages/SupplierPortal";
 import OperationsCenter from "./pages/OperationsCenter";
+import LiveSessionManagement from "./pages/LiveSessionManagement";
 import ReferralDashboard from "./pages/ReferralDashboard";
 import InfluencerPage from "./pages/Influencer";
 import AffiliateApply from "./pages/AffiliateApply";
@@ -161,6 +162,7 @@ function Router() {
       <Route path="/email-campaigns" component={EmailCampaigns} />
       <Route path="/supplier-portal" component={SupplierPortal} />
       <Route path="/operations-center" component={OperationsCenter} />
+      <Route path="/live-sessions" component={LiveSessionManagement} />
       <Route path="/referral-dashboard" component={ReferralDashboard} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
