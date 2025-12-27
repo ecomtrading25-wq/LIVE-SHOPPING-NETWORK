@@ -34,6 +34,8 @@ import {
   Users as UsersIcon,
   Target,
   MessageCircle,
+  RefreshCw,
+  Users as UsersIcon2,
 } from "lucide-react";
 
 /**
@@ -84,6 +86,8 @@ export default function AdminDashboard() {
     { path: "/admin/customer-360", icon: UsersIcon, label: "Customer 360" },
     { path: "/admin/competitive-intel", icon: Target, label: "Competitive Intel" },
     { path: "/admin/communications", icon: MessageCircle, label: "Communications" },
+    { path: "/admin/returns-automation", icon: RefreshCw, label: "Returns Automation" },
+    { path: "/admin/affiliate-program", icon: UsersIcon2, label: "Affiliate Program" },
     { path: "/admin/analytics", icon: BarChart3, label: "Analytics" },
     { path: "/admin/performance", icon: Activity, label: "Performance" },
     { path: "/admin/reports", icon: FileText, label: "Reports" },
@@ -239,6 +243,8 @@ export default function AdminDashboard() {
             <Route path="/admin/customer-360" component={Customer360Page} />
             <Route path="/admin/competitive-intel" component={CompetitiveIntelPage} />
             <Route path="/admin/communications" component={CommunicationsPage} />
+            <Route path="/admin/returns-automation" component={ReturnsAutomationPage} />
+            <Route path="/admin/affiliate-program" component={AffiliateProgramPage} />
             <Route path="/admin/bulk-import" component={BulkImportPage} />
             <Route path="/admin/users" component={UsersPage} />
             <Route path="/admin/returns" component={ReturnsPage} />
@@ -520,6 +526,8 @@ import FraudDetectionPageComponent from "./admin/FraudDetection";
 import Customer360PageComponent from "./admin/Customer360";
 import CompetitiveIntelPageComponent from "./admin/CompetitiveIntel";
 import CommunicationsPageComponent from "./admin/Communications";
+import ReturnsAutomationPageComponent from "./admin/ReturnsAutomation";
+import AffiliateProgramPageComponent from "./admin/AffiliateProgram";
 
 function FulfillmentAutomationPage() {
   return <FulfillmentAutomationPageComponent />;
@@ -559,4 +567,12 @@ function CompetitiveIntelPage() {
 
 function CommunicationsPage() {
   return <CommunicationsPageComponent />;
+}
+
+function ReturnsAutomationPage() {
+  return <ReturnsAutomationPageComponent />;
+}
+
+function AffiliateProgramPage() {
+  return <AffiliateProgramPageComponent />;
 }
