@@ -18,6 +18,9 @@ import Wishlist from "./pages/Wishlist";
 import Compare from "./pages/Compare";
 import Rewards from "./pages/Rewards";
 import Loyalty from "./pages/Loyalty";
+import ShoppingAssistant from "./pages/ShoppingAssistant";
+import SubscriptionManage from "./pages/SubscriptionManage";
+import InfluencerAnalytics from "./pages/InfluencerAnalytics";
 import Creator from "./pages/Creator";
 import Search from "./pages/Search";
 import Referrals from "./pages/Referrals";
@@ -62,6 +65,9 @@ function Router() {
       <Route path="/compare" component={Compare} />
       <Route path="/rewards" component={Rewards} />
       <Route path="/loyalty" component={Loyalty} />
+      <Route path="/assistant" component={ShoppingAssistant} />
+      <Route path="/subscription/manage" component={SubscriptionManage} />
+      <Route path="/influencer/analytics" component={InfluencerAnalytics} />
       <Route path="/creator" component={Creator} />
       <Route path="/search" component={Search} />
       <Route path="/referrals" component={Referrals} />
