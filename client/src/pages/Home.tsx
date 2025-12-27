@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { trpc } from "@/lib/trpc";
 import { LiveChatButton } from "@/components/LiveChat";
-import { RecentPurchaseNotifications, SocialProofStats } from "@/components/SocialProof";
+import { LiveActivityFeed } from "@/components/SocialProof";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -252,13 +252,15 @@ export default function Home() {
       <LiveChatButton sessionId={liveSession.id} />
 
       {/* Social Proof Notifications */}
-      <RecentPurchaseNotifications />
+      <div className="container mb-8">
+        <LiveActivityFeed />
+      </div>
 
       {/* Below the Fold - Additional Content */}
       <div className="container mx-auto px-4 py-12">
         {/* Social Proof Stats */}
         <div className="mb-16">
-          <SocialProofStats />
+          {/* Stats section removed - replaced with LiveActivityFeed above */}
         </div>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-white text-3xl font-bold mb-8">Why Shop Live?</h2>

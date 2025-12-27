@@ -54,6 +54,8 @@ import SupportTickets from "./pages/SupportTickets";
 import WishlistAlerts from "./pages/WishlistAlerts";
 import ProductCompare from "./pages/ProductCompare";
 import LoyaltyEnhanced from "./pages/LoyaltyEnhanced";
+import OrderAnalytics from "./pages/OrderAnalytics";
+import GiftRegistry from "./pages/GiftRegistry";
 import AdminDashboard from "@/pages/Admin";
 
 function Router() {
@@ -110,6 +112,8 @@ function Router() {
       <Route path="/wishlist/alerts" component={WishlistAlerts} />
       <Route path="/compare" component={ProductCompare} />
       <Route path="/loyalty/enhanced" component={LoyaltyEnhanced} />
+      <Route path="/account/analytics" component={OrderAnalytics} />
+      <Route path="/registry" component={GiftRegistry} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
