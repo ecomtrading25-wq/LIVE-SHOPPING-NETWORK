@@ -110,10 +110,12 @@ export default function AccountPage() {
                   <Package className="w-5 h-5 mr-3" />
                   Orders
                 </Button>
-                <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10">
-                  <MapPin className="w-5 h-5 mr-3" />
-                  Addresses
-                </Button>
+                <Link href="/account/addresses">
+                  <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10">
+                    <MapPin className="w-5 h-5 mr-3" />
+                    Addresses
+                  </Button>
+                </Link>
                 <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10">
                   <CreditCard className="w-5 h-5 mr-3" />
                   Payment Methods
