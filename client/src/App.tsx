@@ -56,6 +56,8 @@ import ProductCompare from "./pages/ProductCompare";
 import LoyaltyEnhanced from "./pages/LoyaltyEnhanced";
 import OrderAnalytics from "./pages/OrderAnalytics";
 import GiftRegistry from "./pages/GiftRegistry";
+import Checkout from "./pages/Checkout";
+import OrderConfirmation from "./pages/OrderConfirmation";
 import AdminDashboard from "@/pages/Admin";
 
 function Router() {
@@ -116,6 +118,10 @@ function Router() {
       <Route path="/registry" component={GiftRegistry} />
       <Route path="/account/notifications" component={NotificationPreferences} />
       <Route path="/wishlist" component={Wishlist} />
+      <Route path="/cart" component={Cart} />
+      <Route path="/products/:id" component={ProductDetail} />
+      <Route path="/checkout" component={Checkout} />
+      <Route path="/order-confirmation" component={OrderConfirmation} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
