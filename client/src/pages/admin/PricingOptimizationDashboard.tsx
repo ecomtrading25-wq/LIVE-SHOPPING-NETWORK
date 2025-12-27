@@ -209,7 +209,7 @@ export default function PricingOptimizationDashboard() {
             <div className="text-sm text-muted-foreground mt-1">
               Recommended adjustment
             </div>
-          </div>
+          </Card>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

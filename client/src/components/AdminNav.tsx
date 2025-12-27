@@ -9,6 +9,12 @@ import {
   Users,
   Gift,
   Video,
+  Brain,
+  TrendingUp,
+  AlertTriangle,
+  DollarSign,
+  MessageSquare,
+  PieChart,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -76,6 +82,51 @@ export default function AdminNav() {
           <DropdownMenuItem className="cursor-pointer text-gray-300 hover:text-white hover:bg-white/10">
             <Video className="w-4 h-4 mr-2" />
             Live Sessions
+          </DropdownMenuItem>
+        </Link>
+        
+        <DropdownMenuSeparator className="bg-gray-800" />
+        <DropdownMenuLabel className="text-gray-400">AI Analytics</DropdownMenuLabel>
+        
+        <Link href="/admin/demand-forecast">
+          <DropdownMenuItem className="cursor-pointer text-purple-400 hover:text-purple-300 hover:bg-purple-500/10">
+            <Brain className="w-4 h-4 mr-2" />
+            Demand Forecast
+          </DropdownMenuItem>
+        </Link>
+        
+        <Link href="/admin/churn-risk">
+          <DropdownMenuItem className="cursor-pointer text-orange-400 hover:text-orange-300 hover:bg-orange-500/10">
+            <AlertTriangle className="w-4 h-4 mr-2" />
+            Churn Risk Analysis
+          </DropdownMenuItem>
+        </Link>
+        
+        <Link href="/admin/pricing-optimization">
+          <DropdownMenuItem className="cursor-pointer text-green-400 hover:text-green-300 hover:bg-green-500/10">
+            <DollarSign className="w-4 h-4 mr-2" />
+            Pricing Optimization
+          </DropdownMenuItem>
+        </Link>
+        
+        <Link href="/admin/sentiment-analysis">
+          <DropdownMenuItem className="cursor-pointer text-blue-400 hover:text-blue-300 hover:bg-blue-500/10">
+            <MessageSquare className="w-4 h-4 mr-2" />
+            Sentiment Analysis
+          </DropdownMenuItem>
+        </Link>
+        
+        <Link href="/admin/revenue-forecast">
+          <DropdownMenuItem className="cursor-pointer text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10">
+            <TrendingUp className="w-4 h-4 mr-2" />
+            Revenue Forecast
+          </DropdownMenuItem>
+        </Link>
+        
+        <Link href="/admin/rfm-segmentation">
+          <DropdownMenuItem className="cursor-pointer text-pink-400 hover:text-pink-300 hover:bg-pink-500/10">
+            <PieChart className="w-4 h-4 mr-2" />
+            RFM Segmentation
           </DropdownMenuItem>
         </Link>
         
