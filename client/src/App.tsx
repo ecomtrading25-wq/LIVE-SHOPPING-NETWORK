@@ -49,6 +49,8 @@ import Subscriptions from "./pages/Subscriptions";
 import BackInStockAlerts from "./pages/BackInStockAlerts";
 import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 import InventoryManagement from "./pages/InventoryManagement";
+import EmailCampaigns from "./pages/EmailCampaigns";
+import SupplierPortal from "./pages/SupplierPortal";
 import InfluencerPage from "./pages/Influencer";
 import AffiliateApply from "./pages/AffiliateApply";
 import SupplierApply from "./pages/SupplierApply";
@@ -154,6 +156,8 @@ function Router() {
       <Route path="/alerts" component={BackInStockAlerts} />
       <Route path="/analytics" component={AnalyticsDashboard} />
       <Route path="/inventory" component={InventoryManagement} />
+      <Route path="/email-campaigns" component={EmailCampaigns} />
+      <Route path="/supplier-portal" component={SupplierPortal} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
