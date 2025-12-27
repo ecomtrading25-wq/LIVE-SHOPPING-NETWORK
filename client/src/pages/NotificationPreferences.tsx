@@ -2,359 +2,235 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
-import { toast } from "sonner";
+import { Badge } from "@/components/ui/badge";
 import {
   Bell,
   Mail,
-  MessageSquare,
-  ShoppingCart,
-  Package,
-  AlertCircle,
-  TrendingUp,
-  Heart,
-  DollarSign,
+  Smartphone,
+  Clock,
+  Settings,
+  CheckCircle,
 } from "lucide-react";
 
-/**
- * Notification Preferences Page
- * Allow users to control email and push notification settings
- */
-
 export default function NotificationPreferencesPage() {
-  const [preferences, setPreferences] = useState({
-    // Order notifications
-    orderConfirmation: { email: true, push: true },
-    orderShipped: { email: true, push: true },
-    orderDelivered: { email: true, push: false },
-    orderCancelled: { email: true, push: true },
+  const [emailEnabled, setEmailEnabled] = useState(true);
+  const [smsEnabled, setSmsEnabled] = useState(true);
+  const [pushEnabled, setPushEnabled] = useState(true);
 
-    // Product notifications
-    backInStock: { email: true, push: true },
-    priceDrops: { email: true, push: false },
-    newArrivals: { email: false, push: false },
-
-    // Live shopping notifications
-    liveShowStarting: { email: true, push: true },
-    productPinned: { email: false, push: true },
-    exclusiveDeals: { email: true, push: true },
-
-    // Account notifications
-    passwordChanged: { email: true, push: true },
-    loginFromNewDevice: { email: true, push: true },
-    accountActivity: { email: false, push: false },
-
-    // Marketing notifications
-    promotions: { email: true, push: false },
-    newsletter: { email: true, push: false },
-    recommendations: { email: false, push: false },
-
-    // Wishlist notifications
-    wishlistPriceDrops: { email: true, push: true },
-    wishlistBackInStock: { email: true, push: true },
-
-    // Returns & refunds
-    returnApproved: { email: true, push: true },
-    refundProcessed: { email: true, push: true },
-  });
-
-  const [isSaving, setIsSaving] = useState(false);
-
-  const togglePreference = (key: string, type: "email" | "push") => {
-    setPreferences({
-      ...preferences,
-      [key]: {
-        ...preferences[key as keyof typeof preferences],
-        [type]: !preferences[key as keyof typeof preferences][type],
-      },
-    });
-  };
-
-  const handleSave = async () => {
-    setIsSaving(true);
-
-    // In production, call tRPC mutation to save preferences
-    setTimeout(() => {
-      setIsSaving(false);
-      toast.success("Notification preferences saved successfully!");
-    }, 1000);
-  };
-
-  const notificationCategories = [
+  const notificationTypes = [
     {
-      title: "Order Updates",
-      description: "Stay informed about your order status",
-      icon: ShoppingCart,
-      items: [
-        {
-          key: "orderConfirmation",
-          label: "Order Confirmation",
-          description: "Receive confirmation when you place an order",
-        },
-        {
-          key: "orderShipped",
-          label: "Order Shipped",
-          description: "Get notified when your order ships",
-        },
-        {
-          key: "orderDelivered",
-          label: "Order Delivered",
-          description: "Know when your order is delivered",
-        },
-        {
-          key: "orderCancelled",
-          label: "Order Cancelled",
-          description: "Be informed if an order is cancelled",
-        },
-      ],
+      id: "order_updates",
+      name: "Order Updates",
+      description: "Shipping confirmations, delivery updates, and order status changes",
+      email: true,
+      sms: true,
+      push: true,
     },
     {
-      title: "Product Alerts",
-      description: "Never miss out on products you love",
-      icon: Package,
-      items: [
-        {
-          key: "backInStock",
-          label: "Back in Stock",
-          description: "Get notified when out-of-stock items are available",
-        },
-        {
-          key: "priceDrops",
-          label: "Price Drops",
-          description: "Know when prices drop on products you viewed",
-        },
-        {
-          key: "newArrivals",
-          label: "New Arrivals",
-          description: "Be the first to know about new products",
-        },
-      ],
+      id: "price_drops",
+      name: "Price Drop Alerts",
+      description: "Notifications when wishlist items go on sale",
+      email: true,
+      sms: false,
+      push: true,
     },
     {
-      title: "Live Shopping",
-      description: "Join live shows and exclusive deals",
-      icon: TrendingUp,
-      items: [
-        {
-          key: "liveShowStarting",
-          label: "Live Show Starting",
-          description: "Get notified when a live show is about to start",
-        },
-        {
-          key: "productPinned",
-          label: "Product Pinned",
-          description: "Know when a product is featured during live shows",
-        },
-        {
-          key: "exclusiveDeals",
-          label: "Exclusive Deals",
-          description: "Receive alerts for live-only special offers",
-        },
-      ],
+      id: "new_arrivals",
+      name: "New Arrivals",
+      description: "Updates about new products in your favorite categories",
+      email: true,
+      sms: false,
+      push: false,
     },
     {
-      title: "Wishlist",
-      description: "Track items you're interested in",
-      icon: Heart,
-      items: [
-        {
-          key: "wishlistPriceDrops",
-          label: "Wishlist Price Drops",
-          description: "Get notified when wishlist items go on sale",
-        },
-        {
-          key: "wishlistBackInStock",
-          label: "Wishlist Back in Stock",
-          description: "Know when wishlist items are available again",
-        },
-      ],
+      id: "live_shows",
+      name: "Live Show Alerts",
+      description: "Notifications when live shopping shows start",
+      email: false,
+      sms: true,
+      push: true,
     },
     {
-      title: "Returns & Refunds",
-      description: "Stay updated on return requests",
-      icon: DollarSign,
-      items: [
-        {
-          key: "returnApproved",
-          label: "Return Approved",
-          description: "Get notified when your return is approved",
-        },
-        {
-          key: "refundProcessed",
-          label: "Refund Processed",
-          description: "Know when your refund has been issued",
-        },
-      ],
-    },
-    {
-      title: "Account Security",
-      description: "Important account activity alerts",
-      icon: AlertCircle,
-      items: [
-        {
-          key: "passwordChanged",
-          label: "Password Changed",
-          description: "Be notified of password changes",
-        },
-        {
-          key: "loginFromNewDevice",
-          label: "Login from New Device",
-          description: "Get alerts for logins from unrecognized devices",
-        },
-        {
-          key: "accountActivity",
-          label: "Account Activity",
-          description: "Receive updates about account changes",
-        },
-      ],
-    },
-    {
-      title: "Marketing & Promotions",
-      description: "Special offers and recommendations",
-      icon: Mail,
-      items: [
-        {
-          key: "promotions",
-          label: "Promotions",
-          description: "Receive promotional offers and discounts",
-        },
-        {
-          key: "newsletter",
-          label: "Newsletter",
-          description: "Get our weekly newsletter with tips and trends",
-        },
-        {
-          key: "recommendations",
-          label: "Personalized Recommendations",
-          description: "Receive product suggestions based on your interests",
-        },
-      ],
+      id: "promotions",
+      name: "Promotions & Deals",
+      description: "Exclusive offers, flash sales, and special discounts",
+      email: true,
+      sms: false,
+      push: true,
     },
   ];
 
+  const frequencies = [
+    { id: "instant", name: "Instant", description: "Receive notifications immediately" },
+    { id: "daily", name: "Daily Digest", description: "One summary email per day at 9 AM" },
+    { id: "weekly", name: "Weekly Summary", description: "Weekly roundup every Monday" },
+  ];
+
+  const [selectedFrequency, setSelectedFrequency] = useState("instant");
+  const [quietHoursEnabled, setQuietHoursEnabled] = useState(false);
+  const [quietStart, setQuietStart] = useState("22:00");
+  const [quietEnd, setQuietEnd] = useState("08:00");
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 py-12">
-      <div className="container max-w-4xl">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-zinc-900 dark:text-white mb-2">
-            Notification Preferences
-          </h1>
-          <p className="text-zinc-600 dark:text-zinc-400">
-            Choose how you want to receive notifications from us
+    <div className="min-h-screen bg-background">
+      <div className="border-b bg-card">
+        <div className="container py-6">
+          <div className="flex items-center gap-3 mb-2">
+            <Bell className="w-8 h-8 text-blue-500" />
+            <h1 className="text-3xl font-bold">Notification Preferences</h1>
+          </div>
+          <p className="text-muted-foreground">
+            Customize how and when you receive notifications
           </p>
         </div>
+      </div>
 
-        {/* Notification Categories */}
-        <div className="space-y-6">
-          {notificationCategories.map((category) => {
-            const Icon = category.icon;
-
-            return (
-              <Card key={category.title} className="p-6">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-6 h-6 text-purple-600" />
+      <div className="container py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Sidebar - Channels */}
+          <div className="space-y-6">
+            <Card className="p-6">
+              <h2 className="text-xl font-bold mb-6">Notification Channels</h2>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <Mail className="w-5 h-5 text-blue-500" />
+                    <div>
+                      <p className="font-medium">Email</p>
+                      <p className="text-xs text-muted-foreground">user@example.com</p>
+                    </div>
                   </div>
-                  <div>
-                    <h2 className="text-xl font-bold text-zinc-900 dark:text-white">
-                      {category.title}
-                    </h2>
-                    <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">
-                      {category.description}
+                  <Switch checked={emailEnabled} onCheckedChange={setEmailEnabled} />
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <Smartphone className="w-5 h-5 text-green-500" />
+                    <div>
+                      <p className="font-medium">SMS</p>
+                      <p className="text-xs text-muted-foreground">+1 (555) 123-4567</p>
+                    </div>
+                  </div>
+                  <Switch checked={smsEnabled} onCheckedChange={setSmsEnabled} />
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <Bell className="w-5 h-5 text-purple-500" />
+                    <div>
+                      <p className="font-medium">Push Notifications</p>
+                      <p className="text-xs text-muted-foreground">Browser & Mobile</p>
+                    </div>
+                  </div>
+                  <Switch checked={pushEnabled} onCheckedChange={setPushEnabled} />
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6">
+              <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
+                <Clock className="w-5 h-5 text-orange-500" />
+                Quiet Hours
+              </h2>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <p className="font-medium">Enable Quiet Hours</p>
+                  <Switch checked={quietHoursEnabled} onCheckedChange={setQuietHoursEnabled} />
+                </div>
+                {quietHoursEnabled && (
+                  <>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Start Time</label>
+                      <input
+                        type="time"
+                        value={quietStart}
+                        onChange={(e) => setQuietStart(e.target.value)}
+                        className="w-full p-2 border rounded-lg bg-background"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">End Time</label>
+                      <input
+                        type="time"
+                        value={quietEnd}
+                        onChange={(e) => setQuietEnd(e.target.value)}
+                        className="w-full p-2 border rounded-lg bg-background"
+                      />
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      No notifications will be sent during quiet hours
                     </p>
-                  </div>
-                </div>
-
-                <div className="space-y-6">
-                  {category.items.map((item) => {
-                    const pref = preferences[item.key as keyof typeof preferences];
-
-                    return (
-                      <div
-                        key={item.key}
-                        className="flex items-start justify-between gap-4 pb-6 border-b border-zinc-200 dark:border-zinc-800 last:border-0 last:pb-0"
-                      >
-                        <div className="flex-1">
-                          <Label className="text-base font-medium text-zinc-900 dark:text-white">
-                            {item.label}
-                          </Label>
-                          <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">
-                            {item.description}
-                          </p>
-                        </div>
-
-                        <div className="flex items-center gap-6">
-                          <div className="flex items-center gap-2">
-                            <Mail className="w-4 h-4 text-zinc-400" />
-                            <Switch
-                              checked={pref.email}
-                              onCheckedChange={() =>
-                                togglePreference(item.key, "email")
-                              }
-                            />
-                          </div>
-
-                          <div className="flex items-center gap-2">
-                            <Bell className="w-4 h-4 text-zinc-400" />
-                            <Switch
-                              checked={pref.push}
-                              onCheckedChange={() =>
-                                togglePreference(item.key, "push")
-                              }
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </Card>
-            );
-          })}
-        </div>
-
-        {/* Legend */}
-        <Card className="p-6 mt-6 bg-zinc-50 dark:bg-zinc-900">
-          <div className="flex items-center justify-center gap-8">
-            <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-zinc-600 dark:text-zinc-400" />
-              <span className="text-sm text-zinc-600 dark:text-zinc-400">
-                Email Notifications
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Bell className="w-4 h-4 text-zinc-600 dark:text-zinc-400" />
-              <span className="text-sm text-zinc-600 dark:text-zinc-400">
-                Push Notifications
-              </span>
-            </div>
+                  </>
+                )}
+              </div>
+            </Card>
           </div>
-        </Card>
 
-        {/* Save Button */}
-        <div className="flex gap-4 mt-8">
-          <Button
-            onClick={handleSave}
-            disabled={isSaving}
-            className="flex-1 h-12 bg-purple-600 hover:bg-purple-700 text-base"
-          >
-            {isSaving ? (
-              <>
-                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                Saving...
-              </>
-            ) : (
-              "Save Preferences"
-            )}
-          </Button>
-          <Button
-            variant="outline"
-            onClick={() => (window.location.href = "/account")}
-            className="h-12"
-          >
-            Cancel
-          </Button>
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Frequency */}
+            <Card className="p-6">
+              <h2 className="text-2xl font-bold mb-6">Email Frequency</h2>
+              <div className="space-y-3">
+                {frequencies.map((freq) => (
+                  <Card
+                    key={freq.id}
+                    className={`p-4 cursor-pointer transition-colors ${
+                      selectedFrequency === freq.id
+                        ? "bg-primary/10 border-primary"
+                        : "hover:bg-accent"
+                    }`}
+                    onClick={() => setSelectedFrequency(freq.id)}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="font-bold">{freq.name}</p>
+                        <p className="text-sm text-muted-foreground">{freq.description}</p>
+                      </div>
+                      {selectedFrequency === freq.id && (
+                        <CheckCircle className="w-5 h-5 text-primary" />
+                      )}
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </Card>
+
+            {/* Notification Types */}
+            <Card className="p-6">
+              <h2 className="text-2xl font-bold mb-6">Notification Types</h2>
+              <div className="space-y-4">
+                {notificationTypes.map((type) => (
+                  <Card key={type.id} className="p-4">
+                    <div className="mb-4">
+                      <h3 className="font-bold text-lg mb-1">{type.name}</h3>
+                      <p className="text-sm text-muted-foreground">{type.description}</p>
+                    </div>
+                    <div className="flex gap-4">
+                      <div className="flex items-center gap-2">
+                        <Switch checked={type.email && emailEnabled} />
+                        <Mail className="w-4 h-4 text-muted-foreground" />
+                        <span className="text-sm">Email</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Switch checked={type.sms && smsEnabled} />
+                        <Smartphone className="w-4 h-4 text-muted-foreground" />
+                        <span className="text-sm">SMS</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Switch checked={type.push && pushEnabled} />
+                        <Bell className="w-4 h-4 text-muted-foreground" />
+                        <span className="text-sm">Push</span>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </Card>
+
+            <Button size="lg" className="w-full">
+              <Settings className="w-5 h-5 mr-2" />
+              Save Preferences
+            </Button>
+          </div>
         </div>
       </div>
     </div>

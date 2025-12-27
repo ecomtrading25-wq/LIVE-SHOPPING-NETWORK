@@ -114,6 +114,7 @@ function Router() {
       <Route path="/loyalty/enhanced" component={LoyaltyEnhanced} />
       <Route path="/account/analytics" component={OrderAnalytics} />
       <Route path="/registry" component={GiftRegistry} />
+      <Route path="/account/notifications" component={NotificationPreferences} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
