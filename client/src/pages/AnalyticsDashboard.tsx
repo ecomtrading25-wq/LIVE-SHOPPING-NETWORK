@@ -1,4 +1,31 @@
 import { useState } from "react";
+import { Line, Bar, Pie, Doughnut } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  BarElement,
+  ArcElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler,
+} from "chart.js";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  BarElement,
+  ArcElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler
+);
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -59,6 +86,90 @@ export default function AnalyticsDashboard() {
     { name: "Regular", count: 567, percentage: 39, revenue: 8934 },
     { name: "New", count: 321, percentage: 22, revenue: 2832 },
   ];
+
+  // Chart.js data
+  const salesTrendData = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    datasets: [
+      {
+        label: "Revenue",
+        data: [12000, 19000, 15000, 25000, 22000, 30000, 28000, 35000, 32000, 40000, 38000, 45000],
+        borderColor: "rgb(168, 85, 247)",
+        backgroundColor: "rgba(168, 85, 247, 0.1)",
+        fill: true,
+        tension: 0.4,
+      },
+    ],
+  };
+
+  const topProductsData = {
+    labels: topProducts.map((p) => p.name),
+    datasets: [
+      {
+        label: "Revenue",
+        data: topProducts.map((p) => p.revenue),
+        backgroundColor: [
+          "rgba(168, 85, 247, 0.8)",
+          "rgba(236, 72, 153, 0.8)",
+          "rgba(59, 130, 246, 0.8)",
+          "rgba(34, 197, 94, 0.8)",
+          "rgba(251, 146, 60, 0.8)",
+        ],
+      },
+    ],
+  };
+
+  const customerSegmentData = {
+    labels: customerSegments.map((s) => s.name),
+    datasets: [
+      {
+        data: customerSegments.map((s) => s.percentage),
+        backgroundColor: [
+          "rgba(168, 85, 247, 0.8)",
+          "rgba(236, 72, 153, 0.8)",
+          "rgba(59, 130, 246, 0.8)",
+          "rgba(34, 197, 94, 0.8)",
+        ],
+      },
+    ],
+  };
+
+  const revenueBreakdownData = {
+    labels: ["Products", "Live Sessions", "Subscriptions", "Affiliates"],
+    datasets: [
+      {
+        data: [45, 30, 15, 10],
+        backgroundColor: [
+          "rgba(168, 85, 247, 0.8)",
+          "rgba(236, 72, 153, 0.8)",
+          "rgba(59, 130, 246, 0.8)",
+          "rgba(34, 197, 94, 0.8)",
+        ],
+      },
+    ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        labels: {
+          color: "rgb(209, 213, 219)",
+        },
+      },
+    },
+    scales: {
+      x: {
+        ticks: { color: "rgb(156, 163, 175)" },
+        grid: { color: "rgba(255, 255, 255, 0.1)" },
+      },
+      y: {
+        ticks: { color: "rgb(156, 163, 175)" },
+        grid: { color: "rgba(255, 255, 255, 0.1)" },
+      },
+    },
+  };
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat("en-US", {
@@ -287,6 +398,57 @@ export default function AnalyticsDashboard() {
                   </div>
                 </div>
               ))}
+            </div>
+          </Card>
+        </div>
+
+        {/* Chart.js Visualizations */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+          {/* Sales Trend Line Chart */}
+          <Card className="p-6 bg-white/5 border-white/10">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-xl font-bold text-white">Sales Trend</h3>
+              <TrendingUp className="w-5 h-5 text-purple-400" />
+            </div>
+            <div className="h-64">
+              <Line data={salesTrendData} options={chartOptions} />
+            </div>
+          </Card>
+
+          {/* Top Products Bar Chart */}
+          <Card className="p-6 bg-white/5 border-white/10">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-xl font-bold text-white">Product Performance</h3>
+              <Package className="w-5 h-5 text-purple-400" />
+            </div>
+            <div className="h-64">
+              <Bar data={topProductsData} options={chartOptions} />
+            </div>
+          </Card>
+
+          {/* Customer Segment Pie Chart */}
+          <Card className="p-6 bg-white/5 border-white/10">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-xl font-bold text-white">Customer Distribution</h3>
+              <Users className="w-5 h-5 text-purple-400" />
+            </div>
+            <div className="h-64 flex items-center justify-center">
+              <div className="w-64 h-64">
+                <Pie data={customerSegmentData} options={{ ...chartOptions, scales: undefined }} />
+              </div>
+            </div>
+          </Card>
+
+          {/* Revenue Breakdown Doughnut Chart */}
+          <Card className="p-6 bg-white/5 border-white/10">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-xl font-bold text-white">Revenue Sources</h3>
+              <DollarSign className="w-5 h-5 text-purple-400" />
+            </div>
+            <div className="h-64 flex items-center justify-center">
+              <div className="w-64 h-64">
+                <Doughnut data={revenueBreakdownData} options={{ ...chartOptions, scales: undefined }} />
+              </div>
             </div>
           </Card>
         </div>
