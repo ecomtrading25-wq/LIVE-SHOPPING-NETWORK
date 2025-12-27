@@ -96,6 +96,7 @@ export default function AdminDashboard() {
     { path: "/admin/customer-feedback", icon: Star, label: "Customer Feedback" },
     { path: "/admin/notification-system", icon: Bell, label: "Notifications" },
     { path: "/admin/product-tagging", icon: Tag, label: "Product Tagging" },
+    { path: "/admin/abandoned-carts", icon: ShoppingCart, label: "Abandoned Carts" },
     { path: "/admin/analytics", icon: BarChart3, label: "Analytics" },
     { path: "/admin/performance", icon: Activity, label: "Performance" },
     { path: "/admin/reports", icon: FileText, label: "Reports" },
@@ -259,6 +260,7 @@ export default function AdminDashboard() {
             <Route path="/admin/customer-feedback" component={CustomerFeedbackPage} />
             <Route path="/admin/notification-system" component={NotificationSystemPage} />
             <Route path="/admin/product-tagging" component={ProductTaggingPage} />
+            <Route path="/admin/abandoned-carts" component={AbandonedCartsPage} />
             <Route path="/admin/bulk-import" component={BulkImportPage} />
             <Route path="/admin/users" component={UsersPage} />
             <Route path="/admin/returns" component={ReturnsPage} />
@@ -548,6 +550,7 @@ import LiveStudioPageComponent from "./admin/LiveStudio";
 import CustomerFeedbackPageComponent from "./admin/CustomerFeedback";
 import NotificationSystemPageComponent from "./admin/NotificationSystem";
 import ProductTaggingPageComponent from "./admin/ProductTagging";
+import AbandonedCartsPageComponent from "./admin/AbandonedCarts";
 
 function FulfillmentAutomationPage() {
   return <FulfillmentAutomationPageComponent />;
@@ -619,4 +622,8 @@ function NotificationSystemPage() {
 
 function ProductTaggingPage() {
   return <ProductTaggingPageComponent />;
+}
+
+function AbandonedCartsPage() {
+  return <AbandonedCartsPageComponent />;
 }

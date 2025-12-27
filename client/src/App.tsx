@@ -49,6 +49,8 @@ import SupplierDashboard from "./pages/SupplierDashboard";
 import WishlistShare from "./pages/WishlistShare";
 import OrderTrackMap from "./pages/OrderTrackMap";
 import FlashSales from "./pages/FlashSales";
+import ProductReviews from "./pages/ProductReviews";
+import SupportTickets from "./pages/SupportTickets";
 import AdminDashboard from "@/pages/Admin";
 
 function Router() {
@@ -100,6 +102,8 @@ function Router() {
       <Route path="/wishlist/share" component={WishlistShare} />
       <Route path="/orders/:orderId/track-map" component={OrderTrackMap} />
       <Route path="/flash-sales" component={FlashSales} />
+      <Route path="/products/:productId/reviews" component={ProductReviews} />
+      <Route path="/support/tickets" component={SupportTickets} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
