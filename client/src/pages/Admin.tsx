@@ -29,6 +29,9 @@ import {
   Globe,
   Headphones,
   TruckIcon,
+  Mail,
+  Shield,
+  Users as UsersIcon,
 } from "lucide-react";
 
 /**
@@ -74,6 +77,9 @@ export default function AdminDashboard() {
     { path: "/admin/global-expansion", icon: Globe, label: "Global Expansion" },
     { path: "/admin/customer-service", icon: Headphones, label: "Customer Service" },
     { path: "/admin/supply-chain", icon: TruckIcon, label: "Supply Chain" },
+    { path: "/admin/marketing-automation", icon: Mail, label: "Marketing Automation" },
+    { path: "/admin/fraud-detection", icon: Shield, label: "Fraud Detection" },
+    { path: "/admin/customer-360", icon: UsersIcon, label: "Customer 360" },
     { path: "/admin/analytics", icon: BarChart3, label: "Analytics" },
     { path: "/admin/performance", icon: Activity, label: "Performance" },
     { path: "/admin/reports", icon: FileText, label: "Reports" },
@@ -224,6 +230,9 @@ export default function AdminDashboard() {
             <Route path="/admin/global-expansion" component={GlobalExpansionPage} />
             <Route path="/admin/customer-service" component={CustomerServicePage} />
             <Route path="/admin/supply-chain" component={SupplyChainPage} />
+            <Route path="/admin/marketing-automation" component={MarketingAutomationPage} />
+            <Route path="/admin/fraud-detection" component={FraudDetectionPage} />
+            <Route path="/admin/customer-360" component={Customer360Page} />
             <Route path="/admin/bulk-import" component={BulkImportPage} />
             <Route path="/admin/users" component={UsersPage} />
             <Route path="/admin/returns" component={ReturnsPage} />
@@ -500,6 +509,9 @@ import InventoryAIPageComponent from "./admin/InventoryAI";
 import GlobalExpansionPageComponent from "./admin/GlobalExpansion";
 import CustomerServicePageComponent from "./admin/CustomerService";
 import SupplyChainPageComponent from "./admin/SupplyChain";
+import MarketingAutomationPageComponent from "./admin/MarketingAutomation";
+import FraudDetectionPageComponent from "./admin/FraudDetection";
+import Customer360PageComponent from "./admin/Customer360";
 
 function FulfillmentAutomationPage() {
   return <FulfillmentAutomationPageComponent />;
@@ -519,4 +531,16 @@ function CustomerServicePage() {
 
 function SupplyChainPage() {
   return <SupplyChainPageComponent />;
+}
+
+function MarketingAutomationPage() {
+  return <MarketingAutomationPageComponent />;
+}
+
+function FraudDetectionPage() {
+  return <FraudDetectionPageComponent />;
+}
+
+function Customer360Page() {
+  return <Customer360PageComponent />;
 }
