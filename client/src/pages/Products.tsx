@@ -12,8 +12,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Search, ShoppingCart, Star, TrendingUp, Zap } from "lucide-react";
+import { Search, ShoppingCart, Star, TrendingUp, Zap, Heart } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
+import { ProductFilters } from "@/components/ProductFilters";
+import { toast } from "sonner";
 
 /**
  * Customer-Facing Products Catalog
@@ -113,7 +115,16 @@ export default function ProductsPage() {
         )}
 
         {/* All Products */}
-        <div>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          {/* Filters Sidebar */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-4">
+              <ProductFilters />
+            </div>
+          </div>
+
+          {/* Products Grid */}
+          <div className="lg:col-span-3">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-3xl font-bold text-white">All Products</h2>
             <p className="text-gray-400">
@@ -138,6 +149,7 @@ export default function ProductsPage() {
               <p className="text-gray-400 text-lg">No products found</p>
             </Card>
           )}
+          </div>
         </div>
       </div>
     </div>
@@ -145,9 +157,24 @@ export default function ProductsPage() {
 }
 
 function ProductCard({ product, featured = false }: { product: any; featured?: boolean }) {
+  const { addItem } = useCart();
   const discount = product.compareAtPrice
     ? Math.round(((parseFloat(product.compareAtPrice) - parseFloat(product.price)) / parseFloat(product.compareAtPrice)) * 100)
     : 0;
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: parseFloat(product.price),
+      quantity: 1,
+      image: product.imageUrl || "/placeholder.jpg",
+    });
+    toast.success("Added to cart!", {
+      description: product.name,
+    });
+  };
 
   return (
     <Link href={`/products/${product.id}`}>
@@ -208,10 +235,7 @@ function ProductCard({ product, featured = false }: { product: any; featured?: b
             <Button
               size="sm"
               className="bg-purple-600 hover:bg-purple-700"
-              onClick={(e) => {
-                e.preventDefault();
-                // Add to cart logic
-              }}
+              onClick={handleAddToCart}
             >
               <ShoppingCart className="w-4 h-4 mr-2" />
               Add
