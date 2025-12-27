@@ -1,166 +1,168 @@
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { trpc } from "@/lib/trpc";
-import { useCart } from "@/contexts/CartContext";
-import { Heart, ShoppingCart, Trash2, Star, TrendingDown } from "lucide-react";
-import { toast } from "sonner";
+import { useState } from "react";
 import { Link } from "wouter";
-
-/**
- * Customer Wishlist
- * Save products for later and quick add-to-cart
- */
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Heart,
+  ShoppingCart,
+  X,
+  TrendingDown,
+  Bell,
+  Share2,
+  Filter,
+} from "lucide-react";
 
 export default function WishlistPage() {
-  const { addItem } = useCart();
-  const { data: wishlistItems, refetch } = trpc.wishlist.list.useQuery();
+  const [sortBy, setSortBy] = useState("recent");
 
-  const removeFromWishlistMutation = trpc.wishlist.remove.useMutation({
-    onSuccess: () => {
-      toast.success("Removed from wishlist");
-      refetch();
+  const wishlistItems = [
+    {
+      id: "1",
+      name: "Wireless Headphones Pro",
+      price: 299.99,
+      originalPrice: 349.99,
+      image: "/placeholder1.jpg",
+      inStock: true,
+      priceDropped: true,
+      dropAmount: 50,
+      addedDate: "2024-01-15",
     },
-  });
-
-  const handleAddToCart = (item: any) => {
-    addItem({
-      id: item.productId,
-      name: item.productName,
-      price: parseFloat(item.price),
-      quantity: 1,
-      image: item.imageUrl,
-    });
-    toast.success(`${item.productName} added to cart`);
-  };
-
-  const handleRemove = (id: string) => {
-    removeFromWishlistMutation.mutate({ id });
-  };
-
-  if (!wishlistItems || wishlistItems.length === 0) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-zinc-900 to-black py-12">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold text-white mb-8">My Wishlist</h1>
-          <Card className="p-12 bg-zinc-900/50 border-zinc-800 text-center">
-            <Heart className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-            <h2 className="text-2xl font-semibold text-white mb-2">
-              Your wishlist is empty
-            </h2>
-            <p className="text-gray-400 mb-6">
-              Save your favorite products to buy them later
-            </p>
-            <Link href="/products">
-              <Button className="bg-purple-600 hover:bg-purple-700">
-                Browse Products
-              </Button>
-            </Link>
-          </Card>
-        </div>
-      </div>
-    );
-  }
+    {
+      id: "2",
+      name: "Smart Watch Series 5",
+      price: 399.99,
+      originalPrice: 399.99,
+      image: "/placeholder2.jpg",
+      inStock: true,
+      priceDropped: false,
+      dropAmount: 0,
+      addedDate: "2024-01-10",
+    },
+  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-zinc-900 to-black py-12">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <h1 className="text-4xl font-bold text-white">My Wishlist</h1>
-            <p className="text-gray-400 mt-2">
-              {wishlistItems.length} {wishlistItems.length === 1 ? "item" : "items"}{" "}
-              saved
-            </p>
+    <div className="min-h-screen bg-background">
+      <div className="border-b bg-card">
+        <div className="container py-8">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <Heart className="w-8 h-8 text-red-500 fill-red-500" />
+              <div>
+                <h1 className="text-3xl font-bold">My Wishlist</h1>
+                <p className="text-muted-foreground">
+                  {wishlistItems.length} items saved
+                </p>
+              </div>
+            </div>
+            <Button variant="outline">
+              <Share2 className="w-4 h-4 mr-2" />
+              Share Wishlist
+            </Button>
           </div>
-          <Button
-            variant="outline"
-            onClick={() => {
-              wishlistItems.forEach((item) => handleAddToCart(item));
-            }}
-          >
-            <ShoppingCart className="w-4 h-4 mr-2" />
-            Add All to Cart
-          </Button>
-        </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Card className="p-4">
+              <div className="flex items-center gap-3">
+                <TrendingDown className="w-5 h-5 text-green-500" />
+                <div>
+                  <p className="text-sm text-muted-foreground">Price Drops</p>
+                  <p className="text-2xl font-bold">
+                    {wishlistItems.filter((item) => item.priceDropped).length}
+                  </p>
+                </div>
+              </div>
+            </Card>
+            <Card className="p-4">
+              <div className="flex items-center gap-3">
+                <ShoppingCart className="w-5 h-5 text-blue-500" />
+                <div>
+                  <p className="text-sm text-muted-foreground">In Stock</p>
+                  <p className="text-2xl font-bold">
+                    {wishlistItems.filter((item) => item.inStock).length}
+                  </p>
+                </div>
+              </div>
+            </Card>
+            <Card className="p-4">
+              <div className="flex items-center gap-3">
+                <Bell className="w-5 h-5 text-orange-500" />
+                <div>
+                  <p className="text-sm text-muted-foreground">Alerts Active</p>
+                  <p className="text-2xl font-bold">{wishlistItems.length}</p>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+
+      <div className="container py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {wishlistItems.map((item) => (
-            <Card
-              key={item.id}
-              className="bg-zinc-900/50 border-zinc-800 overflow-hidden hover:border-purple-500 transition-all group"
-            >
-              <div className="relative">
-                <img
-                  src={item.imageUrl || "/placeholder-product.jpg"}
-                  alt={item.productName}
-                  className="w-full h-64 object-cover"
-                />
-                {item.compareAtPrice && (
-                  <Badge className="absolute top-3 left-3 bg-red-600">
-                    {Math.round(
-                      ((parseFloat(item.compareAtPrice) - parseFloat(item.price)) /
-                        parseFloat(item.compareAtPrice)) *
-                        100
-                    )}
-                    % OFF
-                  </Badge>
-                )}
-                <button
-                  onClick={() => handleRemove(item.id)}
-                  className="absolute top-3 right-3 w-10 h-10 bg-black/60 hover:bg-red-600 rounded-full flex items-center justify-center transition-colors"
-                >
-                  <Trash2 className="w-5 h-5 text-white" />
-                </button>
-              </div>
+            <Card key={item.id} className="group relative overflow-hidden">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute top-2 right-2 z-10 bg-background/80 backdrop-blur-sm"
+              >
+                <X className="w-4 h-4" />
+              </Button>
 
-              <div className="p-6">
-                <Link href={`/products/${item.productId}`}>
-                  <h3 className="text-lg font-semibold text-white mb-2 hover:text-purple-400 transition-colors line-clamp-2">
-                    {item.productName}
+              {item.priceDropped && (
+                <Badge className="absolute top-2 left-2 z-10 bg-green-500/20 text-green-400">
+                  <TrendingDown className="w-3 h-3 mr-1" />
+                  ${item.dropAmount} off
+                </Badge>
+              )}
+
+              <Link href={`/products/${item.id}`}>
+                <div className="aspect-square bg-secondary overflow-hidden cursor-pointer">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  />
+                </div>
+              </Link>
+
+              <div className="p-4">
+                <Link href={`/products/${item.id}`}>
+                  <h3 className="font-bold mb-2 hover:text-primary cursor-pointer line-clamp-2">
+                    {item.name}
                   </h3>
                 </Link>
 
                 <div className="flex items-center gap-2 mb-3">
-                  <div className="flex items-center">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star
-                        key={star}
-                        className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                      />
-                    ))}
-                  </div>
-                  <span className="text-sm text-gray-400">(4.8)</span>
-                </div>
-
-                <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-2xl font-bold text-white">
-                    ${parseFloat(item.price).toFixed(2)}
-                  </span>
-                  {item.compareAtPrice && (
-                    <span className="text-sm text-gray-400 line-through">
-                      ${parseFloat(item.compareAtPrice).toFixed(2)}
-                    </span>
+                  <p className="text-2xl font-bold">${item.price}</p>
+                  {item.originalPrice > item.price && (
+                    <p className="text-sm text-muted-foreground line-through">
+                      ${item.originalPrice}
+                    </p>
                   )}
                 </div>
 
-                {item.stock && item.stock < 10 && (
-                  <div className="flex items-center gap-2 mb-4 text-sm text-orange-400">
-                    <TrendingDown className="w-4 h-4" />
-                    <span>Only {item.stock} left in stock</span>
-                  </div>
+                {item.inStock ? (
+                  <Badge className="bg-green-500/20 text-green-400 mb-3">
+                    In Stock
+                  </Badge>
+                ) : (
+                  <Badge className="bg-red-500/20 text-red-400 mb-3">
+                    Out of Stock
+                  </Badge>
                 )}
 
                 <Button
-                  className="w-full bg-purple-600 hover:bg-purple-700"
-                  onClick={() => handleAddToCart(item)}
+                  className="w-full"
+                  size="sm"
+                  disabled={!item.inStock}
                 >
                   <ShoppingCart className="w-4 h-4 mr-2" />
                   Add to Cart
                 </Button>
 
-                <p className="text-xs text-gray-500 mt-3">
-                  Added {new Date(item.createdAt).toLocaleDateString()}
+                <p className="text-xs text-muted-foreground mt-3">
+                  Added {new Date(item.addedDate).toLocaleDateString()}
                 </p>
               </div>
             </Card>

@@ -115,6 +115,7 @@ function Router() {
       <Route path="/account/analytics" component={OrderAnalytics} />
       <Route path="/registry" component={GiftRegistry} />
       <Route path="/account/notifications" component={NotificationPreferences} />
+      <Route path="/wishlist" component={Wishlist} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
