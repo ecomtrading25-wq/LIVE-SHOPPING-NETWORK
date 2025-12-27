@@ -64,6 +64,8 @@ export default function AdminDashboard() {
     { path: "/admin/shipping-rules", icon: TrendingUp, label: "Shipping Rules" },
     { path: "/admin/advanced-orders", icon: ShoppingCart, label: "Advanced Orders" },
     { path: "/admin/live-scheduler", icon: Video, label: "Live Scheduler" },
+    { path: "/admin/advanced-analytics", icon: BarChart3, label: "Advanced Analytics" },
+    { path: "/admin/fulfillment-automation", icon: Warehouse, label: "Fulfillment Automation" },
     { path: "/admin/analytics", icon: BarChart3, label: "Analytics" },
     { path: "/admin/performance", icon: Activity, label: "Performance" },
     { path: "/admin/reports", icon: FileText, label: "Reports" },
@@ -208,6 +210,8 @@ export default function AdminDashboard() {
             <Route path="/admin/shipping-rules" component={ShippingRulesPage} />
             <Route path="/admin/advanced-orders" component={AdvancedOrdersPage} />
             <Route path="/admin/live-scheduler" component={LiveSchedulerPage} />
+            <Route path="/admin/advanced-analytics" component={AdvancedAnalyticsPage} />
+            <Route path="/admin/fulfillment-automation" component={FulfillmentAutomationPage} />
             <Route path="/admin/bulk-import" component={BulkImportPage} />
             <Route path="/admin/users" component={UsersPage} />
             <Route path="/admin/returns" component={ReturnsPage} />
@@ -471,4 +475,16 @@ import LiveSchedulerPageComponent from "./admin/LiveScheduler";
 
 function LiveSchedulerPage() {
   return <LiveSchedulerPageComponent />;
+}
+
+import AdvancedAnalyticsPageComponent from "./admin/AdvancedAnalytics";
+
+function AdvancedAnalyticsPage() {
+  return <AdvancedAnalyticsPageComponent />;
+}
+
+import FulfillmentAutomationPageComponent from "./admin/FulfillmentAutomation";
+
+function FulfillmentAutomationPage() {
+  return <FulfillmentAutomationPageComponent />;
 }

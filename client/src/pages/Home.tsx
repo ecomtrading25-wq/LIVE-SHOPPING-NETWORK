@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Users, Play, Pause } from "lucide-react";
+import ProductRecommendations from "@/components/ProductRecommendations";
 import Hls from "hls.js";
 
 /**
@@ -294,6 +295,10 @@ export default function Home() {
             </Card>
           </div>
         </div>
+
+        {/* Product Recommendations */}
+        <ProductRecommendations type="for-you" title="Recommended For You" limit={6} />
+        <ProductRecommendations type="trending" title="Trending Products" limit={6} />
       </div>
     </div>
   );

@@ -17,6 +17,7 @@ import OrderTracking from "./pages/OrderTracking";
 import Wishlist from "./pages/Wishlist";
 import Compare from "./pages/Compare";
 import Rewards from "./pages/Rewards";
+import Loyalty from "./pages/Loyalty";
 import Creator from "./pages/Creator";
 import Search from "./pages/Search";
 import Referrals from "./pages/Referrals";
@@ -60,6 +61,7 @@ function Router() {
       <Route path="/wishlist" component={Wishlist} />
       <Route path="/compare" component={Compare} />
       <Route path="/rewards" component={Rewards} />
+      <Route path="/loyalty" component={Loyalty} />
       <Route path="/creator" component={Creator} />
       <Route path="/search" component={Search} />
       <Route path="/referrals" component={Referrals} />
