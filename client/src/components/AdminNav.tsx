@@ -8,6 +8,7 @@ import {
   Activity,
   Users,
   Gift,
+  Video,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -68,6 +69,13 @@ export default function AdminNav() {
           <DropdownMenuItem className="cursor-pointer text-gray-300 hover:text-white hover:bg-white/10">
             <Truck className="w-4 h-4 mr-2" />
             Supplier Portal
+          </DropdownMenuItem>
+        </Link>
+        
+        <Link href="/live-sessions">
+          <DropdownMenuItem className="cursor-pointer text-gray-300 hover:text-white hover:bg-white/10">
+            <Video className="w-4 h-4 mr-2" />
+            Live Sessions
           </DropdownMenuItem>
         </Link>
         
