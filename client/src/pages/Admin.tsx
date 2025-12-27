@@ -94,6 +94,8 @@ export default function AdminDashboard() {
     { path: "/admin/bi-suite", icon: BrainIcon, label: "BI Suite" },
     { path: "/admin/live-studio", icon: Video, label: "Live Studio" },
     { path: "/admin/customer-feedback", icon: Star, label: "Customer Feedback" },
+    { path: "/admin/notification-system", icon: Bell, label: "Notifications" },
+    { path: "/admin/product-tagging", icon: Tag, label: "Product Tagging" },
     { path: "/admin/analytics", icon: BarChart3, label: "Analytics" },
     { path: "/admin/performance", icon: Activity, label: "Performance" },
     { path: "/admin/reports", icon: FileText, label: "Reports" },
@@ -255,6 +257,8 @@ export default function AdminDashboard() {
             <Route path="/admin/bi-suite" component={BISuitePage} />
             <Route path="/admin/live-studio" component={LiveStudioPage} />
             <Route path="/admin/customer-feedback" component={CustomerFeedbackPage} />
+            <Route path="/admin/notification-system" component={NotificationSystemPage} />
+            <Route path="/admin/product-tagging" component={ProductTaggingPage} />
             <Route path="/admin/bulk-import" component={BulkImportPage} />
             <Route path="/admin/users" component={UsersPage} />
             <Route path="/admin/returns" component={ReturnsPage} />
@@ -542,6 +546,8 @@ import CMSPageComponent from "./admin/CMS";
 import BISuitePageComponent from "./admin/BISuite";
 import LiveStudioPageComponent from "./admin/LiveStudio";
 import CustomerFeedbackPageComponent from "./admin/CustomerFeedback";
+import NotificationSystemPageComponent from "./admin/NotificationSystem";
+import ProductTaggingPageComponent from "./admin/ProductTagging";
 
 function FulfillmentAutomationPage() {
   return <FulfillmentAutomationPageComponent />;
@@ -605,4 +611,12 @@ function LiveStudioPage() {
 
 function CustomerFeedbackPage() {
   return <CustomerFeedbackPageComponent />;
+}
+
+function NotificationSystemPage() {
+  return <NotificationSystemPageComponent />;
+}
+
+function ProductTaggingPage() {
+  return <ProductTaggingPageComponent />;
 }
