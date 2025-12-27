@@ -27,6 +27,8 @@ import {
   Bot,
   Brain,
   Globe,
+  Headphones,
+  TruckIcon,
 } from "lucide-react";
 
 /**
@@ -70,6 +72,8 @@ export default function AdminDashboard() {
     { path: "/admin/fulfillment-automation", icon: Warehouse, label: "Fulfillment Automation" },
     { path: "/admin/inventory-ai", icon: Brain, label: "Inventory AI" },
     { path: "/admin/global-expansion", icon: Globe, label: "Global Expansion" },
+    { path: "/admin/customer-service", icon: Headphones, label: "Customer Service" },
+    { path: "/admin/supply-chain", icon: TruckIcon, label: "Supply Chain" },
     { path: "/admin/analytics", icon: BarChart3, label: "Analytics" },
     { path: "/admin/performance", icon: Activity, label: "Performance" },
     { path: "/admin/reports", icon: FileText, label: "Reports" },
@@ -218,6 +222,8 @@ export default function AdminDashboard() {
             <Route path="/admin/fulfillment-automation" component={FulfillmentAutomationPage} />
             <Route path="/admin/inventory-ai" component={InventoryAIPage} />
             <Route path="/admin/global-expansion" component={GlobalExpansionPage} />
+            <Route path="/admin/customer-service" component={CustomerServicePage} />
+            <Route path="/admin/supply-chain" component={SupplyChainPage} />
             <Route path="/admin/bulk-import" component={BulkImportPage} />
             <Route path="/admin/users" component={UsersPage} />
             <Route path="/admin/returns" component={ReturnsPage} />
@@ -492,6 +498,8 @@ function AdvancedAnalyticsPage() {
 import FulfillmentAutomationPageComponent from "./admin/FulfillmentAutomation";
 import InventoryAIPageComponent from "./admin/InventoryAI";
 import GlobalExpansionPageComponent from "./admin/GlobalExpansion";
+import CustomerServicePageComponent from "./admin/CustomerService";
+import SupplyChainPageComponent from "./admin/SupplyChain";
 
 function FulfillmentAutomationPage() {
   return <FulfillmentAutomationPageComponent />;
@@ -503,4 +511,12 @@ function InventoryAIPage() {
 
 function GlobalExpansionPage() {
   return <GlobalExpansionPageComponent />;
+}
+
+function CustomerServicePage() {
+  return <CustomerServicePageComponent />;
+}
+
+function SupplyChainPage() {
+  return <SupplyChainPageComponent />;
 }
