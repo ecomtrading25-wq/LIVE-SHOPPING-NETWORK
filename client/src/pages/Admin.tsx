@@ -25,7 +25,6 @@ import {
   FileText,
   Zap,
   Bot,
-  Brain,
   Globe,
   Headphones,
   TruckIcon,
@@ -36,6 +35,8 @@ import {
   MessageCircle,
   RefreshCw,
   Users as UsersIcon2,
+  FileText as FileTextIcon,
+  Brain as BrainIcon,
 } from "lucide-react";
 
 /**
@@ -77,7 +78,7 @@ export default function AdminDashboard() {
     { path: "/admin/live-scheduler", icon: Video, label: "Live Scheduler" },
     { path: "/admin/advanced-analytics", icon: BarChart3, label: "Advanced Analytics" },
     { path: "/admin/fulfillment-automation", icon: Warehouse, label: "Fulfillment Automation" },
-    { path: "/admin/inventory-ai", icon: Brain, label: "Inventory AI" },
+    { path: "/admin/inventory-ai", icon: BrainIcon, label: "Inventory AI" },
     { path: "/admin/global-expansion", icon: Globe, label: "Global Expansion" },
     { path: "/admin/customer-service", icon: Headphones, label: "Customer Service" },
     { path: "/admin/supply-chain", icon: TruckIcon, label: "Supply Chain" },
@@ -88,6 +89,8 @@ export default function AdminDashboard() {
     { path: "/admin/communications", icon: MessageCircle, label: "Communications" },
     { path: "/admin/returns-automation", icon: RefreshCw, label: "Returns Automation" },
     { path: "/admin/affiliate-program", icon: UsersIcon2, label: "Affiliate Program" },
+    { path: "/admin/cms", icon: FileTextIcon, label: "CMS" },
+    { path: "/admin/bi-suite", icon: BrainIcon, label: "BI Suite" },
     { path: "/admin/analytics", icon: BarChart3, label: "Analytics" },
     { path: "/admin/performance", icon: Activity, label: "Performance" },
     { path: "/admin/reports", icon: FileText, label: "Reports" },
@@ -245,6 +248,8 @@ export default function AdminDashboard() {
             <Route path="/admin/communications" component={CommunicationsPage} />
             <Route path="/admin/returns-automation" component={ReturnsAutomationPage} />
             <Route path="/admin/affiliate-program" component={AffiliateProgramPage} />
+            <Route path="/admin/cms" component={CMSPage} />
+            <Route path="/admin/bi-suite" component={BISuitePage} />
             <Route path="/admin/bulk-import" component={BulkImportPage} />
             <Route path="/admin/users" component={UsersPage} />
             <Route path="/admin/returns" component={ReturnsPage} />
@@ -528,6 +533,8 @@ import CompetitiveIntelPageComponent from "./admin/CompetitiveIntel";
 import CommunicationsPageComponent from "./admin/Communications";
 import ReturnsAutomationPageComponent from "./admin/ReturnsAutomation";
 import AffiliateProgramPageComponent from "./admin/AffiliateProgram";
+import CMSPageComponent from "./admin/CMS";
+import BISuitePageComponent from "./admin/BISuite";
 
 function FulfillmentAutomationPage() {
   return <FulfillmentAutomationPageComponent />;
@@ -575,4 +582,12 @@ function ReturnsAutomationPage() {
 
 function AffiliateProgramPage() {
   return <AffiliateProgramPageComponent />;
+}
+
+function CMSPage() {
+  return <CMSPageComponent />;
+}
+
+function BISuitePage() {
+  return <BISuitePageComponent />;
 }
