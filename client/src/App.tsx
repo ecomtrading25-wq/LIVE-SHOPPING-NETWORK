@@ -47,6 +47,8 @@ import AffiliateApply from "./pages/AffiliateApply";
 import SupplierApply from "./pages/SupplierApply";
 import SupplierDashboard from "./pages/SupplierDashboard";
 import WishlistShare from "./pages/WishlistShare";
+import OrderTrackMap from "./pages/OrderTrackMap";
+import FlashSales from "./pages/FlashSales";
 import AdminDashboard from "@/pages/Admin";
 
 function Router() {
@@ -96,6 +98,8 @@ function Router() {
       <Route path="/dropshipping/suppliers" component={SupplierApply} />
       <Route path="/supplier/dashboard" component={SupplierDashboard} />
       <Route path="/wishlist/share" component={WishlistShare} />
+      <Route path="/orders/:orderId/track-map" component={OrderTrackMap} />
+      <Route path="/flash-sales" component={FlashSales} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
