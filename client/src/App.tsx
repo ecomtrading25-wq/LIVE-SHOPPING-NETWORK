@@ -61,6 +61,10 @@ import OrderConfirmation from "./pages/OrderConfirmation";
 import LiveShows from "./pages/LiveShows";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Profile from "./pages/Profile";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
+import OrderHistory from "./pages/OrderHistory";
 import AdminDashboard from "@/pages/Admin";
 
 function Router() {
@@ -128,6 +132,10 @@ function Router() {
       <Route path="/live" component={LiveShows} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
+      <Route path="/profile" component={Profile} />
+      <Route path="/forgot-password" component={ForgotPassword} />
+      <Route path="/reset-password/:token" component={ResetPassword} />
+      <Route path="/orders" component={OrderHistory} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
