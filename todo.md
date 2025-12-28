@@ -6680,3 +6680,107 @@ The platform is now feature-complete with:
 
 ### Current Focus
 Building practical features with existing 113-table infrastructure to ship faster and maintain stability.
+
+
+## 🚀 Wave 7: Final 5% - Production Hardening & Deployment
+
+### Critical Bug Fixes & TypeScript Cleanup
+- [ ] Fix TypeScript errors in webhook handlers
+- [ ] Fix TypeScript errors in payment processing
+- [ ] Fix TypeScript errors in live streaming modules
+- [ ] Resolve all import/export issues
+- [ ] Fix type mismatches in tRPC procedures
+
+### Webhook Integration (PayPal, Wise, Twilio)
+- [ ] PayPal dispute webhooks with signature verification
+- [ ] PayPal payment webhooks (capture, refund, chargeback)
+- [ ] Wise payout webhooks (completed, failed, returned)
+- [ ] Twilio video webhooks (recording-complete, composition-available)
+- [ ] Webhook deduplication system
+- [ ] Webhook retry logic with exponential backoff
+- [ ] Webhook monitoring dashboard
+
+### Live Video Streaming Integration
+- [ ] Twilio Video room creation and management
+- [ ] Live stream session state machine
+- [ ] Real-time viewer count tracking
+- [ ] Product pinning during live shows
+- [ ] Live chat integration with moderation
+- [ ] Recording to R2 storage
+- [ ] Automatic clip generation from highlights
+- [ ] Stream quality monitoring and adaptive bitrate
+
+### Testing & Quality Assurance
+- [ ] Unit tests for dispute automation
+- [ ] Unit tests for payment processing
+- [ ] Unit tests for inventory reservation
+- [ ] Integration tests for checkout flow
+- [ ] Integration tests for payout processing
+- [ ] E2E tests for live shopping experience
+- [ ] Load tests for concurrent live viewers
+- [ ] Security tests for webhook endpoints
+
+### Deployment & Operations
+- [ ] Railway production configuration
+- [ ] Environment variable documentation
+- [ ] Database backup automation
+- [ ] Monitoring and alerting setup
+- [ ] Error tracking (Sentry integration)
+- [ ] Performance monitoring (APM)
+- [ ] CDN configuration for R2 assets
+- [ ] SSL certificate setup
+- [ ] Domain configuration
+- [ ] Launch checklist and smoke tests
+
+### Documentation
+- [ ] API documentation for all tRPC procedures
+- [ ] Webhook integration guide
+- [ ] Deployment runbook
+- [ ] Operational playbooks (first 48h, incident response)
+- [ ] User guides for admin dashboards
+- [ ] Creator onboarding documentation
+- [ ] Troubleshooting guide
+
+
+## ✅ Wave 7 Progress Update (Current Session)
+
+### Webhook Integration (Completed)
+- [x] Created comprehensive webhook-handlers.ts module
+- [x] PayPal dispute webhook handler with signature verification
+- [x] PayPal payment webhook handler (capture, refund, chargeback)
+- [x] Wise payout webhook handler (completed, failed, returned)
+- [x] Twilio video webhook handler (room-ended, recording-completed, composition-available)
+- [x] Webhook deduplication system implemented
+- [x] Webhook signature verification for all providers
+- [x] Added webhook router to main routers.ts
+
+### Live Video Streaming Integration (Completed)
+- [x] Created twilio-live-video.ts module with full Twilio Video SDK integration
+- [x] Room creation and management functions
+- [x] Access token generation for participants (host/viewer roles)
+- [x] Participant management (list, disconnect)
+- [x] Recording management (list, delete)
+- [x] Composition creation for combining multiple tracks
+- [x] Live show state management (create room, end show, get status)
+- [x] Added twilioVideo router to main routers.ts
+- [x] Installed Twilio SDK (twilio@5.11.1)
+
+### Testing Infrastructure (Completed)
+- [x] Created critical-flows.test.ts with comprehensive test suite
+- [x] Dispute automation tests (create, update, prevent duplicates)
+- [x] Payment processing tests (pending→paid→refunded flow)
+- [x] Inventory reservation tests (reserve, prevent overselling, release)
+- [x] Payout processing tests (pending→processing→completed/failed)
+- [x] Full checkout flow integration test
+- [x] Idempotency testing
+
+### Dependencies Added
+- [x] ulid@3.0.2 for unique ID generation
+- [x] twilio@5.11.1 for live video streaming
+
+### Code Quality Improvements
+- [x] Fixed import paths for db module (using * as db)
+- [x] Removed references to non-existent schema tables (recordings, liveShowParticipants)
+- [x] Added proper error handling and logging
+- [x] Implemented webhook retry logic patterns
+- [x] Added comprehensive TypeScript types for all webhook events

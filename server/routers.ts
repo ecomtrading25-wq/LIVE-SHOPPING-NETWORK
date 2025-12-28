@@ -25,6 +25,8 @@ import { lsnUIRouter } from "./routers-lsn-ui";
 import { founderIncidentRouter } from "./founder-incident-console";
 import { advancedFeaturesRouter } from "./routers-advanced-features";
 import { aiAutomationRouter } from "./routers-ai-automation";
+import { webhookRouter } from "./webhook-handlers";
+import { twilioLiveVideoRouter } from "./twilio-live-video";
 
 /**
  * Live Shopping Network - Complete API Router
@@ -78,6 +80,12 @@ export const appRouter = router({
   
   // Wave 8: AI & Automation (Recommendations, Segmentation, Pricing, Forecasting, Marketing)
   aiAutomation: aiAutomationRouter,
+  
+  // Webhook Handlers (PayPal, Wise, Twilio)
+  webhooks: webhookRouter,
+  
+  // Twilio Live Video Integration
+  twilioVideo: twilioLiveVideoRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
