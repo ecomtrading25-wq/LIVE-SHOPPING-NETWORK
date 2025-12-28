@@ -1598,3 +1598,40 @@ export {
   regionalInventory,
 } from "./schema-lsn-core";
 
+
+// ============================================================================
+// LSN: ADDITIONAL TABLES (Quality Inspections)
+// ============================================================================
+
+export const lotAllocations = mysqlTable("lot_allocations", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  lotId: varchar("lot_id", { length: 64 }).notNull().references(() => inventoryLots.id),
+  orderId: varchar("order_id", { length: 64 }).references(() => orders.id),
+  quantity: int("quantity").notNull(),
+  allocatedAt: timestamp("allocated_at").defaultNow().notNull(),
+  status: mysqlEnum("status", ["reserved", "committed", "released"]).default("reserved").notNull(),
+});
+
+export const qualityInspections = mysqlTable("quality_inspections", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  lotId: varchar("lot_id", { length: 64 }).notNull().references(() => inventoryLots.id),
+  inspectorId: varchar("inspector_id", { length: 64 }).notNull(),
+  inspectionDate: timestamp("inspection_date").notNull(),
+  sampleSize: int("sample_size").notNull(),
+  aqlLevel: mysqlEnum("aql_level", ["0.65", "1.0", "1.5", "2.5", "4.0", "6.5"]).default("2.5").notNull(),
+  defectsFound: int("defects_found").default(0).notNull(),
+  defectRate: decimal("defect_rate", { precision: 5, scale: 2 }).default("0.00").notNull(),
+  result: mysqlEnum("result", ["pass", "conditional_pass", "fail"]).notNull(),
+  notes: text("notes"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const qualityDefects = mysqlTable("quality_defects", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  inspectionId: varchar("inspection_id", { length: 64 }).notNull().references(() => qualityInspections.id),
+  defectType: mysqlEnum("defect_type", ["critical", "major", "minor"]).notNull(),
+  description: text("description").notNull(),
+  quantity: int("quantity").notNull(),
+  imageUrls: json("image_urls"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
