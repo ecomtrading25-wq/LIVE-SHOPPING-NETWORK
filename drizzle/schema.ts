@@ -1781,3 +1781,5 @@ export const taxExemptions = mysqlTable('tax_exemptions', {
   expiryDate: timestamp('expiry_date'),
   createdAt: timestamp('created_at').defaultNow(),
 });
+
+

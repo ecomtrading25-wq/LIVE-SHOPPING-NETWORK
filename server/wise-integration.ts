@@ -15,7 +15,7 @@
 
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { db } from "./db";
+import { getDbSync } from "./db";
 import { 
   wiseTransfers, 
   wiseRecipients, 
@@ -92,6 +92,7 @@ export async function getBalances(input: z.infer<typeof wiseProfileSchemas.getBa
   const balances = await wiseRequest<any[]>(`/v4/profiles/${profileId}/balances?types=STANDARD`);
   
   // Store balances in database
+  const db = getDbSync();
   for (const balance of balances) {
     await db.insert(wiseBalances)
       .values({
@@ -202,6 +203,7 @@ export async function createRecipient(input: z.infer<typeof wiseRecipientSchemas
   });
 
   // Store recipient in database
+  const db = getDbSync();
   await db.insert(wiseRecipients).values({
     id: crypto.randomUUID(),
     wiseRecipientId: recipient.id.toString(),
@@ -242,6 +244,7 @@ export async function deleteRecipient(input: z.infer<typeof wiseRecipientSchemas
     method: 'DELETE',
   });
 
+  const db = getDbSync();
   await db.delete(wiseRecipients)
     .where(eq(wiseRecipients.wiseRecipientId, input.recipientId));
 
@@ -369,6 +372,7 @@ export async function createTransfer(input: z.infer<typeof wiseTransferSchemas.c
   });
 
   // Store transfer in database
+  const db = getDbSync();
   await db.insert(wiseTransfers).values({
     id: crypto.randomUUID(),
     wiseTransferId: transfer.id.toString(),
@@ -402,6 +406,7 @@ export async function fundTransfer(input: z.infer<typeof wiseTransferSchemas.fun
     }
   );
 
+  const db = getDbSync();
   await db.update(wiseTransfers)
     .set({ status: 'processing' })
     .where(eq(wiseTransfers.wiseTransferId, input.transferId));
@@ -417,6 +422,7 @@ export async function cancelTransfer(input: z.infer<typeof wiseTransferSchemas.c
     method: 'PUT',
   });
 
+  const db = getDbSync();
   await db.update(wiseTransfers)
     .set({ status: 'cancelled', completedAt: new Date() })
     .where(eq(wiseTransfers.wiseTransferId, input.transferId));
@@ -645,6 +651,7 @@ export async function handleWiseWebhook(
   // For now, we'll trust the webhook in sandbox mode
 
   // Store webhook event
+  const db = getDbSync();
   await db.insert(wiseWebhookEvents).values({
     id: crypto.randomUUID(),
     eventType: body.event_type,
@@ -673,7 +680,7 @@ export async function handleWiseWebhook(
 async function handleTransferStateChange(data: any) {
   const transferId = data.resource.id.toString();
   const newStatus = data.current_state;
-
+  const db = getDbSync();
   await db.update(wiseTransfers)
     .set({
       status: newStatus,
@@ -701,6 +708,7 @@ async function handleBalanceCredit(data: any) {
 // ============================================================================
 
 export async function getWiseAnalytics(startDate: Date, endDate: Date) {
+  const db = getDbSync();
   const transfers = await db.query.wiseTransfers.findMany({
     where: and(
       sql`${wiseTransfers.createdAt} >= ${startDate}`,

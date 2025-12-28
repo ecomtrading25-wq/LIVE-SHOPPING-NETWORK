@@ -983,9 +983,11 @@ export class DemandForecastingEngine {
     const trendData = trend[0];
 
     // Simple exponential smoothing (in production, use proper time series library)
-    const dailyDemandEstimate = trendData.estimatedDemand / 30; // Rough daily estimate
+    // Use potentialRevenueCents as proxy for demand (assume $50 avg product price)
+    const estimatedMonthlyDemand = (trendData.potentialRevenueCents || 0) / 5000; // $50 in cents
+    const dailyDemandEstimate = estimatedMonthlyDemand / 30; // Rough daily estimate
     const weeklyDemandEstimate = dailyDemandEstimate * 7;
-    const monthlyDemandEstimate = trendData.estimatedDemand;
+    const monthlyDemandEstimate = estimatedMonthlyDemand;
 
     // Calculate confidence interval (simplified)
     const stdDev = dailyDemandEstimate * 0.3; // 30% standard deviation
@@ -996,7 +998,7 @@ export class DemandForecastingEngine {
 
     // Seasonal and trend factors
     const seasonalityFactor = 1.0; // Simplified
-    const trendFactor = trendData.growthRate;
+    const trendFactor = 1.2; // Default growth rate (trendData doesn't have growthRate field)
 
     // Accuracy (simplified - in production, use backtesting)
     const accuracy = 0.75;
