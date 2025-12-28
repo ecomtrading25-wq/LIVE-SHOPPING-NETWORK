@@ -1224,16 +1224,19 @@
 - [ ] Define export columns for each dashboard
 - [ ] Test export functionality on all dashboards
 
-### Live Data Integration (3000+ lines)
-- [ ] Wire DemandForecastDashboard to tRPC
-- [ ] Wire ChurnRiskDashboard to tRPC
-- [ ] Wire PricingOptimizationDashboard to tRPC
-- [ ] Wire SentimentAnalysisDashboard to tRPC
-- [ ] Wire RevenueForecastDashboard to tRPC
-- [ ] Wire RFMSegmentationDashboard to tRPC
-- [ ] Add Skeleton loading states
-- [ ] Add error boundaries
-- [ ] Add retry logic
+### Live Data Integration (3000+ lines) ✅ COMPLETE
+- [x] Wire DemandForecastDashboard to tRPC
+- [x] Wire ChurnRiskDashboard to tRPC
+- [x] Wire PricingOptimizationDashboard to tRPC
+- [x] Wire SentimentAnalysisDashboard to tRPC
+- [x] Wire RevenueForecastDashboard to tRPC
+- [x] Wire RFMSegmentationDashboard to tRPC
+- [x] Add Skeleton loading states to all dashboards
+- [x] Add error boundaries to all dashboards
+- [x] Add retry logic to all dashboards
+- [x] Add refresh buttons to all dashboards
+- [x] Create use-toast hook
+- [x] Full TypeScript type safety
 
 ### Real-Time WebSocket Integration (2000+ lines)
 - [ ] Add WebSocket to DemandForecastDashboard
@@ -1250,3 +1253,16 @@
 - [ ] Performance optimization
 - [ ] Error tracking
 - [ ] Analytics integration
+
+
+## Phase 40.5: Advanced Dashboard Features ✅ COMPLETE
+- [x] useMemo for expensive calculations
+- [x] useCallback for handlers
+- [x] Debounced search inputs (300ms delay)
+- [x] Keyboard shortcuts (R=refresh, E=export, ?=help)
+- [x] Persistent user preferences (localStorage)
+- [x] Comparison mode component created
+- [x] Anomaly detection library created
+- [x] Custom hooks: useDebouncedValue, useKeyboardShortcuts, useLocalStorage
+- [x] All 6 dashboards enhanced with advanced features
+- [x] ~3000+ lines of optimization code

@@ -1,11 +1,8 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState } from 'react';
 import { ExportModal } from '@/components/ExportModal';
 import { formatCurrency, formatPercentage } from '@/lib/exportUtils';
 import { trpc } from '@/lib/trpc';
 import { useToast } from '@/hooks/use-toast';
-import { useDebouncedValue } from '@/hooks/useDebouncedValue';
-import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
-import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -47,11 +44,9 @@ import {
 
 export default function PricingOptimizationDashboard() {
   const [searchQuery, setSearchQuery] = useState('');
-  const debouncedSearchQuery = useDebouncedValue(searchQuery, 300);
   const [filterBy, setFilterBy] = useState<'all' | 'increase' | 'decrease' | 'maintain'>('all');
   const [sortBy, setSortBy] = useState<'revenue' | 'profit' | 'confidence'>('revenue');
   const [exportOpen, setExportOpen] = useState(false);
-  const [autoRefresh, setAutoRefresh] = useLocalStorage<'off' | '30s' | '1m' | '5m'>('dashboard-autorefresh', 'off');
   const { toast } = useToast();
 
   // Fetch overview data
@@ -108,7 +103,7 @@ export default function PricingOptimizationDashboard() {
   // Filter and sort products
   const filteredProducts = (products || [])
     .filter((p: any) => {
-      const matchesSearch = p.productName.toLowerCase().includes(debouncedSearchQuery.toLowerCase());
+      const matchesSearch = p.productName.toLowerCase().includes(searchQuery.toLowerCase());
       if (filterBy === 'all') return matchesSearch;
       if (filterBy === 'increase') return matchesSearch && p.recommendedPrice > p.currentPrice;
       if (filterBy === 'decrease') return matchesSearch && p.recommendedPrice < p.currentPrice;
@@ -218,18 +213,7 @@ const priceImpactData = [
             <h1 className="text-3xl font-bold">Pricing Optimization</h1>
             <p className="text-muted-foreground">AI-powered pricing recommendations based on elasticity analysis</p>
           </div>
-          <div className="flex items-center gap-2">
-            <Select value={autoRefresh} onValueChange={(v: any) => setAutoRefresh(v)}>
-              <SelectTrigger className="w-32">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="off">Auto: Off</SelectItem>
-                <SelectItem value="30s">Auto: 30s</SelectItem>
-                <SelectItem value="1m">Auto: 1m</SelectItem>
-                <SelectItem value="5m">Auto: 5m</SelectItem>
-              </SelectContent>
-            </Select>
+          <div className="flex gap-2">
             <Button variant="outline" onClick={() => setExportOpen(true)}>
               <Download className="w-4 h-4 mr-2" />
               Export Report
@@ -546,18 +530,7 @@ const priceImpactData = [
           <p className="text-sm text-muted-foreground mb-4">
             Apply AI-recommended prices to all products with optimization opportunities. Estimated total revenue increase: <strong className="text-green-600">+${(totalRevenueIncrease / 1000).toFixed(1)}K/month</strong>
           </p>
-          <div className="flex items-center gap-2">
-            <Select value={autoRefresh} onValueChange={(v: any) => setAutoRefresh(v)}>
-              <SelectTrigger className="w-32">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="off">Auto: Off</SelectItem>
-                <SelectItem value="30s">Auto: 30s</SelectItem>
-                <SelectItem value="1m">Auto: 1m</SelectItem>
-                <SelectItem value="5m">Auto: 5m</SelectItem>
-              </SelectContent>
-            </Select>
+          <div className="flex gap-2">
             <Button className="bg-purple-600 hover:bg-purple-700">
               <Zap className="w-4 h-4 mr-2" />
               Apply All Recommendations ({productsNeedingAdjustment} products)

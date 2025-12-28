@@ -1,12 +1,6 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState } from 'react';
 import { ExportModal } from '@/components/ExportModal';
 import { formatCurrency as formatCurrencyUtil, formatPercentage } from '@/lib/exportUtils';
-import { trpc } from '@/lib/trpc';
-import { useToast } from '@/hooks/use-toast';
-import { useDebouncedValue } from '@/hooks/useDebouncedValue';
-import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
-import { useLocalStorage } from '@/hooks/useLocalStorage';
-import { Skeleton } from '@/components/ui/skeleton';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -48,68 +42,8 @@ import {
   ComposedChart
 } from 'recharts';
 
-export default function RevenueForecastDashboard() {
-  const [timeRange, setTimeRange] = useState<'3m' | '6m' | '12m'>('6m');
-  const [exportOpen, setExportOpen] = useState(false);
-  const [autoRefresh, setAutoRefresh] = useLocalStorage<'off' | '30s' | '1m' | '5m'>('dashboard-autorefresh', 'off');
-  const { toast } = useToast();
-
-  // Fetch overview data
-  const { data: overview, isLoading: overviewLoading, error: overviewError, refetch: refetchOverview } = 
-    trpc.aiDashboards.revenueForecast.overview.useQuery();
-
-  // Fetch monthly data
-  const { data: monthly, isLoading: monthlyLoading, error: monthlyError, refetch: refetchMonthly } = 
-    trpc.aiDashboards.revenueForecast.monthly.useQuery({ months: timeRange === '3m' ? 3 : timeRange === '6m' ? 6 : 12 });
-
-  // Fetch channels data
-  const { data: channels, isLoading: channelsLoading, error: channelsError, refetch: refetchChannels } = 
-    trpc.aiDashboards.revenueForecast.channels.useQuery();
-
-  const isLoading = overviewLoading || monthlyLoading || channelsLoading;
-  const hasError = overviewError || monthlyError || channelsError;
-
-  // Handle refresh
-  const handleRefresh = async () => {
-    try {
-      await Promise.all([refetchOverview(), refetchMonthly(), refetchChannels()]);
-      toast({
-        title: 'Data Refreshed',
-        description: 'Dashboard data has been updated successfully.',
-      });
-    } catch (error) {
-      toast({
-        title: 'Refresh Failed',
-        description: 'Failed to refresh data. Please try again.',
-        variant: 'destructive',
-      });
-    }
-  };
-
-  // Error boundary
-  if (hasError) {
-    return (
-      <div className="container mx-auto py-8">
-        <Card className="border-red-500/50 bg-red-500/10">
-          <div className="p-6">
-            <div className="flex items-center gap-2 text-red-500 mb-2">
-              <AlertCircle className="w-5 h-5" />
-              <h3 className="text-lg font-semibold">Failed to Load Dashboard</h3>
-            </div>
-            <p className="text-red-400 mb-4">
-              {overviewError?.message || monthlyError?.message || channelsError?.message || 'An error occurred while loading the dashboard.'}
-            </p>
-            <Button onClick={handleRefresh} variant="outline" className="border-red-500 text-red-500 hover:bg-red-500/20">
-              <RefreshCw className="w-4 h-4 mr-2" />
-              Retry
-            </Button>
-          </div>
-        </Card>
-      </div>
-    );
-  }
-
-const mockForecastData = overview || {
+// Mock data - replace with actual tRPC calls
+const mockForecastData = {
   projectedRevenue: 2847500,
   growthRate: 18.5,
   confidenceLevel: 87,
@@ -157,9 +91,12 @@ const mockForecastData = overview || {
   ]
 };
 
-  const channelColors = ['#8b5cf6', '#3b82f6', '#10b981'];
-  const monthlyData = monthly || [];
-  const channelsData = channels || [];
+const channelColors = ['#8b5cf6', '#3b82f6', '#10b981'];
+
+export default function RevenueForecastDashboard() {
+  const [timeRange, setTimeRange] = useState('90d');
+  const [segmentView, setSegmentView] = useState('all');
+  const [exportOpen, setExportOpen] = useState(false);
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -203,18 +140,7 @@ const mockForecastData = overview || {
             <h1 className="text-3xl font-bold">Revenue Forecast</h1>
             <p className="text-muted-foreground">AI-powered 90-day revenue projections with confidence intervals</p>
           </div>
-          <div className="flex items-center gap-2">
-            <Select value={autoRefresh} onValueChange={(v: any) => setAutoRefresh(v)}>
-              <SelectTrigger className="w-32">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="off">Auto: Off</SelectItem>
-                <SelectItem value="30s">Auto: 30s</SelectItem>
-                <SelectItem value="1m">Auto: 1m</SelectItem>
-                <SelectItem value="5m">Auto: 5m</SelectItem>
-              </SelectContent>
-            </Select>
+          <div className="flex gap-2">
             <Button variant="outline" onClick={() => setExportOpen(true)}>
               <Download className="w-4 h-4 mr-2" />
               Export Report

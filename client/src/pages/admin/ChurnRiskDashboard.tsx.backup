@@ -1,11 +1,8 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState } from 'react';
 import { ExportModal } from '@/components/ExportModal';
 import { formatCurrency, formatPercentage } from '@/lib/exportUtils';
 import { trpc } from '@/lib/trpc';
 import { useToast } from '@/hooks/use-toast';
-import { useDebouncedValue } from '@/hooks/useDebouncedValue';
-import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
-import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -47,11 +44,9 @@ import {
 
 export default function ChurnRiskDashboard() {
   const [searchQuery, setSearchQuery] = useState('');
-  const debouncedSearchQuery = useDebouncedValue(searchQuery, 300);
   const [riskFilter, setRiskFilter] = useState<'all' | 'critical' | 'high' | 'medium' | 'low'>('all');
   const [sortBy, setSortBy] = useState<'risk' | 'ltv' | 'lastPurchase'>('risk');
   const [exportOpen, setExportOpen] = useState(false);
-  const [autoRefresh, setAutoRefresh] = useLocalStorage<'off' | '30s' | '1m' | '5m'>('dashboard-autorefresh', 'off');
   const { toast } = useToast();
 
   // Fetch overview data
@@ -89,8 +84,8 @@ export default function ChurnRiskDashboard() {
   // Filter and sort customers
   const filteredCustomers = (customers || [])
     .filter((c: any) => {
-      const matchesSearch = c.customerName.toLowerCase().includes(debouncedSearchQuery.toLowerCase()) ||
-                           c.email.toLowerCase().includes(debouncedSearchQuery.toLowerCase());
+      const matchesSearch = c.customerName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                           c.email.toLowerCase().includes(searchQuery.toLowerCase());
       const matchesRisk = riskFilter === 'all' || c.riskLevel === riskFilter;
       return matchesSearch && matchesRisk;
     })
@@ -234,18 +229,7 @@ const churnTrends = [
             <h1 className="text-3xl font-bold">Customer Churn Risk</h1>
             <p className="text-muted-foreground">AI-powered churn prediction and retention strategies</p>
           </div>
-          <div className="flex items-center gap-2">
-            <Select value={autoRefresh} onValueChange={(v: any) => setAutoRefresh(v)}>
-              <SelectTrigger className="w-32">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="off">Auto: Off</SelectItem>
-                <SelectItem value="30s">Auto: 30s</SelectItem>
-                <SelectItem value="1m">Auto: 1m</SelectItem>
-                <SelectItem value="5m">Auto: 5m</SelectItem>
-              </SelectContent>
-            </Select>
+          <div className="flex gap-2">
             <Button variant="outline" onClick={() => setExportOpen(true)}>
               <Download className="w-4 h-4 mr-2" />
               Export Report
@@ -475,18 +459,7 @@ const churnTrends = [
           <p className="text-sm text-muted-foreground mb-4">
             Launch targeted campaigns for all critical and high-risk customers with personalized offers based on their purchase history.
           </p>
-          <div className="flex items-center gap-2">
-            <Select value={autoRefresh} onValueChange={(v: any) => setAutoRefresh(v)}>
-              <SelectTrigger className="w-32">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="off">Auto: Off</SelectItem>
-                <SelectItem value="30s">Auto: 30s</SelectItem>
-                <SelectItem value="1m">Auto: 1m</SelectItem>
-                <SelectItem value="5m">Auto: 5m</SelectItem>
-              </SelectContent>
-            </Select>
+          <div className="flex gap-2">
             <Button className="bg-purple-600 hover:bg-purple-700">
               Launch Campaign for Critical Risk ({mockChurnData.filter(c => c.churnRisk === 'critical').length})
             </Button>

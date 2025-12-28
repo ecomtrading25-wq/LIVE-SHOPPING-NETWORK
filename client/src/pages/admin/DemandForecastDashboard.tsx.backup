@@ -1,11 +1,8 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState } from 'react';
 import { ExportModal } from '@/components/ExportModal';
 import { formatCurrency, formatPercentage } from '@/lib/exportUtils';
 import { trpc } from '@/lib/trpc';
 import { useToast } from '@/hooks/use-toast';
-import { useDebouncedValue } from '@/hooks/useDebouncedValue';
-import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
-import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -38,10 +35,8 @@ import {
 
 export default function DemandForecastDashboard() {
   const [searchQuery, setSearchQuery] = useState('');
-  const debouncedSearchQuery = useDebouncedValue(searchQuery, 300);
   const [dateRange, setDateRange] = useState<'7' | '14' | '30'>('30');
   const [exportOpen, setExportOpen] = useState(false);
-  const [autoRefresh, setAutoRefresh] = useLocalStorage<'off' | '30s' | '1m' | '5m'>('dashboard-autorefresh', 'off');
   const { toast } = useToast();
 
   // Fetch overview data
@@ -81,26 +76,9 @@ export default function DemandForecastDashboard() {
     handleRefresh();
   };
 
-  // Auto-refresh effect
-  useEffect(() => {
-    if (autoRefresh === 'off') return;
-    
-    const intervals = {
-      '30s': 30000,
-      '1m': 60000,
-      '5m': 300000
-    };
-    
-    const interval = setInterval(() => {
-      handleRefresh();
-    }, intervals[autoRefresh]);
-    
-    return () => clearInterval(interval);
-  }, [autoRefresh]);
-
   // Filter products
   const filteredProducts = (products || []).filter((p: any) =>
-    p.name.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
+    p.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const [selectedProduct, setSelectedProduct] = useState<any>(filteredProducts[0] || null);
@@ -173,17 +151,6 @@ export default function DemandForecastDashboard() {
             <p className="text-muted-foreground">AI-powered inventory predictions and reorder recommendations</p>
           </div>
           <div className="flex gap-2">
-            <Select value={autoRefresh} onValueChange={(v: any) => setAutoRefresh(v)}>
-              <SelectTrigger className="w-32">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="off">Auto: Off</SelectItem>
-                <SelectItem value="30s">Auto: 30s</SelectItem>
-                <SelectItem value="1m">Auto: 1m</SelectItem>
-                <SelectItem value="5m">Auto: 5m</SelectItem>
-              </SelectContent>
-            </Select>
             <Button variant="outline" onClick={() => setExportOpen(true)}>
               <Download className="w-4 h-4 mr-2" />
               Export Report

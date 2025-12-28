@@ -1,12 +1,6 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState } from 'react';
 import { ExportModal } from '@/components/ExportModal';
 import { formatCurrency as formatCurrencyUtil, formatPercentage } from '@/lib/exportUtils';
-import { trpc } from '@/lib/trpc';
-import { useToast } from '@/hooks/use-toast';
-import { useDebouncedValue } from '@/hooks/useDebouncedValue';
-import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
-import { useLocalStorage } from '@/hooks/useLocalStorage';
-import { Skeleton } from '@/components/ui/skeleton';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -54,79 +48,7 @@ import {
   Radar
 } from 'recharts';
 
-export default function RFMSegmentationDashboard() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const debouncedSearchQuery = useDebouncedValue(searchQuery, 300);
-  const [segmentFilter, setSegmentFilter] = useState<'all' | 'champions' | 'loyal' | 'potential' | 'at_risk' | 'lost'>('all');
-  const [exportOpen, setExportOpen] = useState(false);
-  const [autoRefresh, setAutoRefresh] = useLocalStorage<'off' | '30s' | '1m' | '5m'>('dashboard-autorefresh', 'off');
-  const { toast } = useToast();
-
-  // Fetch overview data
-  const { data: overview, isLoading: overviewLoading, error: overviewError, refetch: refetchOverview } = 
-    trpc.aiDashboards.rfmSegmentation.overview.useQuery();
-
-  // Fetch customers data
-  const { data: customers, isLoading: customersLoading, error: customersError, refetch: refetchCustomers } = 
-    trpc.aiDashboards.rfmSegmentation.customers.useQuery();
-
-  // Fetch distribution data
-  const { data: distribution, isLoading: distributionLoading, error: distributionError, refetch: refetchDistribution } = 
-    trpc.aiDashboards.rfmSegmentation.distribution.useQuery();
-
-  const isLoading = overviewLoading || customersLoading || distributionLoading;
-  const hasError = overviewError || customersError || distributionError;
-
-  // Handle refresh
-  const handleRefresh = async () => {
-    try {
-      await Promise.all([refetchOverview(), refetchCustomers(), refetchDistribution()]);
-      toast({
-        title: 'Data Refreshed',
-        description: 'Dashboard data has been updated successfully.',
-      });
-    } catch (error) {
-      toast({
-        title: 'Refresh Failed',
-        description: 'Failed to refresh data. Please try again.',
-        variant: 'destructive',
-      });
-    }
-  };
-
-  // Error boundary
-  if (hasError) {
-    return (
-      <div className="container mx-auto py-8">
-        <Card className="border-red-500/50 bg-red-500/10">
-          <div className="p-6">
-            <div className="flex items-center gap-2 text-red-500 mb-2">
-              <AlertCircle className="w-5 h-5" />
-              <h3 className="text-lg font-semibold">Failed to Load Dashboard</h3>
-            </div>
-            <p className="text-red-400 mb-4">
-              {overviewError?.message || customersError?.message || distributionError?.message || 'An error occurred while loading the dashboard.'}
-            </p>
-            <Button onClick={handleRefresh} variant="outline" className="border-red-500 text-red-500 hover:bg-red-500/20">
-              <RefreshCw className="w-4 h-4 mr-2" />
-              Retry
-            </Button>
-          </div>
-        </Card>
-      </div>
-    );
-  }
-
-  // Filter customers
-  const filteredCustomers = (customers || [])
-    .filter((c: any) => {
-      const matchesSearch = c.customerName.toLowerCase().includes(debouncedSearchQuery.toLowerCase()) ||
-                           c.email.toLowerCase().includes(debouncedSearchQuery.toLowerCase());
-      const matchesSegment = segmentFilter === 'all' || c.segment === segmentFilter;
-      return matchesSearch && matchesSegment;
-    });
-
-  // Mock data - replace with actual tRPC calls
+// Mock data - replace with actual tRPC calls
 const mockRFMData = {
   totalCustomers: 8547,
   avgOrderValue: 127.50,
@@ -277,11 +199,20 @@ const mockRFMData = {
   }
 };
 
-  const segmentColors = (distribution || []).map((d: any) => d.color);
-  const [selectedSegment, setSelectedSegment] = useState<string | null>(null);
-  const segmentDistribution = distribution || [];
+const segmentColors = mockRFMData.distribution.map(d => d.color);
 
-  // filteredCustomers already defined above
+export default function RFMSegmentationDashboard() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [segmentFilter, setSegmentFilter] = useState('all');
+  const [selectedSegment, setSelectedSegment] = useState<string | null>(null);
+  const [exportOpen, setExportOpen] = useState(false);
+
+  const filteredCustomers = mockRFMData.customers.filter(c => {
+    const matchesSearch = c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      c.email.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSegment = segmentFilter === 'all' || c.segment === segmentFilter;
+    return matchesSearch && matchesSegment;
+  });
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -311,18 +242,7 @@ const mockRFMData = {
             <h1 className="text-3xl font-bold">RFM Segmentation</h1>
             <p className="text-muted-foreground">Customer segmentation based on Recency, Frequency, and Monetary value</p>
           </div>
-          <div className="flex items-center gap-2">
-            <Select value={autoRefresh} onValueChange={(v: any) => setAutoRefresh(v)}>
-              <SelectTrigger className="w-32">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="off">Auto: Off</SelectItem>
-                <SelectItem value="30s">Auto: 30s</SelectItem>
-                <SelectItem value="1m">Auto: 1m</SelectItem>
-                <SelectItem value="5m">Auto: 5m</SelectItem>
-              </SelectContent>
-            </Select>
+          <div className="flex gap-2">
             <Button variant="outline" onClick={() => setExportOpen(true)}>
               <Download className="w-4 h-4 mr-2" />
               Export Segments

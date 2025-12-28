@@ -1,11 +1,8 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState } from 'react';
 import { ExportModal } from '@/components/ExportModal';
 import { formatPercentage } from '@/lib/exportUtils';
 import { trpc } from '@/lib/trpc';
 import { useToast } from '@/hooks/use-toast';
-import { useDebouncedValue } from '@/hooks/useDebouncedValue';
-import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
-import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -56,10 +53,8 @@ import {
 
 export default function SentimentAnalysisDashboard() {
   const [searchQuery, setSearchQuery] = useState('');
-  const debouncedSearchQuery = useDebouncedValue(searchQuery, 300);
   const [sentimentFilter, setSentimentFilter] = useState<'all' | 'positive' | 'neutral' | 'negative'>('all');
   const [exportOpen, setExportOpen] = useState(false);
-  const [autoRefresh, setAutoRefresh] = useLocalStorage<'off' | '30s' | '1m' | '5m'>('dashboard-autorefresh', 'off');
   const { toast } = useToast();
 
   // Fetch overview data
@@ -120,8 +115,8 @@ export default function SentimentAnalysisDashboard() {
   // Filter reviews
   const filteredReviews = (reviews || [])
     .filter((r: any) => {
-      const matchesSearch = r.productName.toLowerCase().includes(debouncedSearchQuery.toLowerCase()) ||
-                           r.reviewText.toLowerCase().includes(debouncedSearchQuery.toLowerCase());
+      const matchesSearch = r.productName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                           r.reviewText.toLowerCase().includes(searchQuery.toLowerCase());
       const matchesSentiment = sentimentFilter === 'all' || r.sentiment === sentimentFilter;
       return matchesSearch && matchesSentiment;
     });
@@ -239,18 +234,7 @@ const mockSentimentData = {
             <h1 className="text-3xl font-bold">Sentiment Analysis</h1>
             <p className="text-muted-foreground">AI-powered review analysis and customer sentiment tracking</p>
           </div>
-          <div className="flex items-center gap-2">
-            <Select value={autoRefresh} onValueChange={(v: any) => setAutoRefresh(v)}>
-              <SelectTrigger className="w-32">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="off">Auto: Off</SelectItem>
-                <SelectItem value="30s">Auto: 30s</SelectItem>
-                <SelectItem value="1m">Auto: 1m</SelectItem>
-                <SelectItem value="5m">Auto: 5m</SelectItem>
-              </SelectContent>
-            </Select>
+          <div className="flex gap-2">
             <Button variant="outline" onClick={() => setExportOpen(true)}>
               <Download className="w-4 h-4 mr-2" />
               Export Report
