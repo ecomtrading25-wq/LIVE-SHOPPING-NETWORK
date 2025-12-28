@@ -17,6 +17,7 @@ import {
   hostFollowers
 } from '../drizzle/schema';
 import { eq, and, desc, sql, gte, lte } from 'drizzle-orm';
+import { update } from 'drizzle-orm/mysql-core';
 import { nanoid } from 'nanoid';
 
 export const liveStreamingRouter = router({
@@ -58,7 +59,9 @@ export const liveStreamingRouter = router({
   getShow: publicProcedure
     .input(z.object({ showId: z.string() }))
     .query(async ({ input }) => {
-      const show = await db
+      const database = await db.getDb();
+      if (!database) throw new Error('Database not available');
+      const show = await database
         .select()
         .from(liveShows)
         .where(eq(liveShows.id, input.showId))
@@ -92,7 +95,9 @@ export const liveStreamingRouter = router({
     .mutation(async ({ input, ctx }) => {
       const viewerId = nanoid();
       
-      await db.insert(liveViewers).values({
+      const database = await db.getDb();
+      if (!database) throw new Error('Database not available');
+      await database.insert(liveViewers).values({
         id: viewerId,
         showId: input.showId,
         userId: ctx.user.id,
@@ -100,7 +105,9 @@ export const liveStreamingRouter = router({
       });
       
       // Increment total views
-      await db
+      const database = await db.getDb();
+      if (!database) throw new Error('Database not available');
+      await database
         .update(liveShows)
         .set({
           totalViews: sql`${liveShows.totalViews} + 1`,
@@ -117,7 +124,9 @@ export const liveStreamingRouter = router({
       watchDuration: z.number(),
     }))
     .mutation(async ({ input }) => {
-      await db
+      const database = await db.getDb();
+      if (!database) throw new Error('Database not available');
+      await database
         .update(liveViewers)
         .set({
           leftAt: new Date(),
@@ -165,7 +174,9 @@ export const liveStreamingRouter = router({
     .mutation(async ({ input, ctx }) => {
       const messageId = nanoid();
       
-      await db.insert(liveChatMessages).values({
+      const database = await db.getDb();
+      if (!database) throw new Error('Database not available');
+      await database.insert(liveChatMessages).values({
         id: messageId,
         showId: input.showId,
         userId: ctx.user.id,
@@ -175,7 +186,7 @@ export const liveStreamingRouter = router({
       });
       
       // Increment message count
-      await db
+      await database
         .update(liveShows)
         .set({
           totalMessages: sql`${liveShows.totalMessages} + 1`,
@@ -183,7 +194,7 @@ export const liveStreamingRouter = router({
         .where(eq(liveShows.id, input.showId));
       
       // Update viewer message count
-      await db
+      await database
         .update(liveViewers)
         .set({
           messagesSent: sql`${liveViewers.messagesSent} + 1`,
@@ -205,7 +216,9 @@ export const liveStreamingRouter = router({
     }))
     .mutation(async ({ input, ctx }) => {
       // Check if user is host or moderator
-      await db
+      const database = await db.getDb();
+      if (!database) throw new Error('Database not available');
+      await database
         .update(liveChatMessages)
         .set({
           isModerated: true,
@@ -256,7 +269,9 @@ export const liveStreamingRouter = router({
       const transactionId = nanoid();
       
       // Create gift transaction
-      await db.insert(liveGiftTransactions).values({
+      const database = await db.getDb();
+      if (!database) throw new Error('Database not available');
+      await database.insert(liveGiftTransactions).values({
         id: transactionId,
         showId: input.showId,
         giftId: input.giftId,
@@ -269,7 +284,7 @@ export const liveStreamingRouter = router({
       
       // Create chat message for gift
       const messageId = nanoid();
-      await db.insert(liveChatMessages).values({
+      await database.insert(liveChatMessages).values({
         id: messageId,
         showId: input.showId,
         userId: ctx.user.id,
@@ -303,7 +318,9 @@ export const liveStreamingRouter = router({
       const showId = nanoid();
       const streamKey = nanoid(32);
       
-      await db.insert(liveShows).values({
+      const database = await db.getDb();
+      if (!database) throw new Error('Database not available');
+      await database.insert(liveShows).values({
         id: showId,
         hostId: ctx.user.id,
         title: input.title,
@@ -329,7 +346,9 @@ export const liveStreamingRouter = router({
     }))
     .mutation(async ({ input, ctx }) => {
       // Verify ownership
-      const show = await db
+      const database = await db.getDb();
+      if (!database) throw new Error('Database not available');
+      const show = await database
         .select()
         .from(liveShows)
         .where(eq(liveShows.id, input.showId))
@@ -339,7 +358,9 @@ export const liveStreamingRouter = router({
         throw new Error('Unauthorized');
       }
       
-      await db
+      const database = await db.getDb();
+      if (!database) throw new Error('Database not available');
+      await database
         .update(liveShows)
         .set({
           title: input.title,
@@ -356,7 +377,9 @@ export const liveStreamingRouter = router({
   startShow: protectedProcedure
     .input(z.object({ showId: z.string() }))
     .mutation(async ({ input, ctx }) => {
-      await db
+      const database = await db.getDb();
+      if (!database) throw new Error('Database not available');
+      await database
         .update(liveShows)
         .set({
           status: 'live',
@@ -375,7 +398,9 @@ export const liveStreamingRouter = router({
   endShow: protectedProcedure
     .input(z.object({ showId: z.string() }))
     .mutation(async ({ input, ctx }) => {
-      await db
+      const database = await db.getDb();
+      if (!database) throw new Error('Database not available');
+      await database
         .update(liveShows)
         .set({
           status: 'ended',
@@ -402,7 +427,9 @@ export const liveStreamingRouter = router({
     .mutation(async ({ input, ctx }) => {
       const productId = nanoid();
       
-      await db.insert(liveShowProducts).values({
+      const database = await db.getDb();
+      if (!database) throw new Error('Database not available');
+      await database.insert(liveShowProducts).values({
         id: productId,
         showId: input.showId,
         productId: input.productId,
@@ -423,7 +450,9 @@ export const liveStreamingRouter = router({
     .input(z.object({ showId: z.string() }))
     .query(async ({ input, ctx }) => {
       // Get show details
-      const show = await db
+      const database = await db.getDb();
+      if (!database) throw new Error('Database not available');
+      const show = await database
         .select()
         .from(liveShows)
         .where(eq(liveShows.id, input.showId))
@@ -434,7 +463,7 @@ export const liveStreamingRouter = router({
       }
       
       // Get viewer stats
-      const viewerStats = await db
+      const viewerStats = await database
         .select({
           totalViewers: sql<number>`count(distinct ${liveViewers.userId})`,
           averageWatchTime: sql<number>`avg(${liveViewers.watchDuration})`,
@@ -443,7 +472,7 @@ export const liveStreamingRouter = router({
         .where(eq(liveViewers.showId, input.showId));
       
       // Get engagement stats
-      const engagementStats = await db
+      const engagementStats = await database
         .select({
           totalMessages: sql<number>`count(*)`,
         })
@@ -464,7 +493,9 @@ export const liveStreamingRouter = router({
   getHostProfile: publicProcedure
     .input(z.object({ userId: z.number() }))
     .query(async ({ input }) => {
-      const profile = await db
+      const database = await db.getDb();
+      if (!database) return null;
+      const profile = await database
         .select()
         .from(hostProfiles)
         .where(eq(hostProfiles.userId, input.userId))
@@ -482,7 +513,9 @@ export const liveStreamingRouter = router({
     }))
     .mutation(async ({ input, ctx }) => {
       // Check if profile exists
-      const existing = await db
+      const database = await db.getDb();
+      if (!database) throw new Error('Database not available');
+      const existing = await database
         .select()
         .from(hostProfiles)
         .where(eq(hostProfiles.userId, ctx.user.id))
@@ -490,7 +523,7 @@ export const liveStreamingRouter = router({
       
       if (existing[0]) {
         // Update existing
-        await db
+        await database
           .update(hostProfiles)
           .set({
             displayName: input.displayName,
@@ -502,7 +535,7 @@ export const liveStreamingRouter = router({
           .where(eq(hostProfiles.userId, ctx.user.id));
       } else {
         // Create new
-        await db.insert(hostProfiles).values({
+        await database.insert(hostProfiles).values({
           id: nanoid(),
           userId: ctx.user.id,
           displayName: input.displayName || ctx.user.name || 'Host',
@@ -521,7 +554,9 @@ export const liveStreamingRouter = router({
     .mutation(async ({ input, ctx }) => {
       const followId = nanoid();
       
-      await db.insert(hostFollowers).values({
+      const database = await db.getDb();
+      if (!database) throw new Error('Database not available');
+      await database.insert(hostFollowers).values({
         id: followId,
         hostId: input.hostId,
         followerId: ctx.user.id,
@@ -529,10 +564,10 @@ export const liveStreamingRouter = router({
       });
       
       // Increment follower count
-      await db
+      await database
         .update(hostProfiles)
         .set({
-          followerCount: sql`${hostProfiles.followerCount} + 1`,
+          totalFollowers: sql`${hostProfiles.totalFollowers} + 1`,
         })
         .where(eq(hostProfiles.id, input.hostId));
       
@@ -542,7 +577,9 @@ export const liveStreamingRouter = router({
   unfollowHost: protectedProcedure
     .input(z.object({ hostId: z.string() }))
     .mutation(async ({ input, ctx }) => {
-      await db
+      const database = await db.getDb();
+      if (!database) throw new Error('Database not available');
+      await database
         .delete(hostFollowers)
         .where(
           and(
@@ -552,10 +589,10 @@ export const liveStreamingRouter = router({
         );
       
       // Decrement follower count
-      await db
+      await database
         .update(hostProfiles)
         .set({
-          followerCount: sql`${hostProfiles.followerCount} - 1`,
+          totalFollowers: sql`${hostProfiles.totalFollowers} - 1`,
         })
         .where(eq(hostProfiles.id, input.hostId));
       

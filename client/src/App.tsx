@@ -87,6 +87,7 @@ import SentimentAnalysisDashboard from "@/pages/admin/SentimentAnalysisDashboard
 import RevenueForecastDashboard from "@/pages/admin/RevenueForecastDashboard";
 import RFMSegmentationDashboard from "@/pages/admin/RFMSegmentationDashboard";
 import LiveShowViewer from "@/pages/LiveShowViewer";
+import LiveShowPage from "@/pages/LiveShowPage";
 import HostDashboard from "@/pages/HostDashboard";
 import BrowseShows from "@/pages/BrowseShows";
 
@@ -156,6 +157,7 @@ function Router() {
       <Route path="/order-confirmation" component={OrderConfirmation} />
       <Route path="/live" component={LiveShows} />
       <Route path="/live/:showId" component={LiveShowViewer} />
+      <Route path="/show/:id" component={LiveShowPage} />
       <Route path="/host/dashboard" component={HostDashboard} />
       <Route path="/browse-shows" component={BrowseShows} />
       <Route path="/login" component={Login} />
