@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { ExportModal } from '@/components/ExportModal';
+import { formatCurrency } from '@/lib/exportUtils';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -101,6 +103,7 @@ export default function DemandForecastDashboard() {
   const [selectedProduct, setSelectedProduct] = useState(mockProducts[0]);
   const [searchQuery, setSearchQuery] = useState('');
   const [dateRange, setDateRange] = useState('30days');
+  const [exportOpen, setExportOpen] = useState(false);
 
   const filteredProducts = mockProducts.filter(p =>
     p.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -131,7 +134,7 @@ export default function DemandForecastDashboard() {
             <p className="text-muted-foreground">AI-powered inventory predictions and reorder recommendations</p>
           </div>
           <div className="flex gap-2">
-            <Button variant="outline">
+            <Button variant="outline" onClick={() => setExportOpen(true)}>
               <Download className="w-4 h-4 mr-2" />
               Export Report
             </Button>
@@ -398,6 +401,23 @@ export default function DemandForecastDashboard() {
           </div>
         </div>
       </div>
+
+      {/* Export Modal */}
+      <ExportModal
+        open={exportOpen}
+        onOpenChange={setExportOpen}
+        title="Demand Forecast Report"
+        data={mockProducts}
+        columns={[
+          { key: 'name', label: 'Product' },
+          { key: 'currentStock', label: 'Current Stock' },
+          { key: 'averageDailySales', label: 'Avg Daily Sales' },
+          { key: 'reorderPoint', label: 'Reorder Point' },
+          { key: 'recommendedQuantity', label: 'Recommended Order' },
+          { key: 'urgency', label: 'Urgency' },
+          { key: 'confidence', label: 'Confidence %' }
+        ]}
+      />
     </div>
   );
 }
