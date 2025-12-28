@@ -1596,6 +1596,13 @@ export {
   launchChecklists,
   regionConfigs,
   regionalInventory,
+  ledgerAccounts,
+  ledgerEntries,
+  creatorPayouts,
+  creatorPayoutItems,
+  externalTransactions,
+  reconciliationMatches,
+  creatorBonuses,
 } from "./schema-lsn-core";
 
 
@@ -1605,7 +1612,7 @@ export {
 
 export const lotAllocations = mysqlTable("lot_allocations", {
   id: varchar("id", { length: 64 }).primaryKey(),
-  lotId: varchar("lot_id", { length: 64 }).notNull().references(() => inventoryLots.id),
+  lotId: varchar("lot_id", { length: 64 }).notNull(),
   orderId: varchar("order_id", { length: 64 }).references(() => orders.id),
   quantity: int("quantity").notNull(),
   allocatedAt: timestamp("allocated_at").defaultNow().notNull(),
@@ -1614,7 +1621,7 @@ export const lotAllocations = mysqlTable("lot_allocations", {
 
 export const qualityInspections = mysqlTable("quality_inspections", {
   id: varchar("id", { length: 64 }).primaryKey(),
-  lotId: varchar("lot_id", { length: 64 }).notNull().references(() => inventoryLots.id),
+  lotId: varchar("lot_id", { length: 64 }).notNull(),
   inspectorId: varchar("inspector_id", { length: 64 }).notNull(),
   inspectionDate: timestamp("inspection_date").notNull(),
   sampleSize: int("sample_size").notNull(),

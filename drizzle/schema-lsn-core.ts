@@ -6,6 +6,7 @@ import {
   bigint,
   boolean,
   timestamp,
+  date,
   json,
   mysqlEnum,
   decimal,
@@ -1045,4 +1046,221 @@ export const regionalInventory = mysqlTable("regional_inventory", {
     table.variantId,
     table.regionCode
   ),
+}));
+
+
+// ============================================================================
+// FINANCIAL OPERATIONS: Ledger, Payouts, Reconciliation
+// ============================================================================
+
+export const ledgerAccounts = mysqlTable("ledger_accounts", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  channelId: varchar("channel_id", { length: 64 }).notNull(),
+  code: varchar("code", { length: 32 }).notNull(),
+  name: varchar("name", { length: 255 }).notNull(),
+  type: mysqlEnum("type", ["ASSET", "LIABILITY", "INCOME", "EXPENSE", "EQUITY"]).notNull(),
+  currency: varchar("currency", { length: 3 }).notNull().default("AUD"),
+  isActive: boolean("is_active").notNull().default(true),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  channelCodeIdx: uniqueIndex("channel_code_idx").on(table.channelId, table.code),
+}));
+
+export const ledgerEntries = mysqlTable("ledger_entries", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  channelId: varchar("channel_id", { length: 64 }).notNull(),
+  txnId: varchar("txn_id", { length: 64 }).notNull(),
+  status: mysqlEnum("status", ["PENDING", "POSTED", "REVERSED", "VOID"]).notNull().default("POSTED"),
+  
+  accountId: varchar("account_id", { length: 64 }).notNull(),
+  direction: mysqlEnum("direction", ["DEBIT", "CREDIT"]).notNull(),
+  amountCents: bigint("amount_cents", { mode: "number" }).notNull(),
+  currency: varchar("currency", { length: 3 }).notNull().default("AUD"),
+  
+  // Legacy fields for backward compatibility
+  entryType: varchar("entry_type", { length: 64 }),
+  refType: varchar("ref_type", { length: 64 }).notNull(),
+  refId: varchar("ref_id", { length: 64 }).notNull(),
+  debitAccount: varchar("debit_account", { length: 64 }),
+  creditAccount: varchar("credit_account", { length: 64 }),
+  
+  counterpartyType: varchar("counterparty_type", { length: 64 }),
+  counterpartyId: varchar("counterparty_id", { length: 64 }),
+  description: text("description"),
+  memo: text("memo"),
+  
+  fxRate: decimal("fx_rate", { precision: 10, scale: 6 }),
+  baseCurrency: varchar("base_currency", { length: 3 }),
+  baseAmountCents: bigint("base_amount_cents", { mode: "number" }),
+  
+  createdBy: varchar("created_by", { length: 64 }),
+  postedAt: timestamp("posted_at").defaultNow().notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  
+  metadata: json("metadata").$type<any>(),
+}, (table) => ({
+  channelPostedIdx: index("channel_posted_idx").on(table.channelId, table.postedAt),
+  channelTxnIdx: index("channel_txn_idx").on(table.channelId, table.txnId),
+  refIdx: index("ref_idx").on(table.channelId, table.refType, table.refId),
+  accountIdx: index("account_idx").on(table.channelId, table.accountId),
+}));
+
+export const creatorPayouts = mysqlTable("creator_payouts", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  channelId: varchar("channel_id", { length: 64 }).notNull(),
+  
+  creatorId: varchar("creator_id", { length: 64 }).notNull(),
+  status: mysqlEnum("status", ["DRAFT", "PENDING_APPROVAL", "APPROVED", "PROCESSING", "PAID", "FAILED", "CANCELED", "PENDING", "COMPLETED", "HELD"]).notNull().default("DRAFT"),
+  method: mysqlEnum("method", ["BANK_TRANSFER", "PAYPAL", "STRIPE_CONNECT", "MANUAL", "WISE"]).notNull().default("BANK_TRANSFER"),
+  
+  periodStart: date("period_start").notNull(),
+  periodEnd: date("period_end").notNull(),
+  
+  currency: varchar("currency", { length: 3 }).notNull().default("AUD"),
+  grossCents: bigint("gross_cents", { mode: "number" }).notNull().default(0),
+  feesCents: bigint("fees_cents", { mode: "number" }).notNull().default(0),
+  adjustmentsCents: bigint("adjustments_cents", { mode: "number" }).notNull().default(0),
+  netCents: bigint("net_cents", { mode: "number" }).notNull().default(0),
+  
+  // Legacy fields
+  amountCents: bigint("amount_cents", { mode: "number" }),
+  feeCents: bigint("fee_cents", { mode: "number" }),
+  
+  destinationRef: text("destination_ref"),
+  payoutProvider: varchar("payout_provider", { length: 64 }),
+  provider: varchar("provider", { length: 64 }),
+  providerPayoutId: varchar("provider_payout_id", { length: 255 }),
+  providerTxnId: varchar("provider_txn_id", { length: 255 }),
+  providerStatus: varchar("provider_status", { length: 64 }),
+  
+  createdBy: varchar("created_by", { length: 64 }),
+  approvedBy: varchar("approved_by", { length: 64 }),
+  approvedAt: timestamp("approved_at"),
+  
+  requestedAt: timestamp("requested_at"),
+  paidAt: timestamp("paid_at"),
+  processedAt: timestamp("processed_at"),
+  
+  holdReason: text("hold_reason"),
+  notes: text("notes"),
+  metadata: json("metadata").$type<any>(),
+  
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  channelCreatorIdx: index("channel_creator_idx").on(table.channelId, table.creatorId, table.createdAt),
+  channelStatusIdx: index("channel_status_idx").on(table.channelId, table.status),
+  periodIdx: index("period_idx").on(table.channelId, table.periodStart, table.periodEnd),
+}));
+
+export const creatorPayoutItems = mysqlTable("creator_payout_items", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  channelId: varchar("channel_id", { length: 64 }).notNull(),
+  
+  payoutId: varchar("payout_id", { length: 64 }).notNull().references(() => creatorPayouts.id, { onDelete: "cascade" }),
+  
+  ledgerTxnId: varchar("ledger_txn_id", { length: 64 }),
+  ledgerEntryId: varchar("ledger_entry_id", { length: 64 }),
+  
+  referenceType: varchar("reference_type", { length: 64 }).notNull(),
+  referenceId: varchar("reference_id", { length: 64 }).notNull(),
+  
+  description: text("description"),
+  currency: varchar("currency", { length: 3 }).notNull().default("AUD"),
+  amountCents: bigint("amount_cents", { mode: "number" }).notNull(),
+  
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  metadata: json("metadata").$type<any>(),
+}, (table) => ({
+  payoutIdx: index("payout_idx").on(table.payoutId),
+  refIdx: index("ref_idx").on(table.channelId, table.referenceType, table.referenceId),
+}));
+
+export const externalTransactions = mysqlTable("external_transactions", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  channelId: varchar("channel_id", { length: 64 }).notNull(),
+  
+  source: mysqlEnum("source", ["STRIPE", "PAYPAL", "SHOPIFY", "TIKTOK_SHOP", "BANK", "WISE", "OTHER"]).notNull(),
+  externalId: varchar("external_id", { length: 255 }).notNull(),
+  occurredAt: timestamp("occurred_at").notNull(),
+  
+  currency: varchar("currency", { length: 3 }).notNull().default("AUD"),
+  amountCents: bigint("amount_cents", { mode: "number" }).notNull(),
+  
+  description: text("description"),
+  raw: json("raw").$type<any>(),
+  
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  channelSourceExtIdx: uniqueIndex("channel_source_ext_idx").on(table.channelId, table.source, table.externalId),
+  channelTimeIdx: index("channel_time_idx").on(table.channelId, table.occurredAt),
+  amountIdx: index("amount_idx").on(table.channelId, table.amountCents),
+}));
+
+export const reconciliationMatches = mysqlTable("reconciliation_matches", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  channelId: varchar("channel_id", { length: 64 }).notNull(),
+  
+  status: mysqlEnum("status", ["SUGGESTED", "MATCHED", "DISMISSED", "UNMATCHED"]).notNull().default("SUGGESTED"),
+  source: mysqlEnum("source", ["STRIPE", "PAYPAL", "SHOPIFY", "TIKTOK_SHOP", "BANK", "WISE", "OTHER"]).notNull(),
+  
+  externalTransactionId: varchar("external_transaction_id", { length: 64 }).notNull().references(() => externalTransactions.id, { onDelete: "cascade" }),
+  
+  // Legacy fields for backward compatibility
+  providerTxnId: varchar("provider_txn_id", { length: 64 }),
+  ledgerEntryId: varchar("ledger_entry_id", { length: 64 }),
+  
+  ledgerTxnId: varchar("ledger_txn_id", { length: 64 }),
+  
+  matchReason: text("match_reason"),
+  matchType: varchar("match_type", { length: 64 }),
+  matchConfidence: decimal("match_confidence", { precision: 5, scale: 2 }).notNull().default("0.00"),
+  confidence: decimal("confidence", { precision: 5, scale: 2 }),
+  discrepancyCents: bigint("discrepancy_cents", { mode: "number" }).default(0),
+  
+  matchedBy: varchar("matched_by", { length: 64 }),
+  matchedAt: timestamp("matched_at"),
+  
+  notes: text("notes"),
+  metadata: json("metadata").$type<any>(),
+  
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  channelStatusIdx: index("channel_status_idx").on(table.channelId, table.status),
+  externalIdx: index("external_idx").on(table.externalTransactionId),
+  ledgerTxnIdx: index("ledger_txn_idx").on(table.channelId, table.ledgerTxnId),
+}));
+
+// ============================================================================
+// CREATOR BONUSES & INCENTIVES
+// ============================================================================
+
+export const creatorBonuses = mysqlTable("creator_bonuses", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  channelId: varchar("channel_id", { length: 64 }).notNull(),
+  creatorId: varchar("creator_id", { length: 64 }).notNull(),
+  
+  type: mysqlEnum("type", ["MILESTONE", "PERFORMANCE", "REFERRAL", "SEASONAL", "MANUAL"]).notNull(),
+  status: mysqlEnum("status", ["PENDING", "APPROVED", "PAID", "CANCELED"]).notNull().default("PENDING"),
+  
+  title: varchar("title", { length: 255 }).notNull(),
+  description: text("description"),
+  
+  amountCents: bigint("amount_cents", { mode: "number" }).notNull(),
+  currency: varchar("currency", { length: 3 }).notNull().default("AUD"),
+  
+  triggerType: varchar("trigger_type", { length: 64 }),
+  triggerValue: json("trigger_value").$type<any>(),
+  
+  earnedAt: timestamp("earned_at"),
+  paidAt: timestamp("paid_at"),
+  
+  payoutId: varchar("payout_id", { length: 64 }),
+  
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  channelCreatorIdx: index("channel_creator_idx").on(table.channelId, table.creatorId),
+  statusIdx: index("status_idx").on(table.channelId, table.status),
 }));
