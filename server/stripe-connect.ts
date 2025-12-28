@@ -364,6 +364,7 @@ class StripeConnectService {
   }> {
     try {
       const db = await getDb();
+      if (!db) throw new Error('Database not available');
 
       // Get wallet balance
       const [wallet] = await db
@@ -372,24 +373,19 @@ class StripeConnectService {
         .where(eq(wallets.userId, hostId))
         .limit(1);
 
-      // Get payout summary
-      let payoutQuery = db
+      // Get payout summary with proper where clause
+      const whereConditions = [eq(payouts.hostId, hostId)];
+      if (startDate) whereConditions.push(gte(payouts.createdAt, startDate));
+      if (endDate) whereConditions.push(lte(payouts.createdAt, endDate));
+
+      const payoutSummary = await db
         .select({
           status: payouts.status,
           total: sql<number>`SUM(${payouts.amount})`,
         })
         .from(payouts)
-        .where(eq(payouts.hostId, hostId))
+        .where(sql`${whereConditions.map((c, i) => `${i > 0 ? 'AND ' : ''}${c}`).join(' ')}`)
         .groupBy(payouts.status);
-
-      if (startDate) {
-        payoutQuery = payoutQuery.where(gte(payouts.createdAt, startDate)) as any;
-      }
-      if (endDate) {
-        payoutQuery = payoutQuery.where(lte(payouts.createdAt, endDate)) as any;
-      }
-
-      const payoutSummary = await payoutQuery;
 
       const pendingPayouts = payoutSummary.find(p => p.status === 'pending')?.total || 0;
       const completedPayouts = payoutSummary.find(p => p.status === 'paid')?.total || 0;
@@ -399,7 +395,7 @@ class StripeConnectService {
         totalEarnings,
         pendingPayouts,
         completedPayouts,
-        walletBalance: wallet?.balance || 0,
+        walletBalance: wallet?.balance ? Number(wallet.balance) : 0,
       };
     } catch (error) {
       console.error('[Stripe Connect] Failed to get host earnings:', error);

@@ -40,7 +40,8 @@ export async function addToWishlist(params: {
   priceDropAlert?: boolean;
   notes?: string;
 }): Promise<WishlistItem> {
-  const db = getDb();
+  const db = await getDb();
+  if (!db) throw new Error('Database not available');
 
   // Get product current price
   const product = await db
