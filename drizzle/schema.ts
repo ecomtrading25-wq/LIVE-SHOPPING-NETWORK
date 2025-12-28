@@ -1233,3 +1233,5 @@ export const cartItems = mysqlTable("cart_items", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
 });
+
+export type CartItem = typeof cartItems.$inferSelect;
