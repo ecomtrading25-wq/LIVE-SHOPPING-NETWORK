@@ -13,7 +13,7 @@
  * - Financial reporting
  */
 
-import { getDb } from "./db";
+import { getDbSync } from "./db";
 import { 
   orders,
   transactions,
@@ -78,7 +78,7 @@ export interface SettlementData {
  * Comprehensive fraud check for order
  */
 export async function performFraudCheck(orderId: number): Promise<FraudCheckResult> {
-  const db = getDb();
+  const db = getDbSync();
   
   const [order] = await db
     .select()
@@ -338,7 +338,7 @@ export async function batchFraudCheck(orderIds: number[]) {
  * Create dispute record
  */
 export async function createDispute(data: DisputeData) {
-  const db = getDb();
+  const db = getDbSync();
   
   const [dispute] = await db.insert(disputes).values({
     transactionId: data.transactionId,
@@ -358,7 +358,7 @@ export async function createDispute(data: DisputeData) {
  * Generate comprehensive evidence pack for dispute
  */
 export async function generateEvidencePack(data: EvidencePackData) {
-  const db = getDb();
+  const db = getDbSync();
   
   const [dispute] = await db
     .select()
@@ -438,7 +438,7 @@ export async function generateEvidencePack(data: EvidencePackData) {
  * Auto-respond to dispute based on evidence
  */
 export async function autoRespondToDispute(disputeId: number) {
-  const db = getDb();
+  const db = getDbSync();
   
   const [dispute] = await db
     .select()
@@ -559,7 +559,7 @@ function generateDisputeReasoning(
  * Predict chargeback risk for transaction
  */
 export async function predictChargebackRisk(transactionId: number) {
-  const db = getDb();
+  const db = getDbSync();
   
   const [transaction] = await db
     .select()
@@ -680,7 +680,7 @@ function generatePreventionActions(score: number, factors: string[]): string[] {
  * Create settlement record
  */
 export async function createSettlement(data: SettlementData) {
-  const db = getDb();
+  const db = getDbSync();
   
   const [settlement] = await db.insert(settlements).values({
     periodStart: data.periodStart,
@@ -701,7 +701,7 @@ export async function createSettlement(data: SettlementData) {
  * Reconcile settlement with actual transactions
  */
 export async function reconcileSettlement(settlementId: number) {
-  const db = getDb();
+  const db = getDbSync();
   
   const [settlement] = await db
     .select()
@@ -776,7 +776,7 @@ export async function reconcileSettlement(settlementId: number) {
  * Handle Stripe webhook events
  */
 export async function handleStripeWebhook(event: any) {
-  const db = getDb();
+  const db = getDbSync();
   
   switch (event.type) {
     case "charge.succeeded":
@@ -839,7 +839,7 @@ export async function handleStripeWebhook(event: any) {
  * Handle PayPal webhook events
  */
 export async function handlePayPalWebhook(event: any) {
-  const db = getDb();
+  const db = getDbSync();
   
   switch (event.event_type) {
     case "PAYMENT.CAPTURE.COMPLETED":
@@ -893,7 +893,7 @@ export async function handlePayPalWebhook(event: any) {
  * Get financial operations dashboard
  */
 export async function getFinancialDashboard(startDate: Date, endDate: Date) {
-  const db = getDb();
+  const db = getDbSync();
   
   // Get all transactions in period
   const txns = await db

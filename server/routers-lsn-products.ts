@@ -1,7 +1,7 @@
 import { router, publicProcedure, protectedProcedure } from "./_core/trpc";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { getDb } from "./db";
+import { getDbSync } from "./db";
 import { eq, and, desc, sql, inArray, gte, lte, like } from "drizzle-orm";
 import {
   products,
@@ -53,7 +53,7 @@ export const lsnProductsRouter = router({
         offset: z.number().min(0).default(0),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         let query = db
           .select()
@@ -84,7 +84,7 @@ export const lsnProductsRouter = router({
         productId: z.string(),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const [product] = await db
           .select()
@@ -145,7 +145,7 @@ export const lsnProductsRouter = router({
         status: z.enum(["active", "draft", "archived"]).default("draft"),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const productId = randomBytes(16).toString("hex");
         
@@ -172,7 +172,7 @@ export const lsnProductsRouter = router({
         status: z.enum(["active", "draft", "archived"]).optional(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const updates: any = {};
         if (input.name) updates.name = input.name;
@@ -196,7 +196,7 @@ export const lsnProductsRouter = router({
         productId: z.string(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         await db.update(products)
           .set({ status: "archived" })
@@ -220,7 +220,7 @@ export const lsnProductsRouter = router({
         productId: z.string(),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const items = await db
           .select()
@@ -243,7 +243,7 @@ export const lsnProductsRouter = router({
         options: z.record(z.string()).optional(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const variantId = randomBytes(16).toString("hex");
         
@@ -284,7 +284,7 @@ export const lsnProductsRouter = router({
         options: z.record(z.string()).optional(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const updates: any = {};
         if (input.sku) updates.sku = input.sku;
@@ -313,7 +313,7 @@ export const lsnProductsRouter = router({
         productId: z.string(),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const items = await db
           .select()
@@ -331,7 +331,7 @@ export const lsnProductsRouter = router({
         sortOrder: z.number().default(0),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const imageId = randomBytes(16).toString("hex");
         
@@ -351,7 +351,7 @@ export const lsnProductsRouter = router({
         sortOrder: z.number(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         await db.update(productImages)
           .set({ sortOrder: input.sortOrder })
@@ -365,7 +365,7 @@ export const lsnProductsRouter = router({
         imageId: z.string(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         await db.delete(productImages)
           .where(eq(productImages.id, input.imageId));
@@ -385,7 +385,7 @@ export const lsnProductsRouter = router({
         parentId: z.string().optional(),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         let query = db
           .select()
@@ -413,7 +413,7 @@ export const lsnProductsRouter = router({
         sortOrder: z.number().default(0),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const categoryId = randomBytes(16).toString("hex");
         
@@ -440,7 +440,7 @@ export const lsnProductsRouter = router({
         sortOrder: z.number().optional(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const updates: any = {};
         if (input.name) updates.name = input.name;
@@ -470,7 +470,7 @@ export const lsnProductsRouter = router({
         variantId: z.string(),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const [inv] = await db
           .select()
@@ -515,7 +515,7 @@ export const lsnProductsRouter = router({
         notes: z.string().optional(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const [inv] = await db
           .select()
@@ -559,7 +559,7 @@ export const lsnProductsRouter = router({
         expiresAt: z.string().optional(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const [inv] = await db
           .select()
@@ -601,7 +601,7 @@ export const lsnProductsRouter = router({
         reservationId: z.string(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const [reservation] = await db
           .select()
@@ -639,7 +639,7 @@ export const lsnProductsRouter = router({
           limit: z.number().min(1).max(200).default(50),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -679,7 +679,7 @@ export const lsnProductsRouter = router({
           expiryDate: z.string().optional(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const lotId = randomBytes(16).toString("hex");
           
@@ -739,7 +739,7 @@ export const lsnProductsRouter = router({
         offset: z.number().min(0).default(0),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         let query = db
           .select()
@@ -767,7 +767,7 @@ export const lsnProductsRouter = router({
         variantId: z.string(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const [variant] = await db
           .select()
@@ -844,7 +844,7 @@ export const lsnProductsRouter = router({
           status: z.enum(["ACTIVE", "PAUSED", "ARCHIVED"]).optional(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -870,7 +870,7 @@ export const lsnProductsRouter = router({
           autoExecute: z.boolean().default(false),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const ruleId = randomBytes(16).toString("hex");
           
@@ -894,7 +894,7 @@ export const lsnProductsRouter = router({
           ruleId: z.string(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const [rule] = await db
             .select()
@@ -951,7 +951,7 @@ export const lsnProductsRouter = router({
           status: z.enum(["ACTIVE", "INACTIVE", "ARCHIVED"]).optional(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -977,7 +977,7 @@ export const lsnProductsRouter = router({
           validUntil: z.string().optional(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const priceBookId = randomBytes(16).toString("hex");
           
@@ -1002,7 +1002,7 @@ export const lsnProductsRouter = router({
             priceBookId: z.string(),
           }))
           .query(async ({ input }) => {
-            const db = getDb();
+            const db = getDbSync();
             
             const items = await db
               .select()
@@ -1024,7 +1024,7 @@ export const lsnProductsRouter = router({
             comparePriceCents: z.number().min(0).optional(),
           }))
           .mutation(async ({ input }) => {
-            const db = getDb();
+            const db = getDbSync();
             
             const entryId = randomBytes(16).toString("hex");
             
@@ -1050,7 +1050,7 @@ export const lsnProductsRouter = router({
           limit: z.number().min(1).max(100).default(50),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -1083,7 +1083,7 @@ export const lsnProductsRouter = router({
           applicableProductIds: z.array(z.string()).optional(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const promoId = randomBytes(16).toString("hex");
           
@@ -1113,7 +1113,7 @@ export const lsnProductsRouter = router({
           promoId: z.string(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           await db.update(promotions)
             .set({ status: "ACTIVE" })
@@ -1133,7 +1133,7 @@ export const lsnProductsRouter = router({
           status: z.enum(["ACTIVE", "INACTIVE", "ARCHIVED"]).optional(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -1160,7 +1160,7 @@ export const lsnProductsRouter = router({
           savingsCents: z.number().min(0).optional(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const bundleId = randomBytes(16).toString("hex");
           
@@ -1192,7 +1192,7 @@ export const lsnProductsRouter = router({
         supplierId: z.string(),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const items = await db
           .select()
@@ -1215,7 +1215,7 @@ export const lsnProductsRouter = router({
         leadTimeDays: z.number().min(0).optional(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const linkId = randomBytes(16).toString("hex");
         

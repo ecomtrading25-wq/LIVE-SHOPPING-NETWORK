@@ -16,7 +16,7 @@
  * - Audit trail system with compliance
  */
 
-import { getDb } from "./db";
+import { getDbSync } from "./db";
 import { transactions, wallets, orders, orderItems, users } from "../drizzle/schema";
 import { eq, and, gte, lte, desc, sql, sum, count, avg } from "drizzle-orm";
 
@@ -42,7 +42,7 @@ interface LedgerEntry {
  * Create ledger entry with FX conversion
  */
 export async function createLedgerEntry(entry: Omit<LedgerEntry, "id" | "timestamp">) {
-  const db = getDb();
+  const db = getDbSync();
 
   const baseCurrency = "USD";
   let fxRate = 1.0;
@@ -108,7 +108,7 @@ export async function ingestPayPalTransaction(paypalData: {
   timestamp: string;
   metadata?: any;
 }) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Create ledger entries
   const entries = [];
@@ -239,7 +239,7 @@ export async function ingestStripeTransaction(stripeData: {
  * Auto-match reconciliation engine
  */
 export async function autoMatchReconciliation(periodStart: Date, periodEnd: Date) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get all orders in period
   const ordersInPeriod = await db.query.orders.findMany({
@@ -383,7 +383,7 @@ export async function processSettlement(settlementData: {
  * Commission calculation engine
  */
 export async function calculateCommissions(periodStart: Date, periodEnd: Date) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get all orders with referral/affiliate info
   const ordersWithReferrals = await db.query.orders.findMany({
@@ -469,7 +469,7 @@ export async function calculateCommissions(periodStart: Date, periodEnd: Date) {
  * Revenue recognition automation
  */
 export async function recognizeRevenue(orderId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   const order = await db.query.orders.findFirst({
     where: eq(orders.id, orderId),
@@ -554,7 +554,7 @@ export async function recognizeRevenue(orderId: number) {
  * Financial reporting dashboard
  */
 export async function getFinancialDashboard(periodStart: Date, periodEnd: Date) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Revenue metrics
   const revenueData = await db

@@ -1,7 +1,7 @@
 import { router, publicProcedure, protectedProcedure } from "./_core/trpc";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { getDb } from "./db";
+import { getDbSync } from "./db";
 import { eq, and, desc, sql, inArray, gte, lte } from "drizzle-orm";
 import {
   suppliers,
@@ -54,7 +54,7 @@ export const lsnOperationsRouter = router({
         limit: z.number().min(1).max(200).default(50),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         let query = db
           .select()
@@ -78,7 +78,7 @@ export const lsnOperationsRouter = router({
         supplierId: z.string(),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const [supplier] = await db
           .select()
@@ -139,7 +139,7 @@ export const lsnOperationsRouter = router({
         shippingTerms: z.string().optional(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const supplierId = randomBytes(16).toString("hex");
         
@@ -170,7 +170,7 @@ export const lsnOperationsRouter = router({
         status: z.enum(["active", "inactive", "suspended"]).optional(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const updates: any = {};
         if (input.name) updates.name = input.name;
@@ -196,7 +196,7 @@ export const lsnOperationsRouter = router({
           supplierId: z.string(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const items = await db
             .select()
@@ -220,7 +220,7 @@ export const lsnOperationsRouter = router({
           isPrimary: z.boolean().default(false),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const contactId = randomBytes(16).toString("hex");
           
@@ -247,7 +247,7 @@ export const lsnOperationsRouter = router({
           status: z.enum(["DRAFT", "ACTIVE", "EXPIRED", "TERMINATED"]).optional(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -278,7 +278,7 @@ export const lsnOperationsRouter = router({
           paymentTermsDays: z.number().min(0).optional(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const contractId = randomBytes(16).toString("hex");
           
@@ -307,7 +307,7 @@ export const lsnOperationsRouter = router({
           limit: z.number().min(1).max(50).default(12),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const items = await db
             .select()
@@ -330,7 +330,7 @@ export const lsnOperationsRouter = router({
           periodEnd: z.string(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           // Calculate metrics from purchase orders
           const [stats] = await db
@@ -374,7 +374,7 @@ export const lsnOperationsRouter = router({
           status: z.enum(["REQUESTED", "SHIPPED", "RECEIVED", "APPROVED", "REJECTED"]).optional(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -402,7 +402,7 @@ export const lsnOperationsRouter = router({
           notes: z.string().optional(),
         }))
         .mutation(async ({ input, ctx }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const sampleId = randomBytes(16).toString("hex");
           
@@ -429,7 +429,7 @@ export const lsnOperationsRouter = router({
           notes: z.string().optional(),
         }))
         .mutation(async ({ input, ctx }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const updates: any = { status: input.status };
           
@@ -464,7 +464,7 @@ export const lsnOperationsRouter = router({
         limit: z.number().min(1).max(200).default(50),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         let query = db
           .select()
@@ -491,7 +491,7 @@ export const lsnOperationsRouter = router({
         poId: z.string(),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const [po] = await db
           .select()
@@ -526,7 +526,7 @@ export const lsnOperationsRouter = router({
         notes: z.string().optional(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const totalCents = input.items.reduce((sum, item) => sum + (item.unitCostCents * item.quantity), 0) + input.shippingCostCents;
         
@@ -564,7 +564,7 @@ export const lsnOperationsRouter = router({
         status: z.enum(["pending", "confirmed", "shipped", "received", "canceled"]),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         await db.update(purchaseOrders)
           .set({ status: input.status })
@@ -589,7 +589,7 @@ export const lsnOperationsRouter = router({
         limit: z.number().min(1).max(100).default(50),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         let query = db
           .select()
@@ -613,7 +613,7 @@ export const lsnOperationsRouter = router({
         poId: z.string(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const workflowId = randomBytes(16).toString("hex");
         
@@ -640,7 +640,7 @@ export const lsnOperationsRouter = router({
         notes: z.string().optional(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         await db.update(receivingWorkflows)
           .set({
@@ -670,7 +670,7 @@ export const lsnOperationsRouter = router({
           channelId: z.string(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const [latest] = await db
             .select()
@@ -688,7 +688,7 @@ export const lsnOperationsRouter = router({
           limit: z.number().min(1).max(365).default(30),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const items = await db
             .select()
@@ -707,7 +707,7 @@ export const lsnOperationsRouter = router({
           periodEnd: z.string(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           // Calculate all KPIs
           const [orderStats] = await db
@@ -754,7 +754,7 @@ export const lsnOperationsRouter = router({
           limit: z.number().min(1).max(100).default(10),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const items = await db
             .select()
@@ -779,7 +779,7 @@ export const lsnOperationsRouter = router({
           periodEnd: z.string(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           // TODO: Calculate top performers based on category
           // For now, just create placeholder records
@@ -803,7 +803,7 @@ export const lsnOperationsRouter = router({
           limit: z.number().min(1).max(200).default(50),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -836,7 +836,7 @@ export const lsnOperationsRouter = router({
           productIds: z.array(z.string()).optional(),
         }))
         .mutation(async ({ input, ctx }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const assetId = randomBytes(16).toString("hex");
           
@@ -864,7 +864,7 @@ export const lsnOperationsRouter = router({
           status: z.enum(["DRAFT", "REVIEW", "APPROVED", "PUBLISHED", "ARCHIVED"]),
         }))
         .mutation(async ({ input, ctx }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const updates: any = { status: input.status };
           
@@ -894,7 +894,7 @@ export const lsnOperationsRouter = router({
           limit: z.number().min(1).max(200).default(50),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -921,7 +921,7 @@ export const lsnOperationsRouter = router({
           useCase: z.string().optional(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const hookId = randomBytes(16).toString("hex");
           
@@ -945,7 +945,7 @@ export const lsnOperationsRouter = router({
           hookId: z.string(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           await db.update(hooksLibrary)
             .set({ usageCount: sql`usage_count + 1` })
@@ -966,7 +966,7 @@ export const lsnOperationsRouter = router({
           limit: z.number().min(1).max(100).default(50),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -996,7 +996,7 @@ export const lsnOperationsRouter = router({
           budgetCents: z.number().min(0).optional(),
         }))
         .mutation(async ({ input, ctx }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const briefId = randomBytes(16).toString("hex");
           
@@ -1024,7 +1024,7 @@ export const lsnOperationsRouter = router({
           status: z.enum(["SENT", "ACCEPTED", "IN_PROGRESS", "COMPLETED"]),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           await db.update(ugcBriefs)
             .set({ status: input.status })
@@ -1050,7 +1050,7 @@ export const lsnOperationsRouter = router({
         limit: z.number().min(1).max(100).default(50),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         let query = db
           .select()
@@ -1079,7 +1079,7 @@ export const lsnOperationsRouter = router({
         notes: z.string().optional(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const trendId = randomBytes(16).toString("hex");
         
@@ -1106,7 +1106,7 @@ export const lsnOperationsRouter = router({
         status: z.enum(["ANALYZING", "APPROVED", "REJECTED", "LAUNCHED"]),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         await db.update(trendSpotting)
           .set({ status: input.status })
@@ -1127,7 +1127,7 @@ export const lsnOperationsRouter = router({
         status: z.enum(["PENDING", "IN_PROGRESS", "COMPLETED"]).optional(),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         let query = db
           .select()
@@ -1157,7 +1157,7 @@ export const lsnOperationsRouter = router({
         })),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const checklistId = randomBytes(16).toString("hex");
         
@@ -1184,7 +1184,7 @@ export const lsnOperationsRouter = router({
         })),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const allCompleted = input.tasks.every(t => t.completed);
         
@@ -1214,7 +1214,7 @@ export const lsnOperationsRouter = router({
           status: z.enum(["ACTIVE", "INACTIVE"]).optional(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -1240,7 +1240,7 @@ export const lsnOperationsRouter = router({
           shippingZones: z.array(z.string()).optional(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const configId = randomBytes(16).toString("hex");
           
@@ -1266,7 +1266,7 @@ export const lsnOperationsRouter = router({
           regionCode: z.string(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const items = await db
             .select()
@@ -1287,7 +1287,7 @@ export const lsnOperationsRouter = router({
           quantity: z.number().min(0),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const invId = randomBytes(16).toString("hex");
           

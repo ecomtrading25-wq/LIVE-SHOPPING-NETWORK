@@ -1,7 +1,7 @@
 import { router, publicProcedure, protectedProcedure } from "./_core/trpc";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { getDb } from "./db";
+import { getDbSync } from "./db";
 import { eq, and, desc, sql, inArray, gte, lte } from "drizzle-orm";
 import {
   orders,
@@ -54,7 +54,7 @@ export const lsnOrdersRouter = router({
         offset: z.number().min(0).default(0),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         let query = db
           .select()
@@ -98,7 +98,7 @@ export const lsnOrdersRouter = router({
         orderId: z.string(),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const [order] = await db
           .select()
@@ -187,7 +187,7 @@ export const lsnOrdersRouter = router({
         userAgent: z.string().optional(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         // Calculate totals
         const subtotalCents = input.items.reduce((sum, item) => sum + (item.priceCents * item.quantity), 0);
@@ -297,7 +297,7 @@ export const lsnOrdersRouter = router({
         status: z.enum(["pending_payment", "processing", "completed", "canceled", "refunded"]),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         await db.update(orders)
           .set({ status: input.status })
@@ -318,7 +318,7 @@ export const lsnOrdersRouter = router({
         paymentTransactionId: z.string().optional(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const updates: any = { paymentStatus: input.paymentStatus };
         if (input.paymentProvider) updates.paymentProvider = input.paymentProvider;
@@ -372,7 +372,7 @@ export const lsnOrdersRouter = router({
         endDate: z.string().optional(),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         let query = db
           .select({
@@ -411,7 +411,7 @@ export const lsnOrdersRouter = router({
           limit: z.number().min(1).max(200).default(50),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -441,7 +441,7 @@ export const lsnOrdersRouter = router({
           shippingCostCents: z.number().min(0).optional(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const shipmentId = randomBytes(16).toString("hex");
           
@@ -469,7 +469,7 @@ export const lsnOrdersRouter = router({
           deliveredAt: z.string().optional(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const updates: any = { status: input.status };
           if (input.deliveredAt) {
@@ -497,7 +497,7 @@ export const lsnOrdersRouter = router({
           status: z.enum(["active", "inactive"]).optional(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -523,7 +523,7 @@ export const lsnOrdersRouter = router({
           webhookUrl: z.string().optional(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const providerId = randomBytes(16).toString("hex");
           
@@ -551,7 +551,7 @@ export const lsnOrdersRouter = router({
           limit: z.number().min(1).max(200).default(50),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -584,7 +584,7 @@ export const lsnOrdersRouter = router({
           rateCents: z.number().min(0).optional(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const shipmentId = randomBytes(16).toString("hex");
           
@@ -611,7 +611,7 @@ export const lsnOrdersRouter = router({
             shipmentId: z.string(),
           }))
           .query(async ({ input }) => {
-            const db = getDb();
+            const db = getDbSync();
             
             const items = await db
               .select()
@@ -636,7 +636,7 @@ export const lsnOrdersRouter = router({
             providerData: z.any().optional(),
           }))
           .mutation(async ({ input }) => {
-            const db = getDb();
+            const db = getDbSync();
             
             const eventId = randomBytes(16).toString("hex");
             
@@ -680,7 +680,7 @@ export const lsnOrdersRouter = router({
           status: z.enum(["ACTIVE", "INACTIVE"]).optional(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -708,7 +708,7 @@ export const lsnOrdersRouter = router({
           priority: z.number().default(0),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const policyId = randomBytes(16).toString("hex");
           
@@ -737,7 +737,7 @@ export const lsnOrdersRouter = router({
           limit: z.number().min(1).max(200).default(50),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -765,7 +765,7 @@ export const lsnOrdersRouter = router({
           customerEmail: z.string().email(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           // Check order exists
           const [order] = await db
@@ -826,7 +826,7 @@ export const lsnOrdersRouter = router({
           approvalNotes: z.string().optional(),
         }))
         .mutation(async ({ input, ctx }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           await db.update(returnRequests)
             .set({
@@ -850,7 +850,7 @@ export const lsnOrdersRouter = router({
           rejectionReason: z.string(),
         }))
         .mutation(async ({ input, ctx }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           await db.update(returnRequests)
             .set({
@@ -878,7 +878,7 @@ export const lsnOrdersRouter = router({
         limit: z.number().min(1).max(200).default(50),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         let query = db
           .select()
@@ -907,7 +907,7 @@ export const lsnOrdersRouter = router({
         notes: z.string().optional(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const [order] = await db
           .select()
@@ -945,7 +945,7 @@ export const lsnOrdersRouter = router({
         refundId: z.string(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const [refund] = await db
           .select()

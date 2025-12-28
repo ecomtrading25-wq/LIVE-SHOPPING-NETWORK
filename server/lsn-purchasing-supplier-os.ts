@@ -13,7 +13,7 @@
  * - Payment terms automation
  */
 
-import { getDb } from "./db";
+import { getDbSync } from "./db";
 import { 
   suppliers, 
   purchaseOrders, 
@@ -96,7 +96,7 @@ export interface LandedCostCalculation {
  * Onboard new supplier with complete profile
  */
 export async function onboardSupplier(data: SupplierOnboardingData) {
-  const db = getDb();
+  const db = getDbSync();
   
   // Calculate initial trust score based on certifications and payment terms
   let initialTrustScore = 50; // Base score
@@ -145,7 +145,7 @@ export async function onboardSupplier(data: SupplierOnboardingData) {
  * Update supplier trust score based on performance
  */
 export async function updateSupplierTrustScore(supplierId: number) {
-  const db = getDb();
+  const db = getDbSync();
   
   // Get supplier performance metrics
   const [performance] = await db
@@ -190,7 +190,7 @@ export async function updateSupplierTrustScore(supplierId: number) {
  * Get supplier scorecard with detailed metrics
  */
 export async function getSupplierScorecard(supplierId: number) {
-  const db = getDb();
+  const db = getDbSync();
   
   const [supplier] = await db
     .select()
@@ -256,7 +256,7 @@ function generateSupplierRecommendations(supplier: any, performance: any) {
  * Generate purchase order with intelligent supplier selection
  */
 export async function generatePurchaseOrder(data: PurchaseOrderData) {
-  const db = getDb();
+  const db = getDbSync();
   
   // Calculate totals
   const subtotal = data.items.reduce((sum, item) => sum + (item.quantity * item.unitCost), 0);
@@ -300,7 +300,7 @@ export async function generatePurchaseOrder(data: PurchaseOrderData) {
  * Intelligent reorder point calculation with demand forecasting
  */
 export async function calculateReorderPoints(productId: number) {
-  const db = getDb();
+  const db = getDbSync();
   
   // Get product and supplier info
   const [product] = await db
@@ -350,7 +350,7 @@ export async function calculateReorderPoints(productId: number) {
  * Automated reorder system - checks all products and generates POs
  */
 export async function runAutomatedReorderSystem() {
-  const db = getDb();
+  const db = getDbSync();
   
   // Get all active products
   const allProducts = await db
@@ -416,7 +416,7 @@ export async function runAutomatedReorderSystem() {
  * Record quality inspection results
  */
 export async function recordQualityInspection(data: QualityInspectionData) {
-  const db = getDb();
+  const db = getDbSync();
   
   const passRate = data.passedItems / (data.passedItems + data.failedItems);
   
@@ -464,7 +464,7 @@ export async function recordQualityInspection(data: QualityInspectionData) {
 }
 
 async function updateSupplierQualityMetrics(supplierId: number, passRate: number, defects: number) {
-  const db = getDb();
+  const db = getDbSync();
   
   const [performance] = await db
     .select()
@@ -572,7 +572,7 @@ export async function createInventoryLot(
   quantity: number,
   landedCost: LandedCostCalculation
 ) {
-  const db = getDb();
+  const db = getDbSync();
   
   const [lot] = await db.insert(inventoryLots).values({
     productId,
@@ -607,7 +607,7 @@ export interface RFQData {
  * Send RFQ to multiple suppliers
  */
 export async function sendRFQ(data: RFQData) {
-  const db = getDb();
+  const db = getDbSync();
   
   const rfqNumber = `RFQ-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
   
@@ -645,7 +645,7 @@ export interface ContractData {
  * Create supplier contract
  */
 export async function createSupplierContract(data: ContractData) {
-  const db = getDb();
+  const db = getDbSync();
   
   const [contract] = await db.insert(supplierContracts).values({
     supplierId: data.supplierId,
@@ -668,7 +668,7 @@ export async function createSupplierContract(data: ContractData) {
  * Check contract compliance
  */
 export async function checkContractCompliance(supplierId: number) {
-  const db = getDb();
+  const db = getDbSync();
   
   const [contract] = await db
     .select()
@@ -717,7 +717,7 @@ export async function checkContractCompliance(supplierId: number) {
  * Get purchasing analytics dashboard
  */
 export async function getPurchasingAnalytics(startDate: Date, endDate: Date) {
-  const db = getDb();
+  const db = getDbSync();
   
   const orders = await db
     .select()

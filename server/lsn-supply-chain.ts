@@ -18,7 +18,7 @@
  * - Supplier lead time tracking
  */
 
-import { getDb } from "./db";
+import { getDbSync } from "./db";
 import { warehouseLocations, inventoryTransactions, orders, orderItems, productVariants } from "../drizzle/schema";
 import { eq, and, gte, lte, desc, sql, sum, count, avg } from "drizzle-orm";
 
@@ -26,7 +26,7 @@ import { eq, and, gte, lte, desc, sql, sum, count, avg } from "drizzle-orm";
  * Multi-warehouse inventory optimization
  */
 export async function optimizeInventoryDistribution(productVariantId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get all warehouses
   const warehouses = await db.query.warehouseLocations.findMany();
@@ -122,7 +122,7 @@ export async function planCrossDockOperation(inboundShipmentId: number) {
     ],
   };
 
-  const db = getDb();
+  const db = getDbSync();
 
   // Find pending orders that need these items
   const matchingOrders = [];
@@ -576,7 +576,7 @@ export async function predictDeliveryTime(shipmentData: {
  * Load balancing across warehouses
  */
 export async function balanceWarehouseLoads() {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get all warehouses with capacity info
   const warehouses = await db.query.warehouseLocations.findMany();
@@ -630,7 +630,7 @@ export async function balanceWarehouseLoads() {
  * Safety stock optimization
  */
 export async function optimizeSafetyStock(productVariantId: number, warehouseId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get historical demand (last 90 days)
   const demandHistory = await db

@@ -18,7 +18,7 @@
  * - Predictive customer scoring
  */
 
-import { getDb } from "./db";
+import { getDbSync } from "./db";
 import { users, orders, orderItems, products, productVariants } from "../drizzle/schema";
 import { eq, and, gte, lte, desc, sql, sum, count, avg } from "drizzle-orm";
 
@@ -26,7 +26,7 @@ import { eq, and, gte, lte, desc, sql, sum, count, avg } from "drizzle-orm";
  * Customer 360° profile
  */
 export async function getCustomer360Profile(userId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get user basic info
   const user = await db.query.users.findFirst({
@@ -287,7 +287,7 @@ function generateCustomerRecommendations(context: {
  * AI-powered product recommendations
  */
 export async function generateProductRecommendations(userId: number, context: "homepage" | "product_page" | "cart" | "email") {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get user's purchase history
   const userOrders = await db.query.orders.findMany({
@@ -404,7 +404,7 @@ function getRecommendationReason(context: string, productCategoryId: number | nu
  * Behavioral segmentation
  */
 export async function segmentCustomersByBehavior(periodStart: Date, periodEnd: Date) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get all customers with orders in period
   const customersWithOrders = await db
@@ -535,7 +535,7 @@ export async function generatePersonalizedCampaign(segmentName: string, userIds:
  * Customer journey mapping
  */
 export async function mapCustomerJourney(userId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   const user = await db.query.users.findFirst({
     where: eq(users.id, userId),
@@ -615,7 +615,7 @@ export async function mapCustomerJourney(userId: number) {
  * Cohort analysis
  */
 export async function analyzeCohorts(cohortType: "monthly" | "weekly") {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get all users grouped by registration cohort
   const users = await db.query.users.findMany({

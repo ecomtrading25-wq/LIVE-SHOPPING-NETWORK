@@ -13,7 +13,7 @@
  * - ROI tracking and reporting
  */
 
-import { getDb } from "./db";
+import { getDbSync } from "./db";
 import { products, productVariants, orders, orderItems, inventoryTransactions } from "../drizzle/schema";
 import { eq, and, gte, lte, desc, sql, avg, sum, count } from "drizzle-orm";
 
@@ -21,7 +21,7 @@ import { eq, and, gte, lte, desc, sql, avg, sum, count } from "drizzle-orm";
  * Calculate comprehensive SKU profitability
  */
 export async function calculateSKUProfitability(skuId: number, periodStart: Date, periodEnd: Date) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get SKU details
   const sku = await db.query.productVariants.findFirst({
@@ -338,7 +338,7 @@ function calculateCostReductionForMargin(profitability: any, targetMargin: numbe
  * Product recommendation engine
  */
 export async function generateProductRecommendations(userId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get user's purchase history
   const userOrders = await db.query.orders.findMany({
@@ -398,7 +398,7 @@ export async function generateProductRecommendations(userId: number) {
  * Inventory optimization recommendations
  */
 export async function generateInventoryOptimization(skuId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get sales velocity (last 90 days)
   const periodStart = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000);
@@ -488,7 +488,7 @@ export async function generateInventoryOptimization(skuId: number) {
  * Demand forecasting per SKU
  */
 export async function forecastDemand(skuId: number, forecastDays: number = 30) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get historical sales data (last 180 days)
   const historicalPeriod = 180;
@@ -558,7 +558,7 @@ export async function forecastDemand(skuId: number, forecastDays: number = 30) {
  * SKU Analytics Dashboard
  */
 export async function getSKUAnalyticsDashboard(periodDays: number = 30) {
-  const db = getDb();
+  const db = getDbSync();
 
   const periodStart = new Date(Date.now() - periodDays * 24 * 60 * 60 * 1000);
   const periodEnd = new Date();

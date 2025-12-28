@@ -16,7 +16,7 @@
  * - Interactive overlay system
  */
 
-import { getDb } from "./db";
+import { getDbSync } from "./db";
 import { liveShows, liveShowViewers, liveShowProducts, products, productVariants, inventoryTransactions } from "../drizzle/schema";
 import { eq, and, gte, lte, desc, sql, sum, count, avg } from "drizzle-orm";
 
@@ -29,7 +29,7 @@ type ShowState = "scheduled" | "preparing" | "live" | "paused" | "ended" | "arch
  * Start live show session
  */
 export async function startLiveShowSession(showId: number, hostId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get show details
   const show = await db.query.liveShows.findFirst({
@@ -96,7 +96,7 @@ function generateStreamKey(showId: number): string {
  * Update live show session state
  */
 export async function updateShowState(showId: number, newState: ShowState) {
-  const db = getDb();
+  const db = getDbSync();
 
   const validTransitions: Record<ShowState, ShowState[]> = {
     scheduled: ["preparing", "cancelled"],
@@ -141,7 +141,7 @@ export async function updateShowState(showId: number, newState: ShowState) {
  * Pin product to live show
  */
 export async function pinProductToShow(showId: number, productId: number, variantId?: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get product details
   const product = await db.query.products.findFirst({
@@ -205,7 +205,7 @@ export async function pinProductToShow(showId: number, productId: number, varian
  * Unpin product from show
  */
 export async function unpinProductFromShow(showId: number, productId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   await db
     .delete(liveShowProducts)
@@ -227,7 +227,7 @@ export async function unpinProductFromShow(showId: number, productId: number) {
  * Get live stock display for pinned products
  */
 export async function getLiveStockDisplay(showId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   const pinnedProducts = await db.query.liveShowProducts.findMany({
     where: eq(liveShowProducts.showId, showId),
@@ -293,7 +293,7 @@ export async function trackShowSegment(showId: number, segmentData: {
   targetRevenue: number;
   notes?: string;
 }) {
-  const db = getDb();
+  const db = getDbSync();
 
   const segment = {
     showId,
@@ -339,7 +339,7 @@ export async function planShowSegments(showId: number, duration: number) {
  * Start recording show
  */
 export async function startRecording(showId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   const show = await db.query.liveShows.findFirst({
     where: eq(liveShows.id, showId),
@@ -445,7 +445,7 @@ export async function generateAutomatedClips(recordingId: number) {
  * Create VOD from recording
  */
 export async function createVOD(recordingId: number, showId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   const show = await db.query.liveShows.findFirst({
     where: eq(liveShows.id, showId),
@@ -501,7 +501,7 @@ export async function trackVODAnalytics(vodId: number, viewerData: {
  * Get live show analytics
  */
 export async function getLiveShowAnalytics(showId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   const show = await db.query.liveShows.findFirst({
     where: eq(liveShows.id, showId),
@@ -606,7 +606,7 @@ export async function handleOverlayInteraction(overlayId: number, userId: number
  * Real-time viewer count
  */
 export async function getRealTimeViewerCount(showId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get current active viewers (joined but not left)
   const activeViewers = await db
@@ -632,7 +632,7 @@ export async function getRealTimeViewerCount(showId: number) {
  * Viewer engagement metrics
  */
 export async function getViewerEngagement(showId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   const engagement = await db
     .select({
@@ -656,7 +656,7 @@ export async function getViewerEngagement(showId: number) {
  * End live show session
  */
 export async function endLiveShowSession(showId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Update show status
   await db

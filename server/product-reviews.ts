@@ -3,7 +3,7 @@
  * Complete review management with media uploads, moderation, and analytics
  */
 
-import { getDb } from "./db";
+import { getDbSync } from "./db";
 import { products, users } from "../drizzle/schema";
 import { eq, and, desc, sql, count } from "drizzle-orm";
 import { storagePut } from "./storage";
@@ -64,7 +64,7 @@ export async function createReview(params: {
   images?: Buffer[];
   videos?: Buffer[];
 }): Promise<ProductReview> {
-  const db = getDb();
+  const db = getDbSync();
   const reviewId = `review_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
   // Check if user purchased this product
@@ -124,7 +124,7 @@ export async function createReview(params: {
  * Check if user has purchased the product (verified purchase)
  */
 async function checkVerifiedPurchase(userId: number, productId: string): Promise<boolean> {
-  const db = getDb();
+  const db = getDbSync();
 
   // Check if user has any completed orders with this product
   const result = await db

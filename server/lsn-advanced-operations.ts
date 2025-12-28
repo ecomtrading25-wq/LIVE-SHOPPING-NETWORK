@@ -18,7 +18,7 @@
  * - Bottleneck detection system
  */
 
-import { getDb } from "./db";
+import { getDbSync } from "./db";
 import { warehouseLocations, warehouseZones, warehouseBins, inventoryTransactions, orders, orderItems } from "../drizzle/schema";
 import { eq, and, gte, lte, desc, sql, sum, count, avg } from "drizzle-orm";
 
@@ -26,7 +26,7 @@ import { eq, and, gte, lte, desc, sql, sum, count, avg } from "drizzle-orm";
  * Smart routing algorithm for order fulfillment
  */
 export async function calculateOptimalRoute(orderId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get order details
   const order = await db.query.orders.findFirst({
@@ -359,7 +359,7 @@ export async function automatedQualityCheck(inspectionData: {
  * Performance optimization engine
  */
 export async function analyzeOperationalPerformance(periodStart: Date, periodEnd: Date) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get order fulfillment metrics
   const orderMetrics = await db
@@ -458,7 +458,7 @@ export async function analyzeOperationalPerformance(periodStart: Date, periodEnd
  * Automated workflow orchestration
  */
 export async function orchestrateOrderWorkflow(orderId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   const order = await db.query.orders.findFirst({
     where: eq(orders.id, orderId),
@@ -554,7 +554,7 @@ export async function orchestrateOrderWorkflow(orderId: number) {
  * Task assignment automation
  */
 export async function autoAssignTasks() {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get pending orders
   const pendingOrders = await db.query.orders.findMany({
@@ -679,7 +679,7 @@ export async function optimizeResourceAllocation() {
  * Bottleneck detection system
  */
 export async function detectBottlenecks(periodStart: Date, periodEnd: Date) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Analyze order flow through different stages
   const stageMetrics = {

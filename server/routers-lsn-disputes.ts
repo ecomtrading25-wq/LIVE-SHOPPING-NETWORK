@@ -1,7 +1,7 @@
 import { router, publicProcedure, protectedProcedure } from "./_core/trpc";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { getDb } from "./db";
+import { getDbSync } from "./db";
 import { eq, and, desc, sql, inArray, gte, lte, isNull } from "drizzle-orm";
 import {
   orders,
@@ -52,7 +52,7 @@ export const lsnDisputesRouter = router({
         offset: z.number().min(0).default(0),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         let query = db
           .select()
@@ -83,7 +83,7 @@ export const lsnDisputesRouter = router({
         disputeId: z.string(),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const [dispute] = await db
           .select()
@@ -136,7 +136,7 @@ export const lsnDisputesRouter = router({
         disputeId: z.string(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const [dispute] = await db
           .select()
@@ -174,7 +174,7 @@ export const lsnDisputesRouter = router({
         disputeId: z.string(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const [dispute] = await db
           .select()
@@ -253,7 +253,7 @@ export const lsnDisputesRouter = router({
         disputeId: z.string(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const [dispute] = await db
           .select()
@@ -309,7 +309,7 @@ export const lsnDisputesRouter = router({
         reason: z.string(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         await db.update(lsnDisputes)
           .set({
@@ -342,7 +342,7 @@ export const lsnDisputesRouter = router({
         notes: z.string().optional(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         await db.update(lsnDisputes)
           .set({ status: input.status })
@@ -370,7 +370,7 @@ export const lsnDisputesRouter = router({
         endDate: z.string().optional(),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         let query = db
           .select({
@@ -407,7 +407,7 @@ export const lsnDisputesRouter = router({
         resource: z.any(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         // Deduplicate webhook
         const [existing] = await db
@@ -479,7 +479,7 @@ export const lsnDisputesRouter = router({
           offset: z.number().min(0).default(0),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -524,7 +524,7 @@ export const lsnDisputesRouter = router({
           })),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const results = {
             ingested: 0,
@@ -583,7 +583,7 @@ export const lsnDisputesRouter = router({
           payoutId: z.string().optional(),
         }))
         .mutation(async ({ input, ctx }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           await db.update(providerTransactions)
             .set({
@@ -608,7 +608,7 @@ export const lsnDisputesRouter = router({
           limit: z.number().min(1).max(1000).default(100),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -669,7 +669,7 @@ export const lsnDisputesRouter = router({
           limit: z.number().min(1).max(200).default(50),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -702,7 +702,7 @@ export const lsnDisputesRouter = router({
           actualCents: z.number().optional(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const discrepancyId = randomBytes(16).toString("hex");
           const differenceCents = (input.actualCents || 0) - (input.expectedCents || 0);
@@ -731,7 +731,7 @@ export const lsnDisputesRouter = router({
           resolution: z.string(),
         }))
         .mutation(async ({ input, ctx }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           await db.update(reconciliationDiscrepancies)
             .set({
@@ -756,7 +756,7 @@ export const lsnDisputesRouter = router({
         endDate: z.string().optional(),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         let txnQuery = db
           .select({
@@ -806,7 +806,7 @@ export const lsnDisputesRouter = router({
         key: z.string(),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const [existing] = await db
           .select()
@@ -830,7 +830,7 @@ export const lsnDisputesRouter = router({
         status: z.enum(["IN_PROGRESS", "COMPLETED", "FAILED"]),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         await db.insert(idempotencyKeys).values({
           channelId: input.channelId,

@@ -1,7 +1,7 @@
 import { router, publicProcedure, protectedProcedure } from "./_core/trpc";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { getDb } from "./db";
+import { getDbSync } from "./db";
 import { eq, and, desc, sql, inArray } from "drizzle-orm";
 import {
   adminUsers,
@@ -261,7 +261,7 @@ export const lsnAuthRouter = router({
           throw new TRPCError({ code: "UNAUTHORIZED" });
         }
         
-        const db = getDb();
+        const db = getDbSync();
         const [staff] = await db
           .select()
           .from(adminUsers)
@@ -290,7 +290,7 @@ export const lsnAuthRouter = router({
         status: z.enum(["active", "disabled"]).optional(),
       }))
       .query(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         await requireStaffPerm(db, ctx.user!.id, input.channelId, "MANAGE_STAFF");
         
         let query = db.select().from(adminUsers);
@@ -320,7 +320,7 @@ export const lsnAuthRouter = router({
         capabilities: z.array(z.string()).optional(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         await requireStaffPerm(db, ctx.user!.id, input.channelId, "MANAGE_STAFF");
         
         const passwordHash = createHash("sha256").update(input.password).digest("hex");
@@ -359,7 +359,7 @@ export const lsnAuthRouter = router({
         status: z.enum(["active", "disabled"]).optional(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         await requireStaffPerm(db, ctx.user!.id, input.channelId, "MANAGE_STAFF");
         
         const [before] = await db
@@ -402,7 +402,7 @@ export const lsnAuthRouter = router({
         staffId: z.string(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         await requireStaffPerm(db, ctx.user!.id, input.channelId, "MANAGE_STAFF");
         
         const [before] = await db
@@ -444,7 +444,7 @@ export const lsnAuthRouter = router({
         channelId: z.string(),
       }))
       .query(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const keys = await db
           .select({
@@ -469,7 +469,7 @@ export const lsnAuthRouter = router({
         expiresInDays: z.number().min(1).max(365).optional(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const apiKey = `lsn_${randomBytes(32).toString("hex")}`;
         const keyHash = createHash("sha256").update(apiKey).digest("hex");
@@ -509,7 +509,7 @@ export const lsnAuthRouter = router({
         keyId: z.string(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         await db.update(staffApiKeys)
           .set({ status: "revoked" })
@@ -550,7 +550,7 @@ export const lsnAuthRouter = router({
         refId: z.string().optional(),
       }))
       .query(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         await requireStaffPerm(db, ctx.user!.id, input.channelId, "VIEW_AUDIT_LOG");
         
         let query = db
@@ -589,7 +589,7 @@ export const lsnAuthRouter = router({
         endDate: z.string().optional(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         await requireStaffPerm(db, ctx.user!.id, input.channelId, "VIEW_AUDIT_LOG");
         
         let query = db
@@ -678,7 +678,7 @@ export const lsnAuthRouter = router({
         limit: z.number().min(1).max(200).default(50),
       }))
       .query(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         await requireStaffPerm(db, ctx.user!.id, input.channelId, "MANUAL_RELEASE_TRAIN_CONTROL");
         
         let query = db
@@ -706,7 +706,7 @@ export const lsnAuthRouter = router({
         escalationId: z.string(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         await requireStaffPerm(db, ctx.user!.id, input.channelId, "MANUAL_RELEASE_TRAIN_CONTROL");
         
         await db.update(escalations)
@@ -738,7 +738,7 @@ export const lsnAuthRouter = router({
         notes: z.string().max(500).optional(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         await requireStaffPerm(db, ctx.user!.id, input.channelId, "MANUAL_RELEASE_TRAIN_CONTROL");
         
         await db.update(escalations)
@@ -777,7 +777,7 @@ export const lsnAuthRouter = router({
         limit: z.number().min(1).max(200).default(50),
       }))
       .query(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         await requireStaffPerm(db, ctx.user!.id, input.channelId, "MANUAL_RELEASE_TRAIN_CONTROL");
         
         let query = db
@@ -812,7 +812,7 @@ export const lsnAuthRouter = router({
         limit: z.number().min(1).max(200).default(50),
       }))
       .query(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         await requireStaffPerm(db, ctx.user!.id, input.channelId, "MANUAL_RELEASE_TRAIN_CONTROL");
         
         let query = db
@@ -837,7 +837,7 @@ export const lsnAuthRouter = router({
         seedId: z.string(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         await requireStaffPerm(db, ctx.user!.id, input.channelId, "MANUAL_RELEASE_TRAIN_CONTROL");
         
         await db.update(regressionSeeds)
@@ -868,7 +868,7 @@ export const lsnAuthRouter = router({
         seedId: z.string(),
       }))
       .mutation(async ({ input, ctx }) => {
-        const db = getDb();
+        const db = getDbSync();
         await requireStaffPerm(db, ctx.user!.id, input.channelId, "MANUAL_RELEASE_TRAIN_CONTROL");
         
         await db.update(regressionSeeds)
@@ -904,7 +904,7 @@ export const lsnAuthRouter = router({
       capabilities: z.array(z.string()),
     }))
     .query(async ({ input, ctx }) => {
-      const db = getDb();
+      const db = getDbSync();
       
       const [staff] = await db
         .select()

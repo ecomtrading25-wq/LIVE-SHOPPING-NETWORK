@@ -12,7 +12,7 @@
  * - Creator recruitment and onboarding
  */
 
-import { getDb } from "./db";
+import { getDbSync } from "./db";
 import { 
   creators,
   creatorTiers,
@@ -152,7 +152,7 @@ export const CREATOR_TIERS = {
  * Onboard new creator with initial tier assignment
  */
 export async function onboardCreator(data: CreatorOnboardingData) {
-  const db = getDb();
+  const db = getDbSync();
   
   const [creator] = await db.insert(creators).values({
     userId: data.userId,
@@ -191,7 +191,7 @@ export async function onboardCreator(data: CreatorOnboardingData) {
  * Evaluate creator tier based on performance
  */
 export async function evaluateCreatorTier(creatorId: number) {
-  const db = getDb();
+  const db = getDbSync();
   
   // Get last 30 days performance
   const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
@@ -237,7 +237,7 @@ export async function evaluateCreatorTier(creatorId: number) {
  * Calculate creator trust score
  */
 export async function updateCreatorTrustScore(creatorId: number) {
-  const db = getDb();
+  const db = getDbSync();
   
   const [performance] = await db
     .select()
@@ -289,7 +289,7 @@ export async function checkScheduleConflicts(
   endTime: Date,
   excludeScheduleId?: number
 ) {
-  const db = getDb();
+  const db = getDbSync();
   
   let query = db
     .select()
@@ -317,7 +317,7 @@ export async function checkScheduleConflicts(
  * Create broadcast schedule with conflict detection
  */
 export async function createBroadcastSchedule(data: BroadcastScheduleData) {
-  const db = getDb();
+  const db = getDbSync();
   
   const startTime = new Date(data.startTime);
   const endTime = new Date(data.endTime);
@@ -368,7 +368,7 @@ export async function createBroadcastSchedule(data: BroadcastScheduleData) {
  * Generate optimal broadcast schedule for 24/7 coverage
  */
 export async function generateOptimal24x7Schedule(startDate: Date, endDate: Date) {
-  const db = getDb();
+  const db = getDbSync();
   
   // Get all active creators
   const activeCreators = await db
@@ -435,7 +435,7 @@ export async function generateOptimal24x7Schedule(startDate: Date, endDate: Date
  * Start live show from scheduled broadcast
  */
 export async function startLiveShow(scheduleId: number) {
-  const db = getDb();
+  const db = getDbSync();
   
   const [schedule] = await db
     .select()
@@ -486,7 +486,7 @@ export async function startLiveShow(scheduleId: number) {
  * End live show and calculate metrics
  */
 export async function endLiveShow(showId: number) {
-  const db = getDb();
+  const db = getDbSync();
   
   const [show] = await db
     .select()
@@ -571,7 +571,7 @@ export async function endLiveShow(showId: number) {
  * Create show segment for structured broadcasting
  */
 export async function createShowSegment(data: ShowSegmentData) {
-  const db = getDb();
+  const db = getDbSync();
   
   const [segment] = await db.insert(showSegments).values({
     showId: data.showId,
@@ -599,7 +599,7 @@ export async function calculateCreatorPayout(
   periodStart: Date,
   periodEnd: Date
 ): Promise<PayoutCalculation> {
-  const db = getDb();
+  const db = getDbSync();
   
   const [creator] = await db
     .select()
@@ -690,7 +690,7 @@ export async function calculateCreatorPayout(
  * Process all creator payouts for period
  */
 export async function processAllCreatorPayouts(periodStart: Date, periodEnd: Date) {
-  const db = getDb();
+  const db = getDbSync();
   
   const activeCreators = await db
     .select()
@@ -738,7 +738,7 @@ export async function processAllCreatorPayouts(periodStart: Date, periodEnd: Dat
  * Get creator performance dashboard
  */
 export async function getCreatorDashboard(creatorId: number, days: number = 30) {
-  const db = getDb();
+  const db = getDbSync();
   
   const startDate = new Date(Date.now() - days * 24 * 60 * 60 * 1000);
   

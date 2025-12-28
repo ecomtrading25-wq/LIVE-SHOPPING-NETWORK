@@ -18,7 +18,7 @@
  * - Revenue forecasting with confidence intervals
  */
 
-import { getDb } from "./db";
+import { getDbSync } from "./db";
 import { orders, orderItems, products, productVariants, users } from "../drizzle/schema";
 import { eq, and, gte, lte, desc, sql, sum, count, avg } from "drizzle-orm";
 
@@ -26,7 +26,7 @@ import { eq, and, gte, lte, desc, sql, sum, count, avg } from "drizzle-orm";
  * Predictive demand forecasting
  */
 export async function forecastDemand(productVariantId: number, forecastDays: number = 30) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get historical sales data (last 180 days)
   const historicalData = [];
@@ -111,7 +111,7 @@ export async function forecastDemand(productVariantId: number, forecastDays: num
  * Dynamic price optimization
  */
 export async function optimizePrice(productVariantId: number) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get product details
   const variant = await db.query.productVariants.findFirst({
@@ -255,7 +255,7 @@ export async function analyzeSentiment(productId: number) {
  * Anomaly detection system
  */
 export async function detectAnomalies(metricType: "sales" | "traffic" | "fraud", periodDays: number = 30) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get historical data
   const data = [];
@@ -436,7 +436,7 @@ function normalCDF(x: number): number {
  * Real-time business intelligence dashboard
  */
 export async function getRealTimeBI() {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get today's metrics
   const today = new Date();
@@ -519,7 +519,7 @@ export async function getRealTimeBI() {
  * Cohort retention analysis
  */
 export async function analyzeCohortRetention(cohortMonth: string) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get users who joined in cohort month
   const cohortStart = new Date(cohortMonth + "-01");
@@ -701,7 +701,7 @@ export async function analyzeFunnel(funnelSteps: string[]) {
  * Revenue forecasting
  */
 export async function forecastRevenue(forecastMonths: number = 6) {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get historical monthly revenue (last 12 months)
   const historicalRevenue = [];

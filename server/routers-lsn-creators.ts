@@ -1,7 +1,7 @@
 import { router, publicProcedure, protectedProcedure } from "./_core/trpc";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { getDb } from "./db";
+import { getDbSync } from "./db";
 import { eq, and, desc, sql, inArray, gte, lte, between } from "drizzle-orm";
 import {
   creators,
@@ -48,7 +48,7 @@ export const lsnCreatorsRouter = router({
         offset: z.number().min(0).default(0),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         let query = db
           .select()
@@ -76,7 +76,7 @@ export const lsnCreatorsRouter = router({
         creatorId: z.string(),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const [creator] = await db
           .select()
@@ -135,7 +135,7 @@ export const lsnCreatorsRouter = router({
         status: z.enum(["active", "inactive", "suspended"]).default("active"),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const creatorId = randomBytes(16).toString("hex");
         
@@ -165,7 +165,7 @@ export const lsnCreatorsRouter = router({
         status: z.enum(["active", "inactive", "suspended"]).optional(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const updates: any = {};
         if (input.name) updates.name = input.name;
@@ -193,7 +193,7 @@ export const lsnCreatorsRouter = router({
         endDate: z.string().optional(),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         let query = db
           .select({
@@ -231,7 +231,7 @@ export const lsnCreatorsRouter = router({
         channelId: z.string(),
       }))
       .query(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const items = await db
           .select()
@@ -252,7 +252,7 @@ export const lsnCreatorsRouter = router({
         perks: z.array(z.string()).optional(),
       }))
       .mutation(async ({ input }) => {
-        const db = getDb();
+        const db = getDbSync();
         
         const tierId = randomBytes(16).toString("hex");
         
@@ -283,7 +283,7 @@ export const lsnCreatorsRouter = router({
           limit: z.number().min(1).max(100).default(20),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -308,7 +308,7 @@ export const lsnCreatorsRouter = router({
           periodEnd: z.string(),
         }))
         .mutation(async ({ input, ctx }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const batchId = randomBytes(16).toString("hex");
           
@@ -385,7 +385,7 @@ export const lsnCreatorsRouter = router({
           batchId: z.string(),
         }))
         .mutation(async ({ input, ctx }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           await db.update(creatorPayoutBatches)
             .set({ status: "APPROVED" })
@@ -403,7 +403,7 @@ export const lsnCreatorsRouter = router({
           batchId: z.string(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const [batch] = await db
             .select()
@@ -449,7 +449,7 @@ export const lsnCreatorsRouter = router({
           status: z.enum(["ACTIVE", "RELEASED", "FORFEITED"]).optional(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -479,7 +479,7 @@ export const lsnCreatorsRouter = router({
           currency: z.string().default("AUD"),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const holdId = randomBytes(16).toString("hex");
           
@@ -505,7 +505,7 @@ export const lsnCreatorsRouter = router({
           releaseReason: z.string(),
         }))
         .mutation(async ({ input, ctx }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           await db.update(payoutHolds)
             .set({
@@ -536,7 +536,7 @@ export const lsnCreatorsRouter = router({
           status: z.enum(["active", "disabled"]).optional(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -560,7 +560,7 @@ export const lsnCreatorsRouter = router({
           description: z.string().optional(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const bcId = randomBytes(16).toString("hex");
           
@@ -589,7 +589,7 @@ export const lsnCreatorsRouter = router({
           status: z.enum(["SCHEDULED", "LIVE", "COMPLETED", "CANCELED", "NO_SHOW"]).optional(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -626,7 +626,7 @@ export const lsnCreatorsRouter = router({
           notes: z.string().optional(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           // Check for conflicts
           const conflicts = await db
@@ -673,7 +673,7 @@ export const lsnCreatorsRouter = router({
           notes: z.string().optional(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const updates: any = {};
           if (input.creatorId !== undefined) updates.creatorId = input.creatorId;
@@ -700,7 +700,7 @@ export const lsnCreatorsRouter = router({
           endDate: z.string(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           // Get all creators with availability
           const availableCreators = await db
@@ -750,7 +750,7 @@ export const lsnCreatorsRouter = router({
           creatorId: z.string(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const items = await db
             .select()
@@ -774,7 +774,7 @@ export const lsnCreatorsRouter = router({
           isAvailable: z.boolean().default(true),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const availId = randomBytes(16).toString("hex");
           
@@ -808,7 +808,7 @@ export const lsnCreatorsRouter = router({
           limit: z.number().min(1).max(100).default(20),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -837,7 +837,7 @@ export const lsnCreatorsRouter = router({
           title: z.string(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const sessionId = randomBytes(16).toString("hex");
           
@@ -865,7 +865,7 @@ export const lsnCreatorsRouter = router({
           sessionId: z.string(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           await db.update(liveSessions)
             .set({
@@ -888,7 +888,7 @@ export const lsnCreatorsRouter = router({
           liveSessionId: z.string(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const items = await db
             .select()
@@ -915,7 +915,7 @@ export const lsnCreatorsRouter = router({
           scriptNotes: z.string().optional(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const segmentId = randomBytes(16).toString("hex");
           
@@ -944,7 +944,7 @@ export const lsnCreatorsRouter = router({
           status: z.enum(["SCHEDULED", "ACTIVE", "ENDED", "CANCELED"]).optional(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           let query = db
             .select()
@@ -976,7 +976,7 @@ export const lsnCreatorsRouter = router({
           urgencyMessage: z.string().optional(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const dropId = randomBytes(16).toString("hex");
           const discountPercent = ((input.originalPriceCents - input.dropPriceCents) / input.originalPriceCents) * 100;
@@ -1005,7 +1005,7 @@ export const lsnCreatorsRouter = router({
           dropId: z.string(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           await db.update(livePriceDrops)
             .set({ status: "ACTIVE" })
@@ -1025,7 +1025,7 @@ export const lsnCreatorsRouter = router({
           liveSessionId: z.string(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const items = await db
             .select()
@@ -1050,7 +1050,7 @@ export const lsnCreatorsRouter = router({
           productIds: z.array(z.string()).optional(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const highlightId = randomBytes(16).toString("hex");
           
@@ -1077,7 +1077,7 @@ export const lsnCreatorsRouter = router({
           liveSessionId: z.string(),
         }))
         .query(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const items = await db
             .select()
@@ -1099,7 +1099,7 @@ export const lsnCreatorsRouter = router({
           displayOrder: z.number().default(0),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           const pinId = randomBytes(16).toString("hex");
           
@@ -1121,7 +1121,7 @@ export const lsnCreatorsRouter = router({
           pinId: z.string(),
         }))
         .mutation(async ({ input }) => {
-          const db = getDb();
+          const db = getDbSync();
           
           await db.update(pinnedProducts)
             .set({ unpinnedAt: new Date() })

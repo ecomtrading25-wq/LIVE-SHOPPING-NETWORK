@@ -1,8 +1,8 @@
 import { z } from "zod";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { TRPCError } from "@trpc/server";
-import { getDb } from "./db";
-const db = getDb();
+import { getDbSync } from "./db";
+const db = getDbSync();
 import { eq, and, desc, asc, gte, lte, sql, inArray } from "drizzle-orm";
 import {
   trendProducts,

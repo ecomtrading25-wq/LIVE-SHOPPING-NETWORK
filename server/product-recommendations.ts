@@ -3,7 +3,7 @@
  * Collaborative filtering, content-based, and hybrid recommendations
  */
 
-import { getDb } from "./db";
+import { getDbSync } from "./db";
 import { products, orders, orderItems } from "../drizzle/schema";
 import { eq, and, desc, sql, inArray, ne } from "drizzle-orm";
 
@@ -65,7 +65,7 @@ async function getCollaborativeRecommendations(
   productId: string,
   limit: number
 ): Promise<RecommendationResult[]> {
-  const db = getDb();
+  const db = getDbSync();
 
   // Find users who bought this product
   const buyersQuery = await db
@@ -94,7 +94,7 @@ async function getContentBasedRecommendations(
   productId: string,
   limit: number
 ): Promise<RecommendationResult[]> {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get the source product
   const product = await db.select().from(products).where(eq(products.id, productId)).limit(1);
@@ -128,7 +128,7 @@ async function getUserHistoryRecommendations(
  * Trending products recommendations
  */
 async function getTrendingRecommendations(limit: number): Promise<RecommendationResult[]> {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get top selling products in last 30 days
   const thirtyDaysAgo = new Date();
@@ -175,7 +175,7 @@ export async function getFrequentlyBoughtTogether(
   productId: string,
   limit: number = 5
 ): Promise<string[]> {
-  const db = getDb();
+  const db = getDbSync();
 
   // Find products that were purchased in the same orders
   // Mock data for now
@@ -212,7 +212,7 @@ export async function getCategoryRecommendations(
   categoryId: string,
   limit: number = 10
 ): Promise<string[]> {
-  const db = getDb();
+  const db = getDbSync();
 
   // Get top products in category
   // Mock data for now
@@ -223,7 +223,7 @@ export async function getCategoryRecommendations(
  * Get new arrivals recommendations
  */
 export async function getNewArrivals(limit: number = 10): Promise<string[]> {
-  const db = getDb();
+  const db = getDbSync();
 
   const newProducts = await db
     .select({ id: products.id })
