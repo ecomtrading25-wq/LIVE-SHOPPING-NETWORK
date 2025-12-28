@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { ExportModal } from '@/components/ExportModal';
+import { formatPercentage } from '@/lib/exportUtils';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -129,6 +131,7 @@ export default function SentimentAnalysisDashboard() {
   const [searchQuery, setSearchQuery] = useState('');
   const [timeRange, setTimeRange] = useState('30d');
   const [productFilter, setProductFilter] = useState('all');
+  const [exportOpen, setExportOpen] = useState(false);
 
   const filteredReviews = mockSentimentData.recentReviews.filter(r =>
     r.text.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -168,7 +171,7 @@ export default function SentimentAnalysisDashboard() {
             <p className="text-muted-foreground">AI-powered review analysis and customer sentiment tracking</p>
           </div>
           <div className="flex gap-2">
-            <Button variant="outline">
+            <Button variant="outline" onClick={() => setExportOpen(true)}>
               <Download className="w-4 h-4 mr-2" />
               Export Report
             </Button>
@@ -478,6 +481,31 @@ export default function SentimentAnalysisDashboard() {
           </div>
         </Card>
       </div>
+
+      {/* Export Modal */}
+      <ExportModal
+        open={exportOpen}
+        onOpenChange={setExportOpen}
+        title="Sentiment Analysis Report"
+        data={filteredReviews.map(r => ({
+          product: r.product,
+          customer: r.customer,
+          rating: r.rating,
+          sentiment: r.sentiment,
+          sentimentScore: r.sentimentScore,
+          date: r.date,
+          review: r.review
+        }))}
+        columns={[
+          { key: 'product', label: 'Product' },
+          { key: 'customer', label: 'Customer' },
+          { key: 'rating', label: 'Rating' },
+          { key: 'sentiment', label: 'Sentiment' },
+          { key: 'sentimentScore', label: 'Sentiment Score', formatter: formatPercentage },
+          { key: 'date', label: 'Date' },
+          { key: 'review', label: 'Review' }
+        ]}
+      />
     </div>
   );
 }

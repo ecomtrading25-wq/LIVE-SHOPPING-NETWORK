@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { ExportModal } from '@/components/ExportModal';
+import { formatCurrency, formatPercentage } from '@/lib/exportUtils';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -122,6 +124,7 @@ export default function PricingOptimizationDashboard() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedProduct, setSelectedProduct] = useState(mockPricingData[0]);
   const [filterType, setFilterType] = useState('all');
+  const [exportOpen, setExportOpen] = useState(false);
 
   const filteredProducts = mockPricingData.filter(p => {
     const matchesSearch = p.productName.toLowerCase().includes(searchQuery.toLowerCase());
@@ -150,7 +153,7 @@ export default function PricingOptimizationDashboard() {
             <p className="text-muted-foreground">AI-powered pricing recommendations based on elasticity analysis</p>
           </div>
           <div className="flex gap-2">
-            <Button variant="outline">
+            <Button variant="outline" onClick={() => setExportOpen(true)}>
               <Download className="w-4 h-4 mr-2" />
               Export Report
             </Button>
@@ -478,6 +481,33 @@ export default function PricingOptimizationDashboard() {
           </div>
         </Card>
       </div>
+
+      {/* Export Modal */}
+      <ExportModal
+        open={exportOpen}
+        onOpenChange={setExportOpen}
+        title="Pricing Optimization Report"
+        data={filteredProducts.map(p => ({
+          product: p.productName,
+          currentPrice: p.currentPrice,
+          recommendedPrice: p.recommendedPrice,
+          priceChange: ((p.recommendedPrice - p.currentPrice) / p.currentPrice * 100),
+          elasticity: p.elasticity,
+          currentRevenue: p.currentRevenue,
+          projectedRevenue: p.projectedRevenue,
+          revenueImpact: p.projectedRevenue - p.currentRevenue
+        }))}
+        columns={[
+          { key: 'product', label: 'Product' },
+          { key: 'currentPrice', label: 'Current Price', formatter: formatCurrency },
+          { key: 'recommendedPrice', label: 'Recommended Price', formatter: formatCurrency },
+          { key: 'priceChange', label: 'Price Change %', formatter: formatPercentage },
+          { key: 'elasticity', label: 'Elasticity' },
+          { key: 'currentRevenue', label: 'Current Revenue', formatter: formatCurrency },
+          { key: 'projectedRevenue', label: 'Projected Revenue', formatter: formatCurrency },
+          { key: 'revenueImpact', label: 'Revenue Impact', formatter: formatCurrency }
+        ]}
+      />
     </div>
   );
 }

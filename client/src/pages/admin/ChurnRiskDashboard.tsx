@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { ExportModal } from '@/components/ExportModal';
+import { formatCurrency, formatPercentage } from '@/lib/exportUtils';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -118,6 +120,7 @@ export default function ChurnRiskDashboard() {
   const [riskFilter, setRiskFilter] = useState('all');
   const [sortField, setSortField] = useState<'churnProbability' | 'lifetimeValue' | 'lastPurchase'>('churnProbability');
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('desc');
+  const [exportOpen, setExportOpen] = useState(false);
 
   const filteredCustomers = mockChurnData
     .filter(c => {
@@ -171,7 +174,7 @@ export default function ChurnRiskDashboard() {
             <p className="text-muted-foreground">AI-powered churn prediction and retention strategies</p>
           </div>
           <div className="flex gap-2">
-            <Button variant="outline">
+            <Button variant="outline" onClick={() => setExportOpen(true)}>
               <Download className="w-4 h-4 mr-2" />
               Export Report
             </Button>
@@ -410,6 +413,33 @@ export default function ChurnRiskDashboard() {
           </div>
         </Card>
       </div>
+
+      {/* Export Modal */}
+      <ExportModal
+        open={exportOpen}
+        onOpenChange={setExportOpen}
+        title="Customer Churn Risk Report"
+        data={filteredCustomers.map(c => ({
+          name: c.customerName,
+          email: c.email,
+          riskScore: c.churnProbability,
+          riskLevel: c.churnRisk,
+          totalSpent: c.lifetimeValue,
+          daysSinceLastOrder: c.daysSinceLastPurchase,
+          orderFrequency: c.purchaseFrequency,
+          potentialLoss: c.predictedLoss
+        }))}
+        columns={[
+          { key: 'name', label: 'Customer Name' },
+          { key: 'email', label: 'Email' },
+          { key: 'riskScore', label: 'Risk Score %' },
+          { key: 'riskLevel', label: 'Risk Level' },
+          { key: 'totalSpent', label: 'Total Spent', formatter: formatCurrency },
+          { key: 'daysSinceLastOrder', label: 'Days Since Last Order' },
+          { key: 'orderFrequency', label: 'Order Frequency' },
+          { key: 'potentialLoss', label: 'Potential Loss', formatter: formatCurrency }
+        ]}
+      />
     </div>
   );
 }

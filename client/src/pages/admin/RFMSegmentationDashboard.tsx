@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { ExportModal } from '@/components/ExportModal';
+import { formatCurrency as formatCurrencyUtil, formatPercentage } from '@/lib/exportUtils';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -203,6 +205,7 @@ export default function RFMSegmentationDashboard() {
   const [searchQuery, setSearchQuery] = useState('');
   const [segmentFilter, setSegmentFilter] = useState('all');
   const [selectedSegment, setSelectedSegment] = useState<string | null>(null);
+  const [exportOpen, setExportOpen] = useState(false);
 
   const filteredCustomers = mockRFMData.customers.filter(c => {
     const matchesSearch = c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -240,7 +243,7 @@ export default function RFMSegmentationDashboard() {
             <p className="text-muted-foreground">Customer segmentation based on Recency, Frequency, and Monetary value</p>
           </div>
           <div className="flex gap-2">
-            <Button variant="outline">
+            <Button variant="outline" onClick={() => setExportOpen(true)}>
               <Download className="w-4 h-4 mr-2" />
               Export Segments
             </Button>
@@ -562,6 +565,35 @@ export default function RFMSegmentationDashboard() {
           </div>
         </Card>
       </div>
+
+      {/* Export Modal */}
+      <ExportModal
+        open={exportOpen}
+        onOpenChange={setExportOpen}
+        title="RFM Segmentation Report"
+        data={filteredCustomers.map(c => ({
+          name: c.name,
+          email: c.email,
+          segment: c.segment,
+          recencyScore: c.rfmScores.recency,
+          frequencyScore: c.rfmScores.frequency,
+          monetaryScore: c.rfmScores.monetary,
+          totalSpent: c.totalSpent,
+          orderCount: c.orderCount,
+          lastPurchase: c.lastPurchase
+        }))}
+        columns={[
+          { key: 'name', label: 'Customer Name' },
+          { key: 'email', label: 'Email' },
+          { key: 'segment', label: 'Segment' },
+          { key: 'recencyScore', label: 'Recency Score' },
+          { key: 'frequencyScore', label: 'Frequency Score' },
+          { key: 'monetaryScore', label: 'Monetary Score' },
+          { key: 'totalSpent', label: 'Total Spent', formatter: formatCurrencyUtil },
+          { key: 'orderCount', label: 'Order Count' },
+          { key: 'lastPurchase', label: 'Last Purchase' }
+        ]}
+      />
     </div>
   );
 }

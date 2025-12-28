@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { ExportModal } from '@/components/ExportModal';
+import { formatCurrency as formatCurrencyUtil, formatPercentage } from '@/lib/exportUtils';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -94,6 +96,7 @@ const channelColors = ['#8b5cf6', '#3b82f6', '#10b981'];
 export default function RevenueForecastDashboard() {
   const [timeRange, setTimeRange] = useState('90d');
   const [segmentView, setSegmentView] = useState('all');
+  const [exportOpen, setExportOpen] = useState(false);
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -138,7 +141,7 @@ export default function RevenueForecastDashboard() {
             <p className="text-muted-foreground">AI-powered 90-day revenue projections with confidence intervals</p>
           </div>
           <div className="flex gap-2">
-            <Button variant="outline">
+            <Button variant="outline" onClick={() => setExportOpen(true)}>
               <Download className="w-4 h-4 mr-2" />
               Export Report
             </Button>
@@ -480,6 +483,31 @@ export default function RevenueForecastDashboard() {
           </div>
         </Card>
       </div>
+
+      {/* Export Modal */}
+      <ExportModal
+        open={exportOpen}
+        onOpenChange={setExportOpen}
+        title="Revenue Forecast Report"
+        data={mockForecastData.monthlyForecast.map(m => ({
+          month: m.month,
+          actualRevenue: m.actual,
+          forecastRevenue: m.forecast,
+          lowerBound: m.lowerBound,
+          upperBound: m.upperBound,
+          confidence: m.confidence,
+          growthRate: ((m.forecast - m.actual) / m.actual * 100)
+        }))}
+        columns={[
+          { key: 'month', label: 'Month' },
+          { key: 'actualRevenue', label: 'Actual Revenue', formatter: formatCurrencyUtil },
+          { key: 'forecastRevenue', label: 'Forecast Revenue', formatter: formatCurrencyUtil },
+          { key: 'lowerBound', label: 'Lower Bound', formatter: formatCurrencyUtil },
+          { key: 'upperBound', label: 'Upper Bound', formatter: formatCurrencyUtil },
+          { key: 'confidence', label: 'Confidence %' },
+          { key: 'growthRate', label: 'Growth Rate %', formatter: formatPercentage }
+        ]}
+      />
     </div>
   );
 }
