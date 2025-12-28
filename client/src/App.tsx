@@ -108,6 +108,7 @@ import ExecutiveDashboard from '@/pages/ExecutiveDashboard';
 import FraudConsole from '@/pages/FraudConsole';
 import PurchasingDashboard from '@/pages/PurchasingDashboard';
 import CreatorDashboard from '@/pages/CreatorDashboard';
+import LiveShowsBrowse from '@/pages/LiveShowsBrowse';
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -177,7 +178,7 @@ function Router() {
       <Route path="/products/:id" component={ProductDetail} />
       <Route path="/checkout" component={Checkout} />
       <Route path="/order-confirmation" component={OrderConfirmation} />
-      <Route path="/live" component={LiveShows} />
+      <Route path="/live" component={LiveShowsBrowse} />
       <Route path="/live/:showId" component={LiveShowViewer} />
       <Route path="/show/:id" component={LiveShowPage} />
       <Route path="/host/dashboard" component={HostDashboard} />
