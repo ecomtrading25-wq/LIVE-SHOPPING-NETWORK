@@ -1644,3 +1644,140 @@ export const qualityDefects = mysqlTable("quality_defects", {
 });
 
 
+
+// ============================================================================
+// PAYPAL INTEGRATION TABLES
+// ============================================================================
+
+export const paypalTransactions = mysqlTable('paypal_transactions', {
+  id: varchar('id', { length: 36 }).primaryKey(),
+  orderId: varchar('order_id', { length: 36 }),
+  paypalOrderId: varchar('paypal_order_id', { length: 255 }),
+  paypalTransactionId: varchar('paypal_transaction_id', { length: 255 }),
+  authorizationId: varchar('authorization_id', { length: 255 }),
+  status: varchar('status', { length: 50 }),
+  amount: decimal('amount', { precision: 10, scale: 2 }).notNull(),
+  currency: varchar('currency', { length: 3 }).default('USD'),
+  createdAt: timestamp('created_at').defaultNow(),
+  capturedAt: timestamp('captured_at'),
+  refundedAt: timestamp('refunded_at'),
+});
+
+export const paypalDisputes = mysqlTable('paypal_disputes', {
+  id: varchar('id', { length: 36 }).primaryKey(),
+  paypalDisputeId: varchar('paypal_dispute_id', { length: 255 }).notNull(),
+  reason: varchar('reason', { length: 100 }),
+  status: varchar('status', { length: 50 }),
+  amount: decimal('amount', { precision: 10, scale: 2 }).notNull(),
+  currency: varchar('currency', { length: 3 }).default('USD'),
+  outcome: varchar('outcome', { length: 50 }),
+  createdAt: timestamp('created_at').defaultNow(),
+  resolvedAt: timestamp('resolved_at'),
+});
+
+export const paypalSubscriptions = mysqlTable('paypal_subscriptions', {
+  id: varchar('id', { length: 36 }).primaryKey(),
+  userId: varchar('user_id', { length: 36 }).notNull(),
+  paypalSubscriptionId: varchar('paypal_subscription_id', { length: 255 }).notNull(),
+  planId: varchar('plan_id', { length: 255 }).notNull(),
+  status: varchar('status', { length: 50 }),
+  createdAt: timestamp('created_at').defaultNow(),
+  cancelledAt: timestamp('cancelled_at'),
+});
+
+export const paypalPayouts = mysqlTable('paypal_payouts', {
+  id: varchar('id', { length: 36 }).primaryKey(),
+  paypalBatchId: varchar('paypal_batch_id', { length: 255 }).notNull(),
+  recipientEmail: varchar('recipient_email', { length: 255 }).notNull(),
+  amount: decimal('amount', { precision: 10, scale: 2 }).notNull(),
+  currency: varchar('currency', { length: 3 }).default('USD'),
+  status: varchar('status', { length: 50 }),
+  createdAt: timestamp('created_at').defaultNow(),
+});
+
+export const paypalWebhookEvents = mysqlTable('paypal_webhook_events', {
+  id: varchar('id', { length: 36 }).primaryKey(),
+  eventType: varchar('event_type', { length: 100 }).notNull(),
+  resourceType: varchar('resource_type', { length: 100 }),
+  resourceId: varchar('resource_id', { length: 255 }),
+  payload: json('payload'),
+  createdAt: timestamp('created_at').defaultNow(),
+});
+
+// ============================================================================
+// WISE INTEGRATION TABLES
+// ============================================================================
+
+export const wiseTransfers = mysqlTable('wise_transfers', {
+  id: varchar('id', { length: 36 }).primaryKey(),
+  wiseTransferId: varchar('wise_transfer_id', { length: 255 }).notNull(),
+  recipientId: varchar('recipient_id', { length: 255 }).notNull(),
+  quoteId: varchar('quote_id', { length: 255 }).notNull(),
+  status: varchar('status', { length: 50 }),
+  sourceAmount: decimal('source_amount', { precision: 10, scale: 2 }).notNull(),
+  sourceCurrency: varchar('source_currency', { length: 3 }).notNull(),
+  targetAmount: decimal('target_amount', { precision: 10, scale: 2 }).notNull(),
+  targetCurrency: varchar('target_currency', { length: 3 }).notNull(),
+  reference: varchar('reference', { length: 255 }),
+  createdAt: timestamp('created_at').defaultNow(),
+  completedAt: timestamp('completed_at'),
+});
+
+export const wiseRecipients = mysqlTable('wise_recipients', {
+  id: varchar('id', { length: 36 }).primaryKey(),
+  wiseRecipientId: varchar('wise_recipient_id', { length: 255 }).notNull(),
+  accountHolderName: varchar('account_holder_name', { length: 255 }).notNull(),
+  currency: varchar('currency', { length: 3 }).notNull(),
+  type: varchar('type', { length: 50 }),
+  email: varchar('email', { length: 255 }),
+  iban: varchar('iban', { length: 50 }),
+  accountNumber: varchar('account_number', { length: 50 }),
+  country: varchar('country', { length: 2 }).notNull(),
+  createdAt: timestamp('created_at').defaultNow(),
+});
+
+export const wiseBalances = mysqlTable('wise_balances', {
+  id: varchar('id', { length: 36 }).primaryKey(),
+  profileId: varchar('profile_id', { length: 255 }).notNull(),
+  balanceId: varchar('balance_id', { length: 255 }).notNull(),
+  currency: varchar('currency', { length: 3 }).notNull(),
+  amount: decimal('amount', { precision: 15, scale: 2 }).notNull(),
+  reservedAmount: decimal('reserved_amount', { precision: 15, scale: 2 }).default('0'),
+  updatedAt: timestamp('updated_at').defaultNow(),
+});
+
+export const wiseWebhookEvents = mysqlTable('wise_webhook_events', {
+  id: varchar('id', { length: 36 }).primaryKey(),
+  eventType: varchar('event_type', { length: 100 }).notNull(),
+  resourceType: varchar('resource_type', { length: 100 }),
+  resourceId: varchar('resource_id', { length: 255 }),
+  payload: json('payload'),
+  createdAt: timestamp('created_at').defaultNow(),
+});
+
+// ============================================================================
+// TAX CALCULATION TABLES
+// ============================================================================
+
+export const taxCalculations = mysqlTable('tax_calculations', {
+  id: varchar('id', { length: 36 }).primaryKey(),
+  customerId: varchar('customer_id', { length: 36 }),
+  country: varchar('country', { length: 2 }).notNull(),
+  state: varchar('state', { length: 10 }),
+  amount: decimal('amount', { precision: 10, scale: 2 }).notNull(),
+  taxRate: decimal('tax_rate', { precision: 5, scale: 2 }).notNull(),
+  taxAmount: decimal('tax_amount', { precision: 10, scale: 2 }).notNull(),
+  taxType: varchar('tax_type', { length: 50 }),
+  breakdown: json('breakdown'),
+  createdAt: timestamp('created_at').defaultNow(),
+});
+
+export const taxExemptions = mysqlTable('tax_exemptions', {
+  id: varchar('id', { length: 36 }).primaryKey(),
+  customerId: varchar('customer_id', { length: 36 }).notNull(),
+  country: varchar('country', { length: 2 }).notNull(),
+  exemptionType: varchar('exemption_type', { length: 50 }).notNull(),
+  certificateNumber: varchar('certificate_number', { length: 100 }).notNull(),
+  expiryDate: timestamp('expiry_date'),
+  createdAt: timestamp('created_at').defaultNow(),
+});
