@@ -48,6 +48,10 @@ import CustomerServiceChatbot from "./components/CustomerServiceChatbot";
 import MobileDeepLink from "./components/MobileDeepLink";
 import AIShoppingChatbot from "./components/AIShoppingChatbot";
 import VoiceShoppingAssistant from "./components/VoiceShoppingAssistant";
+import TikTokArbitrageDashboard from "./pages/TikTokArbitrageDashboard";
+import LiveShowManagement from "./pages/LiveShowManagement";
+import AutomationWorkflows from "./pages/AutomationWorkflows";
+import ProfitAnalyticsDashboard from "./pages/ProfitAnalyticsDashboard";
 import SavedSearches from "./pages/SavedSearches";
 import Subscriptions from "./pages/Subscriptions";
 import BackInStockAlerts from "./pages/BackInStockAlerts";
@@ -204,6 +208,10 @@ function Router() {
       <Route path="/admin/sentiment-analysis" component={SentimentAnalysisDashboard} />
       <Route path="/admin/revenue-forecast" component={RevenueForecastDashboard} />
       <Route path="/admin/rfm-segmentation" component={RFMSegmentationDashboard} />
+      <Route path="/tiktok-arbitrage" component={TikTokArbitrageDashboard} />
+      <Route path="/live-show-management" component={LiveShowManagement} />
+      <Route path="/automation-workflows" component={AutomationWorkflows} />
+      <Route path="/profit-analytics" component={ProfitAnalyticsDashboard} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

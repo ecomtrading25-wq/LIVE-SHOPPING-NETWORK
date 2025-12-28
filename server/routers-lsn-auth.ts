@@ -7,9 +7,6 @@ import {
   adminUsers,
   staffApiKeys,
   auditLog,
-  escalations,
-  policyIncidents,
-  regressionSeeds,
 } from "../drizzle/schema";
 import { createHash, randomBytes } from "crypto";
 

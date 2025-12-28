@@ -4,16 +4,10 @@ import { z } from "zod";
 import { getDb } from "./db";
 import { eq, and, desc, sql, inArray, gte, lte, isNull } from "drizzle-orm";
 import {
-  lsnDisputes,
-  evidencePacks,
-  disputeTimeline,
-  providerWebhookDedup,
   orders,
   orderItems,
   shipments,
-  providerTransactions,
-  reconciliationDiscrepancies,
-  idempotencyKeys,
+  disputes,
 } from "../drizzle/schema";
 import { randomBytes } from "crypto";
 

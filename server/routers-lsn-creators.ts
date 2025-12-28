@@ -10,17 +10,10 @@ import {
   creatorPayoutLines,
   creatorBankAccounts,
   attributionClicks,
-  broadcastChannels,
-  scheduleSlots,
-  creatorAvailability,
   liveSessions,
-  liveShowSegments,
-  livePriceDrops,
-  liveHighlights,
   pinnedProducts,
   orders,
   orderItems,
-  payoutHolds,
 } from "../drizzle/schema";
 import { randomBytes } from "crypto";
 

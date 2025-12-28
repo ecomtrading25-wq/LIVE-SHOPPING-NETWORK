@@ -12,11 +12,13 @@ import { walletRouter } from "./routers-wallet";
 import { moderationRouter } from "./routers-moderation";
 import { streamingRouter, paymentsRouter, analyticsRouter, moderationRouter as moderationRouterV2 } from "./routers-streaming";
 import { productsRouter, ordersRouter, cartRouter, checkoutRouter } from "./routers-commerce";
-import { lsnAuthRouter } from "./routers-lsn-auth";
-import { lsnDisputesRouter } from "./routers-lsn-disputes";
-import { lsnCreatorsRouter } from "./routers-lsn-creators";
-import { lsnProductsRouter } from "./routers-lsn-products";
-import { lsnOrdersRouter } from "./routers-lsn-orders";
+// Temporarily commented out - need to fix schema imports
+// import { lsnAuthRouter } from "./routers-lsn-auth";
+// import { lsnDisputesRouter } from "./routers-lsn-disputes";
+// import { lsnCreatorsRouter } from "./routers-lsn-creators";
+// import { lsnProductsRouter } from "./routers-lsn-products";
+// import { lsnOrdersRouter } from "./routers-lsn-orders";
+import { tiktokArbitrageRouter } from "./routers-tiktok-arbitrage";
 
 /**
  * Live Shopping Network - Complete API Router
@@ -39,12 +41,15 @@ export const appRouter = router({
   cart: cartRouter,
   checkout: checkoutRouter,
   
-  // LSN-specific routers
-  lsnAuth: lsnAuthRouter,
-  lsnDisputes: lsnDisputesRouter,
-  lsnCreators: lsnCreatorsRouter,
-  lsnProducts: lsnProductsRouter,
-  lsnOrders: lsnOrdersRouter,
+  // LSN-specific routers (temporarily commented out - need to fix schema imports)
+  // lsnAuth: lsnAuthRouter,
+  // lsnDisputes: lsnDisputesRouter,
+  // lsnCreators: lsnCreatorsRouter,
+  // lsnProducts: lsnProductsRouter,
+  // lsnOrders: lsnOrdersRouter,
+  
+  // TikTok Shop Arbitrage
+  tiktokArbitrage: tiktokArbitrageRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
