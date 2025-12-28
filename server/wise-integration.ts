@@ -709,12 +709,12 @@ async function handleBalanceCredit(data: any) {
 
 export async function getWiseAnalytics(startDate: Date, endDate: Date) {
   const db = getDbSync();
-  const transfers = await db.query.wiseTransfers.findMany({
-    where: and(
+  const transfers = await db.select().from(wiseTransfers).where(
+    and(
       sql`${wiseTransfers.createdAt} >= ${startDate}`,
       sql`${wiseTransfers.createdAt} <= ${endDate}`
-    ),
-  });
+    )
+  );
 
   const totalSent = transfers
     .filter((t: any) => t.status === 'outgoing_payment_sent')

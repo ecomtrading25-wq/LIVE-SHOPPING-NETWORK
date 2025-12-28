@@ -127,6 +127,13 @@
       "when": 1766931585396,
       "tag": "0017_grey_loa",
       "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "5",
+      "when": 1766936209216,
+      "tag": "0018_nice_vulcan",
+      "breakpoints": true
     }
   ]
 }

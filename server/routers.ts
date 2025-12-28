@@ -27,6 +27,9 @@ import { advancedFeaturesRouter } from "./routers-advanced-features";
 import { aiAutomationRouter } from "./routers-ai-automation";
 import { webhookRouter } from "./webhook-handlers";
 import { twilioLiveVideoRouter } from "./twilio-live-video";
+import { paypalWebhookRouter } from "./paypal-webhooks";
+import { wiseWebhookRouter } from "./wise-webhooks";
+import { twilioLiveCompleteRouter } from "./twilio-live-complete";
 
 /**
  * Live Shopping Network - Complete API Router
@@ -86,6 +89,11 @@ export const appRouter = router({
   
   // Twilio Live Video Integration
   twilioVideo: twilioLiveVideoRouter,
+  
+  // Enhanced Webhook Handlers (Complete implementations)
+  paypalWebhooks: paypalWebhookRouter,
+  wiseWebhooks: wiseWebhookRouter,
+  twilioLiveComplete: twilioLiveCompleteRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),

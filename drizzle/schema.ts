@@ -1782,4 +1782,30 @@ export const taxExemptions = mysqlTable('tax_exemptions', {
   createdAt: timestamp('created_at').defaultNow(),
 });
 
+// ============================================================================
+// LIVE STREAMING: Recordings & Participants
+// ============================================================================
+
+export const recordings = mysqlTable('recordings', {
+  id: varchar('id', { length: 64 }).primaryKey(),
+  showId: varchar('show_id', { length: 64 }).notNull(),
+  recordingUrl: text('recording_url').notNull(),
+  duration: int('duration').notNull(),
+  status: mysqlEnum('status', ['processing', 'ready', 'failed']).default('processing').notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().onUpdateNow().notNull(),
+});
+
+export const liveShowParticipants = mysqlTable('live_show_participants', {
+  id: varchar('id', { length: 64 }).primaryKey(),
+  showId: varchar('show_id', { length: 64 }).notNull(),
+  userId: int('user_id').notNull().references(() => users.id),
+  role: mysqlEnum('role', ['host', 'moderator', 'viewer']).default('viewer').notNull(),
+  joinedAt: timestamp('joined_at').defaultNow().notNull(),
+  leftAt: timestamp('left_at'),
+  watchDuration: int('watch_duration').default(0),
+  messagesSent: int('messages_sent').default(0),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+});
+
 
