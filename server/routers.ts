@@ -23,6 +23,8 @@ import { lsnPurchasingRouter, lsnCreatorRouter, lsnFraudRouter, lsnExecutiveRout
 import { lsnRouter } from "./lsn-routers";
 import { lsnUIRouter } from "./routers-lsn-ui";
 import { founderIncidentRouter } from "./founder-incident-console";
+import { advancedFeaturesRouter } from "./routers-advanced-features";
+import { aiAutomationRouter } from "./routers-ai-automation";
 
 /**
  * Live Shopping Network - Complete API Router
@@ -70,6 +72,12 @@ export const appRouter = router({
   
   // Founder Incident Console & Policy Autonomy
   founderIncidents: founderIncidentRouter,
+  
+  // Wave 8: Advanced Features (Bulk Ops, Search, Export, Webhooks, Notifications, Jobs, Reporting)
+  advancedFeatures: advancedFeaturesRouter,
+  
+  // Wave 8: AI & Automation (Recommendations, Segmentation, Pricing, Forecasting, Marketing)
+  aiAutomation: aiAutomationRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
