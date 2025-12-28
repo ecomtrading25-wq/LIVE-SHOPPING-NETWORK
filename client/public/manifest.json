@@ -1,11 +1,11 @@
 {
   "name": "Live Shopping Network",
-  "short_name": "LiveShop",
-  "description": "Shop exclusive deals during live shows with real-time product drops and creator interactions",
+  "short_name": "LSN",
+  "description": "Live shopping platform with real-time streaming and instant checkout",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#9333ea",
+  "background_color": "#7c3aed",
+  "theme_color": "#7c3aed",
   "orientation": "portrait-primary",
   "icons": [
     {
@@ -21,44 +21,22 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["shopping", "lifestyle", "entertainment"],
-  "screenshots": [
-    {
-      "src": "/screenshot-1.png",
-      "sizes": "540x720",
-      "type": "image/png",
-      "form_factor": "narrow"
-    },
-    {
-      "src": "/screenshot-2.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide"
-    }
-  ],
+  "categories": ["shopping", "lifestyle"],
   "shortcuts": [
     {
       "name": "Browse Products",
-      "short_name": "Products",
-      "description": "Browse our product catalog",
       "url": "/products",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+      "description": "View all products"
     },
     {
-      "name": "View Cart",
-      "short_name": "Cart",
-      "description": "View your shopping cart",
-      "url": "/cart",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+      "name": "Live Shows",
+      "url": "/shows",
+      "description": "Watch live shopping shows"
     },
     {
       "name": "My Orders",
-      "short_name": "Orders",
-      "description": "Track your orders",
-      "url": "/account",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+      "url": "/orders",
+      "description": "View your orders"
     }
-  ],
-  "related_applications": [],
-  "prefer_related_applications": false
+  ]
 }
