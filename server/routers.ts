@@ -21,6 +21,7 @@ import { lsnOperationsRouter } from "./routers-lsn-operations";
 import { tiktokArbitrageRouter } from "./routers-tiktok-arbitrage";
 import { lsnPurchasingRouter, lsnCreatorRouter, lsnFraudRouter, lsnExecutiveRouter } from "./routers-lsn-all";
 import { lsnRouter } from "./lsn-routers";
+import { lsnUIRouter } from "./routers-lsn-ui";
 
 /**
  * Live Shopping Network - Complete API Router
@@ -62,6 +63,9 @@ export const appRouter = router({
   
   // LSN Comprehensive Services (disputes, live shows, creators, inventory, financial, pricing, SKU)
   lsn: lsnRouter,
+  
+  // LSN UI Integration Services (for new dashboards)
+  lsnUI: lsnUIRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
