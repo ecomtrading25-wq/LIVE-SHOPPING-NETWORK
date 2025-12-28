@@ -1413,3 +1413,337 @@
 - [x] Video streaming (video-streaming.ts)
 - [x] Social commerce (social-commerce.ts)
 - [x] Total: 6,112 lines of real-time infrastructure
+
+
+## 🔥 Wave 6: LSN-Specific Premium Live Commerce (CURRENT BUILD)
+
+### A. Core LSN Business Logic - Disputes & Operations
+- [ ] Dispute state machine (OPEN→EVIDENCE_REQUIRED→EVIDENCE_BUILDING→EVIDENCE_READY→SUBMITTED→WON/LOST→CLOSED)
+- [ ] Evidence pack builder with document assembly
+- [ ] PayPal dispute webhook handlers with signature verification
+- [ ] Dispute timeline tracking with actor audit
+- [ ] Operator review queue with SLA tracking and severity levels
+- [ ] Escalation system to founder with trigger conditions
+- [ ] Founder incident console UI
+- [ ] Risk radar panel for operators
+- [ ] Policy pack preview simulator
+- [ ] Regression seed management for policy testing
+
+### B. Advanced Inventory & Purchasing - Lots & Landed Cost
+- [ ] Inventory lots table with FIFO/FEFO tracking
+- [ ] Landed cost calculation (product cost + shipping + duties + fees)
+- [ ] Purchase order (PO) system with multi-line items
+- [ ] PO approval workflow with spending limits
+- [ ] Receiving workflow with lot assignment
+- [ ] QC integration during receiving
+- [ ] Supplier OS (outreach scripts, sampling workflow)
+- [ ] MOQ negotiation tracking system
+- [ ] Exclusivity clause management in contracts
+- [ ] Supplier performance scoring (on-time, quality, pricing)
+- [ ] Inventory reservation with row-level locks
+- [ ] Oversell protection with real-time checks
+- [ ] Live stock sync WebSocket system
+
+### C. Creator Economy & Scheduling - 24/7 Programming
+- [ ] Creator tier system (Bronze/Silver/Gold/Platinum)
+- [ ] Profit-based incentive calculation engine
+- [ ] Bonus triggers (sales milestones, viewer engagement)
+- [ ] Clawback automation (refunds, chargebacks)
+- [ ] Creator payout batch processing with holds
+- [ ] 24/7 broadcast schedule grid (168 slots/week)
+- [ ] Auto-fill scheduling algorithm based on availability
+- [ ] Prime time allocation by performance metrics
+- [ ] Creator availability calendar management
+- [ ] Schedule conflict detection and resolution
+- [ ] Creator training content delivery system
+- [ ] Performance-based show allocation scoring
+
+### D. Live Show Technology - Interactive Commerce
+- [ ] Live show session state machine (SCHEDULED→LIVE→ENDED→ARCHIVED)
+- [ ] Product pinning system with priority ordering
+- [ ] Live price drop execution with margin validation
+- [ ] Real-time stock display with WebSocket updates
+- [ ] Segment tracking (intro, product demos, Q&A, outro)
+- [ ] Highlight timestamp marking for automated clipping
+- [ ] Urgency/scarcity countdown timers
+- [ ] Twilio Live/Video integration adapter
+- [ ] Stream recording to R2 with metadata
+- [ ] Automated clipping system (highlights, product moments)
+- [ ] "As seen live" product proof badge generation
+- [ ] VOD (Video on Demand) playback with seek
+- [ ] Stream quality monitoring and adaptive bitrate
+- [ ] Backstage realtime communication for crew
+
+### E. Financial Operations - Reconciliation & Ledger
+- [ ] Multi-currency ledger with double-entry accounting
+- [ ] FX journals for currency conversions
+- [ ] PayPal transaction ingestion via API
+- [ ] Wise transaction ingestion via API
+- [ ] Auto-match reconciliation engine (by transaction ID, amount, date)
+- [ ] Unmatched transaction review queue
+- [ ] Manual reconciliation UI with matching tools
+- [ ] Discrepancy alerts and notifications
+- [ ] Settlement processing with batch exports
+- [ ] Payout holds for fraud cases
+- [ ] Commission calculation engine with tier multipliers
+- [ ] Revenue recognition automation (accrual basis)
+- [ ] Financial reporting dashboard (P&L, cash flow, balance sheet)
+
+### F. Fraud & Risk Management - Autonomous Protection
+- [ ] Fraud scoring v2 with ML model integration
+- [ ] Risk evaluation on order placement (pre-fulfillment)
+- [ ] Payout hold triggers (velocity, dispute rate, fraud score)
+- [ ] Risk outcomes: ALLOW/REVIEW/HOLD_PAYOUT/BLOCK
+- [ ] Risk signal collection (IP, device, behavior patterns)
+- [ ] Pattern detection algorithms (account takeover, card testing)
+- [ ] Manual review triggers and workflow
+- [ ] Fraud case management with evidence collection
+- [ ] Chargeback prevention with early warning
+- [ ] Dynamic blacklist/whitelist management
+
+### G. Refund & Returns Automation - Policy Engine
+- [ ] Refund policy engine with rule evaluation
+- [ ] Auto-approve rules (timeframe, reason, amount thresholds)
+- [ ] RMA (Return Merchandise Authorization) generation
+- [ ] Return intake workflow with tracking
+- [ ] Inspection and QC on returned items
+- [ ] Restock automation with condition assessment
+- [ ] Refund execution (idempotent with deduplication)
+- [ ] Partial refund calculation (restocking fees, shipping)
+- [ ] Return shipping label generation
+- [ ] Refund timeline tracking and customer notifications
+
+### H. Creative Factory - Content Flywheel
+- [ ] R2 asset taxonomy (raw_footage, edited_clips, thumbnails, product_shots)
+- [ ] Hooks library with performance tracking
+- [ ] UGC brief generator with creator guidelines
+- [ ] Ad→live flywheel (winning ads become live segments)
+- [ ] Claims proof folder (before/after, testimonials, certifications)
+- [ ] Automated thumbnail generation from live streams
+- [ ] Clip performance analytics (views, CTR, conversions)
+- [ ] Content calendar with planning tools
+- [ ] Asset versioning and approval workflow
+- [ ] Rights management for creator content
+
+### I. Supplier OS - Sourcing & Quality
+- [ ] Supplier outreach email templates
+- [ ] Sampling request workflow with tracking
+- [ ] QC/AQL-lite inspection checklist system
+- [ ] Contract management (terms, exclusivity, IP rights)
+- [ ] Lead time tracking and alerts
+- [ ] Defect rate monitoring per supplier
+- [ ] IP clause enforcement tracking
+- [ ] Exclusivity agreement management
+- [ ] Priority production scheduling
+- [ ] Supplier communication log
+
+### J. 3PL & Fulfillment OS - Logistics Automation
+- [ ] 3PL integration adapter (generic interface)
+- [ ] Shipment creation API integration
+- [ ] Tracking event ingestion via webhooks
+- [ ] Pick/pack SOP documentation system
+- [ ] Lost parcel automation (claim filing, customer notification)
+- [ ] Returns SOP with inspection steps
+- [ ] Shipping label generation with carrier selection
+- [ ] Receiving automation (PO matching, lot assignment)
+- [ ] Returns intake processing
+- [ ] Fulfillment performance metrics (ship time, accuracy)
+
+### K. Launch Template - Trend to Live in <48h
+- [ ] Trend monitoring dashboard (TikTok, social platforms)
+- [ ] Rapid sourcing workflow (supplier search, quote request)
+- [ ] Fast-track creative production checklist
+- [ ] QC/truth sheet generation for compliance
+- [ ] Go-live checklist with pre-flight checks
+- [ ] Post-live clipping automation
+- [ ] Iteration feedback loop (performance → adjustments)
+- [ ] Launch template duplication system
+- [ ] Success criteria tracking per launch
+
+### L. SKU Profitability Engine - Kill/Scale Decisions
+- [ ] True net profit calculation per SKU (revenue - COGS - shipping - fees - returns - disputes)
+- [ ] Daily profitability tracking with trends
+- [ ] Kill rules (consecutive loss days, margin below threshold)
+- [ ] Scale rules (profit above threshold, sell-through rate)
+- [ ] Automated SKU lifecycle management
+- [ ] Profitability alerts and notifications
+- [ ] SKU comparison dashboard
+- [ ] Margin guardrails for pricing/promotions
+
+### M. Exec Dashboard - CEO Command Center
+- [ ] GMV (Gross Merchandise Value) tracking
+- [ ] Net profit calculation and trends
+- [ ] Cash position monitoring
+- [ ] Reserve fund tracking
+- [ ] Trust health score (dispute rate, refund rate, CSAT)
+- [ ] Ops health score (fulfillment time, error rate)
+- [ ] Top SKUs leaderboard (by profit, volume)
+- [ ] Top creators leaderboard (by GMV, profit contribution)
+- [ ] Key metric alerts (thresholds, anomalies)
+- [ ] Executive summary email digest
+
+### N. Pricing & Promotions Engine - Dynamic Pricing
+- [ ] Price books with versioned SKU pricing
+- [ ] Regional price variations
+- [ ] Promotion engine (percentage off, fixed amount, BOGO)
+- [ ] Bundle creation and pricing
+- [ ] Live dropdown price drops with animation
+- [ ] Margin guardrails (minimum profit, maximum discount)
+- [ ] Promotion scheduling (start/end times)
+- [ ] Promotion performance tracking
+- [ ] Dynamic pricing based on inventory levels
+- [ ] Competitor price monitoring integration
+
+### O. Customer Support Console v2 - Advanced Support
+- [ ] Macro responses library with variables
+- [ ] SLA timers with escalation triggers
+- [ ] Knowledge base with search and categories
+- [ ] Auto-triage based on keywords and sentiment
+- [ ] Ticket priority scoring
+- [ ] Agent workload balancing
+- [ ] Customer history sidebar (orders, disputes, tickets)
+- [ ] Canned response suggestions via AI
+- [ ] Support analytics (resolution time, CSAT, volume)
+- [ ] Suppression list for lifecycle messaging
+
+### P. Conversion System - Lifecycle Automation
+- [ ] Upsell recommendations (frequently bought together)
+- [ ] Cross-sell based on browsing history
+- [ ] Bundle suggestions at checkout
+- [ ] Urgency indicators (low stock, limited time)
+- [ ] SendGrid lifecycle email integration
+- [ ] Email templates (welcome, abandoned cart, post-purchase, review request)
+- [ ] Twilio SMS notifications (shipping updates, delivery)
+- [ ] Consent management (opt-in, opt-out)
+- [ ] Suppression when support issues exist
+- [ ] Conversion funnel optimization tracking
+
+### Q. Audit & Security - Tamper-Evident System
+- [ ] Audit log with entry_hash chaining to prev_hash
+- [ ] Daily verifier job for chain integrity
+- [ ] Actor tracking (user, system, founder)
+- [ ] Action severity classification (INFO, WARN, CRITICAL)
+- [ ] Before/after state capture for changes
+- [ ] Audit UI with filtering and search
+- [ ] Audit export for compliance
+- [ ] Immutable log storage strategy
+
+### R. Idempotency System - Duplicate Prevention
+- [ ] Idempotency keys table (scope, key, request_hash)
+- [ ] Scopes: ORDER_INGEST, LEDGER_POST, REFUND_EXECUTE, PAYOUT_EXECUTE, DISPUTE_SUBMIT
+- [ ] Request hash validation
+- [ ] Result caching for duplicate requests
+- [ ] Status tracking (IN_PROGRESS, COMPLETED, FAILED)
+- [ ] Cleanup job for expired keys
+
+### S. Railway Production Hardening - Deployment
+- [ ] Service split: web + worker (+ optional realtime)
+- [ ] Staging vs Production environment configuration
+- [ ] Migration runner (run once per deploy)
+- [ ] Secrets rotation strategy (KEY_V1/KEY_V2)
+- [ ] Observability setup (logging, metrics, tracing)
+- [ ] DLQ (Dead Letter Queue) alerts
+- [ ] Backup automation and restore drill
+- [ ] Health check endpoints
+- [ ] Graceful shutdown handling
+
+### T. Permissions & RBAC - Role-Based Access
+- [ ] Roles: Admin, Finance, Trust & Safety, Support, Founder
+- [ ] Permission definitions (READ_ORDERS, APPROVE_REFUNDS, etc.)
+- [ ] Server middleware requireStaffPerm(channel_id, perm)
+- [ ] UI gating via /api/staff/me/perms endpoint
+- [ ] Permission inheritance and hierarchy
+- [ ] Audit logging for permission checks
+
+### U. Hard Launch Pack - Go-Live Readiness
+- [ ] Cutover checklist (DNS, SSL, payments, integrations)
+- [ ] Smoke tests (critical flows: browse, add to cart, checkout, fulfill)
+- [ ] First 48h ops playbook with thresholds
+- [ ] Day-1 KPI dashboards (orders, revenue, errors)
+- [ ] Failure-mode drills (payment down, warehouse offline, stream failure)
+- [ ] Rollback procedures
+- [ ] On-call rotation and escalation paths
+- [ ] Incident response templates
+
+### V. Global Expansion - Multi-Region
+- [ ] Region abstraction layer (AU, US, UK, EU)
+- [ ] Multi-currency ledger with FX handling
+- [ ] Regional tax calculation (VAT, GST, sales tax)
+- [ ] International shipping cost calculation
+- [ ] Customs duty estimation
+- [ ] Localized content (language, date format, currency symbol)
+- [ ] Regional payment method support
+- [ ] Geo-routing for optimal performance
+- [ ] Regional compliance (GDPR, CCPA, etc.)
+
+### W. Website UX Blueprint - Premium Customer Experience
+- [ ] Home page with hero section, featured shows, trending products
+- [ ] Live streaming page with interactive shopping overlay
+- [ ] Product detail page with trust signals (reviews, guarantees, live proof)
+- [ ] Shopping cart with real-time inventory validation
+- [ ] Multi-step checkout with progress indicator
+- [ ] Order confirmation with tracking
+- [ ] Customer account dashboard (orders, favorites, settings)
+- [ ] Trust pages (shipping policy, return policy, privacy policy, about us)
+- [ ] Responsive mobile design with touch optimization
+- [ ] Fast SSR with R2+Cloudflare CDN
+- [ ] Accessibility compliance (WCAG 2.1 AA)
+
+### X. Checkout & Payments Architecture - PayPal-First
+- [ ] PayPal Smart Payment Buttons integration
+- [ ] Payment capture on order placement
+- [ ] Risk evaluation before fulfillment
+- [ ] Inventory reservation after payment
+- [ ] Order confirmation email with receipt
+- [ ] Receipt PDF generation and storage to R2
+- [ ] Idempotent payment processing
+- [ ] Payment failure handling and retry logic
+- [ ] Refund processing via PayPal API
+- [ ] Dispute handling integration
+
+### Y. Live Video Stack - Streaming Infrastructure
+- [ ] Twilio Live integration for interactive streaming
+- [ ] Twilio Video for backstage communication
+- [ ] Stream recording to R2 with metadata
+- [ ] Automated clipping based on highlights
+- [ ] VOD playback with adaptive bitrate
+- [ ] Stream quality monitoring
+- [ ] Fallback to IVS/Mux if needed
+- [ ] Viewer analytics (watch time, engagement)
+- [ ] Chat moderation tools
+- [ ] Stream latency optimization
+
+### Z. Testing & Quality Assurance - Comprehensive Coverage
+- [ ] Unit tests for all tRPC procedures (target: 80%+ coverage)
+- [ ] Integration tests for critical flows (checkout, fulfillment, payouts)
+- [ ] Webhook endpoint testing with mock payloads
+- [ ] Idempotency verification tests
+- [ ] Fraud scoring validation with test cases
+- [ ] Inventory reservation stress tests (concurrent orders)
+- [ ] End-to-end checkout flow testing (Playwright/Cypress)
+- [ ] Performance and load testing (Artillery/k6)
+- [ ] Security audit (CSP, rate limits, SQL injection, XSS)
+- [ ] Accessibility testing (axe-core, manual review)
+
+
+## ✅ Wave 6 Progress Update (Current Session)
+
+### Completed in this session:
+- [x] Created comprehensive LSN schema additions (50+ tables)
+- [x] Built disputes router with full automation (3,000+ lines)
+- [x] Integrated idempotency system
+- [x] Set up audit logging with hash chain
+- [x] Created evidence pack builder
+- [x] Implemented PayPal webhook handlers
+- [x] Added review queue integration
+- [x] Built escalation system to founder
+- [x] Fixed database connection exports
+- [x] Verified existing LSN routers (auth, creators, products, orders, operations)
+
+### Currently Building:
+- [ ] Customer-facing premium website (home, live, product pages)
+- [ ] Live streaming interface with interactive shopping
+- [ ] Real-time stock synchronization
+- [ ] Complete checkout flow with PayPal
+- [ ] Operator dashboards and admin interfaces
+- [ ] Testing suite and validation
