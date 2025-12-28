@@ -10,6 +10,7 @@ import { aiDashboardsRouter } from "./routers-ai-dashboards";
 import { liveStreamingRouter } from "./routers-live-streaming-simple";
 import { walletRouter } from "./routers-wallet";
 import { moderationRouter } from "./routers-moderation";
+import { streamingRouter, paymentsRouter, analyticsRouter, moderationRouter as moderationRouterV2 } from "./routers-streaming";
 
 /**
  * Live Shopping Network - Complete API Router
@@ -22,6 +23,9 @@ export const appRouter = router({
   liveStreaming: liveStreamingRouter,
   wallet: walletRouter,
   moderation: moderationRouter,
+  streaming: streamingRouter,
+  payments: paymentsRouter,
+  analytics: analyticsRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),

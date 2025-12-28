@@ -19,6 +19,9 @@ export const users = mysqlTable("users", {
   email: varchar("email", { length: 320 }),
   loginMethod: varchar("loginMethod", { length: 64 }),
   role: mysqlEnum("role", ["user", "admin"]).default("user").notNull(),
+  isBanned: boolean("is_banned").default(false),
+  bannedAt: timestamp("banned_at"),
+  banReason: text("ban_reason"),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
   lastSignedIn: timestamp("lastSignedIn").defaultNow().notNull(),
@@ -284,7 +287,13 @@ export const orders = mysqlTable("orders", {
   status: mysqlEnum("status", ["pending", "processing", "shipped", "delivered", "cancelled", "refunded"]).default("pending").notNull(),
   paymentStatus: mysqlEnum("payment_status", ["pending", "paid", "refunded", "failed"]).default("pending").notNull(),
   fulfillmentStatus: mysqlEnum("fulfillment_status", ["unfulfilled", "partial", "fulfilled"]).default("unfulfilled").notNull(),
+  stripePaymentIntentId: varchar("stripe_payment_intent_id", { length: 255 }),
+  paidAt: timestamp("paid_at"),
+  totalAmount: decimal("total_amount", { precision: 10, scale: 2 }),
+  showId: varchar("show_id", { length: 64 }),
+  productId: varchar("product_id", { length: 64 }),
   liveSessionId: varchar("live_session_id", { length: 64 }),
+  hostId: varchar("host_id", { length: 64 }),
   attributionWindow: int("attribution_window"),
   notes: text("notes"),
   metadata: json("metadata"),
@@ -928,6 +937,7 @@ export const liveViewers = mysqlTable("live_viewers", {
   userId: int("user_id").references(() => users.id),
   sessionId: varchar("session_id", { length: 128 }),
   joinedAt: timestamp("joined_at").defaultNow().notNull(),
+  viewDuration: int("view_duration").default(0),
   leftAt: timestamp("left_at"),
   watchDuration: int("watch_duration").default(0), // seconds
   messagesCount: int("messages_count").default(0),
@@ -997,6 +1007,8 @@ export const hostProfiles = mysqlTable("host_profiles", {
   totalFollowers: int("total_followers").default(0),
   totalRevenue: decimal("total_revenue", { precision: 10, scale: 2 }).default("0.00"),
   rating: decimal("rating", { precision: 3, scale: 2 }).default("0.00"),
+  stripeAccountId: varchar("stripe_account_id", { length: 255 }),
+  stripeOnboardingComplete: boolean("stripe_onboarding_complete").default(false),
   status: mysqlEnum("status", ["active", "suspended", "banned"]).default("active").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
@@ -1117,11 +1129,14 @@ export const transactions = mysqlTable("transactions", {
 export const payouts = mysqlTable("payouts", {
   id: varchar("id", { length: 64 }).primaryKey(),
   userId: int("user_id").notNull().references(() => users.id),
+  hostId: varchar("host_id", { length: 64 }),
   amount: decimal("amount", { precision: 10, scale: 2 }).notNull(),
   currency: varchar("currency", { length: 3 }).default("USD").notNull(),
-  status: mysqlEnum("status", ["pending", "processing", "completed", "failed", "cancelled"]).default("pending").notNull(),
+  status: mysqlEnum("status", ["pending", "processing", "completed", "failed", "cancelled", "paid", "in_transit"]).default("pending").notNull(),
   method: mysqlEnum("method", ["bank_account", "paypal", "stripe"]).notNull(),
   stripePayoutId: varchar("stripe_payout_id", { length: 255 }),
+  stripeTransferId: varchar("stripe_transfer_id", { length: 255 }),
+  description: text("description"),
   estimatedArrival: timestamp("estimated_arrival"),
   completedAt: timestamp("completed_at"),
   failureReason: text("failure_reason"),
@@ -1136,3 +1151,48 @@ export const payouts = mysqlTable("payouts", {
 export type Wallet = typeof wallets.$inferSelect;
 export type Transaction = typeof transactions.$inferSelect;
 export type Payout = typeof payouts.$inferSelect;
+
+// ============================================================================
+// MODERATION: Content Moderation & User Reports
+// ============================================================================
+
+export const moderationLogs = mysqlTable("moderation_logs", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  userId: varchar("user_id", { length: 64 }).notNull(),
+  content: text("content").notNull(),
+  allowed: boolean("allowed").notNull(),
+  reason: text("reason"),
+  severity: mysqlEnum("severity", ["low", "medium", "high", "critical"]).notNull(),
+  categories: text("categories"), // JSON string array
+  confidence: decimal("confidence", { precision: 3, scale: 2 }).notNull(),
+  context: json("context"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("user_id_idx").on(table.userId),
+  allowedIdx: index("allowed_idx").on(table.allowed),
+  severityIdx: index("severity_idx").on(table.severity),
+  createdAtIdx: index("created_at_idx").on(table.createdAt),
+}));
+
+export const userReports = mysqlTable("user_reports", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  reporterId: varchar("reporter_id", { length: 64 }).notNull(),
+  reportedUserId: varchar("reported_user_id", { length: 64 }).notNull(),
+  reason: text("reason").notNull(),
+  context: json("context"),
+  status: mysqlEnum("status", ["pending", "reviewed", "resolved", "dismissed"]).default("pending").notNull(),
+  reviewedBy: varchar("reviewed_by", { length: 64 }),
+  reviewedAt: timestamp("reviewed_at"),
+  resolution: text("resolution"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  reporterIdIdx: index("reporter_id_idx").on(table.reporterId),
+  reportedUserIdIdx: index("reported_user_id_idx").on(table.reportedUserId),
+  statusIdx: index("status_idx").on(table.status),
+  createdAtIdx: index("created_at_idx").on(table.createdAt),
+}));
+
+// Type exports for moderation
+export type ModerationLog = typeof moderationLogs.$inferSelect;
+export type UserReport = typeof userReports.$inferSelect;
