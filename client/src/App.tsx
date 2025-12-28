@@ -96,6 +96,10 @@ import HostDashboard from "@/pages/HostDashboard";
 import BrowseShows from '@/pages/BrowseShows';
 import Wallet from '@/pages/Wallet';
 import ModerationDashboard from '@/pages/ModerationDashboard';
+import AffiliateDashboard from '@/pages/AffiliateDashboard';
+import LiveStudio from '@/pages/LiveStudio';
+import UserProfile from '@/pages/UserProfile';
+import MarketingDashboard from '@/pages/MarketingDashboard';
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -172,6 +176,10 @@ function Router() {
       <Route path="/browse-shows" component={BrowseShows} />
       <Route path="/wallet" component={Wallet} />
       <Route path="/moderation" component={ModerationDashboard} />
+      <Route path="/affiliate/dashboard" component={AffiliateDashboard} />
+      <Route path="/live/studio" component={LiveStudio} />
+      <Route path="/user/:userId" component={UserProfile} />
+      <Route path="/marketing" component={MarketingDashboard} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
       <Route path="/profile" component={Profile} />
