@@ -109,6 +109,7 @@ import FraudConsole from '@/pages/FraudConsole';
 import PurchasingDashboard from '@/pages/PurchasingDashboard';
 import CreatorDashboard from '@/pages/CreatorDashboard';
 import LiveShowsBrowse from '@/pages/LiveShowsBrowse';
+import CreatorDashboardEnhanced from '@/pages/CreatorDashboardEnhanced';
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -193,6 +194,7 @@ function Router() {
       <Route path="/fraud-console" component={FraudConsole} />
       <Route path="/purchasing-dashboard" component={PurchasingDashboard} />
       <Route path="/creator-dashboard" component={CreatorDashboard} />
+      <Route path="/creator/dashboard" component={CreatorDashboardEnhanced} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
       <Route path="/profile" component={Profile} />
