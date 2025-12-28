@@ -1,0 +1,777 @@
+import { router, publicProcedure, protectedProcedure } from "./_core/trpc";
+import { z } from "zod";
+import { TRPCError } from "@trpc/server";
+import { productManagementService } from "./product-management";
+import { orderManagementService } from "./order-management";
+import { notificationSystem } from "./notification-system";
+import { searchRecommendationEngine } from "./search-recommendation";
+
+/**
+ * Extended tRPC Routers
+ * Complete API layer for all new services
+ * 
+ * Routers:
+ * - products: Product management CRUD
+ * - orders: Order & checkout operations
+ * - notifications: Notification management
+ * - search: Search & recommendations
+ */
+
+// ============================================================================
+// PRODUCTS ROUTER
+// ============================================================================
+
+export const productsRouter = router({
+  /**
+   * Create product
+   */
+  create: protectedProcedure
+    .input(
+      z.object({
+        name: z.string().min(1).max(200),
+        description: z.string().optional(),
+        price: z.number().min(0),
+        compareAtPrice: z.number().min(0).optional(),
+        categoryId: z.string().optional(),
+        tags: z.array(z.string()).optional(),
+        sku: z.string().optional(),
+        barcode: z.string().optional(),
+        weight: z.number().optional(),
+        dimensions: z
+          .object({
+            length: z.number(),
+            width: z.number(),
+            height: z.number(),
+          })
+          .optional(),
+        status: z.enum(["draft", "active", "archived"]),
+        featured: z.boolean().optional(),
+      })
+    )
+    .mutation(async ({ input, ctx }) => {
+      // TODO: Verify user is a host
+      const hostId = ctx.user.id.toString();
+      return await productManagementService.createProduct(input, hostId);
+    }),
+
+  /**
+   * Update product
+   */
+  update: protectedProcedure
+    .input(
+      z.object({
+        productId: z.string(),
+        name: z.string().min(1).max(200).optional(),
+        description: z.string().optional(),
+        price: z.number().min(0).optional(),
+        compareAtPrice: z.number().min(0).optional(),
+        categoryId: z.string().optional(),
+        tags: z.array(z.string()).optional(),
+        sku: z.string().optional(),
+        barcode: z.string().optional(),
+        weight: z.number().optional(),
+        status: z.enum(["draft", "active", "archived"]).optional(),
+        featured: z.boolean().optional(),
+      })
+    )
+    .mutation(async ({ input, ctx }) => {
+      const { productId, ...updates } = input;
+      const hostId = ctx.user.id.toString();
+      return await productManagementService.updateProduct(productId, updates, hostId);
+    }),
+
+  /**
+   * Delete product
+   */
+  delete: protectedProcedure
+    .input(z.object({ productId: z.string() }))
+    .mutation(async ({ input, ctx }) => {
+      const hostId = ctx.user.id.toString();
+      return await productManagementService.deleteProduct(input.productId, hostId);
+    }),
+
+  /**
+   * Get product by ID
+   */
+  getById: publicProcedure
+    .input(z.object({ productId: z.string() }))
+    .query(async ({ input }) => {
+      return await productManagementService.getProduct(input.productId);
+    }),
+
+  /**
+   * List products
+   */
+  list: publicProcedure
+    .input(
+      z.object({
+        hostId: z.string().optional(),
+        categoryId: z.string().optional(),
+        status: z.string().optional(),
+        featured: z.boolean().optional(),
+        search: z.string().optional(),
+        minPrice: z.number().optional(),
+        maxPrice: z.number().optional(),
+        limit: z.number().min(1).max(100).optional(),
+        offset: z.number().min(0).optional(),
+        sortBy: z.enum(["name", "price", "createdAt", "updatedAt"]).optional(),
+        sortOrder: z.enum(["asc", "desc"]).optional(),
+      })
+    )
+    .query(async ({ input }) => {
+      return await productManagementService.listProducts(input);
+    }),
+
+  /**
+   * Upload product image
+   */
+  uploadImage: protectedProcedure
+    .input(
+      z.object({
+        productId: z.string(),
+        imageData: z.string(), // Base64 encoded
+        mimeType: z.string(),
+      })
+    )
+    .mutation(async ({ input, ctx }) => {
+      const hostId = ctx.user.id.toString();
+      const buffer = Buffer.from(input.imageData, "base64");
+      return await productManagementService.uploadProductImage(
+        input.productId,
+        buffer,
+        input.mimeType,
+        hostId
+      );
+    }),
+
+  /**
+   * Delete product image
+   */
+  deleteImage: protectedProcedure
+    .input(z.object({ imageId: z.string() }))
+    .mutation(async ({ input, ctx }) => {
+      const hostId = ctx.user.id.toString();
+      return await productManagementService.deleteProductImage(input.imageId, hostId);
+    }),
+
+  /**
+   * Reorder images
+   */
+  reorderImages: protectedProcedure
+    .input(
+      z.object({
+        productId: z.string(),
+        imageIds: z.array(z.string()),
+      })
+    )
+    .mutation(async ({ input, ctx }) => {
+      const hostId = ctx.user.id.toString();
+      return await productManagementService.reorderProductImages(
+        input.productId,
+        input.imageIds,
+        hostId
+      );
+    }),
+
+  /**
+   * Create variant
+   */
+  createVariant: protectedProcedure
+    .input(
+      z.object({
+        productId: z.string(),
+        name: z.string(),
+        sku: z.string().optional(),
+        price: z.number().optional(),
+        compareAtPrice: z.number().optional(),
+        options: z.record(z.string()),
+        weight: z.number().optional(),
+        barcode: z.string().optional(),
+      })
+    )
+    .mutation(async ({ input, ctx }) => {
+      const hostId = ctx.user.id.toString();
+      return await productManagementService.createVariant(input, hostId);
+    }),
+
+  /**
+   * Update inventory
+   */
+  updateInventory: protectedProcedure
+    .input(
+      z.object({
+        productId: z.string(),
+        variantId: z.string().optional(),
+        quantity: z.number().min(0),
+        location: z.string().optional(),
+        lowStockThreshold: z.number().optional(),
+      })
+    )
+    .mutation(async ({ input, ctx }) => {
+      const hostId = ctx.user.id.toString();
+      return await productManagementService.updateInventory(input, hostId);
+    }),
+
+  /**
+   * Adjust inventory
+   */
+  adjustInventory: protectedProcedure
+    .input(
+      z.object({
+        productId: z.string(),
+        adjustment: z.number(),
+        reason: z.string(),
+        variantId: z.string().optional(),
+      })
+    )
+    .mutation(async ({ input, ctx }) => {
+      const hostId = ctx.user.id.toString();
+      return await productManagementService.adjustInventory(
+        input.productId,
+        input.adjustment,
+        input.reason,
+        input.variantId,
+        hostId
+      );
+    }),
+
+  /**
+   * Get low stock products
+   */
+  getLowStock: protectedProcedure.query(async ({ ctx }) => {
+    const hostId = ctx.user.id.toString();
+    return await productManagementService.getLowStockProducts(hostId);
+  }),
+
+  /**
+   * Bulk import
+   */
+  bulkImport: protectedProcedure
+    .input(
+      z.array(
+        z.object({
+          name: z.string(),
+          description: z.string().optional(),
+          price: z.number(),
+          compareAtPrice: z.number().optional(),
+          category: z.string().optional(),
+          tags: z.string().optional(),
+          sku: z.string().optional(),
+          barcode: z.string().optional(),
+          quantity: z.number().optional(),
+          status: z.string().optional(),
+        })
+      )
+    )
+    .mutation(async ({ input, ctx }) => {
+      const hostId = ctx.user.id.toString();
+      return await productManagementService.bulkImport(input, hostId);
+    }),
+
+  /**
+   * Export products
+   */
+  export: protectedProcedure.query(async ({ ctx }) => {
+    const hostId = ctx.user.id.toString();
+    return await productManagementService.exportProducts(hostId);
+  }),
+
+  /**
+   * Create category
+   */
+  createCategory: protectedProcedure
+    .input(
+      z.object({
+        name: z.string(),
+        slug: z.string(),
+        description: z.string().optional(),
+        parentId: z.string().optional(),
+        image: z.string().optional(),
+        featured: z.boolean().optional(),
+        sortOrder: z.number().optional(),
+      })
+    )
+    .mutation(async ({ input }) => {
+      return await productManagementService.createCategory(input);
+    }),
+
+  /**
+   * List categories
+   */
+  listCategories: publicProcedure
+    .input(z.object({ parentId: z.string().optional().nullable() }))
+    .query(async ({ input }) => {
+      return await productManagementService.listCategories(input.parentId);
+    }),
+
+  /**
+   * Get category tree
+   */
+  getCategoryTree: publicProcedure.query(async () => {
+    return await productManagementService.getCategoryTree();
+  }),
+});
+
+// ============================================================================
+// ORDERS ROUTER
+// ============================================================================
+
+export const ordersRouter = router({
+  /**
+   * Create checkout
+   */
+  createCheckout: protectedProcedure
+    .input(
+      z.object({
+        items: z.array(
+          z.object({
+            productId: z.string(),
+            variantId: z.string().optional(),
+            quantity: z.number().min(1),
+            price: z.number(),
+          })
+        ),
+        shippingAddress: z.object({
+          fullName: z.string(),
+          addressLine1: z.string(),
+          addressLine2: z.string().optional(),
+          city: z.string(),
+          state: z.string(),
+          postalCode: z.string(),
+          country: z.string(),
+          phone: z.string(),
+        }),
+        showId: z.string().optional(),
+        hostId: z.string().optional(),
+        notes: z.string().optional(),
+        couponCode: z.string().optional(),
+      })
+    )
+    .mutation(async ({ input, ctx }) => {
+      return await orderManagementService.createCheckout({
+        ...input,
+        userId: ctx.user.id.toString(),
+      });
+    }),
+
+  /**
+   * Confirm order
+   */
+  confirmOrder: protectedProcedure
+    .input(
+      z.object({
+        orderId: z.string(),
+        paymentIntentId: z.string(),
+      })
+    )
+    .mutation(async ({ input }) => {
+      return await orderManagementService.confirmOrder(input.orderId, input.paymentIntentId);
+    }),
+
+  /**
+   * Get order by ID
+   */
+  getById: protectedProcedure
+    .input(z.object({ orderId: z.string() }))
+    .query(async ({ input }) => {
+      return await orderManagementService.getOrder(input.orderId);
+    }),
+
+  /**
+   * List orders
+   */
+  list: protectedProcedure
+    .input(
+      z.object({
+        hostId: z.string().optional(),
+        status: z.string().optional(),
+        paymentStatus: z.string().optional(),
+        startDate: z.date().optional(),
+        endDate: z.date().optional(),
+        minAmount: z.number().optional(),
+        maxAmount: z.number().optional(),
+        search: z.string().optional(),
+        limit: z.number().optional(),
+        offset: z.number().optional(),
+      })
+    )
+    .query(async ({ input, ctx }) => {
+      return await orderManagementService.listOrders({
+        ...input,
+        userId: ctx.user.id.toString(),
+      });
+    }),
+
+  /**
+   * Update order status
+   */
+  updateStatus: protectedProcedure
+    .input(
+      z.object({
+        orderId: z.string(),
+        status: z.string(),
+        notes: z.string().optional(),
+      })
+    )
+    .mutation(async ({ input, ctx }) => {
+      return await orderManagementService.updateOrderStatus(
+        input.orderId,
+        input.status,
+        input.notes,
+        ctx.user.id.toString()
+      );
+    }),
+
+  /**
+   * Cancel order
+   */
+  cancel: protectedProcedure
+    .input(
+      z.object({
+        orderId: z.string(),
+        reason: z.string(),
+      })
+    )
+    .mutation(async ({ input, ctx }) => {
+      return await orderManagementService.cancelOrder(
+        input.orderId,
+        input.reason,
+        ctx.user.id.toString()
+      );
+    }),
+
+  /**
+   * Process refund
+   */
+  refund: protectedProcedure
+    .input(
+      z.object({
+        orderId: z.string(),
+        amount: z.number(),
+        reason: z.string(),
+      })
+    )
+    .mutation(async ({ input, ctx }) => {
+      return await orderManagementService.processRefund(
+        input.orderId,
+        input.amount,
+        input.reason,
+        ctx.user.id.toString()
+      );
+    }),
+
+  /**
+   * Add tracking
+   */
+  addTracking: protectedProcedure
+    .input(
+      z.object({
+        orderId: z.string(),
+        carrier: z.string(),
+        trackingNumber: z.string(),
+      })
+    )
+    .mutation(async ({ input, ctx }) => {
+      return await orderManagementService.addTracking(
+        input.orderId,
+        input.carrier,
+        input.trackingNumber,
+        ctx.user.id.toString()
+      );
+    }),
+
+  /**
+   * Mark delivered
+   */
+  markDelivered: protectedProcedure
+    .input(z.object({ orderId: z.string() }))
+    .mutation(async ({ input, ctx }) => {
+      return await orderManagementService.markDelivered(input.orderId, ctx.user.id.toString());
+    }),
+
+  /**
+   * Get order statistics
+   */
+  getStats: protectedProcedure
+    .input(
+      z.object({
+        hostId: z.string().optional(),
+        startDate: z.date().optional(),
+        endDate: z.date().optional(),
+      })
+    )
+    .query(async ({ input, ctx }) => {
+      return await orderManagementService.getOrderStats({
+        ...input,
+        userId: ctx.user.id.toString(),
+      });
+    }),
+
+  /**
+   * Get revenue over time
+   */
+  getRevenueOverTime: protectedProcedure
+    .input(
+      z.object({
+        hostId: z.string().optional(),
+        startDate: z.date(),
+        endDate: z.date(),
+        groupBy: z.enum(["day", "week", "month"]),
+      })
+    )
+    .query(async ({ input }) => {
+      return await orderManagementService.getRevenueOverTime(input);
+    }),
+});
+
+// ============================================================================
+// NOTIFICATIONS ROUTER
+// ============================================================================
+
+export const notificationsRouter = router({
+  /**
+   * Send notification
+   */
+  send: protectedProcedure
+    .input(
+      z.object({
+        type: z.enum(["order", "show", "payment", "system", "marketing", "social"]),
+        channel: z.enum(["email", "sms", "push", "in_app"]),
+        title: z.string(),
+        message: z.string(),
+        data: z.record(z.any()).optional(),
+        priority: z.enum(["low", "normal", "high", "urgent"]).optional(),
+        actionUrl: z.string().optional(),
+        actionText: z.string().optional(),
+        imageUrl: z.string().optional(),
+      })
+    )
+    .mutation(async ({ input, ctx }) => {
+      return await notificationSystem.sendNotification({
+        ...input,
+        userId: ctx.user.id.toString(),
+      });
+    }),
+
+  /**
+   * Get user notifications
+   */
+  list: protectedProcedure
+    .input(
+      z.object({
+        type: z.string().optional(),
+        channel: z.string().optional(),
+        read: z.boolean().optional(),
+        limit: z.number().optional(),
+        offset: z.number().optional(),
+      })
+    )
+    .query(async ({ input, ctx }) => {
+      return await notificationSystem.getUserNotifications(ctx.user.id.toString(), input);
+    }),
+
+  /**
+   * Mark as read
+   */
+  markAsRead: protectedProcedure
+    .input(z.object({ notificationId: z.string() }))
+    .mutation(async ({ input, ctx }) => {
+      return await notificationSystem.markAsRead(input.notificationId, ctx.user.id.toString());
+    }),
+
+  /**
+   * Mark all as read
+   */
+  markAllAsRead: protectedProcedure.mutation(async ({ ctx }) => {
+    return await notificationSystem.markAllAsRead(ctx.user.id.toString());
+  }),
+
+  /**
+   * Delete notification
+   */
+  delete: protectedProcedure
+    .input(z.object({ notificationId: z.string() }))
+    .mutation(async ({ input, ctx }) => {
+      return await notificationSystem.deleteNotification(
+        input.notificationId,
+        ctx.user.id.toString()
+      );
+    }),
+
+  /**
+   * Get unread count
+   */
+  getUnreadCount: protectedProcedure.query(async ({ ctx }) => {
+    return await notificationSystem.getUnreadCount(ctx.user.id.toString());
+  }),
+
+  /**
+   * Get preferences
+   */
+  getPreferences: protectedProcedure.query(async ({ ctx }) => {
+    return await notificationSystem.getUserPreferences(ctx.user.id.toString());
+  }),
+
+  /**
+   * Update preferences
+   */
+  updatePreferences: protectedProcedure
+    .input(z.record(z.any()))
+    .mutation(async ({ input, ctx }) => {
+      return await notificationSystem.updateUserPreferences(ctx.user.id.toString(), input);
+    }),
+});
+
+// ============================================================================
+// SEARCH ROUTER
+// ============================================================================
+
+export const searchRouter = router({
+  /**
+   * Universal search
+   */
+  search: publicProcedure
+    .input(
+      z.object({
+        query: z.string(),
+        type: z.enum(["products", "shows", "hosts", "all"]).optional(),
+        filters: z
+          .object({
+            category: z.string().optional(),
+            minPrice: z.number().optional(),
+            maxPrice: z.number().optional(),
+            hostId: z.string().optional(),
+            status: z.string().optional(),
+            tags: z.array(z.string()).optional(),
+            inStock: z.boolean().optional(),
+          })
+          .optional(),
+        sort: z.enum(["relevance", "price_asc", "price_desc", "newest", "popular"]).optional(),
+        limit: z.number().optional(),
+        offset: z.number().optional(),
+      })
+    )
+    .query(async ({ input }) => {
+      return await searchRecommendationEngine.search(input);
+    }),
+
+  /**
+   * Autocomplete
+   */
+  autocomplete: publicProcedure
+    .input(
+      z.object({
+        query: z.string(),
+        limit: z.number().optional(),
+      })
+    )
+    .query(async ({ input }) => {
+      return await searchRecommendationEngine.autocomplete(input.query, input.limit);
+    }),
+
+  /**
+   * Get trending searches
+   */
+  getTrending: publicProcedure
+    .input(z.object({ limit: z.number().optional() }))
+    .query(async ({ input }) => {
+      return await searchRecommendationEngine.getTrendingSearches(input.limit);
+    }),
+
+  /**
+   * Get product recommendations
+   */
+  getProductRecommendations: protectedProcedure
+    .input(
+      z.object({
+        productId: z.string().optional(),
+        categoryId: z.string().optional(),
+        limit: z.number().optional(),
+      })
+    )
+    .query(async ({ input, ctx }) => {
+      return await searchRecommendationEngine.getProductRecommendations({
+        userId: ctx.user.id.toString(),
+        type: "products",
+        context: {
+          productId: input.productId,
+          categoryId: input.categoryId,
+        },
+        limit: input.limit,
+      });
+    }),
+
+  /**
+   * Get similar products
+   */
+  getSimilarProducts: publicProcedure
+    .input(
+      z.object({
+        productId: z.string(),
+        limit: z.number().optional(),
+      })
+    )
+    .query(async ({ input }) => {
+      return await searchRecommendationEngine.getSimilarProducts(input.productId, input.limit);
+    }),
+
+  /**
+   * Get popular products
+   */
+  getPopularProducts: publicProcedure
+    .input(z.object({ limit: z.number().optional() }))
+    .query(async ({ input }) => {
+      return await searchRecommendationEngine.getPopularProducts(input.limit);
+    }),
+
+  /**
+   * Get trending shows
+   */
+  getTrendingShows: publicProcedure
+    .input(z.object({ limit: z.number().optional() }))
+    .query(async ({ input }) => {
+      return await searchRecommendationEngine.getTrendingShows(input.limit);
+    }),
+
+  /**
+   * Get recommended shows
+   */
+  getRecommendedShows: protectedProcedure
+    .input(z.object({ limit: z.number().optional() }))
+    .query(async ({ input, ctx }) => {
+      return await searchRecommendationEngine.getRecommendedShows(
+        ctx.user.id.toString(),
+        input.limit
+      );
+    }),
+
+  /**
+   * Get personalized feed
+   */
+  getPersonalizedFeed: protectedProcedure
+    .input(z.object({ limit: z.number().optional() }))
+    .query(async ({ input, ctx }) => {
+      return await searchRecommendationEngine.getPersonalizedFeed(
+        ctx.user.id.toString(),
+        input.limit
+      );
+    }),
+
+  /**
+   * Track interaction
+   */
+  trackInteraction: protectedProcedure
+    .input(
+      z.object({
+        action: z.string(),
+        data: z.record(z.any()),
+      })
+    )
+    .mutation(async ({ input, ctx }) => {
+      return await searchRecommendationEngine.trackInteraction(
+        ctx.user.id.toString(),
+        input.action,
+        input.data
+      );
+    }),
+});

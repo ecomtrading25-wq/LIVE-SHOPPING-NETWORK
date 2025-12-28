@@ -57,6 +57,13 @@
       "when": 1766899096645,
       "tag": "0007_uneven_kid_colt",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1766900199104,
+      "tag": "0008_yielding_genesis",
+      "breakpoints": true
     }
   ]
 }

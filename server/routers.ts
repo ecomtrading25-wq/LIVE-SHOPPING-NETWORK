@@ -11,6 +11,7 @@ import { liveStreamingRouter } from "./routers-live-streaming-simple";
 import { walletRouter } from "./routers-wallet";
 import { moderationRouter } from "./routers-moderation";
 import { streamingRouter, paymentsRouter, analyticsRouter, moderationRouter as moderationRouterV2 } from "./routers-streaming";
+// import { productsRouter, ordersRouter, notificationsRouter, searchRouter } from "./routers-extended";
 
 /**
  * Live Shopping Network - Complete API Router
@@ -26,6 +27,10 @@ export const appRouter = router({
   streaming: streamingRouter,
   payments: paymentsRouter,
   analytics: analyticsRouter,
+  // productsNew: productsRouter,
+  // ordersNew: ordersRouter,
+  // notifications: notificationsRouter,
+  // search: searchRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),

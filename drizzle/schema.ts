@@ -1196,3 +1196,27 @@ export const userReports = mysqlTable("user_reports", {
 // Type exports for moderation
 export type ModerationLog = typeof moderationLogs.$inferSelect;
 export type UserReport = typeof userReports.$inferSelect;
+
+
+
+// ============================================================================
+// PRODUCT CATEGORIES (Missing table)
+// ============================================================================
+
+export const productCategories = mysqlTable("product_categories", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  name: varchar("name", { length: 200 }).notNull(),
+  slug: varchar("slug", { length: 200 }).notNull().unique(),
+  description: text("description"),
+  parentId: varchar("parent_id", { length: 64 }),
+  image: text("image"),
+  featured: boolean("featured").default(false).notNull(),
+  sortOrder: int("sort_order").default(0).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  parentIdIdx: index("parent_id_idx").on(table.parentId),
+  featuredIdx: index("featured_idx").on(table.featured),
+}));
+
+export type ProductCategory = typeof productCategories.$inferSelect;
