@@ -1235,3 +1235,314 @@ export const cartItems = mysqlTable("cart_items", {
 });
 
 export type CartItem = typeof cartItems.$inferSelect;
+
+// ============================================================================
+// ENTERPRISE: Advanced Analytics & BI
+// ============================================================================
+
+export const currencies = mysqlTable("currencies", {
+  code: varchar("code", { length: 3 }).primaryKey(),
+  name: varchar("name", { length: 100 }).notNull(),
+  symbol: varchar("symbol", { length: 10 }).notNull(),
+  decimalPlaces: int("decimal_places").default(2).notNull(),
+  isActive: boolean("is_active").default(true).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const exchangeRates = mysqlTable("exchange_rates", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  fromCurrency: varchar("from_currency", { length: 3 }).notNull(),
+  toCurrency: varchar("to_currency", { length: 3 }).notNull(),
+  rate: decimal("rate", { precision: 18, scale: 8 }).notNull(),
+  lastUpdated: timestamp("last_updated").defaultNow().notNull(),
+}, (table) => ({
+  currencyPairIdx: uniqueIndex("currency_pair_idx").on(table.fromCurrency, table.toCurrency),
+}));
+
+export const translations = mysqlTable("translations", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  key: varchar("key", { length: 255 }).notNull(),
+  language: varchar("language", { length: 10 }).notNull(),
+  value: text("value").notNull(),
+  context: text("context"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  keyLanguageIdx: uniqueIndex("key_language_idx").on(table.key, table.language),
+}));
+
+export const regionalPricing = mysqlTable("regional_pricing", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  productId: varchar("product_id", { length: 64 }).notNull(),
+  region: varchar("region", { length: 10 }).notNull(),
+  currency: varchar("currency", { length: 3 }).notNull(),
+  basePrice: decimal("base_price", { precision: 10, scale: 2 }).notNull(),
+  salePrice: decimal("sale_price", { precision: 10, scale: 2 }),
+  taxIncluded: boolean("tax_included").default(false).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  productRegionIdx: uniqueIndex("product_region_idx").on(table.productId, table.region),
+}));
+
+export const shippingZones = mysqlTable("shipping_zones", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  countries: json("countries").$type<string[]>().notNull(),
+  regions: json("regions").$type<string[]>(),
+  carriers: json("carriers").$type<string[]>().notNull(),
+  rates: json("rates").$type<any[]>().notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+});
+
+export const taxRates = mysqlTable("tax_rates", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  country: varchar("country", { length: 2 }).notNull(),
+  region: varchar("region", { length: 100 }),
+  taxType: mysqlEnum("tax_type", ["VAT", "GST", "sales_tax", "customs"]).notNull(),
+  rate: decimal("rate", { precision: 5, scale: 2 }).notNull(),
+  threshold: decimal("threshold", { precision: 10, scale: 2 }),
+  includeInPrice: boolean("include_in_price").default(false).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  countryRegionIdx: index("country_region_idx").on(table.country, table.region),
+}));
+
+// ============================================================================
+// ENTERPRISE: Multi-Warehouse Fulfillment
+// ============================================================================
+
+export const warehouseInventory = mysqlTable("warehouse_inventory", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  warehouseId: varchar("warehouse_id", { length: 64 }).notNull().references(() => warehouses.id),
+  productId: varchar("product_id", { length: 64 }).notNull(),
+  zoneId: varchar("zone_id", { length: 64 }),
+  binLocation: varchar("bin_location", { length: 100 }),
+  quantity: int("quantity").default(0).notNull(),
+  reserved: int("reserved").default(0).notNull(),
+  reorderPoint: int("reorder_point").default(0),
+  reorderQuantity: int("reorder_quantity").default(0),
+  lastCountedAt: timestamp("last_counted_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  warehouseProductIdx: uniqueIndex("warehouse_product_idx").on(table.warehouseId, table.productId),
+}));
+
+export const warehouseZones = mysqlTable("warehouse_zones", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  warehouseId: varchar("warehouse_id", { length: 64 }).notNull().references(() => warehouses.id),
+  name: varchar("name", { length: 255 }).notNull(),
+  type: mysqlEnum("type", ["receiving", "storage", "picking", "packing", "shipping", "returns"]).notNull(),
+  capacity: int("capacity").default(0).notNull(),
+  currentLoad: int("current_load").default(0).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const pickingTasks = mysqlTable("picking_tasks", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  warehouseId: varchar("warehouse_id", { length: 64 }).notNull().references(() => warehouses.id),
+  orderId: varchar("order_id", { length: 64 }).notNull(),
+  waveId: varchar("wave_id", { length: 64 }),
+  assignedTo: varchar("assigned_to", { length: 64 }),
+  status: mysqlEnum("status", ["pending", "in_progress", "completed", "cancelled"]).default("pending").notNull(),
+  priority: mysqlEnum("priority", ["low", "normal", "high", "urgent"]).default("normal").notNull(),
+  items: json("items").$type<any[]>().notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  completedAt: timestamp("completed_at"),
+});
+
+export const packingStations = mysqlTable("packing_stations", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  warehouseId: varchar("warehouse_id", { length: 64 }).notNull().references(() => warehouses.id),
+  name: varchar("name", { length: 255 }).notNull(),
+  status: mysqlEnum("status", ["available", "busy", "offline"]).default("available").notNull(),
+  assignedTo: varchar("assigned_to", { length: 64 }),
+  currentOrderId: varchar("current_order_id", { length: 64 }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const shippingLabels = mysqlTable("shipping_labels", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  orderId: varchar("order_id", { length: 64 }).notNull(),
+  carrier: varchar("carrier", { length: 100 }).notNull(),
+  service: varchar("service", { length: 100 }).notNull(),
+  trackingNumber: varchar("tracking_number", { length: 255 }).notNull().unique(),
+  labelUrl: text("label_url").notNull(),
+  weight: decimal("weight", { precision: 10, scale: 2 }),
+  cost: decimal("cost", { precision: 10, scale: 2 }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const inventoryTransfers = mysqlTable("inventory_transfers", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  productId: varchar("product_id", { length: 64 }).notNull(),
+  fromWarehouseId: varchar("from_warehouse_id", { length: 64 }).notNull().references(() => warehouses.id),
+  toWarehouseId: varchar("to_warehouse_id", { length: 64 }).notNull().references(() => warehouses.id),
+  quantity: int("quantity").notNull(),
+  reason: text("reason"),
+  status: mysqlEnum("status", ["pending", "in_transit", "completed", "cancelled"]).default("pending").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  completedAt: timestamp("completed_at"),
+});
+
+export const warehouseStaff = mysqlTable("warehouse_staff", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  warehouseId: varchar("warehouse_id", { length: 64 }).notNull().references(() => warehouses.id),
+  name: varchar("name", { length: 255 }).notNull(),
+  role: mysqlEnum("role", ["picker", "packer", "receiver", "manager"]).notNull(),
+  status: mysqlEnum("status", ["active", "inactive"]).default("active").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// ============================================================================
+// ENTERPRISE: Customer Service & Support
+// ============================================================================
+
+export const supportTickets = mysqlTable("support_tickets", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  customerId: varchar("customer_id", { length: 64 }).notNull(),
+  subject: varchar("subject", { length: 500 }).notNull(),
+  description: text("description").notNull(),
+  status: mysqlEnum("status", ["open", "pending", "resolved", "closed"]).default("open").notNull(),
+  priority: mysqlEnum("priority", ["low", "medium", "high", "urgent"]).default("medium").notNull(),
+  category: varchar("category", { length: 100 }).notNull(),
+  channel: mysqlEnum("channel", ["email", "chat", "phone", "social", "web"]).notNull(),
+  assignedTo: varchar("assigned_to", { length: 64 }),
+  tags: json("tags").$type<string[]>(),
+  orderId: varchar("order_id", { length: 64 }),
+  firstResponseTime: int("first_response_time"),
+  resolutionTime: int("resolution_time"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+  resolvedAt: timestamp("resolved_at"),
+}, (table) => ({
+  customerIdx: index("customer_idx").on(table.customerId),
+  statusIdx: index("status_idx").on(table.status),
+}));
+
+export const ticketMessages = mysqlTable("ticket_messages", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  ticketId: varchar("ticket_id", { length: 64 }).notNull().references(() => supportTickets.id),
+  senderId: varchar("sender_id", { length: 64 }).notNull(),
+  senderType: mysqlEnum("sender_type", ["customer", "agent", "system"]).notNull(),
+  content: text("content").notNull(),
+  attachments: json("attachments").$type<string[]>(),
+  isInternal: boolean("is_internal").default(false).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  ticketIdx: index("ticket_idx").on(table.ticketId),
+}));
+
+export const supportAgents = mysqlTable("support_agents", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull().unique(),
+  status: mysqlEnum("status", ["available", "busy", "offline"]).default("available").notNull(),
+  specialties: json("specialties").$type<string[]>(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const knowledgeBase = mysqlTable("knowledge_base", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  title: varchar("title", { length: 500 }).notNull(),
+  content: text("content").notNull(),
+  category: varchar("category", { length: 100 }).notNull(),
+  tags: json("tags").$type<string[]>(),
+  views: int("views").default(0).notNull(),
+  helpful: int("helpful").default(0).notNull(),
+  notHelpful: int("not_helpful").default(0).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  categoryIdx: index("category_idx").on(table.category),
+}));
+
+export const macroResponses = mysqlTable("macro_responses", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  title: varchar("title", { length: 255 }).notNull(),
+  content: text("content").notNull(),
+  category: varchar("category", { length: 100 }).notNull(),
+  autoClose: boolean("auto_close").default(false).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const customerSatisfaction = mysqlTable("customer_satisfaction", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  ticketId: varchar("ticket_id", { length: 64 }).notNull().references(() => supportTickets.id),
+  customerId: varchar("customer_id", { length: 64 }).notNull(),
+  rating: int("rating"),
+  feedback: text("feedback"),
+  status: mysqlEnum("status", ["pending", "completed"]).default("pending").notNull(),
+  sentAt: timestamp("sent_at").defaultNow().notNull(),
+  respondedAt: timestamp("responded_at"),
+});
+
+// ============================================================================
+// ENTERPRISE: Security & Fraud Detection
+// ============================================================================
+
+export const fraudChecks = mysqlTable("fraud_checks", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  orderId: varchar("order_id", { length: 64 }).notNull(),
+  userId: varchar("user_id", { length: 64 }).notNull(),
+  riskScore: int("risk_score").notNull(),
+  riskLevel: mysqlEnum("risk_level", ["low", "medium", "high", "critical"]).notNull(),
+  decision: mysqlEnum("decision", ["approve", "review", "decline"]).notNull(),
+  reasons: json("reasons").$type<string[]>(),
+  checks: json("checks").$type<any[]>(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  orderIdx: index("order_idx").on(table.orderId),
+  userIdx: index("user_idx").on(table.userId),
+}));
+
+export const riskScores = mysqlTable("risk_scores", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  entityType: mysqlEnum("entity_type", ["user", "order", "ip", "device"]).notNull(),
+  entityId: varchar("entity_id", { length: 64 }).notNull(),
+  score: int("score").notNull(),
+  factors: json("factors").$type<any>(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  entityIdx: uniqueIndex("entity_idx").on(table.entityType, table.entityId),
+}));
+
+export const blockedEntities = mysqlTable("blocked_entities", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  entityType: mysqlEnum("entity_type", ["user", "ip", "email", "card_bin"]).notNull(),
+  entityValue: varchar("entity_value", { length: 255 }).notNull(),
+  reason: text("reason").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  entityIdx: uniqueIndex("entity_idx").on(table.entityType, table.entityValue),
+}));
+
+export const securityEvents = mysqlTable("security_events", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  type: mysqlEnum("type", ["login_attempt", "password_change", "suspicious_activity", "fraud_detected", "account_takeover"]).notNull(),
+  userId: varchar("user_id", { length: 64 }),
+  ipAddress: varchar("ip_address", { length: 45 }).notNull(),
+  severity: mysqlEnum("severity", ["low", "medium", "high", "critical"]).notNull(),
+  details: json("details").$type<any>(),
+  timestamp: timestamp("timestamp").defaultNow().notNull(),
+}, (table) => ({
+  userIdx: index("user_idx").on(table.userId),
+  timestampIdx: index("timestamp_idx").on(table.timestamp),
+}));
+
+export const paymentMethods = mysqlTable("payment_methods", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  userId: varchar("user_id", { length: 64 }).notNull(),
+  type: mysqlEnum("type", ["card", "bank_account", "paypal", "other"]).notNull(),
+  last4: varchar("last4", { length: 4 }).notNull(),
+  brand: varchar("brand", { length: 50 }),
+  expiryMonth: int("expiry_month"),
+  expiryYear: int("expiry_year"),
+  isDefault: boolean("is_default").default(false).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  userIdx: index("user_idx").on(table.userId),
+}));
