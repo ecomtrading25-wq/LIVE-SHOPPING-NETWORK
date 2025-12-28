@@ -3,7 +3,8 @@
  * Predicts future demand and suggests reorder quantities using sales velocity analysis
  */
 
-import { db } from "./db";
+import { getDb } from "./db"
+const db = await getDb();
 import { orders, orderItems, inventory, products } from "../drizzle/schema";
 import { eq, gte, sql, and, desc } from "drizzle-orm";
 

@@ -12,12 +12,12 @@ import { walletRouter } from "./routers-wallet";
 import { moderationRouter } from "./routers-moderation";
 import { streamingRouter, paymentsRouter, analyticsRouter, moderationRouter as moderationRouterV2 } from "./routers-streaming";
 import { productsRouter, ordersRouter, cartRouter, checkoutRouter } from "./routers-commerce";
-// Temporarily commented out - need to fix schema imports
-// import { lsnAuthRouter } from "./routers-lsn-auth";
-// import { lsnDisputesRouter } from "./routers-lsn-disputes";
-// import { lsnCreatorsRouter } from "./routers-lsn-creators";
-// import { lsnProductsRouter } from "./routers-lsn-products";
-// import { lsnOrdersRouter } from "./routers-lsn-orders";
+import { lsnAuthRouter } from "./routers-lsn-auth";
+import { lsnDisputesRouter } from "./routers-lsn-disputes";
+import { lsnCreatorsRouter } from "./routers-lsn-creators";
+import { lsnProductsRouter } from "./routers-lsn-products";
+import { lsnOrdersRouter } from "./routers-lsn-orders";
+import { lsnOperationsRouter } from "./routers-lsn-operations";
 import { tiktokArbitrageRouter } from "./routers-tiktok-arbitrage";
 
 /**
@@ -41,12 +41,13 @@ export const appRouter = router({
   cart: cartRouter,
   checkout: checkoutRouter,
   
-  // LSN-specific routers (temporarily commented out - need to fix schema imports)
-  // lsnAuth: lsnAuthRouter,
-  // lsnDisputes: lsnDisputesRouter,
-  // lsnCreators: lsnCreatorsRouter,
-  // lsnProducts: lsnProductsRouter,
-  // lsnOrders: lsnOrdersRouter,
+  // LSN-specific routers - Full enterprise live commerce platform
+  lsnAuth: lsnAuthRouter,
+  lsnDisputes: lsnDisputesRouter,
+  lsnCreators: lsnCreatorsRouter,
+  lsnProducts: lsnProductsRouter,
+  lsnOrders: lsnOrdersRouter,
+  lsnOperations: lsnOperationsRouter,
   
   // TikTok Shop Arbitrage
   tiktokArbitrage: tiktokArbitrageRouter,

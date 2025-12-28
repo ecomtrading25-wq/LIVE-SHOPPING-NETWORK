@@ -3,7 +3,8 @@
  * Purchase, redeem, and manage gift cards
  */
 
-import { db } from "./db";
+import { getDb } from "./db"
+const db = await getDb();
 import { sql } from "drizzle-orm";
 
 export interface GiftCard {

@@ -3,7 +3,8 @@
  * Provides deep insights into business performance, customer behavior, and operational efficiency
  */
 
-import { db } from "./db";
+import { getDb } from "./db"
+const db = await getDb();
 import {
   orders,
   orderItems,

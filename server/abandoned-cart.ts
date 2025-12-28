@@ -1,4 +1,5 @@
-import { db } from "./db";
+import { getDb } from "./db"
+const db = await getDb();
 import { users, orders } from "../drizzle/schema";
 import { eq, and, lt, isNull } from "drizzle-orm";
 import { sendEmail } from "./email";

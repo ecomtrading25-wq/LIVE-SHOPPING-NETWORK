@@ -3,7 +3,8 @@
  * Time-limited sales with countdown timers and inventory limits
  */
 
-import { db } from "./db";
+import { getDb } from "./db"
+const db = await getDb();
 import { sql } from "drizzle-orm";
 
 export interface FlashSale {

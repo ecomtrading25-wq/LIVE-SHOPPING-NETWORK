@@ -3,7 +3,8 @@
  * Run controlled experiments for pricing, UI changes, and feature rollouts
  */
 
-import { db } from "./db";
+import { getDb } from "./db"
+const db = await getDb();
 import { sql } from "drizzle-orm";
 
 interface Experiment {

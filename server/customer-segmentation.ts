@@ -3,7 +3,8 @@
  * Recency, Frequency, Monetary value analysis for customer targeting
  */
 
-import { db } from "./db";
+import { getDb } from "./db"
+const db = await getDb();
 import { orders, users } from "../drizzle/schema";
 import { sql, desc, asc, and, gte, lte, eq } from "drizzle-orm";
 

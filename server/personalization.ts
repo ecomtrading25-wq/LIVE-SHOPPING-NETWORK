@@ -3,7 +3,8 @@
  * Tracks customer behavior and provides personalized product recommendations
  */
 
-import { db } from "./db";
+import { getDb } from "./db"
+const db = await getDb();
 import {
   orders,
   orderItems,
