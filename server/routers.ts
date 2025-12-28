@@ -1,4 +1,4 @@
-import { COOKIE_NAME } from "@shared/const";
+import { COOKIE_NAME } from "../shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
@@ -12,6 +12,11 @@ import { walletRouter } from "./routers-wallet";
 import { moderationRouter } from "./routers-moderation";
 import { streamingRouter, paymentsRouter, analyticsRouter, moderationRouter as moderationRouterV2 } from "./routers-streaming";
 import { productsRouter, ordersRouter, cartRouter, checkoutRouter } from "./routers-commerce";
+import { lsnAuthRouter } from "./routers-lsn-auth";
+import { lsnDisputesRouter } from "./routers-lsn-disputes";
+import { lsnCreatorsRouter } from "./routers-lsn-creators";
+import { lsnProductsRouter } from "./routers-lsn-products";
+import { lsnOrdersRouter } from "./routers-lsn-orders";
 
 /**
  * Live Shopping Network - Complete API Router
@@ -33,6 +38,13 @@ export const appRouter = router({
   orders: ordersRouter,
   cart: cartRouter,
   checkout: checkoutRouter,
+  
+  // LSN-specific routers
+  lsnAuth: lsnAuthRouter,
+  lsnDisputes: lsnDisputesRouter,
+  lsnCreators: lsnCreatorsRouter,
+  lsnProducts: lsnProductsRouter,
+  lsnOrders: lsnOrdersRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),

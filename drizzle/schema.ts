@@ -1546,3 +1546,88 @@ export const paymentMethods = mysqlTable("payment_methods", {
 }, (table) => ({
   userIdx: index("user_idx").on(table.userId),
 }));
+
+
+// ============================================================================
+// LSN CORE EXTENSIONS - Import and re-export
+// ============================================================================
+
+export {
+  // Disputes & Evidence
+  lsnDisputes,
+  evidencePacks,
+  disputeTimeline,
+  providerWebhookDedup,
+  
+  // Idempotency
+  idempotencyKeys,
+  
+  // Reconciliation
+  providerTransactions,
+  reconciliationDiscrepancies,
+  
+  // Fraud & Risk
+  fraudScores,
+  payoutHolds,
+  
+  // Refund & Returns (RMA)
+  refundPolicies,
+  returnRequests,
+  
+  // SKU Profitability
+  skuProfitability,
+  skuKillRules,
+  
+  // Creator Scheduling
+  broadcastChannels,
+  scheduleSlots,
+  creatorAvailability,
+  
+  // Live Show Runner
+  liveShowSegments,
+  livePriceDrops,
+  liveHighlights,
+  
+  // Pricing & Promotions
+  priceBooks,
+  priceBookEntries,
+  promotions,
+  bundles,
+  
+  // 3PL Integration
+  thirdPartyLogisticsProviders,
+  thirdPartyShipments,
+  thirdPartyTrackingEvents,
+  
+  // Purchasing & Receiving
+  inventoryLots,
+  receivingWorkflows,
+  
+  // Supplier Management
+  supplierContacts,
+  supplierContracts,
+  supplierPerformance,
+  supplierSamples,
+  
+  // Creative Factory
+  creativeAssets,
+  hooksLibrary,
+  ugcBriefs,
+  
+  // Executive Dashboards
+  executiveMetrics,
+  topPerformers,
+  
+  // Founder Controls
+  escalations,
+  policyIncidents,
+  regressionSeeds,
+  
+  // Launch Templates
+  trendSpotting,
+  launchChecklists,
+  
+  // Global Expansion
+  regionConfigs,
+  regionalInventory,
+} from "./schema-lsn-core";
