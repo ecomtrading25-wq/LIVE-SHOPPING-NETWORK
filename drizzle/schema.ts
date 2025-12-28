@@ -1642,3 +1642,5 @@ export const qualityDefects = mysqlTable("quality_defects", {
   imageUrls: json("image_urls"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
+
+

@@ -22,6 +22,7 @@ import { tiktokArbitrageRouter } from "./routers-tiktok-arbitrage";
 import { lsnPurchasingRouter, lsnCreatorRouter, lsnFraudRouter, lsnExecutiveRouter } from "./routers-lsn-all";
 import { lsnRouter } from "./lsn-routers";
 import { lsnUIRouter } from "./routers-lsn-ui";
+import { founderIncidentRouter } from "./founder-incident-console";
 
 /**
  * Live Shopping Network - Complete API Router
@@ -66,6 +67,9 @@ export const appRouter = router({
   
   // LSN UI Integration Services (for new dashboards)
   lsnUI: lsnUIRouter,
+  
+  // Founder Incident Console & Policy Autonomy
+  founderIncidents: founderIncidentRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
