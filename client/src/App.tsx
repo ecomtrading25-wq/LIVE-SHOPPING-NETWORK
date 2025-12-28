@@ -110,6 +110,10 @@ import PurchasingDashboard from '@/pages/PurchasingDashboard';
 import CreatorDashboard from '@/pages/CreatorDashboard';
 import LiveShowsBrowse from '@/pages/LiveShowsBrowse';
 import CreatorDashboardEnhanced from '@/pages/CreatorDashboardEnhanced';
+import LSNHomepage from '@/pages/LSNHomepage';
+import LSNLiveShowViewer from '@/pages/LSNLiveShowViewer';
+import LSNBrowseShows from '@/pages/LSNBrowseShows';
+import LSNOperationsDashboard from '@/pages/LSNOperationsDashboard';
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -122,7 +126,8 @@ function Router() {
       <MobileDeepLink />
       <Header />
       <Switch>
-        <Route path="/" component={Home} />
+        <Route path="/" component={LSNHomepage} />
+        <Route path="/home-old" component={Home} />
       <Route path="/products-enhanced" component={ProductsEnhanced} />
       <Route path="/cart-enhanced" component={CartEnhanced} />
       <Route path="/checkout-enhanced" component={CheckoutEnhanced} />
@@ -179,8 +184,10 @@ function Router() {
       <Route path="/products/:id" component={ProductDetail} />
       <Route path="/checkout" component={Checkout} />
       <Route path="/order-confirmation" component={OrderConfirmation} />
-      <Route path="/live" component={LiveShowsBrowse} />
-      <Route path="/live/:showId" component={LiveShowViewer} />
+        <Route path="/live" component={LSNBrowseShows} />
+        <Route path="/live-old" component={LiveShowsBrowse} />
+        <Route path="/live/:showId" component={LSNLiveShowViewer} />
+        <Route path="/live-old/:showId" component={LiveShowViewer} />
       <Route path="/show/:id" component={LiveShowPage} />
       <Route path="/host/dashboard" component={HostDashboard} />
       <Route path="/browse-shows" component={BrowseShows} />
@@ -210,7 +217,8 @@ function Router() {
       <Route path="/inventory" component={InventoryManagement} />
       <Route path="/email-campaigns" component={EmailCampaigns} />
       <Route path="/supplier-portal" component={SupplierPortal} />
-      <Route path="/operations-center" component={OperationsCenter} />
+        <Route path="/operations-center" component={LSNOperationsDashboard} />
+        <Route path="/operations-center-old" component={OperationsCenter} />
       <Route path="/live-sessions" component={LiveSessionManagement} />
       <Route path="/referral-dashboard" component={ReferralDashboard} />
       <Route path="/admin/demand-forecast" component={DemandForecastDashboard} />
