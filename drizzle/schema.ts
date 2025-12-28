@@ -868,3 +868,211 @@ export type StockAlert = typeof stockAlerts.$inferSelect;
 export type EmailCampaign = typeof emailCampaigns.$inferSelect;
 export type Referral = typeof referrals.$inferSelect;
 export type Notification = typeof notifications.$inferSelect;
+
+
+// ============================================================================
+// LIVE STREAMING: Shows, Chat, Gifts, Analytics
+// ============================================================================
+
+export const liveShows = mysqlTable("live_shows", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  hostId: int("host_id").notNull().references(() => users.id),
+  title: varchar("title", { length: 255 }).notNull(),
+  description: text("description"),
+  thumbnailUrl: text("thumbnail_url"),
+  status: mysqlEnum("status", ["scheduled", "live", "ended", "cancelled"]).default("scheduled").notNull(),
+  scheduledStartAt: timestamp("scheduled_start_at").notNull(),
+  actualStartAt: timestamp("actual_start_at"),
+  actualEndAt: timestamp("actual_end_at"),
+  streamKey: varchar("stream_key", { length: 128 }).unique(),
+  streamUrl: text("stream_url"),
+  recordingUrl: text("recording_url"),
+  peakViewers: int("peak_viewers").default(0),
+  totalViews: int("total_views").default(0),
+  totalMessages: int("total_messages").default(0),
+  totalGifts: int("total_gifts").default(0),
+  totalRevenue: decimal("total_revenue", { precision: 10, scale: 2 }).default("0.00"),
+  settings: json("settings").$type<{
+    allowChat?: boolean;
+    allowGifts?: boolean;
+    moderationEnabled?: boolean;
+    recordingEnabled?: boolean;
+  }>(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  hostIdIdx: index("host_id_idx").on(table.hostId),
+  statusIdx: index("status_idx").on(table.status),
+  scheduledStartIdx: index("scheduled_start_idx").on(table.scheduledStartAt),
+}));
+
+export const liveShowProducts = mysqlTable("live_show_products", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  showId: varchar("show_id", { length: 64 }).notNull().references(() => liveShows.id),
+  productId: varchar("product_id", { length: 64 }).notNull(),
+  displayOrder: int("display_order").default(0),
+  specialPrice: decimal("special_price", { precision: 10, scale: 2 }),
+  stock: int("stock"),
+  soldCount: int("sold_count").default(0),
+  isPinned: boolean("is_pinned").default(false),
+  pinnedAt: timestamp("pinned_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  showProductIdx: uniqueIndex("show_product_idx").on(table.showId, table.productId),
+  showIdIdx: index("show_id_idx").on(table.showId),
+}));
+
+export const liveViewers = mysqlTable("live_viewers", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  showId: varchar("show_id", { length: 64 }).notNull().references(() => liveShows.id),
+  userId: int("user_id").references(() => users.id),
+  sessionId: varchar("session_id", { length: 128 }),
+  joinedAt: timestamp("joined_at").defaultNow().notNull(),
+  leftAt: timestamp("left_at"),
+  watchDuration: int("watch_duration").default(0), // seconds
+  messagesCount: int("messages_count").default(0),
+  giftsCount: int("gifts_count").default(0),
+  purchasesCount: int("purchases_count").default(0),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  showUserIdx: index("show_user_idx").on(table.showId, table.userId),
+  showIdIdx: index("show_id_idx").on(table.showId),
+}));
+
+export const liveChatMessages = mysqlTable("live_chat_messages", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  showId: varchar("show_id", { length: 64 }).notNull().references(() => liveShows.id),
+  userId: int("user_id").references(() => users.id),
+  message: text("message").notNull(),
+  messageType: mysqlEnum("message_type", ["text", "emoji", "gift", "system"]).default("text").notNull(),
+  isDeleted: boolean("is_deleted").default(false),
+  deletedAt: timestamp("deleted_at"),
+  deletedBy: int("deleted_by").references(() => users.id),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  showIdIdx: index("show_id_idx").on(table.showId),
+  createdAtIdx: index("created_at_idx").on(table.createdAt),
+}));
+
+export const virtualGifts = mysqlTable("virtual_gifts", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  description: text("description"),
+  iconUrl: text("icon_url"),
+  animationUrl: text("animation_url"),
+  price: decimal("price", { precision: 10, scale: 2 }).notNull(),
+  category: varchar("category", { length: 64 }),
+  isActive: boolean("is_active").default(true),
+  displayOrder: int("display_order").default(0),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+});
+
+export const liveGiftTransactions = mysqlTable("live_gift_transactions", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  showId: varchar("show_id", { length: 64 }).notNull().references(() => liveShows.id),
+  giftId: varchar("gift_id", { length: 64 }).notNull().references(() => virtualGifts.id),
+  senderId: int("sender_id").notNull().references(() => users.id),
+  recipientId: int("recipient_id").notNull().references(() => users.id),
+  quantity: int("quantity").default(1).notNull(),
+  totalPrice: decimal("total_price", { precision: 10, scale: 2 }).notNull(),
+  message: text("message"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  showIdIdx: index("show_id_idx").on(table.showId),
+  senderIdIdx: index("sender_id_idx").on(table.senderId),
+  recipientIdIdx: index("recipient_id_idx").on(table.recipientId),
+}));
+
+export const hostProfiles = mysqlTable("host_profiles", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  userId: int("user_id").notNull().unique().references(() => users.id),
+  displayName: varchar("display_name", { length: 255 }).notNull(),
+  bio: text("bio"),
+  avatarUrl: text("avatar_url"),
+  coverImageUrl: text("cover_image_url"),
+  isVerified: boolean("is_verified").default(false),
+  verifiedAt: timestamp("verified_at"),
+  totalShows: int("total_shows").default(0),
+  totalFollowers: int("total_followers").default(0),
+  totalRevenue: decimal("total_revenue", { precision: 10, scale: 2 }).default("0.00"),
+  rating: decimal("rating", { precision: 3, scale: 2 }).default("0.00"),
+  status: mysqlEnum("status", ["active", "suspended", "banned"]).default("active").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("user_id_idx").on(table.userId),
+}));
+
+export const hostFollowers = mysqlTable("host_followers", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  hostId: varchar("host_id", { length: 64 }).notNull().references(() => hostProfiles.id),
+  followerId: int("follower_id").notNull().references(() => users.id),
+  notificationsEnabled: boolean("notifications_enabled").default(true),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  hostFollowerIdx: uniqueIndex("host_follower_idx").on(table.hostId, table.followerId),
+  hostIdIdx: index("host_id_idx").on(table.hostId),
+  followerIdIdx: index("follower_id_idx").on(table.followerId),
+}));
+
+export const liveShowAnalytics = mysqlTable("live_show_analytics", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  showId: varchar("show_id", { length: 64 }).notNull().references(() => liveShows.id),
+  timestamp: timestamp("timestamp").notNull(),
+  concurrentViewers: int("concurrent_viewers").default(0),
+  newViewers: int("new_viewers").default(0),
+  messagesPerMinute: int("messages_per_minute").default(0),
+  giftsPerMinute: int("gifts_per_minute").default(0),
+  revenuePerMinute: decimal("revenue_per_minute", { precision: 10, scale: 2 }).default("0.00"),
+  engagementScore: decimal("engagement_score", { precision: 5, scale: 2 }).default("0.00"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  showTimestampIdx: uniqueIndex("show_timestamp_idx").on(table.showId, table.timestamp),
+  showIdIdx: index("show_id_idx").on(table.showId),
+}));
+
+export const streamQualityLogs = mysqlTable("stream_quality_logs", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  showId: varchar("show_id", { length: 64 }).notNull().references(() => liveShows.id),
+  timestamp: timestamp("timestamp").notNull(),
+  bitrate: int("bitrate"), // kbps
+  framerate: int("framerate"), // fps
+  resolution: varchar("resolution", { length: 32 }), // e.g., "1920x1080"
+  droppedFrames: int("dropped_frames").default(0),
+  bufferingEvents: int("buffering_events").default(0),
+  averageLatency: int("average_latency"), // ms
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  showIdIdx: index("show_id_idx").on(table.showId),
+  timestampIdx: index("timestamp_idx").on(table.timestamp),
+}));
+
+export const moderationActions = mysqlTable("moderation_actions", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  showId: varchar("show_id", { length: 64 }).notNull().references(() => liveShows.id),
+  moderatorId: int("moderator_id").notNull().references(() => users.id),
+  targetUserId: int("target_user_id").references(() => users.id),
+  actionType: mysqlEnum("action_type", ["timeout", "ban", "delete_message", "warning"]).notNull(),
+  reason: text("reason"),
+  duration: int("duration"), // seconds, for timeout
+  messageId: varchar("message_id", { length: 64 }).references(() => liveChatMessages.id),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  showIdIdx: index("show_id_idx").on(table.showId),
+  moderatorIdIdx: index("moderator_id_idx").on(table.moderatorId),
+  targetUserIdIdx: index("target_user_id_idx").on(table.targetUserId),
+}));
+
+// Type exports for live streaming
+export type LiveShow = typeof liveShows.$inferSelect;
+export type LiveShowProduct = typeof liveShowProducts.$inferSelect;
+export type LiveViewer = typeof liveViewers.$inferSelect;
+export type LiveChatMessage = typeof liveChatMessages.$inferSelect;
+export type VirtualGift = typeof virtualGifts.$inferSelect;
+export type LiveGiftTransaction = typeof liveGiftTransactions.$inferSelect;
+export type HostProfile = typeof hostProfiles.$inferSelect;
+export type HostFollower = typeof hostFollowers.$inferSelect;
+export type LiveShowAnalytics = typeof liveShowAnalytics.$inferSelect;
+export type StreamQualityLog = typeof streamQualityLogs.$inferSelect;
+export type ModerationAction = typeof moderationActions.$inferSelect;

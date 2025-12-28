@@ -29,6 +29,13 @@
       "when": 1766806475568,
       "tag": "0003_panoramic_killmonger",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1766896587712,
+      "tag": "0004_awesome_mulholland_black",
+      "breakpoints": true
     }
   ]
 }

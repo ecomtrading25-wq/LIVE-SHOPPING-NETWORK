@@ -1,313 +1,259 @@
-import { useEffect, useRef, useState } from "react";
-import { trpc } from "@/lib/trpc";
-import { LiveChatButton } from "@/components/LiveChat";
-import { LiveActivityFeed } from "@/components/SocialProof";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingCart, Users, Play, Pause, Eye, Zap } from "lucide-react";
+import { Play, Users, Eye, Clock, Calendar } from "lucide-react";
 import { Link } from "wouter";
-import ProductRecommendations from "@/components/ProductRecommendations";
-import Hls from "hls.js";
+import { trpc } from "@/lib/trpc";
 
 /**
  * Live Shopping Network - Homepage
- * Features live video hero with Shop-the-Live overlay
+ * Displays live, scheduled, and past shows
  */
-
 export default function Home() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const hlsRef = useRef<Hls | null>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-  
-  // Fetch current live session
-  const { data: liveSession, isLoading: liveLoading } = trpc.live.currentLive.useQuery(undefined, {
-    refetchInterval: 5000, // Refresh every 5 seconds
+  // Fetch live shows
+  const { data: liveShows, isLoading: liveLoading } = trpc.liveStreaming.listLiveShows.useQuery({
+    status: 'live',
+    limit: 10,
   });
-  
-  // Fetch pinned products for the live session
-  const { data: pinnedProducts } = trpc.live.pinnedProducts.useQuery(
-    { liveSessionId: liveSession?.id || "" },
-    { enabled: !!liveSession?.id, refetchInterval: 3000 }
-  );
-  
-  // Get the currently active pinned product
-  const activeProduct = pinnedProducts?.find(p => p.isActive);
-  
-  // Fetch product details if we have an active product
-  const { data: productDetails } = trpc.products.get.useQuery(
-    { id: activeProduct?.productId || "" },
-    { enabled: !!activeProduct?.productId }
-  );
 
-  // Initialize HLS.js video player
-  useEffect(() => {
-    if (!videoRef.current || !liveSession?.streamUrl) return;
-    
-    const video = videoRef.current;
-    
-    if (Hls.isSupported()) {
-      const hls = new Hls({
-        enableWorker: true,
-        lowLatencyMode: true,
-      });
-      
-      hls.loadSource(liveSession.streamUrl);
-      hls.attachMedia(video);
-      
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        if (isPlaying) {
-          video.play().catch(err => console.log("Autoplay prevented:", err));
-        }
-      });
-      
-      hls.on(Hls.Events.ERROR, (event, data) => {
-        if (data.fatal) {
-          console.error("HLS fatal error:", data);
-          switch (data.type) {
-            case Hls.ErrorTypes.NETWORK_ERROR:
-              hls.startLoad();
-              break;
-            case Hls.ErrorTypes.MEDIA_ERROR:
-              hls.recoverMediaError();
-              break;
-            default:
-              hls.destroy();
-              break;
-          }
-        }
-      });
-      
-      hlsRef.current = hls;
-      
-      return () => {
-        hls.destroy();
-      };
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      // Native HLS support (Safari)
-      video.src = liveSession.streamUrl;
-      if (isPlaying) {
-        video.play().catch(err => console.log("Autoplay prevented:", err));
-      }
-    }
-  }, [liveSession?.streamUrl, isPlaying]);
+  // Fetch scheduled shows
+  const { data: scheduledShows } = trpc.liveStreaming.listLiveShows.useQuery({
+    status: 'scheduled',
+    limit: 6,
+  });
 
-  const togglePlay = () => {
-    if (!videoRef.current) return;
-    
-    if (isPlaying) {
-      videoRef.current.pause();
-    } else {
-      videoRef.current.play();
-    }
-    setIsPlaying(!isPlaying);
-  };
-
-  const handleBuyNow = () => {
-    if (!productDetails) return;
-    // TODO: Add to cart and navigate to checkout
-    alert(`Adding ${productDetails.name} to cart!`);
-  };
+  // Fetch ended shows
+  const { data: endedShows } = trpc.liveStreaming.listLiveShows.useQuery({
+    status: 'ended',
+    limit: 6,
+  });
 
   if (liveLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 flex items-center justify-center">
-        <div className="text-white text-2xl">Loading live stream...</div>
+        <div className="text-white text-2xl">Loading live shows...</div>
       </div>
     );
   }
 
-  if (!liveSession || liveSession.status !== "live") {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
-        <div className="container mx-auto px-4 py-20">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-6xl font-bold mb-6">Live Shopping Network</h1>
-            <p className="text-2xl mb-8 text-gray-300">
-              No live shows at the moment. Check back soon!
-            </p>
-            <Link href="/live">
-              <Button size="lg" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold px-8 py-6 text-lg mb-12">
-                <Play className="w-5 h-5 mr-2" />
-                Explore Live Shows
-              </Button>
-            </Link>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-              <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
-                <h3 className="text-xl font-bold mb-2">Shop Live</h3>
-                <p className="text-gray-300">Watch live shows and shop exclusive deals in real-time</p>
-              </Card>
-              <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
-                <h3 className="text-xl font-bold mb-2">Instant Deals</h3>
-                <p className="text-gray-300">Get special pricing only available during live shows</p>
-              </Card>
-              <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
-                <h3 className="text-xl font-bold mb-2">Interactive</h3>
-                <p className="text-gray-300">Ask questions and interact with hosts in real-time</p>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const hasLiveShows = liveShows && liveShows.length > 0;
 
   return (
-    <div className="min-h-screen bg-black">
-      {/* Live Video Hero - 16:9 Aspect Ratio */}
-      <div className="relative w-full bg-black">
-        <div className="relative w-full" style={{ paddingTop: "56.25%" /* 16:9 aspect ratio */ }}>
-          <video
-            ref={videoRef}
-            className="absolute top-0 left-0 w-full h-full object-cover"
-            playsInline
-            muted
-          />
-          
-          {/* Live Badge */}
-          <div className="absolute top-4 left-4 z-10">
-            <Badge className="bg-red-600 text-white px-4 py-2 text-lg font-bold animate-pulse">
-              <span className="inline-block w-2 h-2 bg-white rounded-full mr-2"></span>
-              LIVE
-            </Badge>
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+      <div className="container mx-auto px-4 py-12">
+        {/* Hero Section */}
+        <div className="max-w-4xl mx-auto text-center text-white mb-16">
+          <h1 className="text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
+            Live Shopping Network
+          </h1>
+          <p className="text-2xl mb-8 text-gray-300">
+            {hasLiveShows 
+              ? `${liveShows.length} live show${liveShows.length > 1 ? 's' : ''} happening now!`
+              : 'No live shows at the moment. Check back soon!'}
+          </p>
+          <Link href="/live">
+            <Button size="lg" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold px-8 py-6 text-lg mb-12">
+              <Play className="w-5 h-5 mr-2" />
+              Explore All Shows
+            </Button>
+          </Link>
+
+          {/* Feature Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <Card className="p-6 bg-white/10 backdrop-blur border-white/20 hover:bg-white/20 transition-all">
+              <div className="text-4xl mb-4">🛍️</div>
+              <h3 className="text-xl font-bold mb-2">Shop Live</h3>
+              <p className="text-gray-300">Watch live shows and shop exclusive deals in real-time</p>
+            </Card>
+            <Card className="p-6 bg-white/10 backdrop-blur border-white/20 hover:bg-white/20 transition-all">
+              <div className="text-4xl mb-4">⚡</div>
+              <h3 className="text-xl font-bold mb-2">Instant Deals</h3>
+              <p className="text-gray-300">Get special pricing only available during live shows</p>
+            </Card>
+            <Card className="p-6 bg-white/10 backdrop-blur border-white/20 hover:bg-white/20 transition-all">
+              <div className="text-4xl mb-4">💬</div>
+              <h3 className="text-xl font-bold mb-2">Interactive</h3>
+              <p className="text-gray-300">Ask questions and interact with hosts in real-time</p>
+            </Card>
           </div>
-          
-          {/* Viewer Count */}
-          <div className="absolute top-4 right-4 z-10">
-            <div className="bg-black/60 backdrop-blur px-4 py-2 rounded-full flex items-center gap-2 text-white">
-              <Users className="w-5 h-5" />
-              <span className="font-bold">{liveSession.viewerCount.toLocaleString()}</span>
+        </div>
+
+        {/* Live Shows Section */}
+        {hasLiveShows && (
+          <section className="mb-16">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-3xl font-bold text-white flex items-center gap-2">
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                </span>
+                Live Now
+              </h2>
+              <Link href="/live">
+                <Button variant="outline" className="text-white border-white/30 hover:bg-white/10">
+                  View All
+                </Button>
+              </Link>
             </div>
-          </div>
-          
-          {/* Play/Pause Control */}
-          <button
-            onClick={togglePlay}
-            className="absolute bottom-4 left-4 z-10 bg-black/60 backdrop-blur p-3 rounded-full hover:bg-black/80 transition-colors"
-          >
-            {isPlaying ? (
-              <Pause className="w-6 h-6 text-white" />
-            ) : (
-              <Play className="w-6 h-6 text-white" />
-            )}
-          </button>
-          
-          {/* Shop-the-Live Overlay */}
-          {activeProduct && productDetails && (
-            <div className="absolute bottom-0 left-0 right-0 z-20 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-6">
-              <div className="container mx-auto">
-                <div className="max-w-2xl">
-                  <div className="flex items-start gap-4">
-                    {/* Product Image */}
-                    {productDetails.imageUrl && (
-                      <div className="flex-shrink-0 w-24 h-24 bg-white rounded-lg overflow-hidden">
-                        <img
-                          src={productDetails.imageUrl}
-                          alt={productDetails.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    )}
-                    
-                    {/* Product Info */}
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-white text-xl font-bold mb-1 truncate">
-                        {productDetails.name}
-                      </h3>
-                      
-                      <div className="flex items-baseline gap-3 mb-3">
-                        <span className="text-3xl font-bold text-green-400">
-                          ${activeProduct.livePrice || productDetails.price}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {liveShows.map((show) => (
+                <Link key={show.id} href={`/show/${show.id}`}>
+                  <Card className="group cursor-pointer overflow-hidden bg-white/5 backdrop-blur border-white/10 hover:border-pink-500/50 transition-all hover:scale-105">
+                    <div className="relative aspect-video bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
+                      <Play className="w-16 h-16 text-white opacity-80" />
+                      <Badge className="absolute top-3 left-3 bg-red-500 text-white border-0 animate-pulse">
+                        <span className="flex items-center gap-1">
+                          <span className="w-2 h-2 bg-white rounded-full"></span>
+                          LIVE
                         </span>
-                        {productDetails.compareAtPrice && (
-                          <span className="text-lg text-gray-400 line-through">
-                            ${productDetails.compareAtPrice}
-                          </span>
-                        )}
+                      </Badge>
+                      <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur px-2 py-1 rounded flex items-center gap-1 text-white text-sm">
+                        <Eye className="w-4 h-4" />
+                        {show.peakViewers || 0}
                       </div>
-                      
-                      <Button
-                        onClick={handleBuyNow}
-                        size="lg"
-                        className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold px-8 py-6 text-lg"
-                      >
-                        <ShoppingCart className="w-5 h-5 mr-2" />
-                        Buy Now - Live Price!
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-bold text-lg text-white mb-2 line-clamp-2 group-hover:text-pink-400 transition-colors">
+                        {show.title}
+                      </h3>
+                      <p className="text-gray-400 text-sm line-clamp-2 mb-3">
+                        {show.description}
+                      </p>
+                      <div className="flex items-center justify-between text-sm">
+                        <div className="flex items-center gap-1 text-gray-400">
+                          <Users className="w-4 h-4" />
+                          {show.totalViews || 0} views
+                        </div>
+                        <Button size="sm" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700">
+                          Watch Now
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Scheduled Shows Section */}
+        {scheduledShows && scheduledShows.length > 0 && (
+          <section className="mb-16">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-3xl font-bold text-white flex items-center gap-2">
+                <Calendar className="w-8 h-8 text-purple-400" />
+                Coming Soon
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {scheduledShows.map((show) => (
+                <Card key={show.id} className="overflow-hidden bg-white/5 backdrop-blur border-white/10 hover:border-purple-500/50 transition-all">
+                  <div className="relative aspect-video bg-gradient-to-br from-purple-700 to-blue-700 flex items-center justify-center">
+                    <Clock className="w-16 h-16 text-white opacity-60" />
+                    <Badge className="absolute top-3 left-3 bg-purple-500 text-white border-0">
+                      SCHEDULED
+                    </Badge>
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-bold text-lg text-white mb-2 line-clamp-2">
+                      {show.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm line-clamp-2 mb-3">
+                      {show.description}
+                    </p>
+                    <div className="flex items-center justify-between text-sm">
+                      <div className="text-purple-400 font-medium">
+                        {new Date(show.scheduledStartAt).toLocaleString('en-US', {
+                          month: 'short',
+                          day: 'numeric',
+                          hour: 'numeric',
+                          minute: '2-digit',
+                        })}
+                      </div>
+                      <Button size="sm" variant="outline" className="text-white border-white/30 hover:bg-white/10">
+                        Set Reminder
                       </Button>
                     </div>
                   </div>
-                  
-                  {/* Live Show Title */}
-                  <div className="mt-4 pt-4 border-t border-white/20">
-                    <h2 className="text-white text-lg font-semibold">
-                      {liveSession.title}
-                    </h2>
-                    {liveSession.description && (
-                      <p className="text-gray-300 text-sm mt-1">
-                        {liveSession.description}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </div>
+                </Card>
+              ))}
             </div>
-          )}
-        </div>
-      </div>
-      
-      {/* Live Chat (only show if there's an active session) */}
-      <LiveChatButton sessionId={liveSession.id} />
+          </section>
+        )}
 
-      {/* Social Proof Notifications */}
-      <div className="container mb-8">
-        <LiveActivityFeed />
-      </div>
+        {/* Past Shows Section */}
+        {endedShows && endedShows.length > 0 && (
+          <section>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-3xl font-bold text-white">
+                Watch Replays
+              </h2>
+              <Link href="/live">
+                <Button variant="outline" className="text-white border-white/30 hover:bg-white/10">
+                  View All
+                </Button>
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {endedShows.slice(0, 6).map((show) => (
+                <Link key={show.id} href={`/show/${show.id}`}>
+                  <Card className="group cursor-pointer overflow-hidden bg-white/5 backdrop-blur border-white/10 hover:border-gray-500/50 transition-all">
+                    <div className="relative aspect-video bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
+                      <Play className="w-12 h-12 text-white opacity-60" />
+                      <Badge className="absolute top-3 left-3 bg-gray-600 text-white border-0">
+                        REPLAY
+                      </Badge>
+                      <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur px-2 py-1 rounded text-white text-xs">
+                        {show.totalViews || 0} views
+                      </div>
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-bold text-lg text-white mb-2 line-clamp-2 group-hover:text-gray-300 transition-colors">
+                        {show.title}
+                      </h3>
+                      <p className="text-gray-400 text-sm line-clamp-2 mb-3">
+                        {show.description}
+                      </p>
+                      <div className="flex items-center justify-between text-sm">
+                        <div className="text-gray-500 text-xs">
+                          {show.actualStartAt && new Date(show.actualStartAt).toLocaleDateString()}
+                        </div>
+                        <Button size="sm" variant="outline" className="text-white border-white/30 hover:bg-white/10 group-hover:bg-white/20">
+                          Watch Replay
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
-      {/* Below the Fold - Additional Content */}
-      <div className="container mx-auto px-4 py-12">
-        {/* Social Proof Stats */}
-        <div className="mb-16">
-          {/* Stats section removed - replaced with LiveActivityFeed above */}
+        {/* CTA Section */}
+        <div className="mt-20 text-center">
+          <Card className="p-12 bg-gradient-to-r from-pink-500/20 to-purple-600/20 backdrop-blur border-pink-500/30">
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Ready to Start Shopping Live?
+            </h2>
+            <p className="text-xl text-gray-300 mb-8">
+              Join thousands of shoppers discovering amazing deals in real-time
+            </p>
+            <div className="flex gap-4 justify-center">
+              <Link href="/live">
+                <Button size="lg" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold px-8 py-6 text-lg">
+                  <Play className="w-5 h-5 mr-2" />
+                  Browse Live Shows
+                </Button>
+              </Link>
+              <Link href="/host">
+                <Button size="lg" variant="outline" className="text-white border-white/30 hover:bg-white/10 px-8 py-6 text-lg">
+                  Become a Host
+                </Button>
+              </Link>
+            </div>
+          </Card>
         </div>
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-white text-3xl font-bold mb-8">Why Shop Live?</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="p-6 bg-zinc-900 border-zinc-800">
-              <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-600 rounded-lg flex items-center justify-center mb-4">
-                <ShoppingCart className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-white text-xl font-bold mb-2">Exclusive Deals</h3>
-              <p className="text-gray-400">
-                Get special pricing and offers only available during live shows. Limited quantities!
-              </p>
-            </Card>
-            
-            <Card className="p-6 bg-zinc-900 border-zinc-800">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center mb-4">
-                <Users className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-white text-xl font-bold mb-2">Real-Time Interaction</h3>
-              <p className="text-gray-400">
-                Chat with hosts, ask questions, and see products demonstrated live before you buy.
-              </p>
-            </Card>
-            
-            <Card className="p-6 bg-zinc-900 border-zinc-800">
-              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mb-4">
-                <Play className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-white text-xl font-bold mb-2">Instant Checkout</h3>
-              <p className="text-gray-400">
-                One-click buying during live shows. Secure checkout and fast shipping guaranteed.
-              </p>
-            </Card>
-          </div>
-        </div>
-
-        {/* Product Recommendations */}
-        <ProductRecommendations type="for-you" title="Recommended For You" limit={6} />
-        <ProductRecommendations type="trending" title="Trending Products" limit={6} />
       </div>
     </div>
   );

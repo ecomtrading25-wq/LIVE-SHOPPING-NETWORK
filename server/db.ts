@@ -60,6 +60,17 @@ import {
   purchaseOrderItems,
   adminUsers,
   staffApiKeys,
+  liveShows,
+  liveShowProducts,
+  liveViewers,
+  liveChatMessages,
+  virtualGifts,
+  liveGiftTransactions,
+  hostProfiles,
+  hostFollowers,
+  liveShowAnalytics,
+  streamQualityLogs,
+  moderationActions,
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -79,6 +90,17 @@ export async function getDb() {
       console.warn("[Database] Failed to connect:", error);
       _db = null;
     }
+  }
+  return _db;
+}
+
+// Synchronous getter for use in tRPC procedures (assumes DB is already initialized)
+export function getDbSync() {
+  if (!_db && process.env.DATABASE_URL) {
+    _db = drizzle(process.env.DATABASE_URL);
+  }
+  if (!_db) {
+    throw new Error("Database not initialized");
   }
   return _db;
 }

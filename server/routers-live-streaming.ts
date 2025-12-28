@@ -5,7 +5,7 @@
 
 import { z } from 'zod';
 import { publicProcedure, protectedProcedure, router } from './_core/trpc';
-import { db } from './db';
+import * as db from './db';
 import { 
   liveShows, 
   liveShowProducts, 
@@ -15,7 +15,7 @@ import {
   liveGiftTransactions,
   hostProfiles,
   hostFollowers
-} from '../drizzle/schema-live-streaming';
+} from '../drizzle/schema';
 import { eq, and, desc, sql, gte, lte } from 'drizzle-orm';
 import { nanoid } from 'nanoid';
 
