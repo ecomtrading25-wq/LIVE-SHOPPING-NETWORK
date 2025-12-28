@@ -83,6 +83,9 @@ import AdminDashboard from "@/pages/Admin";
 import DemandForecastDashboard from "@/pages/admin/DemandForecastDashboard";
 import ChurnRiskDashboard from "@/pages/admin/ChurnRiskDashboard";
 import PricingOptimizationDashboard from "@/pages/admin/PricingOptimizationDashboard";
+import SentimentAnalysisDashboard from "@/pages/admin/SentimentAnalysisDashboard";
+import RevenueForecastDashboard from "@/pages/admin/RevenueForecastDashboard";
+import RFMSegmentationDashboard from "@/pages/admin/RFMSegmentationDashboard";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -170,6 +173,9 @@ function Router() {
       <Route path="/admin/demand-forecast" component={DemandForecastDashboard} />
       <Route path="/admin/churn-risk" component={ChurnRiskDashboard} />
       <Route path="/admin/pricing-optimization" component={PricingOptimizationDashboard} />
+      <Route path="/admin/sentiment-analysis" component={SentimentAnalysisDashboard} />
+      <Route path="/admin/revenue-forecast" component={RevenueForecastDashboard} />
+      <Route path="/admin/rfm-segmentation" component={RFMSegmentationDashboard} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
