@@ -7,6 +7,7 @@ import { z } from "zod";
 import * as db from "./db";
 import { createCheckoutSession } from "./stripe";
 import { aiDashboardsRouter } from "./routers-ai-dashboards";
+// import { liveStreamingRouter } from "./routers-live-streaming";
 
 /**
  * Live Shopping Network - Complete API Router
@@ -16,6 +17,7 @@ import { aiDashboardsRouter } from "./routers-ai-dashboards";
 export const appRouter = router({
   system: systemRouter,
   aiDashboards: aiDashboardsRouter,
+  // liveStreaming: liveStreamingRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),

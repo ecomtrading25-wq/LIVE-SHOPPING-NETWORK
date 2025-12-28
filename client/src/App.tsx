@@ -86,6 +86,9 @@ import PricingOptimizationDashboard from "@/pages/admin/PricingOptimizationDashb
 import SentimentAnalysisDashboard from "@/pages/admin/SentimentAnalysisDashboard";
 import RevenueForecastDashboard from "@/pages/admin/RevenueForecastDashboard";
 import RFMSegmentationDashboard from "@/pages/admin/RFMSegmentationDashboard";
+import LiveShowViewer from "@/pages/LiveShowViewer";
+import HostDashboard from "@/pages/HostDashboard";
+import BrowseShows from "@/pages/BrowseShows";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -152,6 +155,9 @@ function Router() {
       <Route path="/checkout" component={Checkout} />
       <Route path="/order-confirmation" component={OrderConfirmation} />
       <Route path="/live" component={LiveShows} />
+      <Route path="/live/:showId" component={LiveShowViewer} />
+      <Route path="/host/dashboard" component={HostDashboard} />
+      <Route path="/browse-shows" component={BrowseShows} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
       <Route path="/profile" component={Profile} />
