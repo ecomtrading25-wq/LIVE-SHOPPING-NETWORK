@@ -978,6 +978,7 @@ export const trendSpotting = mysqlTable("trend_spotting", {
   notes: text("notes"),
   spottedBy: varchar("spotted_by", { length: 64 }),
   spottedAt: timestamp("spotted_at").notNull(),
+  peakPredictedAt: timestamp("peak_predicted_at"),
   launchedAt: timestamp("launched_at"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),

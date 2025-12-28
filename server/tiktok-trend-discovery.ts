@@ -37,6 +37,9 @@ import {
   inventoryLots,
 } from "../drizzle/schema";
 
+// Initialize database connection
+const db = getDbSync();
+
 // ============================================================================
 // TYPES & INTERFACES
 // ============================================================================
@@ -212,7 +215,6 @@ export class TrendDiscoveryEngine {
       trends.push(trend);
 
       // Save to database
-      const db = getDbSync();
       await db.insert(trendSpotting).values({
         id: trend.id,
         channelId: "default", // Multi-tenant support
@@ -642,7 +644,6 @@ export class ProductScoringEngine {
     };
 
     // Save to database
-    const db = getDbSync();
     await db.insert(productScoringResults).values({
       id: `score_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       channelId: "default",
@@ -1015,7 +1016,6 @@ export class DemandForecastingEngine {
     };
 
     // Save to database
-    const db = getDbSync();
     await db.insert(demandForecasts).values({
       id: `forecast_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       channelId: "default",
@@ -1193,7 +1193,6 @@ export class ShippingTimeAnalysisEngine {
     };
 
     // Save to database
-    const db = getDbSync();
     await db.insert(shippingTimeAnalysis).values({
       id: `shipping_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       channelId: "default",
@@ -1237,7 +1236,6 @@ export class CompetitorPriceMonitor {
     }>
   > {
     const { productId, platforms = ["tiktok", "amazon", "ebay"] } = params;
-      const db = getDbSync();
 
     const results = await db
       .select()

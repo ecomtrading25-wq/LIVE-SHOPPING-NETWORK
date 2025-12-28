@@ -164,7 +164,7 @@ class EventBus {
 
   // Unsubscribe
   unsubscribe(subscriptionId: string): void {
-    for (const [eventType, subs] of this.subscriptions.entries()) {
+    for (const [eventType, subs] of Array.from(this.subscriptions.entries())) {
       const index = subs.findIndex(s => s.id === subscriptionId);
       if (index !== -1) {
         subs.splice(index, 1);
@@ -512,7 +512,7 @@ class EventStore {
 
   // Update projections
   private updateProjections(event: Event): void {
-    for (const projection of this.projections.values()) {
+    for (const projection of Array.from(this.projections.values())) {
       if (projection.events.includes(event.type)) {
         // In production, would apply event to projection state
         projection.lastEventId = event.id;

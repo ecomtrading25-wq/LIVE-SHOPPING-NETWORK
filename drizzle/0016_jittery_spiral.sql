@@ -1,0 +1,1 @@
+ALTER TABLE `trend_spotting` ADD `peak_predicted_at` timestamp;
