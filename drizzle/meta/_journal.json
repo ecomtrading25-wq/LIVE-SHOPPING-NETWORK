@@ -64,6 +64,13 @@
       "when": 1766900199104,
       "tag": "0008_yielding_genesis",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "5",
+      "when": 1766901235938,
+      "tag": "0009_bitter_blue_blade",
+      "breakpoints": true
     }
   ]
 }

@@ -1220,3 +1220,16 @@ export const productCategories = mysqlTable("product_categories", {
 }));
 
 export type ProductCategory = typeof productCategories.$inferSelect;
+
+// ============================================================================
+// SHOPPING CART
+// ============================================================================
+
+export const cartItems = mysqlTable("cart_items", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  userId: int("user_id").notNull().references(() => users.id),
+  productId: varchar("product_id", { length: 64 }).notNull().references(() => products.id),
+  quantity: int("quantity").notNull().default(1),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+});

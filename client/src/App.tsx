@@ -6,6 +6,10 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
+import ProductsEnhanced from "./pages/ProductsEnhanced";
+import CartEnhanced from "./pages/CartEnhanced";
+import CheckoutEnhanced from "./pages/CheckoutEnhanced";
+import OrderConfirmationEnhanced from "./pages/OrderConfirmationEnhanced";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import CheckoutSuccess from "./pages/CheckoutSuccess";
@@ -105,6 +109,10 @@ function Router() {
       <Header />
       <Switch>
         <Route path="/" component={Home} />
+      <Route path="/products-enhanced" component={ProductsEnhanced} />
+      <Route path="/cart-enhanced" component={CartEnhanced} />
+      <Route path="/checkout-enhanced" component={CheckoutEnhanced} />
+      <Route path="/order-confirmation-enhanced/:orderId" component={OrderConfirmationEnhanced} />
       <Route path="/products" component={Products} />
       <Route path="/products/:id" component={ProductDetail} />
       <Route path="/cart" component={Cart} />
