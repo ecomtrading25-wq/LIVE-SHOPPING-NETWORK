@@ -19,6 +19,7 @@ import { lsnProductsRouter } from "./routers-lsn-products";
 import { lsnOrdersRouter } from "./routers-lsn-orders";
 import { lsnOperationsRouter } from "./routers-lsn-operations";
 import { tiktokArbitrageRouter } from "./routers-tiktok-arbitrage";
+import { lsnPurchasingRouter, lsnCreatorRouter, lsnFraudRouter, lsnExecutiveRouter } from "./routers-lsn-all";
 
 /**
  * Live Shopping Network - Complete API Router
@@ -48,6 +49,12 @@ export const appRouter = router({
   lsnProducts: lsnProductsRouter,
   lsnOrders: lsnOrdersRouter,
   lsnOperations: lsnOperationsRouter,
+  
+  // LSN Enterprise Systems - Purchasing, Creator Economy, Fraud, Executive BI
+  lsnPurchasing: lsnPurchasingRouter,
+  lsnCreatorEconomy: lsnCreatorRouter,
+  lsnFraud: lsnFraudRouter,
+  lsnExecutive: lsnExecutiveRouter,
   
   // TikTok Shop Arbitrage
   tiktokArbitrage: tiktokArbitrageRouter,

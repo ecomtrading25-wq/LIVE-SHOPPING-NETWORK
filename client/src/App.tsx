@@ -104,6 +104,10 @@ import AffiliateDashboard from '@/pages/AffiliateDashboard';
 import LiveStudio from '@/pages/LiveStudio';
 import UserProfile from '@/pages/UserProfile';
 import MarketingDashboard from '@/pages/MarketingDashboard';
+import ExecutiveDashboard from '@/pages/ExecutiveDashboard';
+import FraudConsole from '@/pages/FraudConsole';
+import PurchasingDashboard from '@/pages/PurchasingDashboard';
+import CreatorDashboard from '@/pages/CreatorDashboard';
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -183,7 +187,11 @@ function Router() {
       <Route path="/affiliate/dashboard" component={AffiliateDashboard} />
       <Route path="/live/studio" component={LiveStudio} />
       <Route path="/user/:userId" component={UserProfile} />
-      <Route path="/marketing" component={MarketingDashboard} />
+      <Route path="/marketing-dashboard" component={MarketingDashboard} />
+      <Route path="/executive-dashboard" component={ExecutiveDashboard} />
+      <Route path="/fraud-console" component={FraudConsole} />
+      <Route path="/purchasing-dashboard" component={PurchasingDashboard} />
+      <Route path="/creator-dashboard" component={CreatorDashboard} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
       <Route path="/profile" component={Profile} />
