@@ -1076,3 +1076,63 @@ export type HostFollower = typeof hostFollowers.$inferSelect;
 export type LiveShowAnalytics = typeof liveShowAnalytics.$inferSelect;
 export type StreamQualityLog = typeof streamQualityLogs.$inferSelect;
 export type ModerationAction = typeof moderationActions.$inferSelect;
+
+// ============================================================================
+// WALLET & PAYMENTS
+// ============================================================================
+
+export const wallets = mysqlTable("wallets", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  userId: int("user_id").notNull().unique().references(() => users.id),
+  balance: decimal("balance", { precision: 10, scale: 2 }).default("0.00").notNull(),
+  pendingBalance: decimal("pending_balance", { precision: 10, scale: 2 }).default("0.00").notNull(),
+  lifetimeEarnings: decimal("lifetime_earnings", { precision: 10, scale: 2 }).default("0.00").notNull(),
+  lifetimeSpending: decimal("lifetime_spending", { precision: 10, scale: 2 }).default("0.00").notNull(),
+  currency: varchar("currency", { length: 3 }).default("USD").notNull(),
+  stripeCustomerId: varchar("stripe_customer_id", { length: 255 }),
+  stripeAccountId: varchar("stripe_account_id", { length: 255 }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("user_id_idx").on(table.userId),
+}));
+
+export const transactions = mysqlTable("transactions", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  userId: int("user_id").notNull().references(() => users.id),
+  type: mysqlEnum("type", ["deposit", "withdrawal", "purchase", "earning", "refund"]).notNull(),
+  amount: decimal("amount", { precision: 10, scale: 2 }).notNull(),
+  currency: varchar("currency", { length: 3 }).default("USD").notNull(),
+  status: mysqlEnum("status", ["pending", "completed", "failed", "cancelled"]).default("pending").notNull(),
+  stripePaymentIntentId: varchar("stripe_payment_intent_id", { length: 255 }),
+  metadata: json("metadata"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("user_id_idx").on(table.userId),
+  typeIdx: index("type_idx").on(table.type),
+  statusIdx: index("status_idx").on(table.status),
+  createdAtIdx: index("created_at_idx").on(table.createdAt),
+}));
+
+export const payouts = mysqlTable("payouts", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  userId: int("user_id").notNull().references(() => users.id),
+  amount: decimal("amount", { precision: 10, scale: 2 }).notNull(),
+  currency: varchar("currency", { length: 3 }).default("USD").notNull(),
+  status: mysqlEnum("status", ["pending", "processing", "completed", "failed", "cancelled"]).default("pending").notNull(),
+  method: mysqlEnum("method", ["bank_account", "paypal", "stripe"]).notNull(),
+  stripePayoutId: varchar("stripe_payout_id", { length: 255 }),
+  estimatedArrival: timestamp("estimated_arrival"),
+  completedAt: timestamp("completed_at"),
+  failureReason: text("failure_reason"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("user_id_idx").on(table.userId),
+  statusIdx: index("status_idx").on(table.status),
+}));
+
+// Type exports for wallet
+export type Wallet = typeof wallets.$inferSelect;
+export type Transaction = typeof transactions.$inferSelect;
+export type Payout = typeof payouts.$inferSelect;

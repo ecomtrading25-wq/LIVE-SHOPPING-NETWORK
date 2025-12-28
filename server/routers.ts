@@ -8,6 +8,8 @@ import * as db from "./db";
 import { createCheckoutSession } from "./stripe";
 import { aiDashboardsRouter } from "./routers-ai-dashboards";
 import { liveStreamingRouter } from "./routers-live-streaming-simple";
+import { walletRouter } from "./routers-wallet";
+import { moderationRouter } from "./routers-moderation";
 
 /**
  * Live Shopping Network - Complete API Router
@@ -18,6 +20,8 @@ export const appRouter = router({
   system: systemRouter,
   aiDashboards: aiDashboardsRouter,
   liveStreaming: liveStreamingRouter,
+  wallet: walletRouter,
+  moderation: moderationRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
