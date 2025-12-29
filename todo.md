@@ -8215,3 +8215,92 @@ Next: Configure external services and deploy to production.
 - [ ] A2 Supervised: Auto-runs within policy envelope
 - [ ] A3 Autonomous: Full autopilot with monitoring
 - [ ] A4 Self-optimizing: A3 + launches experiments + updates policies
+
+
+## 🤖 AI BUSINESS OS INTEGRATION (Current Wave)
+
+### Core Business Kernel
+- [x] Add business goals table with OKRs and constraints
+- [x] Add plans table for multi-step strategies
+- [x] Add tasks table for atomic executable steps
+- [x] Add actions table for tool call logging
+- [x] Add events table for system triggers
+- [x] Add outcomes table for result tracking
+- [x] Add state_snapshots table for hourly metrics
+- [x] Add policies table for machine-readable constraints
+- [x] Add approvals table for founder gates
+- [x] Add experiments and bandit_arms tables for learning loop
+
+### Policy Engine & Governor
+- [x] Implement Policy DSL parser (JSON/YAML rules)
+- [x] Create policy gate workflow procedure
+- [x] Build policy evaluation engine
+- [x] Add policy violation logging
+- [x] Implement approval request creation
+- [x] Build founder approval webhook handler
+- [x] Create approval decision workflow
+- [x] Add policy override mechanism
+- [x] Implement risk threshold checks
+
+### Event-Driven Workflow System
+- [ ] Create event ingest webhook endpoint
+- [ ] Build task dispatcher with cron scheduling
+- [ ] Implement workflow routing logic
+- [ ] Add task status tracking
+- [ ] Create workflow execution logging
+- [ ] Build workflow replay capability
+- [ ] Implement workflow pause/resume
+- [ ] Add workflow dependency management
+
+### Decision Engine & Learning Loop
+- [ ] Implement contextual bandit algorithm
+- [ ] Create decision proposal system
+- [ ] Build impact simulation engine
+- [ ] Add action selection logic
+- [ ] Implement reward signal tracking
+- [ ] Create experiment framework
+- [ ] Build A/B test infrastructure
+- [ ] Add model registry for versioning
+
+### Incident Management & Kill Switch
+- [ ] Create incident creation workflow
+- [ ] Build kill switch trigger mechanism
+- [ ] Implement auto-pause functionality
+- [ ] Add incident escalation logic
+- [ ] Create incident resolution tracking
+- [ ] Build incident notification system
+- [ ] Implement rollback capabilities
+
+### Operations Console Integration
+- [x] Add workflow queue monitor to admin
+- [x] Create approvals inbox interface
+- [x] Build incident center dashboard
+- [x] Add audit trail viewer
+- [x] Implement workflow replay UI
+- [x] Create autonomy toggle controls
+- [x] Build policy management interface
+- [x] Add decision engine dashboard
+
+### Content Factory Module
+- [ ] Implement content brief builder
+- [ ] Create content approval workflow
+- [ ] Build publish task queue
+- [ ] Add platform-specific publishing (TikTok/YouTube/IG)
+- [ ] Implement content performance tracking
+
+### Finance Gate Module
+- [ ] Build reconciliation matcher
+- [ ] Implement hold/approval logic
+- [ ] Create ledger reservation system
+- [ ] Add payout policy checks
+- [ ] Implement margin floor validation
+- [ ] Build spend cap enforcement
+
+### Integration & Testing
+- [ ] Write vitest tests for policy engine
+- [ ] Test approval workflows end-to-end
+- [ ] Validate event-driven dispatching
+- [ ] Test decision engine with sample data
+- [ ] Validate incident management flows
+- [ ] Test policy gate enforcement
+- [ ] Integration test with existing systems

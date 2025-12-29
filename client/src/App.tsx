@@ -116,6 +116,7 @@ import LSNHomepage from '@/pages/LSNHomepage';
 import LSNLiveShowViewer from '@/pages/LSNLiveShowViewer';
 import LSNBrowseShows from '@/pages/LSNBrowseShows';
 import LSNOperationsDashboard from '@/pages/LSNOperationsDashboard';
+import OperationsConsole from '@/pages/admin/OperationsConsole';
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -226,6 +227,7 @@ function Router() {
       <Route path="/admin/sentiment-analysis" component={SentimentAnalysisDashboard} />
       <Route path="/admin/revenue-forecast" component={RevenueForecastDashboard} />
       <Route path="/admin/rfm-segmentation" component={RFMSegmentationDashboard} />
+      <Route path="/admin/operations-console" component={OperationsConsole} />
       <Route path="/tiktok-arbitrage" component={TikTokArbitrageDashboard} />
       <Route path="/live-show-management" component={LiveShowManagement} />
       <Route path="/automation-workflows" component={AutomationWorkflows} />
