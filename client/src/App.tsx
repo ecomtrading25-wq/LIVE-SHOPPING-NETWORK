@@ -48,6 +48,7 @@ import Footer from "@/components/Footer";
 import PWAInstallPrompt from "./components/PWAInstallPrompt";
 import CustomerServiceChatbot from "./components/CustomerServiceChatbot";
 import MobileDeepLink from "./components/MobileDeepLink";
+import ScrollToTop from "./components/ScrollToTop";
 import AIShoppingChatbot from "./components/AIShoppingChatbot";
 import VoiceShoppingAssistant from "./components/VoiceShoppingAssistant";
 import TikTokArbitrageDashboard from "./pages/TikTokArbitrageDashboard";
@@ -122,6 +123,7 @@ function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <>
+      <ScrollToTop />
       <PWAInstallPrompt />
       {/* Consolidated AI Assistant - combines customer service, shopping help, and voice */}
       <AIShoppingChatbot />

@@ -8315,3 +8315,5 @@ Next: Configure external services and deploy to production.
 - [x] Fix SQL query error in RFM segmentation (missing join condition in orders query)
 
 - [x] Double the logo size (from h-16 to h-32 in Header, from h-12 to h-24 in Footer)
+
+- [x] Ensure all pages scroll to top on load (add scroll restoration to router)
