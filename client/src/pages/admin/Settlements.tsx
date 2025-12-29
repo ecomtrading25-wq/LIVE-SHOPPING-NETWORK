@@ -86,7 +86,7 @@ export default function SettlementsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Settlements</h1>
+          <h1 className="text-3xl font-bold text-foreground">Settlements</h1>
           <p className="text-gray-400 mt-1">Track platform payouts and reconciliation</p>
         </div>
 
@@ -102,9 +102,9 @@ export default function SettlementsPage() {
                 Import Settlement
               </Button>
             </DialogTrigger>
-            <DialogContent className="bg-zinc-900 border-zinc-800">
+            <DialogContent className="bg-background border-border text-foreground">
               <DialogHeader>
-                <DialogTitle className="text-white">Import Settlement</DialogTitle>
+                <DialogTitle className="text-foreground">Import Settlement</DialogTitle>
                 <DialogDescription className="text-gray-400">
                   Upload settlement file from payment platform
                 </DialogDescription>
@@ -117,61 +117,61 @@ export default function SettlementsPage() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center">
               <DollarSign className="w-5 h-5 text-green-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Total Settled</p>
-              <p className="text-2xl font-bold text-white">
+              <p className="text-2xl font-bold text-foreground">
                 ${stats?.totalSettled?.toFixed(2) || "0.00"}
               </p>
             </div>
           </div>
         </Card>
 
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center">
               <Clock className="w-5 h-5 text-blue-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Pending</p>
-              <p className="text-2xl font-bold text-white">
+              <p className="text-2xl font-bold text-foreground">
                 ${stats?.pendingAmount?.toFixed(2) || "0.00"}
               </p>
             </div>
           </div>
         </Card>
 
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-yellow-500/10 rounded-lg flex items-center justify-center">
               <AlertTriangle className="w-5 h-5 text-yellow-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Discrepancies</p>
-              <p className="text-2xl font-bold text-white">{stats?.discrepancyCount || 0}</p>
+              <p className="text-2xl font-bold text-foreground">{stats?.discrepancyCount || 0}</p>
             </div>
           </div>
         </Card>
 
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center">
               <TrendingUp className="w-5 h-5 text-purple-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Reconciliation Rate</p>
-              <p className="text-2xl font-bold text-white">{stats?.reconciliationRate || 0}%</p>
+              <p className="text-2xl font-bold text-foreground">{stats?.reconciliationRate || 0}%</p>
             </div>
           </div>
         </Card>
       </div>
 
       {/* Filters */}
-      <Card className="p-4 bg-zinc-900 border-zinc-800">
+      <Card className="p-4 bg-background border-border text-foreground">
         <div className="flex gap-4">
           <div className="flex-1 relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -179,15 +179,15 @@ export default function SettlementsPage() {
               placeholder="Search by settlement ID, platform..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 bg-zinc-800 border-zinc-700 text-white"
+              className="pl-10 bg-card border-zinc-700 text-foreground"
             />
           </div>
 
           <Select value={platformFilter} onValueChange={setPlatformFilter}>
-            <SelectTrigger className="w-48 bg-zinc-800 border-zinc-700 text-white">
+            <SelectTrigger className="w-48 bg-card border-zinc-700 text-foreground">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent className="bg-zinc-800 border-zinc-700">
+            <SelectContent className="bg-card border-zinc-700 text-card-foreground">
               <SelectItem value="all">All Platforms</SelectItem>
               <SelectItem value="shopify">Shopify</SelectItem>
               <SelectItem value="tiktok_shop">TikTok Shop</SelectItem>
@@ -197,10 +197,10 @@ export default function SettlementsPage() {
           </Select>
 
           <Select value={statusFilter} onValueChange={setStatusFilter}>
-            <SelectTrigger className="w-48 bg-zinc-800 border-zinc-700 text-white">
+            <SelectTrigger className="w-48 bg-card border-zinc-700 text-foreground">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent className="bg-zinc-800 border-zinc-700">
+            <SelectContent className="bg-card border-zinc-700 text-card-foreground">
               <SelectItem value="all">All Statuses</SelectItem>
               <SelectItem value="pending">Pending</SelectItem>
               <SelectItem value="reconciled">Reconciled</SelectItem>
@@ -211,10 +211,10 @@ export default function SettlementsPage() {
       </Card>
 
       {/* Settlements Table */}
-      <Card className="bg-zinc-900 border-zinc-800">
+      <Card className="bg-background border-border text-foreground">
         <Table>
           <TableHeader>
-            <TableRow className="border-zinc-800 hover:bg-zinc-800/50">
+            <TableRow className="border-border hover:bg-card/50 text-card-foreground">
               <TableHead className="text-gray-400">Settlement ID</TableHead>
               <TableHead className="text-gray-400">Platform</TableHead>
               <TableHead className="text-gray-400">Period</TableHead>
@@ -228,18 +228,18 @@ export default function SettlementsPage() {
           </TableHeader>
           <TableBody>
             {settlements?.map((settlement) => (
-              <TableRow key={settlement.id} className="border-zinc-800 hover:bg-zinc-800/50">
-                <TableCell className="font-mono text-sm text-gray-300">
+              <TableRow key={settlement.id} className="border-border hover:bg-card/50 text-card-foreground">
+                <TableCell className="font-mono text-sm text-muted-foreground">
                   {settlement.id.substring(0, 8)}
                 </TableCell>
                 <TableCell>
                   <Badge className="bg-purple-600">{settlement.platform}</Badge>
                 </TableCell>
-                <TableCell className="text-gray-300">{settlement.period}</TableCell>
-                <TableCell className="text-white font-medium">
+                <TableCell className="text-muted-foreground">{settlement.period}</TableCell>
+                <TableCell className="text-foreground font-medium">
                   ${settlement.expectedAmount}
                 </TableCell>
-                <TableCell className="text-white font-medium">
+                <TableCell className="text-foreground font-medium">
                   ${settlement.actualAmount}
                 </TableCell>
                 <TableCell>
@@ -285,16 +285,16 @@ export default function SettlementsPage() {
 
       {/* Recent Discrepancies */}
       {stats?.recentDiscrepancies && stats.recentDiscrepancies.length > 0 && (
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center gap-3 mb-4">
             <AlertTriangle className="w-5 h-5 text-yellow-500" />
-            <h2 className="text-xl font-bold text-white">Recent Discrepancies</h2>
+            <h2 className="text-xl font-bold text-foreground">Recent Discrepancies</h2>
           </div>
           <div className="space-y-3">
             {stats.recentDiscrepancies.map((disc: any, idx: number) => (
-              <div key={idx} className="flex items-center justify-between p-3 bg-zinc-800 rounded-lg">
+              <div key={idx} className="flex items-center justify-between p-3 bg-card rounded-lg text-card-foreground">
                 <div>
-                  <p className="text-white font-medium">{disc.description}</p>
+                  <p className="text-foreground font-medium">{disc.description}</p>
                   <p className="text-sm text-gray-400">{disc.platform} • {disc.date}</p>
                 </div>
                 <Badge className="bg-yellow-600">${disc.amount}</Badge>
@@ -332,10 +332,10 @@ function ImportSettlementForm({ onSuccess }: { onSuccess: () => void }) {
       <div>
         <label className="text-sm text-gray-400 mb-2 block">Platform</label>
         <Select value={platform} onValueChange={setPlatform}>
-          <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
+          <SelectTrigger className="bg-card border-zinc-700 text-foreground">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent className="bg-zinc-800 border-zinc-700">
+          <SelectContent className="bg-card border-zinc-700 text-card-foreground">
             <SelectItem value="shopify">Shopify</SelectItem>
             <SelectItem value="tiktok_shop">TikTok Shop</SelectItem>
             <SelectItem value="amazon">Amazon</SelectItem>
@@ -350,7 +350,7 @@ function ImportSettlementForm({ onSuccess }: { onSuccess: () => void }) {
           value={period}
           onChange={(e) => setPeriod(e.target.value)}
           placeholder="2024-01-01 to 2024-01-31"
-          className="bg-zinc-800 border-zinc-700 text-white"
+          className="bg-card border-zinc-700 text-foreground"
           required
         />
       </div>
@@ -363,7 +363,7 @@ function ImportSettlementForm({ onSuccess }: { onSuccess: () => void }) {
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
           placeholder="1234.56"
-          className="bg-zinc-800 border-zinc-700 text-white"
+          className="bg-card border-zinc-700 text-foreground"
           required
         />
       </div>

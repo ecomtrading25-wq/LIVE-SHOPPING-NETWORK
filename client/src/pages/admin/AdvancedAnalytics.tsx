@@ -123,7 +123,7 @@ export default function AdvancedAnalyticsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Advanced Analytics</h1>
+          <h1 className="text-3xl font-bold text-foreground">Advanced Analytics</h1>
           <p className="text-gray-400 mt-2">Revenue forecasting, cohort analysis, and funnel insights</p>
         </div>
         <div className="flex items-center gap-3">
@@ -158,7 +158,7 @@ export default function AdvancedAnalyticsPage() {
             </div>
           </div>
           <p className="text-gray-400 text-sm mb-1">Total Revenue</p>
-          <p className="text-3xl font-bold text-white mb-1">{formatCurrency(metrics.revenue.current)}</p>
+          <p className="text-3xl font-bold text-foreground mb-1">{formatCurrency(metrics.revenue.current)}</p>
           <p className="text-gray-400 text-xs">Forecast: {formatCurrency(metrics.revenue.forecast)}</p>
         </Card>
 
@@ -173,7 +173,7 @@ export default function AdvancedAnalyticsPage() {
             </div>
           </div>
           <p className="text-gray-400 text-sm mb-1">Total Orders</p>
-          <p className="text-3xl font-bold text-white">{metrics.orders.current.toLocaleString()}</p>
+          <p className="text-3xl font-bold text-foreground">{metrics.orders.current.toLocaleString()}</p>
         </Card>
 
         <Card className="p-6 bg-white/5 border-white/10">
@@ -187,7 +187,7 @@ export default function AdvancedAnalyticsPage() {
             </div>
           </div>
           <p className="text-gray-400 text-sm mb-1">Active Customers</p>
-          <p className="text-3xl font-bold text-white">{metrics.customers.current.toLocaleString()}</p>
+          <p className="text-3xl font-bold text-foreground">{metrics.customers.current.toLocaleString()}</p>
           <p className="text-gray-400 text-xs">{metrics.customers.new} new, {metrics.customers.returning} returning</p>
         </Card>
 
@@ -202,24 +202,24 @@ export default function AdvancedAnalyticsPage() {
             </div>
           </div>
           <p className="text-gray-400 text-sm mb-1">Conversion Rate</p>
-          <p className="text-3xl font-bold text-white">{metrics.conversionRate.current}%</p>
+          <p className="text-3xl font-bold text-foreground">{metrics.conversionRate.current}%</p>
         </Card>
       </div>
 
       {/* Revenue by Channel */}
       <Card className="p-6 bg-white/5 border-white/10">
-        <h2 className="text-2xl font-bold text-white mb-6">Revenue by Channel</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6">Revenue by Channel</h2>
         <div className="space-y-4">
           {channelData.map((channel) => (
             <div key={channel.name}>
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-3">
                   <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                  <span className="text-white font-medium">{channel.name}</span>
+                  <span className="text-foreground font-medium">{channel.name}</span>
                 </div>
                 <div className="flex items-center gap-6">
                   <span className="text-gray-400 text-sm">{channel.orders.toLocaleString()} orders</span>
-                  <span className="text-white font-bold">{formatCurrency(channel.revenue)}</span>
+                  <span className="text-foreground font-bold">{formatCurrency(channel.revenue)}</span>
                   <span className="text-purple-400 text-sm w-12 text-right">{channel.percentage}%</span>
                 </div>
               </div>
@@ -237,14 +237,14 @@ export default function AdvancedAnalyticsPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Sales Funnel */}
         <Card className="p-6 bg-white/5 border-white/10">
-          <h2 className="text-2xl font-bold text-white mb-6">Sales Funnel</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Sales Funnel</h2>
           <div className="space-y-4">
             {funnelData.map((stage, index) => (
               <div key={stage.stage}>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-white font-medium">{stage.stage}</span>
+                  <span className="text-foreground font-medium">{stage.stage}</span>
                   <div className="flex items-center gap-4">
-                    <span className="text-white">{stage.count.toLocaleString()}</span>
+                    <span className="text-foreground">{stage.count.toLocaleString()}</span>
                     <span className="text-purple-400 text-sm w-12 text-right">{stage.percentage}%</span>
                   </div>
                 </div>
@@ -255,7 +255,7 @@ export default function AdvancedAnalyticsPage() {
                       style={{ width: `${stage.percentage * 10}%` }}
                     >
                       {index > 0 && stage.dropoff > 0 && (
-                        <span className="text-white text-xs font-medium">-{stage.dropoff}%</span>
+                        <span className="text-foreground text-xs font-medium">-{stage.dropoff}%</span>
                       )}
                     </div>
                   </div>
@@ -267,7 +267,7 @@ export default function AdvancedAnalyticsPage() {
 
         {/* Customer Cohort Analysis */}
         <Card className="p-6 bg-white/5 border-white/10">
-          <h2 className="text-2xl font-bold text-white mb-6">Customer Cohort Retention</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Customer Cohort Retention</h2>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
@@ -283,8 +283,8 @@ export default function AdvancedAnalyticsPage() {
               <tbody>
                 {cohortData.map((cohort) => (
                   <tr key={cohort.month} className="border-b border-white/5">
-                    <td className="p-2 text-white text-sm">{cohort.month}</td>
-                    <td className="p-2 text-center text-white text-sm">{cohort.customers}</td>
+                    <td className="p-2 text-foreground text-sm">{cohort.month}</td>
+                    <td className="p-2 text-center text-foreground text-sm">{cohort.customers}</td>
                     {cohort.retention.map((rate, index) => (
                       <td key={index} className="p-2 text-center">
                         <div
@@ -317,7 +317,7 @@ export default function AdvancedAnalyticsPage() {
 
       {/* Top Products */}
       <Card className="p-6 bg-white/5 border-white/10">
-        <h2 className="text-2xl font-bold text-white mb-6">Top Products by Revenue</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6">Top Products by Revenue</h2>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
@@ -334,13 +334,13 @@ export default function AdvancedAnalyticsPage() {
                   <td className="p-4">
                     <div className="flex items-center gap-3">
                       <span className="text-gray-400 font-medium">#{index + 1}</span>
-                      <span className="text-white font-medium">{product.name}</span>
+                      <span className="text-foreground font-medium">{product.name}</span>
                     </div>
                   </td>
-                  <td className="p-4 text-right text-white font-bold">
+                  <td className="p-4 text-right text-foreground font-bold">
                     {formatCurrency(product.revenue)}
                   </td>
-                  <td className="p-4 text-right text-white">{product.units.toLocaleString()}</td>
+                  <td className="p-4 text-right text-foreground">{product.units.toLocaleString()}</td>
                   <td className="p-4 text-right">
                     <div
                       className={`inline-flex items-center gap-1 ${
@@ -364,7 +364,7 @@ export default function AdvancedAnalyticsPage() {
 
       {/* Customer Segments */}
       <Card className="p-6 bg-white/5 border-white/10">
-        <h2 className="text-2xl font-bold text-white mb-6">Customer Segments</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6">Customer Segments</h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {segments.map((segment) => (
             <Card key={segment.name} className="p-6 bg-white/5 border-white/10">
@@ -372,15 +372,15 @@ export default function AdvancedAnalyticsPage() {
               <div className="space-y-2">
                 <div>
                   <p className="text-gray-400 text-xs">Customers</p>
-                  <p className="text-white text-2xl font-bold">{segment.count.toLocaleString()}</p>
+                  <p className="text-foreground text-2xl font-bold">{segment.count.toLocaleString()}</p>
                 </div>
                 <div>
                   <p className="text-gray-400 text-xs">Total Revenue</p>
-                  <p className="text-white text-lg font-bold">{formatCurrency(segment.revenue)}</p>
+                  <p className="text-foreground text-lg font-bold">{formatCurrency(segment.revenue)}</p>
                 </div>
                 <div>
                   <p className="text-gray-400 text-xs">Avg Spend</p>
-                  <p className="text-white font-medium">{formatCurrency(segment.avgSpend)}</p>
+                  <p className="text-foreground font-medium">{formatCurrency(segment.avgSpend)}</p>
                 </div>
               </div>
             </Card>

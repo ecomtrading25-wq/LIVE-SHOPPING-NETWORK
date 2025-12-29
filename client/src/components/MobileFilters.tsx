@@ -97,12 +97,12 @@ export default function MobileFilters({
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/60 z-40 md:hidden"
+        className="fixed inset-0 bg-background/60 z-40 md:hidden text-foreground"
         onClick={onClose}
       />
 
       {/* Filter Drawer */}
-      <div className="fixed inset-x-0 bottom-0 z-50 md:hidden max-h-[85vh] flex flex-col bg-zinc-900 rounded-t-3xl shadow-2xl animate-slide-up">
+      <div className="fixed inset-x-0 bottom-0 z-50 md:hidden max-h-[85vh] flex flex-col bg-background rounded-t-3xl shadow-2xl animate-slide-up text-foreground">
         {/* Drag Handle */}
         <div
           className="py-4 cursor-grab active:cursor-grabbing"
@@ -113,18 +113,18 @@ export default function MobileFilters({
         </div>
 
         {/* Header */}
-        <div className="px-6 pb-4 border-b border-gray-800">
+        <div className="px-6 pb-4 border-b border-border">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <SlidersHorizontal className="w-6 h-6 text-purple-400" />
-              <h2 className="text-2xl font-bold text-white">Filters</h2>
+              <h2 className="text-2xl font-bold text-foreground">Filters</h2>
               {activeFilterCount > 0 && (
                 <Badge className="bg-purple-600">{activeFilterCount}</Badge>
               )}
             </div>
             <button
               onClick={onClose}
-              className="p-2 hover:bg-gray-800 rounded-full transition-colors"
+              className="p-2 hover:bg-card rounded-full transition-colors text-card-foreground"
             >
               <X className="w-6 h-6 text-gray-400" />
             </button>
@@ -135,7 +135,7 @@ export default function MobileFilters({
         <div className="flex-1 overflow-y-auto px-6 py-6 space-y-8">
           {/* Categories */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Categories</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">Categories</h3>
             <div className="grid grid-cols-2 gap-3">
               {categories.map((category) => (
                 <button
@@ -144,8 +144,8 @@ export default function MobileFilters({
                   className={`
                     p-4 rounded-xl border-2 transition-all text-left
                     ${filters.categories.includes(category)
-                      ? "border-purple-500 bg-purple-500/20 text-white"
-                      : "border-gray-700 text-gray-400 active:scale-95"
+                      ? "border-purple-500 bg-purple-500/20 text-foreground"
+                      : "border-border text-gray-400 active:scale-95"
                     }
                   `}
                 >
@@ -162,7 +162,7 @@ export default function MobileFilters({
 
           {/* Price Range */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">
+            <h3 className="text-lg font-semibold text-foreground mb-4">
               Price Range
             </h3>
             <div className="space-y-4">
@@ -176,7 +176,7 @@ export default function MobileFilters({
                 step={10}
                 className="touch-manipulation"
               />
-              <div className="flex items-center justify-between text-white">
+              <div className="flex items-center justify-between text-foreground">
                 <span className="text-lg font-bold">${filters.priceRange[0]}</span>
                 <span className="text-gray-400">to</span>
                 <span className="text-lg font-bold">${filters.priceRange[1]}</span>
@@ -186,7 +186,7 @@ export default function MobileFilters({
 
           {/* Brands */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Brands</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">Brands</h3>
             <div className="flex flex-wrap gap-3">
               {brands.map((brand) => (
                 <button
@@ -195,8 +195,8 @@ export default function MobileFilters({
                   className={`
                     px-6 py-3 rounded-full border-2 transition-all
                     ${filters.brands.includes(brand)
-                      ? "border-purple-500 bg-purple-500/20 text-white"
-                      : "border-gray-700 text-gray-400 active:scale-95"
+                      ? "border-purple-500 bg-purple-500/20 text-foreground"
+                      : "border-border text-gray-400 active:scale-95"
                     }
                   `}
                 >
@@ -208,7 +208,7 @@ export default function MobileFilters({
 
           {/* Rating */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Minimum Rating</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">Minimum Rating</h3>
             <div className="space-y-3">
               {ratings.map((rating) => (
                 <button
@@ -225,13 +225,13 @@ export default function MobileFilters({
                     w-full p-4 rounded-xl border-2 transition-all flex items-center justify-between
                     ${filters.ratings.includes(rating)
                       ? "border-purple-500 bg-purple-500/20"
-                      : "border-gray-700 active:scale-95"
+                      : "border-border active:scale-95"
                     }
                   `}
                 >
                   <div className="flex items-center gap-2">
                     <span className="text-2xl">{"⭐".repeat(rating)}</span>
-                    <span className="text-white font-medium">& Up</span>
+                    <span className="text-foreground font-medium">& Up</span>
                   </div>
                   {filters.ratings.includes(rating) && (
                     <Check className="w-5 h-5 text-purple-400" />
@@ -251,11 +251,11 @@ export default function MobileFilters({
                 w-full p-4 rounded-xl border-2 transition-all flex items-center justify-between
                 ${filters.inStockOnly
                   ? "border-purple-500 bg-purple-500/20"
-                  : "border-gray-700 active:scale-95"
+                  : "border-border active:scale-95"
                 }
               `}
             >
-              <span className="text-white font-medium">In Stock Only</span>
+              <span className="text-foreground font-medium">In Stock Only</span>
               {filters.inStockOnly && (
                 <Check className="w-5 h-5 text-purple-400" />
               )}
@@ -264,12 +264,12 @@ export default function MobileFilters({
         </div>
 
         {/* Footer Actions */}
-        <div className="px-6 py-4 border-t border-gray-800 bg-zinc-900">
+        <div className="px-6 py-4 border-t border-border bg-background text-foreground">
           <div className="flex gap-3">
             <Button
               onClick={handleReset}
               variant="outline"
-              className="flex-1 h-14 text-lg border-gray-700 text-gray-400"
+              className="flex-1 h-14 text-lg border-border text-gray-400"
             >
               Reset
             </Button>

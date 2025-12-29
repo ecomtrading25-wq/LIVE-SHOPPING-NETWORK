@@ -59,24 +59,24 @@ export default function ProductComparisonDrawer({
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/60 z-40 md:hidden"
+        className="fixed inset-0 bg-background/60 z-40 md:hidden text-foreground"
         onClick={onClose}
       />
 
       {/* Comparison Drawer */}
-      <div className="fixed inset-0 z-50 md:hidden bg-zinc-900 flex flex-col">
+      <div className="fixed inset-0 z-50 md:hidden bg-background flex flex-col text-foreground">
         {/* Header */}
-        <div className="px-4 py-4 border-b border-gray-800 bg-zinc-900">
+        <div className="px-4 py-4 border-b border-border bg-background text-foreground">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-xl font-bold text-white">Compare Products</h2>
+              <h2 className="text-xl font-bold text-foreground">Compare Products</h2>
               <p className="text-sm text-gray-400">
                 {products.length} products • Swipe to navigate
               </p>
             </div>
             <button
               onClick={onClose}
-              className="p-2 hover:bg-gray-800 rounded-full transition-colors"
+              className="p-2 hover:bg-card rounded-full transition-colors text-card-foreground"
             >
               <X className="w-6 h-6 text-gray-400" />
             </button>
@@ -122,16 +122,16 @@ export default function ProductComparisonDrawer({
                 )}
                 <button
                   onClick={() => onRemoveProduct(currentProduct.id)}
-                  className="absolute top-4 left-4 p-2 bg-black/60 rounded-full backdrop-blur-sm"
+                  className="absolute top-4 left-4 p-2 bg-background/60 rounded-full backdrop-blur-sm text-foreground"
                 >
-                  <X className="w-5 h-5 text-white" />
+                  <X className="w-5 h-5 text-foreground" />
                 </button>
               </div>
 
               {/* Product Info */}
               <div className="p-6">
                 <Link href={`/products/${currentProduct.id}`}>
-                  <h3 className="text-xl font-bold text-white mb-2 hover:text-purple-400">
+                  <h3 className="text-xl font-bold text-foreground mb-2 hover:text-purple-400">
                     {currentProduct.name}
                   </h3>
                 </Link>
@@ -157,7 +157,7 @@ export default function ProductComparisonDrawer({
 
                 {/* Price */}
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-3xl font-bold text-white">
+                  <span className="text-3xl font-bold text-foreground">
                     ${currentProduct.price}
                   </span>
                   {currentProduct.originalPrice && (
@@ -186,9 +186,9 @@ export default function ProductComparisonDrawer({
                   {allFeatures.map((feature) => (
                     <div
                       key={feature}
-                      className="flex items-center justify-between py-2 border-b border-gray-800"
+                      className="flex items-center justify-between py-2 border-b border-border"
                     >
-                      <span className="text-gray-300 text-sm">{feature}</span>
+                      <span className="text-muted-foreground text-sm">{feature}</span>
                       {currentProduct.features.includes(feature) ? (
                         <Check className="w-5 h-5 text-green-400" />
                       ) : (
@@ -211,7 +211,7 @@ export default function ProductComparisonDrawer({
                   <Link href={`/products/${currentProduct.id}`}>
                     <Button
                       variant="outline"
-                      className="w-full h-12 border-gray-700 text-gray-300"
+                      className="w-full h-12 border-border text-muted-foreground"
                     >
                       View Details
                     </Button>
@@ -223,7 +223,7 @@ export default function ProductComparisonDrawer({
 
           {/* Quick Comparison Table */}
           <div className="p-4">
-            <h3 className="text-lg font-bold text-white mb-4">Quick Compare</h3>
+            <h3 className="text-lg font-bold text-foreground mb-4">Quick Compare</h3>
             <div className="bg-white/5 rounded-xl overflow-hidden border border-white/10">
               <table className="w-full">
                 <thead className="bg-white/5">
@@ -238,7 +238,7 @@ export default function ProductComparisonDrawer({
                     <tr
                       key={product.id}
                       onClick={() => setCurrentIndex(index)}
-                      className={`border-t border-gray-800 cursor-pointer transition-colors ${
+                      className={`border-t border-border cursor-pointer transition-colors ${
                         currentIndex === index
                           ? "bg-purple-500/20"
                           : "hover:bg-white/5"
@@ -251,20 +251,20 @@ export default function ProductComparisonDrawer({
                             alt={product.name}
                             className="w-12 h-12 object-cover rounded"
                           />
-                          <span className="text-white text-sm font-medium line-clamp-2">
+                          <span className="text-foreground text-sm font-medium line-clamp-2">
                             {product.name}
                           </span>
                         </div>
                       </td>
                       <td className="p-3 text-right">
-                        <span className="text-white font-bold">
+                        <span className="text-foreground font-bold">
                           ${product.price}
                         </span>
                       </td>
                       <td className="p-3 text-right">
                         <div className="flex items-center justify-end gap-1">
                           <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                          <span className="text-white text-sm">
+                          <span className="text-foreground text-sm">
                             {product.rating}
                           </span>
                         </div>

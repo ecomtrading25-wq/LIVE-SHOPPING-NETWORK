@@ -79,21 +79,21 @@ export default function ComparePage() {
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-zinc-900 to-black py-12">
       <div className="container mx-auto px-4">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">Compare Products</h1>
+          <h1 className="text-4xl font-bold text-foreground mb-2">Compare Products</h1>
           <p className="text-gray-400">
             Select up to 4 products to compare side-by-side
           </p>
         </div>
 
         {/* Search Bar */}
-        <Card className="p-6 bg-zinc-900/50 border-zinc-800 mb-8">
+        <Card className="p-6 bg-background/50 border-border mb-8 text-foreground">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
             <Input
               placeholder="Search products to compare..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-12 bg-zinc-800 border-zinc-700 text-white h-12"
+              className="pl-12 bg-card border-zinc-700 text-foreground h-12"
             />
           </div>
 
@@ -103,7 +103,7 @@ export default function ComparePage() {
               {searchResults.map((product) => (
                 <div
                   key={product.id}
-                  className="flex items-center justify-between p-3 bg-zinc-800 rounded-lg hover:bg-zinc-750 cursor-pointer"
+                  className="flex items-center justify-between p-3 bg-card rounded-lg hover:bg-zinc-750 cursor-pointer text-card-foreground"
                   onClick={() => handleAddProduct(product.id)}
                 >
                   <div className="flex items-center gap-3">
@@ -113,7 +113,7 @@ export default function ComparePage() {
                       className="w-12 h-12 object-cover rounded"
                     />
                     <div>
-                      <p className="font-medium text-white">{product.name}</p>
+                      <p className="font-medium text-foreground">{product.name}</p>
                       <p className="text-sm text-gray-400">
                         ${parseFloat(product.price).toFixed(2)}
                       </p>
@@ -134,19 +134,19 @@ export default function ComparePage() {
             <table className="w-full border-collapse">
               <thead>
                 <tr>
-                  <th className="p-4 text-left bg-zinc-900/50 border border-zinc-800 text-gray-400 font-medium">
+                  <th className="p-4 text-left bg-background/50 border border-border text-gray-400 font-medium">
                     Feature
                   </th>
                   {comparisonProducts.map((product) => (
                     <th
                       key={product.id}
-                      className="p-4 bg-zinc-900/50 border border-zinc-800 relative"
+                      className="p-4 bg-background/50 border border-border relative text-foreground"
                     >
                       <button
                         onClick={() => handleRemoveProduct(product.id)}
                         className="absolute top-2 right-2 w-6 h-6 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center"
                       >
-                        <X className="w-4 h-4 text-white" />
+                        <X className="w-4 h-4 text-foreground" />
                       </button>
                       <img
                         src={product.imageUrl || "/placeholder-product.jpg"}
@@ -154,7 +154,7 @@ export default function ComparePage() {
                         className="w-32 h-32 object-cover rounded-lg mx-auto mb-3"
                       />
                       <Link href={`/products/${product.id}`}>
-                        <h3 className="font-semibold text-white hover:text-purple-400 transition-colors">
+                        <h3 className="font-semibold text-foreground hover:text-purple-400 transition-colors">
                           {product.name}
                         </h3>
                       </Link>
@@ -165,16 +165,16 @@ export default function ComparePage() {
               <tbody>
                 {/* Price */}
                 <tr>
-                  <td className="p-4 bg-zinc-900/30 border border-zinc-800 text-gray-300 font-medium">
+                  <td className="p-4 bg-background/30 border border-border text-muted-foreground font-medium">
                     Price
                   </td>
                   {comparisonProducts.map((product) => (
                     <td
                       key={product.id}
-                      className="p-4 bg-zinc-900/30 border border-zinc-800 text-center"
+                      className="p-4 bg-background/30 border border-border text-center"
                     >
                       <div>
-                        <span className="text-2xl font-bold text-white">
+                        <span className="text-2xl font-bold text-foreground">
                           ${parseFloat(product.price).toFixed(2)}
                         </span>
                         {product.compareAtPrice && (
@@ -189,13 +189,13 @@ export default function ComparePage() {
 
                 {/* Rating */}
                 <tr>
-                  <td className="p-4 bg-zinc-900/30 border border-zinc-800 text-gray-300 font-medium">
+                  <td className="p-4 bg-background/30 border border-border text-muted-foreground font-medium">
                     Rating
                   </td>
                   {comparisonProducts.map((product) => (
                     <td
                       key={product.id}
-                      className="p-4 bg-zinc-900/30 border border-zinc-800 text-center"
+                      className="p-4 bg-background/30 border border-border text-center"
                     >
                       <div className="flex items-center justify-center gap-1">
                         {[1, 2, 3, 4, 5].map((star) => (
@@ -212,13 +212,13 @@ export default function ComparePage() {
 
                 {/* Stock Status */}
                 <tr>
-                  <td className="p-4 bg-zinc-900/30 border border-zinc-800 text-gray-300 font-medium">
+                  <td className="p-4 bg-background/30 border border-border text-muted-foreground font-medium">
                     Availability
                   </td>
                   {comparisonProducts.map((product) => (
                     <td
                       key={product.id}
-                      className="p-4 bg-zinc-900/30 border border-zinc-800 text-center"
+                      className="p-4 bg-background/30 border border-border text-center"
                     >
                       <Badge
                         variant={product.status === "active" ? "default" : "secondary"}
@@ -231,13 +231,13 @@ export default function ComparePage() {
 
                 {/* Description */}
                 <tr>
-                  <td className="p-4 bg-zinc-900/30 border border-zinc-800 text-gray-300 font-medium">
+                  <td className="p-4 bg-background/30 border border-border text-muted-foreground font-medium">
                     Description
                   </td>
                   {comparisonProducts.map((product) => (
                     <td
                       key={product.id}
-                      className="p-4 bg-zinc-900/30 border border-zinc-800 text-gray-300 text-sm"
+                      className="p-4 bg-background/30 border border-border text-muted-foreground text-sm"
                     >
                       {product.description || "No description available"}
                     </td>
@@ -246,13 +246,13 @@ export default function ComparePage() {
 
                 {/* SKU */}
                 <tr>
-                  <td className="p-4 bg-zinc-900/30 border border-zinc-800 text-gray-300 font-medium">
+                  <td className="p-4 bg-background/30 border border-border text-muted-foreground font-medium">
                     SKU
                   </td>
                   {comparisonProducts.map((product) => (
                     <td
                       key={product.id}
-                      className="p-4 bg-zinc-900/30 border border-zinc-800 text-center text-gray-300 font-mono text-sm"
+                      className="p-4 bg-background/30 border border-border text-center text-muted-foreground font-mono text-sm"
                     >
                       {product.sku || "—"}
                     </td>
@@ -261,11 +261,11 @@ export default function ComparePage() {
 
                 {/* Add to Cart */}
                 <tr>
-                  <td className="p-4 bg-zinc-900/30 border border-zinc-800"></td>
+                  <td className="p-4 bg-background/30 border border-border text-foreground"></td>
                   {comparisonProducts.map((product) => (
                     <td
                       key={product.id}
-                      className="p-4 bg-zinc-900/30 border border-zinc-800 text-center"
+                      className="p-4 bg-background/30 border border-border text-center"
                     >
                       <Button
                         className="w-full bg-purple-600 hover:bg-purple-700"
@@ -281,12 +281,12 @@ export default function ComparePage() {
             </table>
           </div>
         ) : (
-          <Card className="p-12 bg-zinc-900/50 border-zinc-800 text-center">
+          <Card className="p-12 bg-background/50 border-border text-center">
             <div className="max-w-md mx-auto">
               <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Search className="w-8 h-8 text-purple-400" />
               </div>
-              <h2 className="text-2xl font-semibold text-white mb-2">
+              <h2 className="text-2xl font-semibold text-foreground mb-2">
                 No products selected
               </h2>
               <p className="text-gray-400 mb-6">

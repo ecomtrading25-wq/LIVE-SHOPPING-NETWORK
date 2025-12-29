@@ -142,10 +142,10 @@ export default function TestimonialsPage() {
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-white mb-4">
+          <h1 className="text-5xl font-bold text-foreground mb-4">
             Customer Testimonials
           </h1>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-muted-foreground mb-8">
             See what our customers are saying about their live shopping experience
           </p>
 
@@ -154,7 +154,7 @@ export default function TestimonialsPage() {
             <CardContent className="p-8">
               <div className="flex items-center gap-8">
                 <div>
-                  <div className="text-6xl font-bold text-white mb-2">
+                  <div className="text-6xl font-bold text-foreground mb-2">
                     {averageRating.toFixed(1)}
                   </div>
                   <div className="flex items-center gap-1 mb-2">
@@ -165,7 +165,7 @@ export default function TestimonialsPage() {
                       />
                     ))}
                   </div>
-                  <p className="text-gray-300">
+                  <p className="text-muted-foreground">
                     Based on {testimonials.length} reviews
                   </p>
                 </div>
@@ -174,14 +174,14 @@ export default function TestimonialsPage() {
                   <div className="text-4xl font-bold text-green-400 mb-2">
                     98%
                   </div>
-                  <p className="text-gray-300">Customer Satisfaction</p>
+                  <p className="text-muted-foreground">Customer Satisfaction</p>
                 </div>
 
                 <div className="border-l border-white/20 pl-8">
                   <div className="text-4xl font-bold text-purple-400 mb-2">
                     50K+
                   </div>
-                  <p className="text-gray-300">Happy Customers</p>
+                  <p className="text-muted-foreground">Happy Customers</p>
                 </div>
               </div>
             </CardContent>
@@ -199,7 +199,7 @@ export default function TestimonialsPage() {
                 className={
                   selectedCategory === cat.id
                     ? "bg-purple-600"
-                    : "bg-white/10 border-white/20 text-white hover:bg-white/20"
+                    : "bg-white/10 border-white/20 text-foreground hover:bg-white/20"
                 }
               >
                 {cat.label} ({cat.count})
@@ -208,7 +208,7 @@ export default function TestimonialsPage() {
           </div>
 
           <div className="flex gap-2 justify-center">
-            <span className="text-white self-center">Filter by rating:</span>
+            <span className="text-foreground self-center">Filter by rating:</span>
             {[5, 4, 3, 2, 1].map((rating) => (
               <Button
                 key={rating}
@@ -220,7 +220,7 @@ export default function TestimonialsPage() {
                 className={
                   selectedRating === rating
                     ? "bg-purple-600 border-purple-600"
-                    : "bg-white/10 border-white/20 text-white hover:bg-white/20"
+                    : "bg-white/10 border-white/20 text-foreground hover:bg-white/20"
                 }
               >
                 {rating} <Star className="w-4 h-4 ml-1 fill-yellow-400 text-yellow-400" />
@@ -246,7 +246,7 @@ export default function TestimonialsPage() {
                   />
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <h3 className="font-bold text-white">
+                      <h3 className="font-bold text-foreground">
                         {testimonial.customerName}
                       </h3>
                       {testimonial.verified && (
@@ -274,13 +274,13 @@ export default function TestimonialsPage() {
                 </div>
 
                 {/* Review Title */}
-                <h4 className="font-bold text-lg text-white mb-3">
+                <h4 className="font-bold text-lg text-foreground mb-3">
                   <Quote className="inline w-5 h-5 mr-2 text-purple-400" />
                   {testimonial.title}
                 </h4>
 
                 {/* Review Content */}
-                <p className="text-gray-300 mb-4 leading-relaxed">
+                <p className="text-muted-foreground mb-4 leading-relaxed">
                   {testimonial.content}
                 </p>
 
@@ -301,14 +301,14 @@ export default function TestimonialsPage() {
                 {testimonial.videoUrl && (
                   <div className="mb-4 bg-white/10 rounded-lg p-4 flex items-center gap-3">
                     <Video className="w-6 h-6 text-purple-400" />
-                    <span className="text-white text-sm">Video Review</span>
+                    <span className="text-foreground text-sm">Video Review</span>
                   </div>
                 )}
 
                 {/* Product Info */}
                 <div className="border-t border-white/10 pt-4 mb-4">
                   <p className="text-sm text-gray-400 mb-1">Purchased:</p>
-                  <p className="text-white font-medium">
+                  <p className="text-foreground font-medium">
                     {testimonial.productPurchased}
                   </p>
                   <p className="text-xs text-gray-500 mt-1">
@@ -321,7 +321,7 @@ export default function TestimonialsPage() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+                    className="bg-white/10 border-white/20 text-foreground hover:bg-white/20"
                   >
                     <ThumbsUp className="w-4 h-4 mr-2" />
                     Helpful ({testimonial.helpful})
@@ -336,7 +336,7 @@ export default function TestimonialsPage() {
         <div className="text-center mt-12">
           <Card className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 border-0">
             <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-white mb-4">
+              <h3 className="text-2xl font-bold text-foreground mb-4">
                 Join Thousands of Happy Customers
               </h3>
               <p className="text-white/90 mb-6">

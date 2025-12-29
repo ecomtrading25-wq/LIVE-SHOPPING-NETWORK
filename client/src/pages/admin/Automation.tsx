@@ -141,7 +141,7 @@ export default function AutomationPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Automation Dashboard</h1>
+          <h1 className="text-3xl font-bold text-foreground">Automation Dashboard</h1>
           <p className="text-gray-400 mt-1">
             Configure and monitor automated workflows
           </p>
@@ -154,12 +154,12 @@ export default function AutomationPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card className="bg-zinc-900 border-zinc-800">
+        <Card className="bg-background border-border text-foreground">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-400">Active Rules</p>
-                <p className="text-3xl font-bold text-white mt-1">{activeRules}</p>
+                <p className="text-3xl font-bold text-foreground mt-1">{activeRules}</p>
                 <p className="text-xs text-gray-500 mt-1">of {rules.length} total</p>
               </div>
               <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center">
@@ -169,12 +169,12 @@ export default function AutomationPage() {
           </CardContent>
         </Card>
 
-        <Card className="bg-zinc-900 border-zinc-800">
+        <Card className="bg-background border-border text-foreground">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-400">Total Runs</p>
-                <p className="text-3xl font-bold text-white mt-1">{totalRuns}</p>
+                <p className="text-3xl font-bold text-foreground mt-1">{totalRuns}</p>
                 <p className="text-xs text-gray-500 mt-1">last 30 days</p>
               </div>
               <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center">
@@ -184,12 +184,12 @@ export default function AutomationPage() {
           </CardContent>
         </Card>
 
-        <Card className="bg-zinc-900 border-zinc-800">
+        <Card className="bg-background border-border text-foreground">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-400">Success Rate</p>
-                <p className="text-3xl font-bold text-white mt-1">
+                <p className="text-3xl font-bold text-foreground mt-1">
                   {avgSuccessRate.toFixed(1)}%
                 </p>
                 <p className="text-xs text-gray-500 mt-1">average across all rules</p>
@@ -201,12 +201,12 @@ export default function AutomationPage() {
           </CardContent>
         </Card>
 
-        <Card className="bg-zinc-900 border-zinc-800">
+        <Card className="bg-background border-border text-foreground">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-400">Time Saved</p>
-                <p className="text-3xl font-bold text-white mt-1">47h</p>
+                <p className="text-3xl font-bold text-foreground mt-1">47h</p>
                 <p className="text-xs text-gray-500 mt-1">this month</p>
               </div>
               <div className="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center">
@@ -220,12 +220,12 @@ export default function AutomationPage() {
       {/* Automation Rules */}
       <div className="grid gap-4">
         {rules.map((rule) => (
-          <Card key={rule.id} className="bg-zinc-900 border-zinc-800">
+          <Card key={rule.id} className="bg-background border-border text-foreground">
             <CardContent className="p-6">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
-                    <h3 className="text-lg font-bold text-white">{rule.name}</h3>
+                    <h3 className="text-lg font-bold text-foreground">{rule.name}</h3>
                     <Badge
                       className={
                         rule.enabled
@@ -245,13 +245,13 @@ export default function AutomationPage() {
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
                       <p className="text-gray-500">Trigger</p>
-                      <code className="text-purple-400 bg-zinc-800 px-2 py-1 rounded text-xs">
+                      <code className="text-purple-400 bg-card px-2 py-1 rounded text-xs">
                         {rule.trigger}
                       </code>
                     </div>
                     <div>
                       <p className="text-gray-500">Action</p>
-                      <code className="text-pink-400 bg-zinc-800 px-2 py-1 rounded text-xs">
+                      <code className="text-pink-400 bg-card px-2 py-1 rounded text-xs">
                         {rule.action}
                       </code>
                     </div>
@@ -260,7 +260,7 @@ export default function AutomationPage() {
                   <div className="flex items-center gap-6 mt-4 text-sm">
                     <div>
                       <span className="text-gray-500">Last run:</span>{" "}
-                      <span className="text-white">
+                      <span className="text-foreground">
                         {rule.lastRun
                           ? new Date(rule.lastRun).toLocaleString()
                           : "Never"}
@@ -301,9 +301,9 @@ export default function AutomationPage() {
       </div>
 
       {/* Create New Rule */}
-      <Card className="bg-zinc-900 border-zinc-800">
+      <Card className="bg-background border-border text-foreground">
         <CardHeader>
-          <CardTitle className="text-white">Create New Automation Rule</CardTitle>
+          <CardTitle className="text-foreground">Create New Automation Rule</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
@@ -311,7 +311,7 @@ export default function AutomationPage() {
             <Input
               id="ruleName"
               placeholder="e.g., Auto-approve small refunds"
-              className="bg-zinc-800 border-zinc-700"
+              className="bg-card border-zinc-700 text-card-foreground"
             />
           </div>
 
@@ -320,7 +320,7 @@ export default function AutomationPage() {
             <Input
               id="trigger"
               placeholder="e.g., refund_amount < 50 AND reason = 'defective'"
-              className="bg-zinc-800 border-zinc-700 font-mono text-sm"
+              className="bg-card border-zinc-700 font-mono text-sm"
             />
           </div>
 
@@ -329,7 +329,7 @@ export default function AutomationPage() {
             <Input
               id="action"
               placeholder="e.g., approve_refund"
-              className="bg-zinc-800 border-zinc-700 font-mono text-sm"
+              className="bg-card border-zinc-700 font-mono text-sm"
             />
           </div>
 

@@ -86,7 +86,7 @@ export default function ProductDetailPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container py-8">
         <Link href="/products">
           <Button variant="ghost" className="mb-4">

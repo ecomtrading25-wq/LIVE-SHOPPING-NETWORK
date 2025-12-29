@@ -71,7 +71,7 @@ export default function ProductsEnhanced() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-      <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white py-20">
+      <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-foreground py-20">
         <div className="container">
           <h1 className="text-5xl font-bold mb-4">Discover Amazing Products</h1>
           <p className="text-xl text-indigo-100 mb-8">
@@ -234,7 +234,7 @@ function ProductCard({ product, onAddToCart, featured, trending }: ProductCardPr
           )}
           
           {isHovered && (
-            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <div className="absolute inset-0 bg-background/40 flex items-center justify-center text-foreground">
               <Button variant="secondary" size="sm">
                 Quick View
               </Button>

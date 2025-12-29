@@ -46,7 +46,7 @@ export default function BrowseShows() {
   
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center text-foreground">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-muted-foreground">Loading shows...</p>
@@ -56,7 +56,7 @@ export default function BrowseShows() {
   }
   
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto p-6">
         {/* Header */}
         <div className="mb-8">
@@ -114,7 +114,7 @@ export default function BrowseShows() {
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center">
-                          <Play className="w-16 h-16 text-white opacity-50" />
+                          <Play className="w-16 h-16 text-foreground opacity-50" />
                         </div>
                       )}
                       
@@ -127,7 +127,7 @@ export default function BrowseShows() {
                       </div>
                       
                       {/* Viewer Count */}
-                      <div className="absolute top-3 right-3 bg-black/70 backdrop-blur px-2 py-1 rounded flex items-center gap-1 text-white text-sm">
+                      <div className="absolute top-3 right-3 bg-background/70 backdrop-blur px-2 py-1 rounded flex items-center gap-1 text-foreground text-sm">
                         <Users className="w-4 h-4" />
                         {show.peakViewers || 0}
                       </div>

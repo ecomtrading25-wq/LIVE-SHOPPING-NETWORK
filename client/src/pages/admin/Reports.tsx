@@ -128,7 +128,7 @@ export default function ReportsPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-white">Reports & Analytics</h1>
+        <h1 className="text-3xl font-bold text-foreground">Reports & Analytics</h1>
         <p className="text-zinc-400 mt-1">
           Generate and export business intelligence reports
         </p>
@@ -136,37 +136,37 @@ export default function ReportsPage() {
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between mb-2">
             <FileText className="w-5 h-5 text-blue-500" />
-            <span className="text-2xl font-bold text-white">24</span>
+            <span className="text-2xl font-bold text-foreground">24</span>
           </div>
           <p className="text-sm text-zinc-400">Reports Generated</p>
           <p className="text-xs text-zinc-500 mt-1">This month</p>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between mb-2">
             <Mail className="w-5 h-5 text-purple-500" />
-            <span className="text-2xl font-bold text-white">8</span>
+            <span className="text-2xl font-bold text-foreground">8</span>
           </div>
           <p className="text-sm text-zinc-400">Scheduled Reports</p>
           <p className="text-xs text-zinc-500 mt-1">Active schedules</p>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between mb-2">
             <Download className="w-5 h-5 text-green-500" />
-            <span className="text-2xl font-bold text-white">156</span>
+            <span className="text-2xl font-bold text-foreground">156</span>
           </div>
           <p className="text-sm text-zinc-400">Total Downloads</p>
           <p className="text-xs text-zinc-500 mt-1">All time</p>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between mb-2">
             <FileSpreadsheet className="w-5 h-5 text-yellow-500" />
-            <span className="text-2xl font-bold text-white">2.4 MB</span>
+            <span className="text-2xl font-bold text-foreground">2.4 MB</span>
           </div>
           <p className="text-sm text-zinc-400">Storage Used</p>
           <p className="text-xs text-zinc-500 mt-1">Last 90 days</p>
@@ -176,13 +176,13 @@ export default function ReportsPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Report Generator */}
         <div className="lg:col-span-2 space-y-6">
-          <Card className="p-6 bg-zinc-900 border-zinc-800">
-            <h2 className="text-xl font-bold text-white mb-6">Generate Report</h2>
+          <Card className="p-6 bg-background border-border text-foreground">
+            <h2 className="text-xl font-bold text-foreground mb-6">Generate Report</h2>
 
             <div className="space-y-6">
               {/* Report Type */}
               <div>
-                <Label className="text-white mb-3 block">Report Type</Label>
+                <Label className="text-foreground mb-3 block">Report Type</Label>
                 <Select value={reportType} onValueChange={setReportType}>
                   <SelectTrigger className="h-12">
                     <SelectValue placeholder="Select report type" />
@@ -205,7 +205,7 @@ export default function ReportsPage() {
 
               {/* Date Range */}
               <div>
-                <Label className="text-white mb-3 block">Date Range</Label>
+                <Label className="text-foreground mb-3 block">Date Range</Label>
                 <Select value={dateRange} onValueChange={setDateRange}>
                   <SelectTrigger className="h-12">
                     <SelectValue />
@@ -224,11 +224,11 @@ export default function ReportsPage() {
               {dateRange === "custom" && (
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <Label className="text-white mb-2 block">Start Date</Label>
+                    <Label className="text-foreground mb-2 block">Start Date</Label>
                     <Input type="date" className="h-12" />
                   </div>
                   <div>
-                    <Label className="text-white mb-2 block">End Date</Label>
+                    <Label className="text-foreground mb-2 block">End Date</Label>
                     <Input type="date" className="h-12" />
                   </div>
                 </div>
@@ -236,13 +236,13 @@ export default function ReportsPage() {
 
               {/* Export Format */}
               <div>
-                <Label className="text-white mb-3 block">Export Format</Label>
+                <Label className="text-foreground mb-3 block">Export Format</Label>
                 <div className="grid grid-cols-3 gap-3">
                   <button
                     onClick={() => setExportFormat("csv")}
                     className={`h-12 rounded-lg border-2 transition-all ${
                       exportFormat === "csv"
-                        ? "border-purple-600 bg-purple-600/10 text-white"
+                        ? "border-purple-600 bg-purple-600/10 text-foreground"
                         : "border-zinc-700 text-zinc-400 hover:border-zinc-600"
                     }`}
                   >
@@ -252,7 +252,7 @@ export default function ReportsPage() {
                     onClick={() => setExportFormat("pdf")}
                     className={`h-12 rounded-lg border-2 transition-all ${
                       exportFormat === "pdf"
-                        ? "border-purple-600 bg-purple-600/10 text-white"
+                        ? "border-purple-600 bg-purple-600/10 text-foreground"
                         : "border-zinc-700 text-zinc-400 hover:border-zinc-600"
                     }`}
                   >
@@ -262,7 +262,7 @@ export default function ReportsPage() {
                     onClick={() => setExportFormat("xlsx")}
                     className={`h-12 rounded-lg border-2 transition-all ${
                       exportFormat === "xlsx"
-                        ? "border-purple-600 bg-purple-600/10 text-white"
+                        ? "border-purple-600 bg-purple-600/10 text-foreground"
                         : "border-zinc-700 text-zinc-400 hover:border-zinc-600"
                     }`}
                   >
@@ -273,14 +273,14 @@ export default function ReportsPage() {
 
               {/* Report Preview */}
               {selectedReport && (
-                <div className="p-4 bg-zinc-800/50 rounded-lg border border-zinc-700">
+                <div className="p-4 bg-card/50 rounded-lg border border-zinc-700 text-card-foreground">
                   <div className="flex items-start gap-3 mb-3">
                     {(() => {
                       const Icon = selectedReport.icon;
                       return <Icon className="w-5 h-5 text-purple-500 mt-0.5" />;
                     })()}
                     <div>
-                      <p className="font-medium text-white">
+                      <p className="font-medium text-foreground">
                         {selectedReport.name}
                       </p>
                       <p className="text-sm text-zinc-400 mt-1">
@@ -295,7 +295,7 @@ export default function ReportsPage() {
                       {selectedReport.fields.map((field) => (
                         <span
                           key={field}
-                          className="px-3 py-1 bg-zinc-900 rounded-full text-xs text-zinc-300"
+                          className="px-3 py-1 bg-background rounded-full text-xs text-zinc-300"
                         >
                           {field}
                         </span>
@@ -340,7 +340,7 @@ export default function ReportsPage() {
 
         {/* Report Types List */}
         <div className="space-y-4">
-          <h2 className="text-xl font-bold text-white">Available Reports</h2>
+          <h2 className="text-xl font-bold text-foreground">Available Reports</h2>
 
           {reportTypes.map((type) => {
             const Icon = type.icon;
@@ -350,16 +350,16 @@ export default function ReportsPage() {
                 className={`p-4 cursor-pointer transition-all ${
                   reportType === type.id
                     ? "bg-purple-600/10 border-purple-600"
-                    : "bg-zinc-900 border-zinc-800 hover:border-zinc-700"
+                    : "bg-background border-border hover:border-zinc-700"
                 }`}
                 onClick={() => setReportType(type.id)}
               >
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 bg-card rounded-lg flex items-center justify-center flex-shrink-0 text-card-foreground">
                     <Icon className="w-5 h-5 text-purple-500" />
                   </div>
                   <div className="flex-1">
-                    <p className="font-medium text-white">{type.name}</p>
+                    <p className="font-medium text-foreground">{type.name}</p>
                     <p className="text-sm text-zinc-400 mt-1">
                       {type.description}
                     </p>
@@ -372,8 +372,8 @@ export default function ReportsPage() {
       </div>
 
       {/* Recent Reports */}
-      <Card className="p-6 bg-zinc-900 border-zinc-800">
-        <h2 className="text-xl font-bold text-white mb-6">Recent Reports</h2>
+      <Card className="p-6 bg-background border-border text-foreground">
+        <h2 className="text-xl font-bold text-foreground mb-6">Recent Reports</h2>
 
         <div className="space-y-3">
           {[
@@ -404,19 +404,19 @@ export default function ReportsPage() {
           ].map((report, index) => (
             <div
               key={index}
-              className="flex items-center justify-between p-4 bg-zinc-800/50 rounded-lg hover:bg-zinc-800 transition-colors"
+              className="flex items-center justify-between p-4 bg-card/50 rounded-lg hover:bg-card transition-colors text-card-foreground"
             >
               <div className="flex items-center gap-3">
                 <FileText className="w-5 h-5 text-zinc-400" />
                 <div>
-                  <p className="font-medium text-white">{report.name}</p>
+                  <p className="font-medium text-foreground">{report.name}</p>
                   <p className="text-sm text-zinc-400">{report.date}</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
                 <div className="text-right">
-                  <p className="text-sm text-white">{report.format}</p>
+                  <p className="text-sm text-foreground">{report.format}</p>
                   <p className="text-xs text-zinc-500">{report.size}</p>
                 </div>
                 <Button size="sm" variant="outline">

@@ -94,8 +94,8 @@ export default function OrderTrackingPage() {
       <div className="container py-12">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">Order Tracking</h1>
-          <p className="text-gray-300">Track your orders in real-time</p>
+          <h1 className="text-4xl font-bold text-foreground mb-2">Order Tracking</h1>
+          <p className="text-muted-foreground">Track your orders in real-time</p>
         </div>
 
         {/* Quick Track by Number */}
@@ -103,7 +103,7 @@ export default function OrderTrackingPage() {
           <CardContent className="p-6">
             <div className="flex gap-4">
               <div className="flex-1">
-                <Label htmlFor="tracking-number" className="text-white">
+                <Label htmlFor="tracking-number" className="text-foreground">
                   Track by Order Number
                 </Label>
                 <Input
@@ -111,7 +111,7 @@ export default function OrderTrackingPage() {
                   placeholder="Enter your order or tracking number"
                   value={trackingNumber}
                   onChange={(e) => setTrackingNumber(e.target.value)}
-                  className="bg-white/10 border-white/20 text-white"
+                  className="bg-white/10 border-white/20 text-foreground"
                 />
               </div>
               <Button
@@ -144,7 +144,7 @@ export default function OrderTrackingPage() {
                     <div className="flex items-center gap-4">
                       {getStatusIcon(order.status)}
                       <div>
-                        <h3 className="text-xl font-bold text-white">Order #{order.orderNumber}</h3>
+                        <h3 className="text-xl font-bold text-foreground">Order #{order.orderNumber}</h3>
                         <p className="text-gray-400 text-sm">
                           Placed on {new Date(order.createdAt).toLocaleDateString()}
                         </p>
@@ -160,15 +160,15 @@ export default function OrderTrackingPage() {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     <div>
                       <p className="text-gray-400 text-sm">Total Amount</p>
-                      <p className="text-white font-semibold">${order.totalAmount.toFixed(2)}</p>
+                      <p className="text-foreground font-semibold">${order.totalAmount.toFixed(2)}</p>
                     </div>
                     <div>
                       <p className="text-gray-400 text-sm">Items</p>
-                      <p className="text-white font-semibold">{order.itemCount} items</p>
+                      <p className="text-foreground font-semibold">{order.itemCount} items</p>
                     </div>
                     <div>
                       <p className="text-gray-400 text-sm">Estimated Delivery</p>
-                      <p className="text-white font-semibold">
+                      <p className="text-foreground font-semibold">
                         {order.estimatedDelivery
                           ? new Date(order.estimatedDelivery).toLocaleDateString()
                           : 'TBD'}
@@ -180,7 +180,7 @@ export default function OrderTrackingPage() {
                     <div className="flex items-center gap-2 text-sm">
                       <MapPin className="w-4 h-4 text-gray-400" />
                       <span className="text-gray-400">Tracking:</span>
-                      <span className="text-white font-mono">{order.trackingNumber}</span>
+                      <span className="text-foreground font-mono">{order.trackingNumber}</span>
                     </div>
                   )}
                 </CardContent>
@@ -199,7 +199,7 @@ export default function OrderTrackingPage() {
                     <div className="flex items-center gap-4">
                       <CheckCircle className="w-6 h-6 text-green-500" />
                       <div>
-                        <h3 className="text-xl font-bold text-white">Order #{order.orderNumber}</h3>
+                        <h3 className="text-xl font-bold text-foreground">Order #{order.orderNumber}</h3>
                         <p className="text-gray-400 text-sm">
                           Delivered on {order.deliveredAt ? new Date(order.deliveredAt).toLocaleDateString() : 'N/A'}
                         </p>
@@ -232,7 +232,7 @@ export default function OrderTrackingPage() {
                     <div className="flex items-center gap-4">
                       {getStatusIcon(order.status)}
                       <div>
-                        <h3 className="text-xl font-bold text-white">Order #{order.orderNumber}</h3>
+                        <h3 className="text-xl font-bold text-foreground">Order #{order.orderNumber}</h3>
                         <p className="text-gray-400 text-sm">
                           {new Date(order.createdAt).toLocaleDateString()}
                         </p>
@@ -253,7 +253,7 @@ export default function OrderTrackingPage() {
           <Card className="bg-white/10 backdrop-blur border-white/20 mt-8">
             <CardHeader>
               <div className="flex items-center justify-between">
-                <CardTitle className="text-white">Tracking Details</CardTitle>
+                <CardTitle className="text-foreground">Tracking Details</CardTitle>
                 <Button
                   variant="outline"
                   size="sm"
@@ -268,39 +268,39 @@ export default function OrderTrackingPage() {
               {/* Shipment Info */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-4">
-                  <h4 className="font-semibold text-white">Shipping Information</h4>
+                  <h4 className="font-semibold text-foreground">Shipping Information</h4>
                   <div className="space-y-2">
                     <div className="flex items-start gap-2">
                       <MapPin className="w-4 h-4 text-gray-400 mt-1" />
                       <div>
                         <p className="text-sm text-gray-400">Delivery Address</p>
-                        <p className="text-white">{trackingDetails.shippingAddress}</p>
+                        <p className="text-foreground">{trackingDetails.shippingAddress}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
                       <Phone className="w-4 h-4 text-gray-400 mt-1" />
                       <div>
                         <p className="text-sm text-gray-400">Contact</p>
-                        <p className="text-white">{trackingDetails.contactPhone}</p>
+                        <p className="text-foreground">{trackingDetails.contactPhone}</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  <h4 className="font-semibold text-white">Carrier Information</h4>
+                  <h4 className="font-semibold text-foreground">Carrier Information</h4>
                   <div className="space-y-2">
                     <div>
                       <p className="text-sm text-gray-400">Carrier</p>
-                      <p className="text-white">{trackingDetails.carrier}</p>
+                      <p className="text-foreground">{trackingDetails.carrier}</p>
                     </div>
                     <div>
                       <p className="text-sm text-gray-400">Tracking Number</p>
-                      <p className="text-white font-mono">{trackingDetails.trackingNumber}</p>
+                      <p className="text-foreground font-mono">{trackingDetails.trackingNumber}</p>
                     </div>
                     <div>
                       <p className="text-sm text-gray-400">Service Type</p>
-                      <p className="text-white">{trackingDetails.serviceType}</p>
+                      <p className="text-foreground">{trackingDetails.serviceType}</p>
                     </div>
                   </div>
                 </div>
@@ -308,7 +308,7 @@ export default function OrderTrackingPage() {
 
               {/* Tracking Timeline */}
               <div>
-                <h4 className="font-semibold text-white mb-4">Tracking History</h4>
+                <h4 className="font-semibold text-foreground mb-4">Tracking History</h4>
                 <div className="space-y-4">
                   {trackingDetails.events?.map((event: TrackingEvent, index: number) => (
                     <div key={index} className="flex gap-4">
@@ -321,7 +321,7 @@ export default function OrderTrackingPage() {
                       <div className="flex-1 pb-4">
                         <div className="flex items-start justify-between">
                           <div>
-                            <p className="text-white font-semibold">{event.status}</p>
+                            <p className="text-foreground font-semibold">{event.status}</p>
                             <p className="text-gray-400 text-sm">{event.description}</p>
                             <p className="text-gray-500 text-xs mt-1">{event.location}</p>
                           </div>
@@ -337,7 +337,7 @@ export default function OrderTrackingPage() {
 
               {/* Order Items */}
               <div>
-                <h4 className="font-semibold text-white mb-4">Order Items</h4>
+                <h4 className="font-semibold text-foreground mb-4">Order Items</h4>
                 <div className="space-y-3">
                   {trackingDetails.items?.map((item: any) => (
                     <div key={item.id} className="flex items-center gap-4 p-3 bg-white/5 rounded-lg">
@@ -347,10 +347,10 @@ export default function OrderTrackingPage() {
                         className="w-16 h-16 object-cover rounded"
                       />
                       <div className="flex-1">
-                        <p className="text-white font-semibold">{item.name}</p>
+                        <p className="text-foreground font-semibold">{item.name}</p>
                         <p className="text-gray-400 text-sm">Quantity: {item.quantity}</p>
                       </div>
-                      <p className="text-white font-semibold">${item.price.toFixed(2)}</p>
+                      <p className="text-foreground font-semibold">${item.price.toFixed(2)}</p>
                     </div>
                   ))}
                 </div>

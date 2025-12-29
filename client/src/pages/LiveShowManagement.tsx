@@ -311,7 +311,7 @@ function LiveShowControl({ show, channelId }: { show: any; channelId: string }) 
             <div className="flex items-center gap-4">
               <div className="relative">
                 <div className="h-12 w-12 rounded-full bg-red-500 flex items-center justify-center animate-pulse">
-                  <Radio className="h-6 w-6 text-white" />
+                  <Radio className="h-6 w-6 text-foreground" />
                 </div>
                 <div className="absolute -top-1 -right-1 h-4 w-4 bg-red-500 rounded-full animate-ping"></div>
               </div>

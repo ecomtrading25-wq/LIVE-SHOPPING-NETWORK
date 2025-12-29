@@ -19,7 +19,7 @@ export default function AdminProtectedRoute({ children }: AdminProtectedRoutePro
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gray-950 flex items-center justify-center">
-        <div className="text-white text-lg">Loading...</div>
+        <div className="text-foreground text-lg">Loading...</div>
       </div>
     );
   }

@@ -682,7 +682,7 @@ function HostsSection({ channelId }: { channelId: string }) {
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white font-bold">
+                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-foreground font-bold">
                       {host.name.charAt(0)}
                     </div>
                     <div>

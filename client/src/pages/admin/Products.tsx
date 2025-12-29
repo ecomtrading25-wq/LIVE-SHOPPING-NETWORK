@@ -50,7 +50,7 @@ export default function ProductsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Products</h1>
+          <h1 className="text-3xl font-bold text-foreground">Products</h1>
           <p className="text-gray-400 mt-1">Manage your product catalog and inventory</p>
         </div>
 
@@ -61,9 +61,9 @@ export default function ProductsPage() {
               Add Product
             </Button>
           </DialogTrigger>
-          <DialogContent className="bg-zinc-900 border-zinc-800 max-w-2xl">
+          <DialogContent className="bg-background border-border max-w-2xl text-foreground">
             <DialogHeader>
-              <DialogTitle className="text-white">Add New Product</DialogTitle>
+              <DialogTitle className="text-foreground">Add New Product</DialogTitle>
               <DialogDescription className="text-gray-400">
                 Create a new product in your catalog
               </DialogDescription>
@@ -79,7 +79,7 @@ export default function ProductsPage() {
       </div>
 
       {/* Filters */}
-      <Card className="p-4 bg-zinc-900 border-zinc-800">
+      <Card className="p-4 bg-background border-border text-foreground">
         <div className="flex gap-4">
           <div className="flex-1 relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -87,15 +87,15 @@ export default function ProductsPage() {
               placeholder="Search products by name, SKU..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 bg-zinc-800 border-zinc-700 text-white"
+              className="pl-10 bg-card border-zinc-700 text-foreground"
             />
           </div>
 
           <Select value={statusFilter} onValueChange={setStatusFilter}>
-            <SelectTrigger className="w-48 bg-zinc-800 border-zinc-700 text-white">
+            <SelectTrigger className="w-48 bg-card border-zinc-700 text-foreground">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent className="bg-zinc-800 border-zinc-700">
+            <SelectContent className="bg-card border-zinc-700 text-card-foreground">
               <SelectItem value="all">All Status</SelectItem>
               <SelectItem value="active">Active</SelectItem>
               <SelectItem value="draft">Draft</SelectItem>
@@ -106,10 +106,10 @@ export default function ProductsPage() {
       </Card>
 
       {/* Products Table */}
-      <Card className="bg-zinc-900 border-zinc-800">
+      <Card className="bg-background border-border text-foreground">
         <Table>
           <TableHeader>
-            <TableRow className="border-zinc-800 hover:bg-zinc-800/50">
+            <TableRow className="border-border hover:bg-card/50 text-card-foreground">
               <TableHead className="text-gray-400">Product</TableHead>
               <TableHead className="text-gray-400">SKU</TableHead>
               <TableHead className="text-gray-400">Status</TableHead>
@@ -121,10 +121,10 @@ export default function ProductsPage() {
           </TableHeader>
           <TableBody>
             {products?.map((product) => (
-              <TableRow key={product.id} className="border-zinc-800 hover:bg-zinc-800/50">
+              <TableRow key={product.id} className="border-border hover:bg-card/50 text-card-foreground">
                 <TableCell>
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-zinc-800 rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-card rounded-lg flex items-center justify-center text-card-foreground">
                       {product.imageUrl ? (
                         <img
                           src={product.imageUrl}
@@ -136,12 +136,12 @@ export default function ProductsPage() {
                       )}
                     </div>
                     <div>
-                      <p className="font-medium text-white">{product.name}</p>
+                      <p className="font-medium text-foreground">{product.name}</p>
                       <p className="text-sm text-gray-400 line-clamp-1">{product.description}</p>
                     </div>
                   </div>
                 </TableCell>
-                <TableCell className="text-gray-300 font-mono text-sm">{product.sku}</TableCell>
+                <TableCell className="text-muted-foreground font-mono text-sm">{product.sku}</TableCell>
                 <TableCell>
                   <Badge
                     className={
@@ -155,11 +155,11 @@ export default function ProductsPage() {
                     {product.status}
                   </Badge>
                 </TableCell>
-                <TableCell className="text-white font-medium">${product.price}</TableCell>
+                <TableCell className="text-foreground font-medium">${product.price}</TableCell>
                 <TableCell>
                   <div className="flex items-center gap-2">
                     <Package className="w-4 h-4 text-gray-400" />
-                    <span className="text-gray-300">{product.stockLevel || 0}</span>
+                    <span className="text-muted-foreground">{product.stockLevel || 0}</span>
                   </div>
                 </TableCell>
                 <TableCell>
@@ -191,56 +191,56 @@ export default function ProductsPage() {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center">
               <Package className="w-5 h-5 text-green-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Active Products</p>
-              <p className="text-2xl font-bold text-white">
+              <p className="text-2xl font-bold text-foreground">
                 {products?.filter((p) => p.status === "active").length || 0}
               </p>
             </div>
           </div>
         </Card>
 
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-yellow-500/10 rounded-lg flex items-center justify-center">
               <Package className="w-5 h-5 text-yellow-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Draft Products</p>
-              <p className="text-2xl font-bold text-white">
+              <p className="text-2xl font-bold text-foreground">
                 {products?.filter((p) => p.status === "draft").length || 0}
               </p>
             </div>
           </div>
         </Card>
 
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center">
               <Package className="w-5 h-5 text-red-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Low Stock</p>
-              <p className="text-2xl font-bold text-white">
+              <p className="text-2xl font-bold text-foreground">
                 {products?.filter((p) => (p.stockLevel || 0) < 10).length || 0}
               </p>
             </div>
           </div>
         </Card>
 
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center">
               <Package className="w-5 h-5 text-purple-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Total Variants</p>
-              <p className="text-2xl font-bold text-white">
+              <p className="text-2xl font-bold text-foreground">
                 {products?.reduce((sum, p) => sum + (p.variantCount || 0), 0) || 0}
               </p>
             </div>
@@ -281,7 +281,7 @@ function AddProductForm({ onSuccess }: { onSuccess: () => void }) {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-2 gap-4">
         <div className="col-span-2">
-          <Label htmlFor="name" className="text-white">
+          <Label htmlFor="name" className="text-foreground">
             Product Name
           </Label>
           <Input
@@ -289,13 +289,13 @@ function AddProductForm({ onSuccess }: { onSuccess: () => void }) {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Wireless Headphones"
-            className="bg-zinc-800 border-zinc-700 text-white"
+            className="bg-card border-zinc-700 text-foreground"
             required
           />
         </div>
 
         <div>
-          <Label htmlFor="sku" className="text-white">
+          <Label htmlFor="sku" className="text-foreground">
             SKU
           </Label>
           <Input
@@ -303,20 +303,20 @@ function AddProductForm({ onSuccess }: { onSuccess: () => void }) {
             value={sku}
             onChange={(e) => setSku(e.target.value)}
             placeholder="WH-001"
-            className="bg-zinc-800 border-zinc-700 text-white"
+            className="bg-card border-zinc-700 text-foreground"
             required
           />
         </div>
 
         <div>
-          <Label htmlFor="status" className="text-white">
+          <Label htmlFor="status" className="text-foreground">
             Status
           </Label>
           <Select value={status} onValueChange={setStatus}>
-            <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
+            <SelectTrigger className="bg-card border-zinc-700 text-foreground">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent className="bg-zinc-800 border-zinc-700">
+            <SelectContent className="bg-card border-zinc-700 text-card-foreground">
               <SelectItem value="draft">Draft</SelectItem>
               <SelectItem value="active">Active</SelectItem>
               <SelectItem value="archived">Archived</SelectItem>
@@ -325,7 +325,7 @@ function AddProductForm({ onSuccess }: { onSuccess: () => void }) {
         </div>
 
         <div className="col-span-2">
-          <Label htmlFor="description" className="text-white">
+          <Label htmlFor="description" className="text-foreground">
             Description
           </Label>
           <Textarea
@@ -333,13 +333,13 @@ function AddProductForm({ onSuccess }: { onSuccess: () => void }) {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Product description..."
-            className="bg-zinc-800 border-zinc-700 text-white"
+            className="bg-card border-zinc-700 text-foreground"
             rows={3}
           />
         </div>
 
         <div>
-          <Label htmlFor="price" className="text-white">
+          <Label htmlFor="price" className="text-foreground">
             Price
           </Label>
           <Input
@@ -349,13 +349,13 @@ function AddProductForm({ onSuccess }: { onSuccess: () => void }) {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
             placeholder="29.99"
-            className="bg-zinc-800 border-zinc-700 text-white"
+            className="bg-card border-zinc-700 text-foreground"
             required
           />
         </div>
 
         <div>
-          <Label htmlFor="compareAtPrice" className="text-white">
+          <Label htmlFor="compareAtPrice" className="text-foreground">
             Compare at Price (Optional)
           </Label>
           <Input
@@ -365,7 +365,7 @@ function AddProductForm({ onSuccess }: { onSuccess: () => void }) {
             value={compareAtPrice}
             onChange={(e) => setCompareAtPrice(e.target.value)}
             placeholder="39.99"
-            className="bg-zinc-800 border-zinc-700 text-white"
+            className="bg-card border-zinc-700 text-foreground"
           />
         </div>
       </div>

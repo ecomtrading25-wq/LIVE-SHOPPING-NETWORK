@@ -233,8 +233,8 @@ export default function InfluencerAnalyticsPage() {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-4xl font-bold text-white mb-2">Influencer Dashboard</h1>
-            <p className="text-gray-300 text-lg">Track your performance, earnings, and audience insights</p>
+            <h1 className="text-4xl font-bold text-foreground mb-2">Influencer Dashboard</h1>
+            <p className="text-muted-foreground text-lg">Track your performance, earnings, and audience insights</p>
           </div>
           <div className="flex items-center gap-3">
             <Select value={timeRange} onValueChange={setTimeRange}>
@@ -262,7 +262,7 @@ export default function InfluencerAnalyticsPage() {
               <p className="text-gray-400 text-sm">This Month</p>
               <DollarSign className="w-5 h-5 text-green-400" />
             </div>
-            <p className="text-3xl font-bold text-white mb-1">${totalEarnings.thisMonth.toFixed(2)}</p>
+            <p className="text-3xl font-bold text-foreground mb-1">${totalEarnings.thisMonth.toFixed(2)}</p>
             <p className="text-green-400 text-sm">
               +{(((totalEarnings.thisMonth - totalEarnings.lastMonth) / totalEarnings.lastMonth) * 100).toFixed(1)}% from last month
             </p>
@@ -273,7 +273,7 @@ export default function InfluencerAnalyticsPage() {
               <p className="text-gray-400 text-sm">Pending</p>
               <Calendar className="w-5 h-5 text-yellow-400" />
             </div>
-            <p className="text-3xl font-bold text-white mb-1">${totalEarnings.pending.toFixed(2)}</p>
+            <p className="text-3xl font-bold text-foreground mb-1">${totalEarnings.pending.toFixed(2)}</p>
             <p className="text-gray-400 text-sm">Payout on Jan 15, 2026</p>
           </Card>
 
@@ -282,7 +282,7 @@ export default function InfluencerAnalyticsPage() {
               <p className="text-gray-400 text-sm">Lifetime Earnings</p>
               <Award className="w-5 h-5 text-purple-400" />
             </div>
-            <p className="text-3xl font-bold text-white mb-1">${totalEarnings.lifetime.toFixed(2)}</p>
+            <p className="text-3xl font-bold text-foreground mb-1">${totalEarnings.lifetime.toFixed(2)}</p>
             <p className="text-gray-400 text-sm">Since joining</p>
           </Card>
 
@@ -291,7 +291,7 @@ export default function InfluencerAnalyticsPage() {
               <p className="text-gray-400 text-sm">Avg Commission</p>
               <TrendingUp className="w-5 h-5 text-blue-400" />
             </div>
-            <p className="text-3xl font-bold text-white mb-1">12.5%</p>
+            <p className="text-3xl font-bold text-foreground mb-1">12.5%</p>
             <p className="text-gray-400 text-sm">Per sale</p>
           </Card>
         </div>
@@ -307,7 +307,7 @@ export default function InfluencerAnalyticsPage() {
           {/* Earnings Tab */}
           <TabsContent value="earnings" className="space-y-6">
             <Card className="p-6 bg-white/5 border-white/10">
-              <h2 className="text-2xl font-bold text-white mb-6">Earnings Breakdown</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-6">Earnings Breakdown</h2>
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
@@ -323,11 +323,11 @@ export default function InfluencerAnalyticsPage() {
                   <tbody>
                     {earningsBreakdown.map((earning) => (
                       <tr key={earning.period} className="border-b border-white/5 hover:bg-white/5">
-                        <td className="p-4 text-white font-medium">{earning.period}</td>
-                        <td className="p-4 text-right text-white">${earning.commission.toFixed(2)}</td>
+                        <td className="p-4 text-foreground font-medium">{earning.period}</td>
+                        <td className="p-4 text-right text-foreground">${earning.commission.toFixed(2)}</td>
                         <td className="p-4 text-right text-green-400">${earning.bonus.toFixed(2)}</td>
-                        <td className="p-4 text-right text-white font-bold">${earning.total.toFixed(2)}</td>
-                        <td className="p-4 text-right text-white">{earning.orders}</td>
+                        <td className="p-4 text-right text-foreground font-bold">${earning.total.toFixed(2)}</td>
+                        <td className="p-4 text-right text-foreground">{earning.orders}</td>
                         <td className="p-4 text-right text-purple-400">{earning.conversionRate}%</td>
                       </tr>
                     ))}
@@ -337,18 +337,18 @@ export default function InfluencerAnalyticsPage() {
             </Card>
 
             <Card className="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-purple-500/30">
-              <h3 className="text-xl font-bold text-white mb-4">Payout History</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">Payout History</h3>
               <div className="space-y-3">
                 <div className="flex items-center justify-between p-4 bg-white/10 rounded-lg">
                   <div>
-                    <p className="text-white font-medium">December 2025 Payout</p>
+                    <p className="text-foreground font-medium">December 2025 Payout</p>
                     <p className="text-gray-400 text-sm">Paid on Dec 15, 2025</p>
                   </div>
                   <p className="text-green-400 font-bold text-lg">$4,234.18</p>
                 </div>
                 <div className="flex items-center justify-between p-4 bg-white/10 rounded-lg">
                   <div>
-                    <p className="text-white font-medium">November 2025 Payout</p>
+                    <p className="text-foreground font-medium">November 2025 Payout</p>
                     <p className="text-gray-400 text-sm">Paid on Nov 15, 2025</p>
                   </div>
                   <p className="text-green-400 font-bold text-lg">$3,806.89</p>
@@ -360,7 +360,7 @@ export default function InfluencerAnalyticsPage() {
           {/* Content Performance Tab */}
           <TabsContent value="content" className="space-y-6">
             <Card className="p-6 bg-white/5 border-white/10">
-              <h2 className="text-2xl font-bold text-white mb-6">Top Performing Content</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-6">Top Performing Content</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {contentPerformance.map((content) => (
                   <Card key={content.id} className="p-6 bg-white/5 border-white/10">
@@ -377,7 +377,7 @@ export default function InfluencerAnalyticsPage() {
                             {content.type}
                           </Badge>
                         </div>
-                        <h3 className="text-white font-semibold mb-1 line-clamp-2">{content.title}</h3>
+                        <h3 className="text-foreground font-semibold mb-1 line-clamp-2">{content.title}</h3>
                         <p className="text-gray-400 text-xs">{new Date(content.date).toLocaleDateString()}</p>
                       </div>
                     </div>
@@ -385,15 +385,15 @@ export default function InfluencerAnalyticsPage() {
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <p className="text-gray-400 text-xs mb-1">Views</p>
-                        <p className="text-white font-bold">{content.views.toLocaleString()}</p>
+                        <p className="text-foreground font-bold">{content.views.toLocaleString()}</p>
                       </div>
                       <div>
                         <p className="text-gray-400 text-xs mb-1">Clicks</p>
-                        <p className="text-white font-bold">{content.clicks.toLocaleString()}</p>
+                        <p className="text-foreground font-bold">{content.clicks.toLocaleString()}</p>
                       </div>
                       <div>
                         <p className="text-gray-400 text-xs mb-1">Conversions</p>
-                        <p className="text-white font-bold">{content.conversions}</p>
+                        <p className="text-foreground font-bold">{content.conversions}</p>
                       </div>
                       <div>
                         <p className="text-gray-400 text-xs mb-1">Revenue</p>
@@ -425,12 +425,12 @@ export default function InfluencerAnalyticsPage() {
           <TabsContent value="audience" className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Card className="p-6 bg-white/5 border-white/10">
-                <h2 className="text-2xl font-bold text-white mb-6">Age Demographics</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-6">Age Demographics</h2>
                 <div className="space-y-4">
                   {audienceDemographics.map((demo) => (
                     <div key={demo.ageGroup}>
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-white font-medium">{demo.ageGroup}</span>
+                        <span className="text-foreground font-medium">{demo.ageGroup}</span>
                         <div className="flex items-center gap-4">
                           <span className="text-gray-400 text-sm">Avg: ${demo.avgSpend.toFixed(2)}</span>
                           <span className="text-purple-400 font-bold">{demo.percentage}%</span>
@@ -448,14 +448,14 @@ export default function InfluencerAnalyticsPage() {
               </Card>
 
               <Card className="p-6 bg-white/5 border-white/10">
-                <h2 className="text-2xl font-bold text-white mb-6">Audience Insights</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-6">Audience Insights</h2>
                 <div className="space-y-6">
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <p className="text-gray-400">Total Followers</p>
                       <Users className="w-5 h-5 text-purple-400" />
                     </div>
-                    <p className="text-3xl font-bold text-white">124,567</p>
+                    <p className="text-3xl font-bold text-foreground">124,567</p>
                     <p className="text-green-400 text-sm mt-1">+8.3% this month</p>
                   </div>
 
@@ -464,7 +464,7 @@ export default function InfluencerAnalyticsPage() {
                       <p className="text-gray-400">Engagement Rate</p>
                       <Target className="w-5 h-5 text-purple-400" />
                     </div>
-                    <p className="text-3xl font-bold text-white">6.8%</p>
+                    <p className="text-3xl font-bold text-foreground">6.8%</p>
                     <p className="text-green-400 text-sm mt-1">Above average</p>
                   </div>
 
@@ -473,7 +473,7 @@ export default function InfluencerAnalyticsPage() {
                       <p className="text-gray-400">Avg Order Value</p>
                       <DollarSign className="w-5 h-5 text-purple-400" />
                     </div>
-                    <p className="text-3xl font-bold text-white">$68.45</p>
+                    <p className="text-3xl font-bold text-foreground">$68.45</p>
                     <p className="text-gray-400 text-sm mt-1">From your referrals</p>
                   </div>
                 </div>
@@ -484,13 +484,13 @@ export default function InfluencerAnalyticsPage() {
           {/* Promo Links Tab */}
           <TabsContent value="links" className="space-y-6">
             <Card className="p-6 bg-white/5 border-white/10">
-              <h2 className="text-2xl font-bold text-white mb-6">Generate New Promo Link</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-6">Generate New Promo Link</h2>
               <div className="flex gap-3">
                 <Input
                   value={newLinkCode}
                   onChange={(e) => setNewLinkCode(e.target.value)}
                   placeholder="Enter promo code (e.g., SUMMER25)"
-                  className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                  className="flex-1 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
                 />
                 <Button onClick={handleGenerateLink} className="bg-gradient-to-r from-purple-500 to-pink-500">
                   <LinkIcon className="w-4 h-4 mr-2" />
@@ -500,14 +500,14 @@ export default function InfluencerAnalyticsPage() {
             </Card>
 
             <Card className="p-6 bg-white/5 border-white/10">
-              <h2 className="text-2xl font-bold text-white mb-6">Your Promo Links</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-6">Your Promo Links</h2>
               <div className="space-y-4">
                 {promoLinks.map((link) => (
                   <Card key={link.id} className="p-6 bg-white/5 border-white/10">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
-                          <h3 className="text-xl font-bold text-white">{link.code}</h3>
+                          <h3 className="text-xl font-bold text-foreground">{link.code}</h3>
                           <Badge
                             className={
                               link.active
@@ -538,11 +538,11 @@ export default function InfluencerAnalyticsPage() {
                     <div className="grid grid-cols-3 gap-4 pt-4 border-t border-white/10">
                       <div>
                         <p className="text-gray-400 text-xs mb-1">Clicks</p>
-                        <p className="text-white text-xl font-bold">{link.clicks.toLocaleString()}</p>
+                        <p className="text-foreground text-xl font-bold">{link.clicks.toLocaleString()}</p>
                       </div>
                       <div>
                         <p className="text-gray-400 text-xs mb-1">Conversions</p>
-                        <p className="text-white text-xl font-bold">{link.conversions}</p>
+                        <p className="text-foreground text-xl font-bold">{link.conversions}</p>
                       </div>
                       <div>
                         <p className="text-gray-400 text-xs mb-1">Revenue</p>

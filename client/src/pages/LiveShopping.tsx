@@ -35,20 +35,20 @@ export default function LiveShopping() {
   const isLive = showState?.isLive || false;
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Top Navigation */}
-      <nav className="bg-gray-800 border-b border-gray-700 px-4 py-3">
+      <nav className="bg-card border-b border-border px-4 py-3 text-card-foreground">
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <h1 className="text-white font-bold text-xl">Live Shopping Network</h1>
+            <h1 className="text-foreground font-bold text-xl">Live Shopping Network</h1>
             {isLive && (
-              <Badge className="bg-red-600 text-white border-0 px-3 py-1 animate-pulse">
+              <Badge className="bg-red-600 text-foreground border-0 px-3 py-1 animate-pulse">
                 🔴 LIVE
               </Badge>
             )}
           </div>
           <div className="flex items-center gap-4">
-            <div className="text-white text-sm">
+            <div className="text-foreground text-sm">
               👁️ {viewerCount.toLocaleString()} watching
             </div>
             <Button variant="outline" className="border-purple-500 text-purple-300">
@@ -63,41 +63,41 @@ export default function LiveShopping() {
           {/* Main Content - Video + Pinned Products */}
           <div className="lg:col-span-2 space-y-6">
             {/* Video Player */}
-            <Card className="bg-gray-800 border-gray-700 overflow-hidden">
+            <Card className="bg-card border-border overflow-hidden text-card-foreground">
               <div className="aspect-video bg-gradient-to-br from-purple-900 to-pink-900 relative">
                 {/* Video placeholder */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center space-y-4">
                     <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mx-auto">
-                      <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-12 h-12 text-foreground" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
                       </svg>
                     </div>
-                    <p className="text-white font-semibold text-lg">
+                    <p className="text-foreground font-semibold text-lg">
                       {isLive ? 'Live Stream' : 'Stream Starting Soon'}
                     </p>
                   </div>
                 </div>
 
                 {/* Live controls overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/30 to-transparent p-6">
                   <div className="flex items-end justify-between">
                     <div>
-                      <h2 className="text-white font-bold text-2xl mb-1">
+                      <h2 className="text-foreground font-bold text-2xl mb-1">
                         {showState?.show?.title || 'Live Shopping Show'}
                       </h2>
-                      <p className="text-gray-300 text-sm">
+                      <p className="text-muted-foreground text-sm">
                         Hosted by {showState?.show?.creator?.displayName || 'Host'}
                       </p>
                     </div>
                     <div className="flex gap-2">
-                      <Button size="sm" variant="outline" className="border-white/30 text-white hover:bg-white/10">
+                      <Button size="sm" variant="outline" className="border-white/30 text-foreground hover:bg-white/10">
                         🔊
                       </Button>
-                      <Button size="sm" variant="outline" className="border-white/30 text-white hover:bg-white/10">
+                      <Button size="sm" variant="outline" className="border-white/30 text-foreground hover:bg-white/10">
                         ⚙️
                       </Button>
-                      <Button size="sm" variant="outline" className="border-white/30 text-white hover:bg-white/10">
+                      <Button size="sm" variant="outline" className="border-white/30 text-foreground hover:bg-white/10">
                         ⛶
                       </Button>
                     </div>
@@ -111,16 +111,16 @@ export default function LiveShopping() {
               <Card className="bg-gradient-to-r from-red-900/50 to-orange-900/50 border-red-500/50 p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <Badge className="bg-red-600 text-white border-0 mb-2 animate-bounce">
+                    <Badge className="bg-red-600 text-foreground border-0 mb-2 animate-bounce">
                       ⚡ FLASH PRICE DROP
                     </Badge>
-                    <h3 className="text-white font-bold text-xl">
+                    <h3 className="text-foreground font-bold text-xl">
                       Limited Time Offer - Hurry!
                     </h3>
                   </div>
                   <div className="text-right">
-                    <div className="text-white text-sm mb-1">Ends in</div>
-                    <div className="text-3xl font-bold text-white">
+                    <div className="text-foreground text-sm mb-1">Ends in</div>
+                    <div className="text-3xl font-bold text-foreground">
                       12:34
                     </div>
                   </div>
@@ -130,15 +130,15 @@ export default function LiveShopping() {
 
             {/* Pinned Products */}
             <div>
-              <h3 className="text-white font-bold text-xl mb-4">Featured Products</h3>
+              <h3 className="text-foreground font-bold text-xl mb-4">Featured Products</h3>
               <div className="grid sm:grid-cols-2 gap-4">
                 {pinnedProducts.length > 0 ? (
                   pinnedProducts.map((pin: any) => (
-                    <Card key={pin.pinId} className="bg-gray-800 border-gray-700 hover:border-purple-500 transition-all">
+                    <Card key={pin.pinId} className="bg-card border-border hover:border-purple-500 transition-all text-card-foreground">
                       <div className="p-4 space-y-3">
                         <div className="aspect-square bg-gradient-to-br from-purple-900 to-pink-900 rounded-lg"></div>
                         <div>
-                          <h4 className="text-white font-bold">{pin.product?.name || 'Product'}</h4>
+                          <h4 className="text-foreground font-bold">{pin.product?.name || 'Product'}</h4>
                           <div className="flex items-center gap-2 mt-2">
                             <span className="text-2xl font-bold text-purple-400">
                               ${(pin.displayPriceCents / 100).toFixed(2)}
@@ -148,7 +148,7 @@ export default function LiveShopping() {
                                 <span className="text-sm text-gray-400 line-through">
                                   ${(pin.originalPriceCents / 100).toFixed(2)}
                                 </span>
-                                <Badge className="bg-green-600 text-white border-0">
+                                <Badge className="bg-green-600 text-foreground border-0">
                                   -{Math.round((1 - pin.displayPriceCents / pin.originalPriceCents) * 100)}%
                                 </Badge>
                               </>
@@ -158,7 +158,7 @@ export default function LiveShopping() {
                             {pin.stockAvailable} left in stock
                           </div>
                         </div>
-                        <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold">
+                        <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-foreground font-bold">
                           Add to Cart - ${(pin.displayPriceCents / 100).toFixed(2)}
                         </Button>
                       </div>
@@ -173,13 +173,13 @@ export default function LiveShopping() {
             </div>
 
             {/* Show Info */}
-            <Card className="bg-gray-800 border-gray-700 p-6">
-              <h3 className="text-white font-bold text-lg mb-4">About This Show</h3>
-              <p className="text-gray-300 leading-relaxed">
+            <Card className="bg-card border-border p-6 text-card-foreground">
+              <h3 className="text-foreground font-bold text-lg mb-4">About This Show</h3>
+              <p className="text-muted-foreground leading-relaxed">
                 {showState?.show?.description || 
                   'Join us for an exciting live shopping experience with exclusive deals and limited-time offers!'}
               </p>
-              <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-gray-700">
+              <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-border">
                 <div>
                   <div className="text-2xl font-bold text-purple-400">
                     {showState?.show?.totalOrders || 0}
@@ -205,9 +205,9 @@ export default function LiveShopping() {
           {/* Sidebar - Chat + Info */}
           <div className="space-y-6">
             {/* Live Chat */}
-            <Card className="bg-gray-800 border-gray-700 flex flex-col h-[600px]">
-              <div className="p-4 border-b border-gray-700">
-                <h3 className="text-white font-bold">Live Chat</h3>
+            <Card className="bg-card border-border flex flex-col h-[600px] text-card-foreground">
+              <div className="p-4 border-b border-border">
+                <h3 className="text-foreground font-bold">Live Chat</h3>
                 <p className="text-gray-400 text-sm">Join the conversation</p>
               </div>
 
@@ -222,27 +222,27 @@ export default function LiveShopping() {
                 ].map((msg, i) => (
                   <div key={i} className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                      <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center text-foreground text-xs font-bold">
                         {msg.user[0]}
                       </div>
-                      <span className="text-white font-semibold text-sm">{msg.user}</span>
+                      <span className="text-foreground font-semibold text-sm">{msg.user}</span>
                       <span className="text-gray-500 text-xs">{msg.time}</span>
                     </div>
-                    <p className="text-gray-300 text-sm ml-8">{msg.message}</p>
+                    <p className="text-muted-foreground text-sm ml-8">{msg.message}</p>
                   </div>
                 ))}
               </div>
 
               {/* Chat input */}
-              <div className="p-4 border-t border-gray-700">
+              <div className="p-4 border-t border-border">
                 <div className="flex gap-2">
                   <Input
                     value={chatMessage}
                     onChange={(e) => setChatMessage(e.target.value)}
                     placeholder="Type a message..."
-                    className="bg-gray-700 border-gray-600 text-white placeholder:text-gray-400"
+                    className="bg-gray-700 border-gray-600 text-foreground placeholder:text-gray-400"
                   />
-                  <Button className="bg-purple-600 hover:bg-purple-700 text-white">
+                  <Button className="bg-purple-600 hover:bg-purple-700 text-foreground">
                     Send
                   </Button>
                 </div>
@@ -250,8 +250,8 @@ export default function LiveShopping() {
             </Card>
 
             {/* Quick Actions */}
-            <Card className="bg-gray-800 border-gray-700 p-4 space-y-3">
-              <h3 className="text-white font-bold text-sm uppercase tracking-wide">Quick Actions</h3>
+            <Card className="bg-card border-border p-4 space-y-3 text-card-foreground">
+              <h3 className="text-foreground font-bold text-sm uppercase tracking-wide">Quick Actions</h3>
               <Button variant="outline" className="w-full border-purple-500 text-purple-300 hover:bg-purple-500/10">
                 🔔 Set Reminder
               </Button>
@@ -264,8 +264,8 @@ export default function LiveShopping() {
             </Card>
 
             {/* Upcoming Shows */}
-            <Card className="bg-gray-800 border-gray-700 p-4">
-              <h3 className="text-white font-bold text-sm uppercase tracking-wide mb-3">
+            <Card className="bg-card border-border p-4 text-card-foreground">
+              <h3 className="text-foreground font-bold text-sm uppercase tracking-wide mb-3">
                 Next Shows
               </h3>
               <div className="space-y-3">
@@ -275,7 +275,7 @@ export default function LiveShopping() {
                 ].map((show, i) => (
                   <div key={i} className="flex items-center justify-between p-3 bg-gray-700/50 rounded-lg">
                     <div>
-                      <div className="text-white font-semibold text-sm">{show.topic}</div>
+                      <div className="text-foreground font-semibold text-sm">{show.topic}</div>
                       <div className="text-gray-400 text-xs">{show.time}</div>
                     </div>
                     <Button size="sm" variant="outline" className="border-purple-500 text-purple-300 text-xs">

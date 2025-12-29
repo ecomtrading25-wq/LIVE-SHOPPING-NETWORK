@@ -106,7 +106,7 @@ export default function RequestReturnPage() {
               <CheckCircle className="w-10 h-10 text-green-600" />
             </div>
 
-            <h1 className="text-3xl font-bold text-zinc-900 dark:text-white mb-4">
+            <h1 className="text-3xl font-bold text-zinc-900 dark:text-foreground mb-4">
               Return Request Submitted
             </h1>
 
@@ -115,12 +115,12 @@ export default function RequestReturnPage() {
               You'll receive an email confirmation shortly with next steps.
             </p>
 
-            <div className="bg-zinc-50 dark:bg-zinc-900 p-6 rounded-lg mb-8">
+            <div className="bg-zinc-50 dark:bg-background p-6 rounded-lg mb-8 text-foreground">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm text-zinc-600 dark:text-zinc-400">
                   Order Number:
                 </span>
-                <span className="font-medium text-zinc-900 dark:text-white">
+                <span className="font-medium text-zinc-900 dark:text-foreground">
                   {mockOrder.orderNumber}
                 </span>
               </div>
@@ -128,7 +128,7 @@ export default function RequestReturnPage() {
                 <span className="text-sm text-zinc-600 dark:text-zinc-400">
                   Return Reason:
                 </span>
-                <span className="font-medium text-zinc-900 dark:text-white">
+                <span className="font-medium text-zinc-900 dark:text-foreground">
                   {returnReasons.find((r) => r.value === formData.reason)?.label}
                 </span>
               </div>
@@ -200,7 +200,7 @@ export default function RequestReturnPage() {
       <div className="container max-w-4xl">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-zinc-900 dark:text-white mb-2">
+          <h1 className="text-3xl font-bold text-zinc-900 dark:text-foreground mb-2">
             Request a Return
           </h1>
           <p className="text-zinc-600 dark:text-zinc-400">
@@ -213,18 +213,18 @@ export default function RequestReturnPage() {
           {/* Order Summary Sidebar */}
           <div className="lg:col-span-1">
             <Card className="p-6 sticky top-6">
-              <h2 className="font-semibold text-zinc-900 dark:text-white mb-4">
+              <h2 className="font-semibold text-zinc-900 dark:text-foreground mb-4">
                 Order Items
               </h2>
 
               <div className="space-y-4">
                 {mockOrder.items.map((item) => (
                   <div key={item.id} className="flex gap-3">
-                    <div className="w-16 h-16 bg-zinc-100 dark:bg-zinc-800 rounded-lg flex items-center justify-center">
+                    <div className="w-16 h-16 bg-zinc-100 dark:bg-card rounded-lg flex items-center justify-center text-card-foreground">
                       <Package className="w-8 h-8 text-zinc-400" />
                     </div>
                     <div className="flex-1">
-                      <p className="font-medium text-zinc-900 dark:text-white text-sm">
+                      <p className="font-medium text-zinc-900 dark:text-foreground text-sm">
                         {item.productName}
                       </p>
                       <p className="text-sm text-zinc-600 dark:text-zinc-400">
@@ -238,12 +238,12 @@ export default function RequestReturnPage() {
                 ))}
               </div>
 
-              <div className="border-t border-zinc-200 dark:border-zinc-800 mt-4 pt-4">
+              <div className="border-t border-zinc-200 dark:border-border mt-4 pt-4">
                 <div className="flex justify-between">
-                  <span className="font-semibold text-zinc-900 dark:text-white">
+                  <span className="font-semibold text-zinc-900 dark:text-foreground">
                     Order Total
                   </span>
-                  <span className="font-semibold text-zinc-900 dark:text-white">
+                  <span className="font-semibold text-zinc-900 dark:text-foreground">
                     ${mockOrder.total.toFixed(2)}
                   </span>
                 </div>
@@ -270,7 +270,7 @@ export default function RequestReturnPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Return Reason */}
                 <div>
-                  <Label className="text-base font-semibold text-zinc-900 dark:text-white mb-3 block">
+                  <Label className="text-base font-semibold text-zinc-900 dark:text-foreground mb-3 block">
                     Why are you returning this item? *
                   </Label>
                   <Select
@@ -294,7 +294,7 @@ export default function RequestReturnPage() {
 
                 {/* Detailed Explanation */}
                 <div>
-                  <Label className="text-base font-semibold text-zinc-900 dark:text-white mb-3 block">
+                  <Label className="text-base font-semibold text-zinc-900 dark:text-foreground mb-3 block">
                     Please provide details *
                   </Label>
                   <Textarea
@@ -313,7 +313,7 @@ export default function RequestReturnPage() {
 
                 {/* Photo Upload */}
                 <div>
-                  <Label className="text-base font-semibold text-zinc-900 dark:text-white mb-3 block">
+                  <Label className="text-base font-semibold text-zinc-900 dark:text-foreground mb-3 block">
                     Upload Photos (Optional)
                   </Label>
                   <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-3">
@@ -335,7 +335,7 @@ export default function RequestReturnPage() {
                       className="cursor-pointer flex flex-col items-center"
                     >
                       <Upload className="w-12 h-12 text-zinc-400 mb-3" />
-                      <p className="text-zinc-900 dark:text-white font-medium mb-1">
+                      <p className="text-zinc-900 dark:text-foreground font-medium mb-1">
                         Click to upload photos
                       </p>
                       <p className="text-sm text-zinc-600 dark:text-zinc-400">
@@ -349,7 +349,7 @@ export default function RequestReturnPage() {
                     <div className="grid grid-cols-4 gap-3 mt-4">
                       {formData.photos.map((photo, index) => (
                         <div key={index} className="relative group">
-                          <div className="aspect-square bg-zinc-100 dark:bg-zinc-800 rounded-lg overflow-hidden">
+                          <div className="aspect-square bg-zinc-100 dark:bg-card rounded-lg overflow-hidden text-card-foreground">
                             <img
                               src={URL.createObjectURL(photo)}
                               alt={`Upload ${index + 1}`}
@@ -359,7 +359,7 @@ export default function RequestReturnPage() {
                           <button
                             type="button"
                             onClick={() => removePhoto(index)}
-                            className="absolute -top-2 -right-2 w-6 h-6 bg-red-600 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                            className="absolute -top-2 -right-2 w-6 h-6 bg-red-600 text-foreground rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                           >
                             ×
                           </button>
@@ -371,7 +371,7 @@ export default function RequestReturnPage() {
 
                 {/* Tracking Number (Optional) */}
                 <div>
-                  <Label className="text-base font-semibold text-zinc-900 dark:text-white mb-3 block">
+                  <Label className="text-base font-semibold text-zinc-900 dark:text-foreground mb-3 block">
                     Tracking Number (Optional)
                   </Label>
                   <Input

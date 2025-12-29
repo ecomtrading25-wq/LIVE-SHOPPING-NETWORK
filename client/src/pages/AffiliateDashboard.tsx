@@ -135,7 +135,7 @@ export default function AffiliateDashboard() {
         </div>
 
         {/* Tier Badge */}
-        <Card className="mb-6 p-6 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+        <Card className="mb-6 p-6 bg-gradient-to-r from-purple-600 to-blue-600 text-foreground">
           <div className="flex items-center justify-between">
             <div>
               <div className="flex items-center gap-3 mb-2">
@@ -251,7 +251,7 @@ export default function AffiliateDashboard() {
                       type="text"
                       value={affiliateData.overview.referralLink}
                       readOnly
-                      className="flex-1 px-3 py-2 border rounded-md bg-gray-50 dark:bg-gray-800 text-sm"
+                      className="flex-1 px-3 py-2 border rounded-md bg-gray-50 dark:bg-card text-sm"
                     />
                     <Button
                       variant="outline"
@@ -308,7 +308,7 @@ export default function AffiliateDashboard() {
               <h3 className="text-lg font-semibold mb-4">Top Performing Products</h3>
               <div className="space-y-4">
                 {affiliateData.topPerformers.map((product, idx) => (
-                  <div key={idx} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                  <div key={idx} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-card rounded-lg text-card-foreground">
                     <div>
                       <p className="font-medium">{product.productName}</p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -343,7 +343,7 @@ export default function AffiliateDashboard() {
                   ))}
                 </div>
               </div>
-              <div className="h-64 flex items-center justify-center bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <div className="h-64 flex items-center justify-center bg-gray-50 dark:bg-card rounded-lg text-card-foreground">
                 <p className="text-gray-500">Performance chart would go here</p>
               </div>
             </Card>
@@ -409,7 +409,7 @@ export default function AffiliateDashboard() {
                       'Exclusive products',
                       'Limited time offer',
                     ].map((text, idx) => (
-                      <div key={idx} className="flex items-center gap-2 p-3 bg-gray-50 dark:bg-gray-800 rounded">
+                      <div key={idx} className="flex items-center gap-2 p-3 bg-gray-50 dark:bg-card rounded text-card-foreground">
                         <code className="flex-1 text-sm">{text}</code>
                         <Button size="sm" variant="ghost">
                           <Copy className="w-4 h-4" />

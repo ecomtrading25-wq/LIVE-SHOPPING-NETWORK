@@ -84,7 +84,7 @@ export default function SKUProfitabilityDashboard() {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h1 className="text-4xl font-bold text-white mb-2">SKU Profitability Dashboard</h1>
+              <h1 className="text-4xl font-bold text-foreground mb-2">SKU Profitability Dashboard</h1>
               <p className="text-gray-400">True net profit tracking with automated kill/scale decisions</p>
             </div>
             <div className="flex gap-3">
@@ -92,7 +92,7 @@ export default function SKUProfitabilityDashboard() {
                 variant="outline"
                 size="sm"
                 onClick={() => refetch()}
-                className="border-white/20 text-white hover:bg-white/10"
+                className="border-white/20 text-foreground hover:bg-white/10"
               >
                 <RefreshCw className="w-4 h-4 mr-2" />
                 Refresh
@@ -100,7 +100,7 @@ export default function SKUProfitabilityDashboard() {
               <Button
                 variant="outline"
                 size="sm"
-                className="border-white/20 text-white hover:bg-white/10"
+                className="border-white/20 text-foreground hover:bg-white/10"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Export
@@ -118,8 +118,8 @@ export default function SKUProfitabilityDashboard() {
                   {summary?.profitGrowth?.toFixed(1) || 0}%
                 </Badge>
               </div>
-              <p className="text-gray-300 text-sm mb-1">Total Net Profit</p>
-              <p className="text-white text-2xl font-bold">${summary?.totalProfit?.toLocaleString() || "0"}</p>
+              <p className="text-muted-foreground text-sm mb-1">Total Net Profit</p>
+              <p className="text-foreground text-2xl font-bold">${summary?.totalProfit?.toLocaleString() || "0"}</p>
             </Card>
 
             <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
@@ -127,8 +127,8 @@ export default function SKUProfitabilityDashboard() {
                 <Package className="w-8 h-8 text-blue-500" />
                 <Badge variant="secondary">{summary?.totalSKUs || 0}</Badge>
               </div>
-              <p className="text-gray-300 text-sm mb-1">Active SKUs</p>
-              <p className="text-white text-2xl font-bold">{summary?.profitableSKUs || 0}</p>
+              <p className="text-muted-foreground text-sm mb-1">Active SKUs</p>
+              <p className="text-foreground text-2xl font-bold">{summary?.profitableSKUs || 0}</p>
               <p className="text-gray-400 text-xs mt-1">profitable</p>
             </Card>
 
@@ -137,8 +137,8 @@ export default function SKUProfitabilityDashboard() {
                 <Target className="w-8 h-8 text-purple-500" />
                 <Badge className="bg-purple-600">{summary?.avgMargin?.toFixed(1) || 0}%</Badge>
               </div>
-              <p className="text-gray-300 text-sm mb-1">Avg Profit Margin</p>
-              <p className="text-white text-2xl font-bold">{summary?.marginTarget || 20}%</p>
+              <p className="text-muted-foreground text-sm mb-1">Avg Profit Margin</p>
+              <p className="text-foreground text-2xl font-bold">{summary?.marginTarget || 20}%</p>
               <p className="text-gray-400 text-xs mt-1">target</p>
             </Card>
 
@@ -147,8 +147,8 @@ export default function SKUProfitabilityDashboard() {
                 <AlertTriangle className="w-8 h-8 text-yellow-500" />
                 <Badge variant="destructive">{summary?.killRecommendations || 0}</Badge>
               </div>
-              <p className="text-gray-300 text-sm mb-1">Action Required</p>
-              <p className="text-white text-2xl font-bold">{summary?.scaleRecommendations || 0}</p>
+              <p className="text-muted-foreground text-sm mb-1">Action Required</p>
+              <p className="text-foreground text-2xl font-bold">{summary?.scaleRecommendations || 0}</p>
               <p className="text-gray-400 text-xs mt-1">scale opportunities</p>
             </Card>
           </div>
@@ -164,13 +164,13 @@ export default function SKUProfitabilityDashboard() {
                   placeholder="Search SKUs..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 bg-white/5 border-white/20 text-white placeholder:text-gray-400"
+                  className="pl-10 bg-white/5 border-white/20 text-foreground placeholder:text-gray-400"
                 />
               </div>
             </div>
 
             <Select value={timeRange} onValueChange={(v: any) => setTimeRange(v)}>
-              <SelectTrigger className="w-[140px] bg-white/5 border-white/20 text-white">
+              <SelectTrigger className="w-[140px] bg-white/5 border-white/20 text-foreground">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -181,7 +181,7 @@ export default function SKUProfitabilityDashboard() {
             </Select>
 
             <Select value={sortBy} onValueChange={(v: any) => setSortBy(v)}>
-              <SelectTrigger className="w-[160px] bg-white/5 border-white/20 text-white">
+              <SelectTrigger className="w-[160px] bg-white/5 border-white/20 text-foreground">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -193,7 +193,7 @@ export default function SKUProfitabilityDashboard() {
             </Select>
 
             <Select value={filterStatus} onValueChange={(v: any) => setFilterStatus(v)}>
-              <SelectTrigger className="w-[160px] bg-white/5 border-white/20 text-white">
+              <SelectTrigger className="w-[160px] bg-white/5 border-white/20 text-foreground">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -229,7 +229,7 @@ export default function SKUProfitabilityDashboard() {
               <Card key={sku.id} className="p-6 bg-white/10 backdrop-blur border-white/20">
                 <div className="flex items-start gap-4">
                   {/* Product Image */}
-                  <div className="w-24 h-24 rounded-lg overflow-hidden bg-gray-800 flex-shrink-0">
+                  <div className="w-24 h-24 rounded-lg overflow-hidden bg-card flex-shrink-0 text-card-foreground">
                     {sku.imageUrl ? (
                       <img src={sku.imageUrl} alt={sku.name} className="w-full h-full object-cover" />
                     ) : (
@@ -244,7 +244,7 @@ export default function SKUProfitabilityDashboard() {
                     <div className="flex items-start justify-between mb-3">
                       <div>
                         <div className="flex items-center gap-3 mb-2">
-                          <h3 className="text-white font-bold text-lg">{sku.name}</h3>
+                          <h3 className="text-foreground font-bold text-lg">{sku.name}</h3>
                           <Badge className={getStatusColor(sku.status)}>
                             {sku.status.toUpperCase()}
                           </Badge>
@@ -279,7 +279,7 @@ export default function SKUProfitabilityDashboard() {
                         <Button
                           size="sm"
                           variant="outline"
-                          className="border-white/20 text-white hover:bg-white/10"
+                          className="border-white/20 text-foreground hover:bg-white/10"
                         >
                           <Eye className="w-4 h-4" />
                         </Button>
@@ -307,22 +307,22 @@ export default function SKUProfitabilityDashboard() {
 
                       <div>
                         <p className="text-gray-400 text-xs mb-1">Revenue</p>
-                        <p className="text-white font-bold text-lg">${sku.revenue?.toLocaleString()}</p>
+                        <p className="text-foreground font-bold text-lg">${sku.revenue?.toLocaleString()}</p>
                       </div>
 
                       <div>
                         <p className="text-gray-400 text-xs mb-1">Units Sold</p>
-                        <p className="text-white font-bold text-lg">{sku.unitsSold?.toLocaleString()}</p>
+                        <p className="text-foreground font-bold text-lg">{sku.unitsSold?.toLocaleString()}</p>
                       </div>
 
                       <div>
                         <p className="text-gray-400 text-xs mb-1">COGS</p>
-                        <p className="text-white font-bold text-lg">${sku.cogs?.toLocaleString()}</p>
+                        <p className="text-foreground font-bold text-lg">${sku.cogs?.toLocaleString()}</p>
                       </div>
 
                       <div>
                         <p className="text-gray-400 text-xs mb-1">Total Costs</p>
-                        <p className="text-white font-bold text-lg">${sku.totalCosts?.toLocaleString()}</p>
+                        <p className="text-foreground font-bold text-lg">${sku.totalCosts?.toLocaleString()}</p>
                       </div>
                     </div>
 
@@ -330,23 +330,23 @@ export default function SKUProfitabilityDashboard() {
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-3 p-3 bg-white/5 rounded-lg">
                       <div>
                         <p className="text-gray-400 text-xs mb-1">Shipping</p>
-                        <p className="text-gray-300 text-sm">${sku.shippingCost?.toFixed(2)}</p>
+                        <p className="text-muted-foreground text-sm">${sku.shippingCost?.toFixed(2)}</p>
                       </div>
                       <div>
                         <p className="text-gray-400 text-xs mb-1">Fees</p>
-                        <p className="text-gray-300 text-sm">${sku.fees?.toFixed(2)}</p>
+                        <p className="text-muted-foreground text-sm">${sku.fees?.toFixed(2)}</p>
                       </div>
                       <div>
                         <p className="text-gray-400 text-xs mb-1">Returns</p>
-                        <p className="text-gray-300 text-sm">${sku.returnsCost?.toFixed(2)}</p>
+                        <p className="text-muted-foreground text-sm">${sku.returnsCost?.toFixed(2)}</p>
                       </div>
                       <div>
                         <p className="text-gray-400 text-xs mb-1">Disputes</p>
-                        <p className="text-gray-300 text-sm">${sku.disputesCost?.toFixed(2)}</p>
+                        <p className="text-muted-foreground text-sm">${sku.disputesCost?.toFixed(2)}</p>
                       </div>
                       <div>
                         <p className="text-gray-400 text-xs mb-1">Other</p>
-                        <p className="text-gray-300 text-sm">${sku.otherCosts?.toFixed(2)}</p>
+                        <p className="text-muted-foreground text-sm">${sku.otherCosts?.toFixed(2)}</p>
                       </div>
                     </div>
 
@@ -364,7 +364,7 @@ export default function SKUProfitabilityDashboard() {
                               alert.severity === "warning" ? "text-yellow-500" :
                               "text-blue-500"
                             }`} />
-                            <p className="text-white text-sm">{alert.message}</p>
+                            <p className="text-foreground text-sm">{alert.message}</p>
                           </div>
                         ))}
                       </div>
@@ -377,7 +377,7 @@ export default function SKUProfitabilityDashboard() {
             {(!analytics?.skus || analytics.skus.length === 0) && (
               <Card className="p-12 bg-white/10 backdrop-blur border-white/20 text-center">
                 <Package className="w-16 h-16 text-gray-500 mx-auto mb-4 opacity-50" />
-                <h3 className="text-2xl font-bold text-white mb-2">No SKUs Found</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-2">No SKUs Found</h3>
                 <p className="text-gray-400">Try adjusting your filters or search query.</p>
               </Card>
             )}
@@ -388,7 +388,7 @@ export default function SKUProfitabilityDashboard() {
             {/* Kill Recommendations */}
             {recommendations?.kill && recommendations.kill.length > 0 && (
               <Card className="p-6 bg-red-500/10 border-red-500/30">
-                <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                   <XCircle className="w-6 h-6 text-red-500" />
                   Kill Recommendations ({recommendations.kill.length})
                 </h3>
@@ -397,7 +397,7 @@ export default function SKUProfitabilityDashboard() {
                     <Card key={rec.skuId} className="p-4 bg-white/5 border-white/10">
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
-                          <h4 className="text-white font-semibold mb-1">{rec.skuName}</h4>
+                          <h4 className="text-foreground font-semibold mb-1">{rec.skuName}</h4>
                           <p className="text-gray-400 text-sm mb-2">{rec.reason}</p>
                           <div className="flex items-center gap-4 text-sm">
                             <span className="text-red-500">Loss: ${rec.totalLoss?.toLocaleString()}</span>
@@ -420,7 +420,7 @@ export default function SKUProfitabilityDashboard() {
             {/* Scale Recommendations */}
             {recommendations?.scale && recommendations.scale.length > 0 && (
               <Card className="p-6 bg-green-500/10 border-green-500/30">
-                <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                   <TrendingUp className="w-6 h-6 text-green-500" />
                   Scale Recommendations ({recommendations.scale.length})
                 </h3>
@@ -429,7 +429,7 @@ export default function SKUProfitabilityDashboard() {
                     <Card key={rec.skuId} className="p-4 bg-white/5 border-white/10">
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
-                          <h4 className="text-white font-semibold mb-1">{rec.skuName}</h4>
+                          <h4 className="text-foreground font-semibold mb-1">{rec.skuName}</h4>
                           <p className="text-gray-400 text-sm mb-2">{rec.reason}</p>
                           <div className="flex items-center gap-4 text-sm">
                             <span className="text-green-500">Profit: ${rec.totalProfit?.toLocaleString()}</span>
@@ -453,7 +453,7 @@ export default function SKUProfitabilityDashboard() {
             {/* Monitor Recommendations */}
             {recommendations?.monitor && recommendations.monitor.length > 0 && (
               <Card className="p-6 bg-yellow-500/10 border-yellow-500/30">
-                <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                   <Eye className="w-6 h-6 text-yellow-500" />
                   Monitor Closely ({recommendations.monitor.length})
                 </h3>
@@ -462,7 +462,7 @@ export default function SKUProfitabilityDashboard() {
                     <Card key={rec.skuId} className="p-4 bg-white/5 border-white/10">
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
-                          <h4 className="text-white font-semibold mb-1">{rec.skuName}</h4>
+                          <h4 className="text-foreground font-semibold mb-1">{rec.skuName}</h4>
                           <p className="text-gray-400 text-sm mb-2">{rec.reason}</p>
                           <div className="flex items-center gap-4 text-sm">
                             <span className="text-yellow-500">Margin: {rec.margin?.toFixed(1)}%</span>
@@ -483,7 +483,7 @@ export default function SKUProfitabilityDashboard() {
             )) && (
               <Card className="p-12 bg-white/10 backdrop-blur border-white/20 text-center">
                 <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-2">All Clear</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-2">All Clear</h3>
                 <p className="text-gray-400">No immediate actions required. All SKUs are performing within acceptable ranges.</p>
               </Card>
             )}
@@ -492,7 +492,7 @@ export default function SKUProfitabilityDashboard() {
           {/* Trends Tab */}
           <TabsContent value="trends" className="space-y-6">
             <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
-              <h3 className="text-xl font-bold text-white mb-4">Profitability Trend</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">Profitability Trend</h3>
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={analytics?.profitabilityTrend || []}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#ffffff20" />
@@ -511,7 +511,7 @@ export default function SKUProfitabilityDashboard() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
-                <h3 className="text-xl font-bold text-white mb-4">Top Profit Contributors</h3>
+                <h3 className="text-xl font-bold text-foreground mb-4">Top Profit Contributors</h3>
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={analytics?.topProfitContributors || []}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#ffffff20" />
@@ -527,11 +527,11 @@ export default function SKUProfitabilityDashboard() {
               </Card>
 
               <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
-                <h3 className="text-xl font-bold text-white mb-4">Margin Distribution</h3>
+                <h3 className="text-xl font-bold text-foreground mb-4">Margin Distribution</h3>
                 <div className="space-y-3">
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-gray-300">High Margin (&gt;30%)</span>
+                      <span className="text-muted-foreground">High Margin (&gt;30%)</span>
                       <span className="text-green-500 font-bold">{analytics?.marginDistribution?.high || 0} SKUs</span>
                     </div>
                     <div className="h-2 bg-white/10 rounded-full overflow-hidden">
@@ -544,7 +544,7 @@ export default function SKUProfitabilityDashboard() {
 
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-gray-300">Medium Margin (15-30%)</span>
+                      <span className="text-muted-foreground">Medium Margin (15-30%)</span>
                       <span className="text-blue-500 font-bold">{analytics?.marginDistribution?.medium || 0} SKUs</span>
                     </div>
                     <div className="h-2 bg-white/10 rounded-full overflow-hidden">
@@ -557,7 +557,7 @@ export default function SKUProfitabilityDashboard() {
 
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-gray-300">Low Margin (&lt;15%)</span>
+                      <span className="text-muted-foreground">Low Margin (&lt;15%)</span>
                       <span className="text-yellow-500 font-bold">{analytics?.marginDistribution?.low || 0} SKUs</span>
                     </div>
                     <div className="h-2 bg-white/10 rounded-full overflow-hidden">
@@ -570,7 +570,7 @@ export default function SKUProfitabilityDashboard() {
 
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-gray-300">Negative Margin</span>
+                      <span className="text-muted-foreground">Negative Margin</span>
                       <span className="text-red-500 font-bold">{analytics?.marginDistribution?.negative || 0} SKUs</span>
                     </div>
                     <div className="h-2 bg-white/10 rounded-full overflow-hidden">

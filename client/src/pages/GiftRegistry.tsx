@@ -74,8 +74,8 @@ export default function GiftRegistryPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="border-b bg-card">
+    <div className="min-h-screen bg-background text-foreground">
+      <div className="border-b bg-card text-card-foreground">
         <div className="container py-6">
           <div className="flex items-center justify-between">
             <div>
@@ -106,7 +106,7 @@ export default function GiftRegistryPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2">Event Type *</label>
-                <select className="w-full p-2 border rounded-lg bg-background">
+                <select className="w-full p-2 border rounded-lg bg-background text-foreground">
                   <option value="wedding">Wedding</option>
                   <option value="baby">Baby Shower</option>
                   <option value="birthday">Birthday</option>

@@ -8122,3 +8122,4 @@ Next: Configure external services and deploy to production.
 - [x] Remove all dark backgrounds and elements from entire site
 - [x] Update Footer to light theme
 - [x] Ensure all pages use clean light theme
+- [x] Fix dark theme issue on all pages to ensure consistent light theme styling

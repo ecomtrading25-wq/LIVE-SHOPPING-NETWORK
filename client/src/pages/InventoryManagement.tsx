@@ -105,7 +105,7 @@ function InventoryManagementContent() {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h1 className="text-4xl font-bold text-white">Inventory Management</h1>
+              <h1 className="text-4xl font-bold text-foreground">Inventory Management</h1>
               <p className="text-gray-400 mt-1">Track and manage product stock</p>
             </div>
             <div className="flex items-center gap-2">
@@ -113,7 +113,7 @@ function InventoryManagementContent() {
                 <Plus className="w-4 h-4 mr-2" />
                 Add Product
               </Button>
-              <Button variant="outline" className="border-gray-700">
+              <Button variant="outline" className="border-border">
                 <Download className="w-4 h-4 mr-2" />
                 Export
               </Button>
@@ -127,7 +127,7 @@ function InventoryManagementContent() {
                   <Package className="w-5 h-5 text-blue-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">{totalItems}</p>
+                  <p className="text-2xl font-bold text-foreground">{totalItems}</p>
                   <p className="text-sm text-gray-400">Total Units</p>
                 </div>
               </div>
@@ -139,7 +139,7 @@ function InventoryManagementContent() {
                   <AlertTriangle className="w-5 h-5 text-yellow-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">{lowStockItems}</p>
+                  <p className="text-2xl font-bold text-foreground">{lowStockItems}</p>
                   <p className="text-sm text-gray-400">Low Stock</p>
                 </div>
               </div>
@@ -151,7 +151,7 @@ function InventoryManagementContent() {
                   <TrendingDown className="w-5 h-5 text-red-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">{outOfStockItems}</p>
+                  <p className="text-2xl font-bold text-foreground">{outOfStockItems}</p>
                   <p className="text-sm text-gray-400">Out of Stock</p>
                 </div>
               </div>
@@ -163,7 +163,7 @@ function InventoryManagementContent() {
                   <Package className="w-5 h-5 text-green-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">
+                  <p className="text-2xl font-bold text-foreground">
                     ${totalValue.toLocaleString()}
                   </p>
                   <p className="text-sm text-gray-400">Total Value</p>
@@ -181,10 +181,10 @@ function InventoryManagementContent() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search by name or SKU..."
-                className="pl-10 bg-white/10 border-white/20 text-white"
+                className="pl-10 bg-white/10 border-white/20 text-foreground"
               />
             </div>
-            <Button variant="outline" className="border-gray-700">
+            <Button variant="outline" className="border-border">
               <Filter className="w-4 h-4 mr-2" />
               Filter
             </Button>
@@ -193,7 +193,7 @@ function InventoryManagementContent() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-gray-800">
+                <tr className="border-b border-border">
                   <th className="text-left p-3 text-sm text-gray-400 font-medium">SKU</th>
                   <th className="text-left p-3 text-sm text-gray-400 font-medium">Product</th>
                   <th className="text-left p-3 text-sm text-gray-400 font-medium">Category</th>
@@ -206,12 +206,12 @@ function InventoryManagementContent() {
               </thead>
               <tbody>
                 {filteredInventory.map((item) => (
-                  <tr key={item.id} className="border-b border-gray-800 hover:bg-white/5">
+                  <tr key={item.id} className="border-b border-border hover:bg-white/5">
                     <td className="p-3">
-                      <span className="text-white font-mono text-sm">{item.sku}</span>
+                      <span className="text-foreground font-mono text-sm">{item.sku}</span>
                     </td>
                     <td className="p-3">
-                      <span className="text-white font-medium">{item.name}</span>
+                      <span className="text-foreground font-medium">{item.name}</span>
                     </td>
                     <td className="p-3">
                       <Badge className="bg-purple-500/20 text-purple-400">
@@ -220,7 +220,7 @@ function InventoryManagementContent() {
                     </td>
                     <td className="p-3">
                       <div>
-                        <span className="text-white font-bold">{item.stock}</span>
+                        <span className="text-foreground font-bold">{item.stock}</span>
                         <span className="text-gray-400 text-sm ml-2">
                           (Min: {item.reorderPoint})
                         </span>
@@ -232,10 +232,10 @@ function InventoryManagementContent() {
                       </Badge>
                     </td>
                     <td className="p-3">
-                      <span className="text-gray-300 text-sm">{item.supplier}</span>
+                      <span className="text-muted-foreground text-sm">{item.supplier}</span>
                     </td>
                     <td className="p-3">
-                      <span className="text-gray-300 text-sm">
+                      <span className="text-muted-foreground text-sm">
                         {new Date(item.lastRestocked).toLocaleDateString()}
                       </span>
                     </td>

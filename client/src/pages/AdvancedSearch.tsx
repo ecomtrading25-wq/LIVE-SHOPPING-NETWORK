@@ -151,9 +151,9 @@ export default function AdvancedSearchPage() {
   const totalResults = results.length;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Search Header */}
-      <div className="border-b bg-card">
+      <div className="border-b bg-card text-card-foreground">
         <div className="container py-6">
           <div className="flex items-center gap-4">
             <div className="flex-1 relative">

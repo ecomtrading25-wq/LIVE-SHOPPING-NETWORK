@@ -49,7 +49,7 @@ export function RecentlyViewed() {
   return (
     <div className="mb-12">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-bold text-white flex items-center gap-2">
+        <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
           <Eye className="w-6 h-6 text-purple-400" />
           Recently Viewed
         </h2>
@@ -58,7 +58,7 @@ export function RecentlyViewed() {
             variant="outline"
             size="icon"
             onClick={() => scroll("left")}
-            className="border-white/20 text-white hover:bg-white/10"
+            className="border-white/20 text-foreground hover:bg-white/10"
           >
             <ChevronLeft className="w-4 h-4" />
           </Button>
@@ -66,7 +66,7 @@ export function RecentlyViewed() {
             variant="outline"
             size="icon"
             onClick={() => scroll("right")}
-            className="border-white/20 text-white hover:bg-white/10"
+            className="border-white/20 text-foreground hover:bg-white/10"
           >
             <ChevronRight className="w-4 h-4" />
           </Button>
@@ -89,10 +89,10 @@ export function RecentlyViewed() {
                 />
               </div>
               <div className="p-3">
-                <h3 className="text-white font-semibold text-sm mb-2 line-clamp-2 group-hover:text-purple-400 transition-colors">
+                <h3 className="text-foreground font-semibold text-sm mb-2 line-clamp-2 group-hover:text-purple-400 transition-colors">
                   {product.name}
                 </h3>
-                <p className="text-lg font-bold text-white">${product.price}</p>
+                <p className="text-lg font-bold text-foreground">${product.price}</p>
               </div>
             </Card>
           </Link>

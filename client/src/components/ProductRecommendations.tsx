@@ -162,7 +162,7 @@ export default function ProductRecommendations({
         <div className="flex items-center gap-3 mb-8">
           {getIcon()}
           <div>
-            <h2 className="text-3xl font-bold text-white">{getTitle()}</h2>
+            <h2 className="text-3xl font-bold text-foreground">{getTitle()}</h2>
             {getSubtitle() && (
               <p className="text-gray-400 mt-1">{getSubtitle()}</p>
             )}
@@ -182,12 +182,12 @@ export default function ProductRecommendations({
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                   {product.badge && (
-                    <Badge className="absolute top-3 left-3 bg-purple-600 text-white">
+                    <Badge className="absolute top-3 left-3 bg-purple-600 text-foreground">
                       {product.badge}
                     </Badge>
                   )}
                   {product.discount && (
-                    <Badge className="absolute top-3 right-3 bg-red-600 text-white">
+                    <Badge className="absolute top-3 right-3 bg-red-600 text-foreground">
                       -{product.discount}%
                     </Badge>
                   )}
@@ -195,7 +195,7 @@ export default function ProductRecommendations({
 
                 {/* Content */}
                 <div className="p-4">
-                  <h3 className="text-white font-semibold mb-2 line-clamp-2 group-hover:text-purple-400 transition-colors">
+                  <h3 className="text-foreground font-semibold mb-2 line-clamp-2 group-hover:text-purple-400 transition-colors">
                     {product.name}
                   </h3>
 
@@ -203,7 +203,7 @@ export default function ProductRecommendations({
                   <div className="flex items-center gap-2 mb-3">
                     <div className="flex items-center gap-1">
                       <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      <span className="text-white text-sm font-medium">
+                      <span className="text-foreground text-sm font-medium">
                         {product.rating}
                       </span>
                     </div>
@@ -214,7 +214,7 @@ export default function ProductRecommendations({
 
                   {/* Price */}
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-white text-xl font-bold">
+                    <span className="text-foreground text-xl font-bold">
                       ${product.price}
                     </span>
                     {product.originalPrice && (
@@ -274,7 +274,7 @@ export function FrequentlyBoughtTogether({
 
   return (
     <Card className="p-6 bg-white/5 border-white/10">
-      <h3 className="text-2xl font-bold text-white mb-6">Frequently Bought Together</h3>
+      <h3 className="text-2xl font-bold text-foreground mb-6">Frequently Bought Together</h3>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         {/* Main Product */}
@@ -284,7 +284,7 @@ export function FrequentlyBoughtTogether({
             alt={mainProduct.name}
             className="w-full aspect-square object-cover rounded-lg mb-3"
           />
-          <h4 className="text-white font-semibold mb-2 line-clamp-2">
+          <h4 className="text-foreground font-semibold mb-2 line-clamp-2">
             {mainProduct.name}
           </h4>
           <p className="text-purple-400 font-bold">${mainProduct.price}</p>
@@ -306,7 +306,7 @@ export function FrequentlyBoughtTogether({
                   className="w-16 h-16 object-cover rounded"
                 />
                 <div className="flex-1">
-                  <h5 className="text-white text-sm font-medium line-clamp-1">
+                  <h5 className="text-foreground text-sm font-medium line-clamp-1">
                     {product.name}
                   </h5>
                   <p className="text-purple-400 font-bold">${product.price}</p>
@@ -323,7 +323,7 @@ export function FrequentlyBoughtTogether({
           <div>
             <p className="text-gray-400 text-sm">Total Bundle Price</p>
             <div className="flex items-center gap-3">
-              <p className="text-white text-3xl font-bold">${totalPrice.toFixed(2)}</p>
+              <p className="text-foreground text-3xl font-bold">${totalPrice.toFixed(2)}</p>
               {savings > 0 && (
                 <>
                   <span className="text-gray-400 text-lg line-through">

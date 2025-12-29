@@ -115,7 +115,7 @@ export default function LSNHome() {
       <div className="min-h-screen bg-gradient-to-br from-purple-950 via-black to-pink-950 flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-pink-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-white text-xl">Loading amazing deals...</p>
+          <p className="text-foreground text-xl">Loading amazing deals...</p>
         </div>
       </div>
     );
@@ -141,7 +141,7 @@ export default function LSNHome() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
                 </span>
-                <span className="text-white font-semibold text-sm">
+                <span className="text-foreground font-semibold text-sm">
                   {liveShows.length} LIVE SHOW{liveShows.length > 1 ? 'S' : ''} NOW
                 </span>
               </div>
@@ -153,13 +153,13 @@ export default function LSNHome() {
                 Shop Live.
               </span>
               <br />
-              <span className="text-white">
+              <span className="text-foreground">
                 Save Big.
               </span>
             </h1>
 
             {/* Subheadline */}
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               Join thousands of smart shoppers discovering exclusive deals on trending products through interactive live shopping shows.
             </p>
 
@@ -168,7 +168,7 @@ export default function LSNHome() {
               <Link href={hasLiveShows ? `/show/${liveShows[0].id}` : "/live"}>
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold px-8 py-6 text-lg shadow-2xl shadow-pink-500/50 hover:shadow-pink-500/70 transition-all transform hover:scale-105"
+                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-foreground font-bold px-8 py-6 text-lg shadow-2xl shadow-pink-500/50 hover:shadow-pink-500/70 transition-all transform hover:scale-105"
                 >
                   <Play className="w-6 h-6 mr-2 fill-current" />
                   {hasLiveShows ? 'Watch Live Now' : 'Browse Shows'}
@@ -178,7 +178,7 @@ export default function LSNHome() {
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="border-2 border-white/30 text-white hover:bg-white/10 font-bold px-8 py-6 text-lg backdrop-blur"
+                  className="border-2 border-white/30 text-foreground hover:bg-white/10 font-bold px-8 py-6 text-lg backdrop-blur"
                 >
                   <ShoppingBag className="w-6 h-6 mr-2" />
                   Shop Products
@@ -207,11 +207,11 @@ export default function LSNHome() {
 
       {/* Live Shows Section */}
       {hasLiveShows && (
-        <section className="py-16 bg-black/30 backdrop-blur">
+        <section className="py-16 bg-background/30 backdrop-blur text-foreground">
           <div className="container">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white flex items-center gap-3 mb-2">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground flex items-center gap-3 mb-2">
                   <span className="relative flex h-4 w-4">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-4 w-4 bg-red-500"></span>
@@ -221,7 +221,7 @@ export default function LSNHome() {
                 <p className="text-gray-400">Don't miss out on these exclusive deals</p>
               </div>
               <Link href="/live">
-                <Button variant="ghost" className="text-white hover:bg-white/10">
+                <Button variant="ghost" className="text-foreground hover:bg-white/10">
                   View All
                   <ChevronRight className="w-4 h-4 ml-1" />
                 </Button>
@@ -231,7 +231,7 @@ export default function LSNHome() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {liveShows.map((show) => (
                 <Link key={show.id} href={`/show/${show.id}`}>
-                  <Card className="group relative overflow-hidden bg-gradient-to-br from-purple-900/50 to-pink-900/50 border-white/10 hover:border-pink-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20 cursor-pointer">
+                  <Card className="group relative overflow-hidden bg-gradient-to-br from-purple-100 to-pink-100 border-white/10 hover:border-pink-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20 cursor-pointer">
                     {/* Thumbnail */}
                     <div className="relative aspect-video overflow-hidden">
                       <img 
@@ -240,17 +240,17 @@ export default function LSNHome() {
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                       {/* Live badge */}
-                      <div className="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 animate-pulse">
+                      <div className="absolute top-3 left-3 bg-red-500 text-foreground px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 animate-pulse">
                         <span className="w-2 h-2 bg-white rounded-full"></span>
                         LIVE
                       </div>
                       {/* Viewer count */}
-                      <div className="absolute top-3 right-3 bg-black/70 backdrop-blur text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
+                      <div className="absolute top-3 right-3 bg-background/70 backdrop-blur text-foreground px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
                         <Eye className="w-3 h-3" />
                         {show.viewerCount?.toLocaleString() || 0}
                       </div>
                       {/* Play overlay */}
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <div className="absolute inset-0 bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-foreground">
                         <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center">
                           <Play className="w-8 h-8 text-black fill-current ml-1" />
                         </div>
@@ -259,7 +259,7 @@ export default function LSNHome() {
 
                     {/* Content */}
                     <div className="p-4">
-                      <h3 className="text-xl font-bold text-white mb-2 line-clamp-2 group-hover:text-pink-400 transition-colors">
+                      <h3 className="text-xl font-bold text-foreground mb-2 line-clamp-2 group-hover:text-pink-400 transition-colors">
                         {show.title}
                       </h3>
                       <div className="flex items-center gap-2 mb-3">
@@ -268,7 +268,7 @@ export default function LSNHome() {
                           alt={show.creator?.displayName}
                           className="w-8 h-8 rounded-full border-2 border-pink-500"
                         />
-                        <span className="text-gray-300 text-sm font-medium">
+                        <span className="text-muted-foreground text-sm font-medium">
                           {show.creator?.displayName}
                         </span>
                       </div>
@@ -305,7 +305,7 @@ export default function LSNHome() {
                 <Sparkles className="w-4 h-4 text-pink-400" />
                 <span className="text-pink-400 font-semibold text-sm">AS SEEN LIVE</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
                 Trending Products
               </h2>
               <p className="text-gray-400 text-lg">
@@ -326,12 +326,12 @@ export default function LSNHome() {
                       />
                       {/* Badges */}
                       {product.discount && (
-                        <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-xs font-bold">
+                        <div className="absolute top-2 left-2 bg-red-500 text-foreground px-2 py-1 rounded text-xs font-bold">
                           -{product.discount}%
                         </div>
                       )}
                       {product.trending && (
-                        <div className="absolute top-2 right-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white p-1.5 rounded-full">
+                        <div className="absolute top-2 right-2 bg-gradient-to-r from-pink-500 to-purple-500 text-foreground p-1.5 rounded-full">
                           <TrendingUp className="w-3 h-3" />
                         </div>
                       )}
@@ -339,7 +339,7 @@ export default function LSNHome() {
 
                     {/* Product info */}
                     <div className="p-3">
-                      <h3 className="text-white font-semibold text-sm mb-2 line-clamp-2 group-hover:text-pink-400 transition-colors">
+                      <h3 className="text-foreground font-semibold text-sm mb-2 line-clamp-2 group-hover:text-pink-400 transition-colors">
                         {product.name}
                       </h3>
                       <div className="flex items-center gap-1 mb-2">
@@ -385,7 +385,7 @@ export default function LSNHome() {
               <Link href="/products">
                 <Button 
                   size="lg"
-                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold"
+                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-foreground font-bold"
                 >
                   View All Products
                   <ChevronRight className="w-5 h-5 ml-1" />
@@ -401,7 +401,7 @@ export default function LSNHome() {
         <section className="py-16 bg-gradient-to-br from-purple-900/30 to-pink-900/30 backdrop-blur">
           <div className="container">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
                 Meet Our Creators
               </h2>
               <p className="text-gray-400 text-lg">
@@ -421,7 +421,7 @@ export default function LSNHome() {
                       />
                       <div className="absolute bottom-0 right-0 w-6 h-6 bg-green-500 border-4 border-black rounded-full"></div>
                     </div>
-                    <h3 className="text-white font-semibold mb-1 group-hover:text-pink-400 transition-colors">
+                    <h3 className="text-foreground font-semibold mb-1 group-hover:text-pink-400 transition-colors">
                       {creator.displayName}
                     </h3>
                     <p className="text-gray-400 text-sm mb-2">
@@ -444,7 +444,7 @@ export default function LSNHome() {
         <section className="py-16">
           <div className="container">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
                 Coming Up Next
               </h2>
               <p className="text-gray-400 text-lg">
@@ -458,7 +458,7 @@ export default function LSNHome() {
                   <div className="p-6 flex flex-col md:flex-row gap-4 items-start md:items-center">
                     {/* Date/Time */}
                     <div className="flex-shrink-0 text-center bg-gradient-to-br from-pink-500 to-purple-600 rounded-lg p-4 min-w-[100px]">
-                      <div className="text-white text-2xl font-bold">
+                      <div className="text-foreground text-2xl font-bold">
                         {new Date(show.scheduledStartTime).getDate()}
                       </div>
                       <div className="text-white/80 text-sm">
@@ -471,7 +471,7 @@ export default function LSNHome() {
 
                     {/* Show info */}
                     <div className="flex-grow">
-                      <h3 className="text-xl font-bold text-white mb-2">
+                      <h3 className="text-xl font-bold text-foreground mb-2">
                         {show.title}
                       </h3>
                       <div className="flex items-center gap-2 mb-2">
@@ -480,7 +480,7 @@ export default function LSNHome() {
                           alt={show.creator?.displayName}
                           className="w-6 h-6 rounded-full border-2 border-pink-500"
                         />
-                        <span className="text-gray-300 text-sm">
+                        <span className="text-muted-foreground text-sm">
                           {show.creator?.displayName}
                         </span>
                       </div>
@@ -504,7 +504,7 @@ export default function LSNHome() {
 
             <div className="text-center mt-8">
               <Link href="/schedule">
-                <Button variant="ghost" className="text-white hover:bg-white/10">
+                <Button variant="ghost" className="text-foreground hover:bg-white/10">
                   View Full Schedule
                   <ChevronRight className="w-4 h-4 ml-1" />
                 </Button>
@@ -515,11 +515,11 @@ export default function LSNHome() {
       )}
 
       {/* Social Proof / Testimonials */}
-      <section className="py-16 bg-black/30 backdrop-blur">
+      <section className="py-16 bg-background/30 backdrop-blur text-foreground">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
                 Loved by Thousands
               </h2>
               <p className="text-gray-400 text-lg">
@@ -529,21 +529,21 @@ export default function LSNHome() {
 
             {/* Testimonial carousel */}
             <div className="relative">
-              <Card className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 border-white/10 p-8 md:p-12 text-center">
+              <Card className="bg-gradient-to-br from-purple-100 to-pink-100 border-white/10 p-8 md:p-12 text-center">
                 <div className="flex justify-center mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-white text-xl md:text-2xl mb-6 italic">
+                <p className="text-foreground text-xl md:text-2xl mb-6 italic">
                   "{testimonials[currentTestimonial].text}"
                 </p>
                 <div className="flex items-center justify-center gap-2">
-                  <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+                  <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center text-foreground font-bold">
                     {testimonials[currentTestimonial].author.charAt(0)}
                   </div>
                   <div className="text-left">
-                    <div className="text-white font-semibold">
+                    <div className="text-foreground font-semibold">
                       {testimonials[currentTestimonial].author}
                     </div>
                     {testimonials[currentTestimonial].verified && (
@@ -585,7 +585,7 @@ export default function LSNHome() {
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
 
               <div className="relative z-10">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
                   Never Miss a Deal
                 </h2>
                 <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
@@ -604,7 +604,7 @@ export default function LSNHome() {
                   <Button 
                     type="submit"
                     size="lg"
-                    className="bg-black hover:bg-black/80 text-white font-bold px-8"
+                    className="bg-background hover:bg-background/80 text-foreground font-bold px-8"
                     disabled={newsletterSignup.isLoading}
                   >
                     {newsletterSignup.isLoading ? 'Subscribing...' : 'Subscribe'}
@@ -621,11 +621,11 @@ export default function LSNHome() {
       </section>
 
       {/* Trust Bar */}
-      <section className="py-12 bg-black/50 backdrop-blur border-t border-white/10">
+      <section className="py-12 bg-background/50 backdrop-blur border-t border-white/10 text-foreground">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">
                 50K+
               </div>
               <div className="text-gray-400 text-sm">
@@ -633,7 +633,7 @@ export default function LSNHome() {
               </div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">
                 1M+
               </div>
               <div className="text-gray-400 text-sm">
@@ -641,7 +641,7 @@ export default function LSNHome() {
               </div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">
                 4.9/5
               </div>
               <div className="text-gray-400 text-sm">
@@ -649,7 +649,7 @@ export default function LSNHome() {
               </div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">
                 24/7
               </div>
               <div className="text-gray-400 text-sm">

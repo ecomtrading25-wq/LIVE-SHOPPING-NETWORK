@@ -107,18 +107,18 @@ export default function LiveChat({ sessionId, isOpen, onClose }: LiveChatProps) 
 
   return (
     <div className="fixed bottom-4 right-4 z-50 w-96 max-w-[calc(100vw-2rem)]">
-      <Card className="bg-zinc-900 border-zinc-800 shadow-2xl overflow-hidden flex flex-col h-[600px] max-h-[80vh]">
+      <Card className="bg-background border-border shadow-2xl overflow-hidden flex flex-col h-[600px] max-h-[80vh] text-foreground">
         {/* Header */}
         <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <MessageCircle className="w-5 h-5 text-white" />
+            <MessageCircle className="w-5 h-5 text-foreground" />
             <div>
-              <h3 className="font-bold text-white">Live Chat</h3>
+              <h3 className="font-bold text-foreground">Live Chat</h3>
               <div className="flex items-center gap-2 text-xs text-white/80">
                 <Users className="w-3 h-3" />
                 <span>{messages.length} messages</span>
                 {isConnected && (
-                  <Badge className="bg-green-500 text-white text-xs px-2 py-0">
+                  <Badge className="bg-green-500 text-foreground text-xs px-2 py-0">
                     LIVE
                   </Badge>
                 )}
@@ -129,7 +129,7 @@ export default function LiveChat({ sessionId, isOpen, onClose }: LiveChatProps) 
             variant="ghost"
             size="sm"
             onClick={onClose}
-            className="text-white hover:bg-white/20"
+            className="text-foreground hover:bg-white/20"
           >
             <X className="w-5 h-5" />
           </Button>
@@ -159,18 +159,18 @@ export default function LiveChat({ sessionId, isOpen, onClose }: LiveChatProps) 
                         ? "text-yellow-400"
                         : user?.id === msg.userId
                         ? "text-purple-400"
-                        : "text-gray-300"
+                        : "text-muted-foreground"
                     }`}
                   >
                     {msg.username}
                   </span>
                   {msg.isHost && (
-                    <Badge className="bg-yellow-600 text-white text-xs px-2 py-0">
+                    <Badge className="bg-yellow-600 text-foreground text-xs px-2 py-0">
                       HOST
                     </Badge>
                   )}
                   {msg.isPinned && (
-                    <Badge className="bg-purple-600 text-white text-xs px-2 py-0">
+                    <Badge className="bg-purple-600 text-foreground text-xs px-2 py-0">
                       PINNED
                     </Badge>
                   )}
@@ -181,7 +181,7 @@ export default function LiveChat({ sessionId, isOpen, onClose }: LiveChatProps) 
                     })}
                   </span>
                 </div>
-                <p className="text-white text-sm break-words">{msg.message}</p>
+                <p className="text-foreground text-sm break-words">{msg.message}</p>
               </div>
             ))
           )}
@@ -189,7 +189,7 @@ export default function LiveChat({ sessionId, isOpen, onClose }: LiveChatProps) 
         </div>
 
         {/* Input */}
-        <form onSubmit={handleSendMessage} className="p-4 bg-zinc-900 border-t border-zinc-800">
+        <form onSubmit={handleSendMessage} className="p-4 bg-background border-t border-border text-foreground">
           {user ? (
             <div className="flex gap-2">
               <Input
@@ -197,7 +197,7 @@ export default function LiveChat({ sessionId, isOpen, onClose }: LiveChatProps) 
                 placeholder="Type a message..."
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
-                className="flex-1 bg-zinc-800 border-zinc-700 text-white"
+                className="flex-1 bg-card border-zinc-700 text-foreground"
                 maxLength={200}
               />
               <Button
@@ -233,9 +233,9 @@ export function LiveChatButton({ sessionId }: { sessionId: string }) {
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-4 right-4 z-40 w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
       >
-        <MessageCircle className="w-6 h-6 text-white" />
+        <MessageCircle className="w-6 h-6 text-foreground" />
         {unreadCount > 0 && (
-          <Badge className="absolute -top-1 -right-1 bg-red-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">
+          <Badge className="absolute -top-1 -right-1 bg-red-600 text-foreground w-6 h-6 rounded-full flex items-center justify-center text-xs">
             {unreadCount > 99 ? "99+" : unreadCount}
           </Badge>
         )}

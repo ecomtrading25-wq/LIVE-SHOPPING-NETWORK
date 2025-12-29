@@ -158,7 +158,7 @@ export default function ProductDetailEnhancedPage() {
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
       <div className="container py-8">
         <Link href="/products">
-          <Button variant="ghost" className="mb-4 text-white hover:bg-white/10">
+          <Button variant="ghost" className="mb-4 text-foreground hover:bg-white/10">
             <ChevronLeft className="w-4 h-4 mr-2" />
             Back to Products
           </Button>
@@ -176,8 +176,8 @@ export default function ProductDetailEnhancedPage() {
                 alt={product.name}
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                <ZoomIn className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-background/0 group-hover:bg-background/20 transition-colors flex items-center justify-center text-foreground">
+                <ZoomIn className="w-12 h-12 text-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
 
@@ -205,7 +205,7 @@ export default function ProductDetailEnhancedPage() {
 
           {/* Product Info */}
           <div>
-            <h1 className="text-4xl font-bold text-white mb-4">{product.name}</h1>
+            <h1 className="text-4xl font-bold text-foreground mb-4">{product.name}</h1>
 
             <div className="flex items-center gap-4 mb-6">
               <div className="flex items-center gap-1">
@@ -220,13 +220,13 @@ export default function ProductDetailEnhancedPage() {
                   />
                 ))}
               </div>
-              <span className="text-gray-300">
+              <span className="text-muted-foreground">
                 {product.rating} ({product.reviewCount} reviews)
               </span>
             </div>
 
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-4xl font-bold text-white">${product.price}</span>
+              <span className="text-4xl font-bold text-foreground">${product.price}</span>
               {product.originalPrice && (
                 <span className="text-2xl text-gray-400 line-through">
                   ${product.originalPrice}
@@ -239,12 +239,12 @@ export default function ProductDetailEnhancedPage() {
               )}
             </div>
 
-            <p className="text-gray-300 mb-6">{product.description}</p>
+            <p className="text-muted-foreground mb-6">{product.description}</p>
 
             {/* Size Selector */}
             <div>
               <div className="flex items-center justify-between mb-2">
-                <label className="block text-sm font-medium text-gray-300">
+                <label className="block text-sm font-medium text-muted-foreground">
                   Size
                 </label>
                 <button
@@ -261,8 +261,8 @@ export default function ProductDetailEnhancedPage() {
                     onClick={() => setSelectedSize(size)}
                     className={`px-4 py-2 rounded-lg border transition-all ${
                       selectedSize === size
-                        ? "border-purple-500 bg-purple-500/20 text-white"
-                        : "border-gray-700 text-gray-400 hover:border-gray-600"
+                        ? "border-purple-500 bg-purple-500/20 text-foreground"
+                        : "border-border text-gray-400 hover:border-gray-600"
                     }`}
                   >
                     {size}
@@ -273,7 +273,7 @@ export default function ProductDetailEnhancedPage() {
 
             {/* Color Selector */}
             <div className="mb-6">
-              <h3 className="text-white font-semibold mb-3">Color</h3>
+              <h3 className="text-foreground font-semibold mb-3">Color</h3>
               <div className="flex gap-2">
                 {product.colors.map((color) => (
                   <button
@@ -281,8 +281,8 @@ export default function ProductDetailEnhancedPage() {
                     onClick={() => setSelectedColor(color)}
                     className={`px-4 py-2 rounded-lg border-2 transition-all ${
                       selectedColor === color
-                        ? "border-purple-500 bg-purple-500/20 text-white"
-                        : "border-white/20 text-gray-300 hover:border-white/40"
+                        ? "border-purple-500 bg-purple-500/20 text-foreground"
+                        : "border-white/20 text-muted-foreground hover:border-white/40"
                     }`}
                   >
                     {color}
@@ -293,24 +293,24 @@ export default function ProductDetailEnhancedPage() {
 
             {/* Quantity */}
             <div className="mb-6">
-              <h3 className="text-white font-semibold mb-3">Quantity</h3>
+              <h3 className="text-foreground font-semibold mb-3">Quantity</h3>
               <div className="flex items-center gap-3">
                 <Button
                   variant="outline"
                   size="icon"
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="border-white/20 text-white hover:bg-white/10"
+                  className="border-white/20 text-foreground hover:bg-white/10"
                 >
                   -
                 </Button>
-                <span className="text-white text-xl font-semibold w-12 text-center">
+                <span className="text-foreground text-xl font-semibold w-12 text-center">
                   {quantity}
                 </span>
                 <Button
                   variant="outline"
                   size="icon"
                   onClick={() => setQuantity(quantity + 1)}
-                  className="border-white/20 text-white hover:bg-white/10"
+                  className="border-white/20 text-foreground hover:bg-white/10"
                 >
                   +
                 </Button>
@@ -329,7 +329,7 @@ export default function ProductDetailEnhancedPage() {
               <Button
                 variant="outline"
                 size="icon"
-                className="border-white/20 text-white hover:bg-white/10 h-auto"
+                className="border-white/20 text-foreground hover:bg-white/10 h-auto"
               >
                 <Heart className="w-5 h-5" />
               </Button>
@@ -337,10 +337,10 @@ export default function ProductDetailEnhancedPage() {
 
             {/* Features */}
             <Card className="p-4 bg-white/10 backdrop-blur-xl border-white/20">
-              <h3 className="text-white font-semibold mb-3">Key Features</h3>
+              <h3 className="text-foreground font-semibold mb-3">Key Features</h3>
               <ul className="space-y-2">
                 {product.features.map((feature, index) => (
-                  <li key={index} className="flex items-center gap-2 text-gray-300">
+                  <li key={index} className="flex items-center gap-2 text-muted-foreground">
                     <Check className="w-4 h-4 text-green-400" />
                     {feature}
                   </li>
@@ -353,7 +353,7 @@ export default function ProductDetailEnhancedPage() {
         {/* Customer Q&A Section */}
         <Card className="p-6 bg-white/10 backdrop-blur-xl border-white/20 mb-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-white">Customer Questions & Answers</h2>
+            <h2 className="text-2xl font-bold text-foreground">Customer Questions & Answers</h2>
             <Button
               onClick={() => setShowQAForm(!showQAForm)}
               className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700"
@@ -369,7 +369,7 @@ export default function ProductDetailEnhancedPage() {
                 value={newQuestion}
                 onChange={(e) => setNewQuestion(e.target.value)}
                 placeholder="What would you like to know about this product?"
-                className="mb-3 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                className="mb-3 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
                 rows={3}
               />
               <div className="flex gap-2">
@@ -383,7 +383,7 @@ export default function ProductDetailEnhancedPage() {
                 <Button
                   variant="outline"
                   onClick={() => setShowQAForm(false)}
-                  className="border-white/20 text-white hover:bg-white/10"
+                  className="border-white/20 text-foreground hover:bg-white/10"
                 >
                   Cancel
                 </Button>
@@ -398,7 +398,7 @@ export default function ProductDetailEnhancedPage() {
                   <div className="flex items-start gap-3">
                     <MessageSquare className="w-5 h-5 text-purple-400 mt-1" />
                     <div className="flex-1">
-                      <p className="text-white font-semibold mb-1">{qa.question}</p>
+                      <p className="text-foreground font-semibold mb-1">{qa.question}</p>
                       <p className="text-gray-400 text-sm">
                         Asked by {qa.author} on {qa.date}
                       </p>
@@ -416,7 +416,7 @@ export default function ProductDetailEnhancedPage() {
                         </Badge>
                       )}
                     </div>
-                    <p className="text-gray-300 mb-2">{qa.answer}</p>
+                    <p className="text-muted-foreground mb-2">{qa.answer}</p>
                     <div className="flex items-center justify-between">
                       <p className="text-gray-400 text-sm">
                         Answered by {qa.answeredBy} on {qa.answerDate}
@@ -424,7 +424,7 @@ export default function ProductDetailEnhancedPage() {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="text-gray-400 hover:text-white"
+                        className="text-gray-400 hover:text-foreground"
                       >
                         <ThumbsUp className="w-4 h-4 mr-1" />
                         Helpful ({qa.helpful})
@@ -439,14 +439,14 @@ export default function ProductDetailEnhancedPage() {
 
         {/* Reviews Section */}
         <Card className="p-6 bg-white/10 backdrop-blur-xl border-white/20">
-          <h2 className="text-2xl font-bold text-white mb-6">Customer Reviews</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Customer Reviews</h2>
           <div className="space-y-6">
             {reviews.map((review) => (
               <div key={review.id} className="border-b border-white/10 pb-6 last:border-0">
                 <div className="flex items-start justify-between mb-3">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-white font-semibold">{review.author}</span>
+                      <span className="text-foreground font-semibold">{review.author}</span>
                       {review.verified && (
                         <Badge className="bg-green-600 text-xs">
                           <Check className="w-3 h-3 mr-1" />
@@ -469,11 +469,11 @@ export default function ProductDetailEnhancedPage() {
                   </div>
                   <span className="text-gray-400 text-sm">{review.date}</span>
                 </div>
-                <p className="text-gray-300 mb-3">{review.content}</p>
+                <p className="text-muted-foreground mb-3">{review.content}</p>
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-gray-400 hover:text-white"
+                  className="text-gray-400 hover:text-foreground"
                 >
                   <ThumbsUp className="w-4 h-4 mr-1" />
                   Helpful ({review.helpful})
@@ -496,10 +496,10 @@ export default function ProductDetailEnhancedPage() {
 
       {/* Lightbox Modal */}
       {showLightbox && (
-        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-background/90 z-50 flex items-center justify-center p-4 text-foreground">
           <button
             onClick={() => setShowLightbox(false)}
-            className="absolute top-4 right-4 text-white hover:text-gray-300"
+            className="absolute top-4 right-4 text-foreground hover:text-muted-foreground"
           >
             <X className="w-8 h-8" />
           </button>
@@ -508,7 +508,7 @@ export default function ProductDetailEnhancedPage() {
             onClick={() =>
               setSelectedImage((prev) => (prev === 0 ? product.images.length - 1 : prev - 1))
             }
-            className="absolute left-4 text-white hover:text-gray-300"
+            className="absolute left-4 text-foreground hover:text-muted-foreground"
           >
             <ChevronLeft className="w-12 h-12" />
           </button>
@@ -523,7 +523,7 @@ export default function ProductDetailEnhancedPage() {
             onClick={() =>
               setSelectedImage((prev) => (prev === product.images.length - 1 ? 0 : prev + 1))
             }
-            className="absolute right-4 text-white hover:text-gray-300"
+            className="absolute right-4 text-foreground hover:text-muted-foreground"
           >
             <ChevronRight className="w-12 h-12" />
           </button>

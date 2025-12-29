@@ -93,11 +93,11 @@ export default function GiftCardsPage() {
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-white mb-4">
+          <h1 className="text-5xl font-bold text-foreground mb-4">
             <Gift className="inline w-12 h-12 mr-4" />
             Gift Cards
           </h1>
-          <p className="text-xl text-gray-300">
+          <p className="text-xl text-muted-foreground">
             Give the gift of choice with a Live Shopping Network gift card
           </p>
         </div>
@@ -117,7 +117,7 @@ export default function GiftCardsPage() {
                     )}
                     <div className="text-right">
                       <p className="text-white/80 text-sm">Gift Card</p>
-                      <p className="text-white font-bold text-2xl">
+                      <p className="text-foreground font-bold text-2xl">
                         ${finalAmount.toFixed(2)}
                       </p>
                     </div>
@@ -126,14 +126,14 @@ export default function GiftCardsPage() {
                   {/* Message Preview */}
                   {message && (
                     <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                      <p className="text-white text-sm italic">"{message}"</p>
+                      <p className="text-foreground text-sm italic">"{message}"</p>
                     </div>
                   )}
 
                   {/* Recipient Info */}
                   <div>
                     {recipientName && (
-                      <p className="text-white text-lg font-medium mb-1">
+                      <p className="text-foreground text-lg font-medium mb-1">
                         To: {recipientName}
                       </p>
                     )}
@@ -157,7 +157,7 @@ export default function GiftCardsPage() {
                   <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
                     <Check className="w-6 h-6 text-green-400" />
                   </div>
-                  <p className="text-white font-medium">No Expiration</p>
+                  <p className="text-foreground font-medium">No Expiration</p>
                   <p className="text-gray-400 text-sm">Never expires</p>
                 </CardContent>
               </Card>
@@ -167,7 +167,7 @@ export default function GiftCardsPage() {
                   <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
                     <Gift className="w-6 h-6 text-blue-400" />
                   </div>
-                  <p className="text-white font-medium">Instant Delivery</p>
+                  <p className="text-foreground font-medium">Instant Delivery</p>
                   <p className="text-gray-400 text-sm">Email delivery</p>
                 </CardContent>
               </Card>
@@ -179,7 +179,7 @@ export default function GiftCardsPage() {
             <CardContent className="p-6 space-y-6">
               {/* Amount Selection */}
               <div>
-                <Label className="text-white text-lg mb-3 block">Select Amount</Label>
+                <Label className="text-foreground text-lg mb-3 block">Select Amount</Label>
                 <div className="grid grid-cols-5 gap-2 mb-3">
                   {presetAmounts.map((amount) => (
                     <Button
@@ -188,7 +188,7 @@ export default function GiftCardsPage() {
                       className={
                         selectedAmount === amount && !customAmount
                           ? "bg-purple-600"
-                          : "bg-white/10 border-white/20 text-white hover:bg-white/20"
+                          : "bg-white/10 border-white/20 text-foreground hover:bg-white/20"
                       }
                       onClick={() => {
                         setSelectedAmount(amount);
@@ -200,13 +200,13 @@ export default function GiftCardsPage() {
                   ))}
                 </div>
                 <div>
-                  <Label className="text-white text-sm">Custom Amount ($10-$500)</Label>
+                  <Label className="text-foreground text-sm">Custom Amount ($10-$500)</Label>
                   <Input
                     type="number"
                     placeholder="Enter custom amount"
                     value={customAmount}
                     onChange={(e) => setCustomAmount(e.target.value)}
-                    className="bg-white/10 border-white/20 text-white"
+                    className="bg-white/10 border-white/20 text-foreground"
                     min="10"
                     max="500"
                   />
@@ -215,7 +215,7 @@ export default function GiftCardsPage() {
 
               {/* Design Selection */}
               <div>
-                <Label className="text-white text-lg mb-3 block">Choose Design</Label>
+                <Label className="text-foreground text-lg mb-3 block">Choose Design</Label>
                 <RadioGroup value={selectedDesign} onValueChange={setSelectedDesign}>
                   <div className="grid grid-cols-2 gap-3">
                     {designs.map((design) => (
@@ -235,9 +235,9 @@ export default function GiftCardsPage() {
                           <div
                             className={`w-full h-24 rounded-lg bg-gradient-to-br ${design.gradient} flex items-center justify-center mb-2`}
                           >
-                            <design.icon className="w-8 h-8 text-white" />
+                            <design.icon className="w-8 h-8 text-foreground" />
                           </div>
-                          <p className="text-white text-sm font-medium text-center">
+                          <p className="text-foreground text-sm font-medium text-center">
                             {design.name}
                           </p>
                         </div>
@@ -250,43 +250,43 @@ export default function GiftCardsPage() {
               {/* Recipient Info */}
               <div className="space-y-3">
                 <div>
-                  <Label className="text-white">Recipient Email *</Label>
+                  <Label className="text-foreground">Recipient Email *</Label>
                   <Input
                     type="email"
                     placeholder="recipient@example.com"
                     value={recipientEmail}
                     onChange={(e) => setRecipientEmail(e.target.value)}
-                    className="bg-white/10 border-white/20 text-white"
+                    className="bg-white/10 border-white/20 text-foreground"
                   />
                 </div>
 
                 <div>
-                  <Label className="text-white">Recipient Name (Optional)</Label>
+                  <Label className="text-foreground">Recipient Name (Optional)</Label>
                   <Input
                     placeholder="John Doe"
                     value={recipientName}
                     onChange={(e) => setRecipientName(e.target.value)}
-                    className="bg-white/10 border-white/20 text-white"
+                    className="bg-white/10 border-white/20 text-foreground"
                   />
                 </div>
 
                 <div>
-                  <Label className="text-white">Your Name (Optional)</Label>
+                  <Label className="text-foreground">Your Name (Optional)</Label>
                   <Input
                     placeholder="Your name"
                     value={senderName}
                     onChange={(e) => setSenderName(e.target.value)}
-                    className="bg-white/10 border-white/20 text-white"
+                    className="bg-white/10 border-white/20 text-foreground"
                   />
                 </div>
 
                 <div>
-                  <Label className="text-white">Personal Message (Optional)</Label>
+                  <Label className="text-foreground">Personal Message (Optional)</Label>
                   <Textarea
                     placeholder="Add a personal message..."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="bg-white/10 border-white/20 text-white"
+                    className="bg-white/10 border-white/20 text-foreground"
                     rows={3}
                     maxLength={200}
                   />
@@ -298,23 +298,23 @@ export default function GiftCardsPage() {
 
               {/* Delivery Options */}
               <div>
-                <Label className="text-white text-lg mb-3 block">Delivery</Label>
+                <Label className="text-foreground text-lg mb-3 block">Delivery</Label>
                 <RadioGroup value={deliveryDate} onValueChange={setDeliveryDate}>
                   <div className="space-y-2">
                     <label className="flex items-center gap-3 p-3 rounded-lg border border-white/20 bg-white/5 hover:bg-white/10 cursor-pointer">
                       <RadioGroupItem value="now" />
                       <div>
-                        <p className="text-white font-medium">Send Now</p>
+                        <p className="text-foreground font-medium">Send Now</p>
                         <p className="text-gray-400 text-sm">Instant email delivery</p>
                       </div>
                     </label>
                     <label className="flex items-center gap-3 p-3 rounded-lg border border-white/20 bg-white/5 hover:bg-white/10 cursor-pointer">
                       <RadioGroupItem value="schedule" />
                       <div className="flex-1">
-                        <p className="text-white font-medium">Schedule Delivery</p>
+                        <p className="text-foreground font-medium">Schedule Delivery</p>
                         <Input
                           type="date"
-                          className="mt-2 bg-white/10 border-white/20 text-white"
+                          className="mt-2 bg-white/10 border-white/20 text-foreground"
                           disabled={deliveryDate !== "schedule"}
                         />
                       </div>
@@ -326,8 +326,8 @@ export default function GiftCardsPage() {
               {/* Purchase Button */}
               <div className="pt-4">
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-white text-lg">Total:</span>
-                  <span className="text-white text-3xl font-bold">
+                  <span className="text-foreground text-lg">Total:</span>
+                  <span className="text-foreground text-3xl font-bold">
                     ${finalAmount.toFixed(2)}
                   </span>
                 </div>
@@ -348,7 +348,7 @@ export default function GiftCardsPage() {
 
         {/* FAQ Section */}
         <div className="mt-16 max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-white text-center mb-8">
+          <h2 className="text-3xl font-bold text-foreground text-center mb-8">
             Frequently Asked Questions
           </h2>
           <div className="space-y-4">
@@ -372,7 +372,7 @@ export default function GiftCardsPage() {
             ].map((faq, idx) => (
               <Card key={idx} className="bg-white/5 border-white/10 backdrop-blur-xl">
                 <CardContent className="p-4">
-                  <p className="text-white font-medium mb-2">{faq.q}</p>
+                  <p className="text-foreground font-medium mb-2">{faq.q}</p>
                   <p className="text-gray-400 text-sm">{faq.a}</p>
                 </CardContent>
               </Card>

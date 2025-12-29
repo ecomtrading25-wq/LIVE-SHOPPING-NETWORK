@@ -35,7 +35,7 @@ export default function ChannelsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Channels</h1>
+          <h1 className="text-3xl font-bold text-foreground">Channels</h1>
           <p className="text-gray-400 mt-1">Manage marketplace connections and integrations</p>
         </div>
 
@@ -46,9 +46,9 @@ export default function ChannelsPage() {
               Add Channel
             </Button>
           </DialogTrigger>
-          <DialogContent className="bg-zinc-900 border-zinc-800">
+          <DialogContent className="bg-background border-border text-foreground">
             <DialogHeader>
-              <DialogTitle className="text-white">Add New Channel</DialogTitle>
+              <DialogTitle className="text-foreground">Add New Channel</DialogTitle>
               <DialogDescription className="text-gray-400">
                 Connect a new marketplace or sales channel
               </DialogDescription>
@@ -65,7 +65,7 @@ export default function ChannelsPage() {
         ))}
 
         {!channels || channels.length === 0 ? (
-          <Card className="col-span-full p-12 bg-zinc-900 border-zinc-800 text-center">
+          <Card className="col-span-full p-12 bg-background border-border text-center">
             <p className="text-gray-400 mb-4">No channels connected yet</p>
             <Button onClick={() => setDialogOpen(true)}>
               <Plus className="w-4 h-4 mr-2" />
@@ -112,16 +112,16 @@ function ChannelCard({ channel, onUpdate }: { channel: any; onUpdate: () => void
   };
 
   return (
-    <Card className="p-6 bg-zinc-900 border-zinc-800 hover:border-zinc-700 transition-colors">
+    <Card className="p-6 bg-background border-border hover:border-zinc-700 transition-colors text-foreground">
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
           <div className={`w-10 h-10 ${getPlatformColor(channel.platform)} rounded-lg flex items-center justify-center`}>
-            <span className="text-white font-bold text-sm">
+            <span className="text-foreground font-bold text-sm">
               {channel.platform.substring(0, 2).toUpperCase()}
             </span>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-white">{channel.name}</h3>
+            <h3 className="text-lg font-semibold text-foreground">{channel.name}</h3>
             <p className="text-sm text-gray-400">{channel.slug}</p>
           </div>
         </div>
@@ -139,7 +139,7 @@ function ChannelCard({ channel, onUpdate }: { channel: any; onUpdate: () => void
         {channel.lastSyncAt && (
           <div className="flex items-center justify-between text-sm">
             <span className="text-gray-400">Last Sync</span>
-            <span className="text-white">
+            <span className="text-foreground">
               {new Date(channel.lastSyncAt).toLocaleString()}
             </span>
           </div>
@@ -189,12 +189,12 @@ function AddChannelForm({ onSuccess }: { onSuccess: () => void }) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <Label htmlFor="platform" className="text-white">Platform</Label>
+        <Label htmlFor="platform" className="text-foreground">Platform</Label>
         <Select value={platform} onValueChange={setPlatform}>
-          <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
+          <SelectTrigger className="bg-card border-zinc-700 text-foreground">
             <SelectValue placeholder="Select platform" />
           </SelectTrigger>
-          <SelectContent className="bg-zinc-800 border-zinc-700">
+          <SelectContent className="bg-card border-zinc-700 text-card-foreground">
             <SelectItem value="shopify">Shopify</SelectItem>
             <SelectItem value="tiktok_shop">TikTok Shop</SelectItem>
             <SelectItem value="amazon">Amazon</SelectItem>
@@ -206,25 +206,25 @@ function AddChannelForm({ onSuccess }: { onSuccess: () => void }) {
       </div>
 
       <div>
-        <Label htmlFor="name" className="text-white">Channel Name</Label>
+        <Label htmlFor="name" className="text-foreground">Channel Name</Label>
         <Input
           id="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="My Store"
-          className="bg-zinc-800 border-zinc-700 text-white"
+          className="bg-card border-zinc-700 text-foreground"
           required
         />
       </div>
 
       <div>
-        <Label htmlFor="slug" className="text-white">Slug</Label>
+        <Label htmlFor="slug" className="text-foreground">Slug</Label>
         <Input
           id="slug"
           value={slug}
           onChange={(e) => setSlug(e.target.value)}
           placeholder="my-store"
-          className="bg-zinc-800 border-zinc-700 text-white"
+          className="bg-card border-zinc-700 text-foreground"
           required
         />
       </div>

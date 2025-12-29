@@ -233,7 +233,7 @@ export default function LiveStudio() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
@@ -250,7 +250,7 @@ export default function LiveStudio() {
             )}
             <div className="flex items-center gap-2 text-gray-400">
               <Users className="w-5 h-5" />
-              <span className="text-2xl font-bold text-white">{viewerCount}</span>
+              <span className="text-2xl font-bold text-foreground">{viewerCount}</span>
               <span className="text-sm">viewers</span>
             </div>
           </div>
@@ -259,12 +259,12 @@ export default function LiveStudio() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main Video Preview */}
           <div className="lg:col-span-2 space-y-4">
-            <Card className="bg-gray-800 border-gray-700 overflow-hidden">
-              <div className="relative aspect-video bg-black">
+            <Card className="bg-card border-border overflow-hidden text-card-foreground">
+              <div className="relative aspect-video bg-background text-foreground">
                 <div ref={videoRef} className="w-full h-full" />
                 
                 {!isLive && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-gray-900/50">
+                  <div className="absolute inset-0 flex items-center justify-center bg-background/50 text-foreground">
                     <div className="text-center">
                       <Video className="w-16 h-16 mx-auto mb-4 text-gray-500" />
                       <p className="text-gray-400 mb-4">Ready to go live</p>
@@ -284,19 +284,19 @@ export default function LiveStudio() {
                 {isLive && (
                   <div className="absolute top-4 left-4 right-4 flex items-start justify-between">
                     <div className="space-y-2">
-                      <Badge className="bg-black/60 backdrop-blur">
+                      <Badge className="bg-background/60 backdrop-blur text-foreground">
                         {streamStats.resolution} • {streamStats.frameRate}fps
                       </Badge>
-                      <div className="flex items-center gap-2 bg-black/60 backdrop-blur px-3 py-1 rounded-full">
+                      <div className="flex items-center gap-2 bg-background/60 backdrop-blur px-3 py-1 rounded-full text-foreground">
                         {getHealthIcon()}
                         <span className="text-sm capitalize">{streamHealth}</span>
                       </div>
                     </div>
                     <div className="text-right space-y-2">
-                      <div className="bg-black/60 backdrop-blur px-3 py-1 rounded-full text-sm">
+                      <div className="bg-background/60 backdrop-blur px-3 py-1 rounded-full text-sm">
                         {Math.floor(streamStats.duration / 60)}:{(streamStats.duration % 60).toString().padStart(2, '0')}
                       </div>
-                      <div className="bg-black/60 backdrop-blur px-3 py-1 rounded-full text-sm">
+                      <div className="bg-background/60 backdrop-blur px-3 py-1 rounded-full text-sm">
                         {streamStats.bitrate} kbps
                       </div>
                     </div>
@@ -305,7 +305,7 @@ export default function LiveStudio() {
               </div>
 
               {/* Controls */}
-              <div className="p-4 bg-gray-800 border-t border-gray-700">
+              <div className="p-4 bg-card border-t border-border text-card-foreground">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <Button
@@ -353,22 +353,22 @@ export default function LiveStudio() {
 
             {/* Stream Stats */}
             <div className="grid grid-cols-4 gap-4">
-              <Card className="bg-gray-800 border-gray-700 p-4">
+              <Card className="bg-card border-border p-4 text-card-foreground">
                 <p className="text-sm text-gray-400 mb-1">Bitrate</p>
                 <p className="text-2xl font-bold">{streamStats.bitrate}</p>
                 <p className="text-xs text-gray-500">kbps</p>
               </Card>
-              <Card className="bg-gray-800 border-gray-700 p-4">
+              <Card className="bg-card border-border p-4 text-card-foreground">
                 <p className="text-sm text-gray-400 mb-1">Frame Rate</p>
                 <p className="text-2xl font-bold">{streamStats.frameRate}</p>
                 <p className="text-xs text-gray-500">fps</p>
               </Card>
-              <Card className="bg-gray-800 border-gray-700 p-4">
+              <Card className="bg-card border-border p-4 text-card-foreground">
                 <p className="text-sm text-gray-400 mb-1">Latency</p>
                 <p className="text-2xl font-bold">{streamStats.latency}</p>
                 <p className="text-xs text-gray-500">ms</p>
               </Card>
-              <Card className="bg-gray-800 border-gray-700 p-4">
+              <Card className="bg-card border-border p-4 text-card-foreground">
                 <p className="text-sm text-gray-400 mb-1">Dropped</p>
                 <p className="text-2xl font-bold">{streamStats.droppedFrames}</p>
                 <p className="text-xs text-gray-500">frames</p>
@@ -396,7 +396,7 @@ export default function LiveStudio() {
 
               {/* Chat Tab */}
               <TabsContent value="chat" className="mt-4">
-                <Card className="bg-gray-800 border-gray-700 h-[600px] flex flex-col">
+                <Card className="bg-card border-border h-[600px] flex flex-col text-card-foreground">
                   <div className="flex-1 overflow-y-auto p-4 space-y-3">
                     {chatMessages.map(msg => (
                       <div key={msg.id} className="bg-gray-700/50 rounded-lg p-3">
@@ -410,7 +410,7 @@ export default function LiveStudio() {
                       </div>
                     ))}
                   </div>
-                  <div className="p-4 border-t border-gray-700">
+                  <div className="p-4 border-t border-border">
                     <input
                       type="text"
                       placeholder="Send a message..."
@@ -423,7 +423,7 @@ export default function LiveStudio() {
 
               {/* Products Tab */}
               <TabsContent value="products" className="mt-4">
-                <Card className="bg-gray-800 border-gray-700 p-4 h-[600px] overflow-y-auto">
+                <Card className="bg-card border-border p-4 h-[600px] overflow-y-auto text-card-foreground">
                   <div className="space-y-3">
                     {featuredProducts.map(product => (
                       <div
@@ -431,7 +431,7 @@ export default function LiveStudio() {
                         className={`p-4 rounded-lg border-2 transition-colors ${
                           product.isPinned
                             ? 'border-purple-500 bg-purple-500/10'
-                            : 'border-gray-700 bg-gray-700/50'
+                            : 'border-border bg-gray-700/50'
                         }`}
                       >
                         <div className="flex gap-3">
@@ -465,7 +465,7 @@ export default function LiveStudio() {
 
               {/* Analytics Tab */}
               <TabsContent value="analytics" className="mt-4">
-                <Card className="bg-gray-800 border-gray-700 p-4 space-y-4">
+                <Card className="bg-card border-border p-4 space-y-4 text-card-foreground">
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-sm text-gray-400">Peak Viewers</span>

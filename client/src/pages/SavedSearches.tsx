@@ -108,7 +108,7 @@ export default function SavedSearchesPage() {
               <Search className="w-8 h-8 text-purple-400" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold text-white">Saved Searches</h1>
+              <h1 className="text-4xl font-bold text-foreground">Saved Searches</h1>
               <p className="text-gray-400 mt-1">
                 Track your favorite searches and get notified of new products
               </p>
@@ -123,7 +123,7 @@ export default function SavedSearchesPage() {
                   <Search className="w-5 h-5 text-purple-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">
+                  <p className="text-2xl font-bold text-foreground">
                     {searches.length}
                   </p>
                   <p className="text-sm text-gray-400">Total Searches</p>
@@ -137,7 +137,7 @@ export default function SavedSearchesPage() {
                   <Bell className="w-5 h-5 text-green-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">
+                  <p className="text-2xl font-bold text-foreground">
                     {activeSearches.length}
                   </p>
                   <p className="text-sm text-gray-400">Active Alerts</p>
@@ -151,7 +151,7 @@ export default function SavedSearchesPage() {
                   <Package className="w-5 h-5 text-blue-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">
+                  <p className="text-2xl font-bold text-foreground">
                     {totalNewResults}
                   </p>
                   <p className="text-sm text-gray-400">New Results</p>
@@ -181,7 +181,7 @@ export default function SavedSearchesPage() {
                         <Input
                           value={editQuery}
                           onChange={(e) => setEditQuery(e.target.value)}
-                          className="bg-white/10 border-white/20 text-white"
+                          className="bg-white/10 border-white/20 text-foreground"
                           autoFocus
                         />
                         <Button
@@ -195,7 +195,7 @@ export default function SavedSearchesPage() {
                           onClick={handleCancelEdit}
                           size="sm"
                           variant="outline"
-                          className="border-gray-700"
+                          className="border-border"
                         >
                           <X className="w-4 h-4" />
                         </Button>
@@ -203,7 +203,7 @@ export default function SavedSearchesPage() {
                     ) : (
                       <div className="flex items-start justify-between mb-3">
                         <div>
-                          <h3 className="text-xl font-bold text-white mb-2">
+                          <h3 className="text-xl font-bold text-foreground mb-2">
                             "{search.query}"
                           </h3>
                           {search.newResults > 0 && (
@@ -219,7 +219,7 @@ export default function SavedSearchesPage() {
                             onClick={() => handleStartEdit(search)}
                             size="sm"
                             variant="ghost"
-                            className="text-gray-400 hover:text-white"
+                            className="text-gray-400 hover:text-foreground"
                           >
                             <Edit2 className="w-4 h-4" />
                           </Button>
@@ -232,7 +232,7 @@ export default function SavedSearchesPage() {
                             className={
                               search.notifications
                                 ? "text-green-400 hover:text-green-300"
-                                : "text-gray-400 hover:text-white"
+                                : "text-gray-400 hover:text-foreground"
                             }
                           >
                             {search.notifications ? (
@@ -326,10 +326,10 @@ export default function SavedSearchesPage() {
         ) : (
           <Card className="p-12 bg-white/5 border-white/10 text-center">
             <div className="flex flex-col items-center gap-4">
-              <div className="p-6 bg-gray-800 rounded-full">
+              <div className="p-6 bg-card rounded-full text-card-foreground">
                 <Search className="w-12 h-12 text-gray-400" />
               </div>
-              <h3 className="text-2xl font-bold text-white">
+              <h3 className="text-2xl font-bold text-foreground">
                 No Saved Searches
               </h3>
               <p className="text-gray-400 max-w-md">

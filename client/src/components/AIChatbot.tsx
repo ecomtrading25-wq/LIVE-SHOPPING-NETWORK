@@ -214,7 +214,7 @@ export default function AIChatbot({
 
   const themeClasses = {
     light: 'bg-white text-gray-900',
-    dark: 'bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white',
+    dark: 'bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-foreground',
   };
 
   if (!isOpen) {
@@ -225,11 +225,11 @@ export default function AIChatbot({
           className="rounded-full w-16 h-16 shadow-2xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 relative group"
           onClick={() => setIsOpen(true)}
         >
-          <Bot className="w-8 h-8 text-white" />
+          <Bot className="w-8 h-8 text-foreground" />
           <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse" />
           
           {/* Tooltip */}
-          <div className="absolute bottom-full mb-2 right-0 bg-black/80 text-white text-sm px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+          <div className="absolute bottom-full mb-2 right-0 bg-background/80 text-foreground text-sm px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
             Chat with AI Assistant
           </div>
         </Button>
@@ -256,7 +256,7 @@ export default function AIChatbot({
               <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white" />
             </div>
             <div>
-              <h3 className="font-bold text-white flex items-center gap-2">
+              <h3 className="font-bold text-foreground flex items-center gap-2">
                 AI Assistant
                 <Sparkles className="w-4 h-4" />
               </h3>
@@ -268,7 +268,7 @@ export default function AIChatbot({
             <Button
               variant="ghost"
               size="icon"
-              className="text-white hover:bg-white/20"
+              className="text-foreground hover:bg-white/20"
               onClick={() => setIsMinimized(!isMinimized)}
             >
               {isMinimized ? (
@@ -280,7 +280,7 @@ export default function AIChatbot({
             <Button
               variant="ghost"
               size="icon"
-              className="text-white hover:bg-white/20"
+              className="text-foreground hover:bg-white/20"
               onClick={() => setIsOpen(false)}
             >
               <X className="w-5 h-5" />
@@ -303,7 +303,7 @@ export default function AIChatbot({
                     {message.role === 'assistant' && (
                       <Avatar className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500">
                         <AvatarFallback>
-                          <Bot className="w-5 h-5 text-white" />
+                          <Bot className="w-5 h-5 text-foreground" />
                         </AvatarFallback>
                       </Avatar>
                     )}
@@ -311,7 +311,7 @@ export default function AIChatbot({
                     {message.role === 'user' && (
                       <Avatar className="w-8 h-8 bg-white/10">
                         <AvatarFallback>
-                          <User className="w-5 h-5 text-white" />
+                          <User className="w-5 h-5 text-foreground" />
                         </AvatarFallback>
                       </Avatar>
                     )}
@@ -321,8 +321,8 @@ export default function AIChatbot({
                       <div
                         className={`p-3 rounded-lg ${
                           message.role === 'user'
-                            ? 'bg-purple-600 text-white ml-auto max-w-[80%]'
-                            : 'bg-white/10 backdrop-blur text-white'
+                            ? 'bg-purple-600 text-foreground ml-auto max-w-[80%]'
+                            : 'bg-white/10 backdrop-blur text-foreground'
                         }`}
                       >
                         {message.role === 'assistant' ? (
@@ -348,7 +348,7 @@ export default function AIChatbot({
                                   className="w-12 h-12 object-cover rounded"
                                 />
                                 <div className="flex-1">
-                                  <p className="text-white font-semibold text-sm">
+                                  <p className="text-foreground font-semibold text-sm">
                                     {product.name}
                                   </p>
                                   <p className="text-purple-300 font-bold">
@@ -386,7 +386,7 @@ export default function AIChatbot({
                               key={idx}
                               variant="outline"
                               size="sm"
-                              className="bg-white/5 border-white/20 text-white hover:bg-white/10"
+                              className="bg-white/5 border-white/20 text-foreground hover:bg-white/10"
                               onClick={() => handleSuggestionClick(suggestion)}
                             >
                               {suggestion}
@@ -401,7 +401,7 @@ export default function AIChatbot({
                           <Button
                             variant="ghost"
                             size="icon"
-                            className="h-6 w-6 text-white/60 hover:text-white"
+                            className="h-6 w-6 text-white/60 hover:text-foreground"
                             onClick={() => handleCopyMessage(message.content)}
                           >
                             <Copy className="w-3 h-3" />
@@ -460,7 +460,7 @@ export default function AIChatbot({
                   <div className="flex gap-3">
                     <Avatar className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500">
                       <AvatarFallback>
-                        <Bot className="w-5 h-5 text-white" />
+                        <Bot className="w-5 h-5 text-foreground" />
                       </AvatarFallback>
                     </Avatar>
                     <div className="bg-white/10 backdrop-blur p-3 rounded-lg">
@@ -483,7 +483,7 @@ export default function AIChatbot({
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-white/60 hover:text-white"
+                  className="text-white/60 hover:text-foreground"
                   onClick={() => handleSuggestionClick('Track my order')}
                 >
                   <Package className="w-4 h-4 mr-2" />
@@ -492,7 +492,7 @@ export default function AIChatbot({
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-white/60 hover:text-white"
+                  className="text-white/60 hover:text-foreground"
                   onClick={() => handleSuggestionClick('Show me deals')}
                 >
                   <ShoppingBag className="w-4 h-4 mr-2" />
@@ -501,7 +501,7 @@ export default function AIChatbot({
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-white/60 hover:text-white"
+                  className="text-white/60 hover:text-foreground"
                   onClick={() => handleSuggestionClick('Payment help')}
                 >
                   <CreditCard className="w-4 h-4 mr-2" />
@@ -510,7 +510,7 @@ export default function AIChatbot({
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-white/60 hover:text-white"
+                  className="text-white/60 hover:text-foreground"
                   onClick={handleReset}
                 >
                   <RotateCcw className="w-4 h-4 mr-2" />
@@ -533,7 +533,7 @@ export default function AIChatbot({
                       handleSend();
                     }
                   }}
-                  className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-white/40"
+                  className="flex-1 bg-white/10 border-white/20 text-foreground placeholder:text-white/40"
                   disabled={isTyping}
                 />
                 <Button

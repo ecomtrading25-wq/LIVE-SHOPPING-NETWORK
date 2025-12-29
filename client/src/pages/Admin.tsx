@@ -125,19 +125,19 @@ function AdminDashboardContent({ location, sidebarOpen, setSidebarOpen }: { loca
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950">
+    <div className="min-h-screen bg-background">
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full bg-zinc-900 border-r border-zinc-800 transition-all duration-300 z-50 ${
+        className={`fixed top-0 left-0 h-full bg-background border-r border-border transition-all duration-300 z-50 ${
           sidebarOpen ? "w-64" : "w-0"
         } overflow-hidden`}
       >
         <div className="p-6">
           <div className="flex items-center justify-between mb-8">
-            <h1 className="text-xl font-bold text-white">LSN Admin</h1>
+            <h1 className="text-xl font-bold text-foreground">LSN Admin</h1>
             <button
               onClick={() => setSidebarOpen(false)}
-              className="lg:hidden text-gray-400 hover:text-white"
+              className="lg:hidden text-gray-400 hover:text-foreground"
             >
               <X className="w-5 h-5" />
             </button>
@@ -153,8 +153,8 @@ function AdminDashboardContent({ location, sidebarOpen, setSidebarOpen }: { loca
                   <a
                     className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
                       active
-                        ? "bg-purple-600 text-white"
-                        : "text-gray-400 hover:bg-zinc-800 hover:text-white"
+                        ? "bg-purple-600 text-foreground"
+                        : "text-gray-400 hover:bg-card hover:text-foreground"
                     }`}
                   >
                     <Icon className="w-5 h-5" />
@@ -206,11 +206,11 @@ function AdminDashboardContent({ location, sidebarOpen, setSidebarOpen }: { loca
         }`}
       >
         {/* Top Bar */}
-        <header className="bg-zinc-900 border-b border-zinc-800 px-6 py-4">
+        <header className="bg-background border-b border-border px-6 py-4 text-foreground">
           <div className="flex items-center justify-between">
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="text-gray-400 hover:text-white"
+              className="text-gray-400 hover:text-foreground"
             >
               <Menu className="w-6 h-6" />
             </button>
@@ -290,15 +290,15 @@ function DashboardOverview() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-white">Operations Dashboard</h1>
+      <h1 className="text-3xl font-bold text-foreground">Operations Dashboard</h1>
 
       {/* Key Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Pending Orders</p>
-              <p className="text-3xl font-bold text-white mt-1">
+              <p className="text-3xl font-bold text-foreground mt-1">
                 {dashboard?.pendingOrders || 0}
               </p>
             </div>
@@ -308,11 +308,11 @@ function DashboardOverview() {
           </div>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Open Disputes</p>
-              <p className="text-3xl font-bold text-white mt-1">
+              <p className="text-3xl font-bold text-foreground mt-1">
                 {dashboard?.openDisputes || 0}
               </p>
             </div>
@@ -322,11 +322,11 @@ function DashboardOverview() {
           </div>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Open Tasks</p>
-              <p className="text-3xl font-bold text-white mt-1">
+              <p className="text-3xl font-bold text-foreground mt-1">
                 {dashboard?.openTasks || 0}
               </p>
             </div>
@@ -336,11 +336,11 @@ function DashboardOverview() {
           </div>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Total Revenue</p>
-              <p className="text-3xl font-bold text-white mt-1">
+              <p className="text-3xl font-bold text-foreground mt-1">
                 ${analytics?.totalRevenue || "0.00"}
               </p>
             </div>
@@ -352,8 +352,8 @@ function DashboardOverview() {
       </div>
 
       {/* Quick Actions */}
-      <Card className="p-6 bg-zinc-900 border-zinc-800">
-        <h2 className="text-xl font-bold text-white mb-4">Quick Actions</h2>
+      <Card className="p-6 bg-background border-border text-foreground">
+        <h2 className="text-xl font-bold text-foreground mb-4">Quick Actions</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <Link href="/admin/live">
             <Button className="w-full" variant="outline">

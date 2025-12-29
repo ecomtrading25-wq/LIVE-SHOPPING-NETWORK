@@ -152,7 +152,7 @@ export default function LiveShowPage() {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-black to-pink-900">
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-pink-500 mx-auto mb-4"></div>
-          <p className="text-white text-lg">Loading live show...</p>
+          <p className="text-foreground text-lg">Loading live show...</p>
         </div>
       </div>
     );
@@ -161,9 +161,9 @@ export default function LiveShowPage() {
   if (!show) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-black to-pink-900">
-        <Card className="bg-black/50 border-pink-500/20">
+        <Card className="bg-background/50 border-pink-500/20 text-foreground">
           <CardContent className="p-8 text-center">
-            <p className="text-white text-xl mb-4">Show not found</p>
+            <p className="text-foreground text-xl mb-4">Show not found</p>
             <Button onClick={() => setLocation('/')} variant="outline">
               Back to Home
             </Button>
@@ -180,8 +180,8 @@ export default function LiveShowPage() {
           {/* Main Video Section */}
           <div className="lg:col-span-2 space-y-4">
             {/* Video Player */}
-            <Card className="bg-black border-pink-500/20 overflow-hidden">
-              <div className="relative aspect-video bg-black">
+            <Card className="bg-background border-pink-500/20 overflow-hidden text-foreground">
+              <div className="relative aspect-video bg-background text-foreground">
                 {/* Placeholder video player - replace with actual streaming */}
                 <video
                   ref={videoRef}
@@ -197,7 +197,7 @@ export default function LiveShowPage() {
                 {/* LIVE Badge */}
                 {show.status === 'LIVE' && (
                   <div className="absolute top-4 left-4">
-                    <Badge className="bg-red-500 text-white animate-pulse">
+                    <Badge className="bg-red-500 text-foreground animate-pulse">
                       <div className="w-2 h-2 bg-white rounded-full mr-2 animate-ping"></div>
                       LIVE
                     </Badge>
@@ -205,9 +205,9 @@ export default function LiveShowPage() {
                 )}
 
                 {/* Viewer Count */}
-                <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-2">
+                <div className="absolute top-4 right-4 bg-background/70 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-2 text-foreground">
                   <Eye className="w-4 h-4 text-pink-400" />
-                  <span className="text-white font-semibold">{viewerCount.toLocaleString()}</span>
+                  <span className="text-foreground font-semibold">{viewerCount.toLocaleString()}</span>
                 </div>
 
                 {/* Video Controls */}
@@ -215,7 +215,7 @@ export default function LiveShowPage() {
                   <Button
                     size="icon"
                     variant="secondary"
-                    className="bg-black/70 backdrop-blur-sm hover:bg-black/90"
+                    className="bg-background/70 backdrop-blur-sm hover:bg-background/90 text-foreground"
                     onClick={() => setIsMuted(!isMuted)}
                   >
                     {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
@@ -223,7 +223,7 @@ export default function LiveShowPage() {
                   <Button
                     size="icon"
                     variant="secondary"
-                    className="bg-black/70 backdrop-blur-sm hover:bg-black/90"
+                    className="bg-background/70 backdrop-blur-sm hover:bg-background/90 text-foreground"
                     onClick={toggleFullscreen}
                   >
                     <Maximize className="w-4 h-4" />
@@ -240,15 +240,15 @@ export default function LiveShowPage() {
             </Card>
 
             {/* Host Info */}
-            <Card className="bg-black/50 border-pink-500/20">
+            <Card className="bg-background/50 border-pink-500/20 text-foreground">
               <CardContent className="p-6">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-white text-2xl font-bold">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-foreground text-2xl font-bold">
                       {show.title.charAt(0)}
                     </div>
                     <div>
-                      <h1 className="text-2xl font-bold text-white mb-1">{show.title}</h1>
+                      <h1 className="text-2xl font-bold text-foreground mb-1">{show.title}</h1>
                       <p className="text-gray-400">{show.description}</p>
                       <div className="flex items-center gap-4 mt-2">
                         <span className="text-sm text-gray-500 flex items-center gap-1">
@@ -290,9 +290,9 @@ export default function LiveShowPage() {
 
             {/* Featured Products */}
             {products.length > 0 && (
-              <Card className="bg-black/50 border-pink-500/20">
+              <Card className="bg-background/50 border-pink-500/20 text-foreground">
                 <CardContent className="p-6">
-                  <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                  <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                     <ShoppingCart className="w-5 h-5 text-pink-400" />
                     Featured Products
                   </h2>
@@ -303,7 +303,7 @@ export default function LiveShowPage() {
                           <div className="aspect-square bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg mb-3 flex items-center justify-center">
                             <ShoppingCart className="w-12 h-12 text-pink-400 group-hover:scale-110 transition-transform" />
                           </div>
-                          <h3 className="font-semibold text-white text-sm mb-1 line-clamp-2">
+                          <h3 className="font-semibold text-foreground text-sm mb-1 line-clamp-2">
                             Product {product.productId}
                           </h3>
                           <div className="flex items-center justify-between">
@@ -324,7 +324,7 @@ export default function LiveShowPage() {
           {/* Chat & Interaction Sidebar */}
           <div className="space-y-4">
             {/* Interaction Buttons */}
-            <Card className="bg-black/50 border-pink-500/20">
+            <Card className="bg-background/50 border-pink-500/20 text-foreground">
               <CardContent className="p-4">
                 <div className="grid grid-cols-3 gap-2">
                   <Button
@@ -355,9 +355,9 @@ export default function LiveShowPage() {
             </Card>
 
             {/* Chat Section */}
-            <Card className="bg-black/50 border-pink-500/20 h-[600px] flex flex-col">
+            <Card className="bg-background/50 border-pink-500/20 h-[600px] flex flex-col text-foreground">
               <div className="p-4 border-b border-pink-500/20">
-                <h3 className="font-bold text-white flex items-center gap-2">
+                <h3 className="font-bold text-foreground flex items-center gap-2">
                   <MessageCircle className="w-5 h-5 text-pink-400" />
                   Live Chat
                   <Badge variant="secondary" className="ml-auto">{messages.length}</Badge>
@@ -368,17 +368,17 @@ export default function LiveShowPage() {
                 <div className="space-y-3">
                   {messages.map((msg) => (
                     <div key={msg.id} className="flex gap-2">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-foreground text-xs font-bold flex-shrink-0">
                         {msg.userId.slice(0, 2).toUpperCase()}
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
-                          <span className="text-sm font-semibold text-white">User {msg.userId.slice(-4)}</span>
+                          <span className="text-sm font-semibold text-foreground">User {msg.userId.slice(-4)}</span>
                           <span className="text-xs text-gray-500">
                             {new Date(msg.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                           </span>
                         </div>
-                        <p className="text-sm text-gray-300 break-words">{msg.message}</p>
+                        <p className="text-sm text-muted-foreground break-words">{msg.message}</p>
                       </div>
                     </div>
                   ))}
@@ -392,7 +392,7 @@ export default function LiveShowPage() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-                    className="bg-white/5 border-pink-500/20 text-white placeholder:text-gray-500"
+                    className="bg-white/5 border-pink-500/20 text-foreground placeholder:text-gray-500"
                   />
                   <Button
                     onClick={handleSendMessage}
@@ -410,11 +410,11 @@ export default function LiveShowPage() {
 
       {/* Gift Modal */}
       {showGiftModal && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center z-50 p-4 text-foreground">
           <Card className="bg-gradient-to-br from-purple-900 to-black border-pink-500/20 max-w-2xl w-full">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
                   <Gift className="w-6 h-6 text-pink-400" />
                   Send a Gift
                 </h2>
@@ -438,7 +438,7 @@ export default function LiveShowPage() {
                   >
                     <CardContent className="p-4 text-center">
                       <div className="text-4xl mb-2">{gift.icon}</div>
-                      <h3 className="font-semibold text-white text-sm mb-1">{gift.name}</h3>
+                      <h3 className="font-semibold text-foreground text-sm mb-1">{gift.name}</h3>
                       <p className="text-pink-400 font-bold">${gift.price}</p>
                     </CardContent>
                   </Card>

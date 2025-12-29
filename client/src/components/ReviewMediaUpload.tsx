@@ -135,7 +135,7 @@ export default function ReviewMediaUpload({
           ${
             isDragging
               ? "border-purple-500 bg-purple-500/10"
-              : "border-gray-700 hover:border-purple-500/50 bg-white/5"
+              : "border-border hover:border-purple-500/50 bg-white/5"
           }
         `}
       >
@@ -153,7 +153,7 @@ export default function ReviewMediaUpload({
             <Upload className="w-8 h-8 text-purple-400" />
           </div>
           <div>
-            <p className="text-white font-semibold mb-1">
+            <p className="text-foreground font-semibold mb-1">
               Click or drag files to upload
             </p>
             <p className="text-sm text-gray-400">
@@ -201,7 +201,7 @@ export default function ReviewMediaUpload({
                 className="relative p-2 bg-white/5 border-white/10 overflow-hidden"
               >
                 {/* Preview */}
-                <div className="relative aspect-square rounded-lg overflow-hidden bg-black/50">
+                <div className="relative aspect-square rounded-lg overflow-hidden bg-background/50 text-foreground">
                   {media.type === "image" ? (
                     <img
                       src={media.preview}
@@ -214,9 +214,9 @@ export default function ReviewMediaUpload({
                         src={media.preview}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                      <div className="absolute inset-0 flex items-center justify-center bg-background/30 text-foreground">
                         <div className="p-3 bg-white/20 rounded-full backdrop-blur-sm">
-                          <Play className="w-6 h-6 text-white" />
+                          <Play className="w-6 h-6 text-foreground" />
                         </div>
                       </div>
                     </div>
@@ -243,23 +243,23 @@ export default function ReviewMediaUpload({
                     onClick={() => handleRemoveFile(media.id)}
                     className="absolute top-2 right-2 p-1.5 bg-red-600 hover:bg-red-700 rounded-full transition-colors"
                   >
-                    <X className="w-4 h-4 text-white" />
+                    <X className="w-4 h-4 text-foreground" />
                   </button>
 
                   {/* Status Indicator */}
                   {media.status === "uploading" && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/60">
-                      <Loader2 className="w-8 h-8 text-white animate-spin" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-background/60 text-foreground">
+                      <Loader2 className="w-8 h-8 text-foreground animate-spin" />
                     </div>
                   )}
                   {media.status === "success" && (
                     <div className="absolute inset-0 flex items-center justify-center bg-green-600/60">
-                      <CheckCircle className="w-8 h-8 text-white" />
+                      <CheckCircle className="w-8 h-8 text-foreground" />
                     </div>
                   )}
                   {media.status === "error" && (
                     <div className="absolute inset-0 flex items-center justify-center bg-red-600/60">
-                      <AlertCircle className="w-8 h-8 text-white" />
+                      <AlertCircle className="w-8 h-8 text-foreground" />
                     </div>
                   )}
                 </div>
@@ -294,7 +294,7 @@ export default function ReviewMediaUpload({
         <h4 className="text-sm font-semibold text-blue-400 mb-2">
           Photo & Video Guidelines
         </h4>
-        <ul className="text-xs text-gray-300 space-y-1">
+        <ul className="text-xs text-muted-foreground space-y-1">
           <li>• Show the product clearly in good lighting</li>
           <li>• Include multiple angles and details</li>
           <li>• Videos should be under 60 seconds</li>
@@ -328,7 +328,7 @@ export function CustomerPhotoGallery({ photos }: CustomerPhotoGalleryProps) {
     return (
       <Card className="p-8 bg-white/5 border-white/10 text-center">
         <div className="flex flex-col items-center gap-3">
-          <div className="p-4 bg-gray-800 rounded-full">
+          <div className="p-4 bg-card rounded-full text-card-foreground">
             <ImageIcon className="w-8 h-8 text-gray-400" />
           </div>
           <p className="text-gray-400">No customer photos yet</p>
@@ -354,8 +354,8 @@ export function CustomerPhotoGallery({ photos }: CustomerPhotoGalleryProps) {
               alt={`Photo by ${photo.userName}`}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-              <ImageIcon className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 bg-background/0 group-hover:bg-background/40 transition-colors flex items-center justify-center text-foreground">
+              <ImageIcon className="w-6 h-6 text-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
           </button>
         ))}
@@ -364,14 +364,14 @@ export function CustomerPhotoGallery({ photos }: CustomerPhotoGalleryProps) {
       {/* Lightbox */}
       {selectedPhoto && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-background/90 flex items-center justify-center p-4 text-foreground"
           onClick={() => setSelectedPhoto(null)}
         >
           <button
             onClick={() => setSelectedPhoto(null)}
             className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
           >
-            <X className="w-6 h-6 text-white" />
+            <X className="w-6 h-6 text-foreground" />
           </button>
           <img
             src={selectedPhoto}

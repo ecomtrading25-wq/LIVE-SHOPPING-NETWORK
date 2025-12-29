@@ -164,7 +164,7 @@ export default function UserProfile() {
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Cover Image */}
       <div className="relative h-64 bg-gradient-to-r from-purple-600 to-blue-600">
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-background/20 text-foreground" />
       </div>
 
       <div className="container mx-auto px-4">
@@ -175,13 +175,13 @@ export default function UserProfile() {
               {/* Avatar */}
               <div className="relative">
                 <div className="w-32 h-32 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 p-1">
-                  <div className="w-full h-full rounded-full bg-white dark:bg-gray-800 flex items-center justify-center">
+                  <div className="w-full h-full rounded-full bg-white dark:bg-card flex items-center justify-center text-card-foreground">
                     <User className="w-16 h-16 text-gray-400" />
                   </div>
                 </div>
                 {profile.isVerified && (
                   <div className="absolute bottom-0 right-0 bg-blue-500 rounded-full p-1">
-                    <CheckCircle className="w-6 h-6 text-white" />
+                    <CheckCircle className="w-6 h-6 text-foreground" />
                   </div>
                 )}
               </div>
@@ -200,7 +200,7 @@ export default function UserProfile() {
                       )}
                     </div>
                     <p className="text-gray-600 dark:text-gray-400 mb-2">@{profile.username}</p>
-                    <p className="text-gray-700 dark:text-gray-300 mb-4">{profile.bio}</p>
+                    <p className="text-gray-700 dark:text-muted-foreground mb-4">{profile.bio}</p>
                     
                     {/* Location & Links */}
                     <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400 mb-4">
@@ -310,7 +310,7 @@ export default function UserProfile() {
                     {getActivityIcon(activity.type)}
                   </div>
                   <div className="flex-1">
-                    <p className="text-gray-900 dark:text-gray-100 mb-2">{activity.content}</p>
+                    <p className="text-gray-900 dark:text-foreground mb-2">{activity.content}</p>
                     <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
                       <span>{new Date(activity.timestamp).toLocaleString()}</span>
                       <button className="flex items-center gap-1 hover:text-red-500">
@@ -341,7 +341,7 @@ export default function UserProfile() {
                           <Star
                             key={i}
                             className={`w-4 h-4 ${
-                              i < review.rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'
+                              i < review.rating ? 'fill-yellow-400 text-yellow-400' : 'text-muted-foreground'
                             }`}
                           />
                         ))}
@@ -353,7 +353,7 @@ export default function UserProfile() {
                   </div>
                 </div>
                 <h4 className="font-semibold mb-2">{review.title}</h4>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">{review.content}</p>
+                <p className="text-gray-700 dark:text-muted-foreground mb-4">{review.content}</p>
                 {review.images.length > 0 && (
                   <div className="flex gap-2 mb-4">
                     {review.images.map((img, idx) => (

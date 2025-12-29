@@ -52,10 +52,10 @@ export default function SignupPage() {
       <Card className="w-full max-w-md p-8 bg-white/10 backdrop-blur-xl border-white/20">
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <UserPlus className="w-8 h-8 text-white" />
+            <UserPlus className="w-8 h-8 text-foreground" />
           </div>
-          <h1 className="text-3xl font-bold text-white mb-2">Create Account</h1>
-          <p className="text-gray-300">Join Live Shopping Network today</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Create Account</h1>
+          <p className="text-muted-foreground">Join Live Shopping Network today</p>
         </div>
 
         {/* OAuth Signup */}
@@ -81,7 +81,7 @@ export default function SignupPage() {
         {/* Email Signup Form */}
         <form onSubmit={handleSignup} className="space-y-4">
           <div>
-            <label className="text-sm font-medium text-white mb-2 block">
+            <label className="text-sm font-medium text-foreground mb-2 block">
               Full Name
             </label>
             <div className="relative">
@@ -91,14 +91,14 @@ export default function SignupPage() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="John Doe"
-                className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
                 required
               />
             </div>
           </div>
 
           <div>
-            <label className="text-sm font-medium text-white mb-2 block">
+            <label className="text-sm font-medium text-foreground mb-2 block">
               Email Address
             </label>
             <div className="relative">
@@ -108,14 +108,14 @@ export default function SignupPage() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder="you@example.com"
-                className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
                 required
               />
             </div>
           </div>
 
           <div>
-            <label className="text-sm font-medium text-white mb-2 block">
+            <label className="text-sm font-medium text-foreground mb-2 block">
               Password
             </label>
             <div className="relative">
@@ -125,7 +125,7 @@ export default function SignupPage() {
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 placeholder="••••••••"
-                className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
                 required
               />
             </div>
@@ -143,14 +143,14 @@ export default function SignupPage() {
                       }`}
                     />
                   </div>
-                  <span className="text-xs text-gray-300 capitalize">{passwordStrength}</span>
+                  <span className="text-xs text-muted-foreground capitalize">{passwordStrength}</span>
                 </div>
               </div>
             )}
           </div>
 
           <div>
-            <label className="text-sm font-medium text-white mb-2 block">
+            <label className="text-sm font-medium text-foreground mb-2 block">
               Confirm Password
             </label>
             <div className="relative">
@@ -160,7 +160,7 @@ export default function SignupPage() {
                 value={formData.confirmPassword}
                 onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                 placeholder="••••••••"
-                className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
                 required
               />
               {formData.confirmPassword && (
@@ -182,7 +182,7 @@ export default function SignupPage() {
               onCheckedChange={(checked) => setAcceptTerms(checked as boolean)}
               className="mt-1"
             />
-            <label htmlFor="terms" className="text-sm text-gray-300 cursor-pointer">
+            <label htmlFor="terms" className="text-sm text-muted-foreground cursor-pointer">
               I agree to the{" "}
               <Link href="/terms">
                 <a className="text-purple-400 hover:text-purple-300">Terms of Service</a>
@@ -205,7 +205,7 @@ export default function SignupPage() {
         </form>
 
         <div className="mt-6 text-center">
-          <p className="text-gray-300">
+          <p className="text-muted-foreground">
             Already have an account?{" "}
             <Link href="/login">
               <a className="text-purple-400 hover:text-purple-300 font-medium">

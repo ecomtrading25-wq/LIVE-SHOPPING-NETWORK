@@ -59,13 +59,13 @@ export default function SettingsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-white">Settings</h1>
+        <h1 className="text-3xl font-bold text-foreground">Settings</h1>
         <p className="text-gray-400 mt-1">Manage platform configuration</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Sidebar */}
-        <Card className="p-4 bg-zinc-900 border-zinc-800 h-fit">
+        <Card className="p-4 bg-background border-border h-fit text-foreground">
           <nav className="space-y-1">
             {tabs.map((tab) => (
               <button
@@ -73,8 +73,8 @@ export default function SettingsPage() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
                   activeTab === tab.id
-                    ? "bg-purple-600 text-white"
-                    : "text-gray-400 hover:bg-zinc-800 hover:text-white"
+                    ? "bg-purple-600 text-foreground"
+                    : "text-gray-400 hover:bg-card hover:text-foreground"
                 }`}
               >
                 <tab.icon className="w-5 h-5" />
@@ -87,36 +87,36 @@ export default function SettingsPage() {
         {/* Content */}
         <div className="lg:col-span-3">
           {activeTab === "general" && (
-            <Card className="p-8 bg-zinc-900 border-zinc-800">
-              <h2 className="text-2xl font-bold text-white mb-6">
+            <Card className="p-8 bg-background border-border text-foreground">
+              <h2 className="text-2xl font-bold text-foreground mb-6">
                 General Settings
               </h2>
               <form onSubmit={handleSaveGeneral} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-muted-foreground mb-2">
                     Site Name
                   </label>
                   <Input
                     name="siteName"
                     defaultValue={settings?.siteName || "Live Shopping Network"}
-                    className="bg-zinc-800 border-zinc-700"
+                    className="bg-card border-zinc-700 text-card-foreground"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-muted-foreground mb-2">
                     Site URL
                   </label>
                   <Input
                     name="siteUrl"
                     defaultValue={settings?.siteUrl || "https://example.com"}
-                    className="bg-zinc-800 border-zinc-700"
+                    className="bg-card border-zinc-700 text-card-foreground"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-muted-foreground mb-2">
                       <Mail className="w-4 h-4 inline mr-2" />
                       Support Email
                     </label>
@@ -124,18 +124,18 @@ export default function SettingsPage() {
                       name="supportEmail"
                       type="email"
                       defaultValue={settings?.supportEmail || "support@example.com"}
-                      className="bg-zinc-800 border-zinc-700"
+                      className="bg-card border-zinc-700 text-card-foreground"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-muted-foreground mb-2">
                       <Smartphone className="w-4 h-4 inline mr-2" />
                       Support Phone
                     </label>
                     <Input
                       name="supportPhone"
                       defaultValue={settings?.supportPhone || "+1 555-0000"}
-                      className="bg-zinc-800 border-zinc-700"
+                      className="bg-card border-zinc-700 text-card-foreground"
                     />
                   </div>
                 </div>
@@ -149,14 +149,14 @@ export default function SettingsPage() {
           )}
 
           {activeTab === "notifications" && (
-            <Card className="p-8 bg-zinc-900 border-zinc-800">
-              <h2 className="text-2xl font-bold text-white mb-6">
+            <Card className="p-8 bg-background border-border text-foreground">
+              <h2 className="text-2xl font-bold text-foreground mb-6">
                 Notification Settings
               </h2>
               <div className="space-y-6">
-                <div className="flex items-center justify-between p-4 bg-zinc-800 rounded-lg">
+                <div className="flex items-center justify-between p-4 bg-card rounded-lg text-card-foreground">
                   <div>
-                    <p className="font-medium text-white">Order Notifications</p>
+                    <p className="font-medium text-foreground">Order Notifications</p>
                     <p className="text-sm text-gray-400">
                       Get notified when new orders are placed
                     </p>
@@ -164,9 +164,9 @@ export default function SettingsPage() {
                   <Badge className="bg-green-600">Enabled</Badge>
                 </div>
 
-                <div className="flex items-center justify-between p-4 bg-zinc-800 rounded-lg">
+                <div className="flex items-center justify-between p-4 bg-card rounded-lg text-card-foreground">
                   <div>
-                    <p className="font-medium text-white">Dispute Alerts</p>
+                    <p className="font-medium text-foreground">Dispute Alerts</p>
                     <p className="text-sm text-gray-400">
                       Receive alerts for new disputes
                     </p>
@@ -174,9 +174,9 @@ export default function SettingsPage() {
                   <Badge className="bg-green-600">Enabled</Badge>
                 </div>
 
-                <div className="flex items-center justify-between p-4 bg-zinc-800 rounded-lg">
+                <div className="flex items-center justify-between p-4 bg-card rounded-lg text-card-foreground">
                   <div>
-                    <p className="font-medium text-white">Low Stock Warnings</p>
+                    <p className="font-medium text-foreground">Low Stock Warnings</p>
                     <p className="text-sm text-gray-400">
                       Alert when inventory is low
                     </p>
@@ -184,9 +184,9 @@ export default function SettingsPage() {
                   <Badge className="bg-green-600">Enabled</Badge>
                 </div>
 
-                <div className="flex items-center justify-between p-4 bg-zinc-800 rounded-lg">
+                <div className="flex items-center justify-between p-4 bg-card rounded-lg text-card-foreground">
                   <div>
-                    <p className="font-medium text-white">Task Assignments</p>
+                    <p className="font-medium text-foreground">Task Assignments</p>
                     <p className="text-sm text-gray-400">
                       Notify when tasks are assigned
                     </p>
@@ -198,31 +198,31 @@ export default function SettingsPage() {
           )}
 
           {activeTab === "security" && (
-            <Card className="p-8 bg-zinc-900 border-zinc-800">
-              <h2 className="text-2xl font-bold text-white mb-6">
+            <Card className="p-8 bg-background border-border text-foreground">
+              <h2 className="text-2xl font-bold text-foreground mb-6">
                 Security Settings
               </h2>
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-muted-foreground mb-2">
                     Change Password
                   </label>
                   <Input
                     type="password"
                     placeholder="New password"
-                    className="bg-zinc-800 border-zinc-700 mb-3"
+                    className="bg-card border-zinc-700 mb-3 text-card-foreground"
                   />
                   <Input
                     type="password"
                     placeholder="Confirm password"
-                    className="bg-zinc-800 border-zinc-700"
+                    className="bg-card border-zinc-700 text-card-foreground"
                   />
                 </div>
 
-                <div className="p-4 bg-zinc-800 rounded-lg">
+                <div className="p-4 bg-card rounded-lg text-card-foreground">
                   <div className="flex items-center justify-between mb-3">
                     <div>
-                      <p className="font-medium text-white">
+                      <p className="font-medium text-foreground">
                         Two-Factor Authentication
                       </p>
                       <p className="text-sm text-gray-400">
@@ -245,15 +245,15 @@ export default function SettingsPage() {
           )}
 
           {activeTab === "payments" && (
-            <Card className="p-8 bg-zinc-900 border-zinc-800">
-              <h2 className="text-2xl font-bold text-white mb-6">
+            <Card className="p-8 bg-background border-border text-foreground">
+              <h2 className="text-2xl font-bold text-foreground mb-6">
                 Payment Settings
               </h2>
               <div className="space-y-6">
-                <div className="p-4 bg-zinc-800 rounded-lg">
+                <div className="p-4 bg-card rounded-lg text-card-foreground">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="font-medium text-white">Stripe</p>
+                      <p className="font-medium text-foreground">Stripe</p>
                       <p className="text-sm text-gray-400">
                         Credit card processing
                       </p>
@@ -262,10 +262,10 @@ export default function SettingsPage() {
                   </div>
                 </div>
 
-                <div className="p-4 bg-zinc-800 rounded-lg">
+                <div className="p-4 bg-card rounded-lg text-card-foreground">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="font-medium text-white">PayPal</p>
+                      <p className="font-medium text-foreground">PayPal</p>
                       <p className="text-sm text-gray-400">
                         Alternative payment method
                       </p>
@@ -275,10 +275,10 @@ export default function SettingsPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-muted-foreground mb-2">
                     Currency
                   </label>
-                  <select className="w-full px-4 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white">
+                  <select className="w-full px-4 py-2 bg-card border border-zinc-700 rounded-md text-foreground">
                     <option value="USD">USD - US Dollar</option>
                     <option value="EUR">EUR - Euro</option>
                     <option value="GBP">GBP - British Pound</option>
@@ -290,29 +290,29 @@ export default function SettingsPage() {
           )}
 
           {activeTab === "team" && (
-            <Card className="p-8 bg-zinc-900 border-zinc-800">
-              <h2 className="text-2xl font-bold text-white mb-6">Team Management</h2>
+            <Card className="p-8 bg-background border-border text-foreground">
+              <h2 className="text-2xl font-bold text-foreground mb-6">Team Management</h2>
               <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 bg-zinc-800 rounded-lg">
+                <div className="flex items-center justify-between p-4 bg-card rounded-lg text-card-foreground">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
                       <span className="text-purple-400 font-semibold">JD</span>
                     </div>
                     <div>
-                      <p className="font-medium text-white">John Doe</p>
+                      <p className="font-medium text-foreground">John Doe</p>
                       <p className="text-sm text-gray-400">john@example.com</p>
                     </div>
                   </div>
                   <Badge className="bg-purple-600">Admin</Badge>
                 </div>
 
-                <div className="flex items-center justify-between p-4 bg-zinc-800 rounded-lg">
+                <div className="flex items-center justify-between p-4 bg-card rounded-lg text-card-foreground">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
                       <span className="text-blue-400 font-semibold">JS</span>
                     </div>
                     <div>
-                      <p className="font-medium text-white">Jane Smith</p>
+                      <p className="font-medium text-foreground">Jane Smith</p>
                       <p className="text-sm text-gray-400">jane@example.com</p>
                     </div>
                   </div>

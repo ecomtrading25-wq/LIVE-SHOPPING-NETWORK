@@ -177,14 +177,14 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
+    <div className="min-h-screen bg-zinc-50 dark:bg-background">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-purple-600 via-purple-700 to-pink-600 py-20">
         <div className="container mx-auto px-4 text-center">
           <div className="w-16 h-16 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <HelpCircle className="w-8 h-8 text-white" />
+            <HelpCircle className="w-8 h-8 text-foreground" />
           </div>
-          <h1 className="text-5xl font-bold text-white mb-4">
+          <h1 className="text-5xl font-bold text-foreground mb-4">
             Frequently Asked Questions
           </h1>
           <p className="text-xl text-white/90 max-w-2xl mx-auto">
@@ -206,10 +206,10 @@ export default function FAQPage() {
                 >
                   <category.icon className={`w-6 h-6 ${category.color}`} />
                 </div>
-                <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
+                <h2 className="text-2xl font-bold text-zinc-900 dark:text-foreground">
                   {category.title}
                 </h2>
-                <Badge className="bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-white">
+                <Badge className="bg-zinc-200 dark:bg-card text-zinc-900 dark:text-foreground">
                   {category.items.length} questions
                 </Badge>
               </div>
@@ -223,13 +223,13 @@ export default function FAQPage() {
                   return (
                     <Card
                       key={itemIndex}
-                      className="overflow-hidden bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800"
+                      className="overflow-hidden bg-white dark:bg-background border-zinc-200 dark:border-border text-foreground"
                     >
                       <button
                         onClick={() => toggleAccordion(categoryIndex, itemIndex)}
-                        className="w-full px-6 py-4 flex items-center justify-between hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors"
+                        className="w-full px-6 py-4 flex items-center justify-between hover:bg-zinc-50 dark:hover:bg-card/50 transition-colors text-card-foreground"
                       >
-                        <h3 className="text-lg font-semibold text-zinc-900 dark:text-white text-left">
+                        <h3 className="text-lg font-semibold text-zinc-900 dark:text-foreground text-left">
                           {item.question}
                         </h3>
                         {isOpen ? (
@@ -240,7 +240,7 @@ export default function FAQPage() {
                       </button>
 
                       {isOpen && (
-                        <div className="px-6 pb-4 border-t border-zinc-200 dark:border-zinc-800 pt-4">
+                        <div className="px-6 pb-4 border-t border-zinc-200 dark:border-border pt-4">
                           <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
                             {item.answer}
                           </p>
@@ -256,7 +256,7 @@ export default function FAQPage() {
 
         {/* Still Have Questions CTA */}
         <Card className="max-w-4xl mx-auto mt-16 p-12 bg-gradient-to-br from-purple-600 to-pink-600 border-0 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
+          <h2 className="text-3xl font-bold text-foreground mb-4">
             Still Have Questions?
           </h2>
           <p className="text-xl text-white/90 mb-8">
@@ -273,7 +273,7 @@ export default function FAQPage() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white/10"
+              className="border-white text-foreground hover:bg-white/10"
             >
               Email Support
             </Button>

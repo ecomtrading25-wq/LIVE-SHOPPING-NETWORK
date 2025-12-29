@@ -165,10 +165,10 @@ What can I help you with today?`,
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-4">
             <div className="p-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl">
-              <Bot className="w-8 h-8 text-white" />
+              <Bot className="w-8 h-8 text-foreground" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-white">AI Shopping Assistant</h1>
+              <h1 className="text-3xl font-bold text-foreground">AI Shopping Assistant</h1>
               <p className="text-gray-400 mt-1">Your personal shopping companion</p>
             </div>
           </div>
@@ -198,9 +198,9 @@ What can I help you with today?`,
                       }`}
                     >
                       {message.role === "user" ? (
-                        <User className="w-5 h-5 text-white" />
+                        <User className="w-5 h-5 text-foreground" />
                       ) : (
-                        <Bot className="w-5 h-5 text-white" />
+                        <Bot className="w-5 h-5 text-foreground" />
                       )}
                     </div>
 
@@ -209,8 +209,8 @@ What can I help you with today?`,
                       <div
                         className={`inline-block max-w-3xl p-4 rounded-2xl ${
                           message.role === "user"
-                            ? "bg-purple-600 text-white"
-                            : "bg-white/10 text-white"
+                            ? "bg-purple-600 text-foreground"
+                            : "bg-white/10 text-foreground"
                         }`}
                       >
                         {message.role === "assistant" ? (
@@ -233,14 +233,14 @@ What can I help you with today?`,
                                     className="w-20 h-20 object-cover rounded-lg"
                                   />
                                   <div className="flex-1">
-                                    <h4 className="text-white font-semibold mb-1 line-clamp-2">
+                                    <h4 className="text-foreground font-semibold mb-1 line-clamp-2">
                                       {product.name}
                                     </h4>
                                     <p className="text-green-400 font-bold mb-1">${product.price}</p>
                                     <div className="flex items-center gap-2">
                                       <div className="flex items-center">
                                         <span className="text-yellow-400 text-sm">★</span>
-                                        <span className="text-white text-sm ml-1">{product.rating}</span>
+                                        <span className="text-foreground text-sm ml-1">{product.rating}</span>
                                       </div>
                                       {product.inStock ? (
                                         <Badge className="bg-green-500/20 text-green-400 text-xs">
@@ -268,7 +268,7 @@ What can I help you with today?`,
                               <Card className="p-4 bg-white/10 border-white/20 hover:bg-white/20 transition-colors cursor-pointer">
                                 <div className="flex items-center justify-between">
                                   <div>
-                                    <p className="text-white font-semibold">Order #{order.orderNumber}</p>
+                                    <p className="text-foreground font-semibold">Order #{order.orderNumber}</p>
                                     <p className="text-gray-400 text-sm mt-1">
                                       Estimated delivery: {order.estimatedDelivery}
                                     </p>
@@ -277,7 +277,7 @@ What can I help you with today?`,
                                     <Badge className="bg-blue-500/20 text-blue-400 mb-2">
                                       {order.status}
                                     </Badge>
-                                    <p className="text-white font-bold">${order.total}</p>
+                                    <p className="text-foreground font-bold">${order.total}</p>
                                   </div>
                                 </div>
                               </Card>
@@ -296,7 +296,7 @@ What can I help you with today?`,
                 {isLoading && (
                   <div className="flex gap-4">
                     <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                      <Bot className="w-5 h-5 text-white" />
+                      <Bot className="w-5 h-5 text-foreground" />
                     </div>
                     <div className="flex-1">
                       <div className="inline-block p-4 rounded-2xl bg-white/10">
@@ -317,7 +317,7 @@ What can I help you with today?`,
                     onChange={(e) => setInput(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Ask me anything about products, orders, or recommendations..."
-                    className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                    className="flex-1 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
                     disabled={isLoading}
                   />
                   <Button
@@ -340,7 +340,7 @@ What can I help you with today?`,
           <div className="space-y-6">
             {/* Quick Actions */}
             <Card className="p-6 bg-white/5 border-white/10">
-              <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-purple-400" />
                 Quick Actions
               </h2>
@@ -365,11 +365,11 @@ What can I help you with today?`,
 
             {/* Tips */}
             <Card className="p-6 bg-white/5 border-white/10">
-              <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                 <MessageSquare className="w-5 h-5 text-purple-400" />
                 Tips
               </h2>
-              <ul className="space-y-3 text-gray-300 text-sm">
+              <ul className="space-y-3 text-muted-foreground text-sm">
                 <li className="flex items-start gap-2">
                   <span className="text-purple-400 mt-1">•</span>
                   <span>Ask about specific product categories or features</span>
@@ -396,19 +396,19 @@ What can I help you with today?`,
             {/* Stats */}
             {user && (
               <Card className="p-6 bg-white/5 border-white/10">
-                <h2 className="text-xl font-bold text-white mb-4">Your Activity</h2>
+                <h2 className="text-xl font-bold text-foreground mb-4">Your Activity</h2>
                 <div className="space-y-4">
                   <div>
                     <p className="text-gray-400 text-sm">Conversations</p>
-                    <p className="text-white text-2xl font-bold">24</p>
+                    <p className="text-foreground text-2xl font-bold">24</p>
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Products Found</p>
-                    <p className="text-white text-2xl font-bold">156</p>
+                    <p className="text-foreground text-2xl font-bold">156</p>
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Recommendations</p>
-                    <p className="text-white text-2xl font-bold">89</p>
+                    <p className="text-foreground text-2xl font-bold">89</p>
                   </div>
                 </div>
               </Card>

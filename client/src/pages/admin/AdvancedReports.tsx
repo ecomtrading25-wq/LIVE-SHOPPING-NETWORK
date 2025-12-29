@@ -74,7 +74,7 @@ export default function AdvancedReportsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white p-8">
+    <div className="min-h-screen bg-background text-foreground p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -85,14 +85,14 @@ export default function AdvancedReportsPage() {
         </div>
 
         {/* Filters */}
-        <Card className="bg-zinc-900 border-zinc-800 mb-8">
+        <Card className="bg-background border-border mb-8 text-foreground">
           <CardContent className="p-6">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {/* Report Type */}
               <div>
-                <Label className="text-white mb-2 block">Report Type</Label>
+                <Label className="text-foreground mb-2 block">Report Type</Label>
                 <Select value={reportType} onValueChange={setReportType}>
-                  <SelectTrigger className="bg-zinc-800 border-zinc-700">
+                  <SelectTrigger className="bg-card border-zinc-700 text-card-foreground">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -113,9 +113,9 @@ export default function AdvancedReportsPage() {
 
               {/* Date Range */}
               <div>
-                <Label className="text-white mb-2 block">Date Range</Label>
+                <Label className="text-foreground mb-2 block">Date Range</Label>
                 <Select value={dateRange} onValueChange={setDateRange}>
-                  <SelectTrigger className="bg-zinc-800 border-zinc-700">
+                  <SelectTrigger className="bg-card border-zinc-700 text-card-foreground">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -130,9 +130,9 @@ export default function AdvancedReportsPage() {
 
               {/* Export Format */}
               <div>
-                <Label className="text-white mb-2 block">Export Format</Label>
+                <Label className="text-foreground mb-2 block">Export Format</Label>
                 <Select value={exportFormat} onValueChange={setExportFormat}>
-                  <SelectTrigger className="bg-zinc-800 border-zinc-700">
+                  <SelectTrigger className="bg-card border-zinc-700 text-card-foreground">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -163,52 +163,52 @@ export default function AdvancedReportsPage() {
 
         {/* Report Preview */}
         <div className="grid lg:grid-cols-4 gap-6 mb-8">
-          <Card className="bg-zinc-900 border-zinc-800">
+          <Card className="bg-background border-border text-foreground">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
                 <DollarSign className="w-8 h-8 text-green-500" />
                 <span className="text-sm text-green-500">+{salesData.growthRate}%</span>
               </div>
-              <p className="text-3xl font-bold text-white">
+              <p className="text-3xl font-bold text-foreground">
                 ${salesData.totalRevenue.toLocaleString()}
               </p>
               <p className="text-sm text-gray-400">Total Revenue</p>
             </CardContent>
           </Card>
 
-          <Card className="bg-zinc-900 border-zinc-800">
+          <Card className="bg-background border-border text-foreground">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
                 <Package className="w-8 h-8 text-blue-500" />
                 <span className="text-sm text-blue-500">+18%</span>
               </div>
-              <p className="text-3xl font-bold text-white">
+              <p className="text-3xl font-bold text-foreground">
                 {salesData.totalOrders.toLocaleString()}
               </p>
               <p className="text-sm text-gray-400">Total Orders</p>
             </CardContent>
           </Card>
 
-          <Card className="bg-zinc-900 border-zinc-800">
+          <Card className="bg-background border-border text-foreground">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
                 <TrendingUp className="w-8 h-8 text-purple-500" />
                 <span className="text-sm text-purple-500">+12%</span>
               </div>
-              <p className="text-3xl font-bold text-white">
+              <p className="text-3xl font-bold text-foreground">
                 ${salesData.avgOrderValue.toFixed(2)}
               </p>
               <p className="text-sm text-gray-400">Avg Order Value</p>
             </CardContent>
           </Card>
 
-          <Card className="bg-zinc-900 border-zinc-800">
+          <Card className="bg-background border-border text-foreground">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
                 <Users className="w-8 h-8 text-pink-500" />
                 <span className="text-sm text-pink-500">+28%</span>
               </div>
-              <p className="text-3xl font-bold text-white">4,521</p>
+              <p className="text-3xl font-bold text-foreground">4,521</p>
               <p className="text-sm text-gray-400">Active Customers</p>
             </CardContent>
           </Card>
@@ -217,19 +217,19 @@ export default function AdvancedReportsPage() {
         {/* Detailed Tables */}
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Top Products */}
-          <Card className="bg-zinc-900 border-zinc-800">
+          <Card className="bg-background border-border text-foreground">
             <CardHeader>
-              <CardTitle className="text-white">Top Products</CardTitle>
+              <CardTitle className="text-foreground">Top Products</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 {salesData.topProducts.map((product, index) => (
                   <div
                     key={index}
-                    className="flex items-center justify-between p-4 bg-zinc-800 rounded-lg"
+                    className="flex items-center justify-between p-4 bg-card rounded-lg text-card-foreground"
                   >
                     <div>
-                      <p className="font-medium text-white">{product.name}</p>
+                      <p className="font-medium text-foreground">{product.name}</p>
                       <p className="text-sm text-gray-400">{product.sales} sales</p>
                     </div>
                     <p className="text-lg font-bold text-green-500">
@@ -242,19 +242,19 @@ export default function AdvancedReportsPage() {
           </Card>
 
           {/* Top Channels */}
-          <Card className="bg-zinc-900 border-zinc-800">
+          <Card className="bg-background border-border text-foreground">
             <CardHeader>
-              <CardTitle className="text-white">Top Channels</CardTitle>
+              <CardTitle className="text-foreground">Top Channels</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 {salesData.topChannels.map((channel, index) => (
                   <div
                     key={index}
-                    className="flex items-center justify-between p-4 bg-zinc-800 rounded-lg"
+                    className="flex items-center justify-between p-4 bg-card rounded-lg text-card-foreground"
                   >
                     <div>
-                      <p className="font-medium text-white">{channel.name}</p>
+                      <p className="font-medium text-foreground">{channel.name}</p>
                       <p className="text-sm text-gray-400">{channel.orders} orders</p>
                     </div>
                     <p className="text-lg font-bold text-purple-500">
@@ -268,9 +268,9 @@ export default function AdvancedReportsPage() {
         </div>
 
         {/* Quick Report Templates */}
-        <Card className="bg-zinc-900 border-zinc-800 mt-8">
+        <Card className="bg-background border-border mt-8 text-foreground">
           <CardHeader>
-            <CardTitle className="text-white">Quick Report Templates</CardTitle>
+            <CardTitle className="text-foreground">Quick Report Templates</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -334,9 +334,9 @@ export default function AdvancedReportsPage() {
         </Card>
 
         {/* Scheduled Reports */}
-        <Card className="bg-zinc-900 border-zinc-800 mt-8">
+        <Card className="bg-background border-border mt-8 text-foreground">
           <CardHeader>
-            <CardTitle className="text-white">Scheduled Reports</CardTitle>
+            <CardTitle className="text-foreground">Scheduled Reports</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
@@ -347,10 +347,10 @@ export default function AdvancedReportsPage() {
               ].map((report, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-4 bg-zinc-800 rounded-lg"
+                  className="flex items-center justify-between p-4 bg-card rounded-lg text-card-foreground"
                 >
                   <div>
-                    <p className="font-medium text-white">{report.name}</p>
+                    <p className="font-medium text-foreground">{report.name}</p>
                     <p className="text-sm text-gray-400">{report.schedule}</p>
                   </div>
                   <div className="flex items-center gap-3">

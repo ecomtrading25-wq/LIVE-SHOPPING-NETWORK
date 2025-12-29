@@ -380,7 +380,7 @@ export default function LiveSchedulerPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Live Shopping Scheduler</h1>
+          <h1 className="text-3xl font-bold text-foreground">Live Shopping Scheduler</h1>
           <p className="text-gray-400 mt-2">Plan and manage live shopping sessions</p>
         </div>
         <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
@@ -406,28 +406,28 @@ export default function LiveSchedulerPage() {
             <p className="text-gray-400 text-sm">Total Sessions</p>
             <Calendar className="w-5 h-5 text-purple-400" />
           </div>
-          <p className="text-3xl font-bold text-white">{sessions.length}</p>
+          <p className="text-3xl font-bold text-foreground">{sessions.length}</p>
         </Card>
         <Card className="p-6 bg-white/5 border-white/10">
           <div className="flex items-center justify-between mb-2">
             <p className="text-gray-400 text-sm">Scheduled</p>
             <Clock className="w-5 h-5 text-blue-400" />
           </div>
-          <p className="text-3xl font-bold text-white">{sessions.filter((s) => s.status === "scheduled").length}</p>
+          <p className="text-3xl font-bold text-foreground">{sessions.filter((s) => s.status === "scheduled").length}</p>
         </Card>
         <Card className="p-6 bg-white/5 border-white/10">
           <div className="flex items-center justify-between mb-2">
             <p className="text-gray-400 text-sm">Active Creators</p>
             <Users className="w-5 h-5 text-green-400" />
           </div>
-          <p className="text-3xl font-bold text-white">{creators.length}</p>
+          <p className="text-3xl font-bold text-foreground">{creators.length}</p>
         </Card>
         <Card className="p-6 bg-white/5 border-white/10">
           <div className="flex items-center justify-between mb-2">
             <p className="text-gray-400 text-sm">Recurring Shows</p>
             <Video className="w-5 h-5 text-yellow-400" />
           </div>
-          <p className="text-3xl font-bold text-white">{sessions.filter((s) => s.recurring).length}</p>
+          <p className="text-3xl font-bold text-foreground">{sessions.filter((s) => s.recurring).length}</p>
         </Card>
       </div>
 
@@ -438,7 +438,7 @@ export default function LiveSchedulerPage() {
             <Button variant="outline" size="sm" onClick={() => navigateMonth("prev")}>
               <ChevronLeft className="w-4 h-4" />
             </Button>
-            <h2 className="text-2xl font-bold text-white">
+            <h2 className="text-2xl font-bold text-foreground">
               {currentDate.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
             </h2>
             <Button variant="outline" size="sm" onClick={() => navigateMonth("next")}>
@@ -472,7 +472,7 @@ export default function LiveSchedulerPage() {
               >
                 {day && (
                   <>
-                    <p className="text-white font-medium mb-1">{day.getDate()}</p>
+                    <p className="text-foreground font-medium mb-1">{day.getDate()}</p>
                     <div className="space-y-1">
                       {daySessions.map((session) => (
                         <div
@@ -496,7 +496,7 @@ export default function LiveSchedulerPage() {
       {/* Upcoming Sessions List */}
       <Card className="bg-white/5 border-white/10">
         <div className="p-6 border-b border-white/10">
-          <h2 className="text-2xl font-bold text-white">Upcoming Sessions</h2>
+          <h2 className="text-2xl font-bold text-foreground">Upcoming Sessions</h2>
         </div>
         <div className="divide-y divide-white/10">
           {sessions
@@ -507,7 +507,7 @@ export default function LiveSchedulerPage() {
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <h3 className="text-lg font-bold text-white">{session.title}</h3>
+                      <h3 className="text-lg font-bold text-foreground">{session.title}</h3>
                       <div
                         className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium border ${getStatusBadge(
                           session.status

@@ -294,7 +294,7 @@ export default function AccountAddressesPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Addresses</h1>
+          <h1 className="text-3xl font-bold text-foreground">Addresses</h1>
           <p className="text-gray-400 mt-2">Manage your shipping and billing addresses</p>
         </div>
         <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
@@ -348,20 +348,20 @@ export default function AccountAddressesPage() {
                   {getLabelIcon(address.label)}
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white">{address.label}</h3>
+                  <h3 className="text-lg font-bold text-foreground">{address.label}</h3>
                   <p className="text-sm text-gray-400 capitalize">{address.type.replace("_", " & ")}</p>
                 </div>
               </div>
 
               {/* Address Details */}
               <div className="space-y-2 mb-6">
-                <p className="text-white font-medium">{address.fullName}</p>
-                <p className="text-gray-300">{address.addressLine1}</p>
-                {address.addressLine2 && <p className="text-gray-300">{address.addressLine2}</p>}
-                <p className="text-gray-300">
+                <p className="text-foreground font-medium">{address.fullName}</p>
+                <p className="text-muted-foreground">{address.addressLine1}</p>
+                {address.addressLine2 && <p className="text-muted-foreground">{address.addressLine2}</p>}
+                <p className="text-muted-foreground">
                   {address.city}, {address.state} {address.zipCode}
                 </p>
-                <p className="text-gray-300">{address.country}</p>
+                <p className="text-muted-foreground">{address.country}</p>
                 <p className="text-gray-400 text-sm">{address.phone}</p>
               </div>
 

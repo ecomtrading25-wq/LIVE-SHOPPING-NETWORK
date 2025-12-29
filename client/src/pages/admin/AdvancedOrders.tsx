@@ -272,7 +272,7 @@ export default function AdvancedOrdersPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Advanced Order Management</h1>
+          <h1 className="text-3xl font-bold text-foreground">Advanced Order Management</h1>
           <p className="text-gray-400 mt-2">Bulk actions, notes, refunds, and timeline tracking</p>
         </div>
         <div className="flex items-center gap-3">
@@ -336,7 +336,7 @@ export default function AdvancedOrdersPage() {
       {selectedOrders.length > 0 && (
         <Card className="p-4 bg-purple-500/10 border-purple-500/30">
           <div className="flex items-center justify-between">
-            <p className="text-white font-medium">{selectedOrders.length} orders selected</p>
+            <p className="text-foreground font-medium">{selectedOrders.length} orders selected</p>
             <div className="flex items-center gap-2">
               <Button size="sm" variant="outline" onClick={() => handleBulkAction("Mark as Processing")}>
                 Mark as Processing
@@ -385,15 +385,15 @@ export default function AdvancedOrdersPage() {
                     />
                   </td>
                   <td className="p-4">
-                    <p className="text-white font-medium">{order.orderNumber}</p>
+                    <p className="text-foreground font-medium">{order.orderNumber}</p>
                     <p className="text-gray-400 text-sm">{order.paymentMethod}</p>
                   </td>
                   <td className="p-4">
-                    <p className="text-white font-medium">{order.customerName}</p>
+                    <p className="text-foreground font-medium">{order.customerName}</p>
                     <p className="text-gray-400 text-sm">{order.customerEmail}</p>
                   </td>
                   <td className="p-4">
-                    <p className="text-white">{order.date}</p>
+                    <p className="text-foreground">{order.date}</p>
                   </td>
                   <td className="p-4">
                     <div
@@ -406,10 +406,10 @@ export default function AdvancedOrdersPage() {
                     </div>
                   </td>
                   <td className="p-4">
-                    <p className="text-white">{order.items}</p>
+                    <p className="text-foreground">{order.items}</p>
                   </td>
                   <td className="p-4">
-                    <p className="text-white font-medium">${order.total.toFixed(2)}</p>
+                    <p className="text-foreground font-medium">${order.total.toFixed(2)}</p>
                   </td>
                   <td className="p-4">
                     {order.notes.length > 0 && (
@@ -445,18 +445,18 @@ export default function AdvancedOrdersPage() {
               <div className="grid grid-cols-2 gap-4">
                 <Card className="p-4 bg-white/5 border-white/10">
                   <p className="text-gray-400 text-sm mb-1">Customer</p>
-                  <p className="text-white font-medium">{viewingOrder.customerName}</p>
+                  <p className="text-foreground font-medium">{viewingOrder.customerName}</p>
                   <p className="text-gray-400 text-sm">{viewingOrder.customerEmail}</p>
                 </Card>
                 <Card className="p-4 bg-white/5 border-white/10">
                   <p className="text-gray-400 text-sm mb-1">Shipping Address</p>
-                  <p className="text-white text-sm">{viewingOrder.shippingAddress}</p>
+                  <p className="text-foreground text-sm">{viewingOrder.shippingAddress}</p>
                 </Card>
               </div>
 
               {/* Timeline */}
               <div>
-                <h3 className="text-lg font-bold text-white mb-4">Order Timeline</h3>
+                <h3 className="text-lg font-bold text-foreground mb-4">Order Timeline</h3>
                 <div className="space-y-4">
                   {viewingOrder.timeline.map((event, index) => (
                     <div key={event.id} className="flex gap-4">
@@ -467,7 +467,7 @@ export default function AdvancedOrdersPage() {
                         )}
                       </div>
                       <div className="flex-1 pb-6">
-                        <p className="text-white font-medium">{event.title}</p>
+                        <p className="text-foreground font-medium">{event.title}</p>
                         <p className="text-gray-400 text-sm">{event.description}</p>
                         <p className="text-gray-500 text-xs mt-1">
                           {new Date(event.timestamp).toLocaleString()}
@@ -481,7 +481,7 @@ export default function AdvancedOrdersPage() {
 
               {/* Add Note */}
               <div>
-                <h3 className="text-lg font-bold text-white mb-4">Add Note</h3>
+                <h3 className="text-lg font-bold text-foreground mb-4">Add Note</h3>
                 <div className="flex gap-2">
                   <Textarea
                     placeholder="Enter order note..."
@@ -498,7 +498,7 @@ export default function AdvancedOrdersPage() {
 
               {/* Refund Section */}
               <div>
-                <h3 className="text-lg font-bold text-white mb-4">Process Refund</h3>
+                <h3 className="text-lg font-bold text-foreground mb-4">Process Refund</h3>
                 <div className="grid grid-cols-2 gap-4">
                   <Input
                     type="number"

@@ -45,7 +45,7 @@ export function MobileNav() {
       {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          className="fixed inset-0 bg-background/50 z-40 md:hidden text-foreground"
           onClick={() => setIsOpen(false)}
         />
       )}
@@ -75,7 +75,7 @@ export function MobileNav() {
             <input
               type="text"
               placeholder="Search products..."
-              className="w-full pl-10 pr-4 py-2 bg-background border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full pl-10 pr-4 py-2 bg-background border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground"
             />
           </div>
         </div>
@@ -101,7 +101,7 @@ export function MobileNav() {
         </nav>
 
         {/* Footer */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t bg-card">
+        <div className="absolute bottom-0 left-0 right-0 p-4 border-t bg-card text-card-foreground">
           <Button className="w-full" size="lg">
             Sign In
           </Button>

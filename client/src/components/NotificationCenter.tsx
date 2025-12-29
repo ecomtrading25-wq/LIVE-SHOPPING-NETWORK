@@ -122,10 +122,10 @@ export default function NotificationCenter() {
           )}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-96 p-0 bg-zinc-900 border-zinc-800" align="end">
-        <div className="flex items-center justify-between p-4 border-b border-zinc-800">
+      <PopoverContent className="w-96 p-0 bg-background border-border text-foreground" align="end">
+        <div className="flex items-center justify-between p-4 border-b border-border">
           <div>
-            <h3 className="font-semibold text-white">Notifications</h3>
+            <h3 className="font-semibold text-foreground">Notifications</h3>
             <p className="text-sm text-gray-400">
               {unreadCount} unread {unreadCount === 1 ? "notification" : "notifications"}
             </p>
@@ -147,8 +147,8 @@ export default function NotificationCenter() {
             notifications.map((notification) => (
               <div
                 key={notification.id}
-                className={`p-4 border-b border-zinc-800 cursor-pointer hover:bg-zinc-800/50 transition-colors ${
-                  !notification.read ? "bg-zinc-800/30" : ""
+                className={`p-4 border-b border-border cursor-pointer hover:bg-card/50 transition-colors ${
+                  !notification.read ? "bg-card/30" : ""
                 }`}
                 onClick={() => handleNotificationClick(notification)}
               >
@@ -156,12 +156,12 @@ export default function NotificationCenter() {
                   <div className="mt-1">{getIcon(notification.type)}</div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-2">
-                      <p className="font-medium text-white text-sm">
+                      <p className="font-medium text-foreground text-sm">
                         {notification.title}
                       </p>
                       <button
                         onClick={(e) => handleDelete(notification.id, e)}
-                        className="text-gray-400 hover:text-white"
+                        className="text-gray-400 hover:text-foreground"
                       >
                         <X className="w-4 h-4" />
                       </button>
@@ -188,7 +188,7 @@ export default function NotificationCenter() {
         </div>
 
         {notifications && notifications.length > 0 && (
-          <div className="p-3 border-t border-zinc-800 text-center">
+          <div className="p-3 border-t border-border text-center">
             <Button variant="ghost" size="sm" className="text-xs">
               View all notifications
             </Button>

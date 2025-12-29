@@ -120,11 +120,11 @@ export default function SubscriptionBoxesPage() {
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-white mb-4">
+          <h1 className="text-5xl font-bold text-foreground mb-4">
             <Package className="inline w-12 h-12 mr-4" />
             Subscription Boxes
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Get curated products delivered to your door every month. Discover new favorites and save money!
           </p>
         </div>
@@ -151,10 +151,10 @@ export default function SubscriptionBoxesPage() {
             <Card key={item.step} className="bg-white/10 border-white/20 backdrop-blur-xl">
               <CardContent className="p-6 text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white text-2xl font-bold">{item.step}</span>
+                  <span className="text-foreground text-2xl font-bold">{item.step}</span>
                 </div>
-                <h3 className="text-white font-bold text-lg mb-2">{item.title}</h3>
-                <p className="text-gray-300 text-sm">{item.description}</p>
+                <h3 className="text-foreground font-bold text-lg mb-2">{item.title}</h3>
+                <p className="text-muted-foreground text-sm">{item.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -171,8 +171,8 @@ export default function SubscriptionBoxesPage() {
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div>
-                    <CardTitle className="text-white text-2xl mb-2">{box.name}</CardTitle>
-                    <p className="text-gray-300">{box.description}</p>
+                    <CardTitle className="text-foreground text-2xl mb-2">{box.name}</CardTitle>
+                    <p className="text-muted-foreground">{box.description}</p>
                   </div>
                   {box.customizable && (
                     <Badge className="bg-yellow-500/20 text-yellow-300 border-yellow-500/50">
@@ -186,7 +186,7 @@ export default function SubscriptionBoxesPage() {
                 {/* Features */}
                 <div className="space-y-2">
                   {box.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-gray-300">
+                    <div key={idx} className="flex items-center gap-2 text-muted-foreground">
                       <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
                       <span className="text-sm">{feature}</span>
                     </div>
@@ -213,8 +213,8 @@ export default function SubscriptionBoxesPage() {
                           setSelectedCycle(cycle.value);
                         }}
                       >
-                        <p className="text-white font-medium text-sm">{cycle.label}</p>
-                        <p className="text-white text-lg font-bold">
+                        <p className="text-foreground font-medium text-sm">{cycle.label}</p>
+                        <p className="text-foreground text-lg font-bold">
                           ${getPriceForCycle(box, cycle.value)}
                         </p>
                         {cycle.save && (
@@ -346,7 +346,7 @@ export default function SubscriptionBoxesPage() {
 
         {/* FAQ */}
         <div className="mt-16 max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-white text-center mb-8">
+          <h2 className="text-3xl font-bold text-foreground text-center mb-8">
             Subscription FAQ
           </h2>
           <div className="space-y-4">
@@ -370,7 +370,7 @@ export default function SubscriptionBoxesPage() {
             ].map((faq, idx) => (
               <Card key={idx} className="bg-white/5 border-white/10 backdrop-blur-xl">
                 <CardContent className="p-4">
-                  <p className="text-white font-medium mb-2">{faq.q}</p>
+                  <p className="text-foreground font-medium mb-2">{faq.q}</p>
                   <p className="text-gray-400 text-sm">{faq.a}</p>
                 </CardContent>
               </Card>

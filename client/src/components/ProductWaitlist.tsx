@@ -71,10 +71,10 @@ export default function ProductWaitlist({
             <Check className="w-6 h-6 text-green-400" />
           </div>
           <div className="flex-1">
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-lg font-semibold text-foreground mb-2">
               You're on the waitlist!
             </h3>
-            <p className="text-gray-300 mb-4">
+            <p className="text-muted-foreground mb-4">
               We'll send you an email at <strong>{email}</strong> as soon as{" "}
               <strong>{productName}</strong> is back in stock.
             </p>
@@ -99,11 +99,11 @@ export default function ProductWaitlist({
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-2">
             <Bell className="w-5 h-5 text-purple-400" />
-            <h3 className="text-lg font-semibold text-white">
+            <h3 className="text-lg font-semibold text-foreground">
               Join Waitlist
             </h3>
           </div>
-          <p className="text-gray-300 text-sm">
+          <p className="text-muted-foreground text-sm">
             Get notified when <strong>{productName}</strong> is back in stock
           </p>
         </div>
@@ -116,7 +116,7 @@ export default function ProductWaitlist({
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="bg-white/10 border-white/20 text-white placeholder-gray-400"
+            className="bg-white/10 border-white/20 text-foreground placeholder-gray-400"
             required
           />
           {error && (

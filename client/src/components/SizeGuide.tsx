@@ -38,10 +38,10 @@ export function SizeGuide({ isOpen, onClose, productCategory = "clothing" }: Siz
   const chart = sizeCharts[productCategory as keyof typeof sizeCharts] || sizeCharts.clothing;
 
   return (
-    <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 bg-background/80 z-50 flex items-center justify-center p-4 text-foreground">
       <Card className="max-w-4xl w-full max-h-[90vh] overflow-y-auto bg-gradient-to-br from-purple-900/95 via-black/95 to-pink-900/95 backdrop-blur-xl border-white/20">
         <div className="sticky top-0 bg-gradient-to-r from-purple-900 to-pink-900 p-6 border-b border-white/20 flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-white flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
             <Ruler className="w-6 h-6 text-purple-400" />
             Size Guide
           </h2>
@@ -49,7 +49,7 @@ export function SizeGuide({ isOpen, onClose, productCategory = "clothing" }: Siz
             variant="ghost"
             size="icon"
             onClick={onClose}
-            className="text-white hover:bg-white/10"
+            className="text-foreground hover:bg-white/10"
           >
             <X className="w-5 h-5" />
           </Button>
@@ -58,7 +58,7 @@ export function SizeGuide({ isOpen, onClose, productCategory = "clothing" }: Siz
         <div className="p-6 space-y-8">
           {/* Unit Toggle */}
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-white">Measurements</h3>
+            <h3 className="text-lg font-semibold text-foreground">Measurements</h3>
             <div className="flex gap-2">
               <Button
                 variant={selectedUnit === "in" ? "default" : "outline"}
@@ -67,7 +67,7 @@ export function SizeGuide({ isOpen, onClose, productCategory = "clothing" }: Siz
                 className={
                   selectedUnit === "in"
                     ? "bg-gradient-to-r from-pink-500 to-purple-600"
-                    : "border-white/20 text-white hover:bg-white/10"
+                    : "border-white/20 text-foreground hover:bg-white/10"
                 }
               >
                 Inches
@@ -79,7 +79,7 @@ export function SizeGuide({ isOpen, onClose, productCategory = "clothing" }: Siz
                 className={
                   selectedUnit === "cm"
                     ? "bg-gradient-to-r from-pink-500 to-purple-600"
-                    : "border-white/20 text-white hover:bg-white/10"
+                    : "border-white/20 text-foreground hover:bg-white/10"
                 }
               >
                 Centimeters
@@ -95,7 +95,7 @@ export function SizeGuide({ isOpen, onClose, productCategory = "clothing" }: Siz
                   {chart.headers.map((header) => (
                     <th
                       key={header}
-                      className="text-left py-3 px-4 text-white font-semibold"
+                      className="text-left py-3 px-4 text-foreground font-semibold"
                     >
                       {header}
                     </th>
@@ -111,16 +111,16 @@ export function SizeGuide({ isOpen, onClose, productCategory = "clothing" }: Siz
                     <td className="py-3 px-4">
                       <Badge className="bg-purple-600">{row.size}</Badge>
                     </td>
-                    <td className="py-3 px-4 text-gray-300">
+                    <td className="py-3 px-4 text-muted-foreground">
                       {row.chest} {selectedUnit}
                     </td>
-                    <td className="py-3 px-4 text-gray-300">
+                    <td className="py-3 px-4 text-muted-foreground">
                       {row.waist} {selectedUnit}
                     </td>
-                    <td className="py-3 px-4 text-gray-300">
+                    <td className="py-3 px-4 text-muted-foreground">
                       {row.hips} {selectedUnit}
                     </td>
-                    <td className="py-3 px-4 text-gray-300">
+                    <td className="py-3 px-4 text-muted-foreground">
                       {row.length} {selectedUnit}
                     </td>
                   </tr>
@@ -131,12 +131,12 @@ export function SizeGuide({ isOpen, onClose, productCategory = "clothing" }: Siz
 
           {/* Fit Recommendations */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+            <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
               <TrendingUp className="w-5 h-5 text-purple-400" />
               Fit Recommendations
             </h3>
             <Card className="p-4 bg-white/5 border-white/10">
-              <p className="text-gray-300 mb-4 flex items-center gap-2">
+              <p className="text-muted-foreground mb-4 flex items-center gap-2">
                 <Users className="w-4 h-4" />
                 Based on 1,234 customer reviews
               </p>
@@ -144,7 +144,7 @@ export function SizeGuide({ isOpen, onClose, productCategory = "clothing" }: Siz
                 {fitRecommendations.map((rec) => (
                   <div key={rec.size}>
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-white font-semibold">{rec.label}</span>
+                      <span className="text-foreground font-semibold">{rec.label}</span>
                       <span className="text-gray-400 text-sm">{rec.percentage}%</span>
                     </div>
                     <div className="w-full bg-white/10 rounded-full h-2">
@@ -161,29 +161,29 @@ export function SizeGuide({ isOpen, onClose, productCategory = "clothing" }: Siz
 
           {/* How to Measure */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">How to Measure</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">How to Measure</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Card className="p-4 bg-white/5 border-white/10">
-                <h4 className="text-white font-semibold mb-2">Chest</h4>
-                <p className="text-gray-300 text-sm">
+                <h4 className="text-foreground font-semibold mb-2">Chest</h4>
+                <p className="text-muted-foreground text-sm">
                   Measure around the fullest part of your chest, keeping the tape horizontal.
                 </p>
               </Card>
               <Card className="p-4 bg-white/5 border-white/10">
-                <h4 className="text-white font-semibold mb-2">Waist</h4>
-                <p className="text-gray-300 text-sm">
+                <h4 className="text-foreground font-semibold mb-2">Waist</h4>
+                <p className="text-muted-foreground text-sm">
                   Measure around your natural waistline, keeping the tape comfortably loose.
                 </p>
               </Card>
               <Card className="p-4 bg-white/5 border-white/10">
-                <h4 className="text-white font-semibold mb-2">Hips</h4>
-                <p className="text-gray-300 text-sm">
+                <h4 className="text-foreground font-semibold mb-2">Hips</h4>
+                <p className="text-muted-foreground text-sm">
                   Measure around the fullest part of your hips, keeping the tape horizontal.
                 </p>
               </Card>
               <Card className="p-4 bg-white/5 border-white/10">
-                <h4 className="text-white font-semibold mb-2">Length</h4>
-                <p className="text-gray-300 text-sm">
+                <h4 className="text-foreground font-semibold mb-2">Length</h4>
+                <p className="text-muted-foreground text-sm">
                   Measure from the highest point of your shoulder to the desired length.
                 </p>
               </Card>
@@ -192,8 +192,8 @@ export function SizeGuide({ isOpen, onClose, productCategory = "clothing" }: Siz
 
           {/* Tips */}
           <Card className="p-4 bg-purple-600/20 border-purple-500/30">
-            <h4 className="text-white font-semibold mb-2">💡 Pro Tips</h4>
-            <ul className="space-y-2 text-gray-300 text-sm">
+            <h4 className="text-foreground font-semibold mb-2">💡 Pro Tips</h4>
+            <ul className="space-y-2 text-muted-foreground text-sm">
               <li>• Measure over your undergarments for the most accurate fit</li>
               <li>• If you're between sizes, we recommend sizing up for comfort</li>
               <li>• Check the product description for specific fit notes</li>

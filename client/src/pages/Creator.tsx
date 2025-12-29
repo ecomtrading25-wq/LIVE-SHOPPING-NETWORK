@@ -57,11 +57,11 @@ export default function CreatorDashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-zinc-900 to-black">
       {/* Header */}
-      <div className="bg-zinc-900/50 border-b border-zinc-800">
+      <div className="bg-background/50 border-b border-border text-foreground">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-white">Creator Dashboard</h1>
+              <h1 className="text-3xl font-bold text-foreground">Creator Dashboard</h1>
               <p className="text-gray-400 mt-1">
                 Welcome back, {creatorData?.name || "Creator"}!
               </p>
@@ -82,40 +82,40 @@ export default function CreatorDashboard() {
       <div className="container mx-auto px-4 py-8">
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <Card className="p-6 bg-zinc-900/50 border-zinc-800">
+          <Card className="p-6 bg-background/50 border-border text-foreground">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
                 <Eye className="w-5 h-5 text-blue-400" />
               </div>
               <p className="text-sm text-gray-400">Total Views</p>
             </div>
-            <p className="text-3xl font-bold text-white">
+            <p className="text-3xl font-bold text-foreground">
               {analytics?.totalViews?.toLocaleString() || "0"}
             </p>
             <p className="text-sm text-green-400 mt-1">+12% this week</p>
           </Card>
 
-          <Card className="p-6 bg-zinc-900/50 border-zinc-800">
+          <Card className="p-6 bg-background/50 border-border text-foreground">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
                 <ShoppingBag className="w-5 h-5 text-green-400" />
               </div>
               <p className="text-sm text-gray-400">Total Sales</p>
             </div>
-            <p className="text-3xl font-bold text-white">
+            <p className="text-3xl font-bold text-foreground">
               {analytics?.totalSales?.toLocaleString() || "0"}
             </p>
             <p className="text-sm text-green-400 mt-1">+8% this week</p>
           </Card>
 
-          <Card className="p-6 bg-zinc-900/50 border-zinc-800">
+          <Card className="p-6 bg-background/50 border-border text-foreground">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
                 <DollarSign className="w-5 h-5 text-purple-400" />
               </div>
               <p className="text-sm text-gray-400">Total Earnings</p>
             </div>
-            <p className="text-3xl font-bold text-white">
+            <p className="text-3xl font-bold text-foreground">
               ${earnings?.totalEarnings?.toFixed(2) || "0.00"}
             </p>
             <p className="text-sm text-purple-400 mt-1">
@@ -123,14 +123,14 @@ export default function CreatorDashboard() {
             </p>
           </Card>
 
-          <Card className="p-6 bg-zinc-900/50 border-zinc-800">
+          <Card className="p-6 bg-background/50 border-border text-foreground">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 bg-yellow-500/20 rounded-full flex items-center justify-center">
                 <Award className="w-5 h-5 text-yellow-400" />
               </div>
               <p className="text-sm text-gray-400">Commission Rate</p>
             </div>
-            <p className="text-3xl font-bold text-white">
+            <p className="text-3xl font-bold text-foreground">
               {creatorData?.commissionRate || 15}%
             </p>
             <p className="text-sm text-gray-400 mt-1">Based on tier</p>
@@ -161,7 +161,7 @@ export default function CreatorDashboard() {
                 <div>
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
-                    <h2 className="text-2xl font-bold text-white">LIVE NOW</h2>
+                    <h2 className="text-2xl font-bold text-foreground">LIVE NOW</h2>
                   </div>
                   <p className="text-white/90 mb-4">
                     {analytics?.currentViewers || 0} viewers watching
@@ -174,7 +174,7 @@ export default function CreatorDashboard() {
                       <Square className="w-4 h-4 mr-2" />
                       End Session
                     </Button>
-                    <Button variant="outline" className="border-white text-white hover:bg-white/20">
+                    <Button variant="outline" className="border-white text-foreground hover:bg-white/20">
                       <Package className="w-4 h-4 mr-2" />
                       Manage Products
                     </Button>
@@ -182,9 +182,9 @@ export default function CreatorDashboard() {
                 </div>
                 <div className="text-right">
                   <p className="text-white/80 text-sm mb-1">Session Duration</p>
-                  <p className="text-4xl font-bold text-white">2:34:15</p>
+                  <p className="text-4xl font-bold text-foreground">2:34:15</p>
                   <p className="text-white/80 text-sm mt-3">Revenue Today</p>
-                  <p className="text-3xl font-bold text-white">
+                  <p className="text-3xl font-bold text-foreground">
                     ${analytics?.todayRevenue?.toFixed(2) || "0.00"}
                   </p>
                 </div>
@@ -192,21 +192,21 @@ export default function CreatorDashboard() {
             </Card>
 
             {/* Upcoming Sessions */}
-            <Card className="p-6 bg-zinc-900/50 border-zinc-800">
-              <h3 className="text-xl font-bold text-white mb-4">Upcoming Sessions</h3>
+            <Card className="p-6 bg-background/50 border-border text-foreground">
+              <h3 className="text-xl font-bold text-foreground mb-4">Upcoming Sessions</h3>
               <div className="space-y-3">
                 {upcomingSessions && upcomingSessions.length > 0 ? (
                   upcomingSessions.map((session: any) => (
                     <div
                       key={session.id}
-                      className="flex items-center justify-between p-4 bg-zinc-800 rounded-lg"
+                      className="flex items-center justify-between p-4 bg-card rounded-lg text-card-foreground"
                     >
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
                           <Video className="w-6 h-6 text-purple-400" />
                         </div>
                         <div>
-                          <p className="font-semibold text-white">{session.title}</p>
+                          <p className="font-semibold text-foreground">{session.title}</p>
                           <div className="flex items-center gap-4 text-sm text-gray-400 mt-1">
                             <span className="flex items-center gap-1">
                               <Calendar className="w-4 h-4" />
@@ -241,8 +241,8 @@ export default function CreatorDashboard() {
             </Card>
 
             {/* Recent Performance */}
-            <Card className="p-6 bg-zinc-900/50 border-zinc-800">
-              <h3 className="text-xl font-bold text-white mb-4">Recent Performance</h3>
+            <Card className="p-6 bg-background/50 border-border text-foreground">
+              <h3 className="text-xl font-bold text-foreground mb-4">Recent Performance</h3>
               <div className="space-y-3">
                 {[
                   { date: "Dec 25", views: 1234, sales: 45, revenue: 2345.67 },
@@ -251,17 +251,17 @@ export default function CreatorDashboard() {
                 ].map((day) => (
                   <div
                     key={day.date}
-                    className="flex items-center justify-between p-4 bg-zinc-800 rounded-lg"
+                    className="flex items-center justify-between p-4 bg-card rounded-lg text-card-foreground"
                   >
                     <div>
-                      <p className="font-semibold text-white">{day.date}</p>
+                      <p className="font-semibold text-foreground">{day.date}</p>
                       <div className="flex items-center gap-4 text-sm text-gray-400 mt-1">
                         <span>{day.views.toLocaleString()} views</span>
                         <span>{day.sales} sales</span>
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="text-xl font-bold text-white">
+                      <p className="text-xl font-bold text-foreground">
                         ${day.revenue.toFixed(2)}
                       </p>
                       <p className="text-sm text-gray-400">
@@ -277,47 +277,47 @@ export default function CreatorDashboard() {
 
         {/* Schedule Tab */}
         {activeTab === "schedule" && (
-          <Card className="p-8 bg-zinc-900/50 border-zinc-800">
-            <h2 className="text-2xl font-bold text-white mb-6">Schedule Management</h2>
+          <Card className="p-8 bg-background/50 border-border text-foreground">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Schedule Management</h2>
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   Session Title
                 </label>
                 <Input
                   placeholder="e.g., Holiday Gift Guide Live"
-                  className="bg-zinc-800 border-zinc-700"
+                  className="bg-card border-zinc-700 text-card-foreground"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-muted-foreground mb-2">
                     Date
                   </label>
                   <Input
                     type="date"
-                    className="bg-zinc-800 border-zinc-700"
+                    className="bg-card border-zinc-700 text-card-foreground"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-muted-foreground mb-2">
                     Time
                   </label>
                   <Input
                     type="time"
-                    className="bg-zinc-800 border-zinc-700"
+                    className="bg-card border-zinc-700 text-card-foreground"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   Stream URL
                 </label>
                 <Input
                   placeholder="https://stream.example.com/live.m3u8"
-                  className="bg-zinc-800 border-zinc-700"
+                  className="bg-card border-zinc-700 text-card-foreground"
                 />
               </div>
 
@@ -331,8 +331,8 @@ export default function CreatorDashboard() {
 
         {/* Products Tab */}
         {activeTab === "products" && (
-          <Card className="p-8 bg-zinc-900/50 border-zinc-800">
-            <h2 className="text-2xl font-bold text-white mb-6">Product Selection</h2>
+          <Card className="p-8 bg-background/50 border-border text-foreground">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Product Selection</h2>
             <p className="text-gray-400 text-center py-12">
               Select products to feature in your live sessions
             </p>
@@ -341,12 +341,12 @@ export default function CreatorDashboard() {
 
         {/* Earnings Tab */}
         {activeTab === "earnings" && (
-          <Card className="p-8 bg-zinc-900/50 border-zinc-800">
-            <h2 className="text-2xl font-bold text-white mb-6">Earnings & Payouts</h2>
+          <Card className="p-8 bg-background/50 border-border text-foreground">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Earnings & Payouts</h2>
             <div className="grid grid-cols-3 gap-6 mb-8">
               <div className="text-center">
                 <p className="text-sm text-gray-400 mb-2">Total Earned</p>
-                <p className="text-3xl font-bold text-white">
+                <p className="text-3xl font-bold text-foreground">
                   ${earnings?.totalEarnings?.toFixed(2) || "0.00"}
                 </p>
               </div>
@@ -364,21 +364,21 @@ export default function CreatorDashboard() {
               </div>
             </div>
 
-            <h3 className="text-lg font-semibold text-white mb-4">Payout History</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">Payout History</h3>
             <div className="space-y-3">
               {earnings?.payoutHistory?.map((payout: any) => (
                 <div
                   key={payout.id}
-                  className="flex items-center justify-between p-4 bg-zinc-800 rounded-lg"
+                  className="flex items-center justify-between p-4 bg-card rounded-lg text-card-foreground"
                 >
                   <div>
-                    <p className="font-medium text-white">
+                    <p className="font-medium text-foreground">
                       {new Date(payout.date).toLocaleDateString()}
                     </p>
                     <p className="text-sm text-gray-400">{payout.method}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-xl font-bold text-white">
+                    <p className="text-xl font-bold text-foreground">
                       ${payout.amount.toFixed(2)}
                     </p>
                     <Badge className="bg-green-600 mt-1">{payout.status}</Badge>
@@ -395,8 +395,8 @@ export default function CreatorDashboard() {
 
         {/* Analytics Tab */}
         {activeTab === "analytics" && (
-          <Card className="p-8 bg-zinc-900/50 border-zinc-800">
-            <h2 className="text-2xl font-bold text-white mb-6">Performance Analytics</h2>
+          <Card className="p-8 bg-background/50 border-border text-foreground">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Performance Analytics</h2>
             <p className="text-gray-400 text-center py-12">
               Detailed analytics coming soon
             </p>

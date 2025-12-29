@@ -92,10 +92,10 @@ export default function PriceDropAlert({
             <Check className="w-6 h-6 text-green-400" />
           </div>
           <div className="flex-1">
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-lg font-semibold text-foreground mb-2">
               Price Alert Set! 🎉
             </h3>
-            <p className="text-gray-300 mb-4">
+            <p className="text-muted-foreground mb-4">
               We'll email you at <strong>{email}</strong> when{" "}
               <strong>{productName}</strong> drops to <strong>${targetPrice}</strong> or lower.
             </p>
@@ -131,11 +131,11 @@ export default function PriceDropAlert({
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-2">
             <TrendingDown className="w-5 h-5 text-green-400" />
-            <h3 className="text-lg font-semibold text-white">
+            <h3 className="text-lg font-semibold text-foreground">
               Set Price Alert
             </h3>
           </div>
-          <p className="text-gray-300 text-sm mb-2">
+          <p className="text-muted-foreground text-sm mb-2">
             Get notified when <strong>{productName}</strong> drops to your target price
           </p>
           <Badge className="bg-purple-500/20 text-purple-400">
@@ -147,7 +147,7 @@ export default function PriceDropAlert({
 
       <form onSubmit={handleSetAlert} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-muted-foreground mb-2">
             Target Price
           </label>
           <div className="relative">
@@ -158,7 +158,7 @@ export default function PriceDropAlert({
               placeholder="Enter target price"
               value={targetPrice}
               onChange={(e) => setTargetPrice(e.target.value)}
-              className="pl-10 bg-white/10 border-white/20 text-white placeholder-gray-400"
+              className="pl-10 bg-white/10 border-white/20 text-foreground placeholder-gray-400"
               required
             />
           </div>
@@ -171,7 +171,7 @@ export default function PriceDropAlert({
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-muted-foreground mb-2">
             Email Address
           </label>
           <Input
@@ -179,7 +179,7 @@ export default function PriceDropAlert({
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="bg-white/10 border-white/20 text-white placeholder-gray-400"
+            className="bg-white/10 border-white/20 text-foreground placeholder-gray-400"
             required
           />
         </div>

@@ -77,7 +77,7 @@ export default function PickerPage() {
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
       {/* Header */}
-      <div className="bg-purple-600 text-white p-4 sticky top-0 z-10 shadow-lg">
+      <div className="bg-purple-600 text-foreground p-4 sticky top-0 z-10 shadow-lg">
         <h1 className="text-2xl font-bold">Picker Dashboard</h1>
         <p className="text-sm text-purple-100">
           {tasks?.length || 0} pending tasks
@@ -210,7 +210,7 @@ export default function PickerPage() {
 
           {!tasks || tasks.length === 0 ? (
             <Card className="p-8 text-center">
-              <Package className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+              <Package className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
               <p className="text-gray-500">No pending pick tasks</p>
               <p className="text-sm text-gray-400 mt-2">
                 Check back later or refresh the page

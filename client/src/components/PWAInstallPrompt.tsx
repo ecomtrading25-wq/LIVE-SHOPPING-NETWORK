@@ -60,21 +60,21 @@ export default function PWAInstallPrompt() {
 
   return (
     <div className="fixed bottom-4 left-4 right-4 z-50 md:left-auto md:right-4 md:max-w-md">
-      <Card className="p-4 bg-white dark:bg-zinc-900 shadow-2xl border-2 border-purple-600">
+      <Card className="p-4 bg-white dark:bg-background shadow-2xl border-2 border-purple-600 text-foreground">
         <button
           onClick={handleDismiss}
-          className="absolute top-2 right-2 p-1 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full transition-colors"
+          className="absolute top-2 right-2 p-1 hover:bg-zinc-100 dark:hover:bg-card rounded-full transition-colors text-card-foreground"
         >
           <X className="w-4 h-4 text-zinc-600 dark:text-zinc-400" />
         </button>
 
         <div className="flex items-start gap-4">
           <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
-            <Download className="w-6 h-6 text-white" />
+            <Download className="w-6 h-6 text-foreground" />
           </div>
 
           <div className="flex-1">
-            <h3 className="font-bold text-zinc-900 dark:text-white mb-1">
+            <h3 className="font-bold text-zinc-900 dark:text-foreground mb-1">
               Install Live Shopping Network
             </h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-4">
@@ -99,7 +99,7 @@ export default function PWAInstallPrompt() {
           </div>
         </div>
 
-        <div className="mt-4 pt-4 border-t border-zinc-200 dark:border-zinc-800">
+        <div className="mt-4 pt-4 border-t border-zinc-200 dark:border-border">
           <div className="grid grid-cols-3 gap-2 text-center">
             <div>
               <div className="text-2xl mb-1">⚡</div>

@@ -244,7 +244,7 @@ function ProductCard({ name, price, originalPrice, rating, reviews, image, badge
               className={`w-4 h-4 ${
                 i < Math.floor(rating)
                   ? 'fill-yellow-400 text-yellow-400'
-                  : 'text-gray-300'
+                  : 'text-muted-foreground'
               }`}
             />
           ))}

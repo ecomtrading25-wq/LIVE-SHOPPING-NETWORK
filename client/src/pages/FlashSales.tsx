@@ -144,7 +144,7 @@ export default function FlashSalesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <div className="border-b bg-gradient-to-r from-red-500/20 to-orange-500/20">
         <div className="container py-8">
@@ -172,7 +172,7 @@ export default function FlashSalesPage() {
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-6">
             <h2 className="text-3xl font-bold">Active Now</h2>
-            <Badge className="bg-red-500 text-white text-lg px-4 py-2 animate-pulse">
+            <Badge className="bg-red-500 text-foreground text-lg px-4 py-2 animate-pulse">
               LIVE
             </Badge>
           </div>
@@ -192,7 +192,7 @@ export default function FlashSalesPage() {
                   >
                     {/* Discount Badge */}
                     <div className="absolute top-4 right-4">
-                      <Badge className="bg-red-500 text-white text-xl px-4 py-2">
+                      <Badge className="bg-red-500 text-foreground text-xl px-4 py-2">
                         -{sale.discount}%
                       </Badge>
                     </div>
@@ -285,7 +285,7 @@ export default function FlashSalesPage() {
 
                     {/* Buy Button */}
                     <Button
-                      className="w-full bg-red-500 hover:bg-red-600 text-white"
+                      className="w-full bg-red-500 hover:bg-red-600 text-foreground"
                       size="lg"
                     >
                       <ShoppingCart className="w-5 h-5 mr-2" />
@@ -301,7 +301,7 @@ export default function FlashSalesPage() {
         <div>
           <div className="flex items-center gap-3 mb-6">
             <h2 className="text-3xl font-bold">Coming Soon</h2>
-            <Badge className="bg-blue-500 text-white text-lg px-4 py-2">
+            <Badge className="bg-blue-500 text-foreground text-lg px-4 py-2">
               <Clock className="w-4 h-4 mr-2" />
               Upcoming
             </Badge>
@@ -317,7 +317,7 @@ export default function FlashSalesPage() {
                   <Card key={sale.id} className="p-6 opacity-75">
                     {/* Discount Badge */}
                     <div className="absolute top-4 right-4">
-                      <Badge className="bg-blue-500 text-white text-xl px-4 py-2">
+                      <Badge className="bg-blue-500 text-foreground text-xl px-4 py-2">
                         -{sale.discount}%
                       </Badge>
                     </div>

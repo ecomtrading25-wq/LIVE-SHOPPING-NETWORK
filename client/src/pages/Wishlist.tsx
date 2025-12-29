@@ -42,8 +42,8 @@ export default function WishlistPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="border-b bg-card">
+    <div className="min-h-screen bg-background text-foreground">
+      <div className="border-b bg-card text-card-foreground">
         <div className="container py-8">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
@@ -104,7 +104,7 @@ export default function WishlistPage() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute top-2 right-2 z-10 bg-background/80 backdrop-blur-sm"
+                className="absolute top-2 right-2 z-10 bg-background/80 backdrop-blur-sm text-foreground"
               >
                 <X className="w-4 h-4" />
               </Button>

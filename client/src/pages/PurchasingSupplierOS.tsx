@@ -133,7 +133,7 @@ export default function PurchasingSupplierOS() {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h1 className="text-4xl font-bold text-white mb-2">Purchasing & Supplier OS</h1>
+              <h1 className="text-4xl font-bold text-foreground mb-2">Purchasing & Supplier OS</h1>
               <p className="text-gray-400">Complete procurement and supplier management</p>
             </div>
             <div className="flex gap-3">
@@ -148,7 +148,7 @@ export default function PurchasingSupplierOS() {
                 variant="outline"
                 size="sm"
                 onClick={() => refetchLots()}
-                className="border-white/20 text-white hover:bg-white/10"
+                className="border-white/20 text-foreground hover:bg-white/10"
               >
                 <RefreshCw className="w-4 h-4 mr-2" />
                 Refresh
@@ -156,7 +156,7 @@ export default function PurchasingSupplierOS() {
               <Button
                 variant="outline"
                 size="sm"
-                className="border-white/20 text-white hover:bg-white/10"
+                className="border-white/20 text-foreground hover:bg-white/10"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Export
@@ -171,8 +171,8 @@ export default function PurchasingSupplierOS() {
                 <Package className="w-8 h-8 text-blue-500" />
                 <Badge variant="secondary">{stats?.activeLots || 0}</Badge>
               </div>
-              <p className="text-gray-300 text-sm mb-1">Active Lots</p>
-              <p className="text-white text-2xl font-bold">{stats?.totalLots || 0}</p>
+              <p className="text-muted-foreground text-sm mb-1">Active Lots</p>
+              <p className="text-foreground text-2xl font-bold">{stats?.totalLots || 0}</p>
             </Card>
 
             <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
@@ -183,8 +183,8 @@ export default function PurchasingSupplierOS() {
                   {stats?.costSavings?.toFixed(1) || 0}%
                 </Badge>
               </div>
-              <p className="text-gray-300 text-sm mb-1">Total Spend</p>
-              <p className="text-white text-2xl font-bold">${stats?.totalSpend?.toLocaleString() || "0"}</p>
+              <p className="text-muted-foreground text-sm mb-1">Total Spend</p>
+              <p className="text-foreground text-2xl font-bold">${stats?.totalSpend?.toLocaleString() || "0"}</p>
             </Card>
 
             <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
@@ -192,8 +192,8 @@ export default function PurchasingSupplierOS() {
                 <Users className="w-8 h-8 text-purple-500" />
                 <Badge className="bg-purple-600">{stats?.activeSuppliers || 0}</Badge>
               </div>
-              <p className="text-gray-300 text-sm mb-1">Suppliers</p>
-              <p className="text-white text-2xl font-bold">{stats?.totalSuppliers || 0}</p>
+              <p className="text-muted-foreground text-sm mb-1">Suppliers</p>
+              <p className="text-foreground text-2xl font-bold">{stats?.totalSuppliers || 0}</p>
             </Card>
 
             <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
@@ -201,8 +201,8 @@ export default function PurchasingSupplierOS() {
                 <Target className="w-8 h-8 text-yellow-500" />
                 <Badge className="bg-yellow-600">{stats?.avgLandedCost?.toFixed(2) || 0}</Badge>
               </div>
-              <p className="text-gray-300 text-sm mb-1">Avg Landed Cost</p>
-              <p className="text-white text-2xl font-bold">${stats?.totalLandedCost?.toLocaleString() || "0"}</p>
+              <p className="text-muted-foreground text-sm mb-1">Avg Landed Cost</p>
+              <p className="text-foreground text-2xl font-bold">${stats?.totalLandedCost?.toLocaleString() || "0"}</p>
             </Card>
 
             <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
@@ -210,8 +210,8 @@ export default function PurchasingSupplierOS() {
                 <CheckCircle className="w-8 h-8 text-emerald-500" />
                 <Badge className="bg-emerald-600">{stats?.qcPassRate?.toFixed(1) || 0}%</Badge>
               </div>
-              <p className="text-gray-300 text-sm mb-1">QC Pass Rate</p>
-              <p className="text-white text-2xl font-bold">{stats?.qcPassed || 0}</p>
+              <p className="text-muted-foreground text-sm mb-1">QC Pass Rate</p>
+              <p className="text-foreground text-2xl font-bold">{stats?.qcPassed || 0}</p>
               <p className="text-gray-400 text-xs mt-1">of {stats?.qcTotal || 0} inspected</p>
             </Card>
           </div>
@@ -246,13 +246,13 @@ export default function PurchasingSupplierOS() {
                       placeholder="Search lots..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-10 bg-white/5 border-white/20 text-white placeholder:text-gray-400"
+                      className="pl-10 bg-white/5 border-white/20 text-foreground placeholder:text-gray-400"
                     />
                   </div>
                 </div>
 
                 <Select value={filterStatus} onValueChange={setFilterStatus}>
-                  <SelectTrigger className="w-[160px] bg-white/5 border-white/20 text-white">
+                  <SelectTrigger className="w-[160px] bg-white/5 border-white/20 text-foreground">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -275,7 +275,7 @@ export default function PurchasingSupplierOS() {
                 <Card key={lot.id} className="p-6 bg-white/10 backdrop-blur border-white/20">
                   <div className="flex items-start gap-4">
                     {/* Product Image */}
-                    <div className="w-24 h-24 rounded-lg overflow-hidden bg-gray-800 flex-shrink-0">
+                    <div className="w-24 h-24 rounded-lg overflow-hidden bg-card flex-shrink-0 text-card-foreground">
                       {lot.productImage ? (
                         <img src={lot.productImage} alt={lot.productName} className="w-full h-full object-cover" />
                       ) : (
@@ -290,7 +290,7 @@ export default function PurchasingSupplierOS() {
                       <div className="flex items-start justify-between mb-3">
                         <div>
                           <div className="flex items-center gap-3 mb-2">
-                            <h3 className="text-white font-bold text-lg">{lot.productName}</h3>
+                            <h3 className="text-foreground font-bold text-lg">{lot.productName}</h3>
                             <Badge className={getStatusColor(lot.status)}>
                               {lot.status.toUpperCase().replace("_", " ")}
                             </Badge>
@@ -346,7 +346,7 @@ export default function PurchasingSupplierOS() {
                             size="sm"
                             variant="outline"
                             onClick={() => setSelectedLot(lot)}
-                            className="border-white/20 text-white hover:bg-white/10"
+                            className="border-white/20 text-foreground hover:bg-white/10"
                           >
                             <Eye className="w-4 h-4" />
                           </Button>
@@ -357,12 +357,12 @@ export default function PurchasingSupplierOS() {
                       <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mb-4">
                         <div>
                           <p className="text-gray-400 text-xs mb-1">Quantity</p>
-                          <p className="text-white font-bold text-lg">{lot.quantity?.toLocaleString()}</p>
+                          <p className="text-foreground font-bold text-lg">{lot.quantity?.toLocaleString()}</p>
                         </div>
 
                         <div>
                           <p className="text-gray-400 text-xs mb-1">Unit Cost</p>
-                          <p className="text-white font-bold text-lg">${lot.unitCost?.toFixed(2)}</p>
+                          <p className="text-foreground font-bold text-lg">${lot.unitCost?.toFixed(2)}</p>
                         </div>
 
                         <div>
@@ -372,17 +372,17 @@ export default function PurchasingSupplierOS() {
 
                         <div>
                           <p className="text-gray-400 text-xs mb-1">Total Value</p>
-                          <p className="text-white font-bold text-lg">${lot.totalValue?.toLocaleString()}</p>
+                          <p className="text-foreground font-bold text-lg">${lot.totalValue?.toLocaleString()}</p>
                         </div>
 
                         <div>
                           <p className="text-gray-400 text-xs mb-1">ETA</p>
-                          <p className="text-white font-bold text-lg">{lot.eta || "TBD"}</p>
+                          <p className="text-foreground font-bold text-lg">{lot.eta || "TBD"}</p>
                         </div>
 
                         <div>
                           <p className="text-gray-400 text-xs mb-1">Lead Time</p>
-                          <p className="text-white font-bold text-lg">{lot.leadTime || 0} days</p>
+                          <p className="text-foreground font-bold text-lg">{lot.leadTime || 0} days</p>
                         </div>
                       </div>
 
@@ -390,23 +390,23 @@ export default function PurchasingSupplierOS() {
                       <div className="grid grid-cols-2 md:grid-cols-5 gap-3 p-3 bg-white/5 rounded-lg">
                         <div>
                           <p className="text-gray-400 text-xs mb-1">Product Cost</p>
-                          <p className="text-gray-300 text-sm">${lot.productCost?.toLocaleString()}</p>
+                          <p className="text-muted-foreground text-sm">${lot.productCost?.toLocaleString()}</p>
                         </div>
                         <div>
                           <p className="text-gray-400 text-xs mb-1">Shipping</p>
-                          <p className="text-gray-300 text-sm">${lot.shippingCost?.toLocaleString()}</p>
+                          <p className="text-muted-foreground text-sm">${lot.shippingCost?.toLocaleString()}</p>
                         </div>
                         <div>
                           <p className="text-gray-400 text-xs mb-1">Duties</p>
-                          <p className="text-gray-300 text-sm">${lot.dutiesCost?.toLocaleString()}</p>
+                          <p className="text-muted-foreground text-sm">${lot.dutiesCost?.toLocaleString()}</p>
                         </div>
                         <div>
                           <p className="text-gray-400 text-xs mb-1">Fees</p>
-                          <p className="text-gray-300 text-sm">${lot.feesCost?.toLocaleString()}</p>
+                          <p className="text-muted-foreground text-sm">${lot.feesCost?.toLocaleString()}</p>
                         </div>
                         <div>
                           <p className="text-gray-400 text-xs mb-1">Other</p>
-                          <p className="text-gray-300 text-sm">${lot.otherCosts?.toLocaleString()}</p>
+                          <p className="text-muted-foreground text-sm">${lot.otherCosts?.toLocaleString()}</p>
                         </div>
                       </div>
 
@@ -424,7 +424,7 @@ export default function PurchasingSupplierOS() {
                                 alert.severity === "warning" ? "text-yellow-500" :
                                 "text-blue-500"
                               }`} />
-                              <p className="text-white text-sm">{alert.message}</p>
+                              <p className="text-foreground text-sm">{alert.message}</p>
                             </div>
                           ))}
                         </div>
@@ -437,7 +437,7 @@ export default function PurchasingSupplierOS() {
               {(!lots || lots.length === 0) && (
                 <Card className="p-12 bg-white/10 backdrop-blur border-white/20 text-center">
                   <Package className="w-16 h-16 text-gray-500 mx-auto mb-4 opacity-50" />
-                  <h3 className="text-2xl font-bold text-white mb-2">No Lots Found</h3>
+                  <h3 className="text-2xl font-bold text-foreground mb-2">No Lots Found</h3>
                   <p className="text-gray-400 mb-4">Create your first purchase lot to get started.</p>
                   <Button onClick={() => setShowCreateLotDialog(true)}>
                     <Plus className="w-4 h-4 mr-2" />
@@ -455,7 +455,7 @@ export default function PurchasingSupplierOS() {
                 <Card key={supplier.id} className="p-6 bg-white/10 backdrop-blur border-white/20">
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h3 className="text-white font-bold text-lg mb-1">{supplier.name}</h3>
+                      <h3 className="text-foreground font-bold text-lg mb-1">{supplier.name}</h3>
                       <p className="text-gray-400 text-sm">{supplier.country}</p>
                     </div>
                     <Badge className={
@@ -492,11 +492,11 @@ export default function PurchasingSupplierOS() {
                   <div className="space-y-3 mb-4">
                     <div className="flex items-center justify-between">
                       <span className="text-gray-400 text-sm">Total Orders</span>
-                      <span className="text-white font-bold">{supplier.totalOrders}</span>
+                      <span className="text-foreground font-bold">{supplier.totalOrders}</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-gray-400 text-sm">Total Spend</span>
-                      <span className="text-white font-bold">${supplier.totalSpend?.toLocaleString()}</span>
+                      <span className="text-foreground font-bold">${supplier.totalSpend?.toLocaleString()}</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-gray-400 text-sm">On-Time Rate</span>
@@ -526,7 +526,7 @@ export default function PurchasingSupplierOS() {
                       size="sm"
                       variant="outline"
                       onClick={() => setSelectedSupplier(supplier)}
-                      className="flex-1 border-white/20 text-white hover:bg-white/10"
+                      className="flex-1 border-white/20 text-foreground hover:bg-white/10"
                     >
                       <Eye className="w-4 h-4 mr-1" />
                       View Details
@@ -544,7 +544,7 @@ export default function PurchasingSupplierOS() {
               {(!suppliers || suppliers.length === 0) && (
                 <Card className="p-12 bg-white/10 backdrop-blur border-white/20 text-center col-span-full">
                   <Users className="w-16 h-16 text-gray-500 mx-auto mb-4 opacity-50" />
-                  <h3 className="text-2xl font-bold text-white mb-2">No Suppliers Found</h3>
+                  <h3 className="text-2xl font-bold text-foreground mb-2">No Suppliers Found</h3>
                   <p className="text-gray-400">Add suppliers to start managing your supply chain.</p>
                 </Card>
               )}
@@ -555,7 +555,7 @@ export default function PurchasingSupplierOS() {
           <TabsContent value="analytics" className="space-y-6">
             {/* Spend Trend */}
             <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
-              <h3 className="text-xl font-bold text-white mb-4">Purchasing Spend Trend</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">Purchasing Spend Trend</h3>
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={stats?.spendTrend || []}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#ffffff20" />
@@ -575,7 +575,7 @@ export default function PurchasingSupplierOS() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Top Suppliers by Spend */}
               <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
-                <h3 className="text-xl font-bold text-white mb-4">Top Suppliers by Spend</h3>
+                <h3 className="text-xl font-bold text-foreground mb-4">Top Suppliers by Spend</h3>
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={stats?.topSuppliers || []}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#ffffff20" />
@@ -592,7 +592,7 @@ export default function PurchasingSupplierOS() {
 
               {/* Cost Breakdown */}
               <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
-                <h3 className="text-xl font-bold text-white mb-4">Cost Breakdown</h3>
+                <h3 className="text-xl font-bold text-foreground mb-4">Cost Breakdown</h3>
                 <ResponsiveContainer width="100%" height={300}>
                   <PieChart>
                     <Pie
@@ -619,12 +619,12 @@ export default function PurchasingSupplierOS() {
 
             {/* QC Performance */}
             <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
-              <h3 className="text-xl font-bold text-white mb-4">QC Performance by Supplier</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">QC Performance by Supplier</h3>
               <div className="space-y-3">
                 {stats?.qcBySupplier?.map((supplier: any) => (
                   <div key={supplier.id} className="p-4 bg-white/5 rounded-lg">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-white font-semibold">{supplier.name}</span>
+                      <span className="text-foreground font-semibold">{supplier.name}</span>
                       <span className={`font-bold ${
                         supplier.passRate >= 95 ? "text-green-500" :
                         supplier.passRate >= 85 ? "text-yellow-500" :

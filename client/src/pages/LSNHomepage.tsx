@@ -124,7 +124,7 @@ export default function LSNHomepage() {
 
               <div className="flex flex-wrap gap-4">
                 <Link href="/live">
-                  <Button size="lg" className="bg-[#E42313] hover:bg-[#C01F10] text-white font-semibold px-8">
+                  <Button size="lg" className="bg-[#E42313] hover:bg-[#C01F10] text-foreground font-semibold px-8">
                     <Play className="mr-2 h-5 w-5" />
                     Watch Live Now
                   </Button>
@@ -292,7 +292,7 @@ export default function LSNHomepage() {
       </section>
 
       {/* Trust Section */}
-      <section className="py-16 bg-gradient-to-br from-purple-950/30 to-pink-950/30">
+      <section className="py-16 bg-gradient-to-br from-purple-50 to-pink-50">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Why Shop With Us?</h2>
@@ -330,7 +330,7 @@ export default function LSNHomepage() {
       <section className="py-16">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-black rounded-2xl p-12">
+            <div className="bg-gradient-to-br from-purple-100 to-pink-100 border border-black rounded-2xl p-12">
               <Gift className="h-12 w-12 mx-auto mb-6 text-[#E42313]" />
               <h2 className="text-3xl font-bold mb-4">Never Miss a Deal</h2>
               <p className="text-gray-700 mb-8">
@@ -343,7 +343,7 @@ export default function LSNHomepage() {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="bg-white border-black text-white placeholder:text-gray-500"
+                  className="bg-white border-black text-foreground placeholder:text-gray-500"
                   required
                 />
                 <Button
@@ -423,20 +423,20 @@ function LiveShowCard({ show, featured = false }: { show: any; featured?: boolea
           
           {/* Live badge */}
           <div className="absolute top-4 left-4">
-            <Badge className="bg-red-600 text-white animate-pulse">
+            <Badge className="bg-red-600 text-foreground animate-pulse">
               <div className="h-2 w-2 bg-white rounded-full mr-2" />
               LIVE
             </Badge>
           </div>
 
           {/* Viewer count */}
-          <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-2">
+          <div className="absolute top-4 right-4 bg-background/70 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-2 text-foreground">
             <Eye className="h-4 w-4 text-[#E42313]" />
             <span className="text-sm font-medium">{show.viewerCount?.toLocaleString() || 0}</span>
           </div>
 
           {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
         </div>
 
         <CardContent className="p-6">
@@ -461,7 +461,7 @@ function LiveShowCard({ show, featured = false }: { show: any; featured?: boolea
           {show.pinnedProducts && show.pinnedProducts.length > 0 && (
             <div className="flex gap-2 mb-4">
               {show.pinnedProducts.slice(0, 3).map((product: any) => (
-                <div key={product.id} className="flex-1 bg-gray-800 rounded-lg p-2">
+                <div key={product.id} className="flex-1 bg-card rounded-lg p-2 text-card-foreground">
                   <img
                     src={product.imageUrl}
                     alt={product.name}
@@ -498,7 +498,7 @@ function NextShowCountdown({ show, currentTime }: { show: any; currentTime: Date
   const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
   return (
-    <Card className="h-[500px] border-black bg-gradient-to-br from-purple-950/50 to-pink-950/50 overflow-hidden">
+    <Card className="h-[500px] border-black bg-gradient-to-br from-purple-100 to-pink-100 overflow-hidden">
       <CardContent className="p-8 h-full flex flex-col justify-center items-center text-center">
         <Clock className="h-16 w-16 text-[#E42313] mb-6" />
         
@@ -564,7 +564,7 @@ function UpcomingShowCard({ show }: { show: any }) {
             alt={show.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
           
           <div className="absolute bottom-4 left-4 right-4">
             <Badge className="bg-purple-600 mb-2">

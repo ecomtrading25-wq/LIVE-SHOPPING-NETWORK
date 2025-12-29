@@ -73,7 +73,7 @@ export function DashboardTableSkeleton({ rows = 5 }: { rows?: number }) {
 
 export function DashboardFullPageSkeleton() {
   return (
-    <div className="min-h-screen bg-background p-6">
+    <div className="min-h-screen bg-background p-6 text-foreground">
       <div className="max-w-7xl mx-auto space-y-6">
         <DashboardHeaderSkeleton />
         

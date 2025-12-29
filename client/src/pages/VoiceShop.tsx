@@ -261,10 +261,10 @@ export default function VoiceShopPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full mb-4">
-            <Mic className="w-10 h-10 text-white" />
+            <Mic className="w-10 h-10 text-foreground" />
           </div>
-          <h1 className="text-5xl font-bold text-white mb-4">Voice Shopping</h1>
-          <p className="text-gray-300 text-xl mb-6">Shop hands-free with voice commands</p>
+          <h1 className="text-5xl font-bold text-foreground mb-4">Voice Shopping</h1>
+          <p className="text-muted-foreground text-xl mb-6">Shop hands-free with voice commands</p>
           
           {/* Wake Word Status */}
           {wakeWordActive && (
@@ -290,20 +290,20 @@ export default function VoiceShopPage() {
                   }`}
                 >
                   {isListening ? (
-                    <MicOff className="w-16 h-16 text-white" />
+                    <MicOff className="w-16 h-16 text-foreground" />
                   ) : (
-                    <Mic className="w-16 h-16 text-white" />
+                    <Mic className="w-16 h-16 text-foreground" />
                   )}
                 </button>
 
-                <h2 className="text-2xl font-bold text-white mb-2">
+                <h2 className="text-2xl font-bold text-foreground mb-2">
                   {isListening ? 'Listening...' : 'Tap to Start'}
                 </h2>
                 
                 {/* Live Transcript */}
                 {transcript && (
                   <div className="mt-6 p-4 bg-white/10 rounded-lg">
-                    <p className="text-white text-lg">{transcript}</p>
+                    <p className="text-foreground text-lg">{transcript}</p>
                     {isProcessing && (
                       <Loader2 className="w-5 h-5 text-purple-400 animate-spin mx-auto mt-2" />
                     )}
@@ -332,7 +332,7 @@ export default function VoiceShopPage() {
 
             {/* Command History */}
             <Card className="p-6 bg-white/5 border-white/10">
-              <h2 className="text-2xl font-bold text-white mb-6">Command History</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-6">Command History</h2>
               <div className="space-y-3">
                 {commands.length === 0 ? (
                   <p className="text-gray-400 text-center py-8">No commands yet. Start speaking to see your history.</p>
@@ -356,7 +356,7 @@ export default function VoiceShopPage() {
                           {command.action === 'unknown' && <X className="w-5 h-5 text-gray-400" />}
                         </div>
                         <div className="flex-1">
-                          <p className="text-white font-medium mb-1">"{command.transcript}"</p>
+                          <p className="text-foreground font-medium mb-1">"{command.transcript}"</p>
                           <p className="text-gray-400 text-sm mb-2">{command.result}</p>
                           <div className="flex items-center gap-3 text-xs text-gray-500">
                             <span>{command.timestamp.toLocaleTimeString()}</span>
@@ -377,7 +377,7 @@ export default function VoiceShopPage() {
             {/* Cart Summary */}
             <Card className="p-6 bg-white/5 border-white/10">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-white">Your Cart</h2>
+                <h2 className="text-2xl font-bold text-foreground">Your Cart</h2>
                 <Badge className="bg-purple-500/20 text-purple-400">
                   {cartItemCount} items
                 </Badge>
@@ -400,7 +400,7 @@ export default function VoiceShopPage() {
                           className="w-16 h-16 object-cover rounded-lg"
                         />
                         <div className="flex-1">
-                          <p className="text-white font-medium text-sm mb-1">{item.name}</p>
+                          <p className="text-foreground font-medium text-sm mb-1">{item.name}</p>
                           <p className="text-gray-400 text-sm">Qty: {item.quantity}</p>
                           <p className="text-purple-400 font-bold">${item.price}</p>
                         </div>
@@ -411,15 +411,15 @@ export default function VoiceShopPage() {
                   <div className="border-t border-white/10 pt-4 mb-4">
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-gray-400">Subtotal</span>
-                      <span className="text-white font-bold">${cartTotal.toFixed(2)}</span>
+                      <span className="text-foreground font-bold">${cartTotal.toFixed(2)}</span>
                     </div>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-gray-400">Shipping</span>
                       <span className="text-green-400">FREE</span>
                     </div>
                     <div className="flex items-center justify-between text-xl font-bold">
-                      <span className="text-white">Total</span>
-                      <span className="text-white">${cartTotal.toFixed(2)}</span>
+                      <span className="text-foreground">Total</span>
+                      <span className="text-foreground">${cartTotal.toFixed(2)}</span>
                     </div>
                   </div>
 
@@ -433,37 +433,37 @@ export default function VoiceShopPage() {
 
             {/* Voice Tips */}
             <Card className="p-6 bg-white/5 border-white/10">
-              <h3 className="text-xl font-bold text-white mb-4">Voice Commands</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">Voice Commands</h3>
               <ul className="space-y-3 text-sm">
                 <li className="flex items-start gap-2">
                   <Check className="w-4 h-4 text-green-400 mt-0.5" />
-                  <span className="text-gray-300">"Search for wireless earbuds"</span>
+                  <span className="text-muted-foreground">"Search for wireless earbuds"</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-4 h-4 text-green-400 mt-0.5" />
-                  <span className="text-gray-300">"Add to cart"</span>
+                  <span className="text-muted-foreground">"Add to cart"</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-4 h-4 text-green-400 mt-0.5" />
-                  <span className="text-gray-300">"What's in my cart?"</span>
+                  <span className="text-muted-foreground">"What's in my cart?"</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-4 h-4 text-green-400 mt-0.5" />
-                  <span className="text-gray-300">"Remove from cart"</span>
+                  <span className="text-muted-foreground">"Remove from cart"</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-4 h-4 text-green-400 mt-0.5" />
-                  <span className="text-gray-300">"Proceed to checkout"</span>
+                  <span className="text-muted-foreground">"Proceed to checkout"</span>
                 </li>
               </ul>
             </Card>
 
             {/* Settings */}
             <Card className="p-6 bg-white/5 border-white/10">
-              <h3 className="text-xl font-bold text-white mb-4">Settings</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">Settings</h3>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-300 text-sm">Wake Word Detection</span>
+                  <span className="text-muted-foreground text-sm">Wake Word Detection</span>
                   <button
                     onClick={() => setWakeWordActive(!wakeWordActive)}
                     className={`w-12 h-6 rounded-full transition-colors ${

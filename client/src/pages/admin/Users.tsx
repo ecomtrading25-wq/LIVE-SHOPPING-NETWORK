@@ -132,15 +132,15 @@ export default function UsersPage() {
   const getRoleBadgeColor = (role: string) => {
     switch (role) {
       case "founder":
-        return "bg-purple-600 text-white";
+        return "bg-purple-600 text-foreground";
       case "admin":
-        return "bg-blue-600 text-white";
+        return "bg-blue-600 text-foreground";
       case "ops":
-        return "bg-green-600 text-white";
+        return "bg-green-600 text-foreground";
       case "viewer":
-        return "bg-zinc-600 text-white";
+        return "bg-zinc-600 text-foreground";
       default:
-        return "bg-zinc-600 text-white";
+        return "bg-zinc-600 text-foreground";
     }
   };
 
@@ -187,7 +187,7 @@ export default function UsersPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-zinc-900 dark:text-white">
+          <h1 className="text-3xl font-bold text-zinc-900 dark:text-foreground">
             User Management
           </h1>
           <p className="text-zinc-600 dark:text-zinc-400 mt-1">
@@ -217,7 +217,7 @@ export default function UsersPage() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="text-sm font-medium text-zinc-900 dark:text-white mb-2 block">
+                <label className="text-sm font-medium text-zinc-900 dark:text-foreground mb-2 block">
                   Email
                 </label>
                 <Input
@@ -232,7 +232,7 @@ export default function UsersPage() {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-zinc-900 dark:text-white mb-2 block">
+                <label className="text-sm font-medium text-zinc-900 dark:text-foreground mb-2 block">
                   Name
                 </label>
                 <Input
@@ -247,7 +247,7 @@ export default function UsersPage() {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-zinc-900 dark:text-white mb-2 block">
+                <label className="text-sm font-medium text-zinc-900 dark:text-foreground mb-2 block">
                   Role
                 </label>
                 <Select
@@ -269,7 +269,7 @@ export default function UsersPage() {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-zinc-900 dark:text-white mb-2 block">
+                <label className="text-sm font-medium text-zinc-900 dark:text-foreground mb-2 block">
                   Password {editingUser && "(leave blank to keep current)"}
                 </label>
                 <Input
@@ -316,7 +316,7 @@ export default function UsersPage() {
               <Shield className="w-6 h-6 text-purple-600" />
             </div>
             <div>
-              <p className="text-2xl font-bold text-zinc-900 dark:text-white">
+              <p className="text-2xl font-bold text-zinc-900 dark:text-foreground">
                 {roleStats?.founder || 0}
               </p>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">Founders</p>
@@ -330,7 +330,7 @@ export default function UsersPage() {
               <Shield className="w-6 h-6 text-blue-600" />
             </div>
             <div>
-              <p className="text-2xl font-bold text-zinc-900 dark:text-white">
+              <p className="text-2xl font-bold text-zinc-900 dark:text-foreground">
                 {roleStats?.admin || 0}
               </p>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">Admins</p>
@@ -344,7 +344,7 @@ export default function UsersPage() {
               <Activity className="w-6 h-6 text-green-600" />
             </div>
             <div>
-              <p className="text-2xl font-bold text-zinc-900 dark:text-white">
+              <p className="text-2xl font-bold text-zinc-900 dark:text-foreground">
                 {roleStats?.ops || 0}
               </p>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">Operations</p>
@@ -354,11 +354,11 @@ export default function UsersPage() {
 
         <Card className="p-6">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-zinc-100 dark:bg-zinc-800 rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-zinc-100 dark:bg-card rounded-xl flex items-center justify-center text-card-foreground">
               <UsersIcon className="w-6 h-6 text-zinc-600" />
             </div>
             <div>
-              <p className="text-2xl font-bold text-zinc-900 dark:text-white">
+              <p className="text-2xl font-bold text-zinc-900 dark:text-foreground">
                 {roleStats?.viewer || 0}
               </p>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">Viewers</p>
@@ -400,18 +400,18 @@ export default function UsersPage() {
       <Card>
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800">
+            <thead className="bg-zinc-50 dark:bg-background border-b border-zinc-200 dark:border-border text-foreground">
               <tr>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-white">
+                <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-foreground">
                   User
                 </th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-white">
+                <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-foreground">
                   Role
                 </th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-white">
+                <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-foreground">
                   Created
                 </th>
-                <th className="px-6 py-4 text-right text-sm font-semibold text-zinc-900 dark:text-white">
+                <th className="px-6 py-4 text-right text-sm font-semibold text-zinc-900 dark:text-foreground">
                   Actions
                 </th>
               </tr>
@@ -422,15 +422,15 @@ export default function UsersPage() {
                 return (
                   <tr
                     key={user.id}
-                    className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50"
+                    className="hover:bg-zinc-50 dark:hover:bg-background/50 text-foreground"
                   >
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                          <UsersIcon className="w-5 h-5 text-white" />
+                          <UsersIcon className="w-5 h-5 text-foreground" />
                         </div>
                         <div>
-                          <p className="font-medium text-zinc-900 dark:text-white">
+                          <p className="font-medium text-zinc-900 dark:text-foreground">
                             {user.name}
                           </p>
                           <p className="text-sm text-zinc-600 dark:text-zinc-400 flex items-center gap-1">

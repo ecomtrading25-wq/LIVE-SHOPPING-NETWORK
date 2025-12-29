@@ -128,7 +128,7 @@ export default function Footer() {
                 className="flex-1 px-4 py-2 bg-white border-2 border-black rounded-md text-black text-sm focus:outline-none focus:ring-2 focus:ring-[#E42313]"
               />
               <button className="px-4 py-2 bg-[#E42313] hover:bg-[#C01F10] rounded-md transition-colors">
-                <Mail className="w-5 h-5 text-white" />
+                <Mail className="w-5 h-5 text-foreground" />
               </button>
             </div>
           </div>

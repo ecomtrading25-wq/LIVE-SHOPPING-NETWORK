@@ -69,7 +69,7 @@ export default function MobileDeepLink() {
   return (
     <>
       {/* Top Banner */}
-      <Card className="fixed top-0 left-0 right-0 z-50 rounded-none border-b shadow-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+      <Card className="fixed top-0 left-0 right-0 z-50 rounded-none border-b shadow-lg bg-gradient-to-r from-purple-600 to-pink-600 text-foreground">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-3 flex-1">
@@ -95,7 +95,7 @@ export default function MobileDeepLink() {
               </Button>
               <button
                 onClick={handleDismiss}
-                className="text-white/80 hover:text-white p-1"
+                className="text-white/80 hover:text-foreground p-1"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -145,14 +145,14 @@ export function MobileSmartBanner() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-gradient-to-t from-black/90 to-transparent">
-      <Card className="bg-zinc-900 border-zinc-800 p-4">
+      <Card className="bg-background border-border p-4 text-foreground">
         <div className="flex items-center gap-4">
           <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center flex-shrink-0">
-            <Smartphone className="w-8 h-8 text-white" />
+            <Smartphone className="w-8 h-8 text-foreground" />
           </div>
 
           <div className="flex-1 min-w-0">
-            <p className="font-bold text-white">Live Shopping Network</p>
+            <p className="font-bold text-foreground">Live Shopping Network</p>
             <p className="text-sm text-gray-400">Shop live with exclusive mobile deals</p>
             <div className="flex items-center gap-2 mt-1">
               <div className="flex -space-x-1">
@@ -174,7 +174,7 @@ export function MobileSmartBanner() {
             </Button>
             <button
               onClick={handleDismiss}
-              className="text-xs text-gray-400 hover:text-white"
+              className="text-xs text-gray-400 hover:text-foreground"
             >
               Not now
             </button>

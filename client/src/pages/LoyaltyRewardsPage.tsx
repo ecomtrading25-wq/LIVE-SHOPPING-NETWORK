@@ -108,8 +108,8 @@ export default function LoyaltyRewardsPage() {
       <div className="container py-12">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">Loyalty Rewards</h1>
-          <p className="text-gray-300">Earn points, unlock rewards, and level up your shopping experience</p>
+          <h1 className="text-4xl font-bold text-foreground mb-2">Loyalty Rewards</h1>
+          <p className="text-muted-foreground">Earn points, unlock rewards, and level up your shopping experience</p>
         </div>
 
         {/* Tier Status Card */}
@@ -119,7 +119,7 @@ export default function LoyaltyRewardsPage() {
               <div className="flex items-center gap-6">
                 {getTierIcon(loyaltyData?.tier || 'bronze')}
                 <div>
-                  <h2 className="text-3xl font-bold text-white mb-2">
+                  <h2 className="text-3xl font-bold text-foreground mb-2">
                     {loyaltyData?.tier?.toUpperCase() || 'BRONZE'} MEMBER
                   </h2>
                   <p className="text-white/80 text-lg">
@@ -133,7 +133,7 @@ export default function LoyaltyRewardsPage() {
                   value={loyaltyData?.nextTierProgress || 0}
                   className="w-48 h-3 mb-2"
                 />
-                <p className="text-white text-sm">
+                <p className="text-foreground text-sm">
                   {loyaltyData?.pointsToNextTier || 0} points to {loyaltyData?.nextTier || 'SILVER'}
                 </p>
               </div>
@@ -147,8 +147,8 @@ export default function LoyaltyRewardsPage() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-gray-300 text-sm">Total Points Earned</p>
-                  <p className="text-3xl font-bold text-white">
+                  <p className="text-muted-foreground text-sm">Total Points Earned</p>
+                  <p className="text-3xl font-bold text-foreground">
                     {loyaltyData?.totalPointsEarned?.toLocaleString() || 0}
                   </p>
                 </div>
@@ -161,8 +161,8 @@ export default function LoyaltyRewardsPage() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-gray-300 text-sm">Rewards Redeemed</p>
-                  <p className="text-3xl font-bold text-white">
+                  <p className="text-muted-foreground text-sm">Rewards Redeemed</p>
+                  <p className="text-3xl font-bold text-foreground">
                     {loyaltyData?.rewardsRedeemed || 0}
                   </p>
                 </div>
@@ -175,8 +175,8 @@ export default function LoyaltyRewardsPage() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-gray-300 text-sm">Achievements</p>
-                  <p className="text-3xl font-bold text-white">
+                  <p className="text-muted-foreground text-sm">Achievements</p>
+                  <p className="text-3xl font-bold text-foreground">
                     {achievements?.filter((a) => a.unlocked).length || 0}/{achievements?.length || 0}
                   </p>
                 </div>
@@ -189,8 +189,8 @@ export default function LoyaltyRewardsPage() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-gray-300 text-sm">Member Since</p>
-                  <p className="text-xl font-bold text-white">
+                  <p className="text-muted-foreground text-sm">Member Since</p>
+                  <p className="text-xl font-bold text-foreground">
                     {loyaltyData?.memberSince
                       ? new Date(loyaltyData.memberSince).toLocaleDateString('en-US', {
                           month: 'short',
@@ -236,14 +236,14 @@ export default function LoyaltyRewardsPage() {
 
                   <CardContent className="p-6 space-y-4">
                     <div>
-                      <h3 className="text-xl font-bold text-white mb-2">{reward.name}</h3>
+                      <h3 className="text-xl font-bold text-foreground mb-2">{reward.name}</h3>
                       <p className="text-gray-400 text-sm">{reward.description}</p>
                     </div>
 
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <Star className="w-5 h-5 text-yellow-400" />
-                        <span className="text-2xl font-bold text-white">
+                        <span className="text-2xl font-bold text-foreground">
                           {reward.pointsCost.toLocaleString()}
                         </span>
                         <span className="text-gray-400 text-sm">points</span>
@@ -306,7 +306,7 @@ export default function LoyaltyRewardsPage() {
                       </div>
                       <div className="flex-1">
                         <div className="flex items-start justify-between mb-2">
-                          <h3 className="text-lg font-bold text-white">{achievement.name}</h3>
+                          <h3 className="text-lg font-bold text-foreground">{achievement.name}</h3>
                           {achievement.unlocked && (
                             <Badge className="bg-yellow-500/20 text-yellow-400">
                               <Trophy className="w-3 h-3 mr-1" />
@@ -330,7 +330,7 @@ export default function LoyaltyRewardsPage() {
 
                         <div className="flex items-center gap-2 mt-3">
                           <Star className="w-4 h-4 text-yellow-400" />
-                          <span className="text-white font-semibold">
+                          <span className="text-foreground font-semibold">
                             +{achievement.pointsReward} points
                           </span>
                         </div>
@@ -346,7 +346,7 @@ export default function LoyaltyRewardsPage() {
           <TabsContent value="history" className="space-y-4">
             <Card className="bg-white/10 backdrop-blur border-white/20">
               <CardHeader>
-                <CardTitle className="text-white">Recent Transactions</CardTitle>
+                <CardTitle className="text-foreground">Recent Transactions</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -370,7 +370,7 @@ export default function LoyaltyRewardsPage() {
                           )}
                         </div>
                         <div>
-                          <p className="text-white font-semibold">{transaction.description}</p>
+                          <p className="text-foreground font-semibold">{transaction.description}</p>
                           <p className="text-gray-400 text-sm">
                             {new Date(transaction.createdAt).toLocaleDateString()}
                           </p>
@@ -409,9 +409,9 @@ export default function LoyaltyRewardsPage() {
                   <CardContent className="p-6 space-y-4">
                     <div className="text-center">
                       {getTierIcon(tier)}
-                      <h3 className="text-2xl font-bold text-white mt-2">{tier}</h3>
+                      <h3 className="text-2xl font-bold text-foreground mt-2">{tier}</h3>
                       {loyaltyData?.tier?.toLowerCase() === tier.toLowerCase() && (
-                        <Badge className="mt-2 bg-white/20 text-white">Current Tier</Badge>
+                        <Badge className="mt-2 bg-white/20 text-foreground">Current Tier</Badge>
                       )}
                     </div>
 

@@ -178,13 +178,13 @@ export default function AdminAnalyticsDashboard() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-4xl font-bold text-white mb-2">Analytics Dashboard</h1>
-            <p className="text-gray-300">Real-time insights and performance metrics</p>
+            <h1 className="text-4xl font-bold text-foreground mb-2">Analytics Dashboard</h1>
+            <p className="text-muted-foreground">Real-time insights and performance metrics</p>
           </div>
 
           <div className="flex items-center gap-4">
             <Select value={timeRange} onValueChange={(value: any) => setTimeRange(value)}>
-              <SelectTrigger className="w-40 bg-white/10 border-white/20 text-white">
+              <SelectTrigger className="w-40 bg-white/10 border-white/20 text-foreground">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -230,7 +230,7 @@ export default function AdminAnalyticsDashboard() {
                   </Badge>
                 </div>
                 <p className="text-gray-400 text-sm mb-1">{metric.title}</p>
-                <p className="text-3xl font-bold text-white">{metric.value}</p>
+                <p className="text-3xl font-bold text-foreground">{metric.value}</p>
               </CardContent>
             </Card>
           ))}
@@ -251,7 +251,7 @@ export default function AdminAnalyticsDashboard() {
               {/* Revenue Chart */}
               <Card className="lg:col-span-2 bg-white/10 backdrop-blur border-white/20">
                 <CardHeader>
-                  <CardTitle className="text-white">Revenue Trend</CardTitle>
+                  <CardTitle className="text-foreground">Revenue Trend</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="h-80 flex items-end justify-between gap-2">
@@ -264,7 +264,7 @@ export default function AdminAnalyticsDashboard() {
                           <div className="w-full bg-gradient-to-t from-blue-500 to-purple-500 rounded-t hover:opacity-80 transition-opacity cursor-pointer relative group"
                             style={{ height: `${height}%`, minHeight: '4px' }}
                           >
-                            <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                            <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-background/80 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                               {formatCurrency(point.value)}
                             </div>
                           </div>
@@ -281,13 +281,13 @@ export default function AdminAnalyticsDashboard() {
               {/* Revenue Breakdown */}
               <Card className="bg-white/10 backdrop-blur border-white/20">
                 <CardHeader>
-                  <CardTitle className="text-white">Revenue Breakdown</CardTitle>
+                  <CardTitle className="text-foreground">Revenue Breakdown</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-gray-400 text-sm">Product Sales</span>
-                      <span className="text-white font-semibold">
+                      <span className="text-foreground font-semibold">
                         {formatCurrency(revenueData?.breakdown?.products || 0)}
                       </span>
                     </div>
@@ -304,7 +304,7 @@ export default function AdminAnalyticsDashboard() {
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-gray-400 text-sm">Live Stream Sales</span>
-                      <span className="text-white font-semibold">
+                      <span className="text-foreground font-semibold">
                         {formatCurrency(revenueData?.breakdown?.liveStreams || 0)}
                       </span>
                     </div>
@@ -321,7 +321,7 @@ export default function AdminAnalyticsDashboard() {
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-gray-400 text-sm">Subscriptions</span>
-                      <span className="text-white font-semibold">
+                      <span className="text-foreground font-semibold">
                         {formatCurrency(revenueData?.breakdown?.subscriptions || 0)}
                       </span>
                     </div>
@@ -338,7 +338,7 @@ export default function AdminAnalyticsDashboard() {
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-gray-400 text-sm">Affiliate Commission</span>
-                      <span className="text-white font-semibold">
+                      <span className="text-foreground font-semibold">
                         {formatCurrency(revenueData?.breakdown?.affiliate || 0)}
                       </span>
                     </div>
@@ -358,14 +358,14 @@ export default function AdminAnalyticsDashboard() {
             {/* Revenue by Category */}
             <Card className="bg-white/10 backdrop-blur border-white/20">
               <CardHeader>
-                <CardTitle className="text-white">Revenue by Category</CardTitle>
+                <CardTitle className="text-foreground">Revenue by Category</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {revenueData?.byCategory?.map((category: any, index: number) => (
                     <div key={index} className="p-4 bg-white/5 rounded-lg">
                       <p className="text-gray-400 text-sm mb-1">{category.name}</p>
-                      <p className="text-2xl font-bold text-white mb-1">
+                      <p className="text-2xl font-bold text-foreground mb-1">
                         {formatCurrency(category.revenue)}
                       </p>
                       <p className="text-xs text-gray-500">{category.orders} orders</p>
@@ -382,13 +382,13 @@ export default function AdminAnalyticsDashboard() {
               {/* Top Products */}
               <Card className="bg-white/10 backdrop-blur border-white/20">
                 <CardHeader>
-                  <CardTitle className="text-white">Top Selling Products</CardTitle>
+                  <CardTitle className="text-foreground">Top Selling Products</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {productPerformance?.topSelling?.map((product: any, index: number) => (
                       <div key={index} className="flex items-center gap-4 p-3 bg-white/5 rounded-lg">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-foreground font-bold">
                           {index + 1}
                         </div>
                         <img
@@ -397,11 +397,11 @@ export default function AdminAnalyticsDashboard() {
                           className="w-12 h-12 object-cover rounded"
                         />
                         <div className="flex-1">
-                          <p className="text-white font-semibold">{product.name}</p>
+                          <p className="text-foreground font-semibold">{product.name}</p>
                           <p className="text-gray-400 text-sm">{product.unitsSold} units sold</p>
                         </div>
                         <div className="text-right">
-                          <p className="text-white font-bold">{formatCurrency(product.revenue)}</p>
+                          <p className="text-foreground font-bold">{formatCurrency(product.revenue)}</p>
                           <Badge className="bg-green-500/20 text-green-400 text-xs">
                             <TrendingUp className="w-3 h-3 mr-1" />
                             {product.growthRate}%
@@ -416,7 +416,7 @@ export default function AdminAnalyticsDashboard() {
               {/* Trending Products */}
               <Card className="bg-white/10 backdrop-blur border-white/20">
                 <CardHeader>
-                  <CardTitle className="text-white">Trending Products</CardTitle>
+                  <CardTitle className="text-foreground">Trending Products</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
@@ -428,7 +428,7 @@ export default function AdminAnalyticsDashboard() {
                           className="w-12 h-12 object-cover rounded"
                         />
                         <div className="flex-1">
-                          <p className="text-white font-semibold">{product.name}</p>
+                          <p className="text-foreground font-semibold">{product.name}</p>
                           <p className="text-gray-400 text-sm">{product.views} views</p>
                         </div>
                         <div className="text-right">
@@ -448,30 +448,30 @@ export default function AdminAnalyticsDashboard() {
             {/* Product Metrics */}
             <Card className="bg-white/10 backdrop-blur border-white/20">
               <CardHeader>
-                <CardTitle className="text-white">Product Metrics</CardTitle>
+                <CardTitle className="text-foreground">Product Metrics</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                   <div className="text-center">
-                    <p className="text-4xl font-bold text-white mb-2">
+                    <p className="text-4xl font-bold text-foreground mb-2">
                       {productPerformance?.metrics?.totalProducts || 0}
                     </p>
                     <p className="text-gray-400 text-sm">Total Products</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-4xl font-bold text-white mb-2">
+                    <p className="text-4xl font-bold text-foreground mb-2">
                       {productPerformance?.metrics?.inStock || 0}
                     </p>
                     <p className="text-gray-400 text-sm">In Stock</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-4xl font-bold text-white mb-2">
+                    <p className="text-4xl font-bold text-foreground mb-2">
                       {productPerformance?.metrics?.lowStock || 0}
                     </p>
                     <p className="text-gray-400 text-sm">Low Stock</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-4xl font-bold text-white mb-2">
+                    <p className="text-4xl font-bold text-foreground mb-2">
                       {(productPerformance?.metrics?.avgRating || 0).toFixed(1)}
                     </p>
                     <p className="text-gray-400 text-sm">Avg Rating</p>
@@ -487,14 +487,14 @@ export default function AdminAnalyticsDashboard() {
               {/* Customer Segments */}
               <Card className="lg:col-span-2 bg-white/10 backdrop-blur border-white/20">
                 <CardHeader>
-                  <CardTitle className="text-white">Customer Segments</CardTitle>
+                  <CardTitle className="text-foreground">Customer Segments</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {customerInsights?.segments?.map((segment: any, index: number) => (
                       <div key={index} className="space-y-2">
                         <div className="flex items-center justify-between">
-                          <span className="text-white font-semibold">{segment.name}</span>
+                          <span className="text-foreground font-semibold">{segment.name}</span>
                           <span className="text-gray-400">{segment.count} customers</span>
                         </div>
                         <div className="h-3 bg-white/10 rounded-full overflow-hidden">
@@ -518,12 +518,12 @@ export default function AdminAnalyticsDashboard() {
               {/* Customer Stats */}
               <Card className="bg-white/10 backdrop-blur border-white/20">
                 <CardHeader>
-                  <CardTitle className="text-white">Customer Stats</CardTitle>
+                  <CardTitle className="text-foreground">Customer Stats</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div>
                     <p className="text-gray-400 text-sm mb-1">New Customers</p>
-                    <p className="text-3xl font-bold text-white mb-2">
+                    <p className="text-3xl font-bold text-foreground mb-2">
                       {customerInsights?.newCustomers || 0}
                     </p>
                     <Badge className="bg-green-500/20 text-green-400">
@@ -534,7 +534,7 @@ export default function AdminAnalyticsDashboard() {
 
                   <div>
                     <p className="text-gray-400 text-sm mb-1">Returning Customers</p>
-                    <p className="text-3xl font-bold text-white mb-2">
+                    <p className="text-3xl font-bold text-foreground mb-2">
                       {customerInsights?.returningCustomers || 0}
                     </p>
                     <p className="text-xs text-gray-500">
@@ -544,7 +544,7 @@ export default function AdminAnalyticsDashboard() {
 
                   <div>
                     <p className="text-gray-400 text-sm mb-1">Avg Lifetime Value</p>
-                    <p className="text-3xl font-bold text-white">
+                    <p className="text-3xl font-bold text-foreground">
                       {formatCurrency(customerInsights?.avgLifetimeValue || 0)}
                     </p>
                   </div>
@@ -555,21 +555,21 @@ export default function AdminAnalyticsDashboard() {
             {/* Top Customers */}
             <Card className="bg-white/10 backdrop-blur border-white/20">
               <CardHeader>
-                <CardTitle className="text-white">Top Customers</CardTitle>
+                <CardTitle className="text-foreground">Top Customers</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {customerInsights?.topCustomers?.map((customer: any, index: number) => (
                     <div key={index} className="flex items-center gap-4 p-4 bg-white/5 rounded-lg">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-lg">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-foreground font-bold text-lg">
                         {customer.name?.charAt(0) || 'U'}
                       </div>
                       <div className="flex-1">
-                        <p className="text-white font-semibold">{customer.name}</p>
+                        <p className="text-foreground font-semibold">{customer.name}</p>
                         <p className="text-gray-400 text-sm">{customer.orders} orders</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-white font-bold">{formatCurrency(customer.totalSpent)}</p>
+                        <p className="text-foreground font-bold">{formatCurrency(customer.totalSpent)}</p>
                         <Badge className="bg-purple-500/20 text-purple-400 text-xs mt-1">
                           {customer.tier}
                         </Badge>
@@ -585,7 +585,7 @@ export default function AdminAnalyticsDashboard() {
           <TabsContent value="conversion" className="space-y-6">
             <Card className="bg-white/10 backdrop-blur border-white/20">
               <CardHeader>
-                <CardTitle className="text-white">Conversion Funnel</CardTitle>
+                <CardTitle className="text-foreground">Conversion Funnel</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-6">
@@ -599,13 +599,13 @@ export default function AdminAnalyticsDashboard() {
                       <div key={index} className="space-y-2">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-sm">
+                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-foreground font-bold text-sm">
                               {index + 1}
                             </div>
-                            <span className="text-white font-semibold">{stage.name}</span>
+                            <span className="text-foreground font-semibold">{stage.name}</span>
                           </div>
                           <div className="text-right">
-                            <span className="text-white font-bold">{formatNumber(stage.count)}</span>
+                            <span className="text-foreground font-bold">{formatNumber(stage.count)}</span>
                             <span className="text-gray-400 text-sm ml-2">({percentage.toFixed(1)}%)</span>
                           </div>
                         </div>
@@ -633,7 +633,7 @@ export default function AdminAnalyticsDashboard() {
               <Card className="bg-white/10 backdrop-blur border-white/20">
                 <CardContent className="p-6 text-center">
                   <p className="text-gray-400 text-sm mb-2">Overall Conversion Rate</p>
-                  <p className="text-4xl font-bold text-white mb-2">
+                  <p className="text-4xl font-bold text-foreground mb-2">
                     {(conversionFunnel?.overallConversionRate || 0).toFixed(2)}%
                   </p>
                   <Badge className="bg-green-500/20 text-green-400">
@@ -646,7 +646,7 @@ export default function AdminAnalyticsDashboard() {
               <Card className="bg-white/10 backdrop-blur border-white/20">
                 <CardContent className="p-6 text-center">
                   <p className="text-gray-400 text-sm mb-2">Cart Abandonment Rate</p>
-                  <p className="text-4xl font-bold text-white mb-2">
+                  <p className="text-4xl font-bold text-foreground mb-2">
                     {(conversionFunnel?.cartAbandonmentRate || 0).toFixed(2)}%
                   </p>
                   <Badge className="bg-red-500/20 text-red-400">
@@ -659,7 +659,7 @@ export default function AdminAnalyticsDashboard() {
               <Card className="bg-white/10 backdrop-blur border-white/20">
                 <CardContent className="p-6 text-center">
                   <p className="text-gray-400 text-sm mb-2">Avg Time to Purchase</p>
-                  <p className="text-4xl font-bold text-white mb-2">
+                  <p className="text-4xl font-bold text-foreground mb-2">
                     {conversionFunnel?.avgTimeToPurchase || 0}h
                   </p>
                   <p className="text-xs text-gray-500">From first visit</p>
@@ -675,7 +675,7 @@ export default function AdminAnalyticsDashboard() {
                 <CardContent className="p-6 text-center">
                   <Eye className="w-8 h-8 text-red-500 mx-auto mb-2" />
                   <p className="text-gray-400 text-sm mb-1">Total Views</p>
-                  <p className="text-3xl font-bold text-white">
+                  <p className="text-3xl font-bold text-foreground">
                     {formatNumber(liveStreamAnalytics?.totalViews || 0)}
                   </p>
                 </CardContent>
@@ -685,7 +685,7 @@ export default function AdminAnalyticsDashboard() {
                 <CardContent className="p-6 text-center">
                   <Users className="w-8 h-8 text-blue-500 mx-auto mb-2" />
                   <p className="text-gray-400 text-sm mb-1">Peak Viewers</p>
-                  <p className="text-3xl font-bold text-white">
+                  <p className="text-3xl font-bold text-foreground">
                     {formatNumber(liveStreamAnalytics?.peakViewers || 0)}
                   </p>
                 </CardContent>
@@ -695,7 +695,7 @@ export default function AdminAnalyticsDashboard() {
                 <CardContent className="p-6 text-center">
                   <ShoppingCart className="w-8 h-8 text-green-500 mx-auto mb-2" />
                   <p className="text-gray-400 text-sm mb-1">Live Sales</p>
-                  <p className="text-3xl font-bold text-white">
+                  <p className="text-3xl font-bold text-foreground">
                     {formatCurrency(liveStreamAnalytics?.totalSales || 0)}
                   </p>
                 </CardContent>
@@ -705,7 +705,7 @@ export default function AdminAnalyticsDashboard() {
                 <CardContent className="p-6 text-center">
                   <TrendingUp className="w-8 h-8 text-purple-500 mx-auto mb-2" />
                   <p className="text-gray-400 text-sm mb-1">Conversion Rate</p>
-                  <p className="text-3xl font-bold text-white">
+                  <p className="text-3xl font-bold text-foreground">
                     {(liveStreamAnalytics?.conversionRate || 0).toFixed(2)}%
                   </p>
                 </CardContent>
@@ -715,7 +715,7 @@ export default function AdminAnalyticsDashboard() {
             {/* Recent Live Streams */}
             <Card className="bg-white/10 backdrop-blur border-white/20">
               <CardHeader>
-                <CardTitle className="text-white">Recent Live Streams</CardTitle>
+                <CardTitle className="text-foreground">Recent Live Streams</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -727,14 +727,14 @@ export default function AdminAnalyticsDashboard() {
                         className="w-24 h-16 object-cover rounded"
                       />
                       <div className="flex-1">
-                        <p className="text-white font-semibold">{stream.title}</p>
+                        <p className="text-foreground font-semibold">{stream.title}</p>
                         <p className="text-gray-400 text-sm">{stream.host}</p>
                         <p className="text-gray-500 text-xs">
                           {new Date(stream.date).toLocaleDateString()} • {stream.duration} min
                         </p>
                       </div>
                       <div className="text-right space-y-1">
-                        <p className="text-white font-bold">{formatNumber(stream.views)} views</p>
+                        <p className="text-foreground font-bold">{formatNumber(stream.views)} views</p>
                         <p className="text-green-400 text-sm">{formatCurrency(stream.revenue)}</p>
                         <Badge className="bg-purple-500/20 text-purple-400 text-xs">
                           {stream.orders} orders

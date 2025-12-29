@@ -75,7 +75,7 @@ export default function MobileProductGallery({
   return (
     <div className="relative">
       {/* Main Gallery */}
-      <div className="relative aspect-square overflow-hidden rounded-lg bg-gray-900">
+      <div className="relative aspect-square overflow-hidden rounded-lg bg-background text-foreground">
         <div
           ref={galleryRef}
           className="flex h-full overflow-x-hidden scroll-smooth"
@@ -102,7 +102,7 @@ export default function MobileProductGallery({
         {/* Zoom Icon Hint */}
         <button
           onClick={() => setShowLightbox(true)}
-          className="absolute top-4 right-4 p-2 bg-black/50 rounded-full text-white backdrop-blur-sm"
+          className="absolute top-4 right-4 p-2 bg-background/50 rounded-full text-foreground backdrop-blur-sm"
         >
           <ZoomIn className="w-5 h-5" />
         </button>
@@ -110,14 +110,14 @@ export default function MobileProductGallery({
         {/* Navigation Arrows - Hidden on mobile, shown on tablet+ */}
         <button
           onClick={goToPrevious}
-          className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-black/50 rounded-full text-white backdrop-blur-sm hover:bg-black/70 transition-colors"
+          className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-background/50 rounded-full text-foreground backdrop-blur-sm hover:bg-background/70 transition-colors"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
 
         <button
           onClick={goToNext}
-          className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-black/50 rounded-full text-white backdrop-blur-sm hover:bg-black/70 transition-colors"
+          className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-background/50 rounded-full text-foreground backdrop-blur-sm hover:bg-background/70 transition-colors"
         >
           <ChevronRight className="w-6 h-6" />
         </button>
@@ -147,7 +147,7 @@ export default function MobileProductGallery({
             className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
               currentIndex === index
                 ? "border-purple-500 scale-105"
-                : "border-gray-700 opacity-60"
+                : "border-border opacity-60"
             }`}
           >
             <img
@@ -161,24 +161,24 @@ export default function MobileProductGallery({
 
       {/* Fullscreen Lightbox */}
       {showLightbox && (
-        <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-background z-50 flex items-center justify-center text-foreground">
           <button
             onClick={() => setShowLightbox(false)}
-            className="absolute top-4 right-4 p-2 bg-white/10 rounded-full text-white backdrop-blur-sm z-10"
+            className="absolute top-4 right-4 p-2 bg-white/10 rounded-full text-foreground backdrop-blur-sm z-10"
           >
             <X className="w-6 h-6" />
           </button>
 
           <button
             onClick={goToPrevious}
-            className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 rounded-full text-white backdrop-blur-sm z-10"
+            className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 rounded-full text-foreground backdrop-blur-sm z-10"
           >
             <ChevronLeft className="w-8 h-8" />
           </button>
 
           <button
             onClick={goToNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 rounded-full text-white backdrop-blur-sm z-10"
+            className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 rounded-full text-foreground backdrop-blur-sm z-10"
           >
             <ChevronRight className="w-8 h-8" />
           </button>

@@ -243,12 +243,12 @@ export default function FulfillmentAutomationPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Fulfillment Automation</h1>
+          <h1 className="text-3xl font-bold text-foreground">Fulfillment Automation</h1>
           <p className="text-gray-400 mt-2">Smart routing, batch picking, and automated workflows</p>
         </div>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-3 px-4 py-2 bg-white/5 rounded-lg border border-white/10">
-            <Label htmlFor="automation-toggle" className="text-white">
+            <Label htmlFor="automation-toggle" className="text-foreground">
               Automation
             </Label>
             <Switch
@@ -271,7 +271,7 @@ export default function FulfillmentAutomationPage() {
             <p className="text-gray-400 text-sm">Active Orders</p>
             <Package className="w-5 h-5 text-blue-400" />
           </div>
-          <p className="text-3xl font-bold text-white">1,032</p>
+          <p className="text-3xl font-bold text-foreground">1,032</p>
           <p className="text-green-400 text-sm mt-1">+12% from yesterday</p>
         </Card>
 
@@ -280,7 +280,7 @@ export default function FulfillmentAutomationPage() {
             <p className="text-gray-400 text-sm">Avg Processing Time</p>
             <Clock className="w-5 h-5 text-yellow-400" />
           </div>
-          <p className="text-3xl font-bold text-white">2.3h</p>
+          <p className="text-3xl font-bold text-foreground">2.3h</p>
           <p className="text-green-400 text-sm mt-1">-18% improvement</p>
         </Card>
 
@@ -289,7 +289,7 @@ export default function FulfillmentAutomationPage() {
             <p className="text-gray-400 text-sm">Automation Rate</p>
             <Zap className="w-5 h-5 text-purple-400" />
           </div>
-          <p className="text-3xl font-bold text-white">87%</p>
+          <p className="text-3xl font-bold text-foreground">87%</p>
           <p className="text-green-400 text-sm mt-1">+5% this week</p>
         </Card>
 
@@ -298,20 +298,20 @@ export default function FulfillmentAutomationPage() {
             <p className="text-gray-400 text-sm">Time Saved Today</p>
             <TrendingUp className="w-5 h-5 text-green-400" />
           </div>
-          <p className="text-3xl font-bold text-white">96h</p>
+          <p className="text-3xl font-bold text-foreground">96h</p>
           <p className="text-gray-400 text-sm mt-1">Across all rules</p>
         </Card>
       </div>
 
       {/* Warehouse Status */}
       <Card className="p-6 bg-white/5 border-white/10">
-        <h2 className="text-2xl font-bold text-white mb-6">Warehouse Status</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6">Warehouse Status</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {warehouses.map((warehouse) => (
             <Card key={warehouse.id} className="p-6 bg-white/5 border-white/10">
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-white mb-1">{warehouse.name}</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-1">{warehouse.name}</h3>
                   <div className="flex items-center gap-2 text-gray-400 text-sm">
                     <MapPin className="w-4 h-4" />
                     {warehouse.location}
@@ -326,7 +326,7 @@ export default function FulfillmentAutomationPage() {
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-gray-400 text-sm">Capacity</span>
-                    <span className="text-white text-sm font-medium">
+                    <span className="text-foreground text-sm font-medium">
                       {warehouse.currentLoad.toLocaleString()} / {warehouse.capacity.toLocaleString()}
                     </span>
                   </div>
@@ -347,11 +347,11 @@ export default function FulfillmentAutomationPage() {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="text-gray-400 text-xs mb-1">Active Orders</p>
-                    <p className="text-white text-lg font-bold">{warehouse.activeOrders}</p>
+                    <p className="text-foreground text-lg font-bold">{warehouse.activeOrders}</p>
                   </div>
                   <div>
                     <p className="text-gray-400 text-xs mb-1">Avg Time</p>
-                    <p className="text-white text-lg font-bold">{warehouse.avgProcessingTime}h</p>
+                    <p className="text-foreground text-lg font-bold">{warehouse.avgProcessingTime}h</p>
                   </div>
                 </div>
 
@@ -373,7 +373,7 @@ export default function FulfillmentAutomationPage() {
 
       {/* Automation Rules */}
       <Card className="p-6 bg-white/5 border-white/10">
-        <h2 className="text-2xl font-bold text-white mb-6">Automation Rules</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6">Automation Rules</h2>
         <div className="space-y-4">
           {rules.map((rule) => (
             <Card key={rule.id} className="p-6 bg-white/5 border-white/10">
@@ -384,7 +384,7 @@ export default function FulfillmentAutomationPage() {
                       checked={rule.enabled}
                       onCheckedChange={() => toggleRule(rule.id)}
                     />
-                    <h3 className="text-lg font-bold text-white">{rule.name}</h3>
+                    <h3 className="text-lg font-bold text-foreground">{rule.name}</h3>
                     <Badge className="bg-purple-500/20 text-purple-400">
                       {rule.type}
                     </Badge>
@@ -392,11 +392,11 @@ export default function FulfillmentAutomationPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                       <p className="text-gray-400 text-sm mb-1">Conditions</p>
-                      <p className="text-white text-sm">{rule.conditions}</p>
+                      <p className="text-foreground text-sm">{rule.conditions}</p>
                     </div>
                     <div>
                       <p className="text-gray-400 text-sm mb-1">Actions</p>
-                      <p className="text-white text-sm">{rule.actions}</p>
+                      <p className="text-foreground text-sm">{rule.actions}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-6">
@@ -425,7 +425,7 @@ export default function FulfillmentAutomationPage() {
 
       {/* Batch Picking Tasks */}
       <Card className="p-6 bg-white/5 border-white/10">
-        <h2 className="text-2xl font-bold text-white mb-6">Batch Picking Tasks</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6">Batch Picking Tasks</h2>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
@@ -445,13 +445,13 @@ export default function FulfillmentAutomationPage() {
               {batchTasks.map((task) => (
                 <tr key={task.id} className="border-b border-white/5 hover:bg-white/5">
                   <td className="p-4">
-                    <span className="text-white font-medium">{task.batchId}</span>
+                    <span className="text-foreground font-medium">{task.batchId}</span>
                   </td>
                   <td className="p-4">
-                    <span className="text-white">{task.orders}</span>
+                    <span className="text-foreground">{task.orders}</span>
                   </td>
                   <td className="p-4">
-                    <span className="text-white">{task.items}</span>
+                    <span className="text-foreground">{task.items}</span>
                   </td>
                   <td className="p-4">
                     <Badge className="bg-purple-500/20 text-purple-400">
@@ -459,7 +459,7 @@ export default function FulfillmentAutomationPage() {
                     </Badge>
                   </td>
                   <td className="p-4">
-                    <span className="text-white">{task.assignedTo}</span>
+                    <span className="text-foreground">{task.assignedTo}</span>
                   </td>
                   <td className="p-4">
                     <Badge className={getPriorityBadge(task.priority)}>
@@ -479,7 +479,7 @@ export default function FulfillmentAutomationPage() {
                           style={{ width: `${task.progress}%` }}
                         ></div>
                       </div>
-                      <span className="text-white text-sm">{task.progress}%</span>
+                      <span className="text-foreground text-sm">{task.progress}%</span>
                     </div>
                   </td>
                   <td className="p-4">

@@ -177,7 +177,7 @@ export default function CustomerFeedbackPage() {
                     className={`w-4 h-4 ${
                       i < Math.floor(stats.averageRating)
                         ? "fill-yellow-500 text-yellow-500"
-                        : "text-gray-300"
+                        : "text-muted-foreground"
                     }`}
                   />
                 ))}
@@ -317,7 +317,7 @@ export default function CustomerFeedbackPage() {
                               className={`w-4 h-4 ${
                                 i < review.rating
                                   ? "fill-yellow-500 text-yellow-500"
-                                  : "text-gray-300"
+                                  : "text-muted-foreground"
                               }`}
                             />
                           ))}

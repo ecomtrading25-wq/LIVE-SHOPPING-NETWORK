@@ -332,8 +332,8 @@ export default function LoyaltyPage() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-white mb-4">Loyalty Rewards</h1>
-          <p className="text-gray-300 text-lg">Earn points, unlock rewards, and enjoy exclusive benefits</p>
+          <h1 className="text-4xl font-bold text-foreground mb-4">Loyalty Rewards</h1>
+          <p className="text-muted-foreground text-lg">Earn points, unlock rewards, and enjoy exclusive benefits</p>
         </div>
 
         {/* Current Tier & Points */}
@@ -349,7 +349,7 @@ export default function LoyaltyPage() {
               </div>
               <div className="text-right">
                 <p className="text-gray-400 text-sm mb-1">Available Points</p>
-                <p className="text-4xl font-bold text-white">{userPoints.toLocaleString()}</p>
+                <p className="text-4xl font-bold text-foreground">{userPoints.toLocaleString()}</p>
               </div>
             </div>
 
@@ -357,7 +357,7 @@ export default function LoyaltyPage() {
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-gray-400 text-sm">Progress to {nextTier.name}</p>
-                  <p className="text-white text-sm font-medium">
+                  <p className="text-foreground text-sm font-medium">
                     {nextTier.minPoints - userPoints} points to go
                   </p>
                 </div>
@@ -367,7 +367,7 @@ export default function LoyaltyPage() {
                     <p className="text-gray-400 text-xs mb-1">Current Benefits</p>
                     <ul className="space-y-1">
                       {currentTier.benefits.slice(0, 2).map((benefit, index) => (
-                        <li key={index} className="text-white text-sm flex items-center gap-2">
+                        <li key={index} className="text-foreground text-sm flex items-center gap-2">
                           <Star className="w-3 h-3 text-yellow-400" />
                           {benefit}
                         </li>
@@ -394,15 +394,15 @@ export default function LoyaltyPage() {
             <div className="space-y-4">
               <div>
                 <p className="text-gray-400 text-sm mb-1">Lifetime Points</p>
-                <p className="text-2xl font-bold text-white">{lifetimePoints.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-foreground">{lifetimePoints.toLocaleString()}</p>
               </div>
               <div>
                 <p className="text-gray-400 text-sm mb-1">Referrals</p>
-                <p className="text-2xl font-bold text-white">{referralCount}</p>
+                <p className="text-2xl font-bold text-foreground">{referralCount}</p>
               </div>
               <div>
                 <p className="text-gray-400 text-sm mb-1">Member Since</p>
-                <p className="text-white">Nov 2025</p>
+                <p className="text-foreground">Nov 2025</p>
               </div>
             </div>
           </Card>
@@ -410,7 +410,7 @@ export default function LoyaltyPage() {
 
         {/* Achievements */}
         <Card className="p-6 bg-white/5 border-white/10 mb-8">
-          <h2 className="text-2xl font-bold text-white mb-6">Achievements</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Achievements</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {achievements.map((achievement) => {
               const AchievementIcon = achievement.icon;
@@ -445,7 +445,7 @@ export default function LoyaltyPage() {
                       {achievement.points} pts
                     </Badge>
                   </div>
-                  <h3 className="text-white font-bold mb-1">{achievement.title}</h3>
+                  <h3 className="text-foreground font-bold mb-1">{achievement.title}</h3>
                   <p className="text-gray-400 text-sm mb-3">{achievement.description}</p>
                   {!achievement.unlocked && achievement.progress !== undefined && (
                     <div>
@@ -471,7 +471,7 @@ export default function LoyaltyPage() {
 
         {/* Rewards Catalog */}
         <Card className="p-6 bg-white/5 border-white/10 mb-8">
-          <h2 className="text-2xl font-bold text-white mb-6">Redeem Rewards</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Redeem Rewards</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {rewards.map((reward) => (
               <Card key={reward.id} className="p-6 bg-white/5 border-white/10">
@@ -483,7 +483,7 @@ export default function LoyaltyPage() {
                     {reward.pointsCost} pts
                   </Badge>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{reward.title}</h3>
+                <h3 className="text-lg font-bold text-foreground mb-2">{reward.title}</h3>
                 <p className="text-gray-400 text-sm mb-4">{reward.description}</p>
                 <p className="text-green-400 text-sm mb-4">Value: ${reward.value}</p>
                 <Button
@@ -500,7 +500,7 @@ export default function LoyaltyPage() {
 
         {/* Recent Activity */}
         <Card className="p-6 bg-white/5 border-white/10">
-          <h2 className="text-2xl font-bold text-white mb-6">Recent Activity</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Recent Activity</h2>
           <div className="space-y-4">
             {recentActivity.map((activity) => (
               <div
@@ -512,7 +512,7 @@ export default function LoyaltyPage() {
                     {getActivityIcon(activity.type)}
                   </div>
                   <div>
-                    <p className="text-white font-medium">{activity.description}</p>
+                    <p className="text-foreground font-medium">{activity.description}</p>
                     <p className="text-gray-400 text-sm">{activity.date}</p>
                   </div>
                 </div>
@@ -526,27 +526,27 @@ export default function LoyaltyPage() {
 
         {/* How to Earn Points */}
         <Card className="p-6 bg-white/5 border-white/10 mt-8">
-          <h2 className="text-2xl font-bold text-white mb-6">How to Earn Points</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">How to Earn Points</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
               <div className="p-4 bg-purple-500/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <ShoppingBag className="w-8 h-8 text-purple-400" />
               </div>
-              <h3 className="text-white font-bold mb-2">Make Purchases</h3>
+              <h3 className="text-foreground font-bold mb-2">Make Purchases</h3>
               <p className="text-gray-400 text-sm">Earn 1 point for every $1 spent</p>
             </div>
             <div className="text-center">
               <div className="p-4 bg-purple-500/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <MessageSquare className="w-8 h-8 text-purple-400" />
               </div>
-              <h3 className="text-white font-bold mb-2">Write Reviews</h3>
+              <h3 className="text-foreground font-bold mb-2">Write Reviews</h3>
               <p className="text-gray-400 text-sm">Earn 25 points per product review</p>
             </div>
             <div className="text-center">
               <div className="p-4 bg-purple-500/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-purple-400" />
               </div>
-              <h3 className="text-white font-bold mb-2">Refer Friends</h3>
+              <h3 className="text-foreground font-bold mb-2">Refer Friends</h3>
               <p className="text-gray-400 text-sm">Earn 100 points per successful referral</p>
             </div>
           </div>

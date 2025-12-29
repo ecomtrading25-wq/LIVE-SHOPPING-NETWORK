@@ -77,7 +77,7 @@ export default function InfluencerPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 py-16">
         <div className="container mx-auto px-4">
@@ -91,7 +91,7 @@ export default function InfluencerPage() {
                 <Video className="w-5 h-5 mr-2" />
                 Schedule Live Show
               </Button>
-              <Button size="lg" variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+              <Button size="lg" variant="outline" className="bg-white/10 border-white/20 text-foreground hover:bg-white/20">
                 <Share2 className="w-5 h-5 mr-2" />
                 Share Products
               </Button>
@@ -103,7 +103,7 @@ export default function InfluencerPage() {
       <div className="container mx-auto px-4 py-12">
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-12">
-          <Card className="bg-zinc-900 border-zinc-800">
+          <Card className="bg-background border-border text-foreground">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
                 <Users className="w-5 h-5 text-purple-500" />
@@ -114,7 +114,7 @@ export default function InfluencerPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-zinc-900 border-zinc-800">
+          <Card className="bg-background border-border text-foreground">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
                 <DollarSign className="w-5 h-5 text-green-500" />
@@ -125,7 +125,7 @@ export default function InfluencerPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-zinc-900 border-zinc-800">
+          <Card className="bg-background border-border text-foreground">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
                 <TrendingUp className="w-5 h-5 text-blue-500" />
@@ -136,7 +136,7 @@ export default function InfluencerPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-zinc-900 border-zinc-800">
+          <Card className="bg-background border-border text-foreground">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
                 <BarChart3 className="w-5 h-5 text-yellow-500" />
@@ -146,7 +146,7 @@ export default function InfluencerPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-zinc-900 border-zinc-800">
+          <Card className="bg-background border-border text-foreground">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
                 <CheckCircle className="w-5 h-5 text-pink-500" />
@@ -156,7 +156,7 @@ export default function InfluencerPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-zinc-900 border-zinc-800">
+          <Card className="bg-background border-border text-foreground">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
                 <DollarSign className="w-5 h-5 text-orange-500" />
@@ -171,19 +171,19 @@ export default function InfluencerPage() {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Active Campaigns */}
-            <Card className="bg-zinc-900 border-zinc-800">
+            <Card className="bg-background border-border text-foreground">
               <CardHeader>
-                <CardTitle className="text-white">Active Campaigns</CardTitle>
+                <CardTitle className="text-foreground">Active Campaigns</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {campaigns.map((campaign) => (
                   <div
                     key={campaign.id}
-                    className="p-4 bg-zinc-800 rounded-lg border border-zinc-700"
+                    className="p-4 bg-card rounded-lg border border-zinc-700 text-card-foreground"
                   >
                     <div className="flex items-start justify-between mb-3">
                       <div>
-                        <h3 className="font-bold text-white mb-1">{campaign.name}</h3>
+                        <h3 className="font-bold text-foreground mb-1">{campaign.name}</h3>
                         <div className="flex items-center gap-2">
                           <Badge
                             className={
@@ -207,11 +207,11 @@ export default function InfluencerPage() {
 
                     <div className="grid grid-cols-4 gap-4 text-center">
                       <div>
-                        <p className="text-2xl font-bold text-white">{campaign.clicks}</p>
+                        <p className="text-2xl font-bold text-foreground">{campaign.clicks}</p>
                         <p className="text-xs text-gray-400">Clicks</p>
                       </div>
                       <div>
-                        <p className="text-2xl font-bold text-white">{campaign.sales}</p>
+                        <p className="text-2xl font-bold text-foreground">{campaign.sales}</p>
                         <p className="text-xs text-gray-400">Sales</p>
                       </div>
                       <div>
@@ -221,7 +221,7 @@ export default function InfluencerPage() {
                         <p className="text-xs text-gray-400">Earnings</p>
                       </div>
                       <div>
-                        <p className="text-sm font-bold text-white">
+                        <p className="text-sm font-bold text-foreground">
                           {Math.ceil(
                             (campaign.endDate.getTime() - Date.now()) /
                               (24 * 60 * 60 * 1000)
@@ -237,12 +237,12 @@ export default function InfluencerPage() {
             </Card>
 
             {/* Performance Chart Placeholder */}
-            <Card className="bg-zinc-900 border-zinc-800">
+            <Card className="bg-background border-border text-foreground">
               <CardHeader>
-                <CardTitle className="text-white">Performance Trends</CardTitle>
+                <CardTitle className="text-foreground">Performance Trends</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="h-64 flex items-center justify-center bg-zinc-800 rounded-lg">
+                <div className="h-64 flex items-center justify-center bg-card rounded-lg text-card-foreground">
                   <p className="text-gray-400">Chart: Earnings & Sales Over Time</p>
                 </div>
               </CardContent>
@@ -254,7 +254,7 @@ export default function InfluencerPage() {
             {/* Referral Link */}
             <Card className="bg-gradient-to-br from-purple-600 to-pink-600 border-0">
               <CardHeader>
-                <CardTitle className="text-white flex items-center gap-2">
+                <CardTitle className="text-foreground flex items-center gap-2">
                   <LinkIcon className="w-5 h-5" />
                   Your Referral Link
                 </CardTitle>
@@ -286,9 +286,9 @@ export default function InfluencerPage() {
             </Card>
 
             {/* Quick Actions */}
-            <Card className="bg-zinc-900 border-zinc-800">
+            <Card className="bg-background border-border text-foreground">
               <CardHeader>
-                <CardTitle className="text-white">Quick Actions</CardTitle>
+                <CardTitle className="text-foreground">Quick Actions</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <Button className="w-full justify-start" variant="outline">
@@ -311,19 +311,19 @@ export default function InfluencerPage() {
             </Card>
 
             {/* Commission Tiers */}
-            <Card className="bg-zinc-900 border-zinc-800">
+            <Card className="bg-background border-border text-foreground">
               <CardHeader>
-                <CardTitle className="text-white">Commission Tiers</CardTitle>
+                <CardTitle className="text-foreground">Commission Tiers</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <div className="p-3 bg-zinc-800 rounded-lg">
+                <div className="p-3 bg-card rounded-lg text-card-foreground">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-sm font-medium">Bronze</span>
                     <Badge variant="outline">5-10%</Badge>
                   </div>
                   <p className="text-xs text-gray-400">0 - $5,000 sales</p>
                 </div>
-                <div className="p-3 bg-zinc-800 rounded-lg">
+                <div className="p-3 bg-card rounded-lg text-card-foreground">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-sm font-medium">Silver</span>
                     <Badge variant="outline">10-15%</Badge>
@@ -332,12 +332,12 @@ export default function InfluencerPage() {
                 </div>
                 <div className="p-3 bg-gradient-to-r from-yellow-600 to-yellow-500 rounded-lg">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm font-medium text-white">Gold (Current)</span>
+                    <span className="text-sm font-medium text-foreground">Gold (Current)</span>
                     <Badge className="bg-white text-yellow-600">15-20%</Badge>
                   </div>
                   <p className="text-xs text-white/90">$20,000 - $50,000 sales</p>
                 </div>
-                <div className="p-3 bg-zinc-800 rounded-lg">
+                <div className="p-3 bg-card rounded-lg text-card-foreground">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-sm font-medium">Platinum</span>
                     <Badge variant="outline">20-30%</Badge>

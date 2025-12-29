@@ -124,7 +124,7 @@ export default function PerformancePage() {
       case "low":
         return "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400";
       default:
-        return "bg-zinc-100 text-zinc-800 dark:bg-zinc-900/20 dark:text-zinc-400";
+        return "bg-zinc-100 text-zinc-800 dark:bg-background/20 dark:text-zinc-400";
     }
   };
 
@@ -133,7 +133,7 @@ export default function PerformancePage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Performance Monitoring</h1>
+          <h1 className="text-3xl font-bold text-foreground">Performance Monitoring</h1>
           <p className="text-zinc-400 mt-1">Real-time system health and metrics</p>
         </div>
 
@@ -173,7 +173,7 @@ export default function PerformancePage() {
 
       {/* Key Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between mb-4">
             <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center">
               <CheckCircle className="w-6 h-6 text-green-500" />
@@ -181,11 +181,11 @@ export default function PerformancePage() {
             <TrendingUp className="w-5 h-5 text-green-500" />
           </div>
           <p className="text-sm text-zinc-400 mb-1">Uptime</p>
-          <p className="text-3xl font-bold text-white">{metrics.uptime}%</p>
+          <p className="text-3xl font-bold text-foreground">{metrics.uptime}%</p>
           <p className="text-xs text-zinc-500 mt-2">Last 30 days</p>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between mb-4">
             <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center">
               <Zap className="w-6 h-6 text-blue-500" />
@@ -193,11 +193,11 @@ export default function PerformancePage() {
             <TrendingDown className="w-5 h-5 text-green-500" />
           </div>
           <p className="text-sm text-zinc-400 mb-1">Avg Response Time</p>
-          <p className="text-3xl font-bold text-white">{metrics.avgResponseTime}ms</p>
+          <p className="text-3xl font-bold text-foreground">{metrics.avgResponseTime}ms</p>
           <p className="text-xs text-zinc-500 mt-2">-12ms from last hour</p>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between mb-4">
             <div className="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center">
               <AlertTriangle className="w-6 h-6 text-red-500" />
@@ -205,11 +205,11 @@ export default function PerformancePage() {
             <TrendingDown className="w-5 h-5 text-green-500" />
           </div>
           <p className="text-sm text-zinc-400 mb-1">Error Rate</p>
-          <p className="text-3xl font-bold text-white">{metrics.errorRate}%</p>
+          <p className="text-3xl font-bold text-foreground">{metrics.errorRate}%</p>
           <p className="text-xs text-zinc-500 mt-2">-0.01% from last hour</p>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between mb-4">
             <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center">
               <Activity className="w-6 h-6 text-purple-500" />
@@ -217,7 +217,7 @@ export default function PerformancePage() {
             <TrendingUp className="w-5 h-5 text-green-500" />
           </div>
           <p className="text-sm text-zinc-400 mb-1">Requests/Min</p>
-          <p className="text-3xl font-bold text-white">
+          <p className="text-3xl font-bold text-foreground">
             {metrics.requestsPerMinute.toLocaleString()}
           </p>
           <p className="text-xs text-zinc-500 mt-2">+8% from last hour</p>
@@ -226,13 +226,13 @@ export default function PerformancePage() {
 
       {/* System Resources */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center">
               <Server className="w-5 h-5 text-blue-500" />
             </div>
             <div>
-              <p className="font-semibold text-white">CPU Usage</p>
+              <p className="font-semibold text-foreground">CPU Usage</p>
               <p className="text-sm text-zinc-400">Server load</p>
             </div>
           </div>
@@ -240,9 +240,9 @@ export default function PerformancePage() {
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
               <span className="text-zinc-400">Current</span>
-              <span className="text-white font-medium">{metrics.cpuUsage}%</span>
+              <span className="text-foreground font-medium">{metrics.cpuUsage}%</span>
             </div>
-            <div className="w-full h-2 bg-zinc-800 rounded-full overflow-hidden">
+            <div className="w-full h-2 bg-card rounded-full overflow-hidden text-card-foreground">
               <div
                 className="h-full bg-blue-500 transition-all"
                 style={{ width: `${metrics.cpuUsage}%` }}
@@ -251,13 +251,13 @@ export default function PerformancePage() {
           </div>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center">
               <Activity className="w-5 h-5 text-purple-500" />
             </div>
             <div>
-              <p className="font-semibold text-white">Memory Usage</p>
+              <p className="font-semibold text-foreground">Memory Usage</p>
               <p className="text-sm text-zinc-400">RAM utilization</p>
             </div>
           </div>
@@ -265,9 +265,9 @@ export default function PerformancePage() {
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
               <span className="text-zinc-400">Current</span>
-              <span className="text-white font-medium">{metrics.memoryUsage}%</span>
+              <span className="text-foreground font-medium">{metrics.memoryUsage}%</span>
             </div>
-            <div className="w-full h-2 bg-zinc-800 rounded-full overflow-hidden">
+            <div className="w-full h-2 bg-card rounded-full overflow-hidden text-card-foreground">
               <div
                 className="h-full bg-purple-500 transition-all"
                 style={{ width: `${metrics.memoryUsage}%` }}
@@ -276,13 +276,13 @@ export default function PerformancePage() {
           </div>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center">
               <Database className="w-5 h-5 text-green-500" />
             </div>
             <div>
-              <p className="font-semibold text-white">Database</p>
+              <p className="font-semibold text-foreground">Database</p>
               <p className="text-sm text-zinc-400">Active connections</p>
             </div>
           </div>
@@ -290,11 +290,11 @@ export default function PerformancePage() {
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
               <span className="text-zinc-400">Current</span>
-              <span className="text-white font-medium">
+              <span className="text-foreground font-medium">
                 {metrics.databaseConnections}/100
               </span>
             </div>
-            <div className="w-full h-2 bg-zinc-800 rounded-full overflow-hidden">
+            <div className="w-full h-2 bg-card rounded-full overflow-hidden text-card-foreground">
               <div
                 className="h-full bg-green-500 transition-all"
                 style={{ width: `${metrics.databaseConnections}%` }}
@@ -305,13 +305,13 @@ export default function PerformancePage() {
       </div>
 
       {/* Endpoint Performance */}
-      <Card className="p-6 bg-zinc-900 border-zinc-800">
-        <h2 className="text-xl font-bold text-white mb-6">Endpoint Performance</h2>
+      <Card className="p-6 bg-background border-border text-foreground">
+        <h2 className="text-xl font-bold text-foreground mb-6">Endpoint Performance</h2>
 
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-zinc-800">
+              <tr className="border-b border-border">
                 <th className="text-left py-3 px-4 text-sm font-medium text-zinc-400">
                   Endpoint
                 </th>
@@ -334,18 +334,18 @@ export default function PerformancePage() {
             </thead>
             <tbody>
               {endpoints.map((endpoint) => (
-                <tr key={endpoint.path} className="border-b border-zinc-800/50">
+                <tr key={endpoint.path} className="border-b border-border/50">
                   <td className="py-4 px-4">
                     <div>
-                      <p className="text-white font-medium">{endpoint.name}</p>
+                      <p className="text-foreground font-medium">{endpoint.name}</p>
                       <p className="text-sm text-zinc-500">{endpoint.path}</p>
                     </div>
                   </td>
                   <td className="py-4 px-4">
-                    <span className="text-white">{endpoint.avgTime}ms</span>
+                    <span className="text-foreground">{endpoint.avgTime}ms</span>
                   </td>
                   <td className="py-4 px-4">
-                    <span className="text-white">{endpoint.p95Time}ms</span>
+                    <span className="text-foreground">{endpoint.p95Time}ms</span>
                   </td>
                   <td className="py-4 px-4">
                     <span
@@ -359,7 +359,7 @@ export default function PerformancePage() {
                     </span>
                   </td>
                   <td className="py-4 px-4">
-                    <span className="text-white">
+                    <span className="text-foreground">
                       {endpoint.requests.toLocaleString()}
                     </span>
                   </td>
@@ -376,14 +376,14 @@ export default function PerformancePage() {
       </Card>
 
       {/* Recent Errors */}
-      <Card className="p-6 bg-zinc-900 border-zinc-800">
-        <h2 className="text-xl font-bold text-white mb-6">Recent Errors</h2>
+      <Card className="p-6 bg-background border-border text-foreground">
+        <h2 className="text-xl font-bold text-foreground mb-6">Recent Errors</h2>
 
         <div className="space-y-4">
           {recentErrors.map((error) => (
             <div
               key={error.id}
-              className="flex items-start gap-4 p-4 bg-zinc-800/50 rounded-lg"
+              className="flex items-start gap-4 p-4 bg-card/50 rounded-lg text-card-foreground"
             >
               <div className="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
                 <AlertTriangle className="w-5 h-5 text-red-500" />
@@ -391,7 +391,7 @@ export default function PerformancePage() {
 
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
-                  <p className="font-medium text-white">{error.error}</p>
+                  <p className="font-medium text-foreground">{error.error}</p>
                   <Badge className={getSeverityColor(error.severity)}>
                     {error.severity}
                   </Badge>

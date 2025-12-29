@@ -121,7 +121,7 @@ export default function RewardsPage() {
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-zinc-900 to-black py-12">
       <div className="container mx-auto px-4">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">Rewards Program</h1>
+          <h1 className="text-4xl font-bold text-foreground mb-2">Rewards Program</h1>
           <p className="text-gray-400">Earn points, unlock tiers, get rewards</p>
         </div>
 
@@ -132,10 +132,10 @@ export default function RewardsPage() {
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-4">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                <currentTier.icon className="w-8 h-8 text-white" />
+                <currentTier.icon className="w-8 h-8 text-foreground" />
               </div>
               <div>
-                <h2 className="text-3xl font-bold text-white">
+                <h2 className="text-3xl font-bold text-foreground">
                   {currentTier.name} Member
                 </h2>
                 <p className="text-white/80 mt-1">
@@ -145,7 +145,7 @@ export default function RewardsPage() {
             </div>
             <div className="text-right">
               <p className="text-sm text-white/80 mb-1">Available to redeem</p>
-              <p className="text-4xl font-bold text-white">
+              <p className="text-4xl font-bold text-foreground">
                 {rewardsData?.availablePoints || 0}
               </p>
             </div>
@@ -177,17 +177,17 @@ export default function RewardsPage() {
               className={`p-6 border-2 ${
                 tier.name === currentTier.name
                   ? "border-purple-500 bg-purple-500/10"
-                  : "border-zinc-800 bg-zinc-900/50"
+                  : "border-border bg-background/50"
               }`}
             >
               <div className="flex items-center gap-3 mb-4">
                 <div
                   className={`w-12 h-12 bg-gradient-to-r ${tier.color} rounded-full flex items-center justify-center`}
                 >
-                  <tier.icon className="w-6 h-6 text-white" />
+                  <tier.icon className="w-6 h-6 text-foreground" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-white">{tier.name}</h3>
+                  <h3 className="font-bold text-foreground">{tier.name}</h3>
                   <p className="text-sm text-gray-400">
                     {tier.minPoints}+ points
                   </p>
@@ -195,7 +195,7 @@ export default function RewardsPage() {
               </div>
               <ul className="space-y-2">
                 {tier.benefits.map((benefit, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-sm text-gray-300">
+                  <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
                     <Star className="w-4 h-4 text-yellow-400 flex-shrink-0 mt-0.5" />
                     <span>{benefit}</span>
                   </li>
@@ -206,15 +206,15 @@ export default function RewardsPage() {
         </div>
 
         {/* How to Earn */}
-        <Card className="p-8 bg-zinc-900/50 border-zinc-800 mb-8">
-          <h2 className="text-2xl font-bold text-white mb-6">How to Earn Points</h2>
+        <Card className="p-8 bg-background/50 border-border mb-8 text-foreground">
+          <h2 className="text-2xl font-bold text-foreground mb-6">How to Earn Points</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {earnMethods.map((method) => (
               <div key={method.title} className="text-center">
-                <div className="w-16 h-16 bg-zinc-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-card rounded-full flex items-center justify-center mx-auto mb-4 text-card-foreground">
                   <method.icon className={`w-8 h-8 ${method.color}`} />
                 </div>
-                <h3 className="font-semibold text-white mb-2">{method.title}</h3>
+                <h3 className="font-semibold text-foreground mb-2">{method.title}</h3>
                 <p className="text-sm text-gray-400">{method.points}</p>
               </div>
             ))}
@@ -222,16 +222,16 @@ export default function RewardsPage() {
         </Card>
 
         {/* Redeem Rewards */}
-        <Card className="p-8 bg-zinc-900/50 border-zinc-800">
-          <h2 className="text-2xl font-bold text-white mb-6">Redeem Rewards</h2>
+        <Card className="p-8 bg-background/50 border-border text-foreground">
+          <h2 className="text-2xl font-bold text-foreground mb-6">Redeem Rewards</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="p-6 bg-zinc-800 border-zinc-700">
+            <Card className="p-6 bg-card border-zinc-700 text-card-foreground">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center">
                   <Gift className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white">$5 Off</h3>
+                  <h3 className="font-semibold text-foreground">$5 Off</h3>
                   <p className="text-sm text-gray-400">500 points</p>
                 </div>
               </div>
@@ -243,13 +243,13 @@ export default function RewardsPage() {
               </Button>
             </Card>
 
-            <Card className="p-6 bg-zinc-800 border-zinc-700">
+            <Card className="p-6 bg-card border-zinc-700 text-card-foreground">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center">
                   <Gift className="w-6 h-6 text-green-400" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white">$10 Off</h3>
+                  <h3 className="font-semibold text-foreground">$10 Off</h3>
                   <p className="text-sm text-gray-400">1000 points</p>
                 </div>
               </div>
@@ -261,13 +261,13 @@ export default function RewardsPage() {
               </Button>
             </Card>
 
-            <Card className="p-6 bg-zinc-800 border-zinc-700">
+            <Card className="p-6 bg-card border-zinc-700 text-card-foreground">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center">
                   <Gift className="w-6 h-6 text-purple-400" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white">$25 Off</h3>
+                  <h3 className="font-semibold text-foreground">$25 Off</h3>
                   <p className="text-sm text-gray-400">2500 points</p>
                 </div>
               </div>
@@ -282,20 +282,20 @@ export default function RewardsPage() {
         </Card>
 
         {/* Recent Activity */}
-        <Card className="p-8 bg-zinc-900/50 border-zinc-800 mt-8">
-          <h2 className="text-2xl font-bold text-white mb-6">Recent Activity</h2>
+        <Card className="p-8 bg-background/50 border-border mt-8 text-foreground">
+          <h2 className="text-2xl font-bold text-foreground mb-6">Recent Activity</h2>
           <div className="space-y-4">
             {rewardsData?.recentActivity?.map((activity: any, idx: number) => (
               <div
                 key={idx}
-                className="flex items-center justify-between p-4 bg-zinc-800 rounded-lg"
+                className="flex items-center justify-between p-4 bg-card rounded-lg text-card-foreground"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
                     <TrendingUp className="w-5 h-5 text-purple-400" />
                   </div>
                   <div>
-                    <p className="font-medium text-white">{activity.description}</p>
+                    <p className="font-medium text-foreground">{activity.description}</p>
                     <p className="text-sm text-gray-400">
                       {new Date(activity.date).toLocaleDateString()}
                     </p>

@@ -48,11 +48,11 @@ export default function LiveShowsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
       {/* Header */}
-      <header className="border-b border-white/10 bg-black/30 backdrop-blur-xl">
+      <header className="border-b border-white/10 bg-background/30 backdrop-blur-xl text-foreground">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/">
-              <a className="text-2xl font-bold text-white hover:text-purple-400 transition-colors">
+              <a className="text-2xl font-bold text-foreground hover:text-purple-400 transition-colors">
                 Live Shopping Network
               </a>
             </Link>
@@ -61,7 +61,7 @@ export default function LiveShowsPage() {
                 <div className="w-2 h-2 bg-white rounded-full mr-2" />
                 LIVE
               </Badge>
-              <div className="flex items-center gap-2 text-white">
+              <div className="flex items-center gap-2 text-foreground">
                 <Eye className="w-5 h-5" />
                 <span className="font-bold">1,247</span>
               </div>
@@ -74,7 +74,7 @@ export default function LiveShowsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main Video Stream */}
           <div className="lg:col-span-2">
-            <Card className="bg-black border-white/10 overflow-hidden">
+            <Card className="bg-background border-white/10 overflow-hidden text-foreground">
               {/* Video Player */}
               <div className="aspect-video bg-gradient-to-br from-purple-600/20 to-pink-600/20 relative">
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -86,22 +86,22 @@ export default function LiveShowsPage() {
 
                 {/* Live Indicator */}
                 <div className="absolute top-4 left-4">
-                  <Badge className="bg-red-600 text-white font-bold px-4 py-2">
+                  <Badge className="bg-red-600 text-foreground font-bold px-4 py-2">
                     <div className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse" />
                     LIVE
                   </Badge>
                 </div>
 
                 {/* Viewer Count */}
-                <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm rounded-full px-4 py-2 flex items-center gap-2">
-                  <Users className="w-4 h-4 text-white" />
-                  <span className="text-white font-bold">1,247</span>
+                <div className="absolute top-4 right-4 bg-background/60 backdrop-blur-sm rounded-full px-4 py-2 flex items-center gap-2 text-foreground">
+                  <Users className="w-4 h-4 text-foreground" />
+                  <span className="text-foreground font-bold">1,247</span>
                 </div>
               </div>
 
               {/* Stream Info */}
               <div className="p-6">
-                <h1 className="text-2xl font-bold text-white mb-2">
+                <h1 className="text-2xl font-bold text-foreground mb-2">
                   🎧 Tech Tuesday: Premium Audio Deals
                 </h1>
                 <p className="text-gray-400 mb-4">
@@ -111,10 +111,10 @@ export default function LiveShowsPage() {
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-2">
                     <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold">JD</span>
+                      <span className="text-foreground font-bold">JD</span>
                     </div>
                     <div>
-                      <p className="text-white font-medium">John Davis</p>
+                      <p className="text-foreground font-medium">John Davis</p>
                       <p className="text-sm text-gray-400">Host</p>
                     </div>
                   </div>
@@ -126,7 +126,7 @@ export default function LiveShowsPage() {
             <Card className="mt-6 bg-white/5 border-white/10 p-6">
               <div className="flex items-center gap-3 mb-4">
                 <Zap className="w-6 h-6 text-yellow-500" />
-                <h2 className="text-xl font-bold text-white">Featured Product</h2>
+                <h2 className="text-xl font-bold text-foreground">Featured Product</h2>
               </div>
 
               <div className="flex gap-6">
@@ -135,11 +135,11 @@ export default function LiveShowsPage() {
                 </div>
 
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-white mb-2">
+                  <h3 className="text-xl font-bold text-foreground mb-2">
                     {featuredProduct.name}
                   </h3>
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="text-3xl font-bold text-white">
+                    <span className="text-3xl font-bold text-foreground">
                       ${featuredProduct.price}
                     </span>
                     <span className="text-lg text-gray-400 line-through">
@@ -176,7 +176,7 @@ export default function LiveShowsPage() {
               <div className="p-4 border-b border-white/10">
                 <div className="flex items-center gap-2">
                   <MessageCircle className="w-5 h-5 text-purple-400" />
-                  <h2 className="text-lg font-bold text-white">Live Chat</h2>
+                  <h2 className="text-lg font-bold text-foreground">Live Chat</h2>
                   <Badge className="ml-auto bg-purple-600">234 online</Badge>
                 </div>
               </div>
@@ -200,7 +200,7 @@ export default function LiveShowsPage() {
                       </span>
                       <span className="text-xs text-gray-500">{msg.time}</span>
                     </div>
-                    <p className="text-white text-sm">{msg.message}</p>
+                    <p className="text-foreground text-sm">{msg.message}</p>
                   </div>
                 ))}
               </div>
@@ -213,7 +213,7 @@ export default function LiveShowsPage() {
                     onChange={(e) => setChatMessage(e.target.value)}
                     onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
                     placeholder="Type a message..."
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                    className="bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
                   />
                   <Button
                     size="icon"

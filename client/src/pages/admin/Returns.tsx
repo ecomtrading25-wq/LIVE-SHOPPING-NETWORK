@@ -170,7 +170,7 @@ export default function ReturnsPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-zinc-900 dark:text-white">
+        <h1 className="text-3xl font-bold text-zinc-900 dark:text-foreground">
           Returns Management
         </h1>
         <p className="text-zinc-600 dark:text-zinc-400 mt-1">
@@ -186,7 +186,7 @@ export default function ReturnsPage() {
               <Clock className="w-6 h-6 text-yellow-600" />
             </div>
             <div>
-              <p className="text-2xl font-bold text-zinc-900 dark:text-white">
+              <p className="text-2xl font-bold text-zinc-900 dark:text-foreground">
                 {stats.pending}
               </p>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">
@@ -202,7 +202,7 @@ export default function ReturnsPage() {
               <CheckCircle className="w-6 h-6 text-green-600" />
             </div>
             <div>
-              <p className="text-2xl font-bold text-zinc-900 dark:text-white">
+              <p className="text-2xl font-bold text-zinc-900 dark:text-foreground">
                 {stats.approved}
               </p>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">Approved</p>
@@ -216,7 +216,7 @@ export default function ReturnsPage() {
               <XCircle className="w-6 h-6 text-red-600" />
             </div>
             <div>
-              <p className="text-2xl font-bold text-zinc-900 dark:text-white">
+              <p className="text-2xl font-bold text-zinc-900 dark:text-foreground">
                 {stats.rejected}
               </p>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">Rejected</p>
@@ -230,7 +230,7 @@ export default function ReturnsPage() {
               <DollarSign className="w-6 h-6 text-blue-600" />
             </div>
             <div>
-              <p className="text-2xl font-bold text-zinc-900 dark:text-white">
+              <p className="text-2xl font-bold text-zinc-900 dark:text-foreground">
                 ${stats.totalRefundAmount.toFixed(2)}
               </p>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">
@@ -274,27 +274,27 @@ export default function ReturnsPage() {
       <Card>
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800">
+            <thead className="bg-zinc-50 dark:bg-background border-b border-zinc-200 dark:border-border text-foreground">
               <tr>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-white">
+                <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-foreground">
                   Return ID
                 </th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-white">
+                <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-foreground">
                   Customer
                 </th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-white">
+                <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-foreground">
                   Product
                 </th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-white">
+                <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-foreground">
                   Reason
                 </th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-white">
+                <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-foreground">
                   Amount
                 </th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-white">
+                <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-foreground">
                   Status
                 </th>
-                <th className="px-6 py-4 text-right text-sm font-semibold text-zinc-900 dark:text-white">
+                <th className="px-6 py-4 text-right text-sm font-semibold text-zinc-900 dark:text-foreground">
                   Actions
                 </th>
               </tr>
@@ -303,11 +303,11 @@ export default function ReturnsPage() {
               {filteredReturns.map((returnItem) => (
                 <tr
                   key={returnItem.id}
-                  className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50"
+                  className="hover:bg-zinc-50 dark:hover:bg-background/50 text-foreground"
                 >
                   <td className="px-6 py-4">
                     <div>
-                      <p className="font-medium text-zinc-900 dark:text-white">
+                      <p className="font-medium text-zinc-900 dark:text-foreground">
                         {returnItem.id}
                       </p>
                       <p className="text-sm text-zinc-600 dark:text-zinc-400">
@@ -317,7 +317,7 @@ export default function ReturnsPage() {
                   </td>
                   <td className="px-6 py-4">
                     <div>
-                      <p className="font-medium text-zinc-900 dark:text-white">
+                      <p className="font-medium text-zinc-900 dark:text-foreground">
                         {returnItem.customerName}
                       </p>
                       <p className="text-sm text-zinc-600 dark:text-zinc-400">
@@ -327,7 +327,7 @@ export default function ReturnsPage() {
                   </td>
                   <td className="px-6 py-4">
                     <div>
-                      <p className="font-medium text-zinc-900 dark:text-white">
+                      <p className="font-medium text-zinc-900 dark:text-foreground">
                         {returnItem.productName}
                       </p>
                       <p className="text-sm text-zinc-600 dark:text-zinc-400">
@@ -337,7 +337,7 @@ export default function ReturnsPage() {
                   </td>
                   <td className="px-6 py-4">
                     <div>
-                      <p className="font-medium text-zinc-900 dark:text-white">
+                      <p className="font-medium text-zinc-900 dark:text-foreground">
                         {getReasonLabel(returnItem.reason)}
                       </p>
                       <p className="text-sm text-zinc-600 dark:text-zinc-400">
@@ -346,7 +346,7 @@ export default function ReturnsPage() {
                     </div>
                   </td>
                   <td className="px-6 py-4">
-                    <p className="font-medium text-zinc-900 dark:text-white">
+                    <p className="font-medium text-zinc-900 dark:text-foreground">
                       ${returnItem.refundAmount.toFixed(2)}
                     </p>
                   </td>
@@ -388,12 +388,12 @@ export default function ReturnsPage() {
           {selectedReturn && (
             <div className="space-y-6">
               {/* Return Details */}
-              <div className="bg-zinc-50 dark:bg-zinc-900 p-4 rounded-lg space-y-2">
+              <div className="bg-zinc-50 dark:bg-background p-4 rounded-lg space-y-2 text-foreground">
                 <div className="flex justify-between">
                   <span className="text-sm text-zinc-600 dark:text-zinc-400">
                     Return ID:
                   </span>
-                  <span className="font-medium text-zinc-900 dark:text-white">
+                  <span className="font-medium text-zinc-900 dark:text-foreground">
                     {selectedReturn.id}
                   </span>
                 </div>
@@ -401,7 +401,7 @@ export default function ReturnsPage() {
                   <span className="text-sm text-zinc-600 dark:text-zinc-400">
                     Product:
                   </span>
-                  <span className="font-medium text-zinc-900 dark:text-white">
+                  <span className="font-medium text-zinc-900 dark:text-foreground">
                     {selectedReturn.productName}
                   </span>
                 </div>
@@ -409,7 +409,7 @@ export default function ReturnsPage() {
                   <span className="text-sm text-zinc-600 dark:text-zinc-400">
                     Reason:
                   </span>
-                  <span className="font-medium text-zinc-900 dark:text-white">
+                  <span className="font-medium text-zinc-900 dark:text-foreground">
                     {getReasonLabel(selectedReturn.reason)}
                   </span>
                 </div>
@@ -417,7 +417,7 @@ export default function ReturnsPage() {
                   <span className="text-sm text-zinc-600 dark:text-zinc-400">
                     Customer Note:
                   </span>
-                  <span className="font-medium text-zinc-900 dark:text-white">
+                  <span className="font-medium text-zinc-900 dark:text-foreground">
                     {selectedReturn.reasonText}
                   </span>
                 </div>
@@ -425,7 +425,7 @@ export default function ReturnsPage() {
 
               {/* Decision */}
               <div>
-                <label className="text-sm font-medium text-zinc-900 dark:text-white mb-2 block">
+                <label className="text-sm font-medium text-zinc-900 dark:text-foreground mb-2 block">
                   Decision
                 </label>
                 <Select
@@ -448,7 +448,7 @@ export default function ReturnsPage() {
                 <>
                   {/* Refund Amount */}
                   <div>
-                    <label className="text-sm font-medium text-zinc-900 dark:text-white mb-2 block">
+                    <label className="text-sm font-medium text-zinc-900 dark:text-foreground mb-2 block">
                       Refund Amount
                     </label>
                     <Input
@@ -467,7 +467,7 @@ export default function ReturnsPage() {
 
                   {/* Restock Quantity */}
                   <div>
-                    <label className="text-sm font-medium text-zinc-900 dark:text-white mb-2 block">
+                    <label className="text-sm font-medium text-zinc-900 dark:text-foreground mb-2 block">
                       Restock Quantity
                     </label>
                     <Input
@@ -490,7 +490,7 @@ export default function ReturnsPage() {
 
               {/* Notes */}
               <div>
-                <label className="text-sm font-medium text-zinc-900 dark:text-white mb-2 block">
+                <label className="text-sm font-medium text-zinc-900 dark:text-foreground mb-2 block">
                   Internal Notes
                 </label>
                 <Textarea

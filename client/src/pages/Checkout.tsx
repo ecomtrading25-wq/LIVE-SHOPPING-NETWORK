@@ -167,7 +167,7 @@ function CheckoutForm() {
       <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 flex items-center justify-center">
         <Card className="p-12 bg-white/5 border-white/10 text-center max-w-md">
           <AlertCircle className="w-16 h-16 text-yellow-500 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-white mb-2">Cart is Empty</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-2">Cart is Empty</h2>
           <p className="text-gray-400 mb-6">
             Add some products to your cart before checking out.
           </p>
@@ -183,7 +183,7 @@ function CheckoutForm() {
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
       <div className="container mx-auto px-4 py-12">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">Checkout</h1>
+          <h1 className="text-4xl font-bold text-foreground mb-2">Checkout</h1>
           <p className="text-gray-400">Complete your purchase securely</p>
         </div>
 
@@ -195,25 +195,25 @@ function CheckoutForm() {
               <Card className="p-6 bg-white/5 border-white/10">
                 <div className="flex items-center gap-3 mb-6">
                   <User className="w-6 h-6 text-purple-400" />
-                  <h2 className="text-2xl font-bold text-white">Customer Information</h2>
+                  <h2 className="text-2xl font-bold text-foreground">Customer Information</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="name" className="text-white">Full Name *</Label>
+                    <Label htmlFor="name" className="text-foreground">Full Name *</Label>
                     <Input
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="bg-white/10 border-white/20 text-white"
+                      className="bg-white/10 border-white/20 text-foreground"
                       placeholder="John Doe"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="email" className="text-white">Email *</Label>
+                    <Label htmlFor="email" className="text-foreground">Email *</Label>
                     <Input
                       id="email"
                       name="email"
@@ -221,20 +221,20 @@ function CheckoutForm() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="bg-white/10 border-white/20 text-white"
+                      className="bg-white/10 border-white/20 text-foreground"
                       placeholder="john@example.com"
                     />
                   </div>
 
                   <div className="md:col-span-2">
-                    <Label htmlFor="phone" className="text-white">Phone</Label>
+                    <Label htmlFor="phone" className="text-foreground">Phone</Label>
                     <Input
                       id="phone"
                       name="phone"
                       type="tel"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="bg-white/10 border-white/20 text-white"
+                      className="bg-white/10 border-white/20 text-foreground"
                       placeholder="+1 (555) 123-4567"
                     />
                   </div>
@@ -245,58 +245,58 @@ function CheckoutForm() {
               <Card className="p-6 bg-white/5 border-white/10">
                 <div className="flex items-center gap-3 mb-6">
                   <MapPin className="w-6 h-6 text-purple-400" />
-                  <h2 className="text-2xl font-bold text-white">Shipping Address</h2>
+                  <h2 className="text-2xl font-bold text-foreground">Shipping Address</h2>
                 </div>
 
                 <div className="space-y-4">
                   <div>
-                    <Label htmlFor="address" className="text-white">Street Address *</Label>
+                    <Label htmlFor="address" className="text-foreground">Street Address *</Label>
                     <Input
                       id="address"
                       name="address"
                       value={formData.address}
                       onChange={handleInputChange}
                       required
-                      className="bg-white/10 border-white/20 text-white"
+                      className="bg-white/10 border-white/20 text-foreground"
                       placeholder="123 Main St"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
-                      <Label htmlFor="city" className="text-white">City *</Label>
+                      <Label htmlFor="city" className="text-foreground">City *</Label>
                       <Input
                         id="city"
                         name="city"
                         value={formData.city}
                         onChange={handleInputChange}
                         required
-                        className="bg-white/10 border-white/20 text-white"
+                        className="bg-white/10 border-white/20 text-foreground"
                         placeholder="San Francisco"
                       />
                     </div>
 
                     <div>
-                      <Label htmlFor="state" className="text-white">State</Label>
+                      <Label htmlFor="state" className="text-foreground">State</Label>
                       <Input
                         id="state"
                         name="state"
                         value={formData.state}
                         onChange={handleInputChange}
-                        className="bg-white/10 border-white/20 text-white"
+                        className="bg-white/10 border-white/20 text-foreground"
                         placeholder="CA"
                       />
                     </div>
 
                     <div>
-                      <Label htmlFor="zipCode" className="text-white">ZIP Code *</Label>
+                      <Label htmlFor="zipCode" className="text-foreground">ZIP Code *</Label>
                       <Input
                         id="zipCode"
                         name="zipCode"
                         value={formData.zipCode}
                         onChange={handleInputChange}
                         required
-                        className="bg-white/10 border-white/20 text-white"
+                        className="bg-white/10 border-white/20 text-foreground"
                         placeholder="94102"
                       />
                     </div>
@@ -308,11 +308,11 @@ function CheckoutForm() {
               <Card className="p-6 bg-white/5 border-white/10">
                 <div className="flex items-center gap-3 mb-6">
                   <CreditCard className="w-6 h-6 text-purple-400" />
-                  <h2 className="text-2xl font-bold text-white">Payment Information</h2>
+                  <h2 className="text-2xl font-bold text-foreground">Payment Information</h2>
                 </div>
 
                 <div className="mb-4">
-                  <Label className="text-white mb-2 block">Card Details *</Label>
+                  <Label className="text-foreground mb-2 block">Card Details *</Label>
                   <div className="p-4 bg-white/10 border border-white/20 rounded-lg">
                     <CardElement options={CARD_ELEMENT_OPTIONS} />
                   </div>
@@ -337,7 +337,7 @@ function CheckoutForm() {
             {/* Right Column - Order Summary */}
             <div>
               <Card className="p-6 bg-white/5 border-white/10 sticky top-4">
-                <h2 className="text-2xl font-bold text-white mb-6">Order Summary</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-6">Order Summary</h2>
 
                 <div className="space-y-4 mb-6">
                   {items.map((item) => (
@@ -350,9 +350,9 @@ function CheckoutForm() {
                         />
                       </div>
                       <div className="flex-1">
-                        <p className="font-medium text-white">{item.name}</p>
+                        <p className="font-medium text-foreground">{item.name}</p>
                         <p className="text-sm text-gray-400">Qty: {item.quantity}</p>
-                        <p className="text-sm font-bold text-white">
+                        <p className="text-sm font-bold text-foreground">
                           ${(item.price * item.quantity).toFixed(2)}
                         </p>
                       </div>
@@ -363,31 +363,31 @@ function CheckoutForm() {
                 <div className="space-y-3 border-t border-white/10 pt-4 mb-6">
                   <div className="flex justify-between text-gray-400">
                     <span>Subtotal</span>
-                    <span className="text-white">${subtotal.toFixed(2)}</span>
+                    <span className="text-foreground">${subtotal.toFixed(2)}</span>
                   </div>
 
                   <div className="flex justify-between text-gray-400">
                     <span>Shipping</span>
-                    <span className="text-white">
+                    <span className="text-foreground">
                       {shipping === 0 ? "FREE" : `$${shipping.toFixed(2)}`}
                     </span>
                   </div>
 
                   <div className="flex justify-between text-gray-400">
                     <span>Tax</span>
-                    <span className="text-white">${tax.toFixed(2)}</span>
+                    <span className="text-foreground">${tax.toFixed(2)}</span>
                   </div>
 
                   <div className="flex justify-between text-lg font-bold border-t border-white/10 pt-3">
-                    <span className="text-white">Total</span>
-                    <span className="text-white">${total.toFixed(2)}</span>
+                    <span className="text-foreground">Total</span>
+                    <span className="text-foreground">${total.toFixed(2)}</span>
                   </div>
                 </div>
 
                 <Button
                   type="submit"
                   disabled={!stripe || loading}
-                  className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+                  className="w-full bg-purple-600 hover:bg-purple-700 text-foreground"
                   size="lg"
                 >
                   {loading ? (

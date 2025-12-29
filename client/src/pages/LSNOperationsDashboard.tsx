@@ -102,7 +102,7 @@ function LSNOperationsDashboardContent() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white p-6">
+    <div className="min-h-screen bg-background text-foreground p-6">
       <div className="max-w-[1920px] mx-auto space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
@@ -115,21 +115,21 @@ function LSNOperationsDashboardContent() {
             <Button
               variant={timeRange === "today" ? "default" : "outline"}
               onClick={() => setTimeRange("today")}
-              className={timeRange === "today" ? "bg-purple-600" : "border-gray-700"}
+              className={timeRange === "today" ? "bg-purple-600" : "border-border"}
             >
               Today
             </Button>
             <Button
               variant={timeRange === "week" ? "default" : "outline"}
               onClick={() => setTimeRange("week")}
-              className={timeRange === "week" ? "bg-purple-600" : "border-gray-700"}
+              className={timeRange === "week" ? "bg-purple-600" : "border-border"}
             >
               Week
             </Button>
             <Button
               variant={timeRange === "month" ? "default" : "outline"}
               onClick={() => setTimeRange("month")}
-              className={timeRange === "month" ? "bg-purple-600" : "border-gray-700"}
+              className={timeRange === "month" ? "bg-purple-600" : "border-border"}
             >
               Month
             </Button>
@@ -169,7 +169,7 @@ function LSNOperationsDashboardContent() {
         </div>
 
         {/* Alerts */}
-        <Card className="border-gray-800 bg-gray-900">
+        <Card className="border-border bg-background text-foreground">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <AlertTriangle className="h-5 w-5 text-yellow-400" />
@@ -202,7 +202,7 @@ function LSNOperationsDashboardContent() {
 
         {/* Main Content Tabs */}
         <Tabs defaultValue="live" className="space-y-6">
-          <TabsList className="bg-gray-900 border border-gray-800">
+          <TabsList className="bg-background border border-border text-foreground">
             <TabsTrigger value="live" className="data-[state=active]:bg-purple-600">
               Live Shows
             </TabsTrigger>
@@ -224,7 +224,7 @@ function LSNOperationsDashboardContent() {
           <TabsContent value="live" className="space-y-6">
             <div className="grid gap-6 lg:grid-cols-2">
               {/* Active Shows */}
-              <Card className="border-gray-800 bg-gray-900">
+              <Card className="border-border bg-background text-foreground">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <div className="h-3 w-3 bg-red-500 rounded-full animate-pulse" />
@@ -248,7 +248,7 @@ function LSNOperationsDashboardContent() {
               </Card>
 
               {/* Upcoming Shows */}
-              <Card className="border-gray-800 bg-gray-900">
+              <Card className="border-border bg-background text-foreground">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Clock className="h-5 w-5 text-purple-400" />
@@ -268,14 +268,14 @@ function LSNOperationsDashboardContent() {
             </div>
 
             {/* Show Performance */}
-            <Card className="border-gray-800 bg-gray-900">
+            <Card className="border-border bg-background text-foreground">
               <CardHeader>
                 <CardTitle>Show Performance (Last 7 Days)</CardTitle>
               </CardHeader>
               <CardContent>
                 <Table>
                   <TableHeader>
-                    <TableRow className="border-gray-800">
+                    <TableRow className="border-border">
                       <TableHead>Show</TableHead>
                       <TableHead>Creator</TableHead>
                       <TableHead>Peak Viewers</TableHead>
@@ -287,7 +287,7 @@ function LSNOperationsDashboardContent() {
                   </TableHeader>
                   <TableBody>
                     {/* Mock data - in production, fetch from API */}
-                    <TableRow className="border-gray-800">
+                    <TableRow className="border-border">
                       <TableCell className="font-medium">Tech Deals Friday</TableCell>
                       <TableCell>Sarah M.</TableCell>
                       <TableCell>2,345</TableCell>
@@ -298,7 +298,7 @@ function LSNOperationsDashboardContent() {
                         <Badge className="bg-green-600">14.2%</Badge>
                       </TableCell>
                     </TableRow>
-                    <TableRow className="border-gray-800">
+                    <TableRow className="border-border">
                       <TableCell className="font-medium">Beauty Essentials</TableCell>
                       <TableCell>Jessica L.</TableCell>
                       <TableCell>1,892</TableCell>
@@ -319,7 +319,7 @@ function LSNOperationsDashboardContent() {
           <TabsContent value="creators" className="space-y-6">
             <div className="grid gap-6 lg:grid-cols-2">
               {/* Top Performers */}
-              <Card className="border-gray-800 bg-gray-900">
+              <Card className="border-border bg-background text-foreground">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Award className="h-5 w-5 text-yellow-400" />
@@ -342,7 +342,7 @@ function LSNOperationsDashboardContent() {
               </Card>
 
               {/* Creator Stats */}
-              <Card className="border-gray-800 bg-gray-900">
+              <Card className="border-border bg-background text-foreground">
                 <CardHeader>
                   <CardTitle>Creator Statistics</CardTitle>
                 </CardHeader>
@@ -390,7 +390,7 @@ function LSNOperationsDashboardContent() {
             </div>
 
             {/* Payout Queue */}
-            <Card className="border-gray-800 bg-gray-900">
+            <Card className="border-border bg-background text-foreground">
               <CardHeader>
                 <CardTitle className="flex items-center justify-between">
                   <span>Pending Payouts</span>
@@ -402,7 +402,7 @@ function LSNOperationsDashboardContent() {
               <CardContent>
                 <Table>
                   <TableHeader>
-                    <TableRow className="border-gray-800">
+                    <TableRow className="border-border">
                       <TableHead>Creator</TableHead>
                       <TableHead>Period</TableHead>
                       <TableHead>Shows</TableHead>
@@ -414,7 +414,7 @@ function LSNOperationsDashboardContent() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    <TableRow className="border-gray-800">
+                    <TableRow className="border-border">
                       <TableCell className="font-medium">Sarah M.</TableCell>
                       <TableCell>Dec 1-15</TableCell>
                       <TableCell>12</TableCell>
@@ -423,7 +423,7 @@ function LSNOperationsDashboardContent() {
                       <TableCell>$500</TableCell>
                       <TableCell className="font-bold text-green-400">$5,023</TableCell>
                       <TableCell>
-                        <Button size="sm" variant="outline" className="border-gray-700">
+                        <Button size="sm" variant="outline" className="border-border">
                           Approve
                         </Button>
                       </TableCell>
@@ -437,7 +437,7 @@ function LSNOperationsDashboardContent() {
           {/* Orders Tab */}
           <TabsContent value="orders" className="space-y-6">
             <div className="grid gap-6 lg:grid-cols-3">
-              <Card className="border-gray-800 bg-gray-900">
+              <Card className="border-border bg-background text-foreground">
                 <CardHeader>
                   <CardTitle className="text-sm font-medium text-gray-400">
                     Pending Fulfillment
@@ -450,7 +450,7 @@ function LSNOperationsDashboardContent() {
                 </CardContent>
               </Card>
 
-              <Card className="border-gray-800 bg-gray-900">
+              <Card className="border-border bg-background text-foreground">
                 <CardHeader>
                   <CardTitle className="text-sm font-medium text-gray-400">
                     In Transit
@@ -463,7 +463,7 @@ function LSNOperationsDashboardContent() {
                 </CardContent>
               </Card>
 
-              <Card className="border-gray-800 bg-gray-900">
+              <Card className="border-border bg-background text-foreground">
                 <CardHeader>
                   <CardTitle className="text-sm font-medium text-gray-400">
                     Returns/Issues
@@ -477,14 +477,14 @@ function LSNOperationsDashboardContent() {
               </Card>
             </div>
 
-            <Card className="border-gray-800 bg-gray-900">
+            <Card className="border-border bg-background text-foreground">
               <CardHeader>
                 <CardTitle>Recent Orders</CardTitle>
               </CardHeader>
               <CardContent>
                 <Table>
                   <TableHeader>
-                    <TableRow className="border-gray-800">
+                    <TableRow className="border-border">
                       <TableHead>Order ID</TableHead>
                       <TableHead>Customer</TableHead>
                       <TableHead>Show</TableHead>
@@ -495,7 +495,7 @@ function LSNOperationsDashboardContent() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    <TableRow className="border-gray-800">
+                    <TableRow className="border-border">
                       <TableCell className="font-mono">#ORD-12345</TableCell>
                       <TableCell>John Doe</TableCell>
                       <TableCell>Tech Deals Friday</TableCell>
@@ -505,7 +505,7 @@ function LSNOperationsDashboardContent() {
                         <Badge className="bg-yellow-600">Pending</Badge>
                       </TableCell>
                       <TableCell>
-                        <Button size="sm" variant="outline" className="border-gray-700">
+                        <Button size="sm" variant="outline" className="border-border">
                           View
                         </Button>
                       </TableCell>
@@ -519,7 +519,7 @@ function LSNOperationsDashboardContent() {
           {/* Inventory Tab */}
           <TabsContent value="inventory" className="space-y-6">
             <div className="grid gap-6 lg:grid-cols-3">
-              <Card className="border-gray-800 bg-gray-900">
+              <Card className="border-border bg-background text-foreground">
                 <CardHeader>
                   <CardTitle className="text-sm font-medium text-gray-400">
                     Low Stock Alerts
@@ -533,7 +533,7 @@ function LSNOperationsDashboardContent() {
                 </CardContent>
               </Card>
 
-              <Card className="border-gray-800 bg-gray-900">
+              <Card className="border-border bg-background text-foreground">
                 <CardHeader>
                   <CardTitle className="text-sm font-medium text-gray-400">
                     Total SKUs
@@ -545,7 +545,7 @@ function LSNOperationsDashboardContent() {
                 </CardContent>
               </Card>
 
-              <Card className="border-gray-800 bg-gray-900">
+              <Card className="border-border bg-background text-foreground">
                 <CardHeader>
                   <CardTitle className="text-sm font-medium text-gray-400">
                     Inventory Value
@@ -558,14 +558,14 @@ function LSNOperationsDashboardContent() {
               </Card>
             </div>
 
-            <Card className="border-gray-800 bg-gray-900">
+            <Card className="border-border bg-background text-foreground">
               <CardHeader>
                 <CardTitle>Low Stock Items</CardTitle>
               </CardHeader>
               <CardContent>
                 <Table>
                   <TableHeader>
-                    <TableRow className="border-gray-800">
+                    <TableRow className="border-border">
                       <TableHead>Product</TableHead>
                       <TableHead>SKU</TableHead>
                       <TableHead>Current Stock</TableHead>
@@ -576,7 +576,7 @@ function LSNOperationsDashboardContent() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    <TableRow className="border-gray-800">
+                    <TableRow className="border-border">
                       <TableCell className="font-medium">Wireless Earbuds Pro</TableCell>
                       <TableCell className="font-mono">SKU-12345</TableCell>
                       <TableCell className="text-orange-400 font-bold">8</TableCell>
@@ -597,14 +597,14 @@ function LSNOperationsDashboardContent() {
 
           {/* Suppliers Tab */}
           <TabsContent value="suppliers" className="space-y-6">
-            <Card className="border-gray-800 bg-gray-900">
+            <Card className="border-border bg-background text-foreground">
               <CardHeader>
                 <CardTitle>Supplier Scorecards</CardTitle>
               </CardHeader>
               <CardContent>
                 <Table>
                   <TableHeader>
-                    <TableRow className="border-gray-800">
+                    <TableRow className="border-border">
                       <TableHead>Supplier</TableHead>
                       <TableHead>Tier</TableHead>
                       <TableHead>Quality Score</TableHead>
@@ -616,7 +616,7 @@ function LSNOperationsDashboardContent() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    <TableRow className="border-gray-800">
+                    <TableRow className="border-border">
                       <TableCell className="font-medium">TechSupply Co.</TableCell>
                       <TableCell>
                         <Badge className="bg-purple-600">Strategic</Badge>
@@ -669,10 +669,10 @@ function MetricCard({
   subtitle: string;
 }) {
   return (
-    <Card className="border-gray-800 bg-gray-900">
+    <Card className="border-border bg-background text-foreground">
       <CardContent className="p-6">
         <div className="flex items-start justify-between mb-4">
-          <div className="p-2 bg-gray-800 rounded-lg">{icon}</div>
+          <div className="p-2 bg-card rounded-lg text-card-foreground">{icon}</div>
           <div
             className={cn(
               "flex items-center gap-1 text-sm",
@@ -719,7 +719,7 @@ function AlertItem({
         <span className="text-sm">{message}</span>
       </div>
       <Link href={link}>
-        <Button size="sm" variant="outline" className="border-gray-700">
+        <Button size="sm" variant="outline" className="border-border">
           {action}
         </Button>
       </Link>
@@ -729,7 +729,7 @@ function AlertItem({
 
 function LiveShowMonitorCard({ show }: { show: any }) {
   return (
-    <Card className="border-gray-800 bg-gray-800/50">
+    <Card className="border-border bg-card/50 text-card-foreground">
       <CardContent className="p-4">
         <div className="flex items-start gap-3">
           <Avatar className="h-10 w-10 border-2 border-red-500">
@@ -758,7 +758,7 @@ function LiveShowMonitorCard({ show }: { show: any }) {
             </div>
           </div>
           <Link href={`/live/${show.id}`}>
-            <Button size="sm" variant="outline" className="border-gray-700">
+            <Button size="sm" variant="outline" className="border-border">
               Monitor
             </Button>
           </Link>
@@ -774,7 +774,7 @@ function UpcomingShowCard({ show }: { show: any }) {
   const hoursUntil = Math.floor((startTime.getTime() - now.getTime()) / (1000 * 60 * 60));
 
   return (
-    <Card className="border-gray-800 bg-gray-800/50">
+    <Card className="border-border bg-card/50 text-card-foreground">
       <CardContent className="p-4">
         <div className="flex items-start gap-3">
           <Avatar className="h-10 w-10 border-2 border-purple-500">
@@ -799,7 +799,7 @@ function UpcomingShowCard({ show }: { show: any }) {
 
 function CreatorPerformanceCard({ creator, rank }: { creator: any; rank: number }) {
   return (
-    <Card className="border-gray-800 bg-gray-800/50">
+    <Card className="border-border bg-card/50 text-card-foreground">
       <CardContent className="p-4">
         <div className="flex items-center gap-3">
           <div className="text-2xl font-bold text-purple-400 w-8">#{rank}</div>
@@ -837,7 +837,7 @@ function StatRow({
   icon: React.ReactNode;
 }) {
   return (
-    <div className="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+    <div className="flex items-center justify-between p-3 bg-card rounded-lg text-card-foreground">
       <div className="flex items-center gap-3">
         <div className="p-2 bg-gray-700 rounded">{icon}</div>
         <span className="text-sm text-gray-400">{label}</span>

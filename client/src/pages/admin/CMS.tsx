@@ -373,7 +373,7 @@ export default function CMSPage() {
                   <p className="font-medium">Storage Usage</p>
                   <p className="text-sm text-muted-foreground">49.4 MB of 10 GB used</p>
                 </div>
-                <div className="w-64 h-2 bg-background rounded-full overflow-hidden">
+                <div className="w-64 h-2 bg-background rounded-full overflow-hidden text-foreground">
                   <div className="h-full bg-primary" style={{ width: "0.5%" }} />
                 </div>
               </div>

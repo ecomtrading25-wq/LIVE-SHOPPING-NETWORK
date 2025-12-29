@@ -77,8 +77,8 @@ export default function ProductReviewsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="border-b bg-card">
+    <div className="min-h-screen bg-background text-foreground">
+      <div className="border-b bg-card text-card-foreground">
         <div className="container py-6">
           <h1 className="text-3xl font-bold mb-2">{product.name}</h1>
           <div className="flex items-center gap-4">

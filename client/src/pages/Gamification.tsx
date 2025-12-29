@@ -286,7 +286,7 @@ export default function GamificationPage() {
   const getChallengeTypeColor = (type: string) => {
     switch (type) {
       case "special":
-        return "bg-gradient-to-r from-yellow-500 to-orange-500 text-white";
+        return "bg-gradient-to-r from-yellow-500 to-orange-500 text-foreground";
       case "weekly":
         return "bg-purple-500/20 text-purple-400";
       default:
@@ -348,7 +348,7 @@ export default function GamificationPage() {
         </div>
 
         <Tabs defaultValue="challenges" className="space-y-6">
-          <TabsList className="bg-zinc-900 border border-zinc-800">
+          <TabsList className="bg-background border border-border text-foreground">
             <TabsTrigger value="challenges">
               <Target className="w-4 h-4 mr-2" />
               Challenges
@@ -365,7 +365,7 @@ export default function GamificationPage() {
 
           {/* Challenges Tab */}
           <TabsContent value="challenges" className="space-y-6">
-            <Card className="p-6 bg-zinc-900 border-zinc-800">
+            <Card className="p-6 bg-background border-border text-foreground">
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                 <Target className="w-6 h-6 text-blue-500" />
                 Daily & Weekly Challenges
@@ -378,7 +378,7 @@ export default function GamificationPage() {
                     className={`p-4 ${
                       challenge.completed
                         ? "bg-green-500/10 border-green-500/20"
-                        : "bg-zinc-800 border-zinc-700"
+                        : "bg-card border-zinc-700"
                     }`}
                   >
                     <div className="flex items-start justify-between mb-3">
@@ -425,7 +425,7 @@ export default function GamificationPage() {
 
           {/* Achievements Tab */}
           <TabsContent value="achievements">
-            <Card className="p-6 bg-zinc-900 border-zinc-800">
+            <Card className="p-6 bg-background border-border text-foreground">
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                 <Award className="w-6 h-6 text-purple-500" />
                 Achievement Collection
@@ -438,7 +438,7 @@ export default function GamificationPage() {
                     className={`p-4 relative overflow-hidden ${
                       achievement.unlocked
                         ? "bg-gradient-to-br from-zinc-800 to-zinc-900 border-zinc-700"
-                        : "bg-zinc-900/50 border-zinc-800 opacity-60"
+                        : "bg-background/50 border-border opacity-60"
                     }`}
                   >
                     {achievement.unlocked && (
@@ -448,7 +448,7 @@ export default function GamificationPage() {
                     <div className="relative">
                       <div className="flex items-start justify-between mb-3">
                         <div className="text-4xl">{achievement.unlocked ? achievement.icon : "🔒"}</div>
-                        <Badge className={achievement.unlocked ? getRarityColor(achievement.rarity) + " text-white" : "bg-gray-500"}>
+                        <Badge className={achievement.unlocked ? getRarityColor(achievement.rarity) + " text-foreground" : "bg-gray-500"}>
                           {achievement.rarity}
                         </Badge>
                       </div>
@@ -488,7 +488,7 @@ export default function GamificationPage() {
 
           {/* Leaderboard Tab */}
           <TabsContent value="leaderboard">
-            <Card className="p-6 bg-zinc-900 border-zinc-800">
+            <Card className="p-6 bg-background border-border text-foreground">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-bold flex items-center gap-2">
                   <Trophy className="w-6 h-6 text-yellow-500" />
@@ -526,7 +526,7 @@ export default function GamificationPage() {
                     className={`p-4 ${
                       entry.user.name === "You"
                         ? "bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-500/30"
-                        : "bg-zinc-800 border-zinc-700"
+                        : "bg-card border-zinc-700"
                     }`}
                   >
                     <div className="flex items-center gap-4">

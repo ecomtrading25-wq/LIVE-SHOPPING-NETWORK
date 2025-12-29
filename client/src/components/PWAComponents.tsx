@@ -11,7 +11,7 @@ export function InstallPromptBanner() {
 
   return (
     <div className="fixed bottom-4 left-4 right-4 z-50 md:left-auto md:right-4 md:w-96 animate-in slide-in-from-bottom">
-      <Card className="bg-gradient-to-br from-purple-600 to-pink-600 border-0 text-white shadow-2xl">
+      <Card className="bg-gradient-to-br from-purple-600 to-pink-600 border-0 text-foreground shadow-2xl">
         <div className="p-4">
           <div className="flex items-start gap-3">
             <div className="flex-shrink-0 w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
@@ -38,7 +38,7 @@ export function InstallPromptBanner() {
                   onClick={handleDismiss}
                   size="sm"
                   variant="ghost"
-                  className="text-white hover:bg-white/10"
+                  className="text-foreground hover:bg-white/10"
                 >
                   Not now
                 </Button>
@@ -47,7 +47,7 @@ export function InstallPromptBanner() {
             
             <button
               onClick={handleDismiss}
-              className="flex-shrink-0 text-white/80 hover:text-white transition-colors"
+              className="flex-shrink-0 text-white/80 hover:text-foreground transition-colors"
               aria-label="Dismiss"
             >
               <X className="w-5 h-5" />
@@ -67,7 +67,7 @@ export function UpdateNotification() {
 
   return (
     <div className="fixed top-4 left-4 right-4 z-50 md:left-auto md:right-4 md:w-96 animate-in slide-in-from-top">
-      <Card className="bg-gradient-to-br from-blue-600 to-cyan-600 border-0 text-white shadow-2xl">
+      <Card className="bg-gradient-to-br from-blue-600 to-cyan-600 border-0 text-foreground shadow-2xl">
         <div className="p-4">
           <div className="flex items-start gap-3">
             <div className="flex-shrink-0 w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
@@ -94,7 +94,7 @@ export function UpdateNotification() {
                   onClick={handleDismiss}
                   size="sm"
                   variant="ghost"
-                  className="text-white hover:bg-white/10"
+                  className="text-foreground hover:bg-white/10"
                 >
                   Later
                 </Button>
@@ -103,7 +103,7 @@ export function UpdateNotification() {
             
             <button
               onClick={handleDismiss}
-              className="flex-shrink-0 text-white/80 hover:text-white transition-colors"
+              className="flex-shrink-0 text-white/80 hover:text-foreground transition-colors"
               aria-label="Dismiss"
             >
               <X className="w-5 h-5" />
@@ -127,7 +127,7 @@ export function OfflineIndicator() {
         isOnline 
           ? 'bg-gradient-to-r from-green-600 to-emerald-600' 
           : 'bg-gradient-to-r from-orange-600 to-red-600'
-      } border-0 text-white shadow-2xl`}>
+      } border-0 text-foreground shadow-2xl`}>
         <div className="px-4 py-2 flex items-center gap-2">
           {isOnline ? (
             <Wifi className="w-4 h-4" />

@@ -49,7 +49,7 @@ export default function ProductsPage() {
                 <Button variant="outline" className="relative">
                   <ShoppingCart className="w-5 h-5" />
                   {totalItems > 0 && (
-                    <span className="absolute -top-2 -right-2 w-5 h-5 bg-[#E42313] rounded-full text-white text-xs flex items-center justify-center">
+                    <span className="absolute -top-2 -right-2 w-5 h-5 bg-[#E42313] rounded-full text-foreground text-xs flex items-center justify-center">
                       {totalItems}
                     </span>
                   )}
@@ -102,7 +102,7 @@ export default function ProductsPage() {
           <div className="mb-16">
             <div className="flex items-center gap-3 mb-6">
               <Zap className="w-6 h-6 text-yellow-500" />
-              <h2 className="text-3xl font-bold text-white">Featured in Live Shows</h2>
+              <h2 className="text-3xl font-bold text-foreground">Featured in Live Shows</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {featuredProducts.slice(0, 3).map((product) => (
@@ -124,7 +124,7 @@ export default function ProductsPage() {
           {/* Products Grid */}
           <div className="lg:col-span-3">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-white">All Products</h2>
+            <h2 className="text-3xl font-bold text-foreground">All Products</h2>
             <p className="text-gray-400">
               {products?.length || 0} {products?.length === 1 ? "product" : "products"}
             </p>
@@ -204,7 +204,7 @@ function ProductCard({ product, featured = false }: { product: any; featured?: b
 
         {/* Product Info */}
         <div className="p-4">
-          <h3 className="font-bold text-white text-lg mb-2 line-clamp-2 group-hover:text-purple-400 transition-colors">
+          <h3 className="font-bold text-foreground text-lg mb-2 line-clamp-2 group-hover:text-purple-400 transition-colors">
             {product.name}
           </h3>
           
@@ -223,7 +223,7 @@ function ProductCard({ product, featured = false }: { product: any; featured?: b
 
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-2xl font-bold text-white">${product.price}</p>
+              <p className="text-2xl font-bold text-foreground">${product.price}</p>
               {product.compareAtPrice && (
                 <p className="text-sm text-gray-400 line-through">
                   ${product.compareAtPrice}

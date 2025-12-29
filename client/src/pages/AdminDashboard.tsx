@@ -61,7 +61,7 @@ export default function AdminDashboard() {
             <Button variant="outline">
               📊 Export Report
             </Button>
-            <Button className="bg-purple-600 hover:bg-purple-700 text-white">
+            <Button className="bg-purple-600 hover:bg-purple-700 text-foreground">
               ⚙️ Settings
             </Button>
           </div>
@@ -71,7 +71,7 @@ export default function AdminDashboard() {
       <div className="p-6 space-y-6">
         {/* Key Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card className="p-6 bg-gradient-to-br from-purple-500 to-purple-600 text-white">
+          <Card className="p-6 bg-gradient-to-br from-purple-500 to-purple-600 text-foreground">
             <div className="flex items-center justify-between mb-4">
               <div className="text-sm font-semibold opacity-90">Total Revenue</div>
               <div className="text-2xl">💰</div>
@@ -82,7 +82,7 @@ export default function AdminDashboard() {
             <div className="text-sm opacity-75">+12.5% from last month</div>
           </Card>
 
-          <Card className="p-6 bg-gradient-to-br from-green-500 to-green-600 text-white">
+          <Card className="p-6 bg-gradient-to-br from-green-500 to-green-600 text-foreground">
             <div className="flex items-center justify-between mb-4">
               <div className="text-sm font-semibold opacity-90">Net Profit</div>
               <div className="text-2xl">📈</div>
@@ -93,7 +93,7 @@ export default function AdminDashboard() {
             <div className="text-sm opacity-75">Margin: 24.3%</div>
           </Card>
 
-          <Card className="p-6 bg-gradient-to-br from-blue-500 to-blue-600 text-white">
+          <Card className="p-6 bg-gradient-to-br from-blue-500 to-blue-600 text-foreground">
             <div className="flex items-center justify-between mb-4">
               <div className="text-sm font-semibold opacity-90">Active Orders</div>
               <div className="text-2xl">📦</div>
@@ -102,7 +102,7 @@ export default function AdminDashboard() {
             <div className="text-sm opacity-75">89 shipped today</div>
           </Card>
 
-          <Card className="p-6 bg-gradient-to-br from-orange-500 to-orange-600 text-white">
+          <Card className="p-6 bg-gradient-to-br from-orange-500 to-orange-600 text-foreground">
             <div className="flex items-center justify-between mb-4">
               <div className="text-sm font-semibold opacity-90">Alerts</div>
               <div className="text-2xl">⚠️</div>
@@ -257,7 +257,7 @@ export default function AdminDashboard() {
                 <h2 className="text-lg font-bold text-gray-900">SKU Profitability Analysis</h2>
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm">Export</Button>
-                  <Button size="sm" className="bg-purple-600 text-white">
+                  <Button size="sm" className="bg-purple-600 text-foreground">
                     Run Weekly Pruning
                   </Button>
                 </div>
@@ -335,7 +335,7 @@ export default function AdminDashboard() {
                 <h2 className="text-lg font-bold text-gray-900">Dispute Management</h2>
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm">Filter</Button>
-                  <Button size="sm" className="bg-orange-600 text-white">
+                  <Button size="sm" className="bg-orange-600 text-foreground">
                     Auto-Submit Ready
                   </Button>
                 </div>
@@ -365,7 +365,7 @@ export default function AdminDashboard() {
                           Reason: {dispute.reason} | Opened: {new Date(dispute.openedAt).toLocaleDateString()}
                         </div>
                         {dispute.needsManual && (
-                          <Badge className="mt-2 bg-red-600 text-white border-0">
+                          <Badge className="mt-2 bg-red-600 text-foreground border-0">
                             ⚠️ Needs Manual Review
                           </Badge>
                         )}
@@ -374,7 +374,7 @@ export default function AdminDashboard() {
                         <Button size="sm" variant="outline">
                           View Details
                         </Button>
-                        <Button size="sm" className="bg-green-600 text-white">
+                        <Button size="sm" className="bg-green-600 text-foreground">
                           Submit Evidence
                         </Button>
                       </div>
@@ -442,7 +442,7 @@ export default function AdminDashboard() {
                   <div className="p-4 bg-green-50 rounded-lg border border-green-200">
                     <div className="flex items-center justify-between mb-2">
                       <span className="font-semibold text-green-900">Matched</span>
-                      <Badge className="bg-green-600 text-white border-0">
+                      <Badge className="bg-green-600 text-foreground border-0">
                         98.5%
                       </Badge>
                     </div>
@@ -453,7 +453,7 @@ export default function AdminDashboard() {
                   <div className="p-4 bg-red-50 rounded-lg border border-red-200">
                     <div className="flex items-center justify-between mb-2">
                       <span className="font-semibold text-red-900">Discrepancies</span>
-                      <Badge className="bg-red-600 text-white border-0">
+                      <Badge className="bg-red-600 text-foreground border-0">
                         {discrepancies?.length || 0}
                       </Badge>
                     </div>
@@ -463,7 +463,7 @@ export default function AdminDashboard() {
                     <div className="text-sm text-red-700">need review</div>
                   </div>
 
-                  <Button className="w-full bg-purple-600 text-white">
+                  <Button className="w-full bg-purple-600 text-foreground">
                     Run Reconciliation
                   </Button>
                 </div>
@@ -476,7 +476,7 @@ export default function AdminDashboard() {
             <Card className="p-6">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-lg font-bold text-gray-900">Inventory Management</h2>
-                <Button className="bg-blue-600 text-white">
+                <Button className="bg-blue-600 text-foreground">
                   Create Purchase Order
                 </Button>
               </div>
@@ -498,7 +498,7 @@ export default function AdminDashboard() {
                           <div className="text-sm text-gray-500">Reorder Point</div>
                           <div className="font-bold text-yellow-600">20 units</div>
                         </div>
-                        <Button size="sm" className="bg-blue-600 text-white">
+                        <Button size="sm" className="bg-blue-600 text-foreground">
                           Reorder
                         </Button>
                       </div>

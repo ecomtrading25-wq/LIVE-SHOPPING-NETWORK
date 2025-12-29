@@ -95,8 +95,8 @@ export default function CategoriesPage() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-white mb-4">Shop by Category</h1>
-          <p className="text-xl text-gray-300">
+          <h1 className="text-5xl font-bold text-foreground mb-4">Shop by Category</h1>
+          <p className="text-xl text-muted-foreground">
             Explore our wide range of products across different categories
           </p>
         </div>
@@ -117,7 +117,7 @@ export default function CategoriesPage() {
                     <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-60`} />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                        <Icon className="w-10 h-10 text-white" />
+                        <Icon className="w-10 h-10 text-foreground" />
                       </div>
                     </div>
                   </div>
@@ -125,15 +125,15 @@ export default function CategoriesPage() {
                   {/* Category Info */}
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-2">
-                      <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
+                      <h3 className="text-xl font-bold text-foreground group-hover:text-purple-400 transition-colors">
                         {category.name}
                       </h3>
                       <Badge className="bg-purple-600">{category.productCount}</Badge>
                     </div>
-                    <p className="text-gray-300 text-sm mb-4">{category.description}</p>
+                    <p className="text-muted-foreground text-sm mb-4">{category.description}</p>
                     <Button
                       variant="ghost"
-                      className="w-full border-white/20 text-white hover:bg-white/10 group-hover:bg-purple-600 group-hover:border-purple-600 transition-colors"
+                      className="w-full border-white/20 text-foreground hover:bg-white/10 group-hover:bg-purple-600 group-hover:border-purple-600 transition-colors"
                     >
                       Browse
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -148,7 +148,7 @@ export default function CategoriesPage() {
         {/* Featured Categories Banner */}
         <div className="mt-16">
           <Card className="p-8 bg-gradient-to-r from-purple-600 to-pink-600 border-0 text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-foreground mb-4">
               Can't find what you're looking for?
             </h2>
             <p className="text-white/90 mb-6">
@@ -164,7 +164,7 @@ export default function CategoriesPage() {
 
         {/* Popular Categories */}
         <div className="mt-16">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">
+          <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
             Popular This Week
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -174,9 +174,9 @@ export default function CategoriesPage() {
                 <Link key={category.id} href={`/products?category=${category.id}`}>
                   <Card className="p-6 bg-white/10 backdrop-blur-xl border-white/20 hover:border-purple-500/50 transition-all cursor-pointer text-center">
                     <div className={`w-16 h-16 bg-gradient-to-br ${category.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                      <Icon className="w-8 h-8 text-white" />
+                      <Icon className="w-8 h-8 text-foreground" />
                     </div>
-                    <h3 className="text-white font-bold">{category.name}</h3>
+                    <h3 className="text-foreground font-bold">{category.name}</h3>
                     <p className="text-gray-400 text-sm mt-1">
                       {category.productCount} products
                     </p>

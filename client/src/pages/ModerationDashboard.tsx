@@ -224,7 +224,7 @@ export default function ModerationDashboard() {
                     onClick={() => setSelectedReport(report)}
                   >
                     <div className="flex items-center gap-4 flex-1">
-                      <div className={`w-10 h-10 rounded-full ${getSeverityColor(report.severity)} flex items-center justify-center text-white`}>
+                      <div className={`w-10 h-10 rounded-full ${getSeverityColor(report.severity)} flex items-center justify-center text-foreground`}>
                         {getTypeIcon(report.type)}
                       </div>
                       <div className="flex-1">
@@ -233,7 +233,7 @@ export default function ModerationDashboard() {
                           <Badge variant="outline" className="text-xs">
                             {report.type}
                           </Badge>
-                          <Badge className={`${getSeverityColor(report.severity)} text-white text-xs`}>
+                          <Badge className={`${getSeverityColor(report.severity)} text-foreground text-xs`}>
                             {report.severity}
                           </Badge>
                         </div>
@@ -305,7 +305,7 @@ export default function ModerationDashboard() {
               <div className="space-y-4 mt-4">
                 <div className="bg-gray-50 rounded-lg p-4">
                   <div className="flex items-center gap-2 mb-2">
-                    <Badge className={`${getSeverityColor(selectedReport.severity)} text-white`}>
+                    <Badge className={`${getSeverityColor(selectedReport.severity)} text-foreground`}>
                       {selectedReport.severity}
                     </Badge>
                     <Badge variant="outline">{selectedReport.type}</Badge>

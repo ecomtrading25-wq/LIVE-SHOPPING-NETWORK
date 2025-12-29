@@ -87,7 +87,7 @@ export default function SuppliersPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Supplier Management</h1>
+          <h1 className="text-3xl font-bold text-foreground">Supplier Management</h1>
           <p className="text-gray-400 mt-1">Manage suppliers and purchase orders</p>
         </div>
         <div className="flex gap-2">
@@ -98,9 +98,9 @@ export default function SuppliersPage() {
                 New PO
               </Button>
             </DialogTrigger>
-            <DialogContent className="bg-zinc-900 border-zinc-800">
+            <DialogContent className="bg-background border-border text-foreground">
               <DialogHeader>
-                <DialogTitle className="text-white">Create Purchase Order</DialogTitle>
+                <DialogTitle className="text-foreground">Create Purchase Order</DialogTitle>
               </DialogHeader>
               <form onSubmit={handleCreatePO} className="space-y-4">
                 <div>
@@ -108,7 +108,7 @@ export default function SuppliersPage() {
                   <select
                     name="supplierId"
                     required
-                    className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white"
+                    className="w-full px-3 py-2 bg-card border border-zinc-700 rounded-md text-foreground"
                   >
                     {suppliers?.map((supplier) => (
                       <option key={supplier.id} value={supplier.id}>
@@ -125,7 +125,7 @@ export default function SuppliersPage() {
                     name="expectedDelivery"
                     type="date"
                     required
-                    className="bg-zinc-800 border-zinc-700"
+                    className="bg-card border-zinc-700 text-card-foreground"
                   />
                 </div>
                 <div>
@@ -133,7 +133,7 @@ export default function SuppliersPage() {
                   <textarea
                     name="notes"
                     rows={3}
-                    className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white"
+                    className="w-full px-3 py-2 bg-card border border-zinc-700 rounded-md text-foreground"
                   />
                 </div>
                 <Button type="submit" className="w-full">
@@ -149,9 +149,9 @@ export default function SuppliersPage() {
                 New Supplier
               </Button>
             </DialogTrigger>
-            <DialogContent className="bg-zinc-900 border-zinc-800">
+            <DialogContent className="bg-background border-border text-foreground">
               <DialogHeader>
-                <DialogTitle className="text-white">Create Supplier</DialogTitle>
+                <DialogTitle className="text-foreground">Create Supplier</DialogTitle>
               </DialogHeader>
               <form onSubmit={handleCreateSupplier} className="space-y-4">
                 <div>
@@ -162,7 +162,7 @@ export default function SuppliersPage() {
                     name="name"
                     required
                     placeholder="Acme Corp"
-                    className="bg-zinc-800 border-zinc-700"
+                    className="bg-card border-zinc-700 text-card-foreground"
                   />
                 </div>
                 <div>
@@ -173,7 +173,7 @@ export default function SuppliersPage() {
                     name="contactName"
                     required
                     placeholder="John Doe"
-                    className="bg-zinc-800 border-zinc-700"
+                    className="bg-card border-zinc-700 text-card-foreground"
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
@@ -184,7 +184,7 @@ export default function SuppliersPage() {
                       type="email"
                       required
                       placeholder="contact@acme.com"
-                      className="bg-zinc-800 border-zinc-700"
+                      className="bg-card border-zinc-700 text-card-foreground"
                     />
                   </div>
                   <div>
@@ -192,7 +192,7 @@ export default function SuppliersPage() {
                     <Input
                       name="phone"
                       placeholder="+1 555-0000"
-                      className="bg-zinc-800 border-zinc-700"
+                      className="bg-card border-zinc-700 text-card-foreground"
                     />
                   </div>
                 </div>
@@ -201,7 +201,7 @@ export default function SuppliersPage() {
                   <Input
                     name="address"
                     placeholder="123 Main St, City, State"
-                    className="bg-zinc-800 border-zinc-700"
+                    className="bg-card border-zinc-700 text-card-foreground"
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
@@ -212,7 +212,7 @@ export default function SuppliersPage() {
                     <Input
                       name="paymentTerms"
                       placeholder="Net 30"
-                      className="bg-zinc-800 border-zinc-700"
+                      className="bg-card border-zinc-700 text-card-foreground"
                     />
                   </div>
                   <div>
@@ -220,7 +220,7 @@ export default function SuppliersPage() {
                     <select
                       name="currency"
                       required
-                      className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white"
+                      className="w-full px-3 py-2 bg-card border border-zinc-700 rounded-md text-foreground"
                     >
                       <option value="USD">USD</option>
                       <option value="EUR">EUR</option>
@@ -241,11 +241,11 @@ export default function SuppliersPage() {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Total Suppliers</p>
-              <p className="text-3xl font-bold text-white mt-1">
+              <p className="text-3xl font-bold text-foreground mt-1">
                 {suppliers?.length || 0}
               </p>
             </div>
@@ -255,11 +255,11 @@ export default function SuppliersPage() {
           </div>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Active POs</p>
-              <p className="text-3xl font-bold text-white mt-1">
+              <p className="text-3xl font-bold text-foreground mt-1">
                 {purchaseOrders?.filter((po) => po.status === "pending").length || 0}
               </p>
             </div>
@@ -269,11 +269,11 @@ export default function SuppliersPage() {
           </div>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Total Spend</p>
-              <p className="text-3xl font-bold text-white mt-1">
+              <p className="text-3xl font-bold text-foreground mt-1">
                 $
                 {purchaseOrders
                   ?.reduce((sum, po) => sum + parseFloat(po.totalAmount || "0"), 0)
@@ -286,11 +286,11 @@ export default function SuppliersPage() {
           </div>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Avg Lead Time</p>
-              <p className="text-3xl font-bold text-white mt-1">14d</p>
+              <p className="text-3xl font-bold text-foreground mt-1">14d</p>
             </div>
             <div className="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center">
               <TrendingUp className="w-6 h-6 text-yellow-400" />
@@ -300,16 +300,16 @@ export default function SuppliersPage() {
       </div>
 
       {/* Suppliers List */}
-      <Card className="p-6 bg-zinc-900 border-zinc-800">
+      <Card className="p-6 bg-background border-border text-foreground">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-bold text-white">Suppliers</h2>
+          <h2 className="text-xl font-bold text-foreground">Suppliers</h2>
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
             <Input
               placeholder="Search suppliers..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 bg-zinc-800 border-zinc-700"
+              className="pl-10 bg-card border-zinc-700 text-card-foreground"
             />
           </div>
         </div>
@@ -321,7 +321,7 @@ export default function SuppliersPage() {
               className={`p-6 cursor-pointer transition-all ${
                 selectedSupplier === supplier.id
                   ? "bg-purple-600 border-purple-500"
-                  : "bg-zinc-800 border-zinc-700 hover:bg-zinc-750"
+                  : "bg-card border-zinc-700 hover:bg-zinc-750"
               }`}
               onClick={() => setSelectedSupplier(supplier.id)}
             >
@@ -336,13 +336,13 @@ export default function SuppliersPage() {
                   <Building2
                     className={`w-6 h-6 ${
                       selectedSupplier === supplier.id
-                        ? "text-white"
+                        ? "text-foreground"
                         : "text-purple-400"
                     }`}
                   />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-white">{supplier.name}</h3>
+                  <h3 className="font-semibold text-foreground">{supplier.name}</h3>
                   <p className="text-sm text-gray-400 mt-1">
                     {supplier.contactName}
                   </p>
@@ -372,12 +372,12 @@ export default function SuppliersPage() {
 
       {/* Purchase Orders */}
       {selectedSupplier && (
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
-          <h2 className="text-xl font-bold text-white mb-6">Purchase Orders</h2>
+        <Card className="p-6 bg-background border-border text-foreground">
+          <h2 className="text-xl font-bold text-foreground mb-6">Purchase Orders</h2>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-zinc-800">
+                <tr className="border-b border-border">
                   <th className="text-left py-3 px-4 text-sm font-medium text-gray-400">
                     PO Number
                   </th>
@@ -400,17 +400,17 @@ export default function SuppliersPage() {
               </thead>
               <tbody>
                 {purchaseOrders?.map((po) => (
-                  <tr key={po.id} className="border-b border-zinc-800">
+                  <tr key={po.id} className="border-b border-border">
                     <td className="py-3 px-4">
-                      <span className="font-mono text-white">{po.poNumber}</span>
+                      <span className="font-mono text-foreground">{po.poNumber}</span>
                     </td>
-                    <td className="py-3 px-4 text-gray-300">
+                    <td className="py-3 px-4 text-muted-foreground">
                       {new Date(po.createdAt).toLocaleDateString()}
                     </td>
-                    <td className="py-3 px-4 text-gray-300">
+                    <td className="py-3 px-4 text-muted-foreground">
                       {new Date(po.expectedDelivery).toLocaleDateString()}
                     </td>
-                    <td className="py-3 px-4 text-gray-300">
+                    <td className="py-3 px-4 text-muted-foreground">
                       ${parseFloat(po.totalAmount || "0").toLocaleString()}
                     </td>
                     <td className="py-3 px-4">

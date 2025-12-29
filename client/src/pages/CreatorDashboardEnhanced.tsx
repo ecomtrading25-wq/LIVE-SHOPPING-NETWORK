@@ -94,11 +94,11 @@ export default function CreatorDashboardEnhanced() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
       {/* Header */}
-      <div className="border-b border-white/10 bg-black/30 backdrop-blur-xl">
+      <div className="border-b border-white/10 bg-background/30 backdrop-blur-xl text-foreground">
         <div className="container py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-4xl font-bold text-white mb-2">Creator Dashboard</h1>
+              <h1 className="text-4xl font-bold text-foreground mb-2">Creator Dashboard</h1>
               <p className="text-gray-400">Manage your shows, track earnings, and grow your audience</p>
             </div>
 
@@ -110,9 +110,9 @@ export default function CreatorDashboardEnhanced() {
                     Schedule Show
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="max-w-2xl bg-gray-900 border-white/10">
+                <DialogContent className="max-w-2xl bg-background border-white/10 text-foreground">
                   <DialogHeader>
-                    <DialogTitle className="text-white">Schedule New Live Show</DialogTitle>
+                    <DialogTitle className="text-foreground">Schedule New Live Show</DialogTitle>
                     <DialogDescription className="text-gray-400">
                       Plan your next live shopping event
                     </DialogDescription>
@@ -133,41 +133,41 @@ export default function CreatorDashboardEnhanced() {
                     className="space-y-4 mt-4"
                   >
                     <div>
-                      <label className="text-white text-sm font-medium mb-2 block">Show Title</label>
+                      <label className="text-foreground text-sm font-medium mb-2 block">Show Title</label>
                       <Input
                         name="title"
                         placeholder="e.g., Beauty Essentials Flash Sale"
                         required
-                        className="bg-white/5 border-white/10 text-white"
+                        className="bg-white/5 border-white/10 text-foreground"
                       />
                     </div>
 
                     <div>
-                      <label className="text-white text-sm font-medium mb-2 block">Description</label>
+                      <label className="text-foreground text-sm font-medium mb-2 block">Description</label>
                       <Textarea
                         name="description"
                         placeholder="Describe what you'll be featuring..."
                         rows={3}
                         required
-                        className="bg-white/5 border-white/10 text-white"
+                        className="bg-white/5 border-white/10 text-foreground"
                       />
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="text-white text-sm font-medium mb-2 block">Date & Time</label>
+                        <label className="text-foreground text-sm font-medium mb-2 block">Date & Time</label>
                         <Input
                           name="scheduledFor"
                           type="datetime-local"
                           required
-                          className="bg-white/5 border-white/10 text-white"
+                          className="bg-white/5 border-white/10 text-foreground"
                         />
                       </div>
 
                       <div>
-                        <label className="text-white text-sm font-medium mb-2 block">Category</label>
+                        <label className="text-foreground text-sm font-medium mb-2 block">Category</label>
                         <Select name="category" required>
-                          <SelectTrigger className="bg-white/5 border-white/10 text-white">
+                          <SelectTrigger className="bg-white/5 border-white/10 text-foreground">
                             <SelectValue placeholder="Select category" />
                           </SelectTrigger>
                           <SelectContent>
@@ -185,12 +185,12 @@ export default function CreatorDashboardEnhanced() {
                     </div>
 
                     <div>
-                      <label className="text-white text-sm font-medium mb-2 block">Thumbnail URL</label>
+                      <label className="text-foreground text-sm font-medium mb-2 block">Thumbnail URL</label>
                       <Input
                         name="thumbnailUrl"
                         type="url"
                         placeholder="https://..."
-                        className="bg-white/5 border-white/10 text-white"
+                        className="bg-white/5 border-white/10 text-foreground"
                       />
                     </div>
 
@@ -205,7 +205,7 @@ export default function CreatorDashboardEnhanced() {
                       <Button
                         type="button"
                         variant="outline"
-                        className="border-white/20 text-white hover:bg-white/10"
+                        className="border-white/20 text-foreground hover:bg-white/10"
                         onClick={() => setShowScheduleDialog(false)}
                       >
                         Cancel
@@ -216,7 +216,7 @@ export default function CreatorDashboardEnhanced() {
               </Dialog>
 
               <Link href="/live/studio">
-                <Button variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                <Button variant="outline" className="border-white/20 text-foreground hover:bg-white/10">
                   <Video className="w-4 h-4 mr-2" />
                   Go Live
                 </Button>
@@ -256,7 +256,7 @@ export default function CreatorDashboardEnhanced() {
                   <span className="text-green-400 text-sm font-medium">Total Earnings</span>
                   <DollarSign className="w-5 h-5 text-green-400" />
                 </div>
-                <div className="text-3xl font-bold text-white mb-1">
+                <div className="text-3xl font-bold text-foreground mb-1">
                   ${((stats?.totalEarningsCents || 0) / 100).toLocaleString()}
                 </div>
                 <div className="text-xs text-gray-400">
@@ -269,7 +269,7 @@ export default function CreatorDashboardEnhanced() {
                   <span className="text-blue-400 text-sm font-medium">Total Views</span>
                   <Eye className="w-5 h-5 text-blue-400" />
                 </div>
-                <div className="text-3xl font-bold text-white mb-1">
+                <div className="text-3xl font-bold text-foreground mb-1">
                   {(stats?.totalViews || 0).toLocaleString()}
                 </div>
                 <div className="text-xs text-gray-400">
@@ -282,7 +282,7 @@ export default function CreatorDashboardEnhanced() {
                   <span className="text-purple-400 text-sm font-medium">Followers</span>
                   <Users className="w-5 h-5 text-purple-400" />
                 </div>
-                <div className="text-3xl font-bold text-white mb-1">
+                <div className="text-3xl font-bold text-foreground mb-1">
                   {(stats?.followerCount || 0).toLocaleString()}
                 </div>
                 <div className="text-xs text-gray-400">
@@ -295,7 +295,7 @@ export default function CreatorDashboardEnhanced() {
                   <span className="text-pink-400 text-sm font-medium">Products Sold</span>
                   <ShoppingBag className="w-5 h-5 text-pink-400" />
                 </div>
-                <div className="text-3xl font-bold text-white mb-1">
+                <div className="text-3xl font-bold text-foreground mb-1">
                   {stats?.totalProductsSold || 0}
                 </div>
                 <div className="text-xs text-gray-400">
@@ -307,7 +307,7 @@ export default function CreatorDashboardEnhanced() {
             {/* Upcoming Shows */}
             <Card className="bg-white/5 border-white/10">
               <div className="p-6 border-b border-white/10">
-                <h2 className="text-2xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
                   <Calendar className="w-6 h-6 text-purple-500" />
                   Upcoming Shows
                   <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/50 ml-2">
@@ -328,7 +328,7 @@ export default function CreatorDashboardEnhanced() {
                             className="w-24 h-16 object-cover rounded"
                           />
                           <div className="flex-1">
-                            <h3 className="text-white font-semibold mb-1">{show.title}</h3>
+                            <h3 className="text-foreground font-semibold mb-1">{show.title}</h3>
                             <p className="text-gray-400 text-sm mb-2 line-clamp-1">
                               {show.description}
                             </p>
@@ -355,7 +355,7 @@ export default function CreatorDashboardEnhanced() {
                           <Button
                             size="sm"
                             variant="outline"
-                            className="border-white/20 text-white hover:bg-white/10"
+                            className="border-white/20 text-foreground hover:bg-white/10"
                           >
                             <Edit className="w-4 h-4" />
                           </Button>
@@ -391,7 +391,7 @@ export default function CreatorDashboardEnhanced() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <Card className="bg-white/5 border-white/10 p-6 hover:bg-white/10 transition-colors cursor-pointer">
                 <Upload className="w-8 h-8 text-purple-400 mb-3" />
-                <h3 className="text-white font-semibold mb-2">Upload Content</h3>
+                <h3 className="text-foreground font-semibold mb-2">Upload Content</h3>
                 <p className="text-gray-400 text-sm">
                   Add product images and videos for your next show
                 </p>
@@ -399,7 +399,7 @@ export default function CreatorDashboardEnhanced() {
 
               <Card className="bg-white/5 border-white/10 p-6 hover:bg-white/10 transition-colors cursor-pointer">
                 <Users className="w-8 h-8 text-blue-400 mb-3" />
-                <h3 className="text-white font-semibold mb-2">Engage Followers</h3>
+                <h3 className="text-foreground font-semibold mb-2">Engage Followers</h3>
                 <p className="text-gray-400 text-sm">
                   Send updates and promotions to your audience
                 </p>
@@ -407,7 +407,7 @@ export default function CreatorDashboardEnhanced() {
 
               <Card className="bg-white/5 border-white/10 p-6 hover:bg-white/10 transition-colors cursor-pointer">
                 <Settings className="w-8 h-8 text-green-400 mb-3" />
-                <h3 className="text-white font-semibold mb-2">Creator Settings</h3>
+                <h3 className="text-foreground font-semibold mb-2">Creator Settings</h3>
                 <p className="text-gray-400 text-sm">
                   Manage your profile, payment info, and preferences
                 </p>
@@ -419,7 +419,7 @@ export default function CreatorDashboardEnhanced() {
           <TabsContent value="shows" className="space-y-6">
             <Card className="bg-white/5 border-white/10">
               <div className="p-6 border-b border-white/10">
-                <h2 className="text-2xl font-bold text-white">Past Shows</h2>
+                <h2 className="text-2xl font-bold text-foreground">Past Shows</h2>
               </div>
 
               <div className="p-6 space-y-4">
@@ -435,7 +435,7 @@ export default function CreatorDashboardEnhanced() {
                         <div className="flex-1">
                           <div className="flex items-start justify-between mb-2">
                             <div>
-                              <h3 className="text-white font-semibold mb-1">{show.title}</h3>
+                              <h3 className="text-foreground font-semibold mb-1">{show.title}</h3>
                               <p className="text-gray-400 text-sm">
                                 {new Date(show.endedAt || show.startedAt).toLocaleDateString()}
                               </p>
@@ -448,23 +448,23 @@ export default function CreatorDashboardEnhanced() {
                           <div className="grid grid-cols-4 gap-4 text-sm">
                             <div>
                               <span className="text-gray-400">Views</span>
-                              <p className="text-white font-semibold">
+                              <p className="text-foreground font-semibold">
                                 {show.totalViewers?.toLocaleString() || 0}
                               </p>
                             </div>
                             <div>
                               <span className="text-gray-400">Peak Viewers</span>
-                              <p className="text-white font-semibold">
+                              <p className="text-foreground font-semibold">
                                 {show.peakViewers?.toLocaleString() || 0}
                               </p>
                             </div>
                             <div>
                               <span className="text-gray-400">Products Sold</span>
-                              <p className="text-white font-semibold">{show.productsSold || 0}</p>
+                              <p className="text-foreground font-semibold">{show.productsSold || 0}</p>
                             </div>
                             <div>
                               <span className="text-gray-400">Revenue</span>
-                              <p className="text-white font-semibold">
+                              <p className="text-foreground font-semibold">
                                 ${((show.revenueCents || 0) / 100).toFixed(2)}
                               </p>
                             </div>
@@ -474,7 +474,7 @@ export default function CreatorDashboardEnhanced() {
                         <Button
                           size="sm"
                           variant="outline"
-                          className="border-white/20 text-white hover:bg-white/10"
+                          className="border-white/20 text-foreground hover:bg-white/10"
                         >
                           <Eye className="w-4 h-4 mr-2" />
                           View Analytics
@@ -501,7 +501,7 @@ export default function CreatorDashboardEnhanced() {
                   <span className="text-green-400 text-sm font-medium">Available Balance</span>
                   <Wallet className="w-5 h-5 text-green-400" />
                 </div>
-                <div className="text-3xl font-bold text-white mb-3">
+                <div className="text-3xl font-bold text-foreground mb-3">
                   ${((earnings?.availableBalanceCents || 0) / 100).toLocaleString()}
                 </div>
                 <Button
@@ -524,7 +524,7 @@ export default function CreatorDashboardEnhanced() {
                   <span className="text-gray-400 text-sm font-medium">Pending</span>
                   <Clock className="w-5 h-5 text-yellow-400" />
                 </div>
-                <div className="text-3xl font-bold text-white mb-1">
+                <div className="text-3xl font-bold text-foreground mb-1">
                   ${((earnings?.pendingCents || 0) / 100).toLocaleString()}
                 </div>
                 <p className="text-xs text-gray-400">Processing payouts</p>
@@ -535,7 +535,7 @@ export default function CreatorDashboardEnhanced() {
                   <span className="text-gray-400 text-sm font-medium">Lifetime Earnings</span>
                   <TrendingUp className="w-5 h-5 text-purple-400" />
                 </div>
-                <div className="text-3xl font-bold text-white mb-1">
+                <div className="text-3xl font-bold text-foreground mb-1">
                   ${((earnings?.lifetimeCents || 0) / 100).toLocaleString()}
                 </div>
                 <p className="text-xs text-gray-400">All-time total</p>
@@ -545,7 +545,7 @@ export default function CreatorDashboardEnhanced() {
             {/* Payout History */}
             <Card className="bg-white/5 border-white/10">
               <div className="p-6 border-b border-white/10">
-                <h2 className="text-2xl font-bold text-white">Payout History</h2>
+                <h2 className="text-2xl font-bold text-foreground">Payout History</h2>
               </div>
 
               <div className="overflow-x-auto">
@@ -563,10 +563,10 @@ export default function CreatorDashboardEnhanced() {
                     {payouts && payouts.length > 0 ? (
                       payouts.map((payout: any) => (
                         <tr key={payout.id} className="border-b border-white/10 hover:bg-white/5">
-                          <td className="p-4 text-white">
+                          <td className="p-4 text-foreground">
                             {new Date(payout.createdAt).toLocaleDateString()}
                           </td>
-                          <td className="p-4 text-white font-semibold">
+                          <td className="p-4 text-foreground font-semibold">
                             ${(payout.amountCents / 100).toFixed(2)}
                           </td>
                           <td className="p-4 text-gray-400">{payout.method}</td>
@@ -604,7 +604,7 @@ export default function CreatorDashboardEnhanced() {
           {/* Analytics Tab */}
           <TabsContent value="analytics" className="space-y-6">
             <Card className="bg-white/5 border-white/10 p-6">
-              <h2 className="text-2xl font-bold text-white mb-4">Performance Analytics</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">Performance Analytics</h2>
               <p className="text-gray-400">
                 Detailed analytics and insights coming soon! Track your growth, engagement metrics,
                 and audience demographics.

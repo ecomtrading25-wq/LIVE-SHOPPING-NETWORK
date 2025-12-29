@@ -19,7 +19,7 @@ export function DashboardError({
   onRetry
 }: DashboardErrorProps) {
   return (
-    <div className="min-h-screen bg-background p-6 flex items-center justify-center">
+    <div className="min-h-screen bg-background p-6 flex items-center justify-center text-foreground">
       <Card className="p-8 max-w-md w-full text-center">
         <div className="flex justify-center mb-4">
           <div className="w-16 h-16 rounded-full bg-red-100 dark:bg-red-950 flex items-center justify-center">

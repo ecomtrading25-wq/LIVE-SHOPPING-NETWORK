@@ -92,8 +92,8 @@ export default function WishlistPage() {
       <div className="container py-12">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">My Wishlists</h1>
-          <p className="text-gray-300">Save your favorite items and get notified of price drops</p>
+          <h1 className="text-4xl font-bold text-foreground mb-2">My Wishlists</h1>
+          <p className="text-muted-foreground">Save your favorite items and get notified of price drops</p>
         </div>
 
         {/* Wishlist Tabs */}
@@ -130,8 +130,8 @@ export default function WishlistPage() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-gray-300 text-sm">Total Items</p>
-                  <p className="text-3xl font-bold text-white">
+                  <p className="text-muted-foreground text-sm">Total Items</p>
+                  <p className="text-3xl font-bold text-foreground">
                     {items?.length || 0}
                   </p>
                 </div>
@@ -144,7 +144,7 @@ export default function WishlistPage() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-gray-300 text-sm">Price Drops</p>
+                  <p className="text-muted-foreground text-sm">Price Drops</p>
                   <p className="text-3xl font-bold text-green-400">
                     {items?.filter((item) => item.priceDropPercentage && item.priceDropPercentage > 0).length || 0}
                   </p>
@@ -158,8 +158,8 @@ export default function WishlistPage() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-gray-300 text-sm">In Stock</p>
-                  <p className="text-3xl font-bold text-white">
+                  <p className="text-muted-foreground text-sm">In Stock</p>
+                  <p className="text-3xl font-bold text-foreground">
                     {items?.filter((item) => item.inStock).length || 0}
                   </p>
                 </div>
@@ -172,8 +172,8 @@ export default function WishlistPage() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-gray-300 text-sm">Active Alerts</p>
-                  <p className="text-3xl font-bold text-white">
+                  <p className="text-muted-foreground text-sm">Active Alerts</p>
+                  <p className="text-3xl font-bold text-foreground">
                     {items?.filter((item) => item.priceAlertEnabled).length || 0}
                   </p>
                 </div>
@@ -207,13 +207,13 @@ export default function WishlistPage() {
                 </div>
 
                 <CardContent className="p-4 space-y-3">
-                  <h3 className="text-white font-semibold line-clamp-2 h-12">
+                  <h3 className="text-foreground font-semibold line-clamp-2 h-12">
                     {item.productName}
                   </h3>
 
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-2xl font-bold text-white">
+                      <p className="text-2xl font-bold text-foreground">
                         ${item.currentPrice?.toFixed(2)}
                       </p>
                       {item.originalPrice && item.originalPrice > item.currentPrice && (
@@ -280,7 +280,7 @@ export default function WishlistPage() {
           <Card className="bg-white/10 backdrop-blur border-white/20">
             <CardContent className="py-12 text-center">
               <Heart className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-2">Your wishlist is empty</h3>
+              <h3 className="text-xl font-semibold text-foreground mb-2">Your wishlist is empty</h3>
               <p className="text-gray-400 mb-4">
                 Start adding products you love to keep track of them
               </p>

@@ -256,13 +256,13 @@ export default function VendorDashboard() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-4xl font-bold text-white mb-2">Vendor Dashboard</h1>
-            <p className="text-gray-300">Manage your store, products, and orders</p>
+            <h1 className="text-4xl font-bold text-foreground mb-2">Vendor Dashboard</h1>
+            <p className="text-muted-foreground">Manage your store, products, and orders</p>
           </div>
 
           <div className="flex items-center gap-4">
             <Select value={timeRange} onValueChange={(value: any) => setTimeRange(value)}>
-              <SelectTrigger className="w-40 bg-white/10 border-white/20 text-white">
+              <SelectTrigger className="w-40 bg-white/10 border-white/20 text-foreground">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -297,7 +297,7 @@ export default function VendorDashboard() {
                 </Badge>
               </div>
               <p className="text-gray-400 text-sm mb-1">Total Revenue</p>
-              <p className="text-3xl font-bold text-white">{formatCurrency(stats?.totalRevenue || 0)}</p>
+              <p className="text-3xl font-bold text-foreground">{formatCurrency(stats?.totalRevenue || 0)}</p>
             </CardContent>
           </Card>
 
@@ -312,7 +312,7 @@ export default function VendorDashboard() {
                 </Badge>
               </div>
               <p className="text-gray-400 text-sm mb-1">Total Orders</p>
-              <p className="text-3xl font-bold text-white">{formatNumber(stats?.totalOrders || 0)}</p>
+              <p className="text-3xl font-bold text-foreground">{formatNumber(stats?.totalOrders || 0)}</p>
             </CardContent>
           </Card>
 
@@ -327,7 +327,7 @@ export default function VendorDashboard() {
                 </Badge>
               </div>
               <p className="text-gray-400 text-sm mb-1">Active Products</p>
-              <p className="text-3xl font-bold text-white">{stats?.activeProducts || 0}</p>
+              <p className="text-3xl font-bold text-foreground">{stats?.activeProducts || 0}</p>
             </CardContent>
           </Card>
 
@@ -342,7 +342,7 @@ export default function VendorDashboard() {
                 </Badge>
               </div>
               <p className="text-gray-400 text-sm mb-1">Average Rating</p>
-              <p className="text-3xl font-bold text-white">{(stats?.avgRating || 0).toFixed(1)}</p>
+              <p className="text-3xl font-bold text-foreground">{(stats?.avgRating || 0).toFixed(1)}</p>
             </CardContent>
           </Card>
         </div>
@@ -356,7 +356,7 @@ export default function VendorDashboard() {
                   <Clock className="w-6 h-6 text-yellow-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">{stats?.pendingOrders || 0}</p>
+                  <p className="text-2xl font-bold text-foreground">{stats?.pendingOrders || 0}</p>
                   <p className="text-gray-400 text-sm">Pending Orders</p>
                 </div>
               </div>
@@ -370,7 +370,7 @@ export default function VendorDashboard() {
                   <AlertTriangle className="w-6 h-6 text-red-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">{stats?.lowStockProducts || 0}</p>
+                  <p className="text-2xl font-bold text-foreground">{stats?.lowStockProducts || 0}</p>
                   <p className="text-gray-400 text-sm">Low Stock Alerts</p>
                 </div>
               </div>
@@ -384,7 +384,7 @@ export default function VendorDashboard() {
                   <Eye className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">{formatNumber(stats?.totalViews || 0)}</p>
+                  <p className="text-2xl font-bold text-foreground">{formatNumber(stats?.totalViews || 0)}</p>
                   <p className="text-gray-400 text-sm">Total Views</p>
                 </div>
               </div>
@@ -395,7 +395,7 @@ export default function VendorDashboard() {
         {/* Revenue Chart */}
         <Card className="bg-white/10 backdrop-blur border-white/20">
           <CardHeader>
-            <CardTitle className="text-white">Revenue Overview</CardTitle>
+            <CardTitle className="text-foreground">Revenue Overview</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-80 flex items-end justify-between gap-2">
@@ -409,7 +409,7 @@ export default function VendorDashboard() {
                       className="w-full bg-gradient-to-t from-purple-500 to-pink-500 rounded-t hover:opacity-80 transition-opacity cursor-pointer relative group"
                       style={{ height: `${height}%`, minHeight: '4px' }}
                     >
-                      <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-background/80 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                         {formatCurrency(point.value)}
                       </div>
                     </div>
@@ -437,10 +437,10 @@ export default function VendorDashboard() {
               <div className="flex items-center gap-4">
                 <Input
                   placeholder="Search products..."
-                  className="w-80 bg-white/10 border-white/20 text-white"
+                  className="w-80 bg-white/10 border-white/20 text-foreground"
                 />
                 <Select value={productFilter} onValueChange={(value: any) => setProductFilter(value)}>
-                  <SelectTrigger className="w-40 bg-white/10 border-white/20 text-white">
+                  <SelectTrigger className="w-40 bg-white/10 border-white/20 text-foreground">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -468,14 +468,14 @@ export default function VendorDashboard() {
               <Table>
                 <TableHeader>
                   <TableRow className="border-white/20">
-                    <TableHead className="text-white">Product</TableHead>
-                    <TableHead className="text-white">SKU</TableHead>
-                    <TableHead className="text-white">Price</TableHead>
-                    <TableHead className="text-white">Stock</TableHead>
-                    <TableHead className="text-white">Sales</TableHead>
-                    <TableHead className="text-white">Rating</TableHead>
-                    <TableHead className="text-white">Status</TableHead>
-                    <TableHead className="text-white">Actions</TableHead>
+                    <TableHead className="text-foreground">Product</TableHead>
+                    <TableHead className="text-foreground">SKU</TableHead>
+                    <TableHead className="text-foreground">Price</TableHead>
+                    <TableHead className="text-foreground">Stock</TableHead>
+                    <TableHead className="text-foreground">Sales</TableHead>
+                    <TableHead className="text-foreground">Rating</TableHead>
+                    <TableHead className="text-foreground">Status</TableHead>
+                    <TableHead className="text-foreground">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -489,25 +489,25 @@ export default function VendorDashboard() {
                             className="w-12 h-12 object-cover rounded"
                           />
                           <div>
-                            <p className="text-white font-semibold">{product.name}</p>
+                            <p className="text-foreground font-semibold">{product.name}</p>
                             <p className="text-gray-400 text-sm">{product.category}</p>
                           </div>
                         </div>
                       </TableCell>
-                      <TableCell className="text-gray-300">{product.sku}</TableCell>
-                      <TableCell className="text-white font-semibold">
+                      <TableCell className="text-muted-foreground">{product.sku}</TableCell>
+                      <TableCell className="text-foreground font-semibold">
                         {formatCurrency(product.price)}
                       </TableCell>
                       <TableCell>
-                        <span className={product.stock < 10 ? 'text-red-400' : 'text-gray-300'}>
+                        <span className={product.stock < 10 ? 'text-red-400' : 'text-muted-foreground'}>
                           {product.stock}
                         </span>
                       </TableCell>
-                      <TableCell className="text-gray-300">{product.sales}</TableCell>
+                      <TableCell className="text-muted-foreground">{product.sales}</TableCell>
                       <TableCell>
                         <div className="flex items-center gap-1">
                           <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                          <span className="text-white">{product.rating.toFixed(1)}</span>
+                          <span className="text-foreground">{product.rating.toFixed(1)}</span>
                           <span className="text-gray-400 text-sm">({product.reviewCount})</span>
                         </div>
                       </TableCell>
@@ -547,10 +547,10 @@ export default function VendorDashboard() {
               <div className="flex items-center gap-4">
                 <Input
                   placeholder="Search orders..."
-                  className="w-80 bg-white/10 border-white/20 text-white"
+                  className="w-80 bg-white/10 border-white/20 text-foreground"
                 />
                 <Select value={orderFilter} onValueChange={(value: any) => setOrderFilter(value)}>
-                  <SelectTrigger className="w-40 bg-white/10 border-white/20 text-white">
+                  <SelectTrigger className="w-40 bg-white/10 border-white/20 text-foreground">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -574,7 +574,7 @@ export default function VendorDashboard() {
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between mb-4">
                       <div>
-                        <h3 className="text-xl font-bold text-white mb-1">
+                        <h3 className="text-xl font-bold text-foreground mb-1">
                           Order #{order.orderNumber}
                         </h3>
                         <p className="text-gray-400 text-sm">
@@ -602,7 +602,7 @@ export default function VendorDashboard() {
                             className="w-12 h-12 object-cover rounded"
                           />
                           <div className="flex-1">
-                            <p className="text-white font-semibold text-sm">{item.productName}</p>
+                            <p className="text-foreground font-semibold text-sm">{item.productName}</p>
                             <p className="text-gray-400 text-xs">
                               Qty: {item.quantity} × {formatCurrency(item.price)}
                             </p>
@@ -619,7 +619,7 @@ export default function VendorDashboard() {
                             updateOrderStatus.mutate({ orderId: order.id, status: value })
                           }
                         >
-                          <SelectTrigger className="w-40 bg-white/10 border-white/20 text-white">
+                          <SelectTrigger className="w-40 bg-white/10 border-white/20 text-foreground">
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
@@ -641,7 +641,7 @@ export default function VendorDashboard() {
 
                       <div className="text-right">
                         <p className="text-gray-400 text-sm">Total Amount</p>
-                        <p className="text-2xl font-bold text-white">
+                        <p className="text-2xl font-bold text-foreground">
                           {formatCurrency(order.totalAmount)}
                         </p>
                       </div>
@@ -657,13 +657,13 @@ export default function VendorDashboard() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Card className="bg-white/10 backdrop-blur border-white/20">
                 <CardHeader>
-                  <CardTitle className="text-white">Top Selling Products</CardTitle>
+                  <CardTitle className="text-foreground">Top Selling Products</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {products?.slice(0, 5).map((product: Product, index: number) => (
                       <div key={product.id} className="flex items-center gap-4">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-foreground font-bold">
                           {index + 1}
                         </div>
                         <img
@@ -672,10 +672,10 @@ export default function VendorDashboard() {
                           className="w-12 h-12 object-cover rounded"
                         />
                         <div className="flex-1">
-                          <p className="text-white font-semibold">{product.name}</p>
+                          <p className="text-foreground font-semibold">{product.name}</p>
                           <p className="text-gray-400 text-sm">{product.sales} sales</p>
                         </div>
-                        <p className="text-white font-bold">
+                        <p className="text-foreground font-bold">
                           {formatCurrency(product.price * product.sales)}
                         </p>
                       </div>
@@ -686,13 +686,13 @@ export default function VendorDashboard() {
 
               <Card className="bg-white/10 backdrop-blur border-white/20">
                 <CardHeader>
-                  <CardTitle className="text-white">Performance Metrics</CardTitle>
+                  <CardTitle className="text-foreground">Performance Metrics</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-gray-400 text-sm">Conversion Rate</span>
-                      <span className="text-white font-semibold">
+                      <span className="text-foreground font-semibold">
                         {(stats?.conversionRate || 0).toFixed(2)}%
                       </span>
                     </div>
@@ -702,7 +702,7 @@ export default function VendorDashboard() {
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-gray-400 text-sm">Customer Satisfaction</span>
-                      <span className="text-white font-semibold">
+                      <span className="text-foreground font-semibold">
                         {((stats?.avgRating || 0) / 5 * 100).toFixed(0)}%
                       </span>
                     </div>
@@ -712,7 +712,7 @@ export default function VendorDashboard() {
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-gray-400 text-sm">Inventory Health</span>
-                      <span className="text-white font-semibold">
+                      <span className="text-foreground font-semibold">
                         {(((stats?.activeProducts || 0) - (stats?.lowStockProducts || 0)) / (stats?.activeProducts || 1) * 100).toFixed(0)}%
                       </span>
                     </div>
@@ -730,30 +730,30 @@ export default function VendorDashboard() {
           <TabsContent value="settings" className="space-y-6">
             <Card className="bg-white/10 backdrop-blur border-white/20">
               <CardHeader>
-                <CardTitle className="text-white">Store Settings</CardTitle>
+                <CardTitle className="text-foreground">Store Settings</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div>
-                  <Label htmlFor="store-name" className="text-white">Store Name</Label>
+                  <Label htmlFor="store-name" className="text-foreground">Store Name</Label>
                   <Input
                     id="store-name"
                     placeholder="Your Store Name"
-                    className="bg-white/10 border-white/20 text-white"
+                    className="bg-white/10 border-white/20 text-foreground"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="store-description" className="text-white">Store Description</Label>
+                  <Label htmlFor="store-description" className="text-foreground">Store Description</Label>
                   <Textarea
                     id="store-description"
                     placeholder="Describe your store..."
                     rows={4}
-                    className="bg-white/10 border-white/20 text-white"
+                    className="bg-white/10 border-white/20 text-foreground"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="store-logo" className="text-white">Store Logo</Label>
+                  <Label htmlFor="store-logo" className="text-foreground">Store Logo</Label>
                   <div className="flex items-center gap-4 mt-2">
                     <div className="w-24 h-24 bg-white/10 rounded-lg flex items-center justify-center">
                       <ImageIcon className="w-8 h-8 text-gray-400" />

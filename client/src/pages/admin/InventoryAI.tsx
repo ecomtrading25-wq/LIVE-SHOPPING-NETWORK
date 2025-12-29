@@ -415,7 +415,7 @@ export default function InventoryAIPage() {
                 {seasonalTrends.map((trend) => (
                   <div key={trend.month} className="text-center">
                     <div
-                      className="h-24 rounded-lg mb-2 flex items-end justify-center pb-2 text-white font-bold text-sm"
+                      className="h-24 rounded-lg mb-2 flex items-end justify-center pb-2 text-foreground font-bold text-sm"
                       style={{
                         backgroundColor: `rgba(168, 85, 247, ${trend.demand / 2500})`,
                       }}

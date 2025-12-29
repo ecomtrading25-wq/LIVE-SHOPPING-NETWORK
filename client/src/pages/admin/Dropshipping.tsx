@@ -34,7 +34,7 @@ export default function Dropshipping() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Dropshipping Management</h1>
+          <h1 className="text-3xl font-bold text-foreground">Dropshipping Management</h1>
           <p className="text-muted-foreground mt-2">Manage suppliers, track orders, and monitor performance</p>
         </div>
         <Button>
@@ -44,54 +44,54 @@ export default function Dropshipping() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="bg-zinc-900 border-zinc-800">
+        <Card className="bg-background border-border text-foreground">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">Active Suppliers</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-white">{suppliers.length}</div>
+            <div className="text-2xl font-bold text-foreground">{suppliers.length}</div>
           </CardContent>
         </Card>
-        <Card className="bg-zinc-900 border-zinc-800">
+        <Card className="bg-background border-border text-foreground">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">Total Products</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-white">{suppliers.reduce((s, sup) => s + sup.products, 0)}</div>
+            <div className="text-2xl font-bold text-foreground">{suppliers.reduce((s, sup) => s + sup.products, 0)}</div>
           </CardContent>
         </Card>
-        <Card className="bg-zinc-900 border-zinc-800">
+        <Card className="bg-background border-border text-foreground">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">Active Orders</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-white">{suppliers.reduce((s, sup) => s + sup.activeOrders, 0)}</div>
+            <div className="text-2xl font-bold text-foreground">{suppliers.reduce((s, sup) => s + sup.activeOrders, 0)}</div>
           </CardContent>
         </Card>
-        <Card className="bg-zinc-900 border-zinc-800">
+        <Card className="bg-background border-border text-foreground">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">Avg Profit Margin</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-white">68.5%</div>
+            <div className="text-2xl font-bold text-foreground">68.5%</div>
           </CardContent>
         </Card>
       </div>
 
-      <Card className="bg-zinc-900 border-zinc-800">
+      <Card className="bg-background border-border text-foreground">
         <CardHeader>
-          <CardTitle className="text-white">Suppliers</CardTitle>
+          <CardTitle className="text-foreground">Suppliers</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
             {suppliers.map((supplier) => (
-              <div key={supplier.id} className="flex items-center justify-between p-4 bg-zinc-800/50 rounded-lg">
+              <div key={supplier.id} className="flex items-center justify-between p-4 bg-card/50 rounded-lg text-card-foreground">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                     <Package className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white">{supplier.name}</h3>
+                    <h3 className="font-semibold text-foreground">{supplier.name}</h3>
                     <p className="text-sm text-muted-foreground">{supplier.products} products</p>
                   </div>
                 </div>
@@ -101,15 +101,15 @@ export default function Dropshipping() {
                     <p className="text-xs text-muted-foreground">Trust Score</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-2xl font-bold text-white">{supplier.avgShippingDays}d</p>
+                    <p className="text-2xl font-bold text-foreground">{supplier.avgShippingDays}d</p>
                     <p className="text-xs text-muted-foreground">Avg Shipping</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-2xl font-bold text-white">{supplier.defectRate}%</p>
+                    <p className="text-2xl font-bold text-foreground">{supplier.defectRate}%</p>
                     <p className="text-xs text-muted-foreground">Defect Rate</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-2xl font-bold text-white">{supplier.activeOrders}</p>
+                    <p className="text-2xl font-bold text-foreground">{supplier.activeOrders}</p>
                     <p className="text-xs text-muted-foreground">Active Orders</p>
                   </div>
                   <Button variant="outline" size="sm">
@@ -122,17 +122,17 @@ export default function Dropshipping() {
         </CardContent>
       </Card>
 
-      <Card className="bg-zinc-900 border-zinc-800">
+      <Card className="bg-background border-border text-foreground">
         <CardHeader>
-          <CardTitle className="text-white">Recent Orders</CardTitle>
+          <CardTitle className="text-foreground">Recent Orders</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
             {recentOrders.map((order) => (
-              <div key={order.id} className="flex items-center justify-between p-4 bg-zinc-800/50 rounded-lg">
+              <div key={order.id} className="flex items-center justify-between p-4 bg-card/50 rounded-lg text-card-foreground">
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
-                    <h3 className="font-semibold text-white">{order.id}</h3>
+                    <h3 className="font-semibold text-foreground">{order.id}</h3>
                     <Badge className={getStatusColor(order.status)}>{order.status}</Badge>
                   </div>
                   <p className="text-sm text-muted-foreground mt-1">{order.product}</p>
@@ -140,11 +140,11 @@ export default function Dropshipping() {
                 </div>
                 <div className="flex items-center gap-8">
                   <div className="text-center">
-                    <p className="text-lg font-bold text-white">${order.cost.toFixed(2)}</p>
+                    <p className="text-lg font-bold text-foreground">${order.cost.toFixed(2)}</p>
                     <p className="text-xs text-muted-foreground">Cost</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-lg font-bold text-white">${order.salePrice.toFixed(2)}</p>
+                    <p className="text-lg font-bold text-foreground">${order.salePrice.toFixed(2)}</p>
                     <p className="text-xs text-muted-foreground">Sale Price</p>
                   </div>
                   <div className="text-center">

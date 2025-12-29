@@ -23,7 +23,7 @@ export default function Affiliates() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Affiliate Program</h1>
+          <h1 className="text-3xl font-bold text-foreground">Affiliate Program</h1>
           <p className="text-muted-foreground mt-2">Manage affiliates, track performance, and process payouts</p>
         </div>
         <Button>
@@ -33,51 +33,51 @@ export default function Affiliates() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="bg-zinc-900 border-zinc-800">
+        <Card className="bg-background border-border text-foreground">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">Total Affiliates</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-white">{affiliates.length}</div>
+            <div className="text-2xl font-bold text-foreground">{affiliates.length}</div>
           </CardContent>
         </Card>
-        <Card className="bg-zinc-900 border-zinc-800">
+        <Card className="bg-background border-border text-foreground">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">Total Sales</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-white">${(affiliates.reduce((s, a) => s + a.sales, 0) / 1000).toFixed(0)}K</div>
+            <div className="text-2xl font-bold text-foreground">${(affiliates.reduce((s, a) => s + a.sales, 0) / 1000).toFixed(0)}K</div>
           </CardContent>
         </Card>
-        <Card className="bg-zinc-900 border-zinc-800">
+        <Card className="bg-background border-border text-foreground">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">Commissions Paid</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-white">${(affiliates.reduce((s, a) => s + a.commissions, 0) / 1000).toFixed(1)}K</div>
+            <div className="text-2xl font-bold text-foreground">${(affiliates.reduce((s, a) => s + a.commissions, 0) / 1000).toFixed(1)}K</div>
           </CardContent>
         </Card>
-        <Card className="bg-zinc-900 border-zinc-800">
+        <Card className="bg-background border-border text-foreground">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">Pending Payouts</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-white">${(affiliates.reduce((s, a) => s + a.pending, 0) / 1000).toFixed(1)}K</div>
+            <div className="text-2xl font-bold text-foreground">${(affiliates.reduce((s, a) => s + a.pending, 0) / 1000).toFixed(1)}K</div>
           </CardContent>
         </Card>
       </div>
 
       <div className="space-y-4">
         {affiliates.map((affiliate) => (
-          <Card key={affiliate.id} className="bg-zinc-900 border-zinc-800">
+          <Card key={affiliate.id} className="bg-background border-border text-foreground">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-white">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-foreground">
                     {affiliate.name.split(" ").map((n) => n[0]).join("")}
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white">{affiliate.name}</h3>
+                    <h3 className="font-semibold text-foreground">{affiliate.name}</h3>
                     <div className="flex items-center gap-2 mt-1">
                       <Badge className={getTierColor(affiliate.tier)}>{affiliate.tier.toUpperCase()}</Badge>
                       <span className="text-sm text-muted-foreground">{(affiliate.rate * 100)}% commission</span>
@@ -86,19 +86,19 @@ export default function Affiliates() {
                 </div>
                 <div className="flex items-center gap-6">
                   <div className="text-center">
-                    <p className="text-2xl font-bold text-white">${(affiliate.sales / 1000).toFixed(0)}K</p>
+                    <p className="text-2xl font-bold text-foreground">${(affiliate.sales / 1000).toFixed(0)}K</p>
                     <p className="text-xs text-muted-foreground">Sales</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-2xl font-bold text-white">${(affiliate.commissions / 1000).toFixed(1)}K</p>
+                    <p className="text-2xl font-bold text-foreground">${(affiliate.commissions / 1000).toFixed(1)}K</p>
                     <p className="text-xs text-muted-foreground">Earned</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-2xl font-bold text-white">{affiliate.conversions}</p>
+                    <p className="text-2xl font-bold text-foreground">{affiliate.conversions}</p>
                     <p className="text-xs text-muted-foreground">Conversions</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-2xl font-bold text-white">{((affiliate.conversions / affiliate.clicks) * 100).toFixed(1)}%</p>
+                    <p className="text-2xl font-bold text-foreground">{((affiliate.conversions / affiliate.clicks) * 100).toFixed(1)}%</p>
                     <p className="text-xs text-muted-foreground">Conv Rate</p>
                   </div>
                   <div className="flex gap-2">

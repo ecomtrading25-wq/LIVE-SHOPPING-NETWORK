@@ -205,7 +205,7 @@ export default function LiveShowsBrowse() {
       {/* Hero Section */}
       <div className="container py-8">
         <div className="text-center mb-8">
-          <h1 className="text-5xl font-bold text-white mb-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-300 to-purple-300">
+          <h1 className="text-5xl font-bold text-foreground mb-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-300 to-purple-300">
             Live Shopping Shows
           </h1>
           <p className="text-xl text-purple-200 mb-8">
@@ -239,14 +239,14 @@ export default function LiveShowsBrowse() {
               <Button
                 variant={filter === "all" ? "default" : "outline"}
                 onClick={() => setFilter("all")}
-                className={filter === "all" ? "bg-pink-500 hover:bg-pink-600 text-white" : "bg-white/10 hover:bg-white/20 border-white/20 text-white"}
+                className={filter === "all" ? "bg-pink-500 hover:bg-pink-600 text-foreground" : "bg-white/10 hover:bg-white/20 border-white/20 text-foreground"}
               >
                 All Shows
               </Button>
               <Button
                 variant={filter === "live" ? "default" : "outline"}
                 onClick={() => setFilter("live")}
-                className={filter === "live" ? "bg-pink-500 hover:bg-pink-600 text-white" : "bg-white/10 hover:bg-white/20 border-white/20 text-white"}
+                className={filter === "live" ? "bg-pink-500 hover:bg-pink-600 text-foreground" : "bg-white/10 hover:bg-white/20 border-white/20 text-foreground"}
               >
                 <span className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse" />
                 Live ({liveShows.length})
@@ -254,7 +254,7 @@ export default function LiveShowsBrowse() {
               <Button
                 variant={filter === "upcoming" ? "default" : "outline"}
                 onClick={() => setFilter("upcoming")}
-                className={filter === "upcoming" ? "bg-pink-500 hover:bg-pink-600 text-white" : "bg-white/10 hover:bg-white/20 border-white/20 text-white"}
+                className={filter === "upcoming" ? "bg-pink-500 hover:bg-pink-600 text-foreground" : "bg-white/10 hover:bg-white/20 border-white/20 text-foreground"}
               >
                 <Clock className="w-4 h-4 mr-2" />
                 Upcoming ({upcomingShows.length})
@@ -263,7 +263,7 @@ export default function LiveShowsBrowse() {
 
             {/* Category Filter */}
             <Select value={category} onValueChange={setCategory}>
-              <SelectTrigger className="w-[180px] bg-white/10 border-white/20 text-white">
+              <SelectTrigger className="w-[180px] bg-white/10 border-white/20 text-foreground">
                 <Filter className="w-4 h-4 mr-2" />
                 <SelectValue placeholder="Category" />
               </SelectTrigger>
@@ -278,7 +278,7 @@ export default function LiveShowsBrowse() {
 
             {/* Sort */}
             <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-[180px] bg-white/10 border-white/20 text-white">
+              <SelectTrigger className="w-[180px] bg-white/10 border-white/20 text-foreground">
                 <SelectValue placeholder="Sort by" />
               </SelectTrigger>
               <SelectContent>
@@ -309,7 +309,7 @@ export default function LiveShowsBrowse() {
                   {/* Live Badge */}
                   {show.status === "live" && (
                     <div className="absolute top-3 left-3">
-                      <Badge className="bg-red-500 text-white border-0 animate-pulse font-bold px-3 py-1">
+                      <Badge className="bg-red-500 text-foreground border-0 animate-pulse font-bold px-3 py-1">
                         <span className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse" />
                         LIVE
                       </Badge>
@@ -319,7 +319,7 @@ export default function LiveShowsBrowse() {
                   {/* Upcoming Badge */}
                   {show.status === "upcoming" && (
                     <div className="absolute top-3 left-3">
-                      <Badge className="bg-purple-500 text-white border-0 font-bold px-3 py-1">
+                      <Badge className="bg-purple-500 text-foreground border-0 font-bold px-3 py-1">
                         <Calendar className="w-3 h-3 mr-1" />
                         {formatUpcoming(show.scheduledFor!)}
                       </Badge>
@@ -329,7 +329,7 @@ export default function LiveShowsBrowse() {
                   {/* Viewers Count (for live) */}
                   {show.status === "live" && (
                     <div className="absolute top-3 right-3">
-                      <Badge className="bg-black/70 text-white border-0 backdrop-blur-sm font-bold px-3 py-1">
+                      <Badge className="bg-background/70 text-foreground border-0 backdrop-blur-sm font-bold px-3 py-1">
                         <Users className="w-3 h-3 mr-1" />
                         {show.viewers.toLocaleString()}
                       </Badge>
@@ -339,7 +339,7 @@ export default function LiveShowsBrowse() {
                   {/* Duration (for live) */}
                   {show.status === "live" && (
                     <div className="absolute bottom-3 left-3">
-                      <Badge className="bg-black/70 text-white border-0 backdrop-blur-sm px-3 py-1">
+                      <Badge className="bg-background/70 text-foreground border-0 backdrop-blur-sm px-3 py-1">
                         {formatDuration(show.startedAt)}
                       </Badge>
                     </div>
@@ -347,14 +347,14 @@ export default function LiveShowsBrowse() {
 
                   {/* Products Count */}
                   <div className="absolute bottom-3 right-3">
-                    <Badge className="bg-pink-500 text-white border-0 font-bold px-3 py-1">
+                    <Badge className="bg-pink-500 text-foreground border-0 font-bold px-3 py-1">
                       <ShoppingBag className="w-3 h-3 mr-1" />
                       {show.products}
                     </Badge>
                   </div>
 
                   {/* Play Overlay */}
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-foreground">
                     <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center transform group-hover:scale-110 transition-transform">
                       <Play className="w-10 h-10 text-purple-600 ml-1" fill="currentColor" />
                     </div>
@@ -369,7 +369,7 @@ export default function LiveShowsBrowse() {
                   </Badge>
 
                   {/* Title */}
-                  <h3 className="text-lg font-bold text-white mb-3 line-clamp-2 group-hover:text-pink-300 transition-colors">
+                  <h3 className="text-lg font-bold text-foreground mb-3 line-clamp-2 group-hover:text-pink-300 transition-colors">
                     {show.title}
                   </h3>
 
@@ -381,7 +381,7 @@ export default function LiveShowsBrowse() {
                       className="w-12 h-12 rounded-full border-2 border-white/30 group-hover:border-pink-400 transition-colors"
                     />
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold text-white truncate">
+                      <p className="text-sm font-semibold text-foreground truncate">
                         {show.creator.name}
                       </p>
                       <div className="flex items-center gap-2 text-xs text-purple-200">
@@ -412,7 +412,7 @@ export default function LiveShowsBrowse() {
             <div className="w-24 h-24 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6">
               <Play className="w-12 h-12 text-white/50" />
             </div>
-            <h3 className="text-2xl font-semibold text-white mb-2">
+            <h3 className="text-2xl font-semibold text-foreground mb-2">
               No {filter} shows in {category === "all" ? "any category" : category}
             </h3>
             <p className="text-purple-200 mb-6">
@@ -421,13 +421,13 @@ export default function LiveShowsBrowse() {
             <div className="flex gap-3 justify-center">
               <Button
                 onClick={() => setCategory("all")}
-                className="bg-white/10 hover:bg-white/20 text-white"
+                className="bg-white/10 hover:bg-white/20 text-foreground"
               >
                 Clear Filters
               </Button>
               <Button
                 onClick={() => setFilter("all")}
-                className="bg-pink-500 hover:bg-pink-600 text-white"
+                className="bg-pink-500 hover:bg-pink-600 text-foreground"
               >
                 View All Shows
               </Button>

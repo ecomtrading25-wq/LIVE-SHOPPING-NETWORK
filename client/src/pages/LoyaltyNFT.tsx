@@ -251,8 +251,8 @@ export default function LoyaltyNFTPage() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-white mb-4">NFT Loyalty Rewards</h1>
-          <p className="text-gray-300 text-xl mb-8">
+          <h1 className="text-5xl font-bold text-foreground mb-4">NFT Loyalty Rewards</h1>
+          <p className="text-muted-foreground text-xl mb-8">
             Mint exclusive NFT badges and unlock token-gated products
           </p>
 
@@ -270,13 +270,13 @@ export default function LoyaltyNFTPage() {
             <Card className="inline-flex items-center gap-4 p-4 bg-white/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center">
-                  <CheckCircle className="w-6 h-6 text-white" />
+                  <CheckCircle className="w-6 h-6 text-foreground" />
                 </div>
                 <div className="text-left">
-                  <p className="text-white font-medium text-sm">Connected</p>
+                  <p className="text-foreground font-medium text-sm">Connected</p>
                   <div className="flex items-center gap-2">
                     <p className="text-gray-400 text-xs">{walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}</p>
-                    <button onClick={handleCopyAddress} className="text-gray-400 hover:text-white">
+                    <button onClick={handleCopyAddress} className="text-gray-400 hover:text-foreground">
                       <Copy className="w-3 h-3" />
                     </button>
                   </div>
@@ -293,34 +293,34 @@ export default function LoyaltyNFTPage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
           <Card className="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-purple-500/30">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-gray-300 text-sm">Loyalty Points</p>
+              <p className="text-muted-foreground text-sm">Loyalty Points</p>
               <TrendingUp className="w-5 h-5 text-purple-400" />
             </div>
-            <p className="text-3xl font-bold text-white">{loyaltyPoints.toLocaleString()}</p>
+            <p className="text-3xl font-bold text-foreground">{loyaltyPoints.toLocaleString()}</p>
           </Card>
 
           <Card className="p-6 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 border-yellow-500/30">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-gray-300 text-sm">Current Tier</p>
+              <p className="text-muted-foreground text-sm">Current Tier</p>
               <Crown className="w-5 h-5 text-yellow-400" />
             </div>
-            <p className="text-3xl font-bold text-white capitalize">{currentTier}</p>
+            <p className="text-3xl font-bold text-foreground capitalize">{currentTier}</p>
           </Card>
 
           <Card className="p-6 bg-gradient-to-br from-green-500/20 to-emerald-500/20 border-green-500/30">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-gray-300 text-sm">NFTs Minted</p>
+              <p className="text-muted-foreground text-sm">NFTs Minted</p>
               <Award className="w-5 h-5 text-green-400" />
             </div>
-            <p className="text-3xl font-bold text-white">{nftBadges.filter(b => b.minted).length}</p>
+            <p className="text-3xl font-bold text-foreground">{nftBadges.filter(b => b.minted).length}</p>
           </Card>
 
           <Card className="p-6 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border-blue-500/30">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-gray-300 text-sm">Exclusive Access</p>
+              <p className="text-muted-foreground text-sm">Exclusive Access</p>
               <Unlock className="w-5 h-5 text-blue-400" />
             </div>
-            <p className="text-3xl font-bold text-white">{tokenGatedProducts.filter(p => canAccessProduct(p)).length}</p>
+            <p className="text-3xl font-bold text-foreground">{tokenGatedProducts.filter(p => canAccessProduct(p)).length}</p>
           </Card>
         </div>
 
@@ -357,7 +357,7 @@ export default function LoyaltyNFTPage() {
                         <TierIcon className="w-24 h-24 text-white/80" />
                       </div>
                       {badge.minted && (
-                        <Badge className="absolute top-3 right-3 bg-green-500/80 text-white">
+                        <Badge className="absolute top-3 right-3 bg-green-500/80 text-foreground">
                           <CheckCircle className="w-3 h-3 mr-1" />
                           Minted
                         </Badge>
@@ -365,13 +365,13 @@ export default function LoyaltyNFTPage() {
                     </div>
 
                     <div className="p-6">
-                      <h3 className="text-2xl font-bold text-white mb-2">{badge.name}</h3>
+                      <h3 className="text-2xl font-bold text-foreground mb-2">{badge.name}</h3>
                       <p className="text-gray-400 text-sm mb-4">{badge.description}</p>
 
                       {badge.minted && badge.tokenId && (
                         <div className="mb-4 p-3 bg-white/5 rounded-lg">
                           <p className="text-gray-400 text-xs mb-1">Token ID</p>
-                          <p className="text-white text-sm font-mono">{badge.tokenId}</p>
+                          <p className="text-foreground text-sm font-mono">{badge.tokenId}</p>
                         </div>
                       )}
 
@@ -379,7 +379,7 @@ export default function LoyaltyNFTPage() {
                         <p className="text-gray-400 text-xs mb-2">Benefits:</p>
                         <ul className="space-y-1">
                           {badge.benefits.map((benefit, index) => (
-                            <li key={index} className="text-white text-sm flex items-center gap-2">
+                            <li key={index} className="text-foreground text-sm flex items-center gap-2">
                               <CheckCircle className="w-3 h-3 text-green-400" />
                               {benefit}
                             </li>
@@ -391,7 +391,7 @@ export default function LoyaltyNFTPage() {
                         <div className="space-y-3">
                           <div className="flex items-center justify-between text-sm">
                             <span className="text-gray-400">Required Points:</span>
-                            <span className="text-white font-bold">{badge.requiredPoints.toLocaleString()}</span>
+                            <span className="text-foreground font-bold">{badge.requiredPoints.toLocaleString()}</span>
                           </div>
                           <Button
                             className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
@@ -424,29 +424,29 @@ export default function LoyaltyNFTPage() {
                         className={`w-full h-48 object-cover ${!hasAccess ? 'blur-sm' : ''}`}
                       />
                       {!hasAccess && (
-                        <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+                        <div className="absolute inset-0 bg-background/60 flex items-center justify-center text-foreground">
                           <div className="text-center">
-                            <Lock className="w-12 h-12 text-white mx-auto mb-2" />
-                            <p className="text-white font-bold capitalize">
+                            <Lock className="w-12 h-12 text-foreground mx-auto mb-2" />
+                            <p className="text-foreground font-bold capitalize">
                               {product.requiredTier} Required
                             </p>
                           </div>
                         </div>
                       )}
                       {product.exclusive && (
-                        <Badge className="absolute top-3 left-3 bg-purple-500/80 text-white">
+                        <Badge className="absolute top-3 left-3 bg-purple-500/80 text-foreground">
                           Exclusive
                         </Badge>
                       )}
                     </div>
 
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-white mb-2">{product.name}</h3>
-                      <p className="text-3xl font-bold text-white mb-4">${product.price}</p>
+                      <h3 className="text-xl font-bold text-foreground mb-2">{product.name}</h3>
+                      <p className="text-3xl font-bold text-foreground mb-4">${product.price}</p>
                       
                       <div className="flex items-center justify-between mb-4">
                         <span className="text-gray-400 text-sm">Stock:</span>
-                        <span className="text-white font-medium">{product.stock} left</span>
+                        <span className="text-foreground font-medium">{product.stock} left</span>
                       </div>
 
                       <Button
@@ -476,7 +476,7 @@ export default function LoyaltyNFTPage() {
           {/* Blockchain Transactions */}
           <TabsContent value="transactions">
             <Card className="p-6 bg-white/5 border-white/10">
-              <h2 className="text-2xl font-bold text-white mb-6">Transaction History</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-6">Transaction History</h2>
               <div className="space-y-4">
                 {transactions.map((tx) => (
                   <Card key={tx.id} className="p-4 bg-white/5 border-white/10">
@@ -492,7 +492,7 @@ export default function LoyaltyNFTPage() {
                           {tx.type === 'transfer' && <ExternalLink className="w-5 h-5 text-blue-400" />}
                         </div>
                         <div>
-                          <p className="text-white font-medium capitalize">{tx.type}</p>
+                          <p className="text-foreground font-medium capitalize">{tx.type}</p>
                           {tx.amount && (
                             <p className="text-green-400 text-sm">+{tx.amount} points</p>
                           )}
@@ -516,7 +516,7 @@ export default function LoyaltyNFTPage() {
                         </Button>
                       </div>
                     </div>
-                    <div className="mt-3 p-2 bg-black/30 rounded font-mono text-xs text-gray-400 break-all">
+                    <div className="mt-3 p-2 bg-background/30 rounded font-mono text-xs text-gray-400 break-all">
                       {tx.hash}
                     </div>
                   </Card>

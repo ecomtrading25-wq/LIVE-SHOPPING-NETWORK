@@ -37,7 +37,7 @@ export default function OrderConfirmationPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container py-12">
         <div className="max-w-3xl mx-auto">
           <Card className="p-8 text-center mb-8">

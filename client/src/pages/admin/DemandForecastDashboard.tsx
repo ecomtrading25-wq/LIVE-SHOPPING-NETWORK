@@ -166,7 +166,7 @@ export default function DemandForecastDashboard() {
   if (!selectedProduct) {
     if (isLoading) {
       return (
-        <div className="min-h-screen bg-background p-6">
+        <div className="min-h-screen bg-background p-6 text-foreground">
           <div className="max-w-7xl mx-auto">
             <Card className="p-12 text-center">
               <Skeleton className="h-16 w-16 mx-auto mb-4" />
@@ -178,7 +178,7 @@ export default function DemandForecastDashboard() {
       );
     }
     return (
-      <div className="min-h-screen bg-background p-6">
+      <div className="min-h-screen bg-background p-6 text-foreground">
         <div className="max-w-7xl mx-auto">
           <Card className="p-12 text-center">
             <Package className="w-16 h-16 mx-auto text-muted-foreground mb-4" />
@@ -191,7 +191,7 @@ export default function DemandForecastDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-background p-6">
+    <div className="min-h-screen bg-background p-6 text-foreground">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">

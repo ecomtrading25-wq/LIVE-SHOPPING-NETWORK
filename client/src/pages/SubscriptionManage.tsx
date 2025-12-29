@@ -222,8 +222,8 @@ export default function SubscriptionManagePage() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">Manage Subscription</h1>
-          <p className="text-gray-300 text-lg">Customize your box, manage deliveries, and update preferences</p>
+          <h1 className="text-4xl font-bold text-foreground mb-2">Manage Subscription</h1>
+          <p className="text-muted-foreground text-lg">Customize your box, manage deliveries, and update preferences</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -233,7 +233,7 @@ export default function SubscriptionManagePage() {
             <Card className="p-6 bg-white/5 border-white/10">
               <div className="flex items-start justify-between mb-6">
                 <div>
-                  <h2 className="text-2xl font-bold text-white mb-2">{subscription.name}</h2>
+                  <h2 className="text-2xl font-bold text-foreground mb-2">{subscription.name}</h2>
                   <p className="text-gray-400">{subscription.description}</p>
                 </div>
                 <Badge className={`border ${getStatusBadge(subscription.status)}`}>
@@ -244,15 +244,15 @@ export default function SubscriptionManagePage() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                 <div>
                   <p className="text-gray-400 text-sm mb-1">Price</p>
-                  <p className="text-white text-xl font-bold">${subscription.price}</p>
+                  <p className="text-foreground text-xl font-bold">${subscription.price}</p>
                 </div>
                 <div>
                   <p className="text-gray-400 text-sm mb-1">Frequency</p>
-                  <p className="text-white text-xl font-bold capitalize">{subscription.frequency}</p>
+                  <p className="text-foreground text-xl font-bold capitalize">{subscription.frequency}</p>
                 </div>
                 <div>
                   <p className="text-gray-400 text-sm mb-1">Next Delivery</p>
-                  <p className="text-white text-xl font-bold">
+                  <p className="text-foreground text-xl font-bold">
                     {new Date(subscription.nextDelivery).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
                   </p>
                 </div>
@@ -323,13 +323,13 @@ export default function SubscriptionManagePage() {
 
             {/* Upcoming Deliveries */}
             <Card className="p-6 bg-white/5 border-white/10">
-              <h2 className="text-2xl font-bold text-white mb-6">Upcoming Deliveries</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-6">Upcoming Deliveries</h2>
               <div className="space-y-6">
                 {upcomingDeliveries.map((delivery) => (
                   <Card key={delivery.id} className="p-6 bg-white/5 border-white/10">
                     <div className="flex items-center justify-between mb-4">
                       <div>
-                        <p className="text-white font-bold text-lg">
+                        <p className="text-foreground font-bold text-lg">
                           {new Date(delivery.date).toLocaleDateString("en-US", {
                             weekday: "long",
                             year: "numeric",
@@ -367,7 +367,7 @@ export default function SubscriptionManagePage() {
                               className="w-full aspect-square object-cover rounded-lg"
                             />
                             <div className="mt-2">
-                              <p className="text-white text-sm font-medium line-clamp-2">{item.name}</p>
+                              <p className="text-foreground text-sm font-medium line-clamp-2">{item.name}</p>
                               <p className="text-purple-400 text-sm font-bold">${item.price}</p>
                             </div>
                             {delivery.canModify && (
@@ -392,7 +392,7 @@ export default function SubscriptionManagePage() {
             {/* Preferences */}
             <Card className="p-6 bg-white/5 border-white/10">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-white">Preferences</h2>
+                <h2 className="text-2xl font-bold text-foreground">Preferences</h2>
                 <Button
                   variant="outline"
                   size="sm"
@@ -405,7 +405,7 @@ export default function SubscriptionManagePage() {
 
               <div className="space-y-6">
                 <div>
-                  <Label className="text-white mb-3 block">Product Categories</Label>
+                  <Label className="text-foreground mb-3 block">Product Categories</Label>
                   <div className="flex flex-wrap gap-2">
                     {availableCategories.map((category) => (
                       <Badge
@@ -427,14 +427,14 @@ export default function SubscriptionManagePage() {
                 </div>
 
                 <div>
-                  <Label className="text-white mb-3 block">Price Range per Item</Label>
+                  <Label className="text-foreground mb-3 block">Price Range per Item</Label>
                   <div className="flex items-center gap-4">
                     <div className="flex-1">
                       <Input
                         type="number"
                         value={subscription.preferences.priceRange.min}
                         disabled={!isEditingPreferences}
-                        className="bg-white/10 border-white/20 text-white"
+                        className="bg-white/10 border-white/20 text-foreground"
                       />
                     </div>
                     <span className="text-gray-400">to</span>
@@ -443,14 +443,14 @@ export default function SubscriptionManagePage() {
                         type="number"
                         value={subscription.preferences.priceRange.max}
                         disabled={!isEditingPreferences}
-                        className="bg-white/10 border-white/20 text-white"
+                        className="bg-white/10 border-white/20 text-foreground"
                       />
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <Label className="text-white mb-3 block">Excluded Items</Label>
+                  <Label className="text-foreground mb-3 block">Excluded Items</Label>
                   <div className="flex flex-wrap gap-2">
                     {subscription.preferences.excludedItems.map((item) => (
                       <Badge key={item} className="bg-red-500/20 text-red-400 border-red-500/30">
@@ -474,7 +474,7 @@ export default function SubscriptionManagePage() {
           <div className="space-y-6">
             {/* Stats */}
             <Card className="p-6 bg-white/5 border-white/10">
-              <h3 className="text-xl font-bold text-white mb-4">Subscription Stats</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">Subscription Stats</h3>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -483,7 +483,7 @@ export default function SubscriptionManagePage() {
                     </div>
                     <div>
                       <p className="text-gray-400 text-sm">Total Deliveries</p>
-                      <p className="text-white text-xl font-bold">{subscription.totalDeliveries}</p>
+                      <p className="text-foreground text-xl font-bold">{subscription.totalDeliveries}</p>
                     </div>
                   </div>
                 </div>
@@ -495,7 +495,7 @@ export default function SubscriptionManagePage() {
                     </div>
                     <div>
                       <p className="text-gray-400 text-sm">Total Saved</p>
-                      <p className="text-white text-xl font-bold">${subscription.savedAmount}</p>
+                      <p className="text-foreground text-xl font-bold">${subscription.savedAmount}</p>
                     </div>
                   </div>
                 </div>
@@ -507,7 +507,7 @@ export default function SubscriptionManagePage() {
                     </div>
                     <div>
                       <p className="text-gray-400 text-sm">Items Received</p>
-                      <p className="text-white text-xl font-bold">{subscription.totalDeliveries * subscription.itemsPerBox}</p>
+                      <p className="text-foreground text-xl font-bold">{subscription.totalDeliveries * subscription.itemsPerBox}</p>
                     </div>
                   </div>
                 </div>
@@ -516,14 +516,14 @@ export default function SubscriptionManagePage() {
 
             {/* Payment Method */}
             <Card className="p-6 bg-white/5 border-white/10">
-              <h3 className="text-xl font-bold text-white mb-4">Payment Method</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">Payment Method</h3>
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <div className="p-3 bg-white/10 rounded-lg">
                     <CreditCard className="w-6 h-6 text-purple-400" />
                   </div>
                   <div>
-                    <p className="text-white font-medium">•••• 4242</p>
+                    <p className="text-foreground font-medium">•••• 4242</p>
                     <p className="text-gray-400 text-sm">Expires 12/26</p>
                   </div>
                 </div>
@@ -538,28 +538,28 @@ export default function SubscriptionManagePage() {
 
             {/* Benefits */}
             <Card className="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-purple-500/30">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-purple-400" />
                 Subscriber Benefits
               </h3>
               <ul className="space-y-3">
-                <li className="flex items-start gap-2 text-white text-sm">
+                <li className="flex items-start gap-2 text-foreground text-sm">
                   <Check className="w-4 h-4 text-green-400 mt-0.5" />
                   <span>15% savings on every box</span>
                 </li>
-                <li className="flex items-start gap-2 text-white text-sm">
+                <li className="flex items-start gap-2 text-foreground text-sm">
                   <Check className="w-4 h-4 text-green-400 mt-0.5" />
                   <span>Free shipping on all deliveries</span>
                 </li>
-                <li className="flex items-start gap-2 text-white text-sm">
+                <li className="flex items-start gap-2 text-foreground text-sm">
                   <Check className="w-4 h-4 text-green-400 mt-0.5" />
                   <span>Exclusive subscriber-only products</span>
                 </li>
-                <li className="flex items-start gap-2 text-white text-sm">
+                <li className="flex items-start gap-2 text-foreground text-sm">
                   <Check className="w-4 h-4 text-green-400 mt-0.5" />
                   <span>Skip or pause anytime</span>
                 </li>
-                <li className="flex items-start gap-2 text-white text-sm">
+                <li className="flex items-start gap-2 text-foreground text-sm">
                   <Check className="w-4 h-4 text-green-400 mt-0.5" />
                   <span>Personalized product curation</span>
                 </li>

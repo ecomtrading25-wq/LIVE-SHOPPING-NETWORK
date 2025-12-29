@@ -90,7 +90,7 @@ export default function OrderTrackingMap() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background p-6">
+    <div className="min-h-screen bg-background p-6 text-foreground">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
@@ -114,7 +114,7 @@ export default function OrderTrackingMap() {
             </div>
 
             {/* Map Placeholder - Replace with actual Google Maps integration */}
-            <div className="relative bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden" style={{ height: '500px' }}>
+            <div className="relative bg-gray-100 dark:bg-card rounded-lg overflow-hidden text-card-foreground" style={{ height: '500px' }}>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center space-y-4">
                   <MapPin className="w-16 h-16 text-purple-500 mx-auto" />
@@ -145,7 +145,7 @@ export default function OrderTrackingMap() {
               </svg>
 
               {/* ETA Badge */}
-              <div className="absolute top-4 left-4 bg-white dark:bg-gray-900 rounded-lg shadow-lg p-3">
+              <div className="absolute top-4 left-4 bg-white dark:bg-background rounded-lg shadow-lg p-3 text-foreground">
                 <div className="text-sm text-muted-foreground">Estimated Arrival</div>
                 <div className="text-2xl font-bold text-purple-600">{trackingData.estimatedArrival}</div>
               </div>
@@ -161,7 +161,7 @@ export default function OrderTrackingMap() {
                       milestone.completed ? 'bg-green-600' : 'bg-gray-600'
                     }`}>
                       {milestone.completed ? (
-                        <CheckCircle2 className="w-6 h-6 text-white" />
+                        <CheckCircle2 className="w-6 h-6 text-foreground" />
                       ) : (
                         <div className="w-3 h-3 bg-white rounded-full" />
                       )}
@@ -188,7 +188,7 @@ export default function OrderTrackingMap() {
               </h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                  <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-foreground font-bold text-lg">
                     {trackingData.driver.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div className="flex-1">

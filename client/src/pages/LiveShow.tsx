@@ -15,12 +15,12 @@ export default function LiveShow() {
   const [isFollowing, setIsFollowing] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="grid lg:grid-cols-[1fr_400px] gap-4 p-4 h-screen">
         {/* Main Video Area */}
         <div className="space-y-4">
-          <Card className="relative aspect-video bg-black rounded-lg overflow-hidden">
-            <div className="absolute inset-0 flex items-center justify-center text-white">
+          <Card className="relative aspect-video bg-background rounded-lg overflow-hidden text-foreground">
+            <div className="absolute inset-0 flex items-center justify-center text-foreground">
               <div className="text-center">
                 <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-red-500 animate-pulse flex items-center justify-center">
                   <span className="text-2xl font-bold">LIVE</span>
@@ -31,18 +31,18 @@ export default function LiveShow() {
 
             {/* Live Overlay */}
             <div className="absolute top-4 left-4 flex gap-2">
-              <Badge className="bg-red-500 text-white">
+              <Badge className="bg-red-500 text-foreground">
                 <span className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></span>
                 LIVE
               </Badge>
-              <Badge variant="secondary" className="bg-black/50 text-white">
+              <Badge variant="secondary" className="bg-background/50 text-foreground">
                 <Users className="w-3 h-3 mr-1" />
                 1,245 watching
               </Badge>
             </div>
 
             <div className="absolute top-4 right-4 flex gap-2">
-              <Button size="sm" variant="secondary" className="bg-black/50 hover:bg-black/70">
+              <Button size="sm" variant="secondary" className="bg-background/50 hover:bg-background/70 text-foreground">
                 <Share2 className="w-4 h-4" />
               </Button>
             </div>

@@ -202,15 +202,15 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="text-white text-2xl">Loading show...</div>
+      <div className="min-h-screen bg-background flex items-center justify-center text-foreground">
+        <div className="text-foreground text-2xl">Loading show...</div>
       </div>
     );
   }
 
   if (!show) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center text-foreground">
         <Card className="p-8 max-w-md">
           <AlertCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-center mb-2">Show Not Found</h2>
@@ -226,10 +226,10 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
   }
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-black">
+    <div ref={containerRef} className="min-h-screen bg-background text-foreground">
       <div className="h-screen flex flex-col lg:flex-row">
         {/* Main Video Area - Left Side */}
-        <div className="flex-1 relative bg-black">
+        <div className="flex-1 relative bg-background text-foreground">
           {/* Video Player */}
           <div className="relative w-full h-full">
             {show.streamUrl ? (
@@ -242,10 +242,10 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-900 to-pink-900">
-                <div className="text-center text-white">
+                <div className="text-center text-foreground">
                   <Play className="w-24 h-24 mx-auto mb-4 opacity-50" />
                   <p className="text-2xl font-bold mb-2">Stream Starting Soon</p>
-                  <p className="text-gray-300">The host will begin shortly</p>
+                  <p className="text-muted-foreground">The host will begin shortly</p>
                 </div>
               </div>
             )}
@@ -254,10 +254,10 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
             <div className="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-black/80 to-transparent">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <Badge className="bg-red-600 text-white px-3 py-1 text-sm font-bold animate-pulse">
+                  <Badge className="bg-red-600 text-foreground px-3 py-1 text-sm font-bold animate-pulse">
                     ● LIVE
                   </Badge>
-                  <div className="flex items-center gap-2 text-white">
+                  <div className="flex items-center gap-2 text-foreground">
                     <Eye className="w-5 h-5" />
                     <span className="font-bold">{viewerCount.toLocaleString()}</span>
                   </div>
@@ -267,7 +267,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
                     variant="ghost"
                     size="icon"
                     onClick={() => navigate("/")}
-                    className="text-white hover:bg-white/20"
+                    className="text-foreground hover:bg-white/20"
                   >
                     <X className="w-5 h-5" />
                   </Button>
@@ -276,25 +276,25 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
 
               {/* Host Info */}
               <div className="mt-4 flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-white font-bold text-xl">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-foreground font-bold text-xl">
                   {show.hostName?.charAt(0) || "H"}
                 </div>
                 <div>
-                  <h2 className="text-white font-bold text-lg">{show.hostName}</h2>
-                  <p className="text-gray-300 text-sm">{show.title}</p>
+                  <h2 className="text-foreground font-bold text-lg">{show.hostName}</h2>
+                  <p className="text-muted-foreground text-sm">{show.title}</p>
                 </div>
               </div>
             </div>
 
             {/* Video Controls - Bottom */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/30 to-transparent">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <Button
                     variant="ghost"
                     size="icon"
                     onClick={togglePlay}
-                    className="text-white hover:bg-white/20"
+                    className="text-foreground hover:bg-white/20"
                   >
                     {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
                   </Button>
@@ -302,7 +302,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
                     variant="ghost"
                     size="icon"
                     onClick={toggleMute}
-                    className="text-white hover:bg-white/20"
+                    className="text-foreground hover:bg-white/20"
                   >
                     {isMuted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
                   </Button>
@@ -311,7 +311,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
                   variant="ghost"
                   size="icon"
                   onClick={toggleFullscreen}
-                  className="text-white hover:bg-white/20"
+                  className="text-foreground hover:bg-white/20"
                 >
                   <Maximize className="w-6 h-6" />
                 </Button>
@@ -324,7 +324,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
                 variant="ghost"
                 size="icon"
                 onClick={() => toggleLikeMutation.mutate({ showId })}
-                className={`rounded-full w-14 h-14 ${hasLiked ? "bg-red-500 text-white" : "bg-white/20 text-white"} hover:bg-red-600`}
+                className={`rounded-full w-14 h-14 ${hasLiked ? "bg-red-500 text-foreground" : "bg-white/20 text-foreground"} hover:bg-red-600`}
               >
                 <div className="flex flex-col items-center">
                   <Heart className={`w-6 h-6 ${hasLiked ? "fill-current" : ""}`} />
@@ -335,7 +335,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full w-14 h-14 bg-white/20 text-white hover:bg-white/30"
+                className="rounded-full w-14 h-14 bg-white/20 text-foreground hover:bg-white/30"
                 onClick={() => {
                   navigator.share?.({
                     title: show.title,
@@ -350,7 +350,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full w-14 h-14 bg-white/20 text-white hover:bg-white/30"
+                className="rounded-full w-14 h-14 bg-white/20 text-foreground hover:bg-white/30"
                 onClick={() => handleSendGift("star", 100)}
               >
                 <Gift className="w-6 h-6" />
@@ -360,11 +360,11 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
         </div>
 
         {/* Right Sidebar - Products & Chat */}
-        <div className="w-full lg:w-96 xl:w-[28rem] bg-gray-900 flex flex-col">
+        <div className="w-full lg:w-96 xl:w-[28rem] bg-background flex flex-col text-foreground">
           {/* Pinned Products Section */}
-          <div className="border-b border-gray-800">
+          <div className="border-b border-border">
             <div className="p-4 bg-gradient-to-r from-pink-600 to-purple-600">
-              <h3 className="text-white font-bold text-lg flex items-center gap-2">
+              <h3 className="text-foreground font-bold text-lg flex items-center gap-2">
                 <Zap className="w-5 h-5" />
                 Featured Products
               </h3>
@@ -387,7 +387,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
                       onClick={() => setSelectedProduct(product)}
                     >
                       <div className="flex gap-3">
-                        <div className="w-20 h-20 rounded-lg overflow-hidden bg-gray-800 flex-shrink-0">
+                        <div className="w-20 h-20 rounded-lg overflow-hidden bg-card flex-shrink-0 text-card-foreground">
                           {product.imageUrl ? (
                             <img 
                               src={product.imageUrl} 
@@ -402,7 +402,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
                         </div>
 
                         <div className="flex-1 min-w-0">
-                          <h4 className="text-white font-semibold text-sm mb-1 truncate">
+                          <h4 className="text-foreground font-semibold text-sm mb-1 truncate">
                             {product.name}
                           </h4>
                           
@@ -416,13 +416,13 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
                                 <span className="text-pink-500 font-bold text-lg">
                                   ${item.livePrice}
                                 </span>
-                                <Badge className="bg-red-600 text-white text-xs">
+                                <Badge className="bg-red-600 text-foreground text-xs">
                                   {Math.round((1 - item.livePrice / product.price) * 100)}% OFF
                                 </Badge>
                               </>
                             )}
                             {!item.livePriceDropActive && (
-                              <span className="text-white font-bold text-lg">
+                              <span className="text-foreground font-bold text-lg">
                                 ${product.price}
                               </span>
                             )}
@@ -435,11 +435,11 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
                                 SOLD OUT
                               </Badge>
                             ) : isLowStock ? (
-                              <Badge variant="secondary" className="text-xs bg-yellow-600 text-white">
+                              <Badge variant="secondary" className="text-xs bg-yellow-600 text-foreground">
                                 Only {stock?.available} left!
                               </Badge>
                             ) : (
-                              <Badge variant="secondary" className="text-xs bg-green-600 text-white">
+                              <Badge variant="secondary" className="text-xs bg-green-600 text-foreground">
                                 <CheckCircle className="w-3 h-3 mr-1" />
                                 In Stock
                               </Badge>
@@ -452,7 +452,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
                                 handleAddToCart(product);
                               }}
                               disabled={isOutOfStock}
-                              className="bg-pink-600 hover:bg-pink-700 text-white"
+                              className="bg-pink-600 hover:bg-pink-700 text-foreground"
                             >
                               <ShoppingCart className="w-4 h-4 mr-1" />
                               Add
@@ -486,8 +486,8 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
 
           {/* Chat Section */}
           <div className="flex-1 flex flex-col">
-            <div className="p-4 border-b border-gray-800 bg-gray-800">
-              <h3 className="text-white font-bold flex items-center gap-2">
+            <div className="p-4 border-b border-border bg-card text-card-foreground">
+              <h3 className="text-foreground font-bold flex items-center gap-2">
                 <MessageCircle className="w-5 h-5" />
                 Live Chat
                 <Badge variant="secondary" className="ml-auto">
@@ -501,22 +501,22 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
               <div className="space-y-3">
                 {messages.map((msg, idx) => (
                   <div key={idx} className="flex gap-2">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-foreground font-bold text-sm flex-shrink-0">
                       {msg.userName?.charAt(0) || "?"}
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-white font-semibold text-sm">
+                        <span className="text-foreground font-semibold text-sm">
                           {msg.userName || "Anonymous"}
                         </span>
                         {msg.isHost && (
-                          <Badge className="bg-pink-600 text-white text-xs">HOST</Badge>
+                          <Badge className="bg-pink-600 text-foreground text-xs">HOST</Badge>
                         )}
                         {msg.isVIP && (
-                          <Badge className="bg-yellow-600 text-white text-xs">VIP</Badge>
+                          <Badge className="bg-yellow-600 text-foreground text-xs">VIP</Badge>
                         )}
                       </div>
-                      <p className="text-gray-300 text-sm break-words">{msg.message}</p>
+                      <p className="text-muted-foreground text-sm break-words">{msg.message}</p>
                     </div>
                   </div>
                 ))}
@@ -532,7 +532,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
             </ScrollArea>
 
             {/* Chat Input */}
-            <div className="p-4 border-t border-gray-800 bg-gray-800">
+            <div className="p-4 border-t border-border bg-card text-card-foreground">
               {user ? (
                 <div className="flex gap-2">
                   <Input
@@ -540,7 +540,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
                     onChange={(e) => setChatMessage(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Say something..."
-                    className="flex-1 bg-gray-700 border-gray-600 text-white placeholder:text-gray-400"
+                    className="flex-1 bg-gray-700 border-gray-600 text-foreground placeholder:text-gray-400"
                   />
                   <Button
                     onClick={handleSendMessage}
@@ -563,9 +563,9 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
 
           {/* Cart Summary */}
           {cartItems.size > 0 && (
-            <div className="p-4 border-t border-gray-800 bg-gradient-to-r from-pink-600 to-purple-600">
+            <div className="p-4 border-t border-border bg-gradient-to-r from-pink-600 to-purple-600">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-white font-bold">
+                <span className="text-foreground font-bold">
                   {Array.from(cartItems.values()).reduce((a, b) => a + b, 0)} items in cart
                 </span>
                 <Button

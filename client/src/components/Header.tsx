@@ -116,7 +116,7 @@ export default function Header() {
 
             <AdminNav />
 
-            <div className="w-px h-6 bg-black mx-2"></div>
+            <div className="w-px h-6 bg-background mx-2 text-foreground"></div>
 
             {/* Notification Bell */}
             <NotificationCenter />
@@ -133,7 +133,7 @@ export default function Header() {
               <Link href="/cart">
                 <ShoppingCart className="w-5 h-5" />
                 {cartCount > 0 && (
-                  <Badge className="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center p-0 bg-[#E42313] text-white text-xs">
+                  <Badge className="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center p-0 bg-[#E42313] text-foreground text-xs">
                     {cartCount > 9 ? "9+" : cartCount}
                   </Badge>
                 )}
@@ -151,7 +151,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-white"
+            className="md:hidden text-foreground"
           >
             {mobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -170,7 +170,7 @@ export default function Header() {
               placeholder="Search products..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-12 bg-zinc-800 border-zinc-700 text-white h-10"
+              className="pl-12 bg-card border-zinc-700 text-foreground h-10"
             />
           </div>
         </form>
@@ -178,11 +178,11 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-zinc-800 bg-zinc-900">
+        <div className="md:hidden border-t border-border bg-background text-foreground">
           <div className="container mx-auto px-4 py-4 space-y-2">
             <Button
               variant="ghost"
-              className="w-full justify-start text-gray-300 hover:text-white"
+              className="w-full justify-start text-muted-foreground hover:text-foreground"
               onClick={() => setMobileMenuOpen(false)}
               asChild
             >
@@ -194,7 +194,7 @@ export default function Header() {
 
             <Button
               variant="ghost"
-              className="w-full justify-start text-gray-300 hover:text-white"
+              className="w-full justify-start text-muted-foreground hover:text-foreground"
               onClick={() => setMobileMenuOpen(false)}
               asChild
             >
@@ -206,7 +206,7 @@ export default function Header() {
 
             <Button
               variant="ghost"
-              className="w-full justify-start text-gray-300 hover:text-white"
+              className="w-full justify-start text-muted-foreground hover:text-foreground"
               onClick={() => setMobileMenuOpen(false)}
               asChild
             >
@@ -218,7 +218,7 @@ export default function Header() {
 
             <Button
               variant="ghost"
-              className="w-full justify-start text-gray-300 hover:text-white"
+              className="w-full justify-start text-muted-foreground hover:text-foreground"
               onClick={() => setMobileMenuOpen(false)}
               asChild
             >
@@ -230,7 +230,7 @@ export default function Header() {
 
             <Button
               variant="ghost"
-              className="w-full justify-start text-gray-300 hover:text-white"
+              className="w-full justify-start text-muted-foreground hover:text-foreground"
               onClick={() => setMobileMenuOpen(false)}
               asChild
             >
@@ -242,7 +242,7 @@ export default function Header() {
 
             <Button
               variant="ghost"
-              className="w-full justify-start text-gray-300 hover:text-white"
+              className="w-full justify-start text-muted-foreground hover:text-foreground"
               onClick={() => setMobileMenuOpen(false)}
               asChild
             >
@@ -254,7 +254,7 @@ export default function Header() {
 
             <Button
               variant="ghost"
-              className="w-full justify-start text-gray-300 hover:text-white"
+              className="w-full justify-start text-muted-foreground hover:text-foreground"
               onClick={() => setMobileMenuOpen(false)}
               asChild
             >
@@ -266,7 +266,7 @@ export default function Header() {
 
             <Button
               variant="ghost"
-              className="w-full justify-start text-gray-300 hover:text-white"
+              className="w-full justify-start text-muted-foreground hover:text-foreground"
               onClick={() => setMobileMenuOpen(false)}
               asChild
             >
@@ -278,7 +278,7 @@ export default function Header() {
 
             <Button
               variant="ghost"
-              className="w-full justify-start text-gray-300 hover:text-white relative"
+              className="w-full justify-start text-muted-foreground hover:text-foreground relative"
               onClick={() => setMobileMenuOpen(false)}
               asChild
             >
@@ -295,7 +295,7 @@ export default function Header() {
 
             <Button
               variant="ghost"
-              className="w-full justify-start text-gray-300 hover:text-white"
+              className="w-full justify-start text-muted-foreground hover:text-foreground"
               onClick={() => setMobileMenuOpen(false)}
               asChild
             >

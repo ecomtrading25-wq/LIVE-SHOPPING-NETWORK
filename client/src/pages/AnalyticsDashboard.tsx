@@ -201,7 +201,7 @@ function AnalyticsDashboardContent() {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h1 className="text-4xl font-bold text-white">Analytics Dashboard</h1>
+              <h1 className="text-4xl font-bold text-foreground">Analytics Dashboard</h1>
               <p className="text-gray-400 mt-1">Real-time business intelligence</p>
             </div>
             <div className="flex items-center gap-2">
@@ -209,7 +209,7 @@ function AnalyticsDashboardContent() {
                 variant={timeRange === "today" ? "default" : "outline"}
                 onClick={() => setTimeRange("today")}
                 size="sm"
-                className={timeRange === "today" ? "bg-purple-600" : "border-gray-700"}
+                className={timeRange === "today" ? "bg-purple-600" : "border-border"}
               >
                 Today
               </Button>
@@ -217,7 +217,7 @@ function AnalyticsDashboardContent() {
                 variant={timeRange === "week" ? "default" : "outline"}
                 onClick={() => setTimeRange("week")}
                 size="sm"
-                className={timeRange === "week" ? "bg-purple-600" : "border-gray-700"}
+                className={timeRange === "week" ? "bg-purple-600" : "border-border"}
               >
                 Week
               </Button>
@@ -225,7 +225,7 @@ function AnalyticsDashboardContent() {
                 variant={timeRange === "month" ? "default" : "outline"}
                 onClick={() => setTimeRange("month")}
                 size="sm"
-                className={timeRange === "month" ? "bg-purple-600" : "border-gray-700"}
+                className={timeRange === "month" ? "bg-purple-600" : "border-border"}
               >
                 Month
               </Button>
@@ -233,11 +233,11 @@ function AnalyticsDashboardContent() {
                 variant={timeRange === "year" ? "default" : "outline"}
                 onClick={() => setTimeRange("year")}
                 size="sm"
-                className={timeRange === "year" ? "bg-purple-600" : "border-gray-700"}
+                className={timeRange === "year" ? "bg-purple-600" : "border-border"}
               >
                 Year
               </Button>
-              <Button variant="outline" size="sm" className="border-gray-700 ml-2">
+              <Button variant="outline" size="sm" className="border-border ml-2">
                 <Download className="w-4 h-4 mr-2" />
                 Export
               </Button>
@@ -255,7 +255,7 @@ function AnalyticsDashboardContent() {
               {getChangeIcon(metrics.revenue.change)}
             </div>
             <p className="text-gray-400 text-sm mb-1">Total Revenue</p>
-            <p className="text-3xl font-bold text-white mb-2">
+            <p className="text-3xl font-bold text-foreground mb-2">
               {formatCurrency(metrics.revenue.current)}
             </p>
             <div className="flex items-center gap-2">
@@ -274,7 +274,7 @@ function AnalyticsDashboardContent() {
               {getChangeIcon(metrics.orders.change)}
             </div>
             <p className="text-gray-400 text-sm mb-1">Total Orders</p>
-            <p className="text-3xl font-bold text-white mb-2">
+            <p className="text-3xl font-bold text-foreground mb-2">
               {metrics.orders.current.toLocaleString()}
             </p>
             <div className="flex items-center gap-2">
@@ -293,7 +293,7 @@ function AnalyticsDashboardContent() {
               {getChangeIcon(metrics.customers.change)}
             </div>
             <p className="text-gray-400 text-sm mb-1">Total Customers</p>
-            <p className="text-3xl font-bold text-white mb-2">
+            <p className="text-3xl font-bold text-foreground mb-2">
               {metrics.customers.current.toLocaleString()}
             </p>
             <div className="flex items-center gap-2">
@@ -312,7 +312,7 @@ function AnalyticsDashboardContent() {
               {getChangeIcon(metrics.conversionRate.change)}
             </div>
             <p className="text-gray-400 text-sm mb-1">Conversion Rate</p>
-            <p className="text-3xl font-bold text-white mb-2">
+            <p className="text-3xl font-bold text-foreground mb-2">
               {metrics.conversionRate.current}%
             </p>
             <div className="flex items-center gap-2">
@@ -328,7 +328,7 @@ function AnalyticsDashboardContent() {
           {/* Top Products */}
           <Card className="p-6 bg-white/5 border-white/10">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-bold text-white">Top Products</h3>
+              <h3 className="text-xl font-bold text-foreground">Top Products</h3>
               <Package className="w-5 h-5 text-purple-400" />
             </div>
             <div className="space-y-4">
@@ -343,13 +343,13 @@ function AnalyticsDashboardContent() {
                     </span>
                   </div>
                   <div className="flex-1">
-                    <p className="text-white font-medium">{product.name}</p>
+                    <p className="text-foreground font-medium">{product.name}</p>
                     <p className="text-sm text-gray-400">
                       {product.sales} sales
                     </p>
                   </div>
                   <div className="text-right">
-                    <p className="text-white font-bold">
+                    <p className="text-foreground font-bold">
                       {formatCurrency(product.revenue)}
                     </p>
                   </div>
@@ -361,7 +361,7 @@ function AnalyticsDashboardContent() {
           {/* Customer Segments */}
           <Card className="p-6 bg-white/5 border-white/10">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-bold text-white">Customer Segments</h3>
+              <h3 className="text-xl font-bold text-foreground">Customer Segments</h3>
               <Users className="w-5 h-5 text-purple-400" />
             </div>
             <div className="space-y-4">
@@ -382,15 +382,15 @@ function AnalyticsDashboardContent() {
                       >
                         {segment.name}
                       </Badge>
-                      <span className="text-white font-medium">
+                      <span className="text-foreground font-medium">
                         {segment.count} customers
                       </span>
                     </div>
-                    <span className="text-white font-bold">
+                    <span className="text-foreground font-bold">
                       {formatCurrency(segment.revenue)}
                     </span>
                   </div>
-                  <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div className="h-2 bg-card rounded-full overflow-hidden text-card-foreground">
                     <div
                       className={`h-full ${
                         segment.name === "VIP"
@@ -415,7 +415,7 @@ function AnalyticsDashboardContent() {
           {/* Sales Trend Line Chart */}
           <Card className="p-6 bg-white/5 border-white/10">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-bold text-white">Sales Trend</h3>
+              <h3 className="text-xl font-bold text-foreground">Sales Trend</h3>
               <TrendingUp className="w-5 h-5 text-purple-400" />
             </div>
             <div className="h-64">
@@ -426,7 +426,7 @@ function AnalyticsDashboardContent() {
           {/* Top Products Bar Chart */}
           <Card className="p-6 bg-white/5 border-white/10">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-bold text-white">Product Performance</h3>
+              <h3 className="text-xl font-bold text-foreground">Product Performance</h3>
               <Package className="w-5 h-5 text-purple-400" />
             </div>
             <div className="h-64">
@@ -437,7 +437,7 @@ function AnalyticsDashboardContent() {
           {/* Customer Segment Pie Chart */}
           <Card className="p-6 bg-white/5 border-white/10">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-bold text-white">Customer Distribution</h3>
+              <h3 className="text-xl font-bold text-foreground">Customer Distribution</h3>
               <Users className="w-5 h-5 text-purple-400" />
             </div>
             <div className="h-64 flex items-center justify-center">
@@ -450,7 +450,7 @@ function AnalyticsDashboardContent() {
           {/* Revenue Breakdown Doughnut Chart */}
           <Card className="p-6 bg-white/5 border-white/10">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-bold text-white">Revenue Sources</h3>
+              <h3 className="text-xl font-bold text-foreground">Revenue Sources</h3>
               <DollarSign className="w-5 h-5 text-purple-400" />
             </div>
             <div className="h-64 flex items-center justify-center">

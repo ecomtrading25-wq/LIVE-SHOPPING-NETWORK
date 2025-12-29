@@ -28,8 +28,8 @@ export default function ForgotPasswordPage() {
           <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
             <CheckCircle className="w-8 h-8 text-green-500" />
           </div>
-          <h1 className="text-2xl font-bold text-white mb-2">Check Your Email</h1>
-          <p className="text-gray-300 mb-6">
+          <h1 className="text-2xl font-bold text-foreground mb-2">Check Your Email</h1>
+          <p className="text-muted-foreground mb-6">
             We've sent a password reset link to <strong>{email}</strong>
           </p>
           <p className="text-sm text-gray-400 mb-6">
@@ -51,17 +51,17 @@ export default function ForgotPasswordPage() {
       <Card className="w-full max-w-md p-8 bg-white/10 backdrop-blur-xl border-white/20">
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Mail className="w-8 h-8 text-white" />
+            <Mail className="w-8 h-8 text-foreground" />
           </div>
-          <h1 className="text-3xl font-bold text-white mb-2">Forgot Password?</h1>
-          <p className="text-gray-300">
+          <h1 className="text-3xl font-bold text-foreground mb-2">Forgot Password?</h1>
+          <p className="text-muted-foreground">
             No worries! Enter your email and we'll send you reset instructions.
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="text-sm font-medium text-white mb-2 block">
+            <label className="text-sm font-medium text-foreground mb-2 block">
               Email Address
             </label>
             <div className="relative">
@@ -71,7 +71,7 @@ export default function ForgotPasswordPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
-                className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
                 required
               />
             </div>

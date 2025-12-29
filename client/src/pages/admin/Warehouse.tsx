@@ -110,7 +110,7 @@ export default function WarehousePage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Warehouse Management</h1>
+          <h1 className="text-3xl font-bold text-foreground">Warehouse Management</h1>
           <p className="text-gray-400 mt-1">Configure zones, bins, and layouts</p>
         </div>
         <Dialog open={newWarehouseOpen} onOpenChange={setNewWarehouseOpen}>
@@ -120,37 +120,37 @@ export default function WarehousePage() {
               New Warehouse
             </Button>
           </DialogTrigger>
-          <DialogContent className="bg-zinc-900 border-zinc-800">
+          <DialogContent className="bg-background border-border text-foreground">
             <DialogHeader>
-              <DialogTitle className="text-white">Create Warehouse</DialogTitle>
+              <DialogTitle className="text-foreground">Create Warehouse</DialogTitle>
             </DialogHeader>
             <form onSubmit={handleCreateWarehouse} className="space-y-4">
               <div>
                 <label className="text-sm text-gray-400 mb-2 block">Name</label>
-                <Input name="name" required className="bg-zinc-800 border-zinc-700" />
+                <Input name="name" required className="bg-card border-zinc-700 text-card-foreground" />
               </div>
               <div>
                 <label className="text-sm text-gray-400 mb-2 block">Address</label>
-                <Input name="address" required className="bg-zinc-800 border-zinc-700" />
+                <Input name="address" required className="bg-card border-zinc-700 text-card-foreground" />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm text-gray-400 mb-2 block">City</label>
-                  <Input name="city" required className="bg-zinc-800 border-zinc-700" />
+                  <Input name="city" required className="bg-card border-zinc-700 text-card-foreground" />
                 </div>
                 <div>
                   <label className="text-sm text-gray-400 mb-2 block">State</label>
-                  <Input name="state" required className="bg-zinc-800 border-zinc-700" />
+                  <Input name="state" required className="bg-card border-zinc-700 text-card-foreground" />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm text-gray-400 mb-2 block">ZIP</label>
-                  <Input name="zip" required className="bg-zinc-800 border-zinc-700" />
+                  <Input name="zip" required className="bg-card border-zinc-700 text-card-foreground" />
                 </div>
                 <div>
                   <label className="text-sm text-gray-400 mb-2 block">Country</label>
-                  <Input name="country" required className="bg-zinc-800 border-zinc-700" />
+                  <Input name="country" required className="bg-card border-zinc-700 text-card-foreground" />
                 </div>
               </div>
               <Button type="submit" className="w-full">
@@ -169,7 +169,7 @@ export default function WarehousePage() {
             className={`p-6 cursor-pointer transition-all ${
               selectedWarehouse === warehouse.id
                 ? "bg-purple-600 border-purple-500"
-                : "bg-zinc-900 border-zinc-800 hover:bg-zinc-800"
+                : "bg-background border-border hover:bg-card"
             }`}
             onClick={() => setSelectedWarehouse(warehouse.id)}
           >
@@ -184,13 +184,13 @@ export default function WarehousePage() {
                 <WarehouseIcon
                   className={`w-6 h-6 ${
                     selectedWarehouse === warehouse.id
-                      ? "text-white"
+                      ? "text-foreground"
                       : "text-purple-400"
                   }`}
                 />
               </div>
               <div className="flex-1">
-                <h3 className="font-semibold text-white">{warehouse.name}</h3>
+                <h3 className="font-semibold text-foreground">{warehouse.name}</h3>
                 <p className="text-sm text-gray-400 mt-1">{warehouse.address}</p>
                 <p className="text-sm text-gray-400">
                   {warehouse.city}, {warehouse.state}
@@ -204,9 +204,9 @@ export default function WarehousePage() {
       {selectedWarehouse && (
         <>
           {/* Zones Section */}
-          <Card className="p-6 bg-zinc-900 border-zinc-800">
+          <Card className="p-6 bg-background border-border text-foreground">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-white">Zones</h2>
+              <h2 className="text-xl font-bold text-foreground">Zones</h2>
               <Dialog open={newZoneOpen} onOpenChange={setNewZoneOpen}>
                 <DialogTrigger asChild>
                   <Button variant="outline">
@@ -214,9 +214,9 @@ export default function WarehousePage() {
                     New Zone
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="bg-zinc-900 border-zinc-800">
+                <DialogContent className="bg-background border-border text-foreground">
                   <DialogHeader>
-                    <DialogTitle className="text-white">Create Zone</DialogTitle>
+                    <DialogTitle className="text-foreground">Create Zone</DialogTitle>
                   </DialogHeader>
                   <form onSubmit={handleCreateZone} className="space-y-4">
                     <div>
@@ -225,7 +225,7 @@ export default function WarehousePage() {
                         name="name"
                         required
                         placeholder="e.g., Pick Zone A"
-                        className="bg-zinc-800 border-zinc-700"
+                        className="bg-card border-zinc-700 text-card-foreground"
                       />
                     </div>
                     <div>
@@ -233,7 +233,7 @@ export default function WarehousePage() {
                       <select
                         name="type"
                         required
-                        className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white"
+                        className="w-full px-3 py-2 bg-card border border-zinc-700 rounded-md text-foreground"
                       >
                         <option value="pick">Pick Zone</option>
                         <option value="pack">Pack Zone</option>
@@ -250,7 +250,7 @@ export default function WarehousePage() {
                         type="number"
                         required
                         placeholder="100"
-                        className="bg-zinc-800 border-zinc-700"
+                        className="bg-card border-zinc-700 text-card-foreground"
                       />
                     </div>
                     <Button type="submit" className="w-full">
@@ -263,13 +263,13 @@ export default function WarehousePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {zones?.map((zone) => (
-                <Card key={zone.id} className="p-4 bg-zinc-800 border-zinc-700">
+                <Card key={zone.id} className="p-4 bg-card border-zinc-700 text-card-foreground">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
                       <Grid className="w-5 h-5 text-blue-400" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white">{zone.name}</h4>
+                      <h4 className="font-semibold text-foreground">{zone.name}</h4>
                       <Badge variant="secondary" className="text-xs mt-1">
                         {zone.type}
                       </Badge>
@@ -284,9 +284,9 @@ export default function WarehousePage() {
           </Card>
 
           {/* Bins Section */}
-          <Card className="p-6 bg-zinc-900 border-zinc-800">
+          <Card className="p-6 bg-background border-border text-foreground">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-white">Bins</h2>
+              <h2 className="text-xl font-bold text-foreground">Bins</h2>
               <div className="flex gap-4">
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -294,7 +294,7 @@ export default function WarehousePage() {
                     placeholder="Search bins..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-10 bg-zinc-800 border-zinc-700"
+                    className="pl-10 bg-card border-zinc-700 text-card-foreground"
                   />
                 </div>
                 <Dialog open={newBinOpen} onOpenChange={setNewBinOpen}>
@@ -304,9 +304,9 @@ export default function WarehousePage() {
                       New Bin
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="bg-zinc-900 border-zinc-800">
+                  <DialogContent className="bg-background border-border text-foreground">
                     <DialogHeader>
-                      <DialogTitle className="text-white">Create Bin</DialogTitle>
+                      <DialogTitle className="text-foreground">Create Bin</DialogTitle>
                     </DialogHeader>
                     <form onSubmit={handleCreateBin} className="space-y-4">
                       <div>
@@ -314,7 +314,7 @@ export default function WarehousePage() {
                         <select
                           name="zoneId"
                           required
-                          className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white"
+                          className="w-full px-3 py-2 bg-card border border-zinc-700 rounded-md text-foreground"
                         >
                           {zones?.map((zone) => (
                             <option key={zone.id} value={zone.id}>
@@ -331,7 +331,7 @@ export default function WarehousePage() {
                           name="code"
                           required
                           placeholder="A1-001"
-                          className="bg-zinc-800 border-zinc-700"
+                          className="bg-card border-zinc-700 text-card-foreground"
                         />
                       </div>
                       <div className="grid grid-cols-3 gap-4">
@@ -343,7 +343,7 @@ export default function WarehousePage() {
                             name="aisle"
                             required
                             placeholder="A"
-                            className="bg-zinc-800 border-zinc-700"
+                            className="bg-card border-zinc-700 text-card-foreground"
                           />
                         </div>
                         <div>
@@ -354,7 +354,7 @@ export default function WarehousePage() {
                             name="shelf"
                             required
                             placeholder="1"
-                            className="bg-zinc-800 border-zinc-700"
+                            className="bg-card border-zinc-700 text-card-foreground"
                           />
                         </div>
                         <div>
@@ -365,7 +365,7 @@ export default function WarehousePage() {
                             name="position"
                             required
                             placeholder="001"
-                            className="bg-zinc-800 border-zinc-700"
+                            className="bg-card border-zinc-700 text-card-foreground"
                           />
                         </div>
                       </div>
@@ -381,7 +381,7 @@ export default function WarehousePage() {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-zinc-800">
+                  <tr className="border-b border-border">
                     <th className="text-left py-3 px-4 text-sm font-medium text-gray-400">
                       Bin Code
                     </th>
@@ -401,14 +401,14 @@ export default function WarehousePage() {
                 </thead>
                 <tbody>
                   {bins?.map((bin) => (
-                    <tr key={bin.id} className="border-b border-zinc-800">
+                    <tr key={bin.id} className="border-b border-border">
                       <td className="py-3 px-4">
                         <div className="flex items-center gap-2">
                           <MapPin className="w-4 h-4 text-purple-400" />
-                          <span className="font-mono text-white">{bin.code}</span>
+                          <span className="font-mono text-foreground">{bin.code}</span>
                         </div>
                       </td>
-                      <td className="py-3 px-4 text-gray-300">{bin.zoneName}</td>
+                      <td className="py-3 px-4 text-muted-foreground">{bin.zoneName}</td>
                       <td className="py-3 px-4 text-gray-400">
                         {bin.aisle}-{bin.shelf}-{bin.position}
                       </td>

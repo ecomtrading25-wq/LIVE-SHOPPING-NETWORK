@@ -92,62 +92,62 @@ export default function FulfillmentPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-white">Fulfillment</h1>
+        <h1 className="text-3xl font-bold text-foreground">Fulfillment</h1>
         <p className="text-gray-400 mt-1">Manage pick, pack, and ship operations</p>
       </div>
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-yellow-500/10 rounded-lg flex items-center justify-center">
               <Clock className="w-5 h-5 text-yellow-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Pending Tasks</p>
-              <p className="text-2xl font-bold text-white">
+              <p className="text-2xl font-bold text-foreground">
                 {tasks?.filter((t) => t.status === "pending").length || 0}
               </p>
             </div>
           </div>
         </Card>
 
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center">
               <Play className="w-5 h-5 text-blue-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">In Progress</p>
-              <p className="text-2xl font-bold text-white">
+              <p className="text-2xl font-bold text-foreground">
                 {tasks?.filter((t) => t.status === "in_progress").length || 0}
               </p>
             </div>
           </div>
         </Card>
 
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center">
               <CheckCircle className="w-5 h-5 text-green-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Completed Today</p>
-              <p className="text-2xl font-bold text-white">
+              <p className="text-2xl font-bold text-foreground">
                 {tasks?.filter((t) => t.status === "completed").length || 0}
               </p>
             </div>
           </div>
         </Card>
 
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center">
               <AlertCircle className="w-5 h-5 text-red-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Failed Tasks</p>
-              <p className="text-2xl font-bold text-white">
+              <p className="text-2xl font-bold text-foreground">
                 {tasks?.filter((t) => t.status === "failed").length || 0}
               </p>
             </div>
@@ -156,7 +156,7 @@ export default function FulfillmentPage() {
       </div>
 
       {/* Filters */}
-      <Card className="p-4 bg-zinc-900 border-zinc-800">
+      <Card className="p-4 bg-background border-border text-foreground">
         <div className="flex gap-4">
           <div className="flex-1 relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -164,15 +164,15 @@ export default function FulfillmentPage() {
               placeholder="Search by order number, SKU..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 bg-zinc-800 border-zinc-700 text-white"
+              className="pl-10 bg-card border-zinc-700 text-foreground"
             />
           </div>
 
           <Select value={typeFilter} onValueChange={setTypeFilter}>
-            <SelectTrigger className="w-48 bg-zinc-800 border-zinc-700 text-white">
+            <SelectTrigger className="w-48 bg-card border-zinc-700 text-foreground">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent className="bg-zinc-800 border-zinc-700">
+            <SelectContent className="bg-card border-zinc-700 text-card-foreground">
               <SelectItem value="all">All Types</SelectItem>
               <SelectItem value="pick">Pick Tasks</SelectItem>
               <SelectItem value="pack">Pack Tasks</SelectItem>
@@ -181,10 +181,10 @@ export default function FulfillmentPage() {
           </Select>
 
           <Select value={statusFilter} onValueChange={setStatusFilter}>
-            <SelectTrigger className="w-48 bg-zinc-800 border-zinc-700 text-white">
+            <SelectTrigger className="w-48 bg-card border-zinc-700 text-foreground">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent className="bg-zinc-800 border-zinc-700">
+            <SelectContent className="bg-card border-zinc-700 text-card-foreground">
               <SelectItem value="all">All Statuses</SelectItem>
               <SelectItem value="pending">Pending</SelectItem>
               <SelectItem value="in_progress">In Progress</SelectItem>
@@ -196,10 +196,10 @@ export default function FulfillmentPage() {
       </Card>
 
       {/* Tasks Table */}
-      <Card className="bg-zinc-900 border-zinc-800">
+      <Card className="bg-background border-border text-foreground">
         <Table>
           <TableHeader>
-            <TableRow className="border-zinc-800 hover:bg-zinc-800/50">
+            <TableRow className="border-border hover:bg-card/50 text-card-foreground">
               <TableHead className="text-gray-400">Task ID</TableHead>
               <TableHead className="text-gray-400">Type</TableHead>
               <TableHead className="text-gray-400">Order</TableHead>
@@ -212,8 +212,8 @@ export default function FulfillmentPage() {
           </TableHeader>
           <TableBody>
             {tasks?.map((task) => (
-              <TableRow key={task.id} className="border-zinc-800 hover:bg-zinc-800/50">
-                <TableCell className="font-mono text-sm text-gray-300">
+              <TableRow key={task.id} className="border-border hover:bg-card/50 text-card-foreground">
+                <TableCell className="font-mono text-sm text-muted-foreground">
                   {task.id.substring(0, 8)}
                 </TableCell>
                 <TableCell>
@@ -222,14 +222,14 @@ export default function FulfillmentPage() {
                     <Badge className="bg-purple-600">{task.type}</Badge>
                   </div>
                 </TableCell>
-                <TableCell className="text-white font-medium">#{task.orderId}</TableCell>
+                <TableCell className="text-foreground font-medium">#{task.orderId}</TableCell>
                 <TableCell>
                   <div className="flex items-center gap-2">
                     {getStatusIcon(task.status)}
                     <Badge className={getStatusColor(task.status)}>{task.status}</Badge>
                   </div>
                 </TableCell>
-                <TableCell className="text-gray-300">{task.assignedTo || "Unassigned"}</TableCell>
+                <TableCell className="text-muted-foreground">{task.assignedTo || "Unassigned"}</TableCell>
                 <TableCell>
                   <Badge
                     className={
@@ -267,96 +267,96 @@ export default function FulfillmentPage() {
 
       {/* Workflow Status */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center">
               <Box className="w-6 h-6 text-blue-500" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-white">Pick Tasks</h3>
+              <h3 className="text-lg font-bold text-foreground">Pick Tasks</h3>
               <p className="text-sm text-gray-400">Warehouse picking operations</p>
             </div>
           </div>
           <div className="space-y-2">
             <div className="flex justify-between text-sm">
               <span className="text-gray-400">Pending</span>
-              <span className="text-white font-medium">
+              <span className="text-foreground font-medium">
                 {tasks?.filter((t) => t.type === "pick" && t.status === "pending").length || 0}
               </span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-gray-400">In Progress</span>
-              <span className="text-white font-medium">
+              <span className="text-foreground font-medium">
                 {tasks?.filter((t) => t.type === "pick" && t.status === "in_progress").length || 0}
               </span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-gray-400">Completed</span>
-              <span className="text-white font-medium">
+              <span className="text-foreground font-medium">
                 {tasks?.filter((t) => t.type === "pick" && t.status === "completed").length || 0}
               </span>
             </div>
           </div>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center">
               <Package className="w-6 h-6 text-purple-500" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-white">Pack Tasks</h3>
+              <h3 className="text-lg font-bold text-foreground">Pack Tasks</h3>
               <p className="text-sm text-gray-400">Order packing operations</p>
             </div>
           </div>
           <div className="space-y-2">
             <div className="flex justify-between text-sm">
               <span className="text-gray-400">Pending</span>
-              <span className="text-white font-medium">
+              <span className="text-foreground font-medium">
                 {tasks?.filter((t) => t.type === "pack" && t.status === "pending").length || 0}
               </span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-gray-400">In Progress</span>
-              <span className="text-white font-medium">
+              <span className="text-foreground font-medium">
                 {tasks?.filter((t) => t.type === "pack" && t.status === "in_progress").length || 0}
               </span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-gray-400">Completed</span>
-              <span className="text-white font-medium">
+              <span className="text-foreground font-medium">
                 {tasks?.filter((t) => t.type === "pack" && t.status === "completed").length || 0}
               </span>
             </div>
           </div>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center">
               <Truck className="w-6 h-6 text-green-500" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-white">Ship Tasks</h3>
+              <h3 className="text-lg font-bold text-foreground">Ship Tasks</h3>
               <p className="text-sm text-gray-400">Shipping and delivery</p>
             </div>
           </div>
           <div className="space-y-2">
             <div className="flex justify-between text-sm">
               <span className="text-gray-400">Pending</span>
-              <span className="text-white font-medium">
+              <span className="text-foreground font-medium">
                 {tasks?.filter((t) => t.type === "ship" && t.status === "pending").length || 0}
               </span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-gray-400">In Progress</span>
-              <span className="text-white font-medium">
+              <span className="text-foreground font-medium">
                 {tasks?.filter((t) => t.type === "ship" && t.status === "in_progress").length || 0}
               </span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-gray-400">Completed</span>
-              <span className="text-white font-medium">
+              <span className="text-foreground font-medium">
                 {tasks?.filter((t) => t.type === "ship" && t.status === "completed").length || 0}
               </span>
             </div>

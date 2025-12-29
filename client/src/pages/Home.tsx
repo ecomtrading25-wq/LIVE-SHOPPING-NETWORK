@@ -52,7 +52,7 @@ export default function Home() {
               : 'No live shows at the moment. Check back soon!'}
           </p>
           <Link href="/live">
-            <Button size="lg" className="bg-[#E42313] hover:bg-[#C01F10] text-white font-bold px-8 py-6 text-lg mb-12">
+            <Button size="lg" className="bg-[#E42313] hover:bg-[#C01F10] text-foreground font-bold px-8 py-6 text-lg mb-12">
               <Play className="w-5 h-5 mr-2" />
               Explore All Shows
             </Button>
@@ -100,14 +100,14 @@ export default function Home() {
                 <Link key={show.id} href={`/show/${show.id}`}>
                   <Card className="group cursor-pointer overflow-hidden bg-white border-2 border-black hover:border-[#E42313] hover:shadow-xl transition-all hover:scale-105">
                     <div className="relative aspect-video bg-[#E42313] flex items-center justify-center">
-                      <Play className="w-16 h-16 text-white opacity-80" />
-                      <Badge className="absolute top-3 left-3 bg-red-500 text-white border-0 animate-pulse">
+                      <Play className="w-16 h-16 text-foreground opacity-80" />
+                      <Badge className="absolute top-3 left-3 bg-red-500 text-foreground border-0 animate-pulse">
                         <span className="flex items-center gap-1">
                           <span className="w-2 h-2 bg-white rounded-full"></span>
                           LIVE
                         </span>
                       </Badge>
-                      <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur px-2 py-1 rounded flex items-center gap-1 text-white text-sm">
+                      <div className="absolute bottom-3 right-3 bg-background/60 backdrop-blur px-2 py-1 rounded flex items-center gap-1 text-foreground text-sm">
                         <Eye className="w-4 h-4" />
                         {show.peakViewers || 0}
                       </div>
@@ -124,7 +124,7 @@ export default function Home() {
                           <Users className="w-4 h-4" />
                           {show.totalViews || 0} views
                         </div>
-                        <Button size="sm" className="bg-[#E42313] hover:bg-[#C01F10] text-white">
+                        <Button size="sm" className="bg-[#E42313] hover:bg-[#C01F10] text-foreground">
                           Watch Now
                         </Button>
                       </div>
@@ -148,9 +148,9 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {scheduledShows.map((show) => (
                 <Card key={show.id} className="overflow-hidden bg-white border-2 border-black hover:border-[#E42313] hover:shadow-lg transition-all">
-                  <div className="relative aspect-video bg-black flex items-center justify-center">
-                    <Clock className="w-16 h-16 text-white opacity-60" />
-                    <Badge className="absolute top-3 left-3 bg-[#E42313] text-white border-0">
+                  <div className="relative aspect-video bg-background flex items-center justify-center text-foreground">
+                    <Clock className="w-16 h-16 text-foreground opacity-60" />
+                    <Badge className="absolute top-3 left-3 bg-[#E42313] text-foreground border-0">
                       SCHEDULED
                     </Badge>
                   </div>
@@ -198,12 +198,12 @@ export default function Home() {
               {endedShows.slice(0, 6).map((show) => (
                 <Link key={show.id} href={`/show/${show.id}`}>
                   <Card className="group cursor-pointer overflow-hidden bg-white border-2 border-black hover:border-[#E42313] hover:shadow-lg transition-all">
-                    <div className="relative aspect-video bg-black flex items-center justify-center">
-                      <Play className="w-12 h-12 text-white opacity-60" />
-                      <Badge className="absolute top-3 left-3 bg-gray-600 text-white border-0">
+                    <div className="relative aspect-video bg-background flex items-center justify-center text-foreground">
+                      <Play className="w-12 h-12 text-foreground opacity-60" />
+                      <Badge className="absolute top-3 left-3 bg-gray-600 text-foreground border-0">
                         REPLAY
                       </Badge>
-                      <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur px-2 py-1 rounded text-white text-xs">
+                      <div className="absolute bottom-3 right-3 bg-background/60 backdrop-blur px-2 py-1 rounded text-foreground text-xs">
                         {show.totalViews || 0} views
                       </div>
                     </div>
@@ -233,21 +233,21 @@ export default function Home() {
         {/* CTA Section */}
         <div className="mt-20 text-center">
           <Card className="p-12 bg-[#E42313] border-2 border-black">
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
               Ready to Start Shopping Live?
             </h2>
-            <p className="text-xl text-white mb-8">
+            <p className="text-xl text-foreground mb-8">
               Join thousands of shoppers discovering amazing deals in real-time
             </p>
             <div className="flex gap-4 justify-center">
               <Link href="/live">
-                <Button size="lg" className="bg-black hover:bg-gray-800 text-white font-bold px-8 py-6 text-lg">
+                <Button size="lg" className="bg-background hover:bg-card text-foreground font-bold px-8 py-6 text-lg">
                   <Play className="w-5 h-5 mr-2" />
                   Browse Live Shows
                 </Button>
               </Link>
               <Link href="/host">
-                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#E42313] px-8 py-6 text-lg">
+                <Button size="lg" variant="outline" className="border-2 border-white text-foreground hover:bg-white hover:text-[#E42313] px-8 py-6 text-lg">
                   Become a Host
                 </Button>
               </Link>

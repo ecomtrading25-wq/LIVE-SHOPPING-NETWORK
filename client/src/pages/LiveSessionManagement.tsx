@@ -127,7 +127,7 @@ function LiveSessionManagementContent() {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-4xl font-bold text-white mb-2">Live Session Management</h1>
+            <h1 className="text-4xl font-bold text-foreground mb-2">Live Session Management</h1>
             <p className="text-gray-400">Create and manage your live shopping shows</p>
           </div>
 
@@ -138,56 +138,56 @@ function LiveSessionManagementContent() {
                 Create Live Session
               </Button>
             </DialogTrigger>
-            <DialogContent className="bg-gray-900 border-white/10 text-white max-w-2xl">
+            <DialogContent className="bg-background border-white/10 text-foreground max-w-2xl">
               <DialogHeader>
                 <DialogTitle className="text-2xl font-bold">Create New Live Session</DialogTitle>
               </DialogHeader>
 
               <div className="space-y-4 mt-4">
                 <div>
-                  <Label htmlFor="title" className="text-white">Session Title *</Label>
+                  <Label htmlFor="title" className="text-foreground">Session Title *</Label>
                   <Input
                     id="title"
                     value={formData.title}
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                     placeholder="Tech Tuesday - Amazing Deals on Electronics"
-                    className="bg-white/10 border-white/20 text-white"
+                    className="bg-white/10 border-white/20 text-foreground"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="description" className="text-white">Description</Label>
+                  <Label htmlFor="description" className="text-foreground">Description</Label>
                   <Textarea
                     id="description"
                     value={formData.description}
                     onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                     placeholder="Join us for exclusive deals on the latest tech gadgets!"
-                    className="bg-white/10 border-white/20 text-white min-h-[100px]"
+                    className="bg-white/10 border-white/20 text-foreground min-h-[100px]"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="scheduledAt" className="text-white">Scheduled Date & Time *</Label>
+                    <Label htmlFor="scheduledAt" className="text-foreground">Scheduled Date & Time *</Label>
                     <Input
                       id="scheduledAt"
                       type="datetime-local"
                       value={formData.scheduledAt}
                       onChange={(e) => setFormData({ ...formData, scheduledAt: e.target.value })}
-                      className="bg-white/10 border-white/20 text-white"
+                      className="bg-white/10 border-white/20 text-foreground"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="status" className="text-white">Status</Label>
+                    <Label htmlFor="status" className="text-foreground">Status</Label>
                     <Select
                       value={formData.status}
                       onValueChange={(value: any) => setFormData({ ...formData, status: value })}
                     >
-                      <SelectTrigger className="bg-white/10 border-white/20 text-white">
+                      <SelectTrigger className="bg-white/10 border-white/20 text-foreground">
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent className="bg-gray-900 border-white/10">
+                      <SelectContent className="bg-background border-white/10 text-foreground">
                         <SelectItem value="scheduled">Scheduled</SelectItem>
                         <SelectItem value="live">Live</SelectItem>
                         <SelectItem value="ended">Ended</SelectItem>
@@ -200,7 +200,7 @@ function LiveSessionManagementContent() {
                   <Button
                     variant="outline"
                     onClick={() => setCreateDialogOpen(false)}
-                    className="flex-1 border-white/20 text-white hover:bg-white/10"
+                    className="flex-1 border-white/20 text-foreground hover:bg-white/10"
                   >
                     Cancel
                   </Button>
@@ -236,7 +236,7 @@ function LiveSessionManagementContent() {
                 {sessions?.filter((s: any) => s.status === "live").length || 0}
               </Badge>
             </div>
-            <p className="text-2xl font-bold text-white">Live Now</p>
+            <p className="text-2xl font-bold text-foreground">Live Now</p>
             <p className="text-sm text-gray-400">Active sessions</p>
           </Card>
 
@@ -247,7 +247,7 @@ function LiveSessionManagementContent() {
                 {sessions?.filter((s: any) => s.status === "scheduled").length || 0}
               </Badge>
             </div>
-            <p className="text-2xl font-bold text-white">Scheduled</p>
+            <p className="text-2xl font-bold text-foreground">Scheduled</p>
             <p className="text-sm text-gray-400">Upcoming shows</p>
           </Card>
 
@@ -258,7 +258,7 @@ function LiveSessionManagementContent() {
                 {sessions?.reduce((sum: number, s: any) => sum + (s.viewerCount || 0), 0) || 0}
               </Badge>
             </div>
-            <p className="text-2xl font-bold text-white">Total Viewers</p>
+            <p className="text-2xl font-bold text-foreground">Total Viewers</p>
             <p className="text-sm text-gray-400">All sessions</p>
           </Card>
 
@@ -269,7 +269,7 @@ function LiveSessionManagementContent() {
                 ${sessions?.reduce((sum: number, s: any) => sum + parseFloat(s.revenue || "0"), 0).toFixed(2) || "0.00"}
               </Badge>
             </div>
-            <p className="text-2xl font-bold text-white">Revenue</p>
+            <p className="text-2xl font-bold text-foreground">Revenue</p>
             <p className="text-sm text-gray-400">From live sales</p>
           </Card>
         </div>
@@ -279,7 +279,7 @@ function LiveSessionManagementContent() {
           {sessions && sessions.length === 0 ? (
             <Card className="p-12 bg-white/5 border-white/10 text-center">
               <Video className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-white mb-2">No Live Sessions Yet</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-2">No Live Sessions Yet</h2>
               <p className="text-gray-400 mb-6">
                 Create your first live shopping session to start selling
               </p>
@@ -297,7 +297,7 @@ function LiveSessionManagementContent() {
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <h3 className="text-2xl font-bold text-white">{session.title}</h3>
+                      <h3 className="text-2xl font-bold text-foreground">{session.title}</h3>
                       <Badge className={getStatusColor(session.status)}>
                         {session.status.toUpperCase()}
                       </Badge>
@@ -358,7 +358,7 @@ function LiveSessionManagementContent() {
                     <Button
                       size="sm"
                       variant="outline"
-                      className="border-white/20 text-white hover:bg-white/10"
+                      className="border-white/20 text-foreground hover:bg-white/10"
                     >
                       <Eye className="w-4 h-4 mr-1" />
                       View
@@ -367,7 +367,7 @@ function LiveSessionManagementContent() {
                     <Button
                       size="sm"
                       variant="outline"
-                      className="border-white/20 text-white hover:bg-white/10"
+                      className="border-white/20 text-foreground hover:bg-white/10"
                     >
                       <Edit className="w-4 h-4 mr-1" />
                       Edit

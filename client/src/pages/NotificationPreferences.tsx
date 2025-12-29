@@ -72,8 +72,8 @@ export default function NotificationPreferencesPage() {
   const [quietEnd, setQuietEnd] = useState("08:00");
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="border-b bg-card">
+    <div className="min-h-screen bg-background text-foreground">
+      <div className="border-b bg-card text-card-foreground">
         <div className="container py-6">
           <div className="flex items-center gap-3 mb-2">
             <Bell className="w-8 h-8 text-blue-500" />
@@ -143,7 +143,7 @@ export default function NotificationPreferencesPage() {
                         type="time"
                         value={quietStart}
                         onChange={(e) => setQuietStart(e.target.value)}
-                        className="w-full p-2 border rounded-lg bg-background"
+                        className="w-full p-2 border rounded-lg bg-background text-foreground"
                       />
                     </div>
                     <div>
@@ -152,7 +152,7 @@ export default function NotificationPreferencesPage() {
                         type="time"
                         value={quietEnd}
                         onChange={(e) => setQuietEnd(e.target.value)}
-                        className="w-full p-2 border rounded-lg bg-background"
+                        className="w-full p-2 border rounded-lg bg-background text-foreground"
                       />
                     </div>
                     <p className="text-xs text-muted-foreground">

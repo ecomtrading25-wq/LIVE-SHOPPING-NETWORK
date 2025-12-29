@@ -160,7 +160,7 @@ export default function BulkImportPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-white mb-2">Bulk Import Tools</h1>
+        <h1 className="text-3xl font-bold text-foreground mb-2">Bulk Import Tools</h1>
         <p className="text-gray-400">
           Import large datasets via CSV or Excel files
         </p>
@@ -174,18 +174,18 @@ export default function BulkImportPage() {
             className={`p-6 cursor-pointer transition-all ${
               selectedType === type.id
                 ? "bg-purple-600 border-purple-500"
-                : "bg-zinc-900/50 border-zinc-800 hover:border-purple-500"
+                : "bg-background/50 border-border hover:border-purple-500"
             }`}
             onClick={() => setSelectedType(type.id)}
           >
             <type.icon
               className={`w-8 h-8 mb-3 ${
-                selectedType === type.id ? "text-white" : "text-purple-400"
+                selectedType === type.id ? "text-foreground" : "text-purple-400"
               }`}
             />
             <h3
               className={`font-semibold mb-2 ${
-                selectedType === type.id ? "text-white" : "text-white"
+                selectedType === type.id ? "text-foreground" : "text-foreground"
               }`}
             >
               {type.name}
@@ -203,9 +203,9 @@ export default function BulkImportPage() {
 
       {/* Import Section */}
       {selectedImportType && (
-        <Card className="p-8 bg-zinc-900/50 border-zinc-800">
+        <Card className="p-8 bg-background/50 border-border text-foreground">
           <div className="mb-6">
-            <h2 className="text-2xl font-bold text-white mb-2">
+            <h2 className="text-2xl font-bold text-foreground mb-2">
               Import {selectedImportType.name}
             </h2>
             <p className="text-gray-400">{selectedImportType.description}</p>
@@ -213,7 +213,7 @@ export default function BulkImportPage() {
 
           {/* Required Fields */}
           <div className="mb-6">
-            <h3 className="font-semibold text-white mb-3">Required Fields:</h3>
+            <h3 className="font-semibold text-foreground mb-3">Required Fields:</h3>
             <div className="flex flex-wrap gap-2">
               {selectedImportType.fields.map((field) => (
                 <Badge key={field} className="bg-purple-600">
@@ -249,7 +249,7 @@ export default function BulkImportPage() {
 
           {/* File Upload */}
           <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-300 mb-3">
+            <label className="block text-sm font-medium text-muted-foreground mb-3">
               Upload CSV or Excel File
             </label>
             <div className="border-2 border-dashed border-zinc-700 rounded-lg p-8 text-center hover:border-purple-500 transition-colors">
@@ -267,14 +267,14 @@ export default function BulkImportPage() {
                 <Upload className="w-12 h-12 text-gray-400 mb-3" />
                 {file ? (
                   <>
-                    <p className="text-white font-medium mb-1">{file.name}</p>
+                    <p className="text-foreground font-medium mb-1">{file.name}</p>
                     <p className="text-sm text-gray-400">
                       {(file.size / 1024).toFixed(2)} KB
                     </p>
                   </>
                 ) : (
                   <>
-                    <p className="text-white font-medium mb-1">
+                    <p className="text-foreground font-medium mb-1">
                       Click to upload or drag and drop
                     </p>
                     <p className="text-sm text-gray-400">CSV or Excel files only</p>
@@ -304,15 +304,15 @@ export default function BulkImportPage() {
 
       {/* Import Results */}
       {result && (
-        <Card className="p-8 bg-zinc-900/50 border-zinc-800">
-          <h2 className="text-2xl font-bold text-white mb-6">Import Results</h2>
+        <Card className="p-8 bg-background/50 border-border text-foreground">
+          <h2 className="text-2xl font-bold text-foreground mb-6">Import Results</h2>
 
           <div className="grid grid-cols-2 gap-6 mb-6">
             <div className="flex items-center gap-4 p-4 bg-green-900/20 border border-green-500/30 rounded-lg">
               <CheckCircle className="w-8 h-8 text-green-400" />
               <div>
                 <p className="text-sm text-green-300">Successfully Imported</p>
-                <p className="text-3xl font-bold text-white">{result.success}</p>
+                <p className="text-3xl font-bold text-foreground">{result.success}</p>
               </div>
             </div>
 
@@ -320,14 +320,14 @@ export default function BulkImportPage() {
               <XCircle className="w-8 h-8 text-red-400" />
               <div>
                 <p className="text-sm text-red-300">Failed</p>
-                <p className="text-3xl font-bold text-white">{result.failed}</p>
+                <p className="text-3xl font-bold text-foreground">{result.failed}</p>
               </div>
             </div>
           </div>
 
           {result.errors.length > 0 && (
             <div>
-              <h3 className="font-semibold text-white mb-3">Errors:</h3>
+              <h3 className="font-semibold text-foreground mb-3">Errors:</h3>
               <div className="space-y-2 max-h-64 overflow-y-auto">
                 {result.errors.map((error, index) => (
                   <div

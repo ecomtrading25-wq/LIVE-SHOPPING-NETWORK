@@ -34,10 +34,10 @@ export default function LoginPage() {
       <Card className="w-full max-w-md p-8 bg-white/10 backdrop-blur-xl border-white/20">
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <LogIn className="w-8 h-8 text-white" />
+            <LogIn className="w-8 h-8 text-foreground" />
           </div>
-          <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
-          <p className="text-gray-300">Sign in to your account to continue</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Welcome Back</h1>
+          <p className="text-muted-foreground">Sign in to your account to continue</p>
         </div>
 
         {/* OAuth Login */}
@@ -63,7 +63,7 @@ export default function LoginPage() {
         {/* Email/Password Login */}
         <form onSubmit={handleEmailLogin} className="space-y-4">
           <div>
-            <label className="text-sm font-medium text-white mb-2 block">
+            <label className="text-sm font-medium text-foreground mb-2 block">
               Email Address
             </label>
             <div className="relative">
@@ -73,14 +73,14 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
-                className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
                 required
               />
             </div>
           </div>
 
           <div>
-            <label className="text-sm font-medium text-white mb-2 block">
+            <label className="text-sm font-medium text-foreground mb-2 block">
               Password
             </label>
             <div className="relative">
@@ -90,7 +90,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
                 required
               />
             </div>
@@ -103,7 +103,7 @@ export default function LoginPage() {
                 checked={rememberMe}
                 onCheckedChange={(checked) => setRememberMe(checked as boolean)}
               />
-              <label htmlFor="remember" className="text-sm text-gray-300 cursor-pointer">
+              <label htmlFor="remember" className="text-sm text-muted-foreground cursor-pointer">
                 Remember me
               </label>
             </div>
@@ -125,7 +125,7 @@ export default function LoginPage() {
         </form>
 
         <div className="mt-6 text-center">
-          <p className="text-gray-300">
+          <p className="text-muted-foreground">
             Don't have an account?{" "}
             <Link href="/signup">
               <a className="text-purple-400 hover:text-purple-300 font-medium">

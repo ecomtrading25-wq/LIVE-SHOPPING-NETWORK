@@ -119,7 +119,7 @@ function EmailCampaignsContent() {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h1 className="text-4xl font-bold text-white">Email Campaigns</h1>
+              <h1 className="text-4xl font-bold text-foreground">Email Campaigns</h1>
               <p className="text-gray-400 mt-1">Automated marketing and customer engagement</p>
             </div>
             <Button
@@ -139,7 +139,7 @@ function EmailCampaignsContent() {
                   <Send className="w-5 h-5 text-blue-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">{totalSent.toLocaleString()}</p>
+                  <p className="text-2xl font-bold text-foreground">{totalSent.toLocaleString()}</p>
                   <p className="text-sm text-gray-400">Total Sent</p>
                 </div>
               </div>
@@ -151,7 +151,7 @@ function EmailCampaignsContent() {
                   <Mail className="w-5 h-5 text-green-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">{openRate}%</p>
+                  <p className="text-2xl font-bold text-foreground">{openRate}%</p>
                   <p className="text-sm text-gray-400">Open Rate</p>
                 </div>
               </div>
@@ -163,7 +163,7 @@ function EmailCampaignsContent() {
                   <TrendingUp className="w-5 h-5 text-purple-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">{clickRate}%</p>
+                  <p className="text-2xl font-bold text-foreground">{clickRate}%</p>
                   <p className="text-sm text-gray-400">Click Rate</p>
                 </div>
               </div>
@@ -175,7 +175,7 @@ function EmailCampaignsContent() {
                   <BarChart3 className="w-5 h-5 text-orange-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">
+                  <p className="text-2xl font-bold text-foreground">
                     ${totalRevenue.toLocaleString()}
                   </p>
                   <p className="text-sm text-gray-400">Revenue Generated</p>
@@ -196,7 +196,7 @@ function EmailCampaignsContent() {
                   </div>
                   <div>
                     <div className="flex items-center gap-3 mb-2">
-                      <h3 className="text-xl font-bold text-white">{campaign.name}</h3>
+                      <h3 className="text-xl font-bold text-foreground">{campaign.name}</h3>
                       <Badge className={getStatusColor(campaign.status)}>
                         {campaign.status}
                       </Badge>
@@ -242,13 +242,13 @@ function EmailCampaignsContent() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-white/5 rounded-lg">
                 <div>
                   <p className="text-sm text-gray-400 mb-1">Sent</p>
-                  <p className="text-xl font-bold text-white">
+                  <p className="text-xl font-bold text-foreground">
                     {campaign.sent.toLocaleString()}
                   </p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-400 mb-1">Opened</p>
-                  <p className="text-xl font-bold text-white">
+                  <p className="text-xl font-bold text-foreground">
                     {campaign.opened.toLocaleString()}
                   </p>
                   <p className="text-xs text-gray-500">
@@ -257,7 +257,7 @@ function EmailCampaignsContent() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-400 mb-1">Clicked</p>
-                  <p className="text-xl font-bold text-white">
+                  <p className="text-xl font-bold text-foreground">
                     {campaign.clicked.toLocaleString()}
                   </p>
                   <p className="text-xs text-gray-500">
@@ -277,12 +277,12 @@ function EmailCampaignsContent() {
 
         {/* Campaign Templates */}
         <Card className="mt-8 p-6 bg-white/5 border-white/10">
-          <h3 className="text-xl font-bold text-white mb-4">Campaign Templates</h3>
+          <h3 className="text-xl font-bold text-foreground mb-4">Campaign Templates</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <button className="p-4 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 transition-colors text-left">
               <div className="flex items-center gap-3 mb-2">
                 <ShoppingCart className="w-5 h-5 text-blue-400" />
-                <h4 className="font-semibold text-white">Abandoned Cart</h4>
+                <h4 className="font-semibold text-foreground">Abandoned Cart</h4>
               </div>
               <p className="text-sm text-gray-400">
                 Recover lost sales with automated cart reminders
@@ -292,7 +292,7 @@ function EmailCampaignsContent() {
             <button className="p-4 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 transition-colors text-left">
               <div className="flex items-center gap-3 mb-2">
                 <Heart className="w-5 h-5 text-pink-400" />
-                <h4 className="font-semibold text-white">Win-Back</h4>
+                <h4 className="font-semibold text-foreground">Win-Back</h4>
               </div>
               <p className="text-sm text-gray-400">
                 Re-engage inactive customers with special offers
@@ -302,7 +302,7 @@ function EmailCampaignsContent() {
             <button className="p-4 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 transition-colors text-left">
               <div className="flex items-center gap-3 mb-2">
                 <Gift className="w-5 h-5 text-purple-400" />
-                <h4 className="font-semibold text-white">Recommendations</h4>
+                <h4 className="font-semibold text-foreground">Recommendations</h4>
               </div>
               <p className="text-sm text-gray-400">
                 Personalized product suggestions based on behavior
@@ -312,7 +312,7 @@ function EmailCampaignsContent() {
             <button className="p-4 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 transition-colors text-left">
               <div className="flex items-center gap-3 mb-2">
                 <TrendingUp className="w-5 h-5 text-green-400" />
-                <h4 className="font-semibold text-white">Promotional</h4>
+                <h4 className="font-semibold text-foreground">Promotional</h4>
               </div>
               <p className="text-sm text-gray-400">
                 Announce sales, new products, and special events
@@ -327,7 +327,7 @@ function EmailCampaignsContent() {
             <AlertCircle className="w-5 h-5 text-blue-400 mt-0.5" />
             <div>
               <h4 className="font-semibold text-blue-400 mb-2">Email Marketing Best Practices</h4>
-              <ul className="text-sm text-gray-300 space-y-1">
+              <ul className="text-sm text-muted-foreground space-y-1">
                 <li>• Personalize subject lines to increase open rates by 26%</li>
                 <li>• Send abandoned cart emails within 1 hour for best results</li>
                 <li>• Test different send times to find your audience's sweet spot</li>

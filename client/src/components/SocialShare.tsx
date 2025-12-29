@@ -116,13 +116,13 @@ export default function SocialShare({
 
       {/* Share Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-          <Card className="w-full max-w-md bg-zinc-900 border-zinc-800 p-6">
+        <div className="fixed inset-0 bg-background/80 z-50 flex items-center justify-center p-4 text-foreground">
+          <Card className="w-full max-w-md bg-background border-border p-6 text-foreground">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-white">Share Product</h2>
+              <h2 className="text-2xl font-bold text-foreground">Share Product</h2>
               <button
                 onClick={() => setShowModal(false)}
-                className="text-gray-400 hover:text-white"
+                className="text-gray-400 hover:text-foreground"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -130,14 +130,14 @@ export default function SocialShare({
 
             {/* Product Preview */}
             {image && (
-              <div className="mb-6 p-4 bg-zinc-800 rounded-lg flex items-center gap-4">
+              <div className="mb-6 p-4 bg-card rounded-lg flex items-center gap-4 text-card-foreground">
                 <img
                   src={image}
                   alt={title}
                   className="w-16 h-16 object-cover rounded"
                 />
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium text-white truncate">{title}</p>
+                  <p className="font-medium text-foreground truncate">{title}</p>
                   {price && (
                     <p className="text-lg font-bold text-green-500">${price}</p>
                   )}
@@ -153,7 +153,7 @@ export default function SocialShare({
                 onClick={() => handleShare("facebook")}
               >
                 <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                  <Facebook className="w-5 h-5 text-white" />
+                  <Facebook className="w-5 h-5 text-foreground" />
                 </div>
                 <span>Facebook</span>
               </Button>
@@ -164,7 +164,7 @@ export default function SocialShare({
                 onClick={() => handleShare("twitter")}
               >
                 <div className="w-10 h-10 bg-sky-500 rounded-full flex items-center justify-center">
-                  <Twitter className="w-5 h-5 text-white" />
+                  <Twitter className="w-5 h-5 text-foreground" />
                 </div>
                 <span>Twitter</span>
               </Button>
@@ -175,7 +175,7 @@ export default function SocialShare({
                 onClick={() => handleShare("whatsapp")}
               >
                 <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
-                  <MessageCircle className="w-5 h-5 text-white" />
+                  <MessageCircle className="w-5 h-5 text-foreground" />
                 </div>
                 <span>WhatsApp</span>
               </Button>
@@ -186,7 +186,7 @@ export default function SocialShare({
                 onClick={() => handleShare("telegram")}
               >
                 <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
-                  <MessageCircle className="w-5 h-5 text-white" />
+                  <MessageCircle className="w-5 h-5 text-foreground" />
                 </div>
                 <span>Telegram</span>
               </Button>
@@ -197,7 +197,7 @@ export default function SocialShare({
                 onClick={() => handleShare("email")}
               >
                 <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-white" />
+                  <Mail className="w-5 h-5 text-foreground" />
                 </div>
                 <span>Email</span>
               </Button>
@@ -209,9 +209,9 @@ export default function SocialShare({
               >
                 <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
                   {copied ? (
-                    <CheckCircle className="w-5 h-5 text-white" />
+                    <CheckCircle className="w-5 h-5 text-foreground" />
                   ) : (
-                    <LinkIcon className="w-5 h-5 text-white" />
+                    <LinkIcon className="w-5 h-5 text-foreground" />
                   )}
                 </div>
                 <span>{copied ? "Copied!" : "Copy Link"}</span>
@@ -219,9 +219,9 @@ export default function SocialShare({
             </div>
 
             {/* Link Preview */}
-            <div className="p-3 bg-zinc-800 rounded-lg">
+            <div className="p-3 bg-card rounded-lg text-card-foreground">
               <p className="text-xs text-gray-400 mb-1">Share URL:</p>
-              <p className="text-sm text-white break-all">{shareUrl}</p>
+              <p className="text-sm text-foreground break-all">{shareUrl}</p>
             </div>
           </Card>
         </div>
@@ -243,19 +243,19 @@ export function SocialProofWidget() {
   ];
 
   return (
-    <Card className="bg-zinc-900 border-zinc-800 p-6">
-      <h3 className="text-lg font-bold text-white mb-4">Social Buzz</h3>
+    <Card className="bg-background border-border p-6 text-foreground">
+      <h3 className="text-lg font-bold text-foreground mb-4">Social Buzz</h3>
       <div className="grid grid-cols-2 gap-4">
         {recentShares.map((share) => {
           const Icon = share.icon;
           return (
             <div
               key={share.platform}
-              className="flex items-center gap-3 p-3 bg-zinc-800 rounded-lg"
+              className="flex items-center gap-3 p-3 bg-card rounded-lg text-card-foreground"
             >
               <Icon className="w-5 h-5 text-purple-500" />
               <div>
-                <p className="text-sm font-medium text-white">{share.count}</p>
+                <p className="text-sm font-medium text-foreground">{share.count}</p>
                 <p className="text-xs text-gray-400">{share.platform}</p>
               </div>
             </div>

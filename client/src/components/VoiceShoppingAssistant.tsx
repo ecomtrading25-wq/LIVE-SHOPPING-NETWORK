@@ -199,31 +199,31 @@ export default function VoiceShoppingAssistant() {
         className="fixed bottom-24 right-4 z-40 w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
         title="Voice Shopping Assistant"
       >
-        <Mic className="w-6 h-6 text-white" />
+        <Mic className="w-6 h-6 text-foreground" />
       </button>
 
       {/* Voice Assistant Modal */}
       {isOpen && (
         <>
           <div
-            className="fixed inset-0 bg-black/60 z-40"
+            className="fixed inset-0 bg-background/60 z-40 text-foreground"
             onClick={() => setIsOpen(false)}
           />
           <div className="fixed inset-x-4 bottom-4 z-50 max-w-md mx-auto md:bottom-auto md:top-1/2 md:-translate-y-1/2">
-            <Card className="p-6 bg-zinc-900 border-purple-500/30">
+            <Card className="p-6 bg-background border-purple-500/30 text-foreground">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-purple-500/20 rounded-lg">
                     <Mic className="w-6 h-6 text-purple-400" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">Voice Assistant</h3>
+                    <h3 className="text-xl font-bold text-foreground">Voice Assistant</h3>
                     <p className="text-sm text-gray-400">Ask me anything!</p>
                   </div>
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2 hover:bg-gray-800 rounded-full transition-colors"
+                  className="p-2 hover:bg-card rounded-full transition-colors text-card-foreground"
                 >
                   <X className="w-5 h-5 text-gray-400" />
                 </button>
@@ -244,11 +244,11 @@ export default function VoiceShoppingAssistant() {
                   `}
                 >
                   {isProcessing ? (
-                    <Loader2 className="w-10 h-10 text-white animate-spin" />
+                    <Loader2 className="w-10 h-10 text-foreground animate-spin" />
                   ) : isListening ? (
-                    <MicOff className="w-10 h-10 text-white" />
+                    <MicOff className="w-10 h-10 text-foreground" />
                   ) : (
-                    <Mic className="w-10 h-10 text-white" />
+                    <Mic className="w-10 h-10 text-foreground" />
                   )}
                 </button>
                 <p className="text-sm text-gray-400 mt-4">
@@ -264,7 +264,7 @@ export default function VoiceShoppingAssistant() {
               {transcript && (
                 <div className="mb-4 p-4 bg-white/5 rounded-lg">
                   <p className="text-sm text-gray-400 mb-1">You said:</p>
-                  <p className="text-white">{transcript}</p>
+                  <p className="text-foreground">{transcript}</p>
                 </div>
               )}
 
@@ -273,7 +273,7 @@ export default function VoiceShoppingAssistant() {
                 <div className="mb-4 p-4 bg-purple-500/20 rounded-lg border border-purple-500/30">
                   <div className="flex items-start gap-2">
                     <Volume2 className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
-                    <p className="text-white text-sm">{feedback}</p>
+                    <p className="text-foreground text-sm">{feedback}</p>
                   </div>
                 </div>
               )}
@@ -294,7 +294,7 @@ export default function VoiceShoppingAssistant() {
                         className="w-full flex items-center gap-3 p-3 bg-white/5 hover:bg-white/10 rounded-lg transition-colors text-left"
                       >
                         <Icon className="w-4 h-4 text-purple-400" />
-                        <span className="text-sm text-gray-300">{cmd.text}</span>
+                        <span className="text-sm text-muted-foreground">{cmd.text}</span>
                       </button>
                     );
                   })}

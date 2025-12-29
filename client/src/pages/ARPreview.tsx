@@ -142,8 +142,8 @@ export default function ARPreviewPage() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">AR Product Preview</h1>
-          <p className="text-gray-300 text-lg">Visualize products in 3D, try them virtually, or see them in your space</p>
+          <h1 className="text-4xl font-bold text-foreground mb-2">AR Product Preview</h1>
+          <p className="text-muted-foreground text-lg">Visualize products in 3D, try them virtually, or see them in your space</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -204,9 +204,9 @@ export default function ARPreviewPage() {
 
                     {/* Dimension Overlay */}
                     {showDimensions && selectedProduct.dimensions && (
-                      <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur p-4 rounded-lg">
-                        <p className="text-white text-sm font-bold mb-2">Dimensions</p>
-                        <div className="space-y-1 text-xs text-gray-300">
+                      <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur p-4 rounded-lg text-foreground">
+                        <p className="text-foreground text-sm font-bold mb-2">Dimensions</p>
+                        <div className="space-y-1 text-xs text-muted-foreground">
                           <p>Width: {selectedProduct.dimensions.width}"</p>
                           <p>Height: {selectedProduct.dimensions.height}"</p>
                           <p>Depth: {selectedProduct.dimensions.depth}"</p>
@@ -220,7 +220,7 @@ export default function ARPreviewPage() {
                         size="sm"
                         variant="outline"
                         onClick={() => setShowDimensions(!showDimensions)}
-                        className="bg-black/80 backdrop-blur"
+                        className="bg-background/80 backdrop-blur text-foreground"
                       >
                         <Ruler className="w-4 h-4" />
                       </Button>
@@ -228,7 +228,7 @@ export default function ARPreviewPage() {
                         size="sm"
                         variant="outline"
                         onClick={handleTakeSnapshot}
-                        className="bg-black/80 backdrop-blur"
+                        className="bg-background/80 backdrop-blur text-foreground"
                       >
                         <Camera className="w-4 h-4" />
                       </Button>
@@ -237,22 +237,22 @@ export default function ARPreviewPage() {
                 </TabsContent>
 
                 <TabsContent value="ar" className="m-0">
-                  <div className="relative bg-black aspect-[4/3] flex items-center justify-center">
+                  <div className="relative bg-background aspect-[4/3] flex items-center justify-center text-foreground">
                     {/* AR Camera View Placeholder */}
                     <div className="text-center">
                       <div className="w-32 h-32 border-4 border-dashed border-purple-500 rounded-lg mx-auto mb-6 flex items-center justify-center">
                         <Eye className="w-16 h-16 text-purple-400" />
                       </div>
-                      <p className="text-white text-lg font-bold mb-2">Point at a flat surface</p>
+                      <p className="text-foreground text-lg font-bold mb-2">Point at a flat surface</p>
                       <p className="text-gray-400 text-sm">Move your device to detect surfaces</p>
                     </div>
 
                     {/* AR Instructions */}
                     <div className="absolute bottom-4 left-0 right-0 px-4">
-                      <Card className="p-4 bg-black/80 backdrop-blur border-white/10">
+                      <Card className="p-4 bg-background/80 backdrop-blur border-white/10 text-foreground">
                         <div className="flex items-center gap-3">
                           <Sparkles className="w-5 h-5 text-purple-400" />
-                          <p className="text-white text-sm">Tap on a surface to place the product</p>
+                          <p className="text-foreground text-sm">Tap on a surface to place the product</p>
                         </div>
                       </Card>
                     </div>
@@ -279,11 +279,11 @@ export default function ARPreviewPage() {
 
                     {/* Room Controls */}
                     <div className="absolute bottom-4 left-0 right-0 px-4">
-                      <Card className="p-4 bg-black/80 backdrop-blur border-white/10">
+                      <Card className="p-4 bg-background/80 backdrop-blur border-white/10 text-foreground">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
                             <Move className="w-5 h-5 text-purple-400" />
-                            <p className="text-white text-sm">Drag to reposition</p>
+                            <p className="text-foreground text-sm">Drag to reposition</p>
                           </div>
                           <Button size="sm" variant="outline">
                             <Download className="w-4 h-4 mr-2" />
@@ -301,18 +301,18 @@ export default function ARPreviewPage() {
             <Card className="p-6 bg-white/5 border-white/10">
               <div className="flex items-start justify-between mb-6">
                 <div>
-                  <h2 className="text-3xl font-bold text-white mb-2">{selectedProduct.name}</h2>
+                  <h2 className="text-3xl font-bold text-foreground mb-2">{selectedProduct.name}</h2>
                   <p className="text-gray-400 capitalize">{selectedProduct.category}</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-4xl font-bold text-white">${selectedProduct.price}</p>
+                  <p className="text-4xl font-bold text-foreground">${selectedProduct.price}</p>
                   <Badge className="bg-green-500/20 text-green-400 mt-2">In Stock</Badge>
                 </div>
               </div>
 
               {/* Color Selection */}
               <div className="mb-6">
-                <p className="text-white font-medium mb-3">Available Colors</p>
+                <p className="text-foreground font-medium mb-3">Available Colors</p>
                 <div className="flex gap-3">
                   {selectedProduct.colors.map((color, index) => (
                     <button
@@ -343,7 +343,7 @@ export default function ARPreviewPage() {
           <div className="space-y-6">
             {/* Product Gallery */}
             <Card className="p-6 bg-white/5 border-white/10">
-              <h3 className="text-xl font-bold text-white mb-4">More Products</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">More Products</h3>
               <div className="space-y-3">
                 {products.map((product) => (
                   <button
@@ -362,7 +362,7 @@ export default function ARPreviewPage() {
                         className="w-16 h-16 object-cover rounded-lg"
                       />
                       <div className="flex-1 text-left">
-                        <p className="text-white font-medium text-sm mb-1">{product.name}</p>
+                        <p className="text-foreground font-medium text-sm mb-1">{product.name}</p>
                         <p className="text-purple-400 font-bold">${product.price}</p>
                       </div>
                     </div>
@@ -373,28 +373,28 @@ export default function ARPreviewPage() {
 
             {/* AR Features */}
             <Card className="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-purple-500/30">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-purple-400" />
                 AR Features
               </h3>
               <ul className="space-y-3 text-sm">
-                <li className="flex items-start gap-2 text-white">
+                <li className="flex items-start gap-2 text-foreground">
                   <Box className="w-4 h-4 text-purple-400 mt-0.5" />
                   <span>360° interactive 3D models</span>
                 </li>
-                <li className="flex items-start gap-2 text-white">
+                <li className="flex items-start gap-2 text-foreground">
                   <Eye className="w-4 h-4 text-purple-400 mt-0.5" />
                   <span>Virtual try-on with face tracking</span>
                 </li>
-                <li className="flex items-start gap-2 text-white">
+                <li className="flex items-start gap-2 text-foreground">
                   <Home className="w-4 h-4 text-purple-400 mt-0.5" />
                   <span>See products in your actual space</span>
                 </li>
-                <li className="flex items-start gap-2 text-white">
+                <li className="flex items-start gap-2 text-foreground">
                   <Ruler className="w-4 h-4 text-purple-400 mt-0.5" />
                   <span>Real-time dimension overlay</span>
                 </li>
-                <li className="flex items-start gap-2 text-white">
+                <li className="flex items-start gap-2 text-foreground">
                   <Camera className="w-4 h-4 text-purple-400 mt-0.5" />
                   <span>Capture and share AR scenes</span>
                 </li>
@@ -403,20 +403,20 @@ export default function ARPreviewPage() {
 
             {/* Device Support */}
             <Card className="p-6 bg-white/5 border-white/10">
-              <h3 className="text-xl font-bold text-white mb-4">Device Support</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">Device Support</h3>
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-300 text-sm">AR Supported</span>
+                  <span className="text-muted-foreground text-sm">AR Supported</span>
                   <Badge className={arSupported ? "bg-green-500/20 text-green-400" : "bg-red-500/20 text-red-400"}>
                     {arSupported ? "Yes" : "No"}
                   </Badge>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-300 text-sm">WebXR Compatible</span>
+                  <span className="text-muted-foreground text-sm">WebXR Compatible</span>
                   <Badge className="bg-green-500/20 text-green-400">Yes</Badge>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-300 text-sm">3D Models</span>
+                  <span className="text-muted-foreground text-sm">3D Models</span>
                   <Badge className="bg-green-500/20 text-green-400">Available</Badge>
                 </div>
               </div>
@@ -424,8 +424,8 @@ export default function ARPreviewPage() {
 
             {/* Tips */}
             <Card className="p-6 bg-white/5 border-white/10">
-              <h3 className="text-xl font-bold text-white mb-4">Tips</h3>
-              <ul className="space-y-2 text-sm text-gray-300">
+              <h3 className="text-xl font-bold text-foreground mb-4">Tips</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>• Use two fingers to rotate the 3D model</li>
                 <li>• Pinch to zoom in and out</li>
                 <li>• Tap dimensions icon to toggle measurements</li>

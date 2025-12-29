@@ -109,13 +109,13 @@ export default function VoiceSearch() {
 
       {/* Voice Search Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-          <Card className="w-full max-w-md bg-zinc-900 border-zinc-800 p-8">
+        <div className="fixed inset-0 bg-background/80 z-50 flex items-center justify-center p-4 text-foreground">
+          <Card className="w-full max-w-md bg-background border-border p-8 text-foreground">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-white">Voice Search</h2>
+              <h2 className="text-2xl font-bold text-foreground">Voice Search</h2>
               <button
                 onClick={handleClose}
-                className="text-gray-400 hover:text-white"
+                className="text-gray-400 hover:text-foreground"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -127,13 +127,13 @@ export default function VoiceSearch() {
                 className={`w-32 h-32 rounded-full flex items-center justify-center ${
                   isListening
                     ? "bg-gradient-to-r from-purple-600 to-pink-600 animate-pulse"
-                    : "bg-zinc-800"
+                    : "bg-card"
                 }`}
               >
                 {isProcessing ? (
-                  <Loader2 className="w-16 h-16 text-white animate-spin" />
+                  <Loader2 className="w-16 h-16 text-foreground animate-spin" />
                 ) : isListening ? (
-                  <Mic className="w-16 h-16 text-white" />
+                  <Mic className="w-16 h-16 text-foreground" />
                 ) : (
                   <MicOff className="w-16 h-16 text-gray-400" />
                 )}
@@ -141,10 +141,10 @@ export default function VoiceSearch() {
 
               <div className="text-center">
                 {isProcessing ? (
-                  <p className="text-white font-medium">Processing...</p>
+                  <p className="text-foreground font-medium">Processing...</p>
                 ) : isListening ? (
                   <>
-                    <p className="text-white font-medium mb-2">Listening...</p>
+                    <p className="text-foreground font-medium mb-2">Listening...</p>
                     <p className="text-sm text-gray-400">
                       Try saying: "Show me wireless headphones"
                     </p>
@@ -157,9 +157,9 @@ export default function VoiceSearch() {
 
             {/* Transcript Display */}
             {transcript && (
-              <div className="mb-6 p-4 bg-zinc-800 rounded-lg">
+              <div className="mb-6 p-4 bg-card rounded-lg text-card-foreground">
                 <p className="text-sm text-gray-400 mb-1">You said:</p>
-                <p className="text-white font-medium">{transcript}</p>
+                <p className="text-foreground font-medium">{transcript}</p>
               </div>
             )}
 

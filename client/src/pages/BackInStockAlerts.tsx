@@ -61,7 +61,7 @@ export default function BackInStockAlertsPage() {
               <Bell className="w-8 h-8 text-purple-400" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold text-white">
+              <h1 className="text-4xl font-bold text-foreground">
                 Back In Stock Alerts
               </h1>
               <p className="text-gray-400 mt-1">
@@ -78,7 +78,7 @@ export default function BackInStockAlertsPage() {
                   <Bell className="w-5 h-5 text-purple-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">{activeAlerts.length}</p>
+                  <p className="text-2xl font-bold text-foreground">{activeAlerts.length}</p>
                   <p className="text-sm text-gray-400">Active Alerts</p>
                 </div>
               </div>
@@ -90,7 +90,7 @@ export default function BackInStockAlertsPage() {
                   <Check className="w-5 h-5 text-green-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">{notifiedAlerts.length}</p>
+                  <p className="text-2xl font-bold text-foreground">{notifiedAlerts.length}</p>
                   <p className="text-sm text-gray-400">Notified</p>
                 </div>
               </div>
@@ -102,7 +102,7 @@ export default function BackInStockAlertsPage() {
                   <Mail className="w-5 h-5 text-blue-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">{alerts.length}</p>
+                  <p className="text-2xl font-bold text-foreground">{alerts.length}</p>
                   <p className="text-sm text-gray-400">Total Subscriptions</p>
                 </div>
               </div>
@@ -113,7 +113,7 @@ export default function BackInStockAlertsPage() {
         {/* Active Alerts */}
         {activeAlerts.length > 0 && (
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+            <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
               <Bell className="w-6 h-6 text-purple-400" />
               Active Alerts
             </h2>
@@ -133,7 +133,7 @@ export default function BackInStockAlertsPage() {
                       <div className="flex items-start justify-between mb-2">
                         <div>
                           <Link href={`/products/${alert.productId}`}>
-                            <h3 className="text-lg font-semibold text-white hover:text-purple-400 transition-colors cursor-pointer">
+                            <h3 className="text-lg font-semibold text-foreground hover:text-purple-400 transition-colors cursor-pointer">
                               {alert.productName}
                             </h3>
                           </Link>
@@ -189,7 +189,7 @@ export default function BackInStockAlertsPage() {
         {/* Notified Alerts */}
         {notifiedAlerts.length > 0 && (
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+            <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
               <Check className="w-6 h-6 text-green-400" />
               Recently Notified
             </h2>
@@ -209,7 +209,7 @@ export default function BackInStockAlertsPage() {
                       <div className="flex items-start justify-between mb-2">
                         <div>
                           <Link href={`/products/${alert.productId}`}>
-                            <h3 className="text-lg font-semibold text-white hover:text-purple-400 transition-colors cursor-pointer">
+                            <h3 className="text-lg font-semibold text-foreground hover:text-purple-400 transition-colors cursor-pointer">
                               {alert.productName}
                             </h3>
                           </Link>
@@ -240,7 +240,7 @@ export default function BackInStockAlertsPage() {
                           onClick={() => handleRemoveAlert(alert.id)}
                           variant="outline"
                           size="sm"
-                          className="border-gray-700 text-gray-400"
+                          className="border-border text-gray-400"
                         >
                           <Trash2 className="w-4 h-4 mr-2" />
                           Remove
@@ -258,10 +258,10 @@ export default function BackInStockAlertsPage() {
         {alerts.length === 0 && (
           <Card className="p-12 bg-white/5 border-white/10 text-center">
             <div className="flex flex-col items-center gap-4">
-              <div className="p-6 bg-gray-800 rounded-full">
+              <div className="p-6 bg-card rounded-full text-card-foreground">
                 <BellOff className="w-12 h-12 text-gray-400" />
               </div>
-              <h3 className="text-2xl font-bold text-white">
+              <h3 className="text-2xl font-bold text-foreground">
                 No Active Alerts
               </h3>
               <p className="text-gray-400 max-w-md">

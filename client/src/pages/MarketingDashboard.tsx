@@ -288,7 +288,7 @@ function MarketingDashboardContent() {
                 <Card key={campaign.id} className="p-6 hover:shadow-lg transition-shadow">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-start gap-4">
-                      <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                      <div className="p-3 bg-gray-100 dark:bg-card rounded-lg text-card-foreground">
                         {getCampaignTypeIcon(campaign.type)}
                       </div>
                       <div>
@@ -330,31 +330,31 @@ function MarketingDashboardContent() {
 
                   {campaign.sent > 0 && (
                     <div className="grid grid-cols-5 gap-4">
-                      <div className="text-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                      <div className="text-center p-3 bg-gray-50 dark:bg-card rounded-lg">
                         <p className="text-2xl font-bold text-blue-600">
                           {(campaign.openRate * 100).toFixed(1)}%
                         </p>
                         <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Open Rate</p>
                       </div>
-                      <div className="text-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                      <div className="text-center p-3 bg-gray-50 dark:bg-card rounded-lg">
                         <p className="text-2xl font-bold text-purple-600">
                           {(campaign.clickRate * 100).toFixed(1)}%
                         </p>
                         <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Click Rate</p>
                       </div>
-                      <div className="text-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                      <div className="text-center p-3 bg-gray-50 dark:bg-card rounded-lg">
                         <p className="text-2xl font-bold text-green-600">
                           {(campaign.conversionRate * 100).toFixed(1)}%
                         </p>
                         <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Conversion</p>
                       </div>
-                      <div className="text-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                      <div className="text-center p-3 bg-gray-50 dark:bg-card rounded-lg">
                         <p className="text-2xl font-bold text-orange-600">
                           ${campaign.revenue.toLocaleString()}
                         </p>
                         <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Revenue</p>
                       </div>
-                      <div className="text-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                      <div className="text-center p-3 bg-gray-50 dark:bg-card rounded-lg">
                         <p className="text-2xl font-bold text-pink-600">
                           {((campaign.revenue / (campaign.sent * 0.1)) * 100).toFixed(0)}%
                         </p>
@@ -397,7 +397,7 @@ function MarketingDashboardContent() {
               <h3 className="text-lg font-semibold mb-6">Channel Performance</h3>
               <div className="space-y-4">
                 {channelPerformance.map((channel) => (
-                  <div key={channel.channel} className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                  <div key={channel.channel} className="p-4 bg-gray-50 dark:bg-card rounded-lg text-card-foreground">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-3">
                         {getCampaignTypeIcon(channel.channel)}
@@ -431,7 +431,7 @@ function MarketingDashboardContent() {
             {/* Performance Chart */}
             <Card className="p-6">
               <h3 className="text-lg font-semibold mb-4">Campaign Performance Over Time</h3>
-              <div className="h-64 flex items-center justify-center bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <div className="h-64 flex items-center justify-center bg-gray-50 dark:bg-card rounded-lg text-card-foreground">
                 <p className="text-gray-500">Performance chart would go here</p>
               </div>
             </Card>

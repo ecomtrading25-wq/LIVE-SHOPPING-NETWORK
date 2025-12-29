@@ -70,7 +70,7 @@ export default function SubscriptionsPage() {
                 <Package className="w-8 h-8 text-purple-400" />
               </div>
               <div>
-                <h1 className="text-4xl font-bold text-white">My Subscriptions</h1>
+                <h1 className="text-4xl font-bold text-foreground">My Subscriptions</h1>
                 <p className="text-gray-400 mt-1">Manage recurring deliveries</p>
               </div>
             </div>
@@ -89,7 +89,7 @@ export default function SubscriptionsPage() {
                   <Check className="w-5 h-5 text-green-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">
+                  <p className="text-2xl font-bold text-foreground">
                     {activeSubscriptions.length}
                   </p>
                   <p className="text-sm text-gray-400">Active</p>
@@ -103,7 +103,7 @@ export default function SubscriptionsPage() {
                   <TrendingUp className="w-5 h-5 text-blue-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">
+                  <p className="text-2xl font-bold text-foreground">
                     ${totalMonthlySavings.toFixed(2)}
                   </p>
                   <p className="text-sm text-gray-400">Monthly Savings</p>
@@ -117,7 +117,7 @@ export default function SubscriptionsPage() {
                   <DollarSign className="w-5 h-5 text-purple-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">20%</p>
+                  <p className="text-2xl font-bold text-foreground">20%</p>
                   <p className="text-sm text-gray-400">Average Discount</p>
                 </div>
               </div>
@@ -138,7 +138,7 @@ export default function SubscriptionsPage() {
                 <div className="flex-1">
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <h3 className="text-xl font-bold text-white">
+                      <h3 className="text-xl font-bold text-foreground">
                         {subscription.productName}
                       </h3>
                       <p className="text-gray-400 text-sm mt-1">
@@ -153,7 +153,7 @@ export default function SubscriptionsPage() {
                       <DollarSign className="w-4 h-4 text-purple-400" />
                       <div>
                         <p className="text-sm text-gray-400">Price</p>
-                        <p className="text-white font-bold">${subscription.price}</p>
+                        <p className="text-foreground font-bold">${subscription.price}</p>
                       </div>
                     </div>
 
@@ -161,7 +161,7 @@ export default function SubscriptionsPage() {
                       <Calendar className="w-4 h-4 text-blue-400" />
                       <div>
                         <p className="text-sm text-gray-400">Frequency</p>
-                        <p className="text-white font-medium">Monthly</p>
+                        <p className="text-foreground font-medium">Monthly</p>
                       </div>
                     </div>
 
@@ -169,7 +169,7 @@ export default function SubscriptionsPage() {
                       <Package className="w-4 h-4 text-green-400" />
                       <div>
                         <p className="text-sm text-gray-400">Next Delivery</p>
-                        <p className="text-white font-medium">
+                        <p className="text-foreground font-medium">
                           {new Date(subscription.nextDelivery).toLocaleDateString()}
                         </p>
                       </div>
@@ -181,7 +181,7 @@ export default function SubscriptionsPage() {
                       onClick={() => handlePauseResume(subscription.id)}
                       size="sm"
                       variant="outline"
-                      className="border-gray-700 text-gray-300"
+                      className="border-border text-muted-foreground"
                     >
                       {subscription.status === "active" ? (
                         <>
@@ -198,7 +198,7 @@ export default function SubscriptionsPage() {
                     <Button
                       size="sm"
                       variant="outline"
-                      className="border-gray-700 text-gray-300"
+                      className="border-border text-muted-foreground"
                     >
                       <Edit2 className="w-4 h-4 mr-2" />
                       Edit

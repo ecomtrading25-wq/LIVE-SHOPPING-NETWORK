@@ -242,8 +242,8 @@ export default function SocialShopPage() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-white mb-4">Social Shop</h1>
-          <p className="text-gray-300 text-xl mb-8">
+          <h1 className="text-5xl font-bold text-foreground mb-4">Social Shop</h1>
+          <p className="text-muted-foreground text-xl mb-8">
             Shop directly from your favorite influencers on Instagram & TikTok
           </p>
 
@@ -255,7 +255,7 @@ export default function SocialShopPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search posts, influencers, products..."
-                className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
               />
             </div>
             <Button variant="outline">
@@ -299,7 +299,7 @@ export default function SocialShopPage() {
                     />
                     
                     {/* Platform Badge */}
-                    <Badge className="absolute top-3 left-3 bg-black/80 backdrop-blur">
+                    <Badge className="absolute top-3 left-3 bg-background/80 backdrop-blur text-foreground">
                       {post.platform === "instagram" ? (
                         <Instagram className="w-3 h-3 mr-1" />
                       ) : (
@@ -311,8 +311,8 @@ export default function SocialShopPage() {
                     {/* Video Indicator */}
                     {post.content.type === "video" && (
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-16 h-16 bg-black/60 backdrop-blur rounded-full flex items-center justify-center">
-                          <Play className="w-8 h-8 text-white" />
+                        <div className="w-16 h-16 bg-background/60 backdrop-blur rounded-full flex items-center justify-center text-foreground">
+                          <Play className="w-8 h-8 text-foreground" />
                         </div>
                       </div>
                     )}
@@ -333,8 +333,8 @@ export default function SocialShopPage() {
                     ))}
 
                     {/* Engagement Overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="flex items-center gap-4 text-white text-sm">
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/30 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="flex items-center gap-4 text-foreground text-sm">
                         <div className="flex items-center gap-1">
                           <Heart className="w-4 h-4" />
                           {formatNumber(post.likes)}
@@ -361,7 +361,7 @@ export default function SocialShopPage() {
                       />
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
-                          <p className="text-white font-semibold text-sm">@{post.author.username}</p>
+                          <p className="text-foreground font-semibold text-sm">@{post.author.username}</p>
                           {post.author.verified && (
                             <Badge className="bg-blue-500/20 text-blue-400 text-xs px-1 py-0">
                               ✓
@@ -372,7 +372,7 @@ export default function SocialShopPage() {
                       </div>
                     </div>
 
-                    <p className="text-gray-300 text-sm line-clamp-2 mb-3">{post.caption}</p>
+                    <p className="text-muted-foreground text-sm line-clamp-2 mb-3">{post.caption}</p>
 
                     {/* Tagged Products */}
                     <div className="flex items-center gap-2 mb-3">
@@ -403,7 +403,7 @@ export default function SocialShopPage() {
           <div className="space-y-6">
             {/* Top Influencers */}
             <Card className="p-6 bg-white/5 border-white/10">
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+              <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
                 <TrendingUp className="w-6 h-6 text-purple-400" />
                 Top Influencers
               </h2>
@@ -416,13 +416,13 @@ export default function SocialShopPage() {
                         alt={influencer.username}
                         className="w-12 h-12 rounded-full"
                       />
-                      <div className="absolute -top-1 -left-1 w-6 h-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                      <div className="absolute -top-1 -left-1 w-6 h-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-foreground text-xs font-bold">
                         {index + 1}
                       </div>
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
-                        <p className="text-white font-semibold text-sm">@{influencer.username}</p>
+                        <p className="text-foreground font-semibold text-sm">@{influencer.username}</p>
                         {influencer.verified && (
                           <Badge className="bg-blue-500/20 text-blue-400 text-xs px-1 py-0">
                             ✓
@@ -441,23 +441,23 @@ export default function SocialShopPage() {
 
             {/* Social Proof */}
             <Card className="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-purple-500/30">
-              <h3 className="text-xl font-bold text-white mb-4">Social Shopping Stats</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">Social Shopping Stats</h3>
               <div className="space-y-4">
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-gray-300 text-sm">Total Posts</span>
-                    <span className="text-white font-bold">12,456</span>
+                    <span className="text-muted-foreground text-sm">Total Posts</span>
+                    <span className="text-foreground font-bold">12,456</span>
                   </div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-gray-300 text-sm">Products Tagged</span>
-                    <span className="text-white font-bold">34,892</span>
+                    <span className="text-muted-foreground text-sm">Products Tagged</span>
+                    <span className="text-foreground font-bold">34,892</span>
                   </div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-gray-300 text-sm">Total Engagement</span>
-                    <span className="text-white font-bold">2.4M</span>
+                    <span className="text-muted-foreground text-sm">Total Engagement</span>
+                    <span className="text-foreground font-bold">2.4M</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-300 text-sm">Conversion Rate</span>
+                    <span className="text-muted-foreground text-sm">Conversion Rate</span>
                     <span className="text-green-400 font-bold">5.2%</span>
                   </div>
                 </div>
@@ -466,25 +466,25 @@ export default function SocialShopPage() {
 
             {/* Features */}
             <Card className="p-6 bg-white/5 border-white/10">
-              <h3 className="text-xl font-bold text-white mb-4">Features</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">Features</h3>
               <ul className="space-y-3 text-sm">
-                <li className="flex items-start gap-2 text-gray-300">
+                <li className="flex items-start gap-2 text-muted-foreground">
                   <ShoppingBag className="w-4 h-4 text-purple-400 mt-0.5" />
                   <span>One-tap checkout from posts</span>
                 </li>
-                <li className="flex items-start gap-2 text-gray-300">
+                <li className="flex items-start gap-2 text-muted-foreground">
                   <Tag className="w-4 h-4 text-purple-400 mt-0.5" />
                   <span>Interactive product tags</span>
                 </li>
-                <li className="flex items-start gap-2 text-gray-300">
+                <li className="flex items-start gap-2 text-muted-foreground">
                   <Users className="w-4 h-4 text-purple-400 mt-0.5" />
                   <span>Follow your favorite creators</span>
                 </li>
-                <li className="flex items-start gap-2 text-gray-300">
+                <li className="flex items-start gap-2 text-muted-foreground">
                   <Star className="w-4 h-4 text-purple-400 mt-0.5" />
                   <span>Exclusive influencer discounts</span>
                 </li>
-                <li className="flex items-start gap-2 text-gray-300">
+                <li className="flex items-start gap-2 text-muted-foreground">
                   <ExternalLink className="w-4 h-4 text-purple-400 mt-0.5" />
                   <span>Direct Instagram/TikTok sync</span>
                 </li>
@@ -493,7 +493,7 @@ export default function SocialShopPage() {
 
             {/* Become an Influencer */}
             <Card className="p-6 bg-gradient-to-br from-purple-600 to-pink-600 border-0">
-              <h3 className="text-xl font-bold text-white mb-3">Become an Influencer</h3>
+              <h3 className="text-xl font-bold text-foreground mb-3">Become an Influencer</h3>
               <p className="text-white/90 text-sm mb-4">
                 Earn commission by sharing products with your followers
               </p>

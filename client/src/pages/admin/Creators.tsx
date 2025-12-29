@@ -60,7 +60,7 @@ export default function CreatorsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Creators</h1>
+          <h1 className="text-3xl font-bold text-foreground">Creators</h1>
           <p className="text-gray-400 mt-1">Manage influencers and commission payouts</p>
         </div>
 
@@ -71,9 +71,9 @@ export default function CreatorsPage() {
               Add Creator
             </Button>
           </DialogTrigger>
-          <DialogContent className="bg-zinc-900 border-zinc-800">
+          <DialogContent className="bg-background border-border text-foreground">
             <DialogHeader>
-              <DialogTitle className="text-white">Add New Creator</DialogTitle>
+              <DialogTitle className="text-foreground">Add New Creator</DialogTitle>
               <DialogDescription className="text-gray-400">
                 Onboard a new influencer to the platform
               </DialogDescription>
@@ -90,61 +90,61 @@ export default function CreatorsPage() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center">
               <Users className="w-5 h-5 text-purple-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Total Creators</p>
-              <p className="text-2xl font-bold text-white">{stats?.totalCreators || 0}</p>
+              <p className="text-2xl font-bold text-foreground">{stats?.totalCreators || 0}</p>
             </div>
           </div>
         </Card>
 
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center">
               <DollarSign className="w-5 h-5 text-green-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Total Commissions</p>
-              <p className="text-2xl font-bold text-white">
+              <p className="text-2xl font-bold text-foreground">
                 ${stats?.totalCommissions?.toFixed(2) || "0.00"}
               </p>
             </div>
           </div>
         </Card>
 
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center">
               <CreditCard className="w-5 h-5 text-blue-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Pending Payouts</p>
-              <p className="text-2xl font-bold text-white">
+              <p className="text-2xl font-bold text-foreground">
                 ${stats?.pendingPayouts?.toFixed(2) || "0.00"}
               </p>
             </div>
           </div>
         </Card>
 
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-yellow-500/10 rounded-lg flex items-center justify-center">
               <Video className="w-5 h-5 text-yellow-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Active Sessions</p>
-              <p className="text-2xl font-bold text-white">{stats?.activeSessions || 0}</p>
+              <p className="text-2xl font-bold text-foreground">{stats?.activeSessions || 0}</p>
             </div>
           </div>
         </Card>
       </div>
 
       {/* Filters */}
-      <Card className="p-4 bg-zinc-900 border-zinc-800">
+      <Card className="p-4 bg-background border-border text-foreground">
         <div className="flex gap-4">
           <div className="flex-1 relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -152,15 +152,15 @@ export default function CreatorsPage() {
               placeholder="Search creators by name, email..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 bg-zinc-800 border-zinc-700 text-white"
+              className="pl-10 bg-card border-zinc-700 text-foreground"
             />
           </div>
 
           <Select value={tierFilter} onValueChange={setTierFilter}>
-            <SelectTrigger className="w-48 bg-zinc-800 border-zinc-700 text-white">
+            <SelectTrigger className="w-48 bg-card border-zinc-700 text-foreground">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent className="bg-zinc-800 border-zinc-700">
+            <SelectContent className="bg-card border-zinc-700 text-card-foreground">
               <SelectItem value="all">All Tiers</SelectItem>
               <SelectItem value="bronze">Bronze</SelectItem>
               <SelectItem value="silver">Silver</SelectItem>
@@ -172,10 +172,10 @@ export default function CreatorsPage() {
       </Card>
 
       {/* Creators Table */}
-      <Card className="bg-zinc-900 border-zinc-800">
+      <Card className="bg-background border-border text-foreground">
         <Table>
           <TableHeader>
-            <TableRow className="border-zinc-800 hover:bg-zinc-800/50">
+            <TableRow className="border-border hover:bg-card/50 text-card-foreground">
               <TableHead className="text-gray-400">Creator</TableHead>
               <TableHead className="text-gray-400">Tier</TableHead>
               <TableHead className="text-gray-400">Commission Rate</TableHead>
@@ -188,16 +188,16 @@ export default function CreatorsPage() {
           </TableHeader>
           <TableBody>
             {creators?.map((creator) => (
-              <TableRow key={creator.id} className="border-zinc-800 hover:bg-zinc-800/50">
+              <TableRow key={creator.id} className="border-border hover:bg-card/50 text-card-foreground">
                 <TableCell>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold">
+                      <span className="text-foreground font-bold">
                         {creator.name.substring(0, 2).toUpperCase()}
                       </span>
                     </div>
                     <div>
-                      <p className="font-medium text-white">{creator.name}</p>
+                      <p className="font-medium text-foreground">{creator.name}</p>
                       <p className="text-sm text-gray-400">{creator.email}</p>
                     </div>
                   </div>
@@ -218,10 +218,10 @@ export default function CreatorsPage() {
                     {creator.tier}
                   </Badge>
                 </TableCell>
-                <TableCell className="text-white font-medium">
+                <TableCell className="text-foreground font-medium">
                   {creator.commissionRate}%
                 </TableCell>
-                <TableCell className="text-gray-300">
+                <TableCell className="text-muted-foreground">
                   ${creator.totalSales?.toFixed(2) || "0.00"}
                 </TableCell>
                 <TableCell className="text-green-400 font-medium">
@@ -263,62 +263,62 @@ export default function CreatorsPage() {
 
       {/* Tier Breakdown */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-12 h-12 bg-orange-700/10 rounded-lg flex items-center justify-center">
               <Award className="w-6 h-6 text-orange-700" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-white">Bronze</h3>
+              <h3 className="text-lg font-bold text-foreground">Bronze</h3>
               <p className="text-sm text-gray-400">5-10% commission</p>
             </div>
           </div>
-          <p className="text-2xl font-bold text-white">
+          <p className="text-2xl font-bold text-foreground">
             {creators?.filter((c) => c.tier === "bronze").length || 0}
           </p>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-12 h-12 bg-gray-500/10 rounded-lg flex items-center justify-center">
               <Award className="w-6 h-6 text-gray-500" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-white">Silver</h3>
+              <h3 className="text-lg font-bold text-foreground">Silver</h3>
               <p className="text-sm text-gray-400">10-15% commission</p>
             </div>
           </div>
-          <p className="text-2xl font-bold text-white">
+          <p className="text-2xl font-bold text-foreground">
             {creators?.filter((c) => c.tier === "silver").length || 0}
           </p>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-12 h-12 bg-yellow-600/10 rounded-lg flex items-center justify-center">
               <Award className="w-6 h-6 text-yellow-600" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-white">Gold</h3>
+              <h3 className="text-lg font-bold text-foreground">Gold</h3>
               <p className="text-sm text-gray-400">15-20% commission</p>
             </div>
           </div>
-          <p className="text-2xl font-bold text-white">
+          <p className="text-2xl font-bold text-foreground">
             {creators?.filter((c) => c.tier === "gold").length || 0}
           </p>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-12 h-12 bg-purple-600/10 rounded-lg flex items-center justify-center">
               <Award className="w-6 h-6 text-purple-600" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-white">Platinum</h3>
+              <h3 className="text-lg font-bold text-foreground">Platinum</h3>
               <p className="text-sm text-gray-400">20-30% commission</p>
             </div>
           </div>
-          <p className="text-2xl font-bold text-white">
+          <p className="text-2xl font-bold text-foreground">
             {creators?.filter((c) => c.tier === "platinum").length || 0}
           </p>
         </Card>
@@ -352,7 +352,7 @@ function AddCreatorForm({ onSuccess }: { onSuccess: () => void }) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <Label htmlFor="name" className="text-white">
+        <Label htmlFor="name" className="text-foreground">
           Creator Name
         </Label>
         <Input
@@ -360,13 +360,13 @@ function AddCreatorForm({ onSuccess }: { onSuccess: () => void }) {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Jane Doe"
-          className="bg-zinc-800 border-zinc-700 text-white"
+          className="bg-card border-zinc-700 text-foreground"
           required
         />
       </div>
 
       <div>
-        <Label htmlFor="email" className="text-white">
+        <Label htmlFor="email" className="text-foreground">
           Email
         </Label>
         <Input
@@ -375,20 +375,20 @@ function AddCreatorForm({ onSuccess }: { onSuccess: () => void }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="jane@example.com"
-          className="bg-zinc-800 border-zinc-700 text-white"
+          className="bg-card border-zinc-700 text-foreground"
           required
         />
       </div>
 
       <div>
-        <Label htmlFor="tier" className="text-white">
+        <Label htmlFor="tier" className="text-foreground">
           Tier
         </Label>
         <Select value={tier} onValueChange={setTier}>
-          <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
+          <SelectTrigger className="bg-card border-zinc-700 text-foreground">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent className="bg-zinc-800 border-zinc-700">
+          <SelectContent className="bg-card border-zinc-700 text-card-foreground">
             <SelectItem value="bronze">Bronze (5-10%)</SelectItem>
             <SelectItem value="silver">Silver (10-15%)</SelectItem>
             <SelectItem value="gold">Gold (15-20%)</SelectItem>
@@ -398,7 +398,7 @@ function AddCreatorForm({ onSuccess }: { onSuccess: () => void }) {
       </div>
 
       <div>
-        <Label htmlFor="commissionRate" className="text-white">
+        <Label htmlFor="commissionRate" className="text-foreground">
           Commission Rate (%)
         </Label>
         <Input
@@ -410,7 +410,7 @@ function AddCreatorForm({ onSuccess }: { onSuccess: () => void }) {
           value={commissionRate}
           onChange={(e) => setCommissionRate(e.target.value)}
           placeholder="10"
-          className="bg-zinc-800 border-zinc-700 text-white"
+          className="bg-card border-zinc-700 text-foreground"
           required
         />
       </div>

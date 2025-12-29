@@ -484,11 +484,11 @@ export default function CustomerServicePage() {
                       }`}
                     >
                       {message.sender === "customer" ? (
-                        <User className="w-4 h-4 text-white" />
+                        <User className="w-4 h-4 text-foreground" />
                       ) : message.sender === "bot" ? (
-                        <Bot className="w-4 h-4 text-white" />
+                        <Bot className="w-4 h-4 text-foreground" />
                       ) : (
-                        <Users className="w-4 h-4 text-white" />
+                        <Users className="w-4 h-4 text-foreground" />
                       )}
                     </div>
                     <div className={`flex-1 ${message.sender === "customer" ? "" : "text-right"}`}>

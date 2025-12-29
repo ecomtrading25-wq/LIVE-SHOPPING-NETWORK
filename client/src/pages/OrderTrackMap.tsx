@@ -187,9 +187,9 @@ export default function OrderTrackMapPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <div className="border-b bg-card">
+      <div className="border-b bg-card text-card-foreground">
         <div className="container py-6">
           <div className="flex items-center justify-between">
             <div>
@@ -254,11 +254,11 @@ export default function OrderTrackMapPage() {
                         }`}
                       >
                         {milestone.status === "completed" ? (
-                          <CheckCircle className="w-5 h-5 text-white" />
+                          <CheckCircle className="w-5 h-5 text-foreground" />
                         ) : milestone.status === "current" ? (
-                          <Truck className="w-5 h-5 text-white" />
+                          <Truck className="w-5 h-5 text-foreground" />
                         ) : (
-                          <Package className="w-5 h-5 text-white" />
+                          <Package className="w-5 h-5 text-foreground" />
                         )}
                       </div>
                       {index < milestones.length - 1 && (

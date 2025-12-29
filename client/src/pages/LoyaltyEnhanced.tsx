@@ -45,7 +45,7 @@ export default function LoyaltyEnhancedPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="border-b bg-gradient-to-r from-yellow-500/20 to-orange-500/20">
         <div className="container py-8">
           <div className="flex items-center justify-between">

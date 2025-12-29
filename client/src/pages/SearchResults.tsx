@@ -90,13 +90,13 @@ export default function SearchResultsPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search products..."
-                className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
               />
             </div>
             <Button
               variant="outline"
               onClick={() => setShowFilters(!showFilters)}
-              className="border-white/20 text-white hover:bg-white/10"
+              className="border-white/20 text-foreground hover:bg-white/10"
             >
               <SlidersHorizontal className="w-4 h-4 mr-2" />
               Filters
@@ -104,8 +104,8 @@ export default function SearchResultsPage() {
           </div>
 
           <div className="flex items-center justify-between">
-            <p className="text-gray-300">
-              {filteredProducts.length} results for <span className="text-white font-semibold">"{searchQuery}"</span>
+            <p className="text-muted-foreground">
+              {filteredProducts.length} results for <span className="text-foreground font-semibold">"{searchQuery}"</span>
             </p>
             
             <div className="flex items-center gap-2">
@@ -113,7 +113,7 @@ export default function SearchResultsPage() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="bg-white/10 border border-white/20 text-white rounded px-3 py-1 text-sm"
+                className="bg-white/10 border border-white/20 text-foreground rounded px-3 py-1 text-sm"
               >
                 <option value="relevance">Relevance</option>
                 <option value="price-low">Price: Low to High</option>
@@ -129,7 +129,7 @@ export default function SearchResultsPage() {
             <div className="lg:col-span-1">
               <Card className="p-6 bg-white/10 backdrop-blur-xl border-white/20 sticky top-4">
                 <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-xl font-bold text-white">Filters</h3>
+                  <h3 className="text-xl font-bold text-foreground">Filters</h3>
                   <Button
                     variant="ghost"
                     size="sm"
@@ -146,7 +146,7 @@ export default function SearchResultsPage() {
                 </div>
 
                 <div className="mb-6">
-                  <h4 className="text-white font-semibold mb-3">Categories</h4>
+                  <h4 className="text-foreground font-semibold mb-3">Categories</h4>
                   <div className="space-y-2">
                     {categories.map((category) => (
                       <label key={category} className="flex items-center gap-2 cursor-pointer">
@@ -162,14 +162,14 @@ export default function SearchResultsPage() {
                           }}
                           className="w-4 h-4 rounded border-white/20 bg-white/10"
                         />
-                        <span className="text-gray-300 capitalize">{category}</span>
+                        <span className="text-muted-foreground capitalize">{category}</span>
                       </label>
                     ))}
                   </div>
                 </div>
 
                 <div className="mb-6">
-                  <h4 className="text-white font-semibold mb-3">Price Range</h4>
+                  <h4 className="text-foreground font-semibold mb-3">Price Range</h4>
                   <div className="space-y-2">
                     <input
                       type="range"
@@ -179,14 +179,14 @@ export default function SearchResultsPage() {
                       onChange={(e) => setPriceRange([0, parseInt(e.target.value)])}
                       className="w-full"
                     />
-                    <p className="text-gray-300 text-sm">
+                    <p className="text-muted-foreground text-sm">
                       ${priceRange[0]} - ${priceRange[1]}
                     </p>
                   </div>
                 </div>
 
                 <div>
-                  <h4 className="text-white font-semibold mb-3">Minimum Rating</h4>
+                  <h4 className="text-foreground font-semibold mb-3">Minimum Rating</h4>
                   <div className="space-y-2">
                     {[4, 3, 2, 1].map((rating) => (
                       <label key={rating} className="flex items-center gap-2 cursor-pointer">
@@ -201,7 +201,7 @@ export default function SearchResultsPage() {
                           {Array.from({ length: rating }).map((_, i) => (
                             <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                           ))}
-                          <span className="text-gray-300 ml-1">& Up</span>
+                          <span className="text-muted-foreground ml-1">& Up</span>
                         </div>
                       </label>
                     ))}
@@ -215,8 +215,8 @@ export default function SearchResultsPage() {
             {sortedProducts.length === 0 ? (
               <Card className="p-12 bg-white/10 backdrop-blur-xl border-white/20 text-center">
                 <Package className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <h2 className="text-2xl font-bold text-white mb-2">No Results Found</h2>
-                <p className="text-gray-300 mb-6">
+                <h2 className="text-2xl font-bold text-foreground mb-2">No Results Found</h2>
+                <p className="text-muted-foreground mb-6">
                   We couldn't find any products matching your search.
                 </p>
                 <Link href="/products">
@@ -249,7 +249,7 @@ export default function SearchResultsPage() {
 
                     <div className="p-4">
                       <Link href={`/products/${product.id}`}>
-                        <h3 className="text-lg font-bold text-white group-hover:text-purple-400 transition-colors mb-2">
+                        <h3 className="text-lg font-bold text-foreground group-hover:text-purple-400 transition-colors mb-2">
                           {product.name}
                         </h3>
                       </Link>
@@ -271,7 +271,7 @@ export default function SearchResultsPage() {
                       </div>
 
                       <div className="flex items-center gap-2 mb-4">
-                        <span className="text-2xl font-bold text-white">${product.price}</span>
+                        <span className="text-2xl font-bold text-foreground">${product.price}</span>
                         {product.originalPrice && (
                           <span className="text-gray-400 line-through text-sm">
                             ${product.originalPrice}
@@ -287,7 +287,7 @@ export default function SearchResultsPage() {
                         <Button
                           variant="outline"
                           size="icon"
-                          className="border-white/20 text-white hover:bg-white/10"
+                          className="border-white/20 text-foreground hover:bg-white/10"
                         >
                           <Heart className="w-4 h-4" />
                         </Button>

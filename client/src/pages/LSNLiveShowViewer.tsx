@@ -194,10 +194,10 @@ export default function LSNLiveShowViewer() {
 
   if (!show) {
     return (
-      <div className="min-h-screen bg-gray-950 flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <AlertCircle className="h-16 w-16 text-gray-600 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-white mb-2">Show Not Found</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-2">Show Not Found</h2>
           <p className="text-gray-400 mb-6">This show may have ended or doesn't exist.</p>
           <Button asChild>
             <Link href="/live">Browse Live Shows</Link>
@@ -213,15 +213,15 @@ export default function LSNLiveShowViewer() {
   return (
     <div
       ref={containerRef}
-      className="min-h-screen bg-gray-950 text-white"
+      className="min-h-screen bg-background text-foreground"
     >
       <div className="container max-w-[1920px] mx-auto">
         <div className="grid lg:grid-cols-[1fr_400px] gap-6 p-4">
           {/* Left: Video + Products */}
           <div className="space-y-6">
             {/* Video Player */}
-            <Card className="border-gray-800 bg-gray-900 overflow-hidden">
-              <div className="relative aspect-video bg-black">
+            <Card className="border-border bg-background overflow-hidden text-foreground">
+              <div className="relative aspect-video bg-background text-foreground">
                 {/* Video */}
                 <video
                   ref={videoRef}
@@ -235,14 +235,14 @@ export default function LSNLiveShowViewer() {
 
                 {/* Live badge */}
                 <div className="absolute top-4 left-4">
-                  <Badge className="bg-red-600 text-white animate-pulse px-4 py-2 text-lg">
+                  <Badge className="bg-red-600 text-foreground animate-pulse px-4 py-2 text-lg">
                     <div className="h-3 w-3 bg-white rounded-full mr-2" />
                     LIVE
                   </Badge>
                 </div>
 
                 {/* Viewer count */}
-                <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-4 py-2 rounded-full flex items-center gap-2">
+                <div className="absolute top-4 right-4 bg-background/70 backdrop-blur-sm px-4 py-2 rounded-full flex items-center gap-2 text-foreground">
                   <Eye className="h-5 w-5 text-purple-400" />
                   <span className="text-lg font-bold">
                     {show.currentViewers?.toLocaleString() || 0}
@@ -257,13 +257,13 @@ export default function LSNLiveShowViewer() {
                 )}
 
                 {/* Video controls */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/30 to-transparent p-4">
                   <div className="flex items-center gap-4">
                     <Button
                       size="icon"
                       variant="ghost"
                       onClick={togglePlay}
-                      className="text-white hover:bg-white/20"
+                      className="text-foreground hover:bg-white/20"
                     >
                       {isPlaying ? (
                         <Pause className="h-6 w-6" />
@@ -276,7 +276,7 @@ export default function LSNLiveShowViewer() {
                       size="icon"
                       variant="ghost"
                       onClick={toggleMute}
-                      className="text-white hover:bg-white/20"
+                      className="text-foreground hover:bg-white/20"
                     >
                       {isMuted ? (
                         <VolumeX className="h-6 w-6" />
@@ -300,7 +300,7 @@ export default function LSNLiveShowViewer() {
                       size="icon"
                       variant="ghost"
                       onClick={toggleFullscreen}
-                      className="text-white hover:bg-white/20"
+                      className="text-foreground hover:bg-white/20"
                     >
                       {isFullscreen ? (
                         <Minimize className="h-6 w-6" />
@@ -314,7 +314,7 @@ export default function LSNLiveShowViewer() {
             </Card>
 
             {/* Show info */}
-            <Card className="border-gray-800 bg-gray-900">
+            <Card className="border-border bg-background text-foreground">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <Avatar className="h-16 w-16 border-2 border-purple-500">
@@ -343,14 +343,14 @@ export default function LSNLiveShowViewer() {
                     <Button
                       size="icon"
                       variant="outline"
-                      className="border-gray-700"
+                      className="border-border"
                     >
                       <Heart className="h-5 w-5" />
                     </Button>
                     <Button
                       size="icon"
                       variant="outline"
-                      className="border-gray-700"
+                      className="border-border"
                     >
                       <Share2 className="h-5 w-5" />
                     </Button>
@@ -387,13 +387,13 @@ export default function LSNLiveShowViewer() {
           {/* Right: Chat + Quick actions */}
           <div className="space-y-6">
             {/* Quick reactions */}
-            <Card className="border-gray-800 bg-gray-900">
+            <Card className="border-border bg-background text-foreground">
               <CardContent className="p-4">
                 <div className="flex gap-2 justify-center">
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-gray-700 hover:bg-red-500/20"
+                    className="border-border hover:bg-red-500/20"
                     onClick={() => sendReaction("❤️")}
                   >
                     ❤️
@@ -401,7 +401,7 @@ export default function LSNLiveShowViewer() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-gray-700 hover:bg-yellow-500/20"
+                    className="border-border hover:bg-yellow-500/20"
                     onClick={() => sendReaction("🔥")}
                   >
                     🔥
@@ -409,7 +409,7 @@ export default function LSNLiveShowViewer() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-gray-700 hover:bg-blue-500/20"
+                    className="border-border hover:bg-blue-500/20"
                     onClick={() => sendReaction("👍")}
                   >
                     👍
@@ -417,7 +417,7 @@ export default function LSNLiveShowViewer() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-gray-700 hover:bg-purple-500/20"
+                    className="border-border hover:bg-purple-500/20"
                     onClick={() => sendReaction("✨")}
                   >
                     ✨
@@ -427,8 +427,8 @@ export default function LSNLiveShowViewer() {
             </Card>
 
             {/* Live chat */}
-            <Card className="border-gray-800 bg-gray-900 flex flex-col h-[600px]">
-              <div className="p-4 border-b border-gray-800">
+            <Card className="border-border bg-background flex flex-col h-[600px] text-foreground">
+              <div className="p-4 border-b border-border">
                 <h3 className="font-bold flex items-center gap-2">
                   <Users className="h-5 w-5 text-purple-400" />
                   Live Chat
@@ -467,13 +467,13 @@ export default function LSNLiveShowViewer() {
                 </div>
               </ScrollArea>
 
-              <div className="p-4 border-t border-gray-800">
+              <div className="p-4 border-t border-border">
                 <form onSubmit={handleSendMessage} className="flex gap-2">
                   <Input
                     value={chatMessage}
                     onChange={(e) => setChatMessage(e.target.value)}
                     placeholder="Send a message..."
-                    className="bg-gray-800 border-gray-700"
+                    className="bg-card border-border text-card-foreground"
                   />
                   <Button
                     type="submit"
@@ -514,7 +514,7 @@ function PriceDropAlert({ priceDrop }: { priceDrop: any }) {
   const seconds = timeLeft % 60;
 
   return (
-    <Card className="border-red-500 bg-gradient-to-r from-red-900/90 to-pink-900/90 backdrop-blur-sm animate-pulse">
+    <Card className="border-red-500 bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-500 backdrop-blur-sm animate-pulse">
       <CardContent className="p-6 text-center">
         <div className="flex items-center justify-center gap-2 mb-3">
           <Flame className="h-6 w-6 text-red-400" />
@@ -531,7 +531,7 @@ function PriceDropAlert({ priceDrop }: { priceDrop: any }) {
           <span className="text-xl text-gray-400 line-through">
             ${priceDrop.originalPrice}
           </span>
-          <Badge className="bg-red-600 text-white">
+          <Badge className="bg-red-600 text-foreground">
             -{Math.round(((priceDrop.originalPrice - priceDrop.dropPrice) / priceDrop.originalPrice) * 100)}%
           </Badge>
         </div>
@@ -544,7 +544,7 @@ function PriceDropAlert({ priceDrop }: { priceDrop: any }) {
         </div>
 
         {priceDrop.stockLimit && (
-          <p className="text-sm text-gray-300 mb-4">
+          <p className="text-sm text-muted-foreground mb-4">
             Only {priceDrop.remainingStock} left at this price!
           </p>
         )}
@@ -580,7 +580,7 @@ function PinnedProductCard({
   const isOutOfStock = stock === 0;
 
   return (
-    <Card className="border-gray-800 bg-gray-900 hover:border-purple-500/50 transition-all">
+    <Card className="border-border bg-background hover:border-purple-500/50 transition-all text-foreground">
       <div className="relative aspect-square overflow-hidden">
         <img
           src={product.imageUrl || "/placeholder-product.jpg"}
@@ -601,7 +601,7 @@ function PinnedProductCard({
         )}
 
         {isOutOfStock && (
-          <div className="absolute inset-0 bg-black/70 flex items-center justify-center">
+          <div className="absolute inset-0 bg-background/70 flex items-center justify-center text-foreground">
             <Badge className="bg-gray-600 text-lg px-4 py-2">
               Sold Out
             </Badge>
@@ -630,7 +630,7 @@ function PinnedProductCard({
           <div className="grid grid-cols-2 gap-2">
             <Button
               variant="outline"
-              className="border-gray-700"
+              className="border-border"
               onClick={() => onAddToCart(product)}
             >
               <ShoppingCart className="h-4 w-4 mr-1" />
@@ -685,7 +685,7 @@ function ChatMessage({
             {timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
           </span>
         </div>
-        <p className="text-sm text-gray-300">{message}</p>
+        <p className="text-sm text-muted-foreground">{message}</p>
       </div>
     </div>
   );
@@ -697,7 +697,7 @@ function ChatMessage({
 
 function LoadingSkeleton() {
   return (
-    <div className="min-h-screen bg-gray-950 p-4">
+    <div className="min-h-screen bg-background p-4">
       <div className="container max-w-[1920px] mx-auto">
         <div className="grid lg:grid-cols-[1fr_400px] gap-6">
           <div className="space-y-6">

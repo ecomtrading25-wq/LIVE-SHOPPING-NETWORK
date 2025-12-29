@@ -26,10 +26,10 @@ export default function CheckoutSuccessPage() {
       <Card className="max-w-2xl w-full p-12 bg-white/5 border-white/10 text-center">
         <div className="mb-8">
           <div className="w-24 h-24 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="w-16 h-16 text-white" />
+            <CheckCircle className="w-16 h-16 text-foreground" />
           </div>
-          <h1 className="text-4xl font-bold text-white mb-4">Payment Successful!</h1>
-          <p className="text-xl text-gray-300 mb-2">
+          <h1 className="text-4xl font-bold text-foreground mb-4">Payment Successful!</h1>
+          <p className="text-xl text-muted-foreground mb-2">
             Thank you for your purchase
           </p>
           {sessionId && (
@@ -40,10 +40,10 @@ export default function CheckoutSuccessPage() {
         </div>
 
         <div className="bg-white/10 rounded-lg p-6 mb-8">
-          <div className="flex items-center justify-center gap-4 text-gray-300">
+          <div className="flex items-center justify-center gap-4 text-muted-foreground">
             <Package className="w-6 h-6" />
             <div className="text-left">
-              <p className="font-medium text-white">What's Next?</p>
+              <p className="font-medium text-foreground">What's Next?</p>
               <p className="text-sm">
                 You'll receive an email confirmation shortly with your order details and tracking information.
               </p>

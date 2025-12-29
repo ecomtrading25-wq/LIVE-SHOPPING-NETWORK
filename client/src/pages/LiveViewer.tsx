@@ -309,10 +309,10 @@ export default function LiveViewer() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="relative h-screen flex flex-col lg:flex-row">
         {/* Video Player Section */}
-        <div className="flex-1 relative bg-gray-900">
+        <div className="flex-1 relative bg-background text-foreground">
           {/* Video Player */}
           <div className="absolute inset-0 flex items-center justify-center">
             <video
@@ -335,7 +335,7 @@ export default function LiveViewer() {
                   <div className="w-2 h-2 bg-white rounded-full mr-2" />
                   LIVE
                 </Badge>
-                <div className="flex items-center gap-2 bg-black/50 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                <div className="flex items-center gap-2 bg-background/50 backdrop-blur-sm px-3 py-1.5 rounded-full text-foreground">
                   <Users className="w-4 h-4" />
                   <span className="font-medium">{formatViewerCount(viewerCount)}</span>
                 </div>
@@ -345,7 +345,7 @@ export default function LiveViewer() {
                 <Button
                   size="sm"
                   variant="ghost"
-                  className="bg-black/50 backdrop-blur-sm hover:bg-black/70"
+                  className="bg-background/50 backdrop-blur-sm hover:bg-background/70 text-foreground"
                   onClick={handleShare}
                 >
                   <Share2 className="w-4 h-4 mr-2" />
@@ -354,7 +354,7 @@ export default function LiveViewer() {
                 <Button
                   size="sm"
                   variant="ghost"
-                  className="bg-black/50 backdrop-blur-sm hover:bg-black/70"
+                  className="bg-background/50 backdrop-blur-sm hover:bg-background/70 text-foreground"
                   onClick={toggleFullscreen}
                 >
                   {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
@@ -365,7 +365,7 @@ export default function LiveViewer() {
             {/* Pinned Product Overlay */}
             {pinnedProduct && (
               <div className="absolute bottom-20 left-4 right-4 lg:left-4 lg:right-auto lg:w-96 pointer-events-auto">
-                <Card className="bg-black/80 backdrop-blur-md border-purple-500/50 text-white">
+                <Card className="bg-background/80 backdrop-blur-md border-purple-500/50 text-foreground">
                   <div className="p-4">
                     <div className="flex items-start gap-3">
                       <img
@@ -375,7 +375,7 @@ export default function LiveViewer() {
                       />
                       <div className="flex-1 min-w-0">
                         <h3 className="font-bold text-sm mb-1 truncate">{pinnedProduct.name}</h3>
-                        <p className="text-xs text-gray-300 mb-2 line-clamp-2">
+                        <p className="text-xs text-muted-foreground mb-2 line-clamp-2">
                           {pinnedProduct.description}
                         </p>
                         <div className="flex items-center gap-2 mb-2">
@@ -409,7 +409,7 @@ export default function LiveViewer() {
                 <Button
                   size="icon"
                   variant="ghost"
-                  className="bg-black/50 backdrop-blur-sm hover:bg-black/70"
+                  className="bg-background/50 backdrop-blur-sm hover:bg-background/70 text-foreground"
                   onClick={() => setIsMuted(!isMuted)}
                 >
                   {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
@@ -420,12 +420,12 @@ export default function LiveViewer() {
                 <Button
                   size="icon"
                   variant="ghost"
-                  className={`bg-black/50 backdrop-blur-sm hover:bg-black/70 ${hasLiked ? 'text-red-500' : ''}`}
+                  className={`bg-background/50 backdrop-blur-sm hover:bg-background/70 ${hasLiked ? 'text-red-500' : ''}`}
                   onClick={handleLike}
                 >
                   <Heart className={`w-5 h-5 ${hasLiked ? 'fill-current' : ''}`} />
                 </Button>
-                <span className="text-sm font-medium bg-black/50 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                <span className="text-sm font-medium bg-background/50 backdrop-blur-sm px-3 py-1.5 rounded-full">
                   {likeCount}
                 </span>
               </div>
@@ -445,12 +445,12 @@ export default function LiveViewer() {
         </div>
 
         {/* Chat & Products Sidebar */}
-        <div className="w-full lg:w-96 bg-gray-900 flex flex-col">
+        <div className="w-full lg:w-96 bg-background flex flex-col text-foreground">
           {/* Tabs */}
-          <div className="flex border-b border-gray-800">
+          <div className="flex border-b border-border">
             <button
               className={`flex-1 px-4 py-3 font-medium transition-colors ${
-                isChatExpanded ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-white'
+                isChatExpanded ? 'bg-card text-foreground' : 'text-gray-400 hover:text-foreground'
               }`}
               onClick={() => setIsChatExpanded(true)}
             >
@@ -459,7 +459,7 @@ export default function LiveViewer() {
             </button>
             <button
               className={`flex-1 px-4 py-3 font-medium transition-colors ${
-                !isChatExpanded ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-white'
+                !isChatExpanded ? 'bg-card text-foreground' : 'text-gray-400 hover:text-foreground'
               }`}
               onClick={() => setIsChatExpanded(false)}
             >
@@ -482,12 +482,12 @@ export default function LiveViewer() {
                       </Avatar>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
-                          <span className={`text-sm font-medium ${msg.isHost ? 'text-purple-400' : 'text-gray-300'}`}>
+                          <span className={`text-sm font-medium ${msg.isHost ? 'text-purple-400' : 'text-muted-foreground'}`}>
                             {msg.userName}
                           </span>
                           {msg.isHost && <Crown className="w-3 h-3 text-yellow-500" />}
                         </div>
-                        <p className="text-sm text-white break-words">{msg.message}</p>
+                        <p className="text-sm text-foreground break-words">{msg.message}</p>
                       </div>
                     </div>
                   ))}
@@ -495,7 +495,7 @@ export default function LiveViewer() {
               </ScrollArea>
 
               {/* Chat Input */}
-              <div className="p-4 border-t border-gray-800">
+              <div className="p-4 border-t border-border">
                 <div className="flex items-center gap-2 mb-2">
                   <Button
                     size="sm"
@@ -510,7 +510,7 @@ export default function LiveViewer() {
 
                 {/* Gift Selector */}
                 {showGifts && (
-                  <div className="grid grid-cols-3 gap-2 mb-3 p-3 bg-gray-800 rounded-lg">
+                  <div className="grid grid-cols-3 gap-2 mb-3 p-3 bg-card rounded-lg text-card-foreground">
                     {virtualGifts.map((gift) => (
                       <button
                         key={gift.id}
@@ -531,7 +531,7 @@ export default function LiveViewer() {
                     onChange={(e) => setChatInput(e.target.value)}
                     onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                     disabled={!user}
-                    className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500"
+                    className="bg-card border-border text-foreground placeholder:text-gray-500"
                   />
                   <Button
                     size="icon"
@@ -549,7 +549,7 @@ export default function LiveViewer() {
             <ScrollArea className="flex-1 p-4">
               <div className="space-y-4">
                 {products.map((product) => (
-                  <Card key={product.id} className="bg-gray-800 border-gray-700 overflow-hidden">
+                  <Card key={product.id} className="bg-card border-border overflow-hidden text-card-foreground">
                     <div className="relative">
                       <img
                         src={product.image}

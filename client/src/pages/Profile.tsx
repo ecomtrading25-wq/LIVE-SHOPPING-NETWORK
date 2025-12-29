@@ -77,14 +77,14 @@ export default function ProfilePage() {
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold text-white mb-8">My Profile</h1>
+          <h1 className="text-4xl font-bold text-foreground mb-8">My Profile</h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Profile Card */}
             <div className="lg:col-span-2">
               <Card className="p-6 bg-white/10 backdrop-blur-xl border-white/20">
                 <div className="flex items-start justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-white">Profile Information</h2>
+                  <h2 className="text-2xl font-bold text-foreground">Profile Information</h2>
                   <Button
                     variant="outline"
                     onClick={() => setIsEditing(!isEditing)}
@@ -105,7 +105,7 @@ export default function ProfilePage() {
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <User className="w-12 h-12 text-white" />
+                        <User className="w-12 h-12 text-foreground" />
                       )}
                     </div>
                     {isEditing && (
@@ -113,7 +113,7 @@ export default function ProfilePage() {
                         htmlFor="avatar-upload"
                         className="absolute bottom-0 right-0 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center cursor-pointer hover:bg-purple-700 transition-colors"
                       >
-                        <Camera className="w-4 h-4 text-white" />
+                        <Camera className="w-4 h-4 text-foreground" />
                         <input
                           id="avatar-upload"
                           type="file"
@@ -125,8 +125,8 @@ export default function ProfilePage() {
                     )}
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">{profileData.name}</h3>
-                    <p className="text-gray-300">{profileData.email}</p>
+                    <h3 className="text-xl font-bold text-foreground">{profileData.name}</h3>
+                    <p className="text-muted-foreground">{profileData.email}</p>
                     <Badge className="mt-2 bg-purple-600">Premium Member</Badge>
                   </div>
                 </div>
@@ -134,7 +134,7 @@ export default function ProfilePage() {
                 {/* Profile Fields */}
                 <div className="space-y-4">
                   <div>
-                    <label className="text-sm font-medium text-white mb-2 block">
+                    <label className="text-sm font-medium text-foreground mb-2 block">
                       Full Name
                     </label>
                     <div className="relative">
@@ -145,13 +145,13 @@ export default function ProfilePage() {
                           setProfileData({ ...profileData, name: e.target.value })
                         }
                         disabled={!isEditing}
-                        className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400 disabled:opacity-50"
+                        className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400 disabled:opacity-50"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-white mb-2 block">
+                    <label className="text-sm font-medium text-foreground mb-2 block">
                       Email Address
                     </label>
                     <div className="relative">
@@ -162,13 +162,13 @@ export default function ProfilePage() {
                           setProfileData({ ...profileData, email: e.target.value })
                         }
                         disabled={!isEditing}
-                        className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400 disabled:opacity-50"
+                        className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400 disabled:opacity-50"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-white mb-2 block">
+                    <label className="text-sm font-medium text-foreground mb-2 block">
                       Phone Number
                     </label>
                     <div className="relative">
@@ -179,20 +179,20 @@ export default function ProfilePage() {
                           setProfileData({ ...profileData, phone: e.target.value })
                         }
                         disabled={!isEditing}
-                        className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400 disabled:opacity-50"
+                        className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400 disabled:opacity-50"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-white mb-2 block">Bio</label>
+                    <label className="text-sm font-medium text-foreground mb-2 block">Bio</label>
                     <Input
                       value={profileData.bio}
                       onChange={(e) =>
                         setProfileData({ ...profileData, bio: e.target.value })
                       }
                       disabled={!isEditing}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 disabled:opacity-50"
+                      className="bg-white/10 border-white/20 text-foreground placeholder:text-gray-400 disabled:opacity-50"
                     />
                   </div>
 
@@ -209,10 +209,10 @@ export default function ProfilePage() {
 
               {/* Change Password */}
               <Card className="p-6 bg-white/10 backdrop-blur-xl border-white/20 mt-6">
-                <h2 className="text-2xl font-bold text-white mb-6">Change Password</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-6">Change Password</h2>
                 <div className="space-y-4">
                   <div>
-                    <label className="text-sm font-medium text-white mb-2 block">
+                    <label className="text-sm font-medium text-foreground mb-2 block">
                       Current Password
                     </label>
                     <div className="relative">
@@ -224,13 +224,13 @@ export default function ProfilePage() {
                           setPasswordData({ ...passwordData, current: e.target.value })
                         }
                         placeholder="••••••••"
-                        className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                        className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-white mb-2 block">
+                    <label className="text-sm font-medium text-foreground mb-2 block">
                       New Password
                     </label>
                     <div className="relative">
@@ -242,13 +242,13 @@ export default function ProfilePage() {
                           setPasswordData({ ...passwordData, new: e.target.value })
                         }
                         placeholder="••••••••"
-                        className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                        className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-white mb-2 block">
+                    <label className="text-sm font-medium text-foreground mb-2 block">
                       Confirm New Password
                     </label>
                     <div className="relative">
@@ -260,7 +260,7 @@ export default function ProfilePage() {
                           setPasswordData({ ...passwordData, confirm: e.target.value })
                         }
                         placeholder="••••••••"
-                        className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                        className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
                       />
                     </div>
                   </div>
@@ -277,7 +277,7 @@ export default function ProfilePage() {
               {/* Danger Zone */}
               <Card className="p-6 bg-red-500/10 backdrop-blur-xl border-red-500/20 mt-6">
                 <h2 className="text-2xl font-bold text-red-400 mb-4">Danger Zone</h2>
-                <p className="text-gray-300 mb-4">
+                <p className="text-muted-foreground mb-4">
                   Once you delete your account, there is no going back. Please be certain.
                 </p>
                 <Button
@@ -294,7 +294,7 @@ export default function ProfilePage() {
             {/* Activity Sidebar */}
             <div className="lg:col-span-1">
               <Card className="p-6 bg-white/10 backdrop-blur-xl border-white/20">
-                <h2 className="text-xl font-bold text-white mb-4">Recent Activity</h2>
+                <h2 className="text-xl font-bold text-foreground mb-4">Recent Activity</h2>
                 <div className="space-y-4">
                   {activityLog.map((activity) => (
                     <div key={activity.id} className="flex items-start gap-3">
@@ -306,7 +306,7 @@ export default function ProfilePage() {
                         )}
                       </div>
                       <div className="flex-1">
-                        <p className="text-white text-sm">{activity.description}</p>
+                        <p className="text-foreground text-sm">{activity.description}</p>
                         <div className="flex items-center gap-1 mt-1">
                           <Clock className="w-3 h-3 text-gray-400" />
                           <p className="text-xs text-gray-400">{activity.time}</p>

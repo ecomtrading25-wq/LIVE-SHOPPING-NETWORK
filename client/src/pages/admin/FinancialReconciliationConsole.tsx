@@ -128,7 +128,7 @@ export default function FinancialReconciliationConsole() {
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-4xl font-bold text-white mb-2 flex items-center gap-3">
+              <h1 className="text-4xl font-bold text-foreground mb-2 flex items-center gap-3">
                 <DollarSign className="w-10 h-10 text-green-500" />
                 Financial Reconciliation Console
               </h1>
@@ -158,7 +158,7 @@ export default function FinancialReconciliationConsole() {
 
               <Button
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10"
+                className="border-white/20 text-foreground hover:bg-white/10"
                 onClick={() => exportLedger.mutate({ dateRange })}
               >
                 <Download className="w-4 h-4 mr-2" />
@@ -175,7 +175,7 @@ export default function FinancialReconciliationConsole() {
               <span className="text-green-400 text-sm font-medium">Matched</span>
               <CheckCircle className="w-5 h-5 text-green-400" />
             </div>
-            <div className="text-3xl font-bold text-white mb-1">
+            <div className="text-3xl font-bold text-foreground mb-1">
               {stats?.matchedCount || 0}
             </div>
             <div className="text-xs text-gray-400">
@@ -188,7 +188,7 @@ export default function FinancialReconciliationConsole() {
               <span className="text-yellow-400 text-sm font-medium">Unmatched</span>
               <AlertCircle className="w-5 h-5 text-yellow-400" />
             </div>
-            <div className="text-3xl font-bold text-white mb-1">
+            <div className="text-3xl font-bold text-foreground mb-1">
               {stats?.unmatchedCount || 0}
             </div>
             <div className="text-xs text-gray-400">
@@ -201,7 +201,7 @@ export default function FinancialReconciliationConsole() {
               <span className="text-red-400 text-sm font-medium">Discrepancies</span>
               <XCircle className="w-5 h-5 text-red-400" />
             </div>
-            <div className="text-3xl font-bold text-white mb-1">
+            <div className="text-3xl font-bold text-foreground mb-1">
               {stats?.discrepancyCount || 0}
             </div>
             <div className="text-xs text-gray-400">
@@ -214,7 +214,7 @@ export default function FinancialReconciliationConsole() {
               <span className="text-blue-400 text-sm font-medium">Match Rate</span>
               <TrendingUp className="w-5 h-5 text-blue-400" />
             </div>
-            <div className="text-3xl font-bold text-white mb-1">
+            <div className="text-3xl font-bold text-foreground mb-1">
               {stats?.matchRate ? `${(stats.matchRate * 100).toFixed(1)}%` : "N/A"}
             </div>
             <div className="text-xs text-gray-400">
@@ -233,13 +233,13 @@ export default function FinancialReconciliationConsole() {
                   placeholder="Search by transaction ID, order ID, or amount..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 bg-white/5 border-white/10 text-white"
+                  className="pl-10 bg-white/5 border-white/10 text-foreground"
                 />
               </div>
             </div>
 
             <Select value={dateRange} onValueChange={setDateRange}>
-              <SelectTrigger className="w-[180px] bg-white/5 border-white/10 text-white">
+              <SelectTrigger className="w-[180px] bg-white/5 border-white/10 text-foreground">
                 <Calendar className="w-4 h-4 mr-2" />
                 <SelectValue placeholder="Date range" />
               </SelectTrigger>
@@ -251,7 +251,7 @@ export default function FinancialReconciliationConsole() {
             </Select>
 
             <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="w-[180px] bg-white/5 border-white/10 text-white">
+              <SelectTrigger className="w-[180px] bg-white/5 border-white/10 text-foreground">
                 <Filter className="w-4 h-4 mr-2" />
                 <SelectValue placeholder="Status" />
               </SelectTrigger>
@@ -268,7 +268,7 @@ export default function FinancialReconciliationConsole() {
         {/* Unmatched Transactions */}
         <Card className="bg-white/5 border-white/10 mb-6">
           <div className="p-6 border-b border-white/10">
-            <h2 className="text-2xl font-bold text-white flex items-center gap-2">
+            <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
               <AlertCircle className="w-6 h-6 text-yellow-500" />
               Unmatched Transactions
               <Badge className="bg-yellow-500/20 text-yellow-400 border-yellow-500/50 ml-2">
@@ -297,15 +297,15 @@ export default function FinancialReconciliationConsole() {
                 {unmatchedTransactions && unmatchedTransactions.length > 0 ? (
                   unmatchedTransactions.map((txn: any) => (
                     <TableRow key={txn.id} className="border-white/10 hover:bg-white/5">
-                      <TableCell className="font-mono text-white text-sm">
+                      <TableCell className="font-mono text-foreground text-sm">
                         {txn.providerTransactionId}
                       </TableCell>
-                      <TableCell className="text-white">
+                      <TableCell className="text-foreground">
                         <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/50">
                           {txn.provider}
                         </Badge>
                       </TableCell>
-                      <TableCell className="text-white font-semibold">
+                      <TableCell className="text-foreground font-semibold">
                         ${(txn.amountCents / 100).toFixed(2)} {txn.currency}
                       </TableCell>
                       <TableCell className="text-gray-400 text-sm">
@@ -328,15 +328,15 @@ export default function FinancialReconciliationConsole() {
                               <Button
                                 size="sm"
                                 variant="outline"
-                                className="border-white/20 text-white hover:bg-white/10"
+                                className="border-white/20 text-foreground hover:bg-white/10"
                                 onClick={() => setSelectedTransaction(txn)}
                               >
                                 <Eye className="w-4 h-4" />
                               </Button>
                             </DialogTrigger>
-                            <DialogContent className="max-w-2xl bg-gray-900 border-white/10">
+                            <DialogContent className="max-w-2xl bg-background border-white/10 text-foreground">
                               <DialogHeader>
-                                <DialogTitle className="text-white">
+                                <DialogTitle className="text-foreground">
                                   Transaction Details
                                 </DialogTitle>
                                 <DialogDescription className="text-gray-400">
@@ -348,38 +348,38 @@ export default function FinancialReconciliationConsole() {
                                 <div className="grid grid-cols-2 gap-4 text-sm">
                                   <div>
                                     <span className="text-gray-400">Transaction ID:</span>
-                                    <p className="text-white font-mono">{txn.providerTransactionId}</p>
+                                    <p className="text-foreground font-mono">{txn.providerTransactionId}</p>
                                   </div>
                                   <div>
                                     <span className="text-gray-400">Provider:</span>
-                                    <p className="text-white">{txn.provider}</p>
+                                    <p className="text-foreground">{txn.provider}</p>
                                   </div>
                                   <div>
                                     <span className="text-gray-400">Amount:</span>
-                                    <p className="text-white font-semibold">
+                                    <p className="text-foreground font-semibold">
                                       ${(txn.amountCents / 100).toFixed(2)} {txn.currency}
                                     </p>
                                   </div>
                                   <div>
                                     <span className="text-gray-400">Type:</span>
-                                    <p className="text-white">{txn.type}</p>
+                                    <p className="text-foreground">{txn.type}</p>
                                   </div>
                                   <div>
                                     <span className="text-gray-400">Date:</span>
-                                    <p className="text-white">
+                                    <p className="text-foreground">
                                       {new Date(txn.transactionDate).toLocaleString()}
                                     </p>
                                   </div>
                                   <div>
                                     <span className="text-gray-400">Status:</span>
-                                    <p className="text-white">{txn.status}</p>
+                                    <p className="text-foreground">{txn.status}</p>
                                   </div>
                                 </div>
 
                                 {txn.metadata && (
                                   <div>
                                     <span className="text-gray-400 text-sm">Metadata:</span>
-                                    <pre className="mt-2 bg-white/5 rounded p-3 text-white text-xs overflow-auto">
+                                    <pre className="mt-2 bg-white/5 rounded p-3 text-foreground text-xs overflow-auto">
                                       {JSON.stringify(txn.metadata, null, 2)}
                                     </pre>
                                   </div>
@@ -419,7 +419,7 @@ export default function FinancialReconciliationConsole() {
                   <TableRow>
                     <TableCell colSpan={7} className="text-center py-12">
                       <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-3" />
-                      <p className="text-white font-semibold">All transactions matched!</p>
+                      <p className="text-foreground font-semibold">All transactions matched!</p>
                       <p className="text-gray-400 text-sm">No unmatched transactions found</p>
                     </TableCell>
                   </TableRow>
@@ -432,7 +432,7 @@ export default function FinancialReconciliationConsole() {
         {/* Ledger Entries */}
         <Card className="bg-white/5 border-white/10">
           <div className="p-6 border-b border-white/10">
-            <h2 className="text-2xl font-bold text-white flex items-center gap-2">
+            <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
               <DollarSign className="w-6 h-6 text-green-500" />
               Ledger Entries
             </h2>
@@ -446,7 +446,7 @@ export default function FinancialReconciliationConsole() {
               <TableHeader>
                 <TableRow className="border-white/10 hover:bg-white/5">
                   <TableHead className="text-gray-400">
-                    <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white">
+                    <Button variant="ghost" size="sm" className="text-gray-400 hover:text-foreground">
                       Date <ArrowUpDown className="w-3 h-3 ml-1" />
                     </Button>
                   </TableHead>
@@ -470,7 +470,7 @@ export default function FinancialReconciliationConsole() {
                           {entry.entryType}
                         </Badge>
                       </TableCell>
-                      <TableCell className="text-white text-sm max-w-xs truncate">
+                      <TableCell className="text-foreground text-sm max-w-xs truncate">
                         {entry.description}
                       </TableCell>
                       <TableCell className="text-red-400 font-semibold">
@@ -479,7 +479,7 @@ export default function FinancialReconciliationConsole() {
                       <TableCell className="text-green-400 font-semibold">
                         {entry.creditCents ? `$${(entry.creditCents / 100).toFixed(2)}` : "-"}
                       </TableCell>
-                      <TableCell className="text-white font-semibold">
+                      <TableCell className="text-foreground font-semibold">
                         ${(entry.balanceCents / 100).toFixed(2)}
                       </TableCell>
                       <TableCell className="text-gray-400 text-sm font-mono">

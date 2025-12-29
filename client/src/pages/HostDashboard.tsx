@@ -152,7 +152,7 @@ export default function HostDashboard() {
   const pastShows = myShows.filter(s => s.status === 'ended');
   
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto p-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">

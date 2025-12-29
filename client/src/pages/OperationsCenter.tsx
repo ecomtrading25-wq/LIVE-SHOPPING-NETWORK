@@ -41,8 +41,8 @@ export default function OperationsCenter() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-950 flex items-center justify-center">
-        <div className="text-white">Loading...</div>
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-foreground">Loading...</div>
       </div>
     );
   }
@@ -145,7 +145,7 @@ export default function OperationsCenter() {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h1 className="text-4xl font-bold text-white">Operations Command Center</h1>
+              <h1 className="text-4xl font-bold text-foreground">Operations Command Center</h1>
               <p className="text-gray-400 mt-1">Real-time business monitoring and control</p>
             </div>
             <div className="flex items-center gap-2">
@@ -153,7 +153,7 @@ export default function OperationsCenter() {
                 variant={timeRange === "today" ? "default" : "outline"}
                 onClick={() => setTimeRange("today")}
                 size="sm"
-                className={timeRange === "today" ? "bg-purple-600" : "border-gray-700"}
+                className={timeRange === "today" ? "bg-purple-600" : "border-border"}
               >
                 Today
               </Button>
@@ -161,7 +161,7 @@ export default function OperationsCenter() {
                 variant={timeRange === "week" ? "default" : "outline"}
                 onClick={() => setTimeRange("week")}
                 size="sm"
-                className={timeRange === "week" ? "bg-purple-600" : "border-gray-700"}
+                className={timeRange === "week" ? "bg-purple-600" : "border-border"}
               >
                 Week
               </Button>
@@ -169,7 +169,7 @@ export default function OperationsCenter() {
                 variant={timeRange === "month" ? "default" : "outline"}
                 onClick={() => setTimeRange("month")}
                 size="sm"
-                className={timeRange === "month" ? "bg-purple-600" : "border-gray-700"}
+                className={timeRange === "month" ? "bg-purple-600" : "border-border"}
               >
                 Month
               </Button>
@@ -211,7 +211,7 @@ export default function OperationsCenter() {
               )}
             </div>
             <p className="text-gray-400 text-sm mb-1">Revenue</p>
-            <p className="text-3xl font-bold text-white mb-2">
+            <p className="text-3xl font-bold text-foreground mb-2">
               ${metrics.revenue.current.toLocaleString()}
             </p>
             <Badge
@@ -238,7 +238,7 @@ export default function OperationsCenter() {
               )}
             </div>
             <p className="text-gray-400 text-sm mb-1">Orders</p>
-            <p className="text-3xl font-bold text-white mb-2">
+            <p className="text-3xl font-bold text-foreground mb-2">
               {metrics.orders.current.toLocaleString()}
             </p>
             <Badge
@@ -265,7 +265,7 @@ export default function OperationsCenter() {
               )}
             </div>
             <p className="text-gray-400 text-sm mb-1">Customers</p>
-            <p className="text-3xl font-bold text-white mb-2">
+            <p className="text-3xl font-bold text-foreground mb-2">
               {metrics.customers.current.toLocaleString()}
             </p>
             <Badge
@@ -292,7 +292,7 @@ export default function OperationsCenter() {
               )}
             </div>
             <p className="text-gray-400 text-sm mb-1">Inventory</p>
-            <p className="text-3xl font-bold text-white mb-2">
+            <p className="text-3xl font-bold text-foreground mb-2">
               {metrics.inventory.current.toLocaleString()}
             </p>
             <Badge
@@ -312,7 +312,7 @@ export default function OperationsCenter() {
           {/* Recent Orders */}
           <Card className="p-6 bg-white/5 border-white/10">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-bold text-white">Recent Orders</h3>
+              <h3 className="text-xl font-bold text-foreground">Recent Orders</h3>
               <ShoppingCart className="w-5 h-5 text-purple-400" />
             </div>
             <div className="space-y-3">
@@ -322,11 +322,11 @@ export default function OperationsCenter() {
                   className="flex items-center justify-between p-3 bg-white/5 rounded-lg"
                 >
                   <div>
-                    <p className="text-white font-semibold">{order.id}</p>
+                    <p className="text-foreground font-semibold">{order.id}</p>
                     <p className="text-sm text-gray-400">{order.customer}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-white font-bold">${order.amount}</p>
+                    <p className="text-foreground font-bold">${order.amount}</p>
                     <Badge
                       className={
                         order.status === "delivered"
@@ -347,7 +347,7 @@ export default function OperationsCenter() {
           {/* Top Products */}
           <Card className="p-6 bg-white/5 border-white/10">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-bold text-white">Inventory Status</h3>
+              <h3 className="text-xl font-bold text-foreground">Inventory Status</h3>
               <Package className="w-5 h-5 text-purple-400" />
             </div>
             <div className="space-y-3">
@@ -357,11 +357,11 @@ export default function OperationsCenter() {
                   className="flex items-center justify-between p-3 bg-white/5 rounded-lg"
                 >
                   <div>
-                    <p className="text-white font-semibold">{product.name}</p>
+                    <p className="text-foreground font-semibold">{product.name}</p>
                     <p className="text-sm text-gray-400">{product.sales} sales</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-white font-bold">{product.stock} units</p>
+                    <p className="text-foreground font-bold">{product.stock} units</p>
                     <Badge className={getStockStatusColor(product.status)}>
                       {product.status}
                     </Badge>
@@ -374,7 +374,7 @@ export default function OperationsCenter() {
 
         {/* Quick Actions */}
         <Card className="p-6 bg-white/5 border-white/10">
-          <h3 className="text-xl font-bold text-white mb-4">Quick Actions</h3>
+          <h3 className="text-xl font-bold text-foreground mb-4">Quick Actions</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <Button
               variant="outline"

@@ -33,8 +33,8 @@ export default function CartPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="border-b bg-card">
+    <div className="min-h-screen bg-background text-foreground">
+      <div className="border-b bg-card text-card-foreground">
         <div className="container py-8">
           <div className="flex items-center gap-3">
             <ShoppingCart className="w-8 h-8 text-blue-500" />

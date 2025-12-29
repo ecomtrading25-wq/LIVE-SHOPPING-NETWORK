@@ -66,7 +66,7 @@ export default function LSNBrowseShows() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container py-8">
         {/* Header */}
         <div className="mb-8">
@@ -77,7 +77,7 @@ export default function LSNBrowseShows() {
         </div>
 
         {/* Filters */}
-        <Card className="border-gray-800 bg-gray-900 mb-8">
+        <Card className="border-border bg-background mb-8 text-foreground">
           <CardContent className="p-6">
             <div className="grid gap-4 md:grid-cols-4">
               {/* Search */}
@@ -87,13 +87,13 @@ export default function LSNBrowseShows() {
                   placeholder="Search shows..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 bg-gray-800 border-gray-700"
+                  className="pl-10 bg-card border-border text-card-foreground"
                 />
               </div>
 
               {/* Category filter */}
               <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                <SelectTrigger className="bg-gray-800 border-gray-700">
+                <SelectTrigger className="bg-card border-border text-card-foreground">
                   <SelectValue placeholder="Category" />
                 </SelectTrigger>
                 <SelectContent>
@@ -108,7 +108,7 @@ export default function LSNBrowseShows() {
 
               {/* Creator filter */}
               <Select value={selectedCreator} onValueChange={setSelectedCreator}>
-                <SelectTrigger className="bg-gray-800 border-gray-700">
+                <SelectTrigger className="bg-card border-border text-card-foreground">
                   <SelectValue placeholder="Creator" />
                 </SelectTrigger>
                 <SelectContent>
@@ -123,7 +123,7 @@ export default function LSNBrowseShows() {
 
               {/* Sort */}
               <Select value={sortBy} onValueChange={setSortBy}>
-                <SelectTrigger className="bg-gray-800 border-gray-700">
+                <SelectTrigger className="bg-card border-border text-card-foreground">
                   <SelectValue placeholder="Sort by" />
                 </SelectTrigger>
                 <SelectContent>
@@ -139,7 +139,7 @@ export default function LSNBrowseShows() {
 
         {/* Tabs */}
         <Tabs defaultValue="live" className="space-y-6">
-          <TabsList className="bg-gray-900 border border-gray-800">
+          <TabsList className="bg-background border border-border text-foreground">
             <TabsTrigger value="live" className="data-[state=active]:bg-purple-600">
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 bg-red-500 rounded-full animate-pulse" />
@@ -228,7 +228,7 @@ export default function LSNBrowseShows() {
 function LiveShowCard({ show }: { show: any }) {
   return (
     <Link href={`/live/${show.id}`}>
-      <Card className="group border-gray-800 bg-gray-900 hover:border-purple-500/50 transition-all cursor-pointer overflow-hidden">
+      <Card className="group border-border bg-background hover:border-purple-500/50 transition-all cursor-pointer overflow-hidden text-foreground">
         {/* Thumbnail */}
         <div className="relative aspect-video overflow-hidden">
           <img
@@ -239,14 +239,14 @@ function LiveShowCard({ show }: { show: any }) {
 
           {/* Live badge */}
           <div className="absolute top-3 left-3">
-            <Badge className="bg-red-600 text-white animate-pulse">
+            <Badge className="bg-red-600 text-foreground animate-pulse">
               <div className="h-2 w-2 bg-white rounded-full mr-2" />
               LIVE
             </Badge>
           </div>
 
           {/* Viewer count */}
-          <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-2">
+          <div className="absolute top-3 right-3 bg-background/70 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-2 text-foreground">
             <Eye className="h-4 w-4 text-purple-400" />
             <span className="text-sm font-medium">
               {show.currentViewers?.toLocaleString() || 0}
@@ -254,7 +254,7 @@ function LiveShowCard({ show }: { show: any }) {
           </div>
 
           {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
         </div>
 
         <CardContent className="p-4">
@@ -287,7 +287,7 @@ function UpcomingShowCard({ show }: { show: any }) {
 
   return (
     <Link href={`/show/${show.id}`}>
-      <Card className="group border-gray-800 bg-gray-900 hover:border-purple-500/50 transition-all cursor-pointer overflow-hidden">
+      <Card className="group border-border bg-background hover:border-purple-500/50 transition-all cursor-pointer overflow-hidden text-foreground">
         <div className="relative aspect-video overflow-hidden">
           <img
             src={show.thumbnailUrl || "/placeholder-show.jpg"}
@@ -304,7 +304,7 @@ function UpcomingShowCard({ show }: { show: any }) {
             </Badge>
           </div>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
         </div>
 
         <CardContent className="p-4">
@@ -367,7 +367,7 @@ function ScheduleGrid() {
               {days.map((day) => (
                 <div
                   key={`${day}-${hour}`}
-                  className="bg-gray-900 border border-gray-800 rounded p-2 min-h-[60px] hover:border-purple-500/50 transition-colors cursor-pointer"
+                  className="bg-background border border-border rounded p-2 min-h-[60px] hover:border-purple-500/50 transition-colors cursor-pointer text-foreground"
                 >
                   {/* Mock show data - in production, fetch from API */}
                   {hour >= 9 && hour <= 22 && Math.random() > 0.7 && (

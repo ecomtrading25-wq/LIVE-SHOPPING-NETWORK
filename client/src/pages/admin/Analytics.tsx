@@ -140,7 +140,7 @@ export default function AnalyticsPage() {
     <div className="p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-3xl font-bold text-white">Analytics Dashboard</h1>
+          <h1 className="text-3xl font-bold text-foreground">Analytics Dashboard</h1>
           <p className="text-gray-400 mt-1">Business intelligence and metrics</p>
         </div>
         <div className="flex gap-2">
@@ -174,7 +174,7 @@ export default function AnalyticsPage() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Total Revenue</p>
-              <p className="text-3xl font-bold text-white mt-2">
+              <p className="text-3xl font-bold text-foreground mt-2">
                 ${parseFloat(metrics?.totalRevenue || "0").toLocaleString()}
               </p>
               <p className="text-sm text-green-400 mt-2 flex items-center">
@@ -192,7 +192,7 @@ export default function AnalyticsPage() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Total Orders</p>
-              <p className="text-3xl font-bold text-white mt-2">
+              <p className="text-3xl font-bold text-foreground mt-2">
                 {metrics?.totalOrders?.toLocaleString() || 0}
               </p>
               <p className="text-sm text-blue-400 mt-2 flex items-center">
@@ -210,7 +210,7 @@ export default function AnalyticsPage() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Total Products</p>
-              <p className="text-3xl font-bold text-white mt-2">
+              <p className="text-3xl font-bold text-foreground mt-2">
                 {metrics?.totalProducts?.toLocaleString() || 0}
               </p>
               <p className="text-sm text-purple-400 mt-2 flex items-center">
@@ -228,7 +228,7 @@ export default function AnalyticsPage() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Avg Order Value</p>
-              <p className="text-3xl font-bold text-white mt-2">
+              <p className="text-3xl font-bold text-foreground mt-2">
                 $
                 {metrics?.totalOrders && metrics?.totalRevenue
                   ? (
@@ -252,7 +252,7 @@ export default function AnalyticsPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Revenue Trend */}
         <Card className="p-6 bg-white/5 border-white/10">
-          <h3 className="text-lg font-semibold text-white mb-4">Revenue Trend</h3>
+          <h3 className="text-lg font-semibold text-foreground mb-4">Revenue Trend</h3>
           <div className="h-80">
             <Line data={revenueChartData} options={chartOptions} />
           </div>
@@ -260,7 +260,7 @@ export default function AnalyticsPage() {
 
         {/* Orders Volume */}
         <Card className="p-6 bg-white/5 border-white/10">
-          <h3 className="text-lg font-semibold text-white mb-4">Orders Volume</h3>
+          <h3 className="text-lg font-semibold text-foreground mb-4">Orders Volume</h3>
           <div className="h-80">
             <Bar data={ordersChartData} options={chartOptions} />
           </div>
@@ -270,7 +270,7 @@ export default function AnalyticsPage() {
       {/* Order Status Distribution */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card className="p-6 bg-white/5 border-white/10">
-          <h3 className="text-lg font-semibold text-white mb-4">
+          <h3 className="text-lg font-semibold text-foreground mb-4">
             Order Status Distribution
           </h3>
           <div className="h-80">
@@ -280,33 +280,33 @@ export default function AnalyticsPage() {
 
         {/* Top Metrics Summary */}
         <Card className="p-6 bg-white/5 border-white/10">
-          <h3 className="text-lg font-semibold text-white mb-4">Performance Summary</h3>
+          <h3 className="text-lg font-semibold text-foreground mb-4">Performance Summary</h3>
           <div className="space-y-4">
             <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg">
               <div>
                 <p className="text-sm text-gray-400">Conversion Rate</p>
-                <p className="text-2xl font-bold text-white">3.2%</p>
+                <p className="text-2xl font-bold text-foreground">3.2%</p>
               </div>
               <div className="text-green-400 text-sm">+0.5%</div>
             </div>
             <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg">
               <div>
                 <p className="text-sm text-gray-400">Fulfillment Rate</p>
-                <p className="text-2xl font-bold text-white">94.8%</p>
+                <p className="text-2xl font-bold text-foreground">94.8%</p>
               </div>
               <div className="text-green-400 text-sm">+2.1%</div>
             </div>
             <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg">
               <div>
                 <p className="text-sm text-gray-400">Return Rate</p>
-                <p className="text-2xl font-bold text-white">2.1%</p>
+                <p className="text-2xl font-bold text-foreground">2.1%</p>
               </div>
               <div className="text-red-400 text-sm">-0.3%</div>
             </div>
             <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg">
               <div>
                 <p className="text-sm text-gray-400">Customer Satisfaction</p>
-                <p className="text-2xl font-bold text-white">4.7/5.0</p>
+                <p className="text-2xl font-bold text-foreground">4.7/5.0</p>
               </div>
               <div className="text-green-400 text-sm">+0.2</div>
             </div>

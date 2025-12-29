@@ -144,7 +144,7 @@ export default function LiveShowViewer() {
   
   if (showLoading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center text-foreground">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-muted-foreground">Loading show...</p>
@@ -155,7 +155,7 @@ export default function LiveShowViewer() {
   
   if (!show) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center text-foreground">
         <Card className="p-8 text-center">
           <h2 className="text-2xl font-bold mb-2">Show Not Found</h2>
           <p className="text-muted-foreground">This live show doesn't exist or has been removed.</p>
@@ -165,10 +165,10 @@ export default function LiveShowViewer() {
   }
   
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto h-screen flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 bg-black/50 backdrop-blur">
+        <div className="flex items-center justify-between p-4 bg-background/50 backdrop-blur text-foreground">
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="icon" onClick={() => window.history.back()}>
               <X className="w-5 h-5" />
@@ -201,7 +201,7 @@ export default function LiveShowViewer() {
         {/* Main Content */}
         <div className="flex-1 flex gap-4 p-4 overflow-hidden">
           {/* Video Player */}
-          <div className="flex-1 relative bg-gray-900 rounded-lg overflow-hidden">
+          <div className="flex-1 relative bg-background rounded-lg overflow-hidden text-foreground">
             {show.playbackUrl ? (
               <video
                 ref={videoRef}
@@ -220,7 +220,7 @@ export default function LiveShowViewer() {
             )}
             
             {/* Video Controls */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/30 to-transparent">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Button variant="ghost" size="icon" onClick={toggleMute}>
@@ -237,7 +237,7 @@ export default function LiveShowViewer() {
             {/* Product Overlay */}
             {selectedProduct && (
               <div className="absolute bottom-20 left-4 right-4">
-                <Card className="p-4 bg-black/80 backdrop-blur border-primary">
+                <Card className="p-4 bg-background/80 backdrop-blur border-primary text-foreground">
                   <div className="flex items-center gap-4">
                     <img
                       src={selectedProduct.imageUrl || 'https://via.placeholder.com/80'}
@@ -268,7 +268,7 @@ export default function LiveShowViewer() {
           {/* Sidebar */}
           <div className="w-96 flex flex-col gap-4">
             {/* Products */}
-            <Card className="p-4 bg-gray-900 border-gray-800">
+            <Card className="p-4 bg-background border-border text-foreground">
               <h3 className="font-bold mb-3 flex items-center gap-2">
                 <ShoppingCart className="w-5 h-5" />
                 Featured Products
@@ -278,7 +278,7 @@ export default function LiveShowViewer() {
                   <button
                     key={product.id}
                     onClick={() => setSelectedProduct(product)}
-                    className="w-full flex items-center gap-3 p-2 rounded hover:bg-gray-800 transition-colors text-left"
+                    className="w-full flex items-center gap-3 p-2 rounded hover:bg-card transition-colors text-left"
                   >
                     <img
                       src={product.imageUrl || 'https://via.placeholder.com/50'}
@@ -297,8 +297,8 @@ export default function LiveShowViewer() {
             </Card>
             
             {/* Chat */}
-            <Card className="flex-1 flex flex-col bg-gray-900 border-gray-800 overflow-hidden">
-              <div className="p-4 border-b border-gray-800">
+            <Card className="flex-1 flex flex-col bg-background border-border overflow-hidden text-foreground">
+              <div className="p-4 border-b border-border">
                 <h3 className="font-bold flex items-center gap-2">
                   <MessageCircle className="w-5 h-5" />
                   Live Chat
@@ -330,7 +330,7 @@ export default function LiveShowViewer() {
               </div>
               
               {/* Input */}
-              <div className="p-4 border-t border-gray-800">
+              <div className="p-4 border-t border-border">
                 <div className="flex gap-2">
                   <Input
                     value={message}
@@ -338,7 +338,7 @@ export default function LiveShowViewer() {
                     onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                     placeholder={user ? "Say something..." : "Login to chat"}
                     disabled={!user}
-                    className="flex-1 bg-gray-800 border-gray-700"
+                    className="flex-1 bg-card border-border text-card-foreground"
                   />
                   <Button
                     onClick={handleSendMessage}

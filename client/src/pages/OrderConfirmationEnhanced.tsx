@@ -64,7 +64,7 @@ export default function OrderConfirmationEnhanced() {
             <div className="flex items-center gap-4">
               <div className="flex-shrink-0">
                 <div className="h-16 w-16 rounded-full bg-green-500 flex items-center justify-center">
-                  <CheckCircle className="h-10 w-10 text-white" />
+                  <CheckCircle className="h-10 w-10 text-foreground" />
                 </div>
               </div>
               <div className="flex-1">

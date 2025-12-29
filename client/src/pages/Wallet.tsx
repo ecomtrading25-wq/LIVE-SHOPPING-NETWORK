@@ -150,7 +150,7 @@ export default function Wallet() {
 
         {/* Balance Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <Card className="bg-gradient-to-br from-purple-600 to-pink-600 text-white border-0">
+          <Card className="bg-gradient-to-br from-purple-600 to-pink-600 text-foreground border-0">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-white/80">Total Balance</span>

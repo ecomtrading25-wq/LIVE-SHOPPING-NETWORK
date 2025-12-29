@@ -47,7 +47,7 @@ export default function LiveShoppingPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Live Shopping</h1>
+          <h1 className="text-3xl font-bold text-foreground">Live Shopping</h1>
           <p className="text-gray-400 mt-1">Manage live sessions and real-time commerce</p>
         </div>
 
@@ -58,9 +58,9 @@ export default function LiveShoppingPage() {
               Create Session
             </Button>
           </DialogTrigger>
-          <DialogContent className="bg-zinc-900 border-zinc-800">
+          <DialogContent className="bg-background border-border text-foreground">
             <DialogHeader>
-              <DialogTitle className="text-white">Create Live Session</DialogTitle>
+              <DialogTitle className="text-foreground">Create Live Session</DialogTitle>
               <DialogDescription className="text-gray-400">
                 Start a new live shopping session
               </DialogDescription>
@@ -77,52 +77,52 @@ export default function LiveShoppingPage() {
 
       {/* Live Analytics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center">
               <Video className="w-5 h-5 text-red-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Live Now</p>
-              <p className="text-2xl font-bold text-white">
+              <p className="text-2xl font-bold text-foreground">
                 {sessions?.filter((s) => s.status === "live").length || 0}
               </p>
             </div>
           </div>
         </Card>
 
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center">
               <Users className="w-5 h-5 text-blue-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Total Viewers</p>
-              <p className="text-2xl font-bold text-white">{analytics?.totalViewers || 0}</p>
+              <p className="text-2xl font-bold text-foreground">{analytics?.totalViewers || 0}</p>
             </div>
           </div>
         </Card>
 
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center">
               <ShoppingCart className="w-5 h-5 text-green-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Live Orders</p>
-              <p className="text-2xl font-bold text-white">{analytics?.liveOrders || 0}</p>
+              <p className="text-2xl font-bold text-foreground">{analytics?.liveOrders || 0}</p>
             </div>
           </div>
         </Card>
 
-        <Card className="p-4 bg-zinc-900 border-zinc-800">
+        <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center">
               <DollarSign className="w-5 h-5 text-purple-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Live Revenue</p>
-              <p className="text-2xl font-bold text-white">
+              <p className="text-2xl font-bold text-foreground">
                 ${analytics?.liveRevenue?.toFixed(2) || "0.00"}
               </p>
             </div>
@@ -131,13 +131,13 @@ export default function LiveShoppingPage() {
       </div>
 
       {/* Active Sessions */}
-      <Card className="bg-zinc-900 border-zinc-800">
-        <div className="p-6 border-b border-zinc-800">
-          <h2 className="text-xl font-bold text-white">Live Sessions</h2>
+      <Card className="bg-background border-border text-foreground">
+        <div className="p-6 border-b border-border">
+          <h2 className="text-xl font-bold text-foreground">Live Sessions</h2>
         </div>
         <Table>
           <TableHeader>
-            <TableRow className="border-zinc-800 hover:bg-zinc-800/50">
+            <TableRow className="border-border hover:bg-card/50 text-card-foreground">
               <TableHead className="text-gray-400">Session</TableHead>
               <TableHead className="text-gray-400">Status</TableHead>
               <TableHead className="text-gray-400">Viewers</TableHead>
@@ -197,14 +197,14 @@ function SessionRow({ session, onUpdate }: { session: any; onUpdate: () => void 
   };
 
   return (
-    <TableRow className="border-zinc-800 hover:bg-zinc-800/50">
+    <TableRow className="border-border hover:bg-card/50 text-card-foreground">
       <TableCell>
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center">
+          <div className="w-10 h-10 bg-card rounded-lg flex items-center justify-center text-card-foreground">
             <Video className="w-5 h-5 text-purple-500" />
           </div>
           <div>
-            <p className="font-medium text-white">{session.title}</p>
+            <p className="font-medium text-foreground">{session.title}</p>
             <p className="text-sm text-gray-400">{session.channelId}</p>
           </div>
         </div>
@@ -213,11 +213,11 @@ function SessionRow({ session, onUpdate }: { session: any; onUpdate: () => void 
       <TableCell>
         <div className="flex items-center gap-2">
           <Users className="w-4 h-4 text-gray-400" />
-          <span className="text-white">{session.viewerCount || 0}</span>
+          <span className="text-foreground">{session.viewerCount || 0}</span>
         </div>
       </TableCell>
-      <TableCell className="text-gray-300">{getDuration()}</TableCell>
-      <TableCell className="text-white font-medium">
+      <TableCell className="text-muted-foreground">{getDuration()}</TableCell>
+      <TableCell className="text-foreground font-medium">
         ${session.revenue?.toFixed(2) || "0.00"}
       </TableCell>
       <TableCell>
@@ -285,7 +285,7 @@ function CreateSessionForm({ onSuccess }: { onSuccess: () => void }) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <Label htmlFor="title" className="text-white">
+        <Label htmlFor="title" className="text-foreground">
           Session Title
         </Label>
         <Input
@@ -293,13 +293,13 @@ function CreateSessionForm({ onSuccess }: { onSuccess: () => void }) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Friday Night Live Sale"
-          className="bg-zinc-800 border-zinc-700 text-white"
+          className="bg-card border-zinc-700 text-foreground"
           required
         />
       </div>
 
       <div>
-        <Label htmlFor="streamUrl" className="text-white">
+        <Label htmlFor="streamUrl" className="text-foreground">
           Stream URL (HLS)
         </Label>
         <Input
@@ -307,13 +307,13 @@ function CreateSessionForm({ onSuccess }: { onSuccess: () => void }) {
           value={streamUrl}
           onChange={(e) => setStreamUrl(e.target.value)}
           placeholder="https://stream.example.com/live.m3u8"
-          className="bg-zinc-800 border-zinc-700 text-white"
+          className="bg-card border-zinc-700 text-foreground"
           required
         />
       </div>
 
       <div>
-        <Label htmlFor="channelId" className="text-white">
+        <Label htmlFor="channelId" className="text-foreground">
           Channel ID
         </Label>
         <Input
@@ -321,7 +321,7 @@ function CreateSessionForm({ onSuccess }: { onSuccess: () => void }) {
           value={channelId}
           onChange={(e) => setChannelId(e.target.value)}
           placeholder="main-channel"
-          className="bg-zinc-800 border-zinc-700 text-white"
+          className="bg-card border-zinc-700 text-foreground"
           required
         />
       </div>

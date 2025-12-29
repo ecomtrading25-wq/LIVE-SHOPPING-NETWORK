@@ -201,15 +201,15 @@ export default function AIShoppingChatbot() {
         className="fixed bottom-4 left-4 z-40 w-14 h-14 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
         title="AI Shopping Assistant"
       >
-        <MessageCircle className="w-6 h-6 text-white" />
+        <MessageCircle className="w-6 h-6 text-foreground" />
         <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse" />
       </button>
 
       {/* Chatbot Window */}
       {isOpen && (
-        <div className="fixed bottom-20 left-4 z-50 w-96 max-w-[calc(100vw-2rem)] h-[600px] max-h-[calc(100vh-8rem)] flex flex-col bg-zinc-900 rounded-2xl shadow-2xl border border-purple-500/30">
+        <div className="fixed bottom-20 left-4 z-50 w-96 max-w-[calc(100vw-2rem)] h-[600px] max-h-[calc(100vh-8rem)] flex flex-col bg-background rounded-2xl shadow-2xl border border-purple-500/30 text-foreground">
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-800 bg-gradient-to-r from-blue-600 to-purple-600 rounded-t-2xl">
+          <div className="flex items-center justify-between p-4 border-b border-border bg-gradient-to-r from-blue-600 to-purple-600 rounded-t-2xl">
             <div className="flex items-center gap-3">
               <div className="relative">
                 <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
@@ -218,7 +218,7 @@ export default function AIShoppingChatbot() {
                 <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white" />
               </div>
               <div>
-                <h3 className="text-white font-bold">AI Assistant</h3>
+                <h3 className="text-foreground font-bold">AI Assistant</h3>
                 <p className="text-xs text-white/80">Online • Ready to help</p>
               </div>
             </div>
@@ -226,7 +226,7 @@ export default function AIShoppingChatbot() {
               onClick={() => setIsOpen(false)}
               className="p-2 hover:bg-white/10 rounded-full transition-colors"
             >
-              <X className="w-5 h-5 text-white" />
+              <X className="w-5 h-5 text-foreground" />
             </button>
           </div>
 
@@ -247,9 +247,9 @@ export default function AIShoppingChatbot() {
                   }`}
                 >
                   {message.role === "user" ? (
-                    <User className="w-5 h-5 text-white" />
+                    <User className="w-5 h-5 text-foreground" />
                   ) : (
-                    <Bot className="w-5 h-5 text-white" />
+                    <Bot className="w-5 h-5 text-foreground" />
                   )}
                 </div>
 
@@ -257,8 +257,8 @@ export default function AIShoppingChatbot() {
                   <div
                     className={`p-3 rounded-2xl ${
                       message.role === "user"
-                        ? "bg-purple-600 text-white ml-auto"
-                        : "bg-white/10 text-white"
+                        ? "bg-purple-600 text-foreground ml-auto"
+                        : "bg-white/10 text-foreground"
                     }`}
                   >
                     <p className="text-sm whitespace-pre-wrap">{message.content}</p>
@@ -277,7 +277,7 @@ export default function AIShoppingChatbot() {
                                 className="w-16 h-16 object-cover rounded"
                               />
                               <div className="flex-1 min-w-0">
-                                <h4 className="text-white text-sm font-semibold line-clamp-2">
+                                <h4 className="text-foreground text-sm font-semibold line-clamp-2">
                                   {product.name}
                                 </h4>
                                 <div className="flex items-center gap-2 mt-1">
@@ -311,7 +311,7 @@ export default function AIShoppingChatbot() {
             {isTyping && (
               <div className="flex gap-3">
                 <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
-                  <Bot className="w-5 h-5 text-white" />
+                  <Bot className="w-5 h-5 text-foreground" />
                 </div>
                 <div className="bg-white/10 p-3 rounded-2xl">
                   <div className="flex gap-1">
@@ -338,7 +338,7 @@ export default function AIShoppingChatbot() {
                       setInput(action);
                       setTimeout(() => handleSendMessage(), 100);
                     }}
-                    className="text-xs px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded-full text-gray-300 transition-colors"
+                    className="text-xs px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded-full text-muted-foreground transition-colors"
                   >
                     {action}
                   </button>
@@ -348,14 +348,14 @@ export default function AIShoppingChatbot() {
           )}
 
           {/* Input */}
-          <div className="p-4 border-t border-gray-800">
+          <div className="p-4 border-t border-border">
             <div className="flex gap-2">
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Ask me anything..."
-                className="bg-white/10 border-white/20 text-white placeholder-gray-400"
+                className="bg-white/10 border-white/20 text-foreground placeholder-gray-400"
               />
               <Button
                 onClick={handleSendMessage}

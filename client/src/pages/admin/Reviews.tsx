@@ -78,18 +78,18 @@ export default function ReviewsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Reviews & Ratings</h1>
+          <h1 className="text-3xl font-bold text-foreground">Reviews & Ratings</h1>
           <p className="text-gray-400 mt-1">Moderate customer feedback</p>
         </div>
       </div>
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Total Reviews</p>
-              <p className="text-3xl font-bold text-white mt-1">
+              <p className="text-3xl font-bold text-foreground mt-1">
                 {reviews?.length || 0}
               </p>
             </div>
@@ -99,11 +99,11 @@ export default function ReviewsPage() {
           </div>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Pending</p>
-              <p className="text-3xl font-bold text-white mt-1">
+              <p className="text-3xl font-bold text-foreground mt-1">
                 {reviews?.filter((r) => r.status === "pending").length || 0}
               </p>
             </div>
@@ -113,11 +113,11 @@ export default function ReviewsPage() {
           </div>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Avg Rating</p>
-              <p className="text-3xl font-bold text-white mt-1">
+              <p className="text-3xl font-bold text-foreground mt-1">
                 {reviews && reviews.length > 0
                   ? (
                       reviews.reduce((sum, r) => sum + r.rating, 0) /
@@ -132,11 +132,11 @@ export default function ReviewsPage() {
           </div>
         </Card>
 
-        <Card className="p-6 bg-zinc-900 border-zinc-800">
+        <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Approval Rate</p>
-              <p className="text-3xl font-bold text-white mt-1">
+              <p className="text-3xl font-bold text-foreground mt-1">
                 {reviews && reviews.length > 0
                   ? (
                       (reviews.filter((r) => r.status === "approved").length /
@@ -155,7 +155,7 @@ export default function ReviewsPage() {
       </div>
 
       {/* Filters */}
-      <Card className="p-6 bg-zinc-900 border-zinc-800">
+      <Card className="p-6 bg-background border-border text-foreground">
         <div className="flex items-center gap-4">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -163,7 +163,7 @@ export default function ReviewsPage() {
               placeholder="Search reviews..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 bg-zinc-800 border-zinc-700"
+              className="pl-10 bg-card border-zinc-700 text-card-foreground"
             />
           </div>
           <div className="flex gap-2">
@@ -198,7 +198,7 @@ export default function ReviewsPage() {
       {/* Reviews List */}
       <div className="space-y-4">
         {reviews?.map((review) => (
-          <Card key={review.id} className="p-6 bg-zinc-900 border-zinc-800">
+          <Card key={review.id} className="p-6 bg-background border-border text-foreground">
             <div className="flex items-start justify-between">
               <div className="flex-1">
                 <div className="flex items-center gap-4 mb-3">
@@ -209,7 +209,7 @@ export default function ReviewsPage() {
                   </div>
                   <div>
                     <div className="flex items-center gap-3">
-                      <span className="font-semibold text-white">
+                      <span className="font-semibold text-foreground">
                         {review.userName || "Anonymous"}
                       </span>
                       {renderStars(review.rating)}
@@ -222,7 +222,7 @@ export default function ReviewsPage() {
                   </div>
                 </div>
 
-                <p className="text-gray-300 mb-4">{review.comment}</p>
+                <p className="text-muted-foreground mb-4">{review.comment}</p>
 
                 {review.images && review.images.length > 0 && (
                   <div className="flex gap-2 mb-4">

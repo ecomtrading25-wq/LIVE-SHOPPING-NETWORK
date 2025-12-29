@@ -47,8 +47,8 @@ export default function ResetPasswordPage() {
           <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
             <CheckCircle className="w-8 h-8 text-green-500" />
           </div>
-          <h1 className="text-2xl font-bold text-white mb-2">Password Reset!</h1>
-          <p className="text-gray-300 mb-6">
+          <h1 className="text-2xl font-bold text-foreground mb-2">Password Reset!</h1>
+          <p className="text-muted-foreground mb-6">
             Your password has been successfully reset. You can now log in with your new
             password.
           </p>
@@ -63,15 +63,15 @@ export default function ResetPasswordPage() {
       <Card className="w-full max-w-md p-8 bg-white/10 backdrop-blur-xl border-white/20">
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Lock className="w-8 h-8 text-white" />
+            <Lock className="w-8 h-8 text-foreground" />
           </div>
-          <h1 className="text-3xl font-bold text-white mb-2">Reset Password</h1>
-          <p className="text-gray-300">Enter your new password below</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Reset Password</h1>
+          <p className="text-muted-foreground">Enter your new password below</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="text-sm font-medium text-white mb-2 block">
+            <label className="text-sm font-medium text-foreground mb-2 block">
               New Password
             </label>
             <div className="relative">
@@ -83,7 +83,7 @@ export default function ResetPasswordPage() {
                   setPasswordData({ ...passwordData, password: e.target.value })
                 }
                 placeholder="••••••••"
-                className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
                 required
               />
             </div>
@@ -101,14 +101,14 @@ export default function ResetPasswordPage() {
                       }`}
                     />
                   </div>
-                  <span className="text-xs text-gray-300 capitalize">{passwordStrength}</span>
+                  <span className="text-xs text-muted-foreground capitalize">{passwordStrength}</span>
                 </div>
               </div>
             )}
           </div>
 
           <div>
-            <label className="text-sm font-medium text-white mb-2 block">
+            <label className="text-sm font-medium text-foreground mb-2 block">
               Confirm New Password
             </label>
             <div className="relative">
@@ -120,7 +120,7 @@ export default function ResetPasswordPage() {
                   setPasswordData({ ...passwordData, confirmPassword: e.target.value })
                 }
                 placeholder="••••••••"
-                className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
                 required
               />
               {passwordData.confirmPassword && (

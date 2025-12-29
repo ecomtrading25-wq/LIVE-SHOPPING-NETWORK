@@ -180,10 +180,10 @@ export default function AccountSubscriptionPage() {
       <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 flex items-center justify-center p-4">
         <Card className="max-w-md w-full p-8 bg-white/5 border-white/10 text-center">
           <CreditCard className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-white mb-4">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
             Sign In Required
           </h2>
-          <p className="text-gray-300 mb-6">
+          <p className="text-muted-foreground mb-6">
             Please sign in to manage your subscription
           </p>
           <Link href="/">
@@ -199,16 +199,16 @@ export default function AccountSubscriptionPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
       {/* Header */}
-      <header className="bg-black/30 border-b border-white/10 backdrop-blur-sm sticky top-0 z-10">
+      <header className="bg-background/30 border-b border-white/10 backdrop-blur-sm sticky top-0 z-10 text-foreground">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/account">
-              <Button variant="ghost" className="text-white">
+              <Button variant="ghost" className="text-foreground">
                 <ArrowLeft className="w-5 h-5 mr-2" />
                 Back to Account
               </Button>
             </Link>
-            <h1 className="text-2xl font-bold text-white">
+            <h1 className="text-2xl font-bold text-foreground">
               Subscription Management
             </h1>
             <div className="w-32" /> {/* Spacer for centering */}
@@ -221,7 +221,7 @@ export default function AccountSubscriptionPage() {
         {subscription && (
           <Card className="p-6 bg-white/5 border-white/10 mb-8">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold text-white">
+              <h2 className="text-2xl font-bold text-foreground">
                 Current Subscription
               </h2>
               <Badge className={getStatusBadge(subscription.status)}>
@@ -232,14 +232,14 @@ export default function AccountSubscriptionPage() {
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <p className="text-gray-400 text-sm mb-1">Plan</p>
-                <p className="text-white text-lg font-semibold">
+                <p className="text-foreground text-lg font-semibold">
                   {subscription.planName}
                 </p>
               </div>
 
               <div>
                 <p className="text-gray-400 text-sm mb-1">Amount</p>
-                <p className="text-white text-lg font-semibold">
+                <p className="text-foreground text-lg font-semibold">
                   {subscription.currency} ${subscription.amount} /{" "}
                   {subscription.interval}
                 </p>
@@ -247,7 +247,7 @@ export default function AccountSubscriptionPage() {
 
               <div>
                 <p className="text-gray-400 text-sm mb-1">Current Period</p>
-                <p className="text-white">
+                <p className="text-foreground">
                   {new Date(subscription.currentPeriodStart).toLocaleDateString()}{" "}
                   - {new Date(subscription.currentPeriodEnd).toLocaleDateString()}
                 </p>
@@ -255,7 +255,7 @@ export default function AccountSubscriptionPage() {
 
               <div>
                 <p className="text-gray-400 text-sm mb-1">Next Billing Date</p>
-                <p className="text-white">
+                <p className="text-foreground">
                   {subscription.cancelAtPeriodEnd ? (
                     <span className="text-yellow-400">
                       Cancels on{" "}
@@ -313,7 +313,7 @@ export default function AccountSubscriptionPage() {
         {/* Available Plans */}
         {(!subscription || selectedPlanId) && (
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-white mb-6">
+            <h2 className="text-2xl font-bold text-foreground mb-6">
               {subscription ? "Change Plan" : "Choose a Plan"}
             </h2>
 
@@ -327,7 +327,7 @@ export default function AccountSubscriptionPage() {
                       : ""
                   }`}
                 >
-                  <h3 className="text-xl font-bold text-white mb-2">
+                  <h3 className="text-xl font-bold text-foreground mb-2">
                     {plan.name}
                   </h3>
                   <p className="text-gray-400 text-sm mb-4">
@@ -335,7 +335,7 @@ export default function AccountSubscriptionPage() {
                   </p>
 
                   <div className="mb-6">
-                    <span className="text-4xl font-bold text-white">
+                    <span className="text-4xl font-bold text-foreground">
                       ${plan.amount}
                     </span>
                     <span className="text-gray-400">
@@ -348,14 +348,14 @@ export default function AccountSubscriptionPage() {
                     {plan.features.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <Check className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-300 text-sm">{feature}</span>
+                        <span className="text-muted-foreground text-sm">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
                   {subscription ? (
                     subscription.planId === plan.id ? (
-                      <Badge className="w-full justify-center bg-purple-600 text-white">
+                      <Badge className="w-full justify-center bg-purple-600 text-foreground">
                         Current Plan
                       </Badge>
                     ) : (
@@ -385,7 +385,7 @@ export default function AccountSubscriptionPage() {
         {/* Billing History */}
         {billingHistory && billingHistory.length > 0 && (
           <Card className="p-6 bg-white/5 border-white/10">
-            <h2 className="text-2xl font-bold text-white mb-6">
+            <h2 className="text-2xl font-bold text-foreground mb-6">
               Billing History
             </h2>
 
@@ -410,10 +410,10 @@ export default function AccountSubscriptionPage() {
                 <tbody>
                   {billingHistory.map((item) => (
                     <tr key={item.id} className="border-b border-white/5">
-                      <td className="py-4 text-white">
+                      <td className="py-4 text-foreground">
                         {new Date(item.invoiceDate).toLocaleDateString()}
                       </td>
-                      <td className="py-4 text-white">
+                      <td className="py-4 text-foreground">
                         {item.currency} ${item.amount}
                       </td>
                       <td className="py-4">

@@ -286,7 +286,7 @@ export default function InventoryForecastingPage() {
                     </td>
                     <td className="p-3">
                       <Badge
-                        className={`${getUrgencyColor(forecast.daysUntilStockout)} text-white`}
+                        className={`${getUrgencyColor(forecast.daysUntilStockout)} text-foreground`}
                       >
                         {forecast.daysUntilStockout} days
                       </Badge>

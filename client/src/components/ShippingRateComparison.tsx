@@ -230,21 +230,21 @@ export default function ShippingRateComparison({
               className={`relative border rounded-lg p-4 cursor-pointer transition-all ${
                 isSelected
                   ? "border-purple-600 bg-purple-50 dark:bg-purple-950/20"
-                  : "border-gray-200 hover:border-purple-300 dark:border-gray-700 dark:hover:border-purple-700"
+                  : "border-gray-200 hover:border-purple-300 dark:border-border dark:hover:border-purple-700"
               }`}
             >
               {/* Selection indicator */}
               {isSelected && (
                 <div className="absolute top-4 right-4">
                   <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
-                    <Check className="w-4 h-4 text-white" />
+                    <Check className="w-4 h-4 text-foreground" />
                   </div>
                 </div>
               )}
 
               <div className="flex items-start gap-4">
                 {/* Carrier icon */}
-                <div className={`w-12 h-12 ${getCarrierColor(rate.carrier)} rounded-lg flex items-center justify-center text-white flex-shrink-0`}>
+                <div className={`w-12 h-12 ${getCarrierColor(rate.carrier)} rounded-lg flex items-center justify-center text-foreground flex-shrink-0`}>
                   {getCarrierIcon(rate.carrier)}
                 </div>
 

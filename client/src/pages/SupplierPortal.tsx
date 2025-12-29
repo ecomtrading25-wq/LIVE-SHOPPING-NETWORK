@@ -150,7 +150,7 @@ function SupplierPortalContent() {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h1 className="text-4xl font-bold text-white">Supplier Portal</h1>
+              <h1 className="text-4xl font-bold text-foreground">Supplier Portal</h1>
               <p className="text-gray-400 mt-1">Manage suppliers and purchase orders</p>
             </div>
             <div className="flex items-center gap-2">
@@ -173,7 +173,7 @@ function SupplierPortalContent() {
                   <Package className="w-5 h-5 text-blue-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">{totalSuppliers}</p>
+                  <p className="text-2xl font-bold text-foreground">{totalSuppliers}</p>
                   <p className="text-sm text-gray-400">Total Suppliers</p>
                 </div>
               </div>
@@ -185,7 +185,7 @@ function SupplierPortalContent() {
                   <CheckCircle className="w-5 h-5 text-green-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">{activeSuppliers}</p>
+                  <p className="text-2xl font-bold text-foreground">{activeSuppliers}</p>
                   <p className="text-sm text-gray-400">Active Suppliers</p>
                 </div>
               </div>
@@ -197,7 +197,7 @@ function SupplierPortalContent() {
                   <DollarSign className="w-5 h-5 text-purple-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">
+                  <p className="text-2xl font-bold text-foreground">
                     ${(totalSpend / 1000).toFixed(0)}K
                   </p>
                   <p className="text-sm text-gray-400">Total Spend</p>
@@ -211,7 +211,7 @@ function SupplierPortalContent() {
                   <Truck className="w-5 h-5 text-orange-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">{avgOnTimeDelivery}%</p>
+                  <p className="text-2xl font-bold text-foreground">{avgOnTimeDelivery}%</p>
                   <p className="text-sm text-gray-400">On-Time Delivery</p>
                 </div>
               </div>
@@ -221,7 +221,7 @@ function SupplierPortalContent() {
 
         {/* Purchase Orders */}
         <Card className="p-6 bg-white/5 border-white/10 mb-6">
-          <h3 className="text-xl font-bold text-white mb-4">Recent Purchase Orders</h3>
+          <h3 className="text-xl font-bold text-foreground mb-4">Recent Purchase Orders</h3>
           <div className="space-y-3">
             {purchaseOrders.map((po) => (
               <div
@@ -233,20 +233,20 @@ function SupplierPortalContent() {
                     <FileText className="w-5 h-5 text-blue-400" />
                   </div>
                   <div>
-                    <p className="text-white font-semibold">{po.orderNumber}</p>
+                    <p className="text-foreground font-semibold">{po.orderNumber}</p>
                     <p className="text-sm text-gray-400">{po.supplier}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-6">
                   <div className="text-right">
-                    <p className="text-white font-semibold">{po.items} items</p>
+                    <p className="text-foreground font-semibold">{po.items} items</p>
                     <p className="text-sm text-gray-400">
                       ${po.total.toLocaleString()}
                     </p>
                   </div>
                   <div className="text-right">
                     <p className="text-sm text-gray-400">Expected</p>
-                    <p className="text-white font-medium">
+                    <p className="text-foreground font-medium">
                       {new Date(po.expectedDelivery).toLocaleDateString()}
                     </p>
                   </div>
@@ -262,14 +262,14 @@ function SupplierPortalContent() {
         {/* Suppliers */}
         <Card className="p-6 bg-white/5 border-white/10">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xl font-bold text-white">Suppliers</h3>
+            <h3 className="text-xl font-bold text-foreground">Suppliers</h3>
             <div className="relative w-64">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
               <Input
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search suppliers..."
-                className="pl-10 bg-white/10 border-white/20 text-white"
+                className="pl-10 bg-white/10 border-white/20 text-foreground"
               />
             </div>
           </div>
@@ -280,14 +280,14 @@ function SupplierPortalContent() {
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <div className="flex items-center gap-3 mb-2">
-                      <h4 className="text-lg font-bold text-white">{supplier.name}</h4>
+                      <h4 className="text-lg font-bold text-foreground">{supplier.name}</h4>
                       <Badge className={getStatusColor(supplier.status)}>
                         {supplier.status}
                       </Badge>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-gray-400">
                       <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                      <span className="text-white font-medium">{supplier.rating}</span>
+                      <span className="text-foreground font-medium">{supplier.rating}</span>
                       <span>• {supplier.totalOrders} orders</span>
                     </div>
                   </div>
@@ -302,21 +302,21 @@ function SupplierPortalContent() {
                       <Truck className="w-4 h-4 text-blue-400" />
                       <p className="text-xs text-gray-400">On-Time Delivery</p>
                     </div>
-                    <p className="text-xl font-bold text-white">{supplier.onTimeDelivery}%</p>
+                    <p className="text-xl font-bold text-foreground">{supplier.onTimeDelivery}%</p>
                   </div>
                   <div className="p-3 bg-white/5 rounded-lg">
                     <div className="flex items-center gap-2 mb-1">
                       <Star className="w-4 h-4 text-yellow-400" />
                       <p className="text-xs text-gray-400">Quality Score</p>
                     </div>
-                    <p className="text-xl font-bold text-white">{supplier.qualityScore}</p>
+                    <p className="text-xl font-bold text-foreground">{supplier.qualityScore}</p>
                   </div>
                   <div className="p-3 bg-white/5 rounded-lg">
                     <div className="flex items-center gap-2 mb-1">
                       <DollarSign className="w-4 h-4 text-green-400" />
                       <p className="text-xs text-gray-400">Total Spend</p>
                     </div>
-                    <p className="text-xl font-bold text-white">
+                    <p className="text-xl font-bold text-foreground">
                       ${(supplier.totalSpend / 1000).toFixed(0)}K
                     </p>
                   </div>

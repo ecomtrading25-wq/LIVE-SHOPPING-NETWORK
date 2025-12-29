@@ -121,7 +121,7 @@ export default function DisputeManagementConsole() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2 flex items-center gap-3">
+          <h1 className="text-4xl font-bold text-foreground mb-2 flex items-center gap-3">
             <AlertCircle className="w-10 h-10 text-red-500" />
             Dispute Management Console
           </h1>
@@ -137,7 +137,7 @@ export default function DisputeManagementConsole() {
               <span className="text-blue-400 text-sm font-medium">Open Disputes</span>
               <Clock className="w-5 h-5 text-blue-400" />
             </div>
-            <div className="text-3xl font-bold text-white mb-1">
+            <div className="text-3xl font-bold text-foreground mb-1">
               {stats?.openCount || 0}
             </div>
             <div className="text-xs text-gray-400">
@@ -150,7 +150,7 @@ export default function DisputeManagementConsole() {
               <span className="text-yellow-400 text-sm font-medium">Evidence Required</span>
               <FileText className="w-5 h-5 text-yellow-400" />
             </div>
-            <div className="text-3xl font-bold text-white mb-1">
+            <div className="text-3xl font-bold text-foreground mb-1">
               {stats?.evidenceRequiredCount || 0}
             </div>
             <div className="text-xs text-gray-400">
@@ -163,7 +163,7 @@ export default function DisputeManagementConsole() {
               <span className="text-green-400 text-sm font-medium">Win Rate</span>
               <TrendingUp className="w-5 h-5 text-green-400" />
             </div>
-            <div className="text-3xl font-bold text-white mb-1">
+            <div className="text-3xl font-bold text-foreground mb-1">
               {stats?.winRate ? `${(stats.winRate * 100).toFixed(1)}%` : "N/A"}
             </div>
             <div className="text-xs text-gray-400">
@@ -176,7 +176,7 @@ export default function DisputeManagementConsole() {
               <span className="text-purple-400 text-sm font-medium">Total at Risk</span>
               <DollarSign className="w-5 h-5 text-purple-400" />
             </div>
-            <div className="text-3xl font-bold text-white mb-1">
+            <div className="text-3xl font-bold text-foreground mb-1">
               ${((stats?.totalAtRisk || 0) / 100).toLocaleString()}
             </div>
             <div className="text-xs text-gray-400">
@@ -195,13 +195,13 @@ export default function DisputeManagementConsole() {
                   placeholder="Search by order ID, case ID, or customer..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 bg-white/5 border-white/10 text-white"
+                  className="pl-10 bg-white/5 border-white/10 text-foreground"
                 />
               </div>
             </div>
 
             <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="w-[200px] bg-white/5 border-white/10 text-white">
+              <SelectTrigger className="w-[200px] bg-white/5 border-white/10 text-foreground">
                 <Filter className="w-4 h-4 mr-2" />
                 <SelectValue placeholder="Filter by status" />
               </SelectTrigger>
@@ -220,7 +220,7 @@ export default function DisputeManagementConsole() {
 
             <Button
               variant="outline"
-              className="border-white/20 text-white hover:bg-white/10"
+              className="border-white/20 text-foreground hover:bg-white/10"
               onClick={() => refetch()}
             >
               Refresh
@@ -232,7 +232,7 @@ export default function DisputeManagementConsole() {
         {isLoading ? (
           <div className="text-center py-20">
             <div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p className="text-white">Loading disputes...</p>
+            <p className="text-foreground">Loading disputes...</p>
           </div>
         ) : disputes && disputes.length > 0 ? (
           <div className="space-y-4">
@@ -249,7 +249,7 @@ export default function DisputeManagementConsole() {
                       <div className="flex items-start justify-between mb-4">
                         <div>
                           <div className="flex items-center gap-3 mb-2">
-                            <h3 className="text-xl font-bold text-white">
+                            <h3 className="text-xl font-bold text-foreground">
                               Case #{dispute.providerCaseId}
                             </h3>
                             <Badge className={getStatusColor(dispute.status)}>
@@ -266,15 +266,15 @@ export default function DisputeManagementConsole() {
                             </Badge>
                           </div>
                           <p className="text-gray-400 text-sm mb-2">
-                            Order: <span className="text-white font-mono">{dispute.orderId}</span>
+                            Order: <span className="text-foreground font-mono">{dispute.orderId}</span>
                           </p>
-                          <p className="text-gray-300">
+                          <p className="text-muted-foreground">
                             {dispute.reason || "No reason provided"}
                           </p>
                         </div>
 
                         <div className="text-right">
-                          <div className="text-2xl font-bold text-white mb-1">
+                          <div className="text-2xl font-bold text-foreground mb-1">
                             ${(dispute.amountCents / 100).toFixed(2)}
                           </div>
                           <div className="text-xs text-gray-400">
@@ -303,7 +303,7 @@ export default function DisputeManagementConsole() {
                       {dispute.evidencePack && (
                         <div className="bg-white/5 rounded-lg p-4 mb-4">
                           <div className="flex items-center justify-between mb-2">
-                            <span className="text-white font-semibold flex items-center gap-2">
+                            <span className="text-foreground font-semibold flex items-center gap-2">
                               <FileText className="w-4 h-4" />
                               Evidence Pack
                             </span>
@@ -314,13 +314,13 @@ export default function DisputeManagementConsole() {
                           <div className="grid grid-cols-2 gap-2 text-sm">
                             <div>
                               <span className="text-gray-400">Tracking:</span>
-                              <span className="text-white ml-2">
+                              <span className="text-foreground ml-2">
                                 {dispute.evidencePack.trackingNumber || "N/A"}
                               </span>
                             </div>
                             <div>
                               <span className="text-gray-400">Attachments:</span>
-                              <span className="text-white ml-2">
+                              <span className="text-foreground ml-2">
                                 {dispute.evidencePack.attachments?.length || 0} files
                               </span>
                             </div>
@@ -334,16 +334,16 @@ export default function DisputeManagementConsole() {
                           <DialogTrigger asChild>
                             <Button
                               size="sm"
-                              className="bg-purple-600 hover:bg-purple-700 text-white"
+                              className="bg-purple-600 hover:bg-purple-700 text-foreground"
                               onClick={() => setSelectedDispute(dispute)}
                             >
                               <Eye className="w-4 h-4 mr-2" />
                               View Details
                             </Button>
                           </DialogTrigger>
-                          <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-gray-900 border-white/10">
+                          <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-background border-white/10 text-foreground">
                             <DialogHeader>
-                              <DialogTitle className="text-white">
+                              <DialogTitle className="text-foreground">
                                 Dispute Details - Case #{dispute.providerCaseId}
                               </DialogTitle>
                               <DialogDescription className="text-gray-400">
@@ -354,25 +354,25 @@ export default function DisputeManagementConsole() {
                             <div className="space-y-6 mt-4">
                               {/* Dispute Info */}
                               <div>
-                                <h4 className="text-white font-semibold mb-3">Dispute Information</h4>
+                                <h4 className="text-foreground font-semibold mb-3">Dispute Information</h4>
                                 <div className="grid grid-cols-2 gap-4 text-sm">
                                   <div>
                                     <span className="text-gray-400">Provider:</span>
-                                    <span className="text-white ml-2">{dispute.provider}</span>
+                                    <span className="text-foreground ml-2">{dispute.provider}</span>
                                   </div>
                                   <div>
                                     <span className="text-gray-400">Status:</span>
-                                    <span className="text-white ml-2">{dispute.status}</span>
+                                    <span className="text-foreground ml-2">{dispute.status}</span>
                                   </div>
                                   <div>
                                     <span className="text-gray-400">Amount:</span>
-                                    <span className="text-white ml-2">
+                                    <span className="text-foreground ml-2">
                                       ${(dispute.amountCents / 100).toFixed(2)} {dispute.currency}
                                     </span>
                                   </div>
                                   <div>
                                     <span className="text-gray-400">Order ID:</span>
-                                    <span className="text-white ml-2 font-mono">{dispute.orderId}</span>
+                                    <span className="text-foreground ml-2 font-mono">{dispute.orderId}</span>
                                   </div>
                                 </div>
                               </div>
@@ -380,22 +380,22 @@ export default function DisputeManagementConsole() {
                               {/* Evidence Pack */}
                               {dispute.evidencePack && (
                                 <div>
-                                  <h4 className="text-white font-semibold mb-3">Evidence Pack</h4>
+                                  <h4 className="text-foreground font-semibold mb-3">Evidence Pack</h4>
                                   <div className="bg-white/5 rounded-lg p-4 space-y-3">
                                     <div>
                                       <span className="text-gray-400 text-sm">Tracking Number:</span>
-                                      <p className="text-white">{dispute.evidencePack.trackingNumber || "N/A"}</p>
+                                      <p className="text-foreground">{dispute.evidencePack.trackingNumber || "N/A"}</p>
                                     </div>
                                     <div>
                                       <span className="text-gray-400 text-sm">Product Description:</span>
-                                      <p className="text-white">{dispute.evidencePack.productDescription || "N/A"}</p>
+                                      <p className="text-foreground">{dispute.evidencePack.productDescription || "N/A"}</p>
                                     </div>
                                     {dispute.evidencePack.attachments && dispute.evidencePack.attachments.length > 0 && (
                                       <div>
                                         <span className="text-gray-400 text-sm">Attachments:</span>
                                         <ul className="mt-2 space-y-1">
                                           {dispute.evidencePack.attachments.map((att: any, idx: number) => (
-                                            <li key={idx} className="text-white text-sm flex items-center gap-2">
+                                            <li key={idx} className="text-foreground text-sm flex items-center gap-2">
                                               <FileText className="w-4 h-4" />
                                               {att.name} ({att.type})
                                             </li>
@@ -409,13 +409,13 @@ export default function DisputeManagementConsole() {
 
                               {/* Timeline */}
                               <div>
-                                <h4 className="text-white font-semibold mb-3">Timeline</h4>
+                                <h4 className="text-foreground font-semibold mb-3">Timeline</h4>
                                 <div className="space-y-2">
                                   {dispute.timeline?.map((event: any) => (
                                     <div key={event.id} className="flex gap-3 text-sm">
                                       <div className="w-2 h-2 rounded-full bg-purple-500 mt-2"></div>
                                       <div className="flex-1">
-                                        <p className="text-white">{event.message}</p>
+                                        <p className="text-foreground">{event.message}</p>
                                         <p className="text-gray-400 text-xs">
                                           {new Date(event.createdAt).toLocaleString()}
                                         </p>
@@ -461,7 +461,7 @@ export default function DisputeManagementConsole() {
                         {dispute.status === "EVIDENCE_READY" && (
                           <Button
                             size="sm"
-                            className="bg-green-600 hover:bg-green-700 text-white"
+                            className="bg-green-600 hover:bg-green-700 text-foreground"
                             onClick={() => {
                               submitEvidence.mutate({ disputeId: dispute.id });
                             }}
@@ -496,7 +496,7 @@ export default function DisputeManagementConsole() {
                       <Button
                         size="sm"
                         variant="outline"
-                        className="w-full border-white/20 text-white hover:bg-white/10"
+                        className="w-full border-white/20 text-foreground hover:bg-white/10"
                       >
                         <Package className="w-4 h-4 mr-2" />
                         View Order
@@ -504,7 +504,7 @@ export default function DisputeManagementConsole() {
                       <Button
                         size="sm"
                         variant="outline"
-                        className="w-full border-white/20 text-white hover:bg-white/10"
+                        className="w-full border-white/20 text-foreground hover:bg-white/10"
                       >
                         <MessageSquare className="w-4 h-4 mr-2" />
                         Add Note
@@ -518,7 +518,7 @@ export default function DisputeManagementConsole() {
         ) : (
           <Card className="bg-white/5 border-white/10 p-12 text-center">
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-white mb-2">
+            <h3 className="text-2xl font-bold text-foreground mb-2">
               No disputes found
             </h3>
             <p className="text-gray-400">
