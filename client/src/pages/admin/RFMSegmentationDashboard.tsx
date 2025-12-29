@@ -97,29 +97,6 @@ export default function RFMSegmentationDashboard() {
     }
   };
 
-  // Error boundary
-  if (hasError) {
-    return (
-      <div className="container mx-auto py-8">
-        <Card className="border-red-500/50 bg-red-500/10">
-          <div className="p-6">
-            <div className="flex items-center gap-2 text-red-500 mb-2">
-              <AlertCircle className="w-5 h-5" />
-              <h3 className="text-lg font-semibold">Failed to Load Dashboard</h3>
-            </div>
-            <p className="text-red-400 mb-4">
-              {overviewError?.message || customersError?.message || distributionError?.message || 'An error occurred while loading the dashboard.'}
-            </p>
-            <Button onClick={handleRefresh} variant="outline" className="border-red-500 text-red-500 hover:bg-red-500/20">
-              <RefreshCw className="w-4 h-4 mr-2" />
-              Retry
-            </Button>
-          </div>
-        </Card>
-      </div>
-    );
-  }
-
   // Filter customers
   const filteredCustomers = (customers || [])
     .filter((c: any) => {
@@ -304,6 +281,29 @@ const mockRFMData = {
     const Icon = segmentData?.icon || Users;
     return <Icon className="w-5 h-5" />;
   };
+
+  // Show error UI if there's an error
+  if (hasError) {
+    return (
+      <div className="container mx-auto py-8">
+        <Card className="border-red-500/50 bg-red-500/10">
+          <div className="p-6">
+            <div className="flex items-center gap-2 text-red-500 mb-2">
+              <AlertCircle className="w-5 h-5" />
+              <h3 className="text-lg font-semibold">Failed to Load Dashboard</h3>
+            </div>
+            <p className="text-red-400 mb-4">
+              {overviewError?.message || customersError?.message || distributionError?.message || 'An error occurred while loading the dashboard.'}
+            </p>
+            <Button onClick={handleRefresh} variant="outline" className="border-red-500 text-red-500 hover:bg-red-500/20">
+              <RefreshCw className="w-4 h-4 mr-2" />
+              Retry
+            </Button>
+          </div>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background text-foreground p-6 text-foreground">
