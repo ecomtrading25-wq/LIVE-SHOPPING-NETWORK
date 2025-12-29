@@ -33,7 +33,7 @@ export default function ProductsPage() {
     status: "active",
   });
 
-  const { data: featuredProducts } = trpc.products.getFeatured.useQuery();
+  const { data: featuredProducts } = trpc.products.getFeatured.useQuery({});
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
@@ -41,10 +41,8 @@ export default function ProductsPage() {
       <header className="border-b border-white/10 bg-black/30 backdrop-blur-xl">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <Link href="/">
-              <a className="text-2xl font-bold text-white hover:text-purple-400 transition-colors">
-                Live Shopping Network
-              </a>
+            <Link href="/" className="text-2xl font-bold text-white hover:text-purple-400 transition-colors">
+              Live Shopping Network
             </Link>
             <div className="flex items-center gap-4">
               <Link href="/cart">

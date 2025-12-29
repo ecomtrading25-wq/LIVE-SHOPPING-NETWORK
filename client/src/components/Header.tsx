@@ -43,19 +43,13 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-zinc-900/95 backdrop-blur-sm border-b border-zinc-800">
+    <header className="sticky top-0 z-50 bg-white backdrop-blur-sm border-b-2 border-black">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/">
             <div className="flex items-center gap-2 cursor-pointer">
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
-                <Package className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-white hidden sm:block">
-                Live Shopping Network
-              </span>
-              <span className="text-xl font-bold text-white sm:hidden">LSN</span>
+              <img src="/logo.png" alt="Live Selling Network" className="h-12 w-auto" />
             </div>
           </Link>
 
@@ -71,49 +65,49 @@ export default function Header() {
                 placeholder="Search products..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-12 bg-zinc-800 border-zinc-700 text-white h-10"
+                className="pl-12 bg-white border-2 border-black text-black h-10"
               />
             </div>
           </form>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-2">
-            <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white" asChild>
+            <Button variant="ghost" size="sm" className="text-black hover:text-[#E42313]" asChild>
               <Link href="/">
                 <Home className="w-4 h-4 mr-2" />
                 Home
               </Link>
             </Button>
 
-            <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white" asChild>
+            <Button variant="ghost" size="sm" className="text-black hover:text-[#E42313]" asChild>
               <Link href="/products">
                 <Package className="w-4 h-4 mr-2" />
                 Products
               </Link>
             </Button>
 
-            <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white" asChild>
+            <Button variant="ghost" size="sm" className="text-black hover:text-[#E42313]" asChild>
               <Link href="/categories">
                 <Package className="w-4 h-4 mr-2" />
                 Categories
               </Link>
             </Button>
 
-            <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white" asChild>
+            <Button variant="ghost" size="sm" className="text-black hover:text-[#E42313]" asChild>
               <Link href="/rewards">
                 <Trophy className="w-4 h-4 mr-2" />
                 Rewards
               </Link>
             </Button>
 
-            <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white" asChild>
+            <Button variant="ghost" size="sm" className="text-black hover:text-[#E42313]" asChild>
               <Link href="/saved-searches">
                 <Bookmark className="w-4 h-4 mr-2" />
                 Saved
               </Link>
             </Button>
 
-            <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white" asChild>
+            <Button variant="ghost" size="sm" className="text-black hover:text-[#E42313]" asChild>
               <Link href="/subscriptions">
                 <Calendar className="w-4 h-4 mr-2" />
                 Subscriptions
@@ -122,7 +116,7 @@ export default function Header() {
 
             <AdminNav />
 
-            <div className="w-px h-6 bg-zinc-700 mx-2"></div>
+            <div className="w-px h-6 bg-black mx-2"></div>
 
             {/* Notification Bell */}
             <NotificationCenter />
@@ -139,7 +133,7 @@ export default function Header() {
               <Link href="/cart">
                 <ShoppingCart className="w-5 h-5" />
                 {cartCount > 0 && (
-                  <Badge className="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center p-0 bg-purple-600 text-xs">
+                  <Badge className="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center p-0 bg-[#E42313] text-white text-xs">
                     {cartCount > 9 ? "9+" : cartCount}
                   </Badge>
                 )}
