@@ -30,6 +30,7 @@ import { twilioLiveVideoRouter } from "./twilio-live-video";
 import { paypalWebhookRouter } from "./paypal-webhooks";
 import { wiseWebhookRouter } from "./wise-webhooks";
 import { twilioLiveCompleteRouter } from "./twilio-live-complete";
+import { avatarStudioRouter } from "./avatar-studio-router";
 
 /**
  * Live Shopping Network - Complete API Router
@@ -74,6 +75,9 @@ export const appRouter = router({
   
   // LSN UI Integration Services (for new dashboards)
   lsnUI: lsnUIRouter,
+  
+  // Avatar Influencer Studio
+  avatarStudio: avatarStudioRouter,
   
   // Founder Incident Console & Policy Autonomy
   founderIncidents: founderIncidentRouter,

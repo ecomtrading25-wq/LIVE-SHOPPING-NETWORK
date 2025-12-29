@@ -134,6 +134,13 @@
       "when": 1766936209216,
       "tag": "0018_nice_vulcan",
       "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "5",
+      "when": 1766973772650,
+      "tag": "0019_shiny_jack_power",
+      "breakpoints": true
     }
   ]
 }
