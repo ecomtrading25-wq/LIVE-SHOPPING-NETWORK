@@ -69,7 +69,11 @@ export default function SentimentAnalysisDashboard() {
 
   // Fetch reviews data
   const { data: reviews, isLoading: reviewsLoading, error: reviewsError, refetch: refetchReviews } = 
-    trpc.aiDashboards.sentimentAnalysis.reviews.useQuery();
+    trpc.aiDashboards.sentimentAnalysis.reviews.useQuery({
+      searchQuery: debouncedSearchQuery || undefined,
+      timeRange,
+      productFilter: undefined
+    });
 
   // Fetch distribution data
   const { data: distribution, isLoading: distributionLoading, error: distributionError, refetch: refetchDistribution } = 
@@ -118,11 +122,32 @@ export default function SentimentAnalysisDashboard() {
     );
   }
 
+  // Show loading state
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background p-6">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <Skeleton className="h-12 w-64" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Skeleton className="h-32" />
+            <Skeleton className="h-32" />
+            <Skeleton className="h-32" />
+          </div>
+          <Skeleton className="h-96" />
+        </div>
+      </div>
+    );
+  }
+
   // Filter reviews
   const filteredReviews = (reviews || [])
     .filter((r: any) => {
-      const matchesSearch = r.productName.toLowerCase().includes(debouncedSearchQuery.toLowerCase()) ||
-                           r.reviewText.toLowerCase().includes(debouncedSearchQuery.toLowerCase());
+      if (!debouncedSearchQuery) {
+        const matchesSentiment = sentimentFilter === 'all' || r.sentiment === sentimentFilter;
+        return matchesSentiment;
+      }
+      const matchesSearch = (r.product?.toLowerCase() || '').includes(debouncedSearchQuery.toLowerCase()) ||
+                           (r.review?.toLowerCase() || '').includes(debouncedSearchQuery.toLowerCase());
       const matchesSentiment = sentimentFilter === 'all' || r.sentiment === sentimentFilter;
       return matchesSearch && matchesSentiment;
     });
@@ -506,7 +531,7 @@ const mockSentimentData = {
                     <div>
                       <div className="font-medium">{review.product}</div>
                       <div className="text-sm text-muted-foreground">
-                        {review.author} • {review.date}
+                        {review.customer || review.author || 'Anonymous'} • {review.date}
                       </div>
                     </div>
                   </div>
@@ -521,9 +546,9 @@ const mockSentimentData = {
                     ))}
                   </div>
                 </div>
-                <p className="text-sm mb-2">{review.text}</p>
+                <p className="text-sm mb-2">{review.text || review.review}</p>
                 <div className="flex gap-2">
-                  {review.themes.map((theme) => (
+                  {(review.themes || []).map((theme) => (
                     <Badge key={theme} variant="outline" className="text-xs">
                       {theme}
                     </Badge>
