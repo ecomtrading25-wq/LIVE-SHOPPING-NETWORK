@@ -58,6 +58,7 @@ export default function SentimentAnalysisDashboard() {
   const [searchQuery, setSearchQuery] = useState('');
   const debouncedSearchQuery = useDebouncedValue(searchQuery, 300);
   const [sentimentFilter, setSentimentFilter] = useState<'all' | 'positive' | 'neutral' | 'negative'>('all');
+  const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d'>('30d');
   const [exportOpen, setExportOpen] = useState(false);
   const [autoRefresh, setAutoRefresh] = useLocalStorage<'off' | '30s' | '1m' | '5m'>('dashboard-autorefresh', 'off');
   const { toast } = useToast();

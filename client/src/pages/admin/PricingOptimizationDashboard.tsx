@@ -49,6 +49,7 @@ export default function PricingOptimizationDashboard() {
   const [searchQuery, setSearchQuery] = useState('');
   const debouncedSearchQuery = useDebouncedValue(searchQuery, 300);
   const [filterBy, setFilterBy] = useState<'all' | 'increase' | 'decrease' | 'maintain'>('all');
+  const [filterType, setFilterType] = useState<'all' | 'increase' | 'decrease' | 'maintain'>('all');
   const [sortBy, setSortBy] = useState<'revenue' | 'profit' | 'confidence'>('revenue');
   const [exportOpen, setExportOpen] = useState(false);
   const [autoRefresh, setAutoRefresh] = useLocalStorage<'off' | '30s' | '1m' | '5m'>('dashboard-autorefresh', 'off');

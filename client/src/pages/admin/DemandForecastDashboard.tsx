@@ -107,10 +107,17 @@ export default function DemandForecastDashboard() {
 
   // Filter products
   const filteredProducts = (products || []).filter((p: any) =>
-    p.name.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
+    p.name?.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
   );
 
-  const [selectedProduct, setSelectedProduct] = useState<any>(filteredProducts[0] || null);
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
+  
+  // Update selected product when filteredProducts changes
+  useEffect(() => {
+    if (filteredProducts.length > 0 && !selectedProduct) {
+      setSelectedProduct(filteredProducts[0]);
+    }
+  }, [filteredProducts, selectedProduct]);
 
   // Error boundary
   if (hasError) {
@@ -156,7 +163,20 @@ export default function DemandForecastDashboard() {
 
   const daysUntilStockout = selectedProduct ? selectedProduct.currentStock / selectedProduct.averageDailySales : 0;
 
-  if (!selectedProduct && !productsLoading) {
+  if (!selectedProduct) {
+    if (isLoading) {
+      return (
+        <div className="min-h-screen bg-background p-6">
+          <div className="max-w-7xl mx-auto">
+            <Card className="p-12 text-center">
+              <Skeleton className="h-16 w-16 mx-auto mb-4" />
+              <Skeleton className="h-8 w-64 mx-auto mb-2" />
+              <Skeleton className="h-4 w-48 mx-auto" />
+            </Card>
+          </div>
+        </div>
+      );
+    }
     return (
       <div className="min-h-screen bg-background p-6">
         <div className="max-w-7xl mx-auto">

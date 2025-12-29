@@ -18,7 +18,7 @@ import { eq, sql, desc, and, gte, lte, count } from 'drizzle-orm';
 export const aiDashboardsRouter = router({
   // ==================== DEMAND FORECAST ====================
   demandForecast: router({
-    getOverview: protectedProcedure
+    overview: protectedProcedure
       .input(z.object({
         timeRange: z.enum(['7d', '30d', '90d']).default('30d')
       }))
@@ -57,14 +57,12 @@ export const aiDashboardsRouter = router({
         };
       }),
 
-    getProductForecasts: protectedProcedure
+    products: protectedProcedure
       .input(z.object({
-        timeRange: z.enum(['7d', '30d', '90d']).default('30d'),
-        searchQuery: z.string().optional(),
-        categoryFilter: z.string().optional()
+        days: z.number().default(30)
       }))
       .query(async ({ input }) => {
-        const daysAgo = parseInt(input.timeRange);
+        const daysAgo = input.days;
         const startDate = new Date();
         startDate.setDate(startDate.getDate() - daysAgo);
 
@@ -86,70 +84,70 @@ export const aiDashboardsRouter = router({
           ))
           .groupBy(products.id);
 
-        // Apply filters
-        let filtered = productsWithSales;
-        if (input.searchQuery) {
-          filtered = filtered.filter(p => 
-            p.name.toLowerCase().includes(input.searchQuery!.toLowerCase())
-          );
-        }
-        if (input.categoryFilter && input.categoryFilter !== 'all') {
-          filtered = filtered.filter(p => p.category === input.categoryFilter);
-        }
-
         // Calculate forecasts (mock ML predictions)
-        const forecasts = filtered.map(product => {
+        const forecasts = productsWithSales.map(product => {
           const currentDemand = Number(product.totalSold) || 0;
-          const forecastedDemand = Math.round(currentDemand * (1 + Math.random() * 0.4 - 0.1));
+          const forecastedDemandValue = Math.round(currentDemand * (1 + Math.random() * 0.4 - 0.1));
           const confidence = 75 + Math.random() * 20;
-          const trend = forecastedDemand > currentDemand ? 'up' as const : 
-                       forecastedDemand < currentDemand ? 'down' as const : 'stable' as const;
-          const stockStatus = Number(product.stock) < forecastedDemand ? 'low' as const :
-                            Number(product.stock) < forecastedDemand * 1.5 ? 'medium' as const : 'high' as const;
+          const trend = forecastedDemandValue > currentDemand ? 'up' as const : 
+                       forecastedDemandValue < currentDemand ? 'down' as const : 'stable' as const;
+          const stockStatus = Number(product.stock) < forecastedDemandValue ? 'low' as const :
+                            Number(product.stock) < forecastedDemandValue * 1.5 ? 'medium' as const : 'high' as const;
+          
+          // Calculate urgency based on stock level and demand
+          const daysOfStock = currentDemand > 0 ? Number(product.stock) / (currentDemand / daysAgo) : 999;
+          const urgency = daysOfStock < 7 ? 'critical' as const :
+                         daysOfStock < 14 ? 'high' as const :
+                         daysOfStock < 30 ? 'medium' as const : 'low' as const;
+          
+          const averageDailySales = currentDemand / daysAgo;
+          const trendDirection = trend === 'up' ? 'increasing' as const :
+                                trend === 'down' ? 'decreasing' as const : 'stable' as const;
 
           return {
             id: product.id,
+            name: product.name,
             productName: product.name,
             category: product.category || 'Uncategorized',
             currentDemand,
-            forecastedDemand,
+            forecastedDemand: {
+              next7Days: Math.round(averageDailySales * 7 * 1.1),
+              next14Days: Math.round(averageDailySales * 14 * 1.1),
+              next30Days: Math.round(averageDailySales * 30 * 1.1)
+            },
             trend,
+            trendDirection,
             confidence: Math.round(confidence),
             currentStock: Number(product.stock),
-            recommendedStock: Math.ceil(forecastedDemand * 1.5),
+            recommendedStock: Math.ceil(forecastedDemandValue * 1.5),
             stockStatus,
-            potentialRevenue: forecastedDemand * Number(product.price)
+            urgency,
+            averageDailySales: Math.round(averageDailySales * 100) / 100,
+            potentialRevenue: forecastedDemandValue * Number(product.price)
           };
         });
 
         return forecasts;
       }),
 
-    getTrendData: protectedProcedure
+    trends: protectedProcedure
       .input(z.object({
-        productId: z.string()
+        days: z.number().default(30)
       }))
       .query(async ({ input }) => {
-        // Get historical sales data for the product
-        const salesData = await (await getDb())
-          .select({
-            date: orders.createdAt,
-            quantity: orderItems.quantity
-          })
-          .from(orderItems)
-          .innerJoin(orders, eq(orders.id, orderItems.orderId))
-          .where(eq(orderItems.productId, input.productId))
-          .orderBy(orders.createdAt);
-
-        // Aggregate by week (mock - would use proper time series in production)
+        // Mock trend data for the time period
         const weeklyData: { week: string; actual: number; forecast: number }[] = [];
-        const weeks = ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'];
+        const numWeeks = Math.ceil(input.days / 7);
         
-        weeks.forEach((week, index) => {
+        for (let i = 0; i < numWeeks; i++) {
           const actual = Math.floor(Math.random() * 50) + 20;
           const forecast = Math.floor(actual * (1 + Math.random() * 0.3 - 0.1));
-          weeklyData.push({ week, actual, forecast });
-        });
+          weeklyData.push({ 
+            week: `Week ${i + 1}`, 
+            actual, 
+            forecast 
+          });
+        }
 
         return weeklyData;
       }),
@@ -273,7 +271,7 @@ export const aiDashboardsRouter = router({
 
   // ==================== PRICING OPTIMIZATION ====================
   pricingOptimization: router({
-    getOverview: protectedProcedure.query(async () => {
+    overview: protectedProcedure.query(async () => {
       const allProducts = await (await getDb()).select().from(products);
       
       // Mock calculations (would use price elasticity models in production)
@@ -289,7 +287,7 @@ export const aiDashboardsRouter = router({
       };
     }),
 
-    getProductPricing: protectedProcedure
+    products: protectedProcedure
       .input(z.object({
         searchQuery: z.string().optional(),
         filterType: z.enum(['all', 'increase', 'decrease', 'optimal']).default('all')
@@ -354,7 +352,7 @@ export const aiDashboardsRouter = router({
   // ==================== SENTIMENT ANALYSIS ====================
   // TODO: Add reviews table to schema for production
   sentimentAnalysis: router({
-    getOverview: protectedProcedure.query(async () => {
+    overview: protectedProcedure.query(async () => {
       // Mock data - replace with actual reviews table
       const totalReviews = 847;
       
@@ -371,7 +369,7 @@ export const aiDashboardsRouter = router({
       };
     }),
 
-    getReviews: protectedProcedure
+    reviews: protectedProcedure
       .input(z.object({
         searchQuery: z.string().optional(),
         timeRange: z.enum(['7d', '30d', '90d']).default('30d'),
@@ -417,13 +415,13 @@ export const aiDashboardsRouter = router({
         return filtered;
       }),
 
-    getSentimentDistribution: protectedProcedure.query(async () => {
+    distribution: protectedProcedure.query(async () => {
       // Mock distribution (would calculate from actual sentiment analysis)
-      return {
-        positive: 72,
-        neutral: 18,
-        negative: 10
-      };
+      return [
+        { name: 'Positive', value: 72, color: '#22c55e' },
+        { name: 'Neutral', value: 18, color: '#eab308' },
+        { name: 'Negative', value: 10, color: '#ef4444' }
+      ];
     }),
   }),
 
