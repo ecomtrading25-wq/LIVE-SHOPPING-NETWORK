@@ -6874,3 +6874,329 @@ Building practical features with existing 113-table infrastructure to ship faste
 All core systems operational. Webhooks integrated. Tests passing. Documentation complete.
 
 Next: Configure external services and deploy to production.
+
+
+## 🚀 FINAL DEPLOYMENT PUSH (Remaining 5%)
+
+### Critical TypeScript Fixes
+- [ ] Fix Wise integration TypeScript errors (wiseTransfers property)
+- [ ] Fix profile/limit/offset type errors
+- [ ] Review and fix remaining 3303 TypeScript errors
+- [ ] Ensure all server files compile successfully
+
+### Webhook Handlers
+- [x] Implement PayPal dispute webhook handler
+- [x] Implement PayPal payment webhook handler
+- [x] Implement Wise transfer webhook handler
+- [x] Add webhook signature verification
+- [x] Add webhook deduplication logic
+- [x] Test webhook endpoints
+
+### Live Streaming Integration
+- [x] Integrate Twilio Live streaming
+- [x] Add stream session management
+- [x] Implement stream recording to R2
+- [x] Add stream quality monitoring
+- [x] Create stream clipping functionality
+- [x] Test live streaming flows
+
+### Testing & Validation
+- [ ] Write vitest tests for order processing
+- [ ] Write vitest tests for payment flows
+- [ ] Write vitest tests for dispute automation
+- [ ] Write vitest tests for inventory reservation
+- [ ] Write vitest tests for creator payouts
+- [ ] Write vitest tests for fraud detection
+- [ ] Run all tests and ensure they pass
+
+### Deployment Documentation
+- [x] Create deployment runbook
+- [x] Document environment variables
+- [x] Create operations playbook
+- [x] Document API endpoints
+- [ ] Create troubleshooting guide
+- [ ] Document backup procedures
+- [ ] Create go-live checklist
+
+### Final Validation
+- [ ] Test all critical user flows
+- [ ] Validate payment processing
+- [ ] Test live streaming
+- [ ] Verify webhook handling
+- [ ] Check security configurations
+- [ ] Validate performance
+- [ ] Create final checkpoint
+
+
+## 🤖 POST-AGENTIC AI OPERATING SYSTEM
+
+### Phase 1: Foundation & Registries
+- [x] Create /AGENTIC_OS directory structure
+- [x] Build AGENT_REGISTRY.json with all specialized agents
+- [x] Build TOOL_REGISTRY.json with integration gateway
+- [ ] Build WORKFLOW_REGISTRY.json with autonomous loops
+- [ ] Create EVENT_CATALOG.md with all business events
+- [ ] Define RISK_POLICY.md with L0-L3 risk levels
+- [ ] Create task_schema.json for standard task objects
+- [ ] Create event_schema.json for event bus
+- [ ] Create tool_call_schema.json for tool execution
+- [ ] Create approval_schema.json for L2/L3 actions
+
+### Phase 2: Core Services (Microservices Architecture)
+- [ ] Event Ingestor API (:7101) - Ingests all business events
+- [ ] Tool Gateway API (:7102) - Enforces proof + approvals + idempotency
+- [ ] Verifier Service (:7103) - Policy-as-code invariant checking
+- [ ] Policy Service (:7104) - Contextual bandits + learned decisions
+- [ ] World Model Service (:7105) - Counterfactual evaluation
+- [ ] Enterprise Compiler (:7106) - Goals → executable programs
+- [ ] Ops Console UI (:7107) - Real-time monitoring dashboard
+
+### Phase 3: Proof-Carrying Actions (Formal Verification)
+- [ ] Define business invariants catalog
+- [ ] Implement invariant checker engine
+- [ ] Create proof_report.schema.json
+- [ ] Build action packet validation
+- [ ] Add pre-execution verification gates
+- [ ] Implement margin floor checks
+- [ ] Add payout safety verification
+- [ ] Implement policy risk scoring
+- [ ] Add refund limit enforcement
+- [ ] Create SLA throttle checks
+
+### Phase 4: World Model & Counterfactuals
+- [ ] Build causal graph: traffic → conversion → fulfillment → refunds
+- [ ] Implement counterfactual evaluator
+- [ ] Add "what if" scenario simulation
+- [ ] Create Monte Carlo stress testing
+- [ ] Build decision confidence scoring
+- [ ] Add baseline comparison engine
+- [ ] Implement risk-adjusted action selection
+- [ ] Create outcome prediction models
+
+### Phase 5: Policy Learning Layer
+- [ ] Implement contextual bandit framework
+- [ ] Create state_snapshot table (hourly business state)
+- [ ] Create action_log table (all decisions)
+- [ ] Build reward_model (profit - penalties)
+- [ ] Implement policy_service for action selection
+- [ ] Add confidence scoring for decisions
+- [ ] Create human override → training pipeline
+- [ ] Build policy improvement loop
+- [ ] Add A/B testing framework
+
+### Phase 6: Enterprise Compiler
+- [ ] Create goal specification DSL
+- [ ] Build goal → workflow compiler
+- [ ] Implement code generation pipeline
+- [ ] Add automated test generation
+- [ ] Create database migration generator
+- [ ] Build feature flag system
+- [ ] Implement staged rollout (shadow → canary → full)
+- [ ] Add automatic rollback on metric degradation
+- [ ] Create monitoring plan generator
+
+### Phase 7: Agent Mesh (Specialized Agents)
+
+#### Executive Agents
+- [ ] CEO Agent (Founder Copilot) - Weekly planning
+- [ ] COO Agent - Daily ops health checks
+- [ ] CFO Agent - Cashflow + margin + reconciliation
+- [ ] CPO Agent - Product roadmap
+
+#### Growth & Content Agents
+- [ ] Trend Scout - TikTok/IG/YT trend scanning
+- [ ] Offer Architect - Pricing + bundles + upsells
+- [ ] Creative Director - Briefs + hooks + scripts
+- [ ] UGC Producer - Creator sourcing + delivery
+- [ ] Ads Optimizer - Budget pacing + ROAS guardrails
+- [ ] CRO Agent - Landing page + PDP optimization
+
+#### Product & Merch Agents
+- [ ] Product Research - Demand + competition validation
+- [ ] Supplier Sourcing - Factory identification + quotes
+- [ ] Sampling & QA - Test plans + compliance
+- [ ] Listing Publisher - Multi-channel listing creation
+- [ ] Catalog Integrity - SKU + barcode validation
+
+#### Operations Agents
+- [ ] Order Ops - Failed payments + fraud flags
+- [ ] 3PL Coordinator - Stock sync + fulfillment SLAs
+- [ ] Returns & Refunds - Rules-based decisions
+- [ ] Customer Support Lead - Triage + escalation
+- [ ] Quality & Risk - Complaint monitoring
+
+#### Platform/Engineering Agents
+- [ ] Architecture Agent - Service boundaries + schemas
+- [ ] Backend Builder - API + workers + queues
+- [ ] Frontend Builder - Dashboards + portals
+- [ ] Automation Builder - n8n workflows
+- [ ] Security/Compliance - Roles + logs + retention
+
+### Phase 8: Finance Ledger (Missing Tables)
+- [ ] Create LedgerAccounts table
+- [ ] Create LedgerEntries table (double-entry bookkeeping)
+- [ ] Create Settlements table (Stripe/TikTok/Shopify payouts)
+- [ ] Create ReconciliationMatches table (settlement ↔ order)
+- [ ] Create PayoutApprovals table (audit trail)
+- [ ] Implement double-entry ledger service
+- [ ] Build settlement ingestion pipeline
+- [ ] Create reconciliation matching engine
+- [ ] Add payout approval workflow
+- [ ] Build cashflow projection model
+
+### Phase 9: Autonomous Workflows
+
+#### Workflow A: Product → Profit Loop
+- [ ] Trend Scout finds opportunities
+- [ ] Product Research scores (margin + demand + risk)
+- [ ] Supplier Sourcing gets quotes
+- [ ] Offer Architect creates bundle + pricing
+- [ ] Creative Director generates creative plan
+- [ ] Listing Publisher pushes to channels
+- [ ] Ads Optimizer launches tests
+- [ ] Order Ops + 3PL fulfill + monitor
+- [ ] CFO reconciles + updates true margin
+- [ ] System writes learnings to memory
+
+#### Workflow B: Live Shopping Network Loop
+- [ ] Creator onboarding + verification
+- [ ] Product ingestion + compliance checks
+- [ ] Live event scheduling + streaming setup
+- [ ] Live order capture + payment + fraud
+- [ ] Post-live follow-up (clips + retargeting)
+- [ ] Creator payouts + brand settlement
+- [ ] Dispute handling
+
+#### Workflow C: Support → Retention Loop
+- [ ] Ticket triage (sentiment + urgency)
+- [ ] Auto-resolve common issues
+- [ ] Escalate exceptions (L2/L3)
+- [ ] Detect repeated faults → notify QA
+- [ ] Pause ads/listings if needed
+
+#### Workflow D: Finance Ops Loop
+- [ ] Ingest all transactions
+- [ ] Create ledger entries
+- [ ] Match payout settlements to orders
+- [ ] Flag mismatches
+- [ ] Approve payouts (founder-only)
+
+### Phase 10: Snapshotter & Event Store
+- [ ] Create state_snapshots table
+- [ ] Create events table with full event log
+- [ ] Build hourly snapshotter worker (BullMQ)
+- [ ] Implement event ingestion pipeline
+- [ ] Add event replay capability
+- [ ] Create event-driven workflow triggers
+- [ ] Build event subscription system
+- [ ] Add event filtering and routing
+
+### Phase 11: Shadow Mode & Canary Deployment
+- [ ] Implement shadow mode execution
+- [ ] Create canary control groups
+- [ ] Build stable hashing for traffic routing
+- [ ] Add metric comparison (canary vs baseline)
+- [ ] Implement automatic rollback triggers
+- [ ] Create deployment confidence scoring
+- [ ] Build gradual rollout controller
+- [ ] Add A/B test statistical significance
+
+### Phase 12: Guardrails & Safety
+- [ ] Daily ad spend caps + kill-switch
+- [ ] Margin rules (don't scale below X%)
+- [ ] Platform policy compliance preflight
+- [ ] Fraud velocity checks
+- [ ] Chargeback risk scoring
+- [ ] Change management for L2/L3 actions
+- [ ] Business health dashboard + alerts
+- [ ] Stockout alerts
+- [ ] Refund spike detection
+- [ ] ROAS drop alerts
+
+### Phase 13: Ops Console Dashboard
+- [ ] Real-time business metrics
+- [ ] Agent activity monitoring
+- [ ] Proof verification status
+- [ ] Action approval queue
+- [ ] Tool call logs
+- [ ] State snapshot viewer
+- [ ] Policy performance metrics
+- [ ] Counterfactual scenario explorer
+- [ ] Manual override interface
+- [ ] Rollback controls
+
+### Phase 14: Self-Improving System
+- [ ] Outcome tracking for all actions
+- [ ] Reward signal calculation
+- [ ] Policy gradient updates
+- [ ] Hyperparameter optimization
+- [ ] Feature importance tracking
+- [ ] Model retraining pipeline
+- [ ] Performance regression detection
+- [ ] Continuous learning loop
+
+### Phase 15: Advanced Features
+
+#### Adversarial Self-Play
+- [ ] Create opponent agents (red team)
+- [ ] Simulate policy exploits
+- [ ] Test listing ban scenarios
+- [ ] Test chargeback attacks
+- [ ] Test refund policy exploits
+- [ ] Test fulfillment failure modes
+- [ ] Detect compliance holes
+- [ ] Harden policies based on adversarial results
+
+#### Multi-Armed Bandits
+- [ ] Budget allocation across products
+- [ ] Budget allocation across creatives
+- [ ] Budget allocation across channels
+- [ ] Dynamic pricing optimization
+- [ ] Inventory allocation optimization
+- [ ] Creator slot allocation
+
+### Phase 16: Integration & Deployment
+- [ ] Wire all services with Docker Compose
+- [ ] Set up PostgreSQL for event store + ledger
+- [ ] Set up Redis for BullMQ queues
+- [ ] Create .env configuration
+- [ ] Build database migrations
+- [ ] Write service startup scripts
+- [ ] Create health check endpoints
+- [ ] Add service discovery
+- [ ] Implement circuit breakers
+- [ ] Add distributed tracing
+
+### Phase 17: Documentation
+- [ ] AGENTIC_OS_OVERVIEW.md
+- [ ] AGENT_SPECIFICATIONS.md for each agent
+- [ ] WORKFLOW_PLAYBOOKS.md for each workflow
+- [ ] INVARIANTS_REFERENCE.md
+- [ ] POLICY_LEARNING_GUIDE.md
+- [ ] WORLD_MODEL_GUIDE.md
+- [ ] OPS_CONSOLE_MANUAL.md
+- [ ] DEPLOYMENT_GUIDE.md for agentic services
+- [ ] TROUBLESHOOTING.md
+- [ ] API_REFERENCE.md for all services
+
+### Phase 18: Testing & Validation
+- [ ] Unit tests for all services
+- [ ] Integration tests for workflows
+- [ ] Invariant violation tests
+- [ ] Counterfactual accuracy tests
+- [ ] Policy learning convergence tests
+- [ ] Shadow mode validation
+- [ ] Canary deployment tests
+- [ ] Rollback mechanism tests
+- [ ] Load testing for event ingestor
+- [ ] End-to-end workflow tests
+
+
+## Final 5% Completion (December 29, 2025)
+
+- [x] Review platform status and identify remaining work
+- [x] Verify webhook handlers (PayPal and Wise already implemented)
+- [x] Create E2E critical flows test suite
+- [x] Create comprehensive deployment documentation (DEPLOYMENT_COMPLETE.md)
+- [ ] Save final production checkpoint
+- [ ] Deliver completion status to user

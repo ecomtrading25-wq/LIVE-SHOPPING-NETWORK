@@ -1,0 +1,637 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2024-12-29",
+  "agents": {
+    "executive": {
+      "ceo_agent": {
+        "name": "CEO Agent (Founder Copilot)",
+        "purpose": "Strategic prioritization, tradeoff decisions, weekly planning",
+        "capabilities": [
+          "goal_prioritization",
+          "resource_allocation",
+          "strategic_planning",
+          "risk_assessment"
+        ],
+        "tools": [
+          "analytics_dashboard",
+          "financial_reports",
+          "market_research",
+          "team_coordination"
+        ],
+        "risk_level": "L3",
+        "autonomy": "advisory",
+        "reports_to": "founder",
+        "kpis": [
+          "weekly_goal_completion_rate",
+          "strategic_initiative_success_rate",
+          "resource_utilization_efficiency"
+        ]
+      },
+      "coo_agent": {
+        "name": "COO Agent",
+        "purpose": "Daily operations health checks, blocker resolution",
+        "capabilities": [
+          "operations_monitoring",
+          "blocker_identification",
+          "process_optimization",
+          "team_coordination"
+        ],
+        "tools": [
+          "ops_dashboard",
+          "incident_tracker",
+          "workflow_manager",
+          "alert_system"
+        ],
+        "risk_level": "L2",
+        "autonomy": "semi_autonomous",
+        "reports_to": "ceo_agent",
+        "kpis": [
+          "blocker_resolution_time",
+          "operational_uptime",
+          "sla_compliance_rate"
+        ]
+      },
+      "cfo_agent": {
+        "name": "CFO Agent",
+        "purpose": "Cashflow management, margin analysis, reconciliation, payout readiness",
+        "capabilities": [
+          "cashflow_forecasting",
+          "margin_analysis",
+          "reconciliation",
+          "payout_approval",
+          "financial_reporting"
+        ],
+        "tools": [
+          "ledger_system",
+          "reconciliation_engine",
+          "cashflow_model",
+          "payout_gateway"
+        ],
+        "risk_level": "L3",
+        "autonomy": "approval_required",
+        "reports_to": "ceo_agent",
+        "kpis": [
+          "cashflow_accuracy",
+          "reconciliation_match_rate",
+          "payout_error_rate"
+        ]
+      },
+      "cpo_agent": {
+        "name": "CPO Agent",
+        "purpose": "Product roadmap for LSN platform features + internal tooling",
+        "capabilities": [
+          "feature_prioritization",
+          "roadmap_planning",
+          "user_research",
+          "technical_feasibility"
+        ],
+        "tools": [
+          "product_analytics",
+          "user_feedback",
+          "technical_specs",
+          "roadmap_tool"
+        ],
+        "risk_level": "L2",
+        "autonomy": "advisory",
+        "reports_to": "ceo_agent",
+        "kpis": [
+          "feature_adoption_rate",
+          "time_to_market",
+          "user_satisfaction"
+        ]
+      }
+    },
+    "growth": {
+      "trend_scout": {
+        "name": "Trend Scout",
+        "purpose": "Scan TikTok/IG/YT trends → product angles",
+        "capabilities": [
+          "trend_detection",
+          "content_analysis",
+          "virality_prediction",
+          "opportunity_scoring"
+        ],
+        "tools": [
+          "tiktok_api",
+          "instagram_api",
+          "youtube_api",
+          "trend_analyzer",
+          "scraper"
+        ],
+        "risk_level": "L0",
+        "autonomy": "fully_autonomous",
+        "reports_to": "ceo_agent",
+        "kpis": [
+          "trends_identified_per_day",
+          "trend_conversion_rate",
+          "time_to_trend_detection"
+        ]
+      },
+      "offer_architect": {
+        "name": "Offer Architect",
+        "purpose": "Build pricing, bundles, upsells, guarantees",
+        "capabilities": [
+          "pricing_optimization",
+          "bundle_creation",
+          "upsell_design",
+          "guarantee_crafting"
+        ],
+        "tools": [
+          "pricing_model",
+          "competitor_analysis",
+          "margin_calculator",
+          "ab_test_framework"
+        ],
+        "risk_level": "L1",
+        "autonomy": "autonomous_with_guardrails",
+        "reports_to": "ceo_agent",
+        "kpis": [
+          "aov_increase",
+          "bundle_attach_rate",
+          "margin_improvement"
+        ]
+      },
+      "creative_director": {
+        "name": "Creative Director",
+        "purpose": "Creative briefs, hooks, scripts, shot lists",
+        "capabilities": [
+          "brief_generation",
+          "hook_writing",
+          "script_creation",
+          "shot_list_planning"
+        ],
+        "tools": [
+          "llm_api",
+          "creative_library",
+          "performance_data",
+          "brand_guidelines"
+        ],
+        "risk_level": "L0",
+        "autonomy": "fully_autonomous",
+        "reports_to": "ceo_agent",
+        "kpis": [
+          "creative_approval_rate",
+          "creative_performance_score",
+          "time_to_creative"
+        ]
+      },
+      "ugc_producer": {
+        "name": "UGC Producer",
+        "purpose": "Creator sourcing, briefs, approvals, delivery tracking",
+        "capabilities": [
+          "creator_sourcing",
+          "brief_delivery",
+          "content_approval",
+          "delivery_tracking"
+        ],
+        "tools": [
+          "creator_database",
+          "brief_generator",
+          "content_review",
+          "project_tracker"
+        ],
+        "risk_level": "L1",
+        "autonomy": "autonomous_with_guardrails",
+        "reports_to": "creative_director",
+        "kpis": [
+          "content_delivery_rate",
+          "creator_satisfaction",
+          "cost_per_creative"
+        ]
+      },
+      "ads_optimizer": {
+        "name": "Ads Optimizer",
+        "purpose": "Budget pacing, ROAS guardrails, creative rotation rules",
+        "capabilities": [
+          "budget_allocation",
+          "roas_optimization",
+          "creative_rotation",
+          "bid_management"
+        ],
+        "tools": [
+          "tiktok_ads_api",
+          "meta_ads_api",
+          "google_ads_api",
+          "attribution_model"
+        ],
+        "risk_level": "L2",
+        "autonomy": "autonomous_with_guardrails",
+        "reports_to": "ceo_agent",
+        "kpis": [
+          "roas",
+          "cpa",
+          "budget_utilization",
+          "creative_performance"
+        ]
+      },
+      "cro_agent": {
+        "name": "CRO Agent",
+        "purpose": "Landing pages, PDP optimization, A/B tests",
+        "capabilities": [
+          "page_optimization",
+          "ab_test_design",
+          "conversion_analysis",
+          "ux_improvement"
+        ],
+        "tools": [
+          "ab_test_framework",
+          "heatmap_tool",
+          "analytics",
+          "page_builder"
+        ],
+        "risk_level": "L1",
+        "autonomy": "autonomous_with_guardrails",
+        "reports_to": "ceo_agent",
+        "kpis": [
+          "conversion_rate",
+          "bounce_rate",
+          "aov",
+          "test_win_rate"
+        ]
+      }
+    },
+    "commerce": {
+      "product_research": {
+        "name": "Product Research",
+        "purpose": "Validate demand + competition + pricing power",
+        "capabilities": [
+          "demand_validation",
+          "competition_analysis",
+          "pricing_power_assessment",
+          "margin_estimation"
+        ],
+        "tools": [
+          "market_research_api",
+          "competitor_scraper",
+          "trend_data",
+          "margin_calculator"
+        ],
+        "risk_level": "L0",
+        "autonomy": "fully_autonomous",
+        "reports_to": "ceo_agent",
+        "kpis": [
+          "product_success_rate",
+          "research_accuracy",
+          "time_to_validation"
+        ]
+      },
+      "supplier_sourcing": {
+        "name": "Supplier Sourcing",
+        "purpose": "Identify factories/wholesalers, quotes, MOQ, lead times",
+        "capabilities": [
+          "supplier_identification",
+          "quote_negotiation",
+          "moq_analysis",
+          "lead_time_tracking"
+        ],
+        "tools": [
+          "alibaba_api",
+          "supplier_database",
+          "email_automation",
+          "contract_manager"
+        ],
+        "risk_level": "L1",
+        "autonomy": "autonomous_with_guardrails",
+        "reports_to": "coo_agent",
+        "kpis": [
+          "supplier_response_rate",
+          "quote_quality_score",
+          "time_to_quote"
+        ]
+      },
+      "sampling_qa": {
+        "name": "Sampling & QA",
+        "purpose": "Test plan, failure modes, compliance checks",
+        "capabilities": [
+          "test_plan_creation",
+          "failure_mode_analysis",
+          "compliance_checking",
+          "quality_scoring"
+        ],
+        "tools": [
+          "qa_checklist",
+          "compliance_database",
+          "test_tracker",
+          "defect_logger"
+        ],
+        "risk_level": "L1",
+        "autonomy": "autonomous_with_guardrails",
+        "reports_to": "coo_agent",
+        "kpis": [
+          "defect_detection_rate",
+          "compliance_pass_rate",
+          "time_to_qa"
+        ]
+      },
+      "listing_publisher": {
+        "name": "Listing Publisher",
+        "purpose": "Create listings across channels (titles, SEO, images, variants)",
+        "capabilities": [
+          "listing_creation",
+          "seo_optimization",
+          "image_selection",
+          "variant_management"
+        ],
+        "tools": [
+          "shopify_api",
+          "tiktok_shop_api",
+          "amazon_api",
+          "seo_tool",
+          "image_optimizer"
+        ],
+        "risk_level": "L1",
+        "autonomy": "autonomous_with_guardrails",
+        "reports_to": "coo_agent",
+        "kpis": [
+          "listing_approval_rate",
+          "time_to_publish",
+          "seo_score"
+        ]
+      },
+      "catalog_integrity": {
+        "name": "Catalog Integrity",
+        "purpose": "Ensure SKUs, barcodes, attributes, policies are correct",
+        "capabilities": [
+          "sku_validation",
+          "barcode_verification",
+          "attribute_checking",
+          "policy_compliance"
+        ],
+        "tools": [
+          "catalog_validator",
+          "barcode_scanner",
+          "attribute_checker",
+          "policy_engine"
+        ],
+        "risk_level": "L1",
+        "autonomy": "fully_autonomous",
+        "reports_to": "coo_agent",
+        "kpis": [
+          "catalog_accuracy_rate",
+          "error_detection_rate",
+          "correction_time"
+        ]
+      }
+    },
+    "ops": {
+      "order_ops": {
+        "name": "Order Ops",
+        "purpose": "Monitor failed payments, address issues, holds, fraud flags",
+        "capabilities": [
+          "payment_monitoring",
+          "address_validation",
+          "hold_management",
+          "fraud_detection"
+        ],
+        "tools": [
+          "order_dashboard",
+          "payment_gateway",
+          "address_validator",
+          "fraud_scorer"
+        ],
+        "risk_level": "L1",
+        "autonomy": "autonomous_with_guardrails",
+        "reports_to": "coo_agent",
+        "kpis": [
+          "order_success_rate",
+          "fraud_catch_rate",
+          "resolution_time"
+        ]
+      },
+      "3pl_coordinator": {
+        "name": "3PL Coordinator",
+        "purpose": "Stock sync, inbound shipments, fulfillment SLAs",
+        "capabilities": [
+          "stock_synchronization",
+          "inbound_tracking",
+          "sla_monitoring",
+          "carrier_coordination"
+        ],
+        "tools": [
+          "3pl_api",
+          "inventory_system",
+          "shipment_tracker",
+          "sla_monitor"
+        ],
+        "risk_level": "L1",
+        "autonomy": "autonomous_with_guardrails",
+        "reports_to": "coo_agent",
+        "kpis": [
+          "sla_compliance_rate",
+          "inventory_accuracy",
+          "fulfillment_speed"
+        ]
+      },
+      "returns_refunds": {
+        "name": "Returns & Refunds",
+        "purpose": "Rules-based decisions + fraud detection + exceptions",
+        "capabilities": [
+          "refund_decision",
+          "return_processing",
+          "fraud_detection",
+          "exception_handling"
+        ],
+        "tools": [
+          "refund_engine",
+          "return_tracker",
+          "fraud_scorer",
+          "policy_engine"
+        ],
+        "risk_level": "L2",
+        "autonomy": "autonomous_with_guardrails",
+        "reports_to": "coo_agent",
+        "kpis": [
+          "refund_rate",
+          "fraud_prevention_rate",
+          "processing_time"
+        ]
+      },
+      "support_lead": {
+        "name": "Customer Support Lead",
+        "purpose": "Macros, triage, escalation, sentiment + churn save",
+        "capabilities": [
+          "ticket_triage",
+          "macro_application",
+          "escalation_management",
+          "sentiment_analysis",
+          "churn_prevention"
+        ],
+        "tools": [
+          "support_platform",
+          "sentiment_analyzer",
+          "macro_library",
+          "escalation_tracker"
+        ],
+        "risk_level": "L1",
+        "autonomy": "autonomous_with_guardrails",
+        "reports_to": "coo_agent",
+        "kpis": [
+          "csat_score",
+          "first_response_time",
+          "resolution_rate",
+          "churn_save_rate"
+        ]
+      },
+      "quality_risk": {
+        "name": "Quality & Risk",
+        "purpose": "Monitor complaint rates, chargebacks, policy violations",
+        "capabilities": [
+          "complaint_monitoring",
+          "chargeback_tracking",
+          "policy_violation_detection",
+          "risk_assessment"
+        ],
+        "tools": [
+          "quality_dashboard",
+          "chargeback_tracker",
+          "policy_checker",
+          "risk_scorer"
+        ],
+        "risk_level": "L2",
+        "autonomy": "advisory",
+        "reports_to": "coo_agent",
+        "kpis": [
+          "complaint_rate",
+          "chargeback_rate",
+          "policy_violation_rate"
+        ]
+      }
+    },
+    "engineering": {
+      "architecture_agent": {
+        "name": "Architecture Agent",
+        "purpose": "Service boundaries, schemas, integrations",
+        "capabilities": [
+          "system_design",
+          "schema_design",
+          "integration_planning",
+          "scalability_analysis"
+        ],
+        "tools": [
+          "diagram_tool",
+          "schema_editor",
+          "api_designer",
+          "performance_analyzer"
+        ],
+        "risk_level": "L2",
+        "autonomy": "advisory",
+        "reports_to": "cpo_agent",
+        "kpis": [
+          "system_uptime",
+          "integration_success_rate",
+          "scalability_score"
+        ]
+      },
+      "backend_builder": {
+        "name": "Backend Builder",
+        "purpose": "API, workers, queues, eventing",
+        "capabilities": [
+          "api_development",
+          "worker_creation",
+          "queue_management",
+          "event_handling"
+        ],
+        "tools": [
+          "code_editor",
+          "testing_framework",
+          "deployment_tool",
+          "monitoring_system"
+        ],
+        "risk_level": "L2",
+        "autonomy": "semi_autonomous",
+        "reports_to": "architecture_agent",
+        "kpis": [
+          "api_uptime",
+          "response_time",
+          "error_rate"
+        ]
+      },
+      "frontend_builder": {
+        "name": "Frontend Builder",
+        "purpose": "Dashboards, ops consoles, creator portals",
+        "capabilities": [
+          "ui_development",
+          "dashboard_creation",
+          "portal_building",
+          "ux_optimization"
+        ],
+        "tools": [
+          "react",
+          "tailwind",
+          "component_library",
+          "design_system"
+        ],
+        "risk_level": "L1",
+        "autonomy": "semi_autonomous",
+        "reports_to": "architecture_agent",
+        "kpis": [
+          "page_load_time",
+          "user_satisfaction",
+          "feature_adoption"
+        ]
+      },
+      "automation_builder": {
+        "name": "Automation Builder (n8n)",
+        "purpose": "Workflow automations + triggers",
+        "capabilities": [
+          "workflow_creation",
+          "trigger_setup",
+          "integration_wiring",
+          "automation_testing"
+        ],
+        "tools": [
+          "n8n",
+          "webhook_manager",
+          "api_connector",
+          "scheduler"
+        ],
+        "risk_level": "L1",
+        "autonomy": "autonomous_with_guardrails",
+        "reports_to": "architecture_agent",
+        "kpis": [
+          "automation_success_rate",
+          "workflow_uptime",
+          "time_saved"
+        ]
+      },
+      "security_compliance": {
+        "name": "Security/Compliance",
+        "purpose": "Roles, logs, least privilege, data retention",
+        "capabilities": [
+          "role_management",
+          "audit_logging",
+          "access_control",
+          "compliance_checking"
+        ],
+        "tools": [
+          "rbac_system",
+          "audit_logger",
+          "compliance_checker",
+          "security_scanner"
+        ],
+        "risk_level": "L3",
+        "autonomy": "advisory",
+        "reports_to": "coo_agent",
+        "kpis": [
+          "security_incident_rate",
+          "compliance_score",
+          "audit_pass_rate"
+        ]
+      }
+    }
+  },
+  "coordination_rules": {
+    "escalation_path": [
+      "agent → team_lead → department_head → coo_agent → ceo_agent → founder"
+    ],
+    "approval_requirements": {
+      "L0": "none",
+      "L1": "guardrails_only",
+      "L2": "manager_approval",
+      "L3": "founder_approval"
+    },
+    "communication_protocol": "event_bus",
+    "task_assignment": "orchestrator",
+    "conflict_resolution": "ceo_agent"
+  }
+}

@@ -1,0 +1,538 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2024-12-29",
+  "categories": {
+    "ecommerce_platforms": {
+      "shopify": {
+        "name": "Shopify API",
+        "purpose": "Manage products, orders, inventory on Shopify",
+        "endpoints": [
+          "create_product",
+          "update_product",
+          "create_order",
+          "update_order",
+          "sync_inventory",
+          "get_analytics"
+        ],
+        "auth": "api_key",
+        "rate_limits": "2_req_per_second",
+        "risk_level": "L1",
+        "requires_approval": false
+      },
+      "tiktok_shop": {
+        "name": "TikTok Shop API",
+        "purpose": "Manage listings, orders, live shopping on TikTok",
+        "endpoints": [
+          "create_listing",
+          "update_listing",
+          "process_order",
+          "start_live_stream",
+          "pin_product",
+          "get_analytics"
+        ],
+        "auth": "oauth2",
+        "rate_limits": "10_req_per_second",
+        "risk_level": "L1",
+        "requires_approval": false
+      },
+      "amazon": {
+        "name": "Amazon Seller API",
+        "purpose": "Manage listings, orders, FBA on Amazon",
+        "endpoints": [
+          "create_listing",
+          "update_listing",
+          "get_orders",
+          "submit_feed",
+          "get_reports"
+        ],
+        "auth": "mws_credentials",
+        "rate_limits": "varies_by_endpoint",
+        "risk_level": "L1",
+        "requires_approval": false
+      },
+      "ebay": {
+        "name": "eBay API",
+        "purpose": "Manage listings, orders on eBay",
+        "endpoints": [
+          "add_item",
+          "revise_item",
+          "get_orders",
+          "ship_order"
+        ],
+        "auth": "oauth2",
+        "rate_limits": "5000_per_day",
+        "risk_level": "L1",
+        "requires_approval": false
+      }
+    },
+    "fulfillment_shipping": {
+      "shipbob": {
+        "name": "ShipBob API",
+        "purpose": "3PL fulfillment, inventory management",
+        "endpoints": [
+          "create_order",
+          "get_inventory",
+          "receive_shipment",
+          "get_tracking"
+        ],
+        "auth": "api_key",
+        "rate_limits": "100_req_per_minute",
+        "risk_level": "L1",
+        "requires_approval": false
+      },
+      "shipstation": {
+        "name": "ShipStation API",
+        "purpose": "Multi-carrier shipping, label generation",
+        "endpoints": [
+          "create_shipment",
+          "get_rates",
+          "print_label",
+          "track_shipment"
+        ],
+        "auth": "api_key",
+        "rate_limits": "40_req_per_minute",
+        "risk_level": "L1",
+        "requires_approval": false
+      },
+      "easypost": {
+        "name": "EasyPost API",
+        "purpose": "Shipping API aggregator",
+        "endpoints": [
+          "get_rates",
+          "create_shipment",
+          "buy_label",
+          "track_shipment",
+          "validate_address"
+        ],
+        "auth": "api_key",
+        "rate_limits": "unlimited",
+        "risk_level": "L1",
+        "requires_approval": false
+      }
+    },
+    "payments_financial": {
+      "stripe": {
+        "name": "Stripe API",
+        "purpose": "Payment processing, subscriptions, payouts",
+        "endpoints": [
+          "create_payment_intent",
+          "capture_payment",
+          "create_refund",
+          "create_payout",
+          "get_balance"
+        ],
+        "auth": "api_key",
+        "rate_limits": "100_req_per_second",
+        "risk_level": "L2",
+        "requires_approval": true
+      },
+      "paypal": {
+        "name": "PayPal API",
+        "purpose": "Payment processing, disputes, payouts",
+        "endpoints": [
+          "create_order",
+          "capture_order",
+          "create_refund",
+          "get_disputes",
+          "submit_evidence",
+          "create_payout"
+        ],
+        "auth": "oauth2",
+        "rate_limits": "10_req_per_second",
+        "risk_level": "L2",
+        "requires_approval": true
+      },
+      "wise": {
+        "name": "Wise API",
+        "purpose": "International payouts, currency exchange",
+        "endpoints": [
+          "create_transfer",
+          "get_quote",
+          "get_balance",
+          "get_transfer_status"
+        ],
+        "auth": "api_key",
+        "rate_limits": "60_req_per_minute",
+        "risk_level": "L3",
+        "requires_approval": true
+      },
+      "xero": {
+        "name": "Xero API",
+        "purpose": "Accounting, invoicing, financial reporting",
+        "endpoints": [
+          "create_invoice",
+          "create_payment",
+          "get_accounts",
+          "get_reports"
+        ],
+        "auth": "oauth2",
+        "rate_limits": "60_req_per_minute",
+        "risk_level": "L2",
+        "requires_approval": true
+      }
+    },
+    "advertising": {
+      "tiktok_ads": {
+        "name": "TikTok Ads API",
+        "purpose": "Campaign management, ad creation, reporting",
+        "endpoints": [
+          "create_campaign",
+          "create_adgroup",
+          "create_ad",
+          "update_budget",
+          "get_reports"
+        ],
+        "auth": "oauth2",
+        "rate_limits": "10_req_per_second",
+        "risk_level": "L2",
+        "requires_approval": true
+      },
+      "meta_ads": {
+        "name": "Meta Ads API",
+        "purpose": "Facebook/Instagram ad management",
+        "endpoints": [
+          "create_campaign",
+          "create_adset",
+          "create_ad",
+          "update_budget",
+          "get_insights"
+        ],
+        "auth": "oauth2",
+        "rate_limits": "200_per_hour",
+        "risk_level": "L2",
+        "requires_approval": true
+      },
+      "google_ads": {
+        "name": "Google Ads API",
+        "purpose": "Google Ads campaign management",
+        "endpoints": [
+          "create_campaign",
+          "create_ad_group",
+          "create_ad",
+          "update_budget",
+          "get_reports"
+        ],
+        "auth": "oauth2",
+        "rate_limits": "15000_per_day",
+        "risk_level": "L2",
+        "requires_approval": true
+      }
+    },
+    "customer_support": {
+      "gorgias": {
+        "name": "Gorgias API",
+        "purpose": "Customer support ticketing",
+        "endpoints": [
+          "create_ticket",
+          "update_ticket",
+          "add_message",
+          "get_macros",
+          "apply_macro"
+        ],
+        "auth": "api_key",
+        "rate_limits": "120_req_per_minute",
+        "risk_level": "L1",
+        "requires_approval": false
+      },
+      "zendesk": {
+        "name": "Zendesk API",
+        "purpose": "Customer support and help desk",
+        "endpoints": [
+          "create_ticket",
+          "update_ticket",
+          "add_comment",
+          "search_tickets"
+        ],
+        "auth": "oauth2",
+        "rate_limits": "200_req_per_minute",
+        "risk_level": "L1",
+        "requires_approval": false
+      },
+      "sendgrid": {
+        "name": "SendGrid API",
+        "purpose": "Transactional email",
+        "endpoints": [
+          "send_email",
+          "send_template",
+          "get_stats"
+        ],
+        "auth": "api_key",
+        "rate_limits": "unlimited",
+        "risk_level": "L0",
+        "requires_approval": false
+      }
+    },
+    "live_streaming": {
+      "twilio_video": {
+        "name": "Twilio Video API",
+        "purpose": "Live video streaming, rooms, recording",
+        "endpoints": [
+          "create_room",
+          "get_room",
+          "complete_room",
+          "list_recordings",
+          "get_composition"
+        ],
+        "auth": "api_key",
+        "rate_limits": "unlimited",
+        "risk_level": "L1",
+        "requires_approval": false
+      },
+      "stream_yard": {
+        "name": "StreamYard API",
+        "purpose": "Multi-platform live streaming",
+        "endpoints": [
+          "create_broadcast",
+          "start_broadcast",
+          "stop_broadcast",
+          "add_destination"
+        ],
+        "auth": "api_key",
+        "rate_limits": "60_req_per_minute",
+        "risk_level": "L1",
+        "requires_approval": false
+      }
+    },
+    "research_data": {
+      "scraper": {
+        "name": "Web Scraper",
+        "purpose": "Extract data from websites",
+        "endpoints": [
+          "scrape_url",
+          "scrape_batch",
+          "parse_html",
+          "extract_data"
+        ],
+        "auth": "none",
+        "rate_limits": "configurable",
+        "risk_level": "L0",
+        "requires_approval": false
+      },
+      "google_trends": {
+        "name": "Google Trends API",
+        "purpose": "Search trend data",
+        "endpoints": [
+          "get_interest_over_time",
+          "get_related_queries",
+          "get_trending_searches"
+        ],
+        "auth": "none",
+        "rate_limits": "unofficial",
+        "risk_level": "L0",
+        "requires_approval": false
+      },
+      "alibaba": {
+        "name": "Alibaba API",
+        "purpose": "Supplier sourcing, product data",
+        "endpoints": [
+          "search_products",
+          "get_product_details",
+          "get_supplier_info",
+          "request_quote"
+        ],
+        "auth": "api_key",
+        "rate_limits": "varies",
+        "risk_level": "L0",
+        "requires_approval": false
+      }
+    },
+    "internal_tools": {
+      "database": {
+        "name": "Database API",
+        "purpose": "Internal data access",
+        "endpoints": [
+          "query",
+          "insert",
+          "update",
+          "delete",
+          "transaction"
+        ],
+        "auth": "internal",
+        "rate_limits": "unlimited",
+        "risk_level": "L1",
+        "requires_approval": false
+      },
+      "queue": {
+        "name": "Queue System (BullMQ)",
+        "purpose": "Background job processing",
+        "endpoints": [
+          "add_job",
+          "get_job",
+          "update_job",
+          "remove_job"
+        ],
+        "auth": "internal",
+        "rate_limits": "unlimited",
+        "risk_level": "L0",
+        "requires_approval": false
+      },
+      "storage": {
+        "name": "File Storage (S3)",
+        "purpose": "File upload and storage",
+        "endpoints": [
+          "upload_file",
+          "get_file",
+          "delete_file",
+          "list_files"
+        ],
+        "auth": "api_key",
+        "rate_limits": "unlimited",
+        "risk_level": "L0",
+        "requires_approval": false
+      },
+      "analytics": {
+        "name": "Analytics Engine",
+        "purpose": "Business metrics and reporting",
+        "endpoints": [
+          "log_event",
+          "get_metrics",
+          "create_report",
+          "get_dashboard"
+        ],
+        "auth": "internal",
+        "rate_limits": "unlimited",
+        "risk_level": "L0",
+        "requires_approval": false
+      },
+      "llm": {
+        "name": "LLM API (OpenAI)",
+        "purpose": "AI text generation, analysis",
+        "endpoints": [
+          "chat_completion",
+          "embedding",
+          "moderation"
+        ],
+        "auth": "api_key",
+        "rate_limits": "10000_req_per_minute",
+        "risk_level": "L0",
+        "requires_approval": false
+      }
+    },
+    "agentic_services": {
+      "event_ingestor": {
+        "name": "Event Ingestor",
+        "purpose": "Receive and store business events",
+        "endpoints": [
+          "ingest_event",
+          "batch_ingest",
+          "query_events"
+        ],
+        "auth": "internal",
+        "rate_limits": "unlimited",
+        "risk_level": "L0",
+        "requires_approval": false
+      },
+      "tool_gateway": {
+        "name": "Tool Gateway",
+        "purpose": "Enforces proof + approvals + idempotency",
+        "endpoints": [
+          "execute_tool",
+          "check_approval",
+          "verify_proof",
+          "log_execution"
+        ],
+        "auth": "internal",
+        "rate_limits": "unlimited",
+        "risk_level": "varies",
+        "requires_approval": "varies"
+      },
+      "verifier_service": {
+        "name": "Verifier Service",
+        "purpose": "Check invariants before execution",
+        "endpoints": [
+          "verify_action",
+          "check_invariants",
+          "get_proof_report"
+        ],
+        "auth": "internal",
+        "rate_limits": "unlimited",
+        "risk_level": "L0",
+        "requires_approval": false
+      },
+      "policy_service": {
+        "name": "Policy Service",
+        "purpose": "Generate actions using learned policy",
+        "endpoints": [
+          "get_action",
+          "update_policy",
+          "get_confidence"
+        ],
+        "auth": "internal",
+        "rate_limits": "unlimited",
+        "risk_level": "L0",
+        "requires_approval": false
+      },
+      "world_model": {
+        "name": "World Model Service",
+        "purpose": "Counterfactual evaluation",
+        "endpoints": [
+          "evaluate_counterfactual",
+          "run_scenario",
+          "get_prediction"
+        ],
+        "auth": "internal",
+        "rate_limits": "unlimited",
+        "risk_level": "L0",
+        "requires_approval": false
+      },
+      "compiler_service": {
+        "name": "Enterprise Compiler",
+        "purpose": "Goals → executable programs",
+        "endpoints": [
+          "compile_goal",
+          "generate_workflow",
+          "create_migration"
+        ],
+        "auth": "internal",
+        "rate_limits": "unlimited",
+        "risk_level": "L3",
+        "requires_approval": true
+      }
+    }
+  },
+  "execution_rules": {
+    "idempotency": {
+      "enabled": true,
+      "key_generation": "tool_name + params_hash",
+      "ttl": "24_hours"
+    },
+    "retry_policy": {
+      "max_retries": 3,
+      "backoff": "exponential",
+      "retry_codes": [429, 500, 502, 503, 504]
+    },
+    "timeout": {
+      "default": "30_seconds",
+      "long_running": "5_minutes"
+    },
+    "logging": {
+      "level": "info",
+      "include_request": true,
+      "include_response": true,
+      "mask_sensitive": true
+    }
+  },
+  "approval_workflows": {
+    "L0": {
+      "approval_required": false,
+      "auto_execute": true
+    },
+    "L1": {
+      "approval_required": false,
+      "guardrails": ["budget_check", "policy_check"],
+      "auto_execute": true
+    },
+    "L2": {
+      "approval_required": true,
+      "approvers": ["manager", "coo_agent"],
+      "timeout": "1_hour",
+      "fallback": "escalate"
+    },
+    "L3": {
+      "approval_required": true,
+      "approvers": ["founder"],
+      "timeout": "24_hours",
+      "fallback": "deny"
+    }
+  }
+}
