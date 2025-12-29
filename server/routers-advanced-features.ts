@@ -681,8 +681,8 @@ export const notificationRouter = router({
     .input(z.object({
       notificationId: z.string(),
     }))
-    .mutation(async ({ input }) => {
-      await db.markNotificationAsRead(input.notificationId);
+    .mutation(async ({ input, ctx }) => {
+      await db.markNotificationAsRead(input.notificationId, ctx.user!.id);
       
       return { success: true };
     }),

@@ -45,6 +45,8 @@
 - [x] Refund/return automation
 
 ### Remaining Work (5%)
+- [x] Fix notificationId undefined error on /live/2 page
+- [x] Fix userId type mismatch (number vs string) in API calls
 - [ ] Fix 3303 TypeScript errors (non-critical files)
 - [ ] Add PayPal webhook handlers
 - [ ] Add Wise webhook handlers  

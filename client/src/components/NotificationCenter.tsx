@@ -85,7 +85,7 @@ export default function NotificationCenter() {
 
   const handleNotificationClick = (notification: Notification) => {
     if (!notification.read) {
-      markAsReadMutation.mutate({ id: notification.id });
+      markAsReadMutation.mutate({ notificationId: notification.id });
     }
     if (notification.actionUrl) {
       window.location.href = notification.actionUrl;
