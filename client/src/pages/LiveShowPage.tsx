@@ -244,7 +244,7 @@ export default function LiveShowPage() {
               <CardContent className="p-6">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-foreground text-2xl font-bold">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-red-500 flex items-center justify-center text-foreground text-2xl font-bold">
                       {show.title.charAt(0)}
                     </div>
                     <div>
@@ -266,7 +266,7 @@ export default function LiveShowPage() {
                     <Button
                       variant={isFollowing ? "secondary" : "default"}
                       onClick={handleFollow}
-                      className={isFollowing ? "" : "bg-gradient-to-r from-pink-500 to-purple-500"}
+                      className={isFollowing ? "" : "bg-gradient-to-r from-pink-500 to-red-500"}
                     >
                       {isFollowing ? (
                         <>
@@ -300,7 +300,7 @@ export default function LiveShowPage() {
                     {products.map((product) => (
                       <Card key={product.id} className="bg-background text-foreground/5 border-pink-500/10 hover:border-pink-500/30 transition-all cursor-pointer group">
                         <CardContent className="p-4">
-                          <div className="aspect-square bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg mb-3 flex items-center justify-center">
+                          <div className="aspect-square bg-gradient-to-br from-red-500/20 to-pink-500/20 rounded-lg mb-3 flex items-center justify-center">
                             <ShoppingCart className="w-12 h-12 text-pink-400 group-hover:scale-110 transition-transform" />
                           </div>
                           <h3 className="font-semibold text-foreground text-sm mb-1 line-clamp-2">
@@ -308,7 +308,7 @@ export default function LiveShowPage() {
                           </h3>
                           <div className="flex items-center justify-between">
                             <span className="text-pink-400 font-bold">$99.99</span>
-                            <Button size="sm" className="bg-gradient-to-r from-pink-500 to-purple-500">
+                            <Button size="sm" className="bg-gradient-to-r from-pink-500 to-red-500">
                               Buy
                             </Button>
                           </div>
@@ -340,7 +340,7 @@ export default function LiveShowPage() {
                     className="flex flex-col items-center gap-2 h-auto py-4"
                     onClick={() => setShowGiftModal(true)}
                   >
-                    <Gift className="w-6 h-6 text-purple-400" />
+                    <Gift className="w-6 h-6 text-red-400" />
                     <span className="text-xs">Gift</span>
                   </Button>
                   <Button
@@ -368,7 +368,7 @@ export default function LiveShowPage() {
                 <div className="space-y-3">
                   {messages.map((msg) => (
                     <div key={msg.id} className="flex gap-2">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-foreground text-xs font-bold flex-shrink-0">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-red-500 flex items-center justify-center text-foreground text-xs font-bold flex-shrink-0">
                         {msg.userId.slice(0, 2).toUpperCase()}
                       </div>
                       <div className="flex-1 min-w-0">
@@ -397,7 +397,7 @@ export default function LiveShowPage() {
                   <Button
                     onClick={handleSendMessage}
                     disabled={!message.trim()}
-                    className="bg-gradient-to-r from-pink-500 to-purple-500"
+                    className="bg-gradient-to-r from-pink-500 to-red-500"
                   >
                     <Send className="w-4 h-4" />
                   </Button>
@@ -411,7 +411,7 @@ export default function LiveShowPage() {
       {/* Gift Modal */}
       {showGiftModal && (
         <div className="fixed inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center z-50 p-4 text-foreground">
-          <Card className="bg-gradient-to-br from-purple-900 to-black border-pink-500/20 max-w-2xl w-full">
+          <Card className="bg-gradient-to-br from-red-900 to-black border-pink-500/20 max-w-2xl w-full">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
@@ -448,7 +448,7 @@ export default function LiveShowPage() {
               <Button
                 onClick={() => selectedGift && handleSendGift(selectedGift)}
                 disabled={!selectedGift}
-                className="w-full bg-gradient-to-r from-pink-500 to-purple-500 text-lg py-6"
+                className="w-full bg-gradient-to-r from-pink-500 to-red-500 text-lg py-6"
               >
                 Send Gift
               </Button>

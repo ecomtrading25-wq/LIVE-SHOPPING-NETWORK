@@ -122,7 +122,7 @@ export default function OrderHistoryPage() {
                     onClick={() => setStatusFilter(status)}
                     className={
                       statusFilter === status
-                        ? "bg-purple-600"
+                        ? "bg-red-600"
                         : "border-white/20 text-foreground hover:bg-background/10"
                     }
                   >
@@ -145,7 +145,7 @@ export default function OrderHistoryPage() {
                     : "You haven't placed any orders yet"}
                 </p>
                 <Link href="/products">
-                  <Button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700">
+                  <Button className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-pink-600 hover:to-red-700">
                     Start Shopping
                   </Button>
                 </Link>
@@ -154,7 +154,7 @@ export default function OrderHistoryPage() {
               filteredOrders.map((order) => (
                 <Card
                   key={order.id}
-                  className="p-6 bg-background text-foreground/10 backdrop-blur-xl border-white/20 hover:border-purple-500/50 transition-colors"
+                  className="p-6 bg-background text-foreground/10 backdrop-blur-xl border-white/20 hover:border-red-500/50 transition-colors"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
@@ -228,7 +228,7 @@ export default function OrderHistoryPage() {
                   <p className="text-sm text-gray-400">Total Orders</p>
                   <p className="text-3xl font-bold text-foreground mt-1">{orders.length}</p>
                 </div>
-                <Package className="w-12 h-12 text-purple-500" />
+                <Package className="w-12 h-12 text-red-500" />
               </div>
             </Card>
 

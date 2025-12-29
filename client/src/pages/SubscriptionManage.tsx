@@ -210,7 +210,7 @@ export default function SubscriptionManagePage() {
       paused: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
       cancelled: "bg-red-500/20 text-red-400 border-red-500/30",
       scheduled: "bg-blue-500/20 text-blue-400 border-blue-500/30",
-      processing: "bg-purple-500/20 text-purple-400 border-purple-500/30",
+      processing: "bg-red-500/20 text-red-400 border-red-500/30",
       shipped: "bg-green-500/20 text-green-400 border-green-500/30",
       skipped: "bg-gray-500/20 text-gray-400 border-gray-500/30",
     };
@@ -368,7 +368,7 @@ export default function SubscriptionManagePage() {
                             />
                             <div className="mt-2">
                               <p className="text-foreground text-sm font-medium line-clamp-2">{item.name}</p>
-                              <p className="text-purple-400 text-sm font-bold">${item.price}</p>
+                              <p className="text-red-400 text-sm font-bold">${item.price}</p>
                             </div>
                             {delivery.canModify && (
                               <Button
@@ -412,7 +412,7 @@ export default function SubscriptionManagePage() {
                         key={category}
                         className={`cursor-pointer ${
                           subscription.preferences.categories.includes(category)
-                            ? "bg-purple-500/30 text-purple-400 border-purple-500/50"
+                            ? "bg-red-500/30 text-red-400 border-red-500/50"
                             : "bg-background text-foreground/10 text-gray-400 border-white/20"
                         }`}
                         onClick={() => isEditingPreferences && handleToggleCategory(category)}
@@ -478,8 +478,8 @@ export default function SubscriptionManagePage() {
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 bg-purple-500/20 rounded-lg">
-                      <Package className="w-5 h-5 text-purple-400" />
+                    <div className="p-2 bg-red-500/20 rounded-lg">
+                      <Package className="w-5 h-5 text-red-400" />
                     </div>
                     <div>
                       <p className="text-gray-400 text-sm">Total Deliveries</p>
@@ -520,7 +520,7 @@ export default function SubscriptionManagePage() {
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <div className="p-3 bg-background text-foreground/10 rounded-lg">
-                    <CreditCard className="w-6 h-6 text-purple-400" />
+                    <CreditCard className="w-6 h-6 text-red-400" />
                   </div>
                   <div>
                     <p className="text-foreground font-medium">•••• 4242</p>
@@ -537,9 +537,9 @@ export default function SubscriptionManagePage() {
             </Card>
 
             {/* Benefits */}
-            <Card className="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-purple-500/30">
+            <Card className="p-6 bg-gradient-to-br from-red-500/20 to-pink-500/20 border-red-500/30">
               <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-purple-400" />
+                <TrendingUp className="w-5 h-5 text-red-400" />
                 Subscriber Benefits
               </h3>
               <ul className="space-y-3">

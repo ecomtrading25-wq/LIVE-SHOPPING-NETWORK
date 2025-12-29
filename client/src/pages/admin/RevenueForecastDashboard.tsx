@@ -276,9 +276,9 @@ const mockForecastData = overview || {
           <Card className="p-6">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm text-muted-foreground">Confidence Level</span>
-              <Target className="w-5 h-5 text-purple-500" />
+              <Target className="w-5 h-5 text-red-500" />
             </div>
-            <div className="text-3xl font-bold text-purple-600">
+            <div className="text-3xl font-bold text-red-600">
               {mockForecastData.confidenceLevel}%
             </div>
             <div className="text-sm text-muted-foreground mt-1">

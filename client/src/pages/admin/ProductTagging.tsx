@@ -188,7 +188,7 @@ export default function ProductTaggingPage() {
         <Card className="p-6">
           <div className="flex items-center justify-between mb-2">
             <p className="text-sm text-muted-foreground">Avg Confidence</p>
-            <Sparkles className="w-5 h-5 text-purple-500" />
+            <Sparkles className="w-5 h-5 text-red-500" />
           </div>
           <p className="text-3xl font-bold mb-1">{(stats.avgConfidence * 100).toFixed(0)}%</p>
           <p className="text-xs text-green-500">+2.3% improvement</p>

@@ -275,7 +275,7 @@ export default function GamificationPage() {
       case "legendary":
         return "bg-gradient-to-r from-yellow-500 to-orange-500";
       case "epic":
-        return "bg-gradient-to-r from-purple-500 to-pink-500";
+        return "bg-gradient-to-r from-red-500 to-orange-500";
       case "rare":
         return "bg-gradient-to-r from-blue-500 to-cyan-500";
       default:
@@ -288,7 +288,7 @@ export default function GamificationPage() {
       case "special":
         return "bg-gradient-to-r from-yellow-500 to-orange-500 text-foreground";
       case "weekly":
-        return "bg-purple-500/20 text-purple-400";
+        return "bg-red-500/20 text-red-400";
       default:
         return "bg-blue-500/20 text-blue-400";
     }
@@ -328,12 +328,12 @@ export default function GamificationPage() {
             <p className="text-xs text-gray-400">Longest: {userStats.longestStreak} days</p>
           </Card>
 
-          <Card className="p-6 bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-purple-500/20">
+          <Card className="p-6 bg-gradient-to-br from-red-500/10 to-pink-500/10 border-red-500/20">
             <div className="flex items-center justify-between mb-2">
               <p className="text-sm text-gray-400">Achievements</p>
-              <Trophy className="w-5 h-5 text-purple-500" />
+              <Trophy className="w-5 h-5 text-red-500" />
             </div>
-            <p className="text-4xl font-bold text-purple-400 mb-1">{userStats.achievementsUnlocked}/{userStats.totalAchievements}</p>
+            <p className="text-4xl font-bold text-red-400 mb-1">{userStats.achievementsUnlocked}/{userStats.totalAchievements}</p>
             <Progress value={(userStats.achievementsUnlocked / userStats.totalAchievements) * 100} className="h-2" />
           </Card>
 
@@ -427,7 +427,7 @@ export default function GamificationPage() {
           <TabsContent value="achievements">
             <Card className="p-6 bg-background border-border text-foreground">
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                <Award className="w-6 h-6 text-purple-500" />
+                <Award className="w-6 h-6 text-red-500" />
                 Achievement Collection
               </h2>
 
@@ -525,7 +525,7 @@ export default function GamificationPage() {
                     key={entry.rank}
                     className={`p-4 ${
                       entry.user.name === "You"
-                        ? "bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-500/30"
+                        ? "bg-gradient-to-r from-red-500/20 to-pink-500/20 border-red-500/30"
                         : "bg-card border-zinc-700"
                     }`}
                   >

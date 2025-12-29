@@ -297,7 +297,7 @@ const churnTrends = [
           <Card className="p-6">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm text-muted-foreground">Avg Churn Risk</span>
-              <TrendingDown className="w-5 h-5 text-purple-500" />
+              <TrendingDown className="w-5 h-5 text-red-500" />
             </div>
             <div className="text-3xl font-bold">{avgChurnProbability.toFixed(1)}%</div>
             <div className="text-sm text-green-600 mt-1">
@@ -456,7 +456,7 @@ const churnTrends = [
                           <Mail className="w-4 h-4 mr-1" />
                           Email
                         </Button>
-                        <Button size="sm" className="bg-purple-600 hover:bg-purple-700">
+                        <Button size="sm" className="bg-red-600 hover:bg-red-700">
                           <Gift className="w-4 h-4 mr-1" />
                           Win-Back
                         </Button>
@@ -470,7 +470,7 @@ const churnTrends = [
         </Card>
 
         {/* Bulk Actions */}
-        <Card className="p-6 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-950 dark:to-pink-950 border-purple-200 dark:border-purple-800">
+        <Card className="p-6 bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-950 dark:to-pink-950 border-red-200 dark:border-red-800">
           <h3 className="text-lg font-bold mb-3">Bulk Win-Back Campaign</h3>
           <p className="text-sm text-muted-foreground mb-4">
             Launch targeted campaigns for all critical and high-risk customers with personalized offers based on their purchase history.
@@ -487,7 +487,7 @@ const churnTrends = [
                 <SelectItem value="5m">Auto: 5m</SelectItem>
               </SelectContent>
             </Select>
-            <Button className="bg-purple-600 hover:bg-purple-700">
+            <Button className="bg-red-600 hover:bg-red-700">
               Launch Campaign for Critical Risk ({mockChurnData.filter(c => c.churnRisk === 'critical').length})
             </Button>
             <Button variant="outline">

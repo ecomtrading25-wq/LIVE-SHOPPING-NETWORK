@@ -134,8 +134,8 @@ export default function SKUProfitabilityDashboard() {
 
             <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between mb-2">
-                <Target className="w-8 h-8 text-purple-500" />
-                <Badge className="bg-purple-600">{summary?.avgMargin?.toFixed(1) || 0}%</Badge>
+                <Target className="w-8 h-8 text-red-500" />
+                <Badge className="bg-red-600">{summary?.avgMargin?.toFixed(1) || 0}%</Badge>
               </div>
               <p className="text-muted-foreground text-sm mb-1">Avg Profit Margin</p>
               <p className="text-foreground text-2xl font-bold">{summary?.marginTarget || 20}%</p>

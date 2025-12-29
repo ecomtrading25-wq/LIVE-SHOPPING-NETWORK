@@ -118,7 +118,7 @@ export default function Wallet() {
       case 'withdrawal':
         return <ArrowUpRight className="w-4 h-4 text-red-500" />;
       case 'purchase':
-        return <Gift className="w-4 h-4 text-purple-500" />;
+        return <Gift className="w-4 h-4 text-red-500" />;
       case 'earning':
         return <DollarSign className="w-4 h-4 text-blue-500" />;
       default:
@@ -137,12 +137,12 @@ export default function Wallet() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-pink-50 py-8">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold mb-2 flex items-center gap-3">
-            <WalletIcon className="w-10 h-10 text-purple-600" />
+            <WalletIcon className="w-10 h-10 text-red-600" />
             My Wallet
           </h1>
           <p className="text-gray-600">Manage your balance and transactions</p>
@@ -150,7 +150,7 @@ export default function Wallet() {
 
         {/* Balance Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <Card className="bg-gradient-to-br from-purple-600 to-pink-600 text-foreground border-0">
+          <Card className="bg-gradient-to-br from-red-600 to-orange-600 text-foreground border-0">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-white/80">Total Balance</span>

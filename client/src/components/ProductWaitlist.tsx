@@ -98,7 +98,7 @@ export default function ProductWaitlist({
         />
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-2">
-            <Bell className="w-5 h-5 text-purple-400" />
+            <Bell className="w-5 h-5 text-red-400" />
             <h3 className="text-lg font-semibold text-foreground">
               Join Waitlist
             </h3>
@@ -127,7 +127,7 @@ export default function ProductWaitlist({
         <Button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-purple-600 hover:bg-purple-700"
+          className="w-full bg-red-600 hover:bg-red-700"
         >
           {isLoading ? (
             <span className="flex items-center gap-2">

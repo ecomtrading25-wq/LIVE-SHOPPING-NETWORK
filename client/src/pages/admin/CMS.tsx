@@ -162,7 +162,7 @@ export default function CMSPage() {
       case "image":
         return <Image className="w-5 h-5 text-blue-500" />;
       case "video":
-        return <FileText className="w-5 h-5 text-purple-500" />;
+        return <FileText className="w-5 h-5 text-red-500" />;
       case "document":
         return <FileText className="w-5 h-5 text-orange-500" />;
       default:

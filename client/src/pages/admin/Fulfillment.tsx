@@ -219,7 +219,7 @@ export default function FulfillmentPage() {
                 <TableCell>
                   <div className="flex items-center gap-2">
                     {getTypeIcon(task.type)}
-                    <Badge className="bg-purple-600">{task.type}</Badge>
+                    <Badge className="bg-red-600">{task.type}</Badge>
                   </div>
                 </TableCell>
                 <TableCell className="text-foreground font-medium">#{task.orderId}</TableCell>
@@ -301,8 +301,8 @@ export default function FulfillmentPage() {
 
         <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center">
-              <Package className="w-6 h-6 text-purple-500" />
+            <div className="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center">
+              <Package className="w-6 h-6 text-red-500" />
             </div>
             <div>
               <h3 className="text-lg font-bold text-foreground">Pack Tasks</h3>

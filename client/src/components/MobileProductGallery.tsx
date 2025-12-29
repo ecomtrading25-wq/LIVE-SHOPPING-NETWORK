@@ -146,7 +146,7 @@ export default function MobileProductGallery({
             onClick={() => setCurrentIndex(index)}
             className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
               currentIndex === index
-                ? "border-purple-500 scale-105"
+                ? "border-red-500 scale-105"
                 : "border-border opacity-60"
             }`}
           >

@@ -62,7 +62,7 @@ export default function ResetPasswordPage() {
     <div className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
       <Card className="w-full max-w-md p-8 bg-background text-foreground/10 backdrop-blur-xl border-white/20">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
             <Lock className="w-8 h-8 text-foreground" />
           </div>
           <h1 className="text-3xl font-bold text-foreground mb-2">Reset Password</h1>
@@ -137,7 +137,7 @@ export default function ResetPasswordPage() {
 
           <Button
             type="submit"
-            className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700"
+            className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-pink-600 hover:to-red-700"
             size="lg"
             disabled={isLoading || !passwordsMatch}
           >
@@ -147,7 +147,7 @@ export default function ResetPasswordPage() {
 
         <div className="mt-6 text-center">
           <Link href="/login">
-            <a className="text-purple-400 hover:text-purple-300 font-medium">
+            <a className="text-red-400 hover:text-red-300 font-medium">
               Back to Login
             </a>
           </Link>

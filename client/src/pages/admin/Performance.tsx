@@ -211,8 +211,8 @@ export default function PerformancePage() {
 
         <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center">
-              <Activity className="w-6 h-6 text-purple-500" />
+            <div className="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center">
+              <Activity className="w-6 h-6 text-red-500" />
             </div>
             <TrendingUp className="w-5 h-5 text-green-500" />
           </div>
@@ -253,8 +253,8 @@ export default function PerformancePage() {
 
         <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center">
-              <Activity className="w-5 h-5 text-purple-500" />
+            <div className="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center">
+              <Activity className="w-5 h-5 text-red-500" />
             </div>
             <div>
               <p className="font-semibold text-foreground">Memory Usage</p>
@@ -269,7 +269,7 @@ export default function PerformancePage() {
             </div>
             <div className="w-full h-2 bg-card rounded-full overflow-hidden text-card-foreground">
               <div
-                className="h-full bg-purple-500 transition-all"
+                className="h-full bg-red-500 transition-all"
                 style={{ width: `${metrics.memoryUsage}%` }}
               ></div>
             </div>

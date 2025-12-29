@@ -104,8 +104,8 @@ export default function SavedSearchesPage() {
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-3 bg-purple-500/20 rounded-lg">
-              <Search className="w-8 h-8 text-purple-400" />
+            <div className="p-3 bg-red-500/20 rounded-lg">
+              <Search className="w-8 h-8 text-red-400" />
             </div>
             <div>
               <h1 className="text-4xl font-bold text-foreground">Saved Searches</h1>
@@ -119,8 +119,8 @@ export default function SavedSearchesPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-purple-500/20 rounded-lg">
-                  <Search className="w-5 h-5 text-purple-400" />
+                <div className="p-2 bg-red-500/20 rounded-lg">
+                  <Search className="w-5 h-5 text-red-400" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-foreground">
@@ -170,8 +170,8 @@ export default function SavedSearchesPage() {
                 className="p-6 bg-background text-foreground/5 border-white/10 hover:bg-background text-foreground/10 transition-all"
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-purple-500/20 rounded-lg">
-                    <Search className="w-6 h-6 text-purple-400" />
+                  <div className="p-3 bg-red-500/20 rounded-lg">
+                    <Search className="w-6 h-6 text-red-400" />
                   </div>
 
                   <div className="flex-1">
@@ -262,7 +262,7 @@ export default function SavedSearchesPage() {
                         </Badge>
                       )}
                       {(search.filters.minPrice || search.filters.maxPrice) && (
-                        <Badge className="bg-purple-500/20 text-purple-400">
+                        <Badge className="bg-red-500/20 text-red-400">
                           <DollarSign className="w-3 h-3 mr-1" />
                           {search.filters.minPrice && `$${search.filters.minPrice}`}
                           {search.filters.minPrice && search.filters.maxPrice && " - "}
@@ -295,7 +295,7 @@ export default function SavedSearchesPage() {
                       >
                         <Button
                           size="sm"
-                          className="bg-purple-600 hover:bg-purple-700"
+                          className="bg-red-600 hover:bg-red-700"
                         >
                           <Search className="w-4 h-4 mr-2" />
                           View Results
@@ -337,7 +337,7 @@ export default function SavedSearchesPage() {
                 match your criteria!
               </p>
               <Link href="/search">
-                <Button className="bg-purple-600 hover:bg-purple-700 mt-4">
+                <Button className="bg-red-600 hover:bg-red-700 mt-4">
                   <Search className="w-4 h-4 mr-2" />
                   Start Searching
                 </Button>

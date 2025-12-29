@@ -124,14 +124,14 @@ export default function HostAnalytics() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-gray-600">Followers</span>
-                <Users className="w-6 h-6 text-purple-500" />
+                <Users className="w-6 h-6 text-red-500" />
               </div>
               <p className="text-3xl font-bold mb-1">
                 {formatNumber(overview?.totalFollowers || 0)}
               </p>
               <div className="flex items-center gap-2 text-sm">
-                <TrendingUp className="w-4 h-4 text-purple-500" />
-                <span className="text-purple-600">+{overview?.newFollowers || 0}</span>
+                <TrendingUp className="w-4 h-4 text-red-500" />
+                <span className="text-red-600">+{overview?.newFollowers || 0}</span>
                 <span className="text-gray-500">this period</span>
               </div>
             </CardContent>
@@ -184,12 +184,12 @@ export default function HostAnalytics() {
                     {formatCurrency(revenue?.products || 0)}
                   </span>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
+                <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg">
                   <div className="flex items-center gap-3">
-                    <Users className="w-5 h-5 text-purple-600" />
+                    <Users className="w-5 h-5 text-red-600" />
                     <span className="font-medium">Subscriptions</span>
                   </div>
-                  <span className="font-bold text-purple-600">
+                  <span className="font-bold text-red-600">
                     {formatCurrency(revenue?.subscriptions || 0)}
                   </span>
                 </div>

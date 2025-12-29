@@ -106,7 +106,7 @@ export default function PurchasingSupplierOS() {
     switch (status) {
       case "pending": return "bg-yellow-600";
       case "approved": return "bg-blue-600";
-      case "ordered": return "bg-purple-600";
+      case "ordered": return "bg-red-600";
       case "in_transit": return "bg-orange-600";
       case "received": return "bg-green-600";
       case "qc_passed": return "bg-emerald-600";
@@ -189,8 +189,8 @@ export default function PurchasingSupplierOS() {
 
             <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between mb-2">
-                <Users className="w-8 h-8 text-purple-500" />
-                <Badge className="bg-purple-600">{stats?.activeSuppliers || 0}</Badge>
+                <Users className="w-8 h-8 text-red-500" />
+                <Badge className="bg-red-600">{stats?.activeSuppliers || 0}</Badge>
               </div>
               <p className="text-muted-foreground text-sm mb-1">Suppliers</p>
               <p className="text-foreground text-2xl font-bold">{stats?.totalSuppliers || 0}</p>
@@ -459,7 +459,7 @@ export default function PurchasingSupplierOS() {
                       <p className="text-gray-400 text-sm">{supplier.country}</p>
                     </div>
                     <Badge className={
-                      supplier.tier === "platinum" ? "bg-purple-600" :
+                      supplier.tier === "platinum" ? "bg-red-600" :
                       supplier.tier === "gold" ? "bg-yellow-600" :
                       supplier.tier === "silver" ? "bg-gray-400" :
                       "bg-gray-600"

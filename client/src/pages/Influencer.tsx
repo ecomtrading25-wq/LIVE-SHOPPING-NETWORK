@@ -79,7 +79,7 @@ export default function InfluencerPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-600 to-pink-600 py-16">
+      <div className="bg-gradient-to-r from-red-600 to-orange-600 py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-4">Influencer Dashboard</h1>
@@ -106,8 +106,8 @@ export default function InfluencerPage() {
           <Card className="bg-background border-border text-foreground">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
-                <Users className="w-5 h-5 text-purple-500" />
-                <Badge className="bg-purple-600">+12%</Badge>
+                <Users className="w-5 h-5 text-red-500" />
+                <Badge className="bg-red-600">+12%</Badge>
               </div>
               <p className="text-2xl font-bold">{stats.followers.toLocaleString()}</p>
               <p className="text-sm text-gray-400">Followers</p>
@@ -252,7 +252,7 @@ export default function InfluencerPage() {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* Referral Link */}
-            <Card className="bg-gradient-to-br from-purple-600 to-pink-600 border-0">
+            <Card className="bg-gradient-to-br from-red-600 to-orange-600 border-0">
               <CardHeader>
                 <CardTitle className="text-foreground flex items-center gap-2">
                   <LinkIcon className="w-5 h-5" />
@@ -265,7 +265,7 @@ export default function InfluencerPage() {
                 </div>
                 <Button
                   onClick={copyReferralLink}
-                  className="w-full bg-background text-foreground text-purple-600 hover:bg-background text-foreground/90"
+                  className="w-full bg-background text-foreground text-red-600 hover:bg-background text-foreground/90"
                 >
                   {copied ? (
                     <>

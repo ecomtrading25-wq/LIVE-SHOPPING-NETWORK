@@ -24,7 +24,7 @@ export default function CustomerHome() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Animated background */}
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-purple-500 rounded-full filter blur-3xl animate-pulse"></div>
+          <div className="absolute top-0 left-0 w-96 h-96 bg-red-500 rounded-full filter blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-500 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
         </div>
 
@@ -32,14 +32,14 @@ export default function CustomerHome() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left: Hero Content */}
             <div className="space-y-8">
-              <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-foreground border-0 px-4 py-2 text-sm font-semibold">
+              <Badge className="bg-gradient-to-r from-red-500 to-orange-500 text-foreground border-0 px-4 py-2 text-sm font-semibold">
                 🔴 LIVE NOW
               </Badge>
               
               <h1 className="text-6xl lg:text-7xl font-black text-foreground leading-tight">
                 Shop Live.
                 <br />
-                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">
                   Save Big.
                 </span>
               </h1>
@@ -51,12 +51,12 @@ export default function CustomerHome() {
 
               <div className="flex gap-4">
                 <Link href="/live">
-                  <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-foreground font-bold px-8 py-6 text-lg rounded-xl shadow-2xl hover:shadow-purple-500/50 transition-all">
+                  <Button size="lg" className="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-pink-700 text-foreground font-bold px-8 py-6 text-lg rounded-xl shadow-2xl hover:shadow-red-500/50 transition-all">
                     Watch Live Now
                   </Button>
                 </Link>
                 <Link href="/products">
-                  <Button size="lg" variant="outline" className="border-2 border-purple-500 text-purple-300 hover:bg-purple-500/10 font-bold px-8 py-6 text-lg rounded-xl">
+                  <Button size="lg" variant="outline" className="border-2 border-red-500 text-red-300 hover:bg-red-500/10 font-bold px-8 py-6 text-lg rounded-xl">
                     Browse Products
                   </Button>
                 </Link>
@@ -81,9 +81,9 @@ export default function CustomerHome() {
 
             {/* Right: Live Stream Preview */}
             <div className="relative">
-              <Card className="bg-card/50 backdrop-blur-xl border-purple-500/30 overflow-hidden rounded-2xl shadow-2xl text-card-foreground">
+              <Card className="bg-card/50 backdrop-blur-xl border-red-500/30 overflow-hidden rounded-2xl shadow-2xl text-card-foreground">
                 {/* Video placeholder */}
-                <div className="aspect-video bg-gradient-to-br from-purple-900 to-pink-900 relative">
+                <div className="aspect-video bg-gradient-to-br from-red-900 to-orange-900 relative">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center space-y-4">
                       <div className="w-20 h-20 bg-background text-foreground/10 rounded-full flex items-center justify-center mx-auto">
@@ -113,7 +113,7 @@ export default function CustomerHome() {
                   <h3 className="text-foreground font-bold text-sm uppercase tracking-wide">Featured Products</h3>
                   <div className="grid grid-cols-3 gap-3">
                     {[1, 2, 3].map((i) => (
-                      <Card key={i} className="bg-gray-700/50 border-gray-600 p-3 hover:border-purple-500 transition-all cursor-pointer">
+                      <Card key={i} className="bg-gray-700/50 border-gray-600 p-3 hover:border-red-500 transition-all cursor-pointer">
                         <div className="aspect-square bg-gray-600 rounded-lg mb-2"></div>
                         <div className="text-xs text-muted-foreground truncate">Product {i}</div>
                         <div className="text-sm font-bold text-foreground">$29.99</div>
@@ -161,7 +161,7 @@ export default function CustomerHome() {
               <p className="text-gray-400">Hot products flying off the shelves</p>
             </div>
             <Link href="/products">
-              <Button variant="outline" className="border-purple-500 text-purple-300 hover:bg-purple-500/10">
+              <Button variant="outline" className="border-red-500 text-red-300 hover:bg-red-500/10">
                 View All →
               </Button>
             </Link>
@@ -169,8 +169,8 @@ export default function CustomerHome() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[1, 2, 3, 4].map((i) => (
-              <Card key={i} className="bg-card/50 backdrop-blur-xl border-border hover:border-purple-500 transition-all cursor-pointer group overflow-hidden text-card-foreground">
-                <div className="aspect-square bg-gradient-to-br from-purple-900 to-pink-900 relative overflow-hidden">
+              <Card key={i} className="bg-card/50 backdrop-blur-xl border-border hover:border-red-500 transition-all cursor-pointer group overflow-hidden text-card-foreground">
+                <div className="aspect-square bg-gradient-to-br from-red-900 to-orange-900 relative overflow-hidden">
                   <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-all text-foreground"></div>
                   {i === 1 && (
                     <Badge className="absolute top-3 left-3 bg-yellow-600 text-foreground border-0">
@@ -179,7 +179,7 @@ export default function CustomerHome() {
                   )}
                 </div>
                 <div className="p-4 space-y-2">
-                  <h3 className="text-foreground font-bold group-hover:text-purple-400 transition-colors">
+                  <h3 className="text-foreground font-bold group-hover:text-red-400 transition-colors">
                     Premium Product {i}
                   </h3>
                   <div className="flex items-center gap-2">
@@ -196,7 +196,7 @@ export default function CustomerHome() {
                     </div>
                     <span className="text-sm text-gray-400">(234)</span>
                   </div>
-                  <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-foreground font-bold">
+                  <Button className="w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-pink-700 text-foreground font-bold">
                     Add to Cart
                   </Button>
                 </div>
@@ -220,13 +220,13 @@ export default function CustomerHome() {
               { time: '5:00 PM', host: 'Mike Johnson', topic: 'Fashion Flash Sale', viewers: '890' },
               { time: '8:00 PM', host: 'Emma Davis', topic: 'Home & Living Deals', viewers: '2.1K' }
             ].map((show, i) => (
-              <Card key={i} className="bg-card/50 backdrop-blur-xl border-border hover:border-purple-500 transition-all p-6 space-y-4 text-card-foreground">
+              <Card key={i} className="bg-card/50 backdrop-blur-xl border-border hover:border-red-500 transition-all p-6 space-y-4 text-card-foreground">
                 <div className="flex items-start justify-between">
                   <div>
-                    <div className="text-3xl font-bold text-purple-400">{show.time}</div>
+                    <div className="text-3xl font-bold text-red-400">{show.time}</div>
                     <div className="text-sm text-gray-400">Today</div>
                   </div>
-                  <Badge className="bg-purple-600 text-foreground border-0">
+                  <Badge className="bg-red-600 text-foreground border-0">
                     {show.viewers} interested
                   </Badge>
                 </div>
@@ -234,7 +234,7 @@ export default function CustomerHome() {
                   <h3 className="text-xl font-bold text-foreground mb-1">{show.topic}</h3>
                   <p className="text-gray-400 text-sm">with {show.host}</p>
                 </div>
-                <Button variant="outline" className="w-full border-purple-500 text-purple-300 hover:bg-purple-500/10">
+                <Button variant="outline" className="w-full border-red-500 text-red-300 hover:bg-red-500/10">
                   Set Reminder
                 </Button>
               </Card>
@@ -274,17 +274,17 @@ export default function CustomerHome() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-900 to-pink-900">
+      <section className="py-20 bg-gradient-to-r from-red-900 to-orange-900">
         <div className="container px-4 text-center">
           <h2 className="text-5xl font-black text-foreground mb-6">
             Ready to Start Shopping?
           </h2>
-          <p className="text-xl text-purple-200 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-red-200 mb-8 max-w-2xl mx-auto">
             Join thousands of happy shoppers and never miss a deal again
           </p>
           <div className="flex gap-4 justify-center">
             <Link href="/live">
-              <Button size="lg" className="bg-background text-foreground text-purple-900 hover:bg-gray-100 font-bold px-8 py-6 text-lg rounded-xl shadow-2xl">
+              <Button size="lg" className="bg-background text-foreground text-red-900 hover:bg-gray-100 font-bold px-8 py-6 text-lg rounded-xl shadow-2xl">
                 Watch Live Now
               </Button>
             </Link>
@@ -310,28 +310,28 @@ export default function CustomerHome() {
             <div>
               <h4 className="text-foreground font-semibold mb-4">Shop</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href="/live" className="hover:text-purple-400">Live Shows</Link></li>
-                <li><Link href="/products" className="hover:text-purple-400">All Products</Link></li>
-                <li><Link href="/deals" className="hover:text-purple-400">Deals</Link></li>
-                <li><Link href="/schedule" className="hover:text-purple-400">Schedule</Link></li>
+                <li><Link href="/live" className="hover:text-red-400">Live Shows</Link></li>
+                <li><Link href="/products" className="hover:text-red-400">All Products</Link></li>
+                <li><Link href="/deals" className="hover:text-red-400">Deals</Link></li>
+                <li><Link href="/schedule" className="hover:text-red-400">Schedule</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="text-foreground font-semibold mb-4">Support</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href="/help" className="hover:text-purple-400">Help Center</Link></li>
-                <li><Link href="/shipping" className="hover:text-purple-400">Shipping</Link></li>
-                <li><Link href="/returns" className="hover:text-purple-400">Returns</Link></li>
-                <li><Link href="/contact" className="hover:text-purple-400">Contact Us</Link></li>
+                <li><Link href="/help" className="hover:text-red-400">Help Center</Link></li>
+                <li><Link href="/shipping" className="hover:text-red-400">Shipping</Link></li>
+                <li><Link href="/returns" className="hover:text-red-400">Returns</Link></li>
+                <li><Link href="/contact" className="hover:text-red-400">Contact Us</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="text-foreground font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href="/about" className="hover:text-purple-400">About Us</Link></li>
-                <li><Link href="/careers" className="hover:text-purple-400">Careers</Link></li>
-                <li><Link href="/press" className="hover:text-purple-400">Press</Link></li>
-                <li><Link href="/terms" className="hover:text-purple-400">Terms</Link></li>
+                <li><Link href="/about" className="hover:text-red-400">About Us</Link></li>
+                <li><Link href="/careers" className="hover:text-red-400">Careers</Link></li>
+                <li><Link href="/press" className="hover:text-red-400">Press</Link></li>
+                <li><Link href="/terms" className="hover:text-red-400">Terms</Link></li>
               </ul>
             </div>
           </div>

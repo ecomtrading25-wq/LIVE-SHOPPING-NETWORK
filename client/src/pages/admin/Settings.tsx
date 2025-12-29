@@ -73,7 +73,7 @@ export default function SettingsPage() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
                   activeTab === tab.id
-                    ? "bg-purple-600 text-foreground"
+                    ? "bg-red-600 text-foreground"
                     : "text-gray-400 hover:bg-card hover:text-foreground"
                 }`}
               >
@@ -140,7 +140,7 @@ export default function SettingsPage() {
                   </div>
                 </div>
 
-                <Button type="submit" className="bg-purple-600 hover:bg-purple-700">
+                <Button type="submit" className="bg-red-600 hover:bg-red-700">
                   <Save className="w-4 h-4 mr-2" />
                   Save Changes
                 </Button>
@@ -236,7 +236,7 @@ export default function SettingsPage() {
                   </Button>
                 </div>
 
-                <Button className="bg-purple-600 hover:bg-purple-700">
+                <Button className="bg-red-600 hover:bg-red-700">
                   <Save className="w-4 h-4 mr-2" />
                   Update Security
                 </Button>
@@ -295,15 +295,15 @@ export default function SettingsPage() {
               <div className="space-y-4">
                 <div className="flex items-center justify-between p-4 bg-card rounded-lg text-card-foreground">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
-                      <span className="text-purple-400 font-semibold">JD</span>
+                    <div className="w-10 h-10 bg-red-500/20 rounded-full flex items-center justify-center">
+                      <span className="text-red-400 font-semibold">JD</span>
                     </div>
                     <div>
                       <p className="font-medium text-foreground">John Doe</p>
                       <p className="text-sm text-gray-400">john@example.com</p>
                     </div>
                   </div>
-                  <Badge className="bg-purple-600">Admin</Badge>
+                  <Badge className="bg-red-600">Admin</Badge>
                 </div>
 
                 <div className="flex items-center justify-between p-4 bg-card rounded-lg text-card-foreground">
@@ -319,7 +319,7 @@ export default function SettingsPage() {
                   <Badge variant="secondary">Operator</Badge>
                 </div>
 
-                <Button className="w-full bg-purple-600 hover:bg-purple-700 mt-4">
+                <Button className="w-full bg-red-600 hover:bg-red-700 mt-4">
                   <Users className="w-4 h-4 mr-2" />
                   Invite Team Member
                 </Button>

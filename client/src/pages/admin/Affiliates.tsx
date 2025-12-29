@@ -13,7 +13,7 @@ export default function Affiliates() {
   ];
 
   const getTierColor = (tier: string) => {
-    if (tier === "platinum") return "bg-purple-500";
+    if (tier === "platinum") return "bg-red-500";
     if (tier === "gold") return "bg-yellow-500";
     if (tier === "silver") return "bg-gray-400";
     return "bg-orange-600";

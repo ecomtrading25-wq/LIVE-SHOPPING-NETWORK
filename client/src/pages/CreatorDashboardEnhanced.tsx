@@ -105,7 +105,7 @@ export default function CreatorDashboardEnhanced() {
             <div className="flex gap-3">
               <Dialog open={showScheduleDialog} onOpenChange={setShowScheduleDialog}>
                 <DialogTrigger asChild>
-                  <Button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700">
+                  <Button className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-pink-600 hover:to-red-700">
                     <Plus className="w-4 h-4 mr-2" />
                     Schedule Show
                   </Button>
@@ -197,7 +197,7 @@ export default function CreatorDashboardEnhanced() {
                     <div className="flex gap-3 pt-4">
                       <Button
                         type="submit"
-                        className="flex-1 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700"
+                        className="flex-1 bg-gradient-to-r from-orange-500 to-red-600 hover:from-pink-600 hover:to-red-700"
                         disabled={scheduleShow.isLoading}
                       >
                         {scheduleShow.isLoading ? "Scheduling..." : "Schedule Show"}
@@ -229,19 +229,19 @@ export default function CreatorDashboardEnhanced() {
       <div className="container py-8">
         <Tabs defaultValue="overview" className="space-y-6">
           <TabsList className="bg-background text-foreground/5 border border-white/10">
-            <TabsTrigger value="overview" className="data-[state=active]:bg-purple-600">
+            <TabsTrigger value="overview" className="data-[state=active]:bg-red-600">
               <BarChart3 className="w-4 h-4 mr-2" />
               Overview
             </TabsTrigger>
-            <TabsTrigger value="shows" className="data-[state=active]:bg-purple-600">
+            <TabsTrigger value="shows" className="data-[state=active]:bg-red-600">
               <Video className="w-4 h-4 mr-2" />
               My Shows
             </TabsTrigger>
-            <TabsTrigger value="earnings" className="data-[state=active]:bg-purple-600">
+            <TabsTrigger value="earnings" className="data-[state=active]:bg-red-600">
               <DollarSign className="w-4 h-4 mr-2" />
               Earnings
             </TabsTrigger>
-            <TabsTrigger value="analytics" className="data-[state=active]:bg-purple-600">
+            <TabsTrigger value="analytics" className="data-[state=active]:bg-red-600">
               <TrendingUp className="w-4 h-4 mr-2" />
               Analytics
             </TabsTrigger>
@@ -277,10 +277,10 @@ export default function CreatorDashboardEnhanced() {
                 </div>
               </Card>
 
-              <Card className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 border-purple-500/30 p-6">
+              <Card className="bg-gradient-to-br from-red-900/30 to-red-800/30 border-red-500/30 p-6">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-purple-400 text-sm font-medium">Followers</span>
-                  <Users className="w-5 h-5 text-purple-400" />
+                  <span className="text-red-400 text-sm font-medium">Followers</span>
+                  <Users className="w-5 h-5 text-red-400" />
                 </div>
                 <div className="text-3xl font-bold text-foreground mb-1">
                   {(stats?.followerCount || 0).toLocaleString()}
@@ -308,9 +308,9 @@ export default function CreatorDashboardEnhanced() {
             <Card className="bg-background text-foreground/5 border-white/10">
               <div className="p-6 border-b border-white/10">
                 <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
-                  <Calendar className="w-6 h-6 text-purple-500" />
+                  <Calendar className="w-6 h-6 text-red-500" />
                   Upcoming Shows
-                  <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/50 ml-2">
+                  <Badge className="bg-red-500/20 text-red-400 border-red-500/50 ml-2">
                     {upcomingShows?.length || 0}
                   </Badge>
                 </h2>
@@ -344,7 +344,7 @@ export default function CreatorDashboardEnhanced() {
                                   minute: "2-digit",
                                 })}
                               </span>
-                              <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/50">
+                              <Badge className="bg-red-500/20 text-red-400 border-red-500/50">
                                 {show.category}
                               </Badge>
                             </div>
@@ -376,7 +376,7 @@ export default function CreatorDashboardEnhanced() {
                     <Calendar className="w-16 h-16 text-gray-600 mx-auto mb-4" />
                     <p className="text-gray-400 mb-4">No upcoming shows scheduled</p>
                     <Button
-                      className="bg-purple-600 hover:bg-purple-700"
+                      className="bg-red-600 hover:bg-red-700"
                       onClick={() => setShowScheduleDialog(true)}
                     >
                       <Plus className="w-4 h-4 mr-2" />
@@ -390,7 +390,7 @@ export default function CreatorDashboardEnhanced() {
             {/* Quick Actions */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <Card className="bg-background text-foreground/5 border-white/10 p-6 hover:bg-background text-foreground/10 transition-colors cursor-pointer">
-                <Upload className="w-8 h-8 text-purple-400 mb-3" />
+                <Upload className="w-8 h-8 text-red-400 mb-3" />
                 <h3 className="text-foreground font-semibold mb-2">Upload Content</h3>
                 <p className="text-gray-400 text-sm">
                   Add product images and videos for your next show
@@ -533,7 +533,7 @@ export default function CreatorDashboardEnhanced() {
               <Card className="bg-background text-foreground/5 border-white/10 p-6">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-gray-400 text-sm font-medium">Lifetime Earnings</span>
-                  <TrendingUp className="w-5 h-5 text-purple-400" />
+                  <TrendingUp className="w-5 h-5 text-red-400" />
                 </div>
                 <div className="text-3xl font-bold text-foreground mb-1">
                   ${((earnings?.lifetimeCents || 0) / 100).toLocaleString()}

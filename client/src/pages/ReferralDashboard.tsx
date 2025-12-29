@@ -136,8 +136,8 @@ function ReferralDashboardContent() {
 
           <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2 bg-purple-500/20 rounded-lg">
-                <Award className="w-5 h-5 text-purple-400" />
+              <div className="p-2 bg-red-500/20 rounded-lg">
+                <Award className="w-5 h-5 text-red-400" />
               </div>
               <p className="text-sm text-gray-400">Conversion Rate</p>
             </div>
@@ -156,7 +156,7 @@ function ReferralDashboardContent() {
         </div>
 
         {/* Referral Link */}
-        <Card className="p-6 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-500/30 mb-8">
+        <Card className="p-6 bg-gradient-to-r from-red-500/20 to-pink-500/20 border-red-500/30 mb-8">
           <div className="flex items-start justify-between mb-4">
             <div>
               <h3 className="text-xl font-bold text-foreground mb-1">Your Referral Link</h3>
@@ -164,7 +164,7 @@ function ReferralDashboardContent() {
                 Share this link and earn $10 for sign-ups, $25 for purchases
               </p>
             </div>
-            <Badge className="bg-purple-600 text-foreground">
+            <Badge className="bg-red-600 text-foreground">
               <Gift className="w-3 h-3 mr-1" />
               Active
             </Badge>
@@ -181,7 +181,7 @@ function ReferralDashboardContent() {
             </div>
             <Button
               onClick={handleCopyLink}
-              className="bg-purple-600 hover:bg-purple-700"
+              className="bg-red-600 hover:bg-red-700"
             >
               {copied ? (
                 <>
@@ -252,8 +252,8 @@ function ReferralDashboardContent() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Users className="w-6 h-6 text-purple-400" />
+              <div className="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Users className="w-6 h-6 text-red-400" />
               </div>
               <h4 className="font-semibold text-foreground mb-2">2. They Sign Up</h4>
               <p className="text-sm text-gray-400">
@@ -291,8 +291,8 @@ function ReferralDashboardContent() {
                   className="flex items-center justify-between p-4 bg-background text-foreground/5 rounded-lg"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
-                      <Users className="w-5 h-5 text-purple-400" />
+                    <div className="w-10 h-10 bg-red-500/20 rounded-full flex items-center justify-center">
+                      <Users className="w-5 h-5 text-red-400" />
                     </div>
                     <div>
                       <p className="text-foreground font-semibold">{referral.name}</p>
@@ -334,7 +334,7 @@ function ReferralDashboardContent() {
               <p className="text-2xl font-bold text-foreground mb-1">$10</p>
               <p className="text-sm text-gray-400">Per sign-up</p>
             </div>
-            <div className="p-4 bg-background text-foreground/5 rounded-lg border-2 border-purple-500/50">
+            <div className="p-4 bg-background text-foreground/5 rounded-lg border-2 border-red-500/50">
               <div className="flex items-center gap-2 mb-2">
                 <Award className="w-5 h-5 text-silver-400" />
                 <h4 className="font-semibold text-foreground">Silver</h4>

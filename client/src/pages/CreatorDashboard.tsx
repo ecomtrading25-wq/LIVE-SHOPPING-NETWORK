@@ -539,7 +539,7 @@ function CreatorDashboardContent() {
                     <span className="text-sm">Diamond</span>
                     <div className="flex items-center gap-2">
                       <div className="w-32 bg-gray-200 rounded-full h-2">
-                        <div className="bg-purple-500 h-2 rounded-full" style={{ width: "20%" }} />
+                        <div className="bg-red-500 h-2 rounded-full" style={{ width: "20%" }} />
                       </div>
                       <span className="font-medium">5</span>
                     </div>

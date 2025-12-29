@@ -171,7 +171,7 @@ function CheckoutForm() {
           <p className="text-gray-400 mb-6">
             Add some products to your cart before checking out.
           </p>
-          <Button onClick={() => setLocation("/products")} className="bg-purple-600 hover:bg-purple-700">
+          <Button onClick={() => setLocation("/products")} className="bg-red-600 hover:bg-red-700">
             Browse Products
           </Button>
         </Card>
@@ -194,7 +194,7 @@ function CheckoutForm() {
               {/* Customer Information */}
               <Card className="p-6 bg-background text-foreground/5 border-white/10">
                 <div className="flex items-center gap-3 mb-6">
-                  <User className="w-6 h-6 text-purple-400" />
+                  <User className="w-6 h-6 text-red-400" />
                   <h2 className="text-2xl font-bold text-foreground">Customer Information</h2>
                 </div>
 
@@ -244,7 +244,7 @@ function CheckoutForm() {
               {/* Shipping Address */}
               <Card className="p-6 bg-background text-foreground/5 border-white/10">
                 <div className="flex items-center gap-3 mb-6">
-                  <MapPin className="w-6 h-6 text-purple-400" />
+                  <MapPin className="w-6 h-6 text-red-400" />
                   <h2 className="text-2xl font-bold text-foreground">Shipping Address</h2>
                 </div>
 
@@ -307,7 +307,7 @@ function CheckoutForm() {
               {/* Payment Information */}
               <Card className="p-6 bg-background text-foreground/5 border-white/10">
                 <div className="flex items-center gap-3 mb-6">
-                  <CreditCard className="w-6 h-6 text-purple-400" />
+                  <CreditCard className="w-6 h-6 text-red-400" />
                   <h2 className="text-2xl font-bold text-foreground">Payment Information</h2>
                 </div>
 
@@ -387,7 +387,7 @@ function CheckoutForm() {
                 <Button
                   type="submit"
                   disabled={!stripe || loading}
-                  className="w-full bg-purple-600 hover:bg-purple-700 text-foreground"
+                  className="w-full bg-red-600 hover:bg-red-700 text-foreground"
                   size="lg"
                 >
                   {loading ? (

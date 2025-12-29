@@ -114,7 +114,7 @@ export default function NotificationPreferencesPage() {
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <Bell className="w-5 h-5 text-purple-500" />
+                    <Bell className="w-5 h-5 text-red-500" />
                     <div>
                       <p className="font-medium">Push Notifications</p>
                       <p className="text-xs text-muted-foreground">Browser & Mobile</p>

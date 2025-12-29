@@ -143,7 +143,7 @@ export default function BISuitePage() {
       change: 12.3,
       trend: "up",
       icon: TrendingUp,
-      color: "text-purple-500",
+      color: "text-red-500",
     },
   ];
 

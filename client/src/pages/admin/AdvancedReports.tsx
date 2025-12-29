@@ -148,7 +148,7 @@ export default function AdvancedReportsPage() {
               <div className="flex items-end gap-2">
                 <Button
                   onClick={handleExport}
-                  className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600"
+                  className="flex-1 bg-gradient-to-r from-red-600 to-orange-600"
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Export
@@ -192,8 +192,8 @@ export default function AdvancedReportsPage() {
           <Card className="bg-background border-border text-foreground">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
-                <TrendingUp className="w-8 h-8 text-purple-500" />
-                <span className="text-sm text-purple-500">+12%</span>
+                <TrendingUp className="w-8 h-8 text-red-500" />
+                <span className="text-sm text-red-500">+12%</span>
               </div>
               <p className="text-3xl font-bold text-foreground">
                 ${salesData.avgOrderValue.toFixed(2)}
@@ -257,7 +257,7 @@ export default function AdvancedReportsPage() {
                       <p className="font-medium text-foreground">{channel.name}</p>
                       <p className="text-sm text-gray-400">{channel.orders} orders</p>
                     </div>
-                    <p className="text-lg font-bold text-purple-500">
+                    <p className="text-lg font-bold text-red-500">
                       ${channel.revenue.toLocaleString()}
                     </p>
                   </div>
@@ -311,7 +311,7 @@ export default function AdvancedReportsPage() {
                   toast.success("Loaded Creator Payouts template");
                 }}
               >
-                <Users className="w-8 h-8 text-purple-500" />
+                <Users className="w-8 h-8 text-red-500" />
                 <span className="font-medium">Creator Payouts</span>
                 <span className="text-xs text-gray-400">Monthly</span>
               </Button>
@@ -354,7 +354,7 @@ export default function AdvancedReportsPage() {
                     <p className="text-sm text-gray-400">{report.schedule}</p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-sm text-purple-500">{report.format}</span>
+                    <span className="text-sm text-red-500">{report.format}</span>
                     <Button size="sm" variant="outline">
                       Edit
                     </Button>

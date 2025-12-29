@@ -319,8 +319,8 @@ export default function VendorDashboard() {
           <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
             <CardContent className="p-6">
               <div className="flex items-start justify-between mb-4">
-                <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
-                  <Package className="w-6 h-6 text-purple-400" />
+                <div className="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
+                  <Package className="w-6 h-6 text-red-400" />
                 </div>
                 <Badge className={stats?.productsChange >= 0 ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}>
                   {stats?.productsChange >= 0 ? '+' : ''}{stats?.productsChange.toFixed(1)}%
@@ -406,7 +406,7 @@ export default function VendorDashboard() {
                 return (
                   <div key={index} className="flex-1 flex flex-col items-center gap-2">
                     <div
-                      className="w-full bg-gradient-to-t from-purple-500 to-pink-500 rounded-t hover:opacity-80 transition-opacity cursor-pointer relative group"
+                      className="w-full bg-gradient-to-t from-red-500 to-orange-500 rounded-t hover:opacity-80 transition-opacity cursor-pointer relative group"
                       style={{ height: `${height}%`, minHeight: '4px' }}
                     >
                       <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-background/80 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
@@ -663,7 +663,7 @@ export default function VendorDashboard() {
                   <div className="space-y-4">
                     {products?.slice(0, 5).map((product: Product, index: number) => (
                       <div key={product.id} className="flex items-center gap-4">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-foreground font-bold">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-foreground font-bold">
                           {index + 1}
                         </div>
                         <img

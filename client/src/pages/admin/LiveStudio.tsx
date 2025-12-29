@@ -207,7 +207,7 @@ export default function LiveStudioPage() {
 
       {/* Stream Status */}
       {streamStatus !== "offline" && (
-        <Card className="p-6 bg-gradient-to-r from-red-500/10 to-purple-500/10 border-red-500/20">
+        <Card className="p-6 bg-gradient-to-r from-red-500/10 to-red-500/10 border-red-500/20">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">

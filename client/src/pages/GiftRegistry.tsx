@@ -222,14 +222,14 @@ export default function GiftRegistryPage() {
                     {item.groupGift && (
                       <div className="mb-2">
                         <div className="flex items-center gap-2 text-sm mb-1">
-                          <Users className="w-4 h-4 text-purple-500" />
+                          <Users className="w-4 h-4 text-red-500" />
                           <span className="text-muted-foreground">
                             Group Gift: {item.contributors} contributors
                           </span>
                         </div>
                         <div className="h-2 bg-secondary rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-purple-500"
+                            className="h-full bg-red-500"
                             style={{ width: `${(item.amountRaised! / item.price) * 100}%` }}
                           />
                         </div>

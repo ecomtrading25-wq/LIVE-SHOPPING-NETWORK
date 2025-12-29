@@ -61,7 +61,7 @@ export default function AdminDashboard() {
             <Button variant="outline">
               📊 Export Report
             </Button>
-            <Button className="bg-purple-600 hover:bg-purple-700 text-foreground">
+            <Button className="bg-red-600 hover:bg-red-700 text-foreground">
               ⚙️ Settings
             </Button>
           </div>
@@ -71,7 +71,7 @@ export default function AdminDashboard() {
       <div className="p-6 space-y-6">
         {/* Key Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card className="p-6 bg-gradient-to-br from-purple-500 to-purple-600 text-foreground">
+          <Card className="p-6 bg-gradient-to-br from-red-500 to-red-600 text-foreground">
             <div className="flex items-center justify-between mb-4">
               <div className="text-sm font-semibold opacity-90">Total Revenue</div>
               <div className="text-2xl">💰</div>
@@ -257,7 +257,7 @@ export default function AdminDashboard() {
                 <h2 className="text-lg font-bold text-gray-900">SKU Profitability Analysis</h2>
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm">Export</Button>
-                  <Button size="sm" className="bg-purple-600 text-foreground">
+                  <Button size="sm" className="bg-red-600 text-foreground">
                     Run Weekly Pruning
                   </Button>
                 </div>
@@ -282,7 +282,7 @@ export default function AdminDashboard() {
                     {topSKUs?.map((sku: any) => (
                       <tr key={sku.productId} className="border-b border-gray-100 hover:bg-background text-foreground">
                         <td className="py-3 px-4">
-                          <Badge className="bg-purple-100 text-purple-800 border-0">
+                          <Badge className="bg-red-100 text-red-800 border-0">
                             #{sku.rank}
                           </Badge>
                         </td>
@@ -311,7 +311,7 @@ export default function AdminDashboard() {
                             {sku.status}
                           </Badge>
                         </td>
-                        <td className="py-3 px-4 text-right font-bold text-purple-600">
+                        <td className="py-3 px-4 text-right font-bold text-red-600">
                           {sku.score}
                         </td>
                       </tr>
@@ -422,7 +422,7 @@ export default function AdminDashboard() {
                   </div>
                   <div className="flex justify-between items-center pb-3 border-b border-gray-200">
                     <span className="text-gray-600">Fees</span>
-                    <span className="font-bold text-purple-600">
+                    <span className="font-bold text-red-600">
                       -${((balance?.totalFeesCents || 0) / 100).toLocaleString()}
                     </span>
                   </div>
@@ -463,7 +463,7 @@ export default function AdminDashboard() {
                     <div className="text-sm text-red-700">need review</div>
                   </div>
 
-                  <Button className="w-full bg-purple-600 text-foreground">
+                  <Button className="w-full bg-red-600 text-foreground">
                     Run Reconciliation
                   </Button>
                 </div>

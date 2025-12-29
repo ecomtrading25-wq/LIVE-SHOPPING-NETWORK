@@ -147,7 +147,7 @@ export default function ReportsPage() {
 
         <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center justify-between mb-2">
-            <Mail className="w-5 h-5 text-purple-500" />
+            <Mail className="w-5 h-5 text-red-500" />
             <span className="text-2xl font-bold text-foreground">8</span>
           </div>
           <p className="text-sm text-zinc-400">Scheduled Reports</p>
@@ -242,7 +242,7 @@ export default function ReportsPage() {
                     onClick={() => setExportFormat("csv")}
                     className={`h-12 rounded-lg border-2 transition-all ${
                       exportFormat === "csv"
-                        ? "border-purple-600 bg-purple-600/10 text-foreground"
+                        ? "border-red-600 bg-red-600/10 text-foreground"
                         : "border-zinc-700 text-zinc-400 hover:border-zinc-600"
                     }`}
                   >
@@ -252,7 +252,7 @@ export default function ReportsPage() {
                     onClick={() => setExportFormat("pdf")}
                     className={`h-12 rounded-lg border-2 transition-all ${
                       exportFormat === "pdf"
-                        ? "border-purple-600 bg-purple-600/10 text-foreground"
+                        ? "border-red-600 bg-red-600/10 text-foreground"
                         : "border-zinc-700 text-zinc-400 hover:border-zinc-600"
                     }`}
                   >
@@ -262,7 +262,7 @@ export default function ReportsPage() {
                     onClick={() => setExportFormat("xlsx")}
                     className={`h-12 rounded-lg border-2 transition-all ${
                       exportFormat === "xlsx"
-                        ? "border-purple-600 bg-purple-600/10 text-foreground"
+                        ? "border-red-600 bg-red-600/10 text-foreground"
                         : "border-zinc-700 text-zinc-400 hover:border-zinc-600"
                     }`}
                   >
@@ -277,7 +277,7 @@ export default function ReportsPage() {
                   <div className="flex items-start gap-3 mb-3">
                     {(() => {
                       const Icon = selectedReport.icon;
-                      return <Icon className="w-5 h-5 text-purple-500 mt-0.5" />;
+                      return <Icon className="w-5 h-5 text-red-500 mt-0.5" />;
                     })()}
                     <div>
                       <p className="font-medium text-foreground">
@@ -310,7 +310,7 @@ export default function ReportsPage() {
                 <Button
                   onClick={handleGenerateReport}
                   disabled={isGenerating}
-                  className="flex-1 h-12 bg-purple-600 hover:bg-purple-700"
+                  className="flex-1 h-12 bg-red-600 hover:bg-red-700"
                 >
                   {isGenerating ? (
                     <>
@@ -349,14 +349,14 @@ export default function ReportsPage() {
                 key={type.id}
                 className={`p-4 cursor-pointer transition-all ${
                   reportType === type.id
-                    ? "bg-purple-600/10 border-purple-600"
+                    ? "bg-red-600/10 border-red-600"
                     : "bg-background text-foreground border-border hover:border-zinc-700"
                 }`}
                 onClick={() => setReportType(type.id)}
               >
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 bg-card rounded-lg flex items-center justify-center flex-shrink-0 text-card-foreground">
-                    <Icon className="w-5 h-5 text-purple-500" />
+                    <Icon className="w-5 h-5 text-red-500" />
                   </div>
                   <div className="flex-1">
                     <p className="font-medium text-foreground">{type.name}</p>

@@ -109,7 +109,7 @@ export default function LiveChat({ sessionId, isOpen, onClose }: LiveChatProps) 
     <div className="fixed bottom-4 right-4 z-50 w-96 max-w-[calc(100vw-2rem)]">
       <Card className="bg-background border-border shadow-2xl overflow-hidden flex flex-col h-[600px] max-h-[80vh] text-foreground">
         {/* Header */}
-        <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-4 flex items-center justify-between">
+        <div className="bg-gradient-to-r from-red-600 to-orange-600 p-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <MessageCircle className="w-5 h-5 text-foreground" />
             <div>
@@ -149,7 +149,7 @@ export default function LiveChat({ sessionId, isOpen, onClose }: LiveChatProps) 
               <div
                 key={msg.id}
                 className={`flex flex-col gap-1 ${
-                  msg.isPinned ? "bg-purple-900/20 p-2 rounded-lg border border-purple-500" : ""
+                  msg.isPinned ? "bg-red-900/20 p-2 rounded-lg border border-red-500" : ""
                 }`}
               >
                 <div className="flex items-center gap-2">
@@ -158,7 +158,7 @@ export default function LiveChat({ sessionId, isOpen, onClose }: LiveChatProps) 
                       msg.isHost
                         ? "text-yellow-400"
                         : user?.id === msg.userId
-                        ? "text-purple-400"
+                        ? "text-red-400"
                         : "text-muted-foreground"
                     }`}
                   >
@@ -170,7 +170,7 @@ export default function LiveChat({ sessionId, isOpen, onClose }: LiveChatProps) 
                     </Badge>
                   )}
                   {msg.isPinned && (
-                    <Badge className="bg-purple-600 text-foreground text-xs px-2 py-0">
+                    <Badge className="bg-red-600 text-foreground text-xs px-2 py-0">
                       PINNED
                     </Badge>
                   )}
@@ -203,7 +203,7 @@ export default function LiveChat({ sessionId, isOpen, onClose }: LiveChatProps) 
               <Button
                 type="submit"
                 disabled={!inputMessage.trim() || sendMessageMutation.isPending}
-                className="bg-purple-600 hover:bg-purple-700"
+                className="bg-red-600 hover:bg-red-700"
               >
                 <Send className="w-4 h-4" />
               </Button>
@@ -211,7 +211,7 @@ export default function LiveChat({ sessionId, isOpen, onClose }: LiveChatProps) 
           ) : (
             <div className="text-center">
               <p className="text-gray-400 text-sm mb-3">Sign in to join the chat</p>
-              <Button className="w-full bg-purple-600 hover:bg-purple-700">
+              <Button className="w-full bg-red-600 hover:bg-red-700">
                 Sign In
               </Button>
             </div>
@@ -231,7 +231,7 @@ export function LiveChatButton({ sessionId }: { sessionId: string }) {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-4 right-4 z-40 w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
+        className="fixed bottom-4 right-4 z-40 w-14 h-14 bg-gradient-to-r from-red-600 to-orange-600 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
       >
         <MessageCircle className="w-6 h-6 text-foreground" />
         {unreadCount > 0 && (

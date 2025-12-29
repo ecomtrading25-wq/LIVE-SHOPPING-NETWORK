@@ -98,7 +98,7 @@ export default function LoyaltyPage() {
       minPoints: 7000,
       maxPoints: Infinity,
       benefits: ["20% off all purchases", "Free overnight shipping", "Dedicated concierge", "Exclusive events", "Personal shopper", "Luxury gifts"],
-      color: "text-purple-500",
+      color: "text-red-500",
       icon: Crown,
     },
   ];
@@ -378,7 +378,7 @@ export default function LoyaltyPage() {
                     <p className="text-gray-400 text-xs mb-1">Unlock at {nextTier.name}</p>
                     <ul className="space-y-1">
                       {nextTier.benefits.slice(0, 2).map((benefit, index) => (
-                        <li key={index} className="text-purple-400 text-sm flex items-center gap-2">
+                        <li key={index} className="text-red-400 text-sm flex items-center gap-2">
                           <Crown className="w-3 h-3" />
                           {benefit}
                         </li>
@@ -419,19 +419,19 @@ export default function LoyaltyPage() {
                   key={achievement.id}
                   className={`p-4 border ${
                     achievement.unlocked
-                      ? "bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-purple-500/30"
+                      ? "bg-gradient-to-br from-red-500/20 to-pink-500/20 border-red-500/30"
                       : "bg-background text-foreground/5 border-white/10"
                   }`}
                 >
                   <div className="flex items-start justify-between mb-3">
                     <div
                       className={`p-3 rounded-lg ${
-                        achievement.unlocked ? "bg-purple-500/30" : "bg-background text-foreground/10"
+                        achievement.unlocked ? "bg-red-500/30" : "bg-background text-foreground/10"
                       }`}
                     >
                       <AchievementIcon
                         className={`w-6 h-6 ${
-                          achievement.unlocked ? "text-purple-400" : "text-gray-400"
+                          achievement.unlocked ? "text-red-400" : "text-gray-400"
                         }`}
                       />
                     </div>
@@ -476,10 +476,10 @@ export default function LoyaltyPage() {
             {rewards.map((reward) => (
               <Card key={reward.id} className="p-6 bg-background text-foreground/5 border-white/10">
                 <div className="flex items-start justify-between mb-4">
-                  <div className="p-3 bg-purple-500/20 rounded-lg">
-                    <Gift className="w-6 h-6 text-purple-400" />
+                  <div className="p-3 bg-red-500/20 rounded-lg">
+                    <Gift className="w-6 h-6 text-red-400" />
                   </div>
-                  <Badge className="bg-purple-500/20 text-purple-400">
+                  <Badge className="bg-red-500/20 text-red-400">
                     {reward.pointsCost} pts
                   </Badge>
                 </div>
@@ -508,7 +508,7 @@ export default function LoyaltyPage() {
                 className="flex items-center justify-between p-4 bg-background text-foreground/5 rounded-lg"
               >
                 <div className="flex items-center gap-4">
-                  <div className="p-2 bg-purple-500/20 rounded-lg text-purple-400">
+                  <div className="p-2 bg-red-500/20 rounded-lg text-red-400">
                     {getActivityIcon(activity.type)}
                   </div>
                   <div>
@@ -529,22 +529,22 @@ export default function LoyaltyPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">How to Earn Points</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
-              <div className="p-4 bg-purple-500/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <ShoppingBag className="w-8 h-8 text-purple-400" />
+              <div className="p-4 bg-red-500/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <ShoppingBag className="w-8 h-8 text-red-400" />
               </div>
               <h3 className="text-foreground font-bold mb-2">Make Purchases</h3>
               <p className="text-gray-400 text-sm">Earn 1 point for every $1 spent</p>
             </div>
             <div className="text-center">
-              <div className="p-4 bg-purple-500/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <MessageSquare className="w-8 h-8 text-purple-400" />
+              <div className="p-4 bg-red-500/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <MessageSquare className="w-8 h-8 text-red-400" />
               </div>
               <h3 className="text-foreground font-bold mb-2">Write Reviews</h3>
               <p className="text-gray-400 text-sm">Earn 25 points per product review</p>
             </div>
             <div className="text-center">
-              <div className="p-4 bg-purple-500/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-purple-400" />
+              <div className="p-4 bg-red-500/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8 text-red-400" />
               </div>
               <h3 className="text-foreground font-bold mb-2">Refer Friends</h3>
               <p className="text-gray-400 text-sm">Earn 100 points per successful referral</p>

@@ -141,7 +141,7 @@ export default function Home() {
           <section className="mb-16">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-3xl font-bold text-gray-900 flex items-center gap-2">
-                <Calendar className="w-8 h-8 text-purple-400" />
+                <Calendar className="w-8 h-8 text-red-400" />
                 Coming Soon
               </h2>
             </div>

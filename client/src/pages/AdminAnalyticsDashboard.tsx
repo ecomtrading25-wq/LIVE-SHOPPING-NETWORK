@@ -128,7 +128,7 @@ export default function AdminAnalyticsDashboard() {
       change: metrics?.customersChange || 0,
       trend: (metrics?.customersChange || 0) >= 0 ? 'up' : 'down',
       icon: <Users className="w-6 h-6" />,
-      color: 'text-purple-500',
+      color: 'text-red-500',
     },
     {
       title: 'Avg Order Value',
@@ -261,7 +261,7 @@ export default function AdminAnalyticsDashboard() {
 
                       return (
                         <div key={index} className="flex-1 flex flex-col items-center gap-2">
-                          <div className="w-full bg-gradient-to-t from-blue-500 to-purple-500 rounded-t hover:opacity-80 transition-opacity cursor-pointer relative group"
+                          <div className="w-full bg-gradient-to-t from-blue-500 to-red-500 rounded-t hover:opacity-80 transition-opacity cursor-pointer relative group"
                             style={{ height: `${height}%`, minHeight: '4px' }}
                           >
                             <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-background/80 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
@@ -293,7 +293,7 @@ export default function AdminAnalyticsDashboard() {
                     </div>
                     <div className="h-2 bg-background text-foreground/10 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
+                        className="h-full bg-gradient-to-r from-blue-500 to-red-500"
                         style={{
                           width: `${((revenueData?.breakdown?.products || 0) / (metrics?.totalRevenue || 1)) * 100}%`,
                         }}
@@ -388,7 +388,7 @@ export default function AdminAnalyticsDashboard() {
                   <div className="space-y-4">
                     {productPerformance?.topSelling?.map((product: any, index: number) => (
                       <div key={index} className="flex items-center gap-4 p-3 bg-background text-foreground/5 rounded-lg">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-foreground font-bold">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-red-500 flex items-center justify-center text-foreground font-bold">
                           {index + 1}
                         </div>
                         <img
@@ -561,7 +561,7 @@ export default function AdminAnalyticsDashboard() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {customerInsights?.topCustomers?.map((customer: any, index: number) => (
                     <div key={index} className="flex items-center gap-4 p-4 bg-background text-foreground/5 rounded-lg">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-foreground font-bold text-lg">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-foreground font-bold text-lg">
                         {customer.name?.charAt(0) || 'U'}
                       </div>
                       <div className="flex-1">
@@ -570,7 +570,7 @@ export default function AdminAnalyticsDashboard() {
                       </div>
                       <div className="text-right">
                         <p className="text-foreground font-bold">{formatCurrency(customer.totalSpent)}</p>
-                        <Badge className="bg-purple-500/20 text-purple-400 text-xs mt-1">
+                        <Badge className="bg-red-500/20 text-red-400 text-xs mt-1">
                           {customer.tier}
                         </Badge>
                       </div>
@@ -599,7 +599,7 @@ export default function AdminAnalyticsDashboard() {
                       <div key={index} className="space-y-2">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-foreground font-bold text-sm">
+                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-red-500 flex items-center justify-center text-foreground font-bold text-sm">
                               {index + 1}
                             </div>
                             <span className="text-foreground font-semibold">{stage.name}</span>
@@ -611,7 +611,7 @@ export default function AdminAnalyticsDashboard() {
                         </div>
                         <div className="h-12 bg-background text-foreground/5 rounded-lg overflow-hidden relative">
                           <div
-                            className="h-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-end px-4"
+                            className="h-full bg-gradient-to-r from-blue-500 to-red-500 flex items-center justify-end px-4"
                             style={{ width: `${percentage}%` }}
                           >
                             {dropoff > 0 && (
@@ -703,7 +703,7 @@ export default function AdminAnalyticsDashboard() {
 
               <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
                 <CardContent className="p-6 text-center">
-                  <TrendingUp className="w-8 h-8 text-purple-500 mx-auto mb-2" />
+                  <TrendingUp className="w-8 h-8 text-red-500 mx-auto mb-2" />
                   <p className="text-gray-400 text-sm mb-1">Conversion Rate</p>
                   <p className="text-3xl font-bold text-foreground">
                     {(liveStreamAnalytics?.conversionRate || 0).toFixed(2)}%
@@ -736,7 +736,7 @@ export default function AdminAnalyticsDashboard() {
                       <div className="text-right space-y-1">
                         <p className="text-foreground font-bold">{formatNumber(stream.views)} views</p>
                         <p className="text-green-400 text-sm">{formatCurrency(stream.revenue)}</p>
-                        <Badge className="bg-purple-500/20 text-purple-400 text-xs">
+                        <Badge className="bg-red-500/20 text-red-400 text-xs">
                           {stream.orders} orders
                         </Badge>
                       </div>

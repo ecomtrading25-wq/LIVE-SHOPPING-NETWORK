@@ -96,7 +96,7 @@ export default function WishlistAlertsPage() {
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <Bell className="w-5 h-5 text-purple-500" />
+                    <Bell className="w-5 h-5 text-red-500" />
                     <span className="font-medium">Daily Digest</span>
                   </div>
                   <Switch checked={dailyDigest} onCheckedChange={setDailyDigest} />

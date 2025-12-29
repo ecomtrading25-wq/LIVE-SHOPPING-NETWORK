@@ -179,7 +179,7 @@ export default function LoyaltyEnhancedPage() {
             {/* Achievements */}
             <Card className="p-6">
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                <Award className="w-6 h-6 text-purple-500" />
+                <Award className="w-6 h-6 text-red-500" />
                 Achievements
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

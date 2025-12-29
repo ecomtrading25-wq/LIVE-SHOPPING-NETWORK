@@ -178,7 +178,7 @@ export default function TestimonialsPage() {
                 </div>
 
                 <div className="border-l border-white/20 pl-8">
-                  <div className="text-4xl font-bold text-purple-400 mb-2">
+                  <div className="text-4xl font-bold text-red-400 mb-2">
                     50K+
                   </div>
                   <p className="text-muted-foreground">Happy Customers</p>
@@ -198,7 +198,7 @@ export default function TestimonialsPage() {
                 onClick={() => setSelectedCategory(cat.id)}
                 className={
                   selectedCategory === cat.id
-                    ? "bg-purple-600"
+                    ? "bg-red-600"
                     : "bg-background/10 border-white/20 text-foreground hover:bg-background/20"
                 }
               >
@@ -219,7 +219,7 @@ export default function TestimonialsPage() {
                 }
                 className={
                   selectedRating === rating
-                    ? "bg-purple-600 border-purple-600"
+                    ? "bg-red-600 border-red-600"
                     : "bg-background/10 border-white/20 text-foreground hover:bg-background/20"
                 }
               >
@@ -242,7 +242,7 @@ export default function TestimonialsPage() {
                   <img
                     src={testimonial.avatar}
                     alt={testimonial.customerName}
-                    className="w-16 h-16 rounded-full border-2 border-purple-500"
+                    className="w-16 h-16 rounded-full border-2 border-red-500"
                   />
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
@@ -275,7 +275,7 @@ export default function TestimonialsPage() {
 
                 {/* Review Title */}
                 <h4 className="font-bold text-lg text-foreground mb-3">
-                  <Quote className="inline w-5 h-5 mr-2 text-purple-400" />
+                  <Quote className="inline w-5 h-5 mr-2 text-red-400" />
                   {testimonial.title}
                 </h4>
 
@@ -300,7 +300,7 @@ export default function TestimonialsPage() {
 
                 {testimonial.videoUrl && (
                   <div className="mb-4 bg-background text-foreground/10 rounded-lg p-4 flex items-center gap-3">
-                    <Video className="w-6 h-6 text-purple-400" />
+                    <Video className="w-6 h-6 text-red-400" />
                     <span className="text-foreground text-sm">Video Review</span>
                   </div>
                 )}
@@ -334,7 +334,7 @@ export default function TestimonialsPage() {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <Card className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 border-0">
+          <Card className="inline-block bg-gradient-to-r from-red-600 to-orange-600 border-0">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold text-foreground mb-4">
                 Join Thousands of Happy Customers
@@ -344,7 +344,7 @@ export default function TestimonialsPage() {
               </p>
               <Button
                 size="lg"
-                className="bg-background text-foreground text-purple-600 hover:bg-gray-100"
+                className="bg-background text-foreground text-red-600 hover:bg-gray-100"
               >
                 Start Shopping Live
               </Button>

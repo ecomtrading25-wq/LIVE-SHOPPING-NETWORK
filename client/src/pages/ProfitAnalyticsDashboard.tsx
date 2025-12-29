@@ -588,7 +588,7 @@ function HostsSection({ channelId, timeRange }: { channelId: string; timeRange: 
             <CardHeader>
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-foreground font-bold">
+                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-red-400 to-pink-400 flex items-center justify-center text-foreground font-bold">
                     {host.name.charAt(0)}
                   </div>
                   <div>
@@ -978,7 +978,7 @@ function TierBadge({ tier }: { tier: string }) {
     BRONZE: "bg-orange-100 text-orange-800",
     SILVER: "bg-gray-200 text-gray-800",
     GOLD: "bg-yellow-100 text-yellow-800",
-    PLATINUM: "bg-purple-100 text-purple-800",
+    PLATINUM: "bg-red-100 text-red-800",
   };
   
   return (

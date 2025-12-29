@@ -173,7 +173,7 @@ function MarketingDashboardContent() {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-red-600 to-blue-600 bg-clip-text text-transparent">
               Marketing Automation
             </h1>
             <p className="text-gray-600 dark:text-gray-400">
@@ -190,8 +190,8 @@ function MarketingDashboardContent() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
           <Card className="p-6 hover:shadow-lg transition-shadow">
             <div className="flex items-center justify-between mb-4">
-              <div className="p-3 bg-purple-100 dark:bg-purple-900/20 rounded-lg">
-                <Target className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+              <div className="p-3 bg-red-100 dark:bg-red-900/20 rounded-lg">
+                <Target className="w-6 h-6 text-red-600 dark:text-red-400" />
               </div>
               <TrendingUp className="w-5 h-5 text-green-500" />
             </div>
@@ -268,7 +268,7 @@ function MarketingDashboardContent() {
                   <input
                     type="text"
                     placeholder="Search campaigns..."
-                    className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                   />
                 </div>
                 <Button variant="outline">
@@ -337,7 +337,7 @@ function MarketingDashboardContent() {
                         <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Open Rate</p>
                       </div>
                       <div className="text-center p-3 bg-background text-foreground dark:bg-card rounded-lg">
-                        <p className="text-2xl font-bold text-purple-600">
+                        <p className="text-2xl font-bold text-red-600">
                           {(campaign.clickRate * 100).toFixed(1)}%
                         </p>
                         <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Click Rate</p>
@@ -373,8 +373,8 @@ function MarketingDashboardContent() {
               {segments.map((segment) => (
                 <Card key={segment.id} className="p-6 hover:shadow-lg transition-shadow cursor-pointer">
                   <div className="flex items-start justify-between mb-4">
-                    <div className="p-3 bg-purple-100 dark:bg-purple-900/20 rounded-lg">
-                      <Users className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                    <div className="p-3 bg-red-100 dark:bg-red-900/20 rounded-lg">
+                      <Users className="w-6 h-6 text-red-600 dark:text-red-400" />
                     </div>
                     <Badge variant="secondary">{segment.count.toLocaleString()}</Badge>
                   </div>
@@ -451,7 +451,7 @@ function MarketingDashboardContent() {
                   { name: 'Post-Purchase Follow-up', trigger: 'Order Delivered', status: 'active', sent: 2341 },
                   { name: 'Win-Back Campaign', trigger: '90 Days Inactive', status: 'paused', sent: 445 },
                 ].map((workflow, idx) => (
-                  <div key={idx} className="flex items-center justify-between p-4 border rounded-lg hover:border-purple-500 transition-colors">
+                  <div key={idx} className="flex items-center justify-between p-4 border rounded-lg hover:border-red-500 transition-colors">
                     <div>
                       <h4 className="font-semibold mb-1">{workflow.name}</h4>
                       <p className="text-sm text-gray-600 dark:text-gray-400">

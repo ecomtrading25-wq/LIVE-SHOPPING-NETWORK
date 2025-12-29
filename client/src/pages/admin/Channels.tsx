@@ -107,7 +107,7 @@ function ChannelCard({ channel, onUpdate }: { channel: any; onUpdate: () => void
       case "ebay":
         return "bg-blue-600";
       default:
-        return "bg-purple-600";
+        return "bg-red-600";
     }
   };
 

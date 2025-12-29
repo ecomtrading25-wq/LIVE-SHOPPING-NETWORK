@@ -282,7 +282,7 @@ export default function Customer360Page() {
       case "review":
         return <Award className="w-4 h-4 text-yellow-500" />;
       case "browse":
-        return <Search className="w-4 h-4 text-purple-500" />;
+        return <Search className="w-4 h-4 text-red-500" />;
       default:
         return <User className="w-4 h-4 text-gray-500" />;
     }
@@ -336,7 +336,7 @@ export default function Customer360Page() {
         <Card className="p-6">
           <div className="flex items-center justify-between mb-2">
             <p className="text-sm text-muted-foreground">Avg Engagement</p>
-            <TrendingUp className="w-5 h-5 text-purple-500" />
+            <TrendingUp className="w-5 h-5 text-red-500" />
           </div>
           <p className="text-3xl font-bold mb-1">{avgEngagement.toFixed(0)}/100</p>
           <p className="text-xs text-green-500">+5 points from last month</p>
@@ -437,7 +437,7 @@ export default function Customer360Page() {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground mb-1">Engagement</p>
-                      <p className="text-2xl font-bold text-purple-500">{customer.engagementScore}</p>
+                      <p className="text-2xl font-bold text-red-500">{customer.engagementScore}</p>
                     </div>
                   </div>
 

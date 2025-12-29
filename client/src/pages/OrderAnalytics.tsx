@@ -95,7 +95,7 @@ export default function OrderAnalyticsPage() {
           <Card className="p-6">
             <div className="flex items-center justify-between mb-2">
               <p className="text-sm text-muted-foreground">Avg Order Value</p>
-              <TrendingUp className="w-5 h-5 text-purple-500" />
+              <TrendingUp className="w-5 h-5 text-red-500" />
             </div>
             <p className="text-3xl font-bold mb-1">${stats.avgOrderValue}</p>
             <p className="text-xs text-muted-foreground">Per order</p>
@@ -128,7 +128,7 @@ export default function OrderAnalyticsPage() {
                     </div>
                     <div className="h-8 bg-secondary rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
+                        className="h-full bg-gradient-to-r from-blue-500 to-red-500"
                         style={{ width: `${(month.amount / maxSpending) * 100}%` }}
                       />
                     </div>

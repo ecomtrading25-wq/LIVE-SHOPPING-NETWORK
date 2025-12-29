@@ -286,7 +286,7 @@ export default function Header() {
                 <ShoppingCart className="w-4 h-4 mr-3" />
                 Cart
                 {cartCount > 0 && (
-                  <Badge className="ml-auto bg-purple-600">
+                  <Badge className="ml-auto bg-red-600">
                     {cartCount}
                   </Badge>
                 )}

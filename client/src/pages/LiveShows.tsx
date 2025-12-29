@@ -52,7 +52,7 @@ export default function LiveShowsPage() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/">
-              <a className="text-2xl font-bold text-foreground hover:text-purple-400 transition-colors">
+              <a className="text-2xl font-bold text-foreground hover:text-red-400 transition-colors">
                 Live Shopping Network
               </a>
             </Link>
@@ -76,7 +76,7 @@ export default function LiveShowsPage() {
           <div className="lg:col-span-2">
             <Card className="bg-background border-white/10 overflow-hidden text-foreground">
               {/* Video Player */}
-              <div className="aspect-video bg-gradient-to-br from-purple-600/20 to-pink-600/20 relative">
+              <div className="aspect-video bg-gradient-to-br from-red-600/20 to-pink-600/20 relative">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
                     <Video className="w-24 h-24 text-white/50 mx-auto mb-4" />
@@ -110,7 +110,7 @@ export default function LiveShowsPage() {
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
                       <span className="text-foreground font-bold">JD</span>
                     </div>
                     <div>
@@ -130,7 +130,7 @@ export default function LiveShowsPage() {
               </div>
 
               <div className="flex gap-6">
-                <div className="w-32 h-32 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-32 h-32 bg-gradient-to-br from-red-600/20 to-pink-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
                   <ShoppingCart className="w-16 h-16 text-white/50" />
                 </div>
 
@@ -157,7 +157,7 @@ export default function LiveShowsPage() {
                   </div>
 
                   <div className="flex gap-3">
-                    <Button className="flex-1 bg-purple-600 hover:bg-purple-700">
+                    <Button className="flex-1 bg-red-600 hover:bg-red-700">
                       <ShoppingCart className="w-4 h-4 mr-2" />
                       Add to Cart
                     </Button>
@@ -175,9 +175,9 @@ export default function LiveShowsPage() {
             <Card className="bg-background text-foreground/5 border-white/10 h-[calc(100vh-12rem)] flex flex-col">
               <div className="p-4 border-b border-white/10">
                 <div className="flex items-center gap-2">
-                  <MessageCircle className="w-5 h-5 text-purple-400" />
+                  <MessageCircle className="w-5 h-5 text-red-400" />
                   <h2 className="text-lg font-bold text-foreground">Live Chat</h2>
-                  <Badge className="ml-auto bg-purple-600">234 online</Badge>
+                  <Badge className="ml-auto bg-red-600">234 online</Badge>
                 </div>
               </div>
 
@@ -188,7 +188,7 @@ export default function LiveShowsPage() {
                     <div className="flex items-center gap-2">
                       <span
                         className={`font-bold text-sm ${
-                          msg.isHost ? "text-yellow-500" : "text-purple-400"
+                          msg.isHost ? "text-yellow-500" : "text-red-400"
                         }`}
                       >
                         {msg.user}
@@ -218,7 +218,7 @@ export default function LiveShowsPage() {
                   <Button
                     size="icon"
                     onClick={handleSendMessage}
-                    className="bg-purple-600 hover:bg-purple-700"
+                    className="bg-red-600 hover:bg-red-700"
                   >
                     <Send className="w-4 h-4" />
                   </Button>

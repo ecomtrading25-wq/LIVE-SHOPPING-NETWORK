@@ -127,9 +127,9 @@ export default function LSNHome() {
       <section className="relative overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-1/2 -left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+          <div className="absolute -top-1/2 -left-1/4 w-96 h-96 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
           <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-          <div className="absolute -bottom-1/2 left-1/3 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+          <div className="absolute -bottom-1/2 left-1/3 w-96 h-96 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
         </div>
 
         <div className="container relative z-10 py-20 md:py-32">
@@ -149,7 +149,7 @@ export default function LSNHome() {
 
             {/* Main headline */}
             <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 animate-gradient">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-red-400 to-pink-400 animate-gradient">
                 Shop Live.
               </span>
               <br />
@@ -168,7 +168,7 @@ export default function LSNHome() {
               <Link href={hasLiveShows ? `/show/${liveShows[0].id}` : "/live"}>
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-foreground font-bold px-8 py-6 text-lg shadow-2xl shadow-pink-500/50 hover:shadow-pink-500/70 transition-all transform hover:scale-105"
+                  className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-pink-600 hover:to-red-700 text-foreground font-bold px-8 py-6 text-lg shadow-2xl shadow-pink-500/50 hover:shadow-pink-500/70 transition-all transform hover:scale-105"
                 >
                   <Play className="w-6 h-6 mr-2 fill-current" />
                   {hasLiveShows ? 'Watch Live Now' : 'Browse Shows'}
@@ -231,7 +231,7 @@ export default function LSNHome() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {liveShows.map((show) => (
                 <Link key={show.id} href={`/show/${show.id}`}>
-                  <Card className="group relative overflow-hidden bg-gradient-to-br from-purple-100 to-pink-100 border-white/10 hover:border-pink-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20 cursor-pointer">
+                  <Card className="group relative overflow-hidden bg-gradient-to-br from-red-100 to-orange-100 border-white/10 hover:border-pink-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20 cursor-pointer">
                     {/* Thumbnail */}
                     <div className="relative aspect-video overflow-hidden">
                       <img 
@@ -301,7 +301,7 @@ export default function LSNHome() {
         <section className="py-16">
           <div className="container">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500/20 to-purple-500/20 border border-pink-500/30 rounded-full px-4 py-2 mb-4">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500/20 to-red-500/20 border border-pink-500/30 rounded-full px-4 py-2 mb-4">
                 <Sparkles className="w-4 h-4 text-pink-400" />
                 <span className="text-pink-400 font-semibold text-sm">AS SEEN LIVE</span>
               </div>
@@ -331,7 +331,7 @@ export default function LSNHome() {
                         </div>
                       )}
                       {product.trending && (
-                        <div className="absolute top-2 right-2 bg-gradient-to-r from-pink-500 to-purple-500 text-foreground p-1.5 rounded-full">
+                        <div className="absolute top-2 right-2 bg-gradient-to-r from-pink-500 to-red-500 text-foreground p-1.5 rounded-full">
                           <TrendingUp className="w-3 h-3" />
                         </div>
                       )}
@@ -385,7 +385,7 @@ export default function LSNHome() {
               <Link href="/products">
                 <Button 
                   size="lg"
-                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-foreground font-bold"
+                  className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-pink-600 hover:to-red-700 text-foreground font-bold"
                 >
                   View All Products
                   <ChevronRight className="w-5 h-5 ml-1" />
@@ -398,7 +398,7 @@ export default function LSNHome() {
 
       {/* Creator Spotlight */}
       {topCreators && topCreators.length > 0 && (
-        <section className="py-16 bg-gradient-to-br from-purple-900/30 to-pink-900/30 backdrop-blur">
+        <section className="py-16 bg-gradient-to-br from-red-900/30 to-pink-900/30 backdrop-blur">
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
@@ -457,7 +457,7 @@ export default function LSNHome() {
                 <Card key={show.id} className="bg-background text-foreground/5 border-white/10 hover:border-pink-500/50 transition-all hover:bg-background text-foreground/10">
                   <div className="p-6 flex flex-col md:flex-row gap-4 items-start md:items-center">
                     {/* Date/Time */}
-                    <div className="flex-shrink-0 text-center bg-gradient-to-br from-pink-500 to-purple-600 rounded-lg p-4 min-w-[100px]">
+                    <div className="flex-shrink-0 text-center bg-gradient-to-br from-orange-500 to-red-600 rounded-lg p-4 min-w-[100px]">
                       <div className="text-foreground text-2xl font-bold">
                         {new Date(show.scheduledStartTime).getDate()}
                       </div>
@@ -529,7 +529,7 @@ export default function LSNHome() {
 
             {/* Testimonial carousel */}
             <div className="relative">
-              <Card className="bg-gradient-to-br from-purple-100 to-pink-100 border-white/10 p-8 md:p-12 text-center">
+              <Card className="bg-gradient-to-br from-red-100 to-orange-100 border-white/10 p-8 md:p-12 text-center">
                 <div className="flex justify-center mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
@@ -539,7 +539,7 @@ export default function LSNHome() {
                   "{testimonials[currentTestimonial].text}"
                 </p>
                 <div className="flex items-center justify-center gap-2">
-                  <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center text-foreground font-bold">
+                  <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center text-foreground font-bold">
                     {testimonials[currentTestimonial].author.charAt(0)}
                   </div>
                   <div className="text-left">
@@ -578,7 +578,7 @@ export default function LSNHome() {
       {/* Newsletter Signup */}
       <section className="py-16">
         <div className="container">
-          <Card className="bg-gradient-to-r from-pink-500 to-purple-600 border-0 overflow-hidden">
+          <Card className="bg-gradient-to-r from-orange-500 to-red-600 border-0 overflow-hidden">
             <div className="p-8 md:p-12 text-center relative">
               {/* Decorative elements */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-background text-foreground/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>

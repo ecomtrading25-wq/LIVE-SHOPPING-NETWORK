@@ -66,8 +66,8 @@ export default function SubscriptionsPage() {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-purple-500/20 rounded-lg">
-                <Package className="w-8 h-8 text-purple-400" />
+              <div className="p-3 bg-red-500/20 rounded-lg">
+                <Package className="w-8 h-8 text-red-400" />
               </div>
               <div>
                 <h1 className="text-4xl font-bold text-foreground">My Subscriptions</h1>
@@ -75,7 +75,7 @@ export default function SubscriptionsPage() {
               </div>
             </div>
             <Link href="/products">
-              <Button className="bg-purple-600 hover:bg-purple-700">
+              <Button className="bg-red-600 hover:bg-red-700">
                 <Plus className="w-4 h-4 mr-2" />
                 Add Subscription
               </Button>
@@ -113,8 +113,8 @@ export default function SubscriptionsPage() {
 
             <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-purple-500/20 rounded-lg">
-                  <DollarSign className="w-5 h-5 text-purple-400" />
+                <div className="p-2 bg-red-500/20 rounded-lg">
+                  <DollarSign className="w-5 h-5 text-red-400" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-foreground">20%</p>
@@ -150,7 +150,7 @@ export default function SubscriptionsPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     <div className="flex items-center gap-2">
-                      <DollarSign className="w-4 h-4 text-purple-400" />
+                      <DollarSign className="w-4 h-4 text-red-400" />
                       <div>
                         <p className="text-sm text-gray-400">Price</p>
                         <p className="text-foreground font-bold">${subscription.price}</p>

@@ -69,12 +69,12 @@ export default function MobileDeepLink() {
   return (
     <>
       {/* Top Banner */}
-      <Card className="fixed top-0 left-0 right-0 z-50 rounded-none border-b shadow-lg bg-gradient-to-r from-purple-600 to-pink-600 text-foreground">
+      <Card className="fixed top-0 left-0 right-0 z-50 rounded-none border-b shadow-lg bg-gradient-to-r from-red-600 to-orange-600 text-foreground">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-3 flex-1">
               <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center flex-shrink-0">
-                <Smartphone className="w-6 h-6 text-purple-600" />
+                <Smartphone className="w-6 h-6 text-red-600" />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="font-bold text-sm">Get the Live Shopping App</p>
@@ -147,7 +147,7 @@ export function MobileSmartBanner() {
     <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-gradient-to-t from-black/90 to-transparent">
       <Card className="bg-background border-border p-4 text-foreground">
         <div className="flex items-center gap-4">
-          <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+          <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-orange-600 rounded-2xl flex items-center justify-center flex-shrink-0">
             <Smartphone className="w-8 h-8 text-foreground" />
           </div>
 
@@ -157,7 +157,7 @@ export function MobileSmartBanner() {
             <div className="flex items-center gap-2 mt-1">
               <div className="flex -space-x-1">
                 {[...Array(5)].map((_, i) => (
-                  <div key={i} className="w-6 h-6 rounded-full bg-purple-600 border-2 border-zinc-900" />
+                  <div key={i} className="w-6 h-6 rounded-full bg-red-600 border-2 border-zinc-900" />
                 ))}
               </div>
               <span className="text-xs text-gray-400">10K+ users</span>
@@ -168,7 +168,7 @@ export function MobileSmartBanner() {
             <Button
               size="sm"
               onClick={handleInstall}
-              className="bg-gradient-to-r from-purple-600 to-pink-600 whitespace-nowrap"
+              className="bg-gradient-to-r from-red-600 to-orange-600 whitespace-nowrap"
             >
               Install
             </Button>

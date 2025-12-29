@@ -140,7 +140,7 @@ export default function LSNBrowseShows() {
         {/* Tabs */}
         <Tabs defaultValue="live" className="space-y-6">
           <TabsList className="bg-background border border-border text-foreground">
-            <TabsTrigger value="live" className="data-[state=active]:bg-purple-600">
+            <TabsTrigger value="live" className="data-[state=active]:bg-red-600">
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 bg-red-500 rounded-full animate-pulse" />
                 Live Now
@@ -151,13 +151,13 @@ export default function LSNBrowseShows() {
                 )}
               </div>
             </TabsTrigger>
-            <TabsTrigger value="upcoming" className="data-[state=active]:bg-purple-600">
+            <TabsTrigger value="upcoming" className="data-[state=active]:bg-red-600">
               <div className="flex items-center gap-2">
                 <Calendar className="h-4 w-4" />
                 Upcoming
               </div>
             </TabsTrigger>
-            <TabsTrigger value="schedule" className="data-[state=active]:bg-purple-600">
+            <TabsTrigger value="schedule" className="data-[state=active]:bg-red-600">
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4" />
                 Schedule
@@ -228,7 +228,7 @@ export default function LSNBrowseShows() {
 function LiveShowCard({ show }: { show: any }) {
   return (
     <Link href={`/live/${show.id}`}>
-      <Card className="group border-border bg-background hover:border-purple-500/50 transition-all cursor-pointer overflow-hidden text-foreground">
+      <Card className="group border-border bg-background hover:border-red-500/50 transition-all cursor-pointer overflow-hidden text-foreground">
         {/* Thumbnail */}
         <div className="relative aspect-video overflow-hidden">
           <img
@@ -247,7 +247,7 @@ function LiveShowCard({ show }: { show: any }) {
 
           {/* Viewer count */}
           <div className="absolute top-3 right-3 bg-background/70 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-2 text-foreground">
-            <Eye className="h-4 w-4 text-purple-400" />
+            <Eye className="h-4 w-4 text-red-400" />
             <span className="text-sm font-medium">
               {show.currentViewers?.toLocaleString() || 0}
             </span>
@@ -259,12 +259,12 @@ function LiveShowCard({ show }: { show: any }) {
 
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <Avatar className="h-10 w-10 border-2 border-purple-500">
+            <Avatar className="h-10 w-10 border-2 border-red-500">
               <AvatarImage src={show.creator?.avatarUrl} />
               <AvatarFallback>{show.creator?.name?.[0]}</AvatarFallback>
             </Avatar>
             <div className="flex-1 min-w-0">
-              <h3 className="font-bold mb-1 truncate group-hover:text-purple-400 transition-colors">
+              <h3 className="font-bold mb-1 truncate group-hover:text-red-400 transition-colors">
                 {show.title}
               </h3>
               <p className="text-sm text-gray-400">{show.creator?.name}</p>
@@ -287,7 +287,7 @@ function UpcomingShowCard({ show }: { show: any }) {
 
   return (
     <Link href={`/show/${show.id}`}>
-      <Card className="group border-border bg-background hover:border-purple-500/50 transition-all cursor-pointer overflow-hidden text-foreground">
+      <Card className="group border-border bg-background hover:border-red-500/50 transition-all cursor-pointer overflow-hidden text-foreground">
         <div className="relative aspect-video overflow-hidden">
           <img
             src={show.thumbnailUrl || "/placeholder-show.jpg"}
@@ -297,7 +297,7 @@ function UpcomingShowCard({ show }: { show: any }) {
 
           {/* Time badge */}
           <div className="absolute top-3 left-3">
-            <Badge className="bg-purple-600">
+            <Badge className="bg-red-600">
               {hoursUntil < 24
                 ? `In ${hoursUntil}h`
                 : startTime.toLocaleDateString()}
@@ -309,12 +309,12 @@ function UpcomingShowCard({ show }: { show: any }) {
 
         <CardContent className="p-4">
           <div className="flex items-start gap-3 mb-3">
-            <Avatar className="h-10 w-10 border-2 border-purple-500">
+            <Avatar className="h-10 w-10 border-2 border-red-500">
               <AvatarImage src={show.creator?.avatarUrl} />
               <AvatarFallback>{show.creator?.name?.[0]}</AvatarFallback>
             </Avatar>
             <div className="flex-1 min-w-0">
-              <h3 className="font-bold mb-1 truncate group-hover:text-purple-400 transition-colors">
+              <h3 className="font-bold mb-1 truncate group-hover:text-red-400 transition-colors">
                 {show.title}
               </h3>
               <p className="text-sm text-gray-400">{show.creator?.name}</p>
@@ -367,7 +367,7 @@ function ScheduleGrid() {
               {days.map((day) => (
                 <div
                   key={`${day}-${hour}`}
-                  className="bg-background border border-border rounded p-2 min-h-[60px] hover:border-purple-500/50 transition-colors cursor-pointer text-foreground"
+                  className="bg-background border border-border rounded p-2 min-h-[60px] hover:border-red-500/50 transition-colors cursor-pointer text-foreground"
                 >
                   {/* Mock show data - in production, fetch from API */}
                   {hour >= 9 && hour <= 22 && Math.random() > 0.7 && (

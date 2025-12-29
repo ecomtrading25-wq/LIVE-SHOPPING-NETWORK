@@ -58,7 +58,7 @@ export default function CheckoutSuccessPage() {
             </Button>
           </Link>
           <Link href="/">
-            <Button size="lg" className="w-full sm:w-auto bg-purple-600 hover:bg-purple-700">
+            <Button size="lg" className="w-full sm:w-auto bg-red-600 hover:bg-red-700">
               <Home className="w-5 h-5 mr-2" />
               Back to Home
             </Button>

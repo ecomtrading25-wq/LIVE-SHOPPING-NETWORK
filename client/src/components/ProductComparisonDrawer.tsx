@@ -90,7 +90,7 @@ export default function ProductComparisonDrawer({
                 onClick={() => setCurrentIndex(index)}
                 className={`h-2 rounded-full transition-all ${
                   currentIndex === index
-                    ? "bg-purple-500 w-8"
+                    ? "bg-red-500 w-8"
                     : "bg-gray-700 w-2"
                 }`}
               />
@@ -131,7 +131,7 @@ export default function ProductComparisonDrawer({
               {/* Product Info */}
               <div className="p-6">
                 <Link href={`/products/${currentProduct.id}`}>
-                  <h3 className="text-xl font-bold text-foreground mb-2 hover:text-purple-400">
+                  <h3 className="text-xl font-bold text-foreground mb-2 hover:text-red-400">
                     {currentProduct.name}
                   </h3>
                 </Link>
@@ -203,7 +203,7 @@ export default function ProductComparisonDrawer({
                   <Button
                     onClick={() => handleAddToCart(currentProduct)}
                     disabled={!currentProduct.inStock}
-                    className="w-full h-12 bg-purple-600 hover:bg-purple-700 disabled:opacity-50"
+                    className="w-full h-12 bg-red-600 hover:bg-red-700 disabled:opacity-50"
                   >
                     <ShoppingCart className="w-5 h-5 mr-2" />
                     {currentProduct.inStock ? "Add to Cart" : "Out of Stock"}
@@ -240,7 +240,7 @@ export default function ProductComparisonDrawer({
                       onClick={() => setCurrentIndex(index)}
                       className={`border-t border-border cursor-pointer transition-colors ${
                         currentIndex === index
-                          ? "bg-purple-500/20"
+                          ? "bg-red-500/20"
                           : "hover:bg-white/5"
                       }`}
                     >

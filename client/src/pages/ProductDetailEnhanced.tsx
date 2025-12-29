@@ -189,7 +189,7 @@ export default function ProductDetailEnhancedPage() {
                   onClick={() => setSelectedImage(index)}
                   className={`aspect-square rounded-lg overflow-hidden border-2 transition-all ${
                     selectedImage === index
-                      ? "border-purple-500 scale-105"
+                      ? "border-red-500 scale-105"
                       : "border-white/20 hover:border-white/40"
                   }`}
                 >
@@ -249,7 +249,7 @@ export default function ProductDetailEnhancedPage() {
                 </label>
                 <button
                   onClick={() => setShowSizeGuide(true)}
-                  className="text-sm text-purple-400 hover:text-purple-300"
+                  className="text-sm text-red-400 hover:text-red-300"
                 >
                   Size Guide
                 </button>
@@ -261,7 +261,7 @@ export default function ProductDetailEnhancedPage() {
                     onClick={() => setSelectedSize(size)}
                     className={`px-4 py-2 rounded-lg border transition-all ${
                       selectedSize === size
-                        ? "border-purple-500 bg-purple-500/20 text-foreground"
+                        ? "border-red-500 bg-red-500/20 text-foreground"
                         : "border-border text-gray-400 hover:border-gray-600"
                     }`}
                   >
@@ -281,7 +281,7 @@ export default function ProductDetailEnhancedPage() {
                     onClick={() => setSelectedColor(color)}
                     className={`px-4 py-2 rounded-lg border-2 transition-all ${
                       selectedColor === color
-                        ? "border-purple-500 bg-purple-500/20 text-foreground"
+                        ? "border-red-500 bg-red-500/20 text-foreground"
                         : "border-white/20 text-muted-foreground hover:border-white/40"
                     }`}
                   >
@@ -321,7 +321,7 @@ export default function ProductDetailEnhancedPage() {
             <div className="flex gap-3 mb-6">
               <Button
                 onClick={handleAddToCart}
-                className="flex-1 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-lg py-6"
+                className="flex-1 bg-gradient-to-r from-orange-500 to-red-600 hover:from-pink-600 hover:to-red-700 text-lg py-6"
               >
                 <ShoppingCart className="w-5 h-5 mr-2" />
                 Add to Cart
@@ -356,7 +356,7 @@ export default function ProductDetailEnhancedPage() {
             <h2 className="text-2xl font-bold text-foreground">Customer Questions & Answers</h2>
             <Button
               onClick={() => setShowQAForm(!showQAForm)}
-              className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700"
+              className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-pink-600 hover:to-red-700"
             >
               <MessageSquare className="w-4 h-4 mr-2" />
               Ask a Question
@@ -375,7 +375,7 @@ export default function ProductDetailEnhancedPage() {
               <div className="flex gap-2">
                 <Button
                   onClick={handleSubmitQuestion}
-                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700"
+                  className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-pink-600 hover:to-red-700"
                 >
                   <Send className="w-4 h-4 mr-2" />
                   Submit Question
@@ -396,7 +396,7 @@ export default function ProductDetailEnhancedPage() {
               <div key={qa.id} className="border-b border-white/10 pb-6 last:border-0">
                 <div className="mb-3">
                   <div className="flex items-start gap-3">
-                    <MessageSquare className="w-5 h-5 text-purple-400 mt-1" />
+                    <MessageSquare className="w-5 h-5 text-red-400 mt-1" />
                     <div className="flex-1">
                       <p className="text-foreground font-semibold mb-1">{qa.question}</p>
                       <p className="text-gray-400 text-sm">

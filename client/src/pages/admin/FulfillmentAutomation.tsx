@@ -287,7 +287,7 @@ export default function FulfillmentAutomationPage() {
         <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between mb-2">
             <p className="text-gray-400 text-sm">Automation Rate</p>
-            <Zap className="w-5 h-5 text-purple-400" />
+            <Zap className="w-5 h-5 text-red-400" />
           </div>
           <p className="text-3xl font-bold text-foreground">87%</p>
           <p className="text-green-400 text-sm mt-1">+5% this week</p>
@@ -359,7 +359,7 @@ export default function FulfillmentAutomationPage() {
                   <p className="text-gray-400 text-xs mb-2">Zones</p>
                   <div className="flex gap-2">
                     {warehouse.zones.map((zone) => (
-                      <Badge key={zone} className="bg-purple-500/20 text-purple-400">
+                      <Badge key={zone} className="bg-red-500/20 text-red-400">
                         Zone {zone}
                       </Badge>
                     ))}
@@ -385,7 +385,7 @@ export default function FulfillmentAutomationPage() {
                       onCheckedChange={() => toggleRule(rule.id)}
                     />
                     <h3 className="text-lg font-bold text-foreground">{rule.name}</h3>
-                    <Badge className="bg-purple-500/20 text-purple-400">
+                    <Badge className="bg-red-500/20 text-red-400">
                       {rule.type}
                     </Badge>
                   </div>
@@ -454,7 +454,7 @@ export default function FulfillmentAutomationPage() {
                     <span className="text-foreground">{task.items}</span>
                   </td>
                   <td className="p-4">
-                    <Badge className="bg-purple-500/20 text-purple-400">
+                    <Badge className="bg-red-500/20 text-red-400">
                       Zone {task.zone}
                     </Badge>
                   </td>
@@ -475,7 +475,7 @@ export default function FulfillmentAutomationPage() {
                     <div className="flex items-center gap-2">
                       <div className="w-24 bg-background text-foreground/10 rounded-full h-2">
                         <div
-                          className="bg-purple-500 h-2 rounded-full"
+                          className="bg-red-500 h-2 rounded-full"
                           style={{ width: `${task.progress}%` }}
                         ></div>
                       </div>

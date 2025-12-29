@@ -4,8 +4,8 @@
   "description": "Live shopping platform with real-time streaming and instant checkout",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#7c3aed",
-  "theme_color": "#7c3aed",
+  "background_color": "#E42313",
+  "theme_color": "#E42313",
   "orientation": "portrait-primary",
   "icons": [
     {

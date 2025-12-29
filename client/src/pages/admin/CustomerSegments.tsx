@@ -66,7 +66,7 @@ export default function CustomerSegments() {
       totalRevenue: 420000,
       avgOrderValue: 233,
       rfmPattern: ["553", "551", "552"],
-      color: "bg-purple-500",
+      color: "bg-red-500",
       recommendedAction: "Offer membership programs and recommend products",
     },
     {
@@ -290,8 +290,8 @@ export default function CustomerSegments() {
 
             <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-purple-500/10 flex items-center justify-center">
-                  <DollarSign className="h-4 w-4 text-purple-500" />
+                <div className="w-8 h-8 rounded-full bg-red-500/10 flex items-center justify-center">
+                  <DollarSign className="h-4 w-4 text-red-500" />
                 </div>
                 <h3 className="font-semibold">Monetary (M)</h3>
               </div>

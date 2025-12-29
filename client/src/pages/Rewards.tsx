@@ -70,7 +70,7 @@ export default function RewardsPage() {
         "Custom products",
         "Lifetime warranty",
       ],
-      color: "from-purple-400 to-purple-600",
+      color: "from-red-400 to-red-600",
       icon: Zap,
     },
   ];
@@ -92,7 +92,7 @@ export default function RewardsPage() {
       icon: Users,
       title: "Refer Friends",
       points: "500 points per referral",
-      color: "text-purple-400",
+      color: "text-red-400",
     },
     {
       icon: Gift,
@@ -176,7 +176,7 @@ export default function RewardsPage() {
               key={tier.name}
               className={`p-6 border-2 ${
                 tier.name === currentTier.name
-                  ? "border-purple-500 bg-purple-500/10"
+                  ? "border-red-500 bg-red-500/10"
                   : "border-border bg-background text-foreground/50"
               }`}
             >
@@ -263,8 +263,8 @@ export default function RewardsPage() {
 
             <Card className="p-6 bg-card border-zinc-700 text-card-foreground">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center">
-                  <Gift className="w-6 h-6 text-purple-400" />
+                <div className="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center">
+                  <Gift className="w-6 h-6 text-red-400" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground">$25 Off</h3>
@@ -272,7 +272,7 @@ export default function RewardsPage() {
                 </div>
               </div>
               <Button
-                className="w-full bg-purple-600 hover:bg-purple-700"
+                className="w-full bg-red-600 hover:bg-red-700"
                 disabled={(rewardsData?.availablePoints || 0) < 2500}
               >
                 Redeem
@@ -291,8 +291,8 @@ export default function RewardsPage() {
                 className="flex items-center justify-between p-4 bg-card rounded-lg text-card-foreground"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 text-purple-400" />
+                  <div className="w-10 h-10 bg-red-500/20 rounded-full flex items-center justify-center">
+                    <TrendingUp className="w-5 h-5 text-red-400" />
                   </div>
                   <div>
                     <p className="font-medium text-foreground">{activity.description}</p>

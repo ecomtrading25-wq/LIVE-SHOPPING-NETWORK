@@ -281,8 +281,8 @@ export default function FlashSalesPage() {
                 <p className="text-sm text-muted-foreground">Avg Conversion</p>
                 <p className="text-3xl font-bold">{avgConversion.toFixed(2)}%</p>
               </div>
-              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/20 rounded-full flex items-center justify-center">
-                <Users className="w-6 h-6 text-purple-600" />
+              <div className="w-12 h-12 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center">
+                <Users className="w-6 h-6 text-red-600" />
               </div>
             </div>
           </CardContent>

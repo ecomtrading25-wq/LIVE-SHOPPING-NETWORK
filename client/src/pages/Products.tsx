@@ -177,12 +177,12 @@ function ProductCard({ product, featured = false }: { product: any; featured?: b
   return (
     <Link href={`/products/${product.id}`}>
       <Card
-        className={`group overflow-hidden bg-background text-foreground/5 border-white/10 hover:bg-background text-foreground/10 hover:border-purple-500/50 transition-all cursor-pointer ${
+        className={`group overflow-hidden bg-background text-foreground/5 border-white/10 hover:bg-background text-foreground/10 hover:border-red-500/50 transition-all cursor-pointer ${
           featured ? "ring-2 ring-yellow-500" : ""
         }`}
       >
         {/* Product Image */}
-        <div className="aspect-square bg-gradient-to-br from-purple-600/20 to-pink-600/20 relative overflow-hidden">
+        <div className="aspect-square bg-gradient-to-br from-red-600/20 to-pink-600/20 relative overflow-hidden">
           {featured && (
             <Badge className="absolute top-3 left-3 bg-yellow-500 text-black font-bold z-10">
               <Zap className="w-3 h-3 mr-1" />
@@ -204,7 +204,7 @@ function ProductCard({ product, featured = false }: { product: any; featured?: b
 
         {/* Product Info */}
         <div className="p-4">
-          <h3 className="font-bold text-foreground text-lg mb-2 line-clamp-2 group-hover:text-purple-400 transition-colors">
+          <h3 className="font-bold text-foreground text-lg mb-2 line-clamp-2 group-hover:text-red-400 transition-colors">
             {product.name}
           </h3>
           
@@ -232,7 +232,7 @@ function ProductCard({ product, featured = false }: { product: any; featured?: b
             </div>
             <Button
               size="sm"
-              className="bg-purple-600 hover:bg-purple-700"
+              className="bg-red-600 hover:bg-red-700"
               onClick={handleAddToCart}
             >
               <ShoppingCart className="w-4 h-4 mr-2" />

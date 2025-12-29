@@ -57,8 +57,8 @@ export default function BackInStockAlertsPage() {
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-3 bg-purple-500/20 rounded-lg">
-              <Bell className="w-8 h-8 text-purple-400" />
+            <div className="p-3 bg-red-500/20 rounded-lg">
+              <Bell className="w-8 h-8 text-red-400" />
             </div>
             <div>
               <h1 className="text-4xl font-bold text-foreground">
@@ -74,8 +74,8 @@ export default function BackInStockAlertsPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-purple-500/20 rounded-lg">
-                  <Bell className="w-5 h-5 text-purple-400" />
+                <div className="p-2 bg-red-500/20 rounded-lg">
+                  <Bell className="w-5 h-5 text-red-400" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-foreground">{activeAlerts.length}</p>
@@ -114,7 +114,7 @@ export default function BackInStockAlertsPage() {
         {activeAlerts.length > 0 && (
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
-              <Bell className="w-6 h-6 text-purple-400" />
+              <Bell className="w-6 h-6 text-red-400" />
               Active Alerts
             </h2>
             <div className="space-y-4">
@@ -133,11 +133,11 @@ export default function BackInStockAlertsPage() {
                       <div className="flex items-start justify-between mb-2">
                         <div>
                           <Link href={`/products/${alert.productId}`}>
-                            <h3 className="text-lg font-semibold text-foreground hover:text-purple-400 transition-colors cursor-pointer">
+                            <h3 className="text-lg font-semibold text-foreground hover:text-red-400 transition-colors cursor-pointer">
                               {alert.productName}
                             </h3>
                           </Link>
-                          <p className="text-2xl font-bold text-purple-400 mt-1">
+                          <p className="text-2xl font-bold text-red-400 mt-1">
                             ${alert.price}
                           </p>
                         </div>
@@ -172,7 +172,7 @@ export default function BackInStockAlertsPage() {
                           <Button
                             variant="outline"
                             size="sm"
-                            className="border-purple-500/30 text-purple-400 hover:bg-purple-500/20"
+                            className="border-red-500/30 text-red-400 hover:bg-red-500/20"
                           >
                             View Product
                           </Button>
@@ -209,11 +209,11 @@ export default function BackInStockAlertsPage() {
                       <div className="flex items-start justify-between mb-2">
                         <div>
                           <Link href={`/products/${alert.productId}`}>
-                            <h3 className="text-lg font-semibold text-foreground hover:text-purple-400 transition-colors cursor-pointer">
+                            <h3 className="text-lg font-semibold text-foreground hover:text-red-400 transition-colors cursor-pointer">
                               {alert.productName}
                             </h3>
                           </Link>
-                          <p className="text-2xl font-bold text-purple-400 mt-1">
+                          <p className="text-2xl font-bold text-red-400 mt-1">
                             ${alert.price}
                           </p>
                         </div>
@@ -231,7 +231,7 @@ export default function BackInStockAlertsPage() {
                         <Link href={`/products/${alert.productId}`}>
                           <Button
                             size="sm"
-                            className="bg-purple-600 hover:bg-purple-700"
+                            className="bg-red-600 hover:bg-red-700"
                           >
                             Shop Now
                           </Button>
@@ -268,7 +268,7 @@ export default function BackInStockAlertsPage() {
                 You haven't joined any waitlists yet. Browse our products and get notified when out-of-stock items are available again!
               </p>
               <Link href="/products">
-                <Button className="bg-purple-600 hover:bg-purple-700 mt-4">
+                <Button className="bg-red-600 hover:bg-red-700 mt-4">
                   <Package className="w-4 h-4 mr-2" />
                   Browse Products
                 </Button>

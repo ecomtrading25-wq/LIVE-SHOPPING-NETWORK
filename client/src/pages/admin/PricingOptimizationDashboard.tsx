@@ -318,7 +318,7 @@ const priceImpactData = [
           <Card className="p-6">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm text-muted-foreground">Avg Price Change</span>
-              <Zap className="w-5 h-5 text-purple-500" />
+              <Zap className="w-5 h-5 text-red-500" />
             </div>
             <div className="text-3xl font-bold">
               {avgPriceChange > 0 ? '+' : ''}{avgPriceChange.toFixed(1)}%
@@ -366,7 +366,7 @@ const priceImpactData = [
                     key={product.id}
                     className={`p-4 cursor-pointer transition-colors ${
                       selectedProduct.id === product.id
-                        ? 'border-purple-500 bg-purple-50 dark:bg-purple-950'
+                        ? 'border-red-500 bg-red-50 dark:bg-red-950'
                         : 'hover:bg-accent'
                     }`}
                     onClick={() => setSelectedProduct(product)}
@@ -427,7 +427,7 @@ const priceImpactData = [
                 </div>
                 <Button 
                   size="lg" 
-                  className="bg-purple-600 hover:bg-purple-700"
+                  className="bg-red-600 hover:bg-red-700"
                   disabled={priceChange === 0}
                 >
                   {priceChange === 0 ? (
@@ -454,7 +454,7 @@ const priceImpactData = [
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground">Recommended Price</div>
-                  <div className="text-2xl font-bold text-purple-600">
+                  <div className="text-2xl font-bold text-red-600">
                     ${selectedProduct.recommendedPrice}
                   </div>
                   <div className="text-sm">
@@ -526,11 +526,11 @@ const priceImpactData = [
                   </div>
                 </div>
               </div>
-              <div className="mt-4 p-4 bg-purple-50 dark:bg-purple-950 rounded-lg">
+              <div className="mt-4 p-4 bg-red-50 dark:bg-red-950 rounded-lg">
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="text-sm text-muted-foreground">Profit Increase</div>
-                    <div className="text-xl font-bold text-purple-600">
+                    <div className="text-xl font-bold text-red-600">
                       +{selectedProduct.profitIncrease.toFixed(1)}%
                     </div>
                   </div>
@@ -546,22 +546,22 @@ const priceImpactData = [
             </Card>
 
             {/* AI Reasoning */}
-            <Card className="p-6 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-950 dark:to-pink-950 border-purple-200 dark:border-purple-800">
+            <Card className="p-6 bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-950 dark:to-pink-950 border-red-200 dark:border-red-800">
               <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
-                <Target className="w-5 h-5 text-purple-600" />
+                <Target className="w-5 h-5 text-red-600" />
                 AI Recommendation
               </h3>
               <p className="text-sm mb-4">{selectedProduct.reasoning}</p>
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-sm">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full" />
+                  <div className="w-2 h-2 bg-red-600 rounded-full" />
                   <span>
                     <strong>Elasticity Analysis:</strong> {selectedProduct.elasticity < -2 ? 'Highly elastic' : selectedProduct.elasticity < -1.5 ? 'Moderately elastic' : 'Inelastic'} demand 
                     ({selectedProduct.elasticity}). {selectedProduct.elasticity < -2 ? 'Price changes will significantly impact volume.' : 'Volume relatively stable with price changes.'}
                   </span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full" />
+                  <div className="w-2 h-2 bg-red-600 rounded-full" />
                   <span>
                     <strong>Competitive Position:</strong> {
                       selectedProduct.currentPrice < selectedProduct.competitorAvgPrice 
@@ -578,7 +578,7 @@ const priceImpactData = [
         </div>
 
         {/* Bulk Actions */}
-        <Card className="p-6 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 border-blue-200 dark:border-blue-800">
+        <Card className="p-6 bg-gradient-to-r from-blue-50 to-red-50 dark:from-blue-950 dark:to-red-950 border-blue-200 dark:border-blue-800">
           <h3 className="text-lg font-bold mb-3">Bulk Price Optimization</h3>
           <p className="text-sm text-muted-foreground mb-4">
             Apply AI-recommended prices to all products with optimization opportunities. Estimated total revenue increase: <strong className="text-green-600">+${(totalRevenueIncrease / 1000).toFixed(1)}K/month</strong>
@@ -595,7 +595,7 @@ const priceImpactData = [
                 <SelectItem value="5m">Auto: 5m</SelectItem>
               </SelectContent>
             </Select>
-            <Button className="bg-purple-600 hover:bg-purple-700">
+            <Button className="bg-red-600 hover:bg-red-700">
               <Zap className="w-4 h-4 mr-2" />
               Apply All Recommendations ({productsNeedingAdjustment} products)
             </Button>

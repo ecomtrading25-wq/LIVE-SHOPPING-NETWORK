@@ -134,8 +134,8 @@ export default function ReviewMediaUpload({
           border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all
           ${
             isDragging
-              ? "border-purple-500 bg-purple-500/10"
-              : "border-border hover:border-purple-500/50 bg-white/5"
+              ? "border-red-500 bg-red-500/10"
+              : "border-border hover:border-red-500/50 bg-white/5"
           }
         `}
       >
@@ -149,8 +149,8 @@ export default function ReviewMediaUpload({
         />
 
         <div className="flex flex-col items-center gap-3">
-          <div className="p-4 bg-purple-500/20 rounded-full">
-            <Upload className="w-8 h-8 text-purple-400" />
+          <div className="p-4 bg-red-500/20 rounded-full">
+            <Upload className="w-8 h-8 text-red-400" />
           </div>
           <div>
             <p className="text-foreground font-semibold mb-1">
@@ -163,7 +163,7 @@ export default function ReviewMediaUpload({
           <Button
             type="button"
             variant="outline"
-            className="border-purple-500/30 text-purple-400"
+            className="border-red-500/30 text-red-400"
           >
             <Upload className="w-4 h-4 mr-2" />
             Choose Files
@@ -227,7 +227,7 @@ export default function ReviewMediaUpload({
                     className={`absolute top-2 left-2 ${
                       media.type === "image"
                         ? "bg-blue-500/80"
-                        : "bg-purple-500/80"
+                        : "bg-red-500/80"
                     }`}
                   >
                     {media.type === "image" ? (
@@ -278,7 +278,7 @@ export default function ReviewMediaUpload({
                 {media.status === "uploading" && (
                   <div className="mt-2 h-1 bg-gray-700 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-purple-500 transition-all duration-300"
+                      className="h-full bg-red-500 transition-all duration-300"
                       style={{ width: `${media.progress}%` }}
                     />
                   </div>

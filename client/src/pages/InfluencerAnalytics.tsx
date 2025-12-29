@@ -280,7 +280,7 @@ export default function InfluencerAnalyticsPage() {
           <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-2">
               <p className="text-gray-400 text-sm">Lifetime Earnings</p>
-              <Award className="w-5 h-5 text-purple-400" />
+              <Award className="w-5 h-5 text-red-400" />
             </div>
             <p className="text-3xl font-bold text-foreground mb-1">${totalEarnings.lifetime.toFixed(2)}</p>
             <p className="text-gray-400 text-sm">Since joining</p>
@@ -328,7 +328,7 @@ export default function InfluencerAnalyticsPage() {
                         <td className="p-4 text-right text-green-400">${earning.bonus.toFixed(2)}</td>
                         <td className="p-4 text-right text-foreground font-bold">${earning.total.toFixed(2)}</td>
                         <td className="p-4 text-right text-foreground">{earning.orders}</td>
-                        <td className="p-4 text-right text-purple-400">{earning.conversionRate}%</td>
+                        <td className="p-4 text-right text-red-400">{earning.conversionRate}%</td>
                       </tr>
                     ))}
                   </tbody>
@@ -336,7 +336,7 @@ export default function InfluencerAnalyticsPage() {
               </div>
             </Card>
 
-            <Card className="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-purple-500/30">
+            <Card className="p-6 bg-gradient-to-br from-red-500/20 to-pink-500/20 border-red-500/30">
               <h3 className="text-xl font-bold text-foreground mb-4">Payout History</h3>
               <div className="space-y-3">
                 <div className="flex items-center justify-between p-4 bg-background text-foreground/10 rounded-lg">
@@ -373,7 +373,7 @@ export default function InfluencerAnalyticsPage() {
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-2xl">{getContentTypeIcon(content.type)}</span>
-                          <Badge className="bg-purple-500/20 text-purple-400 text-xs">
+                          <Badge className="bg-red-500/20 text-red-400 text-xs">
                             {content.type}
                           </Badge>
                         </div>
@@ -404,11 +404,11 @@ export default function InfluencerAnalyticsPage() {
                     <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between">
                       <div>
                         <p className="text-gray-400 text-xs">CTR</p>
-                        <p className="text-purple-400 font-bold">{content.ctr}%</p>
+                        <p className="text-red-400 font-bold">{content.ctr}%</p>
                       </div>
                       <div>
                         <p className="text-gray-400 text-xs">Conv. Rate</p>
-                        <p className="text-purple-400 font-bold">{content.conversionRate}%</p>
+                        <p className="text-red-400 font-bold">{content.conversionRate}%</p>
                       </div>
                       <Button size="sm" variant="outline">
                         <ExternalLink className="w-3 h-3 mr-1" />
@@ -433,12 +433,12 @@ export default function InfluencerAnalyticsPage() {
                         <span className="text-foreground font-medium">{demo.ageGroup}</span>
                         <div className="flex items-center gap-4">
                           <span className="text-gray-400 text-sm">Avg: ${demo.avgSpend.toFixed(2)}</span>
-                          <span className="text-purple-400 font-bold">{demo.percentage}%</span>
+                          <span className="text-red-400 font-bold">{demo.percentage}%</span>
                         </div>
                       </div>
                       <div className="w-full bg-background text-foreground/10 rounded-full h-2">
                         <div
-                          className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full"
+                          className="bg-gradient-to-r from-red-500 to-orange-500 h-2 rounded-full"
                           style={{ width: `${demo.percentage}%` }}
                         ></div>
                       </div>
@@ -453,7 +453,7 @@ export default function InfluencerAnalyticsPage() {
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <p className="text-gray-400">Total Followers</p>
-                      <Users className="w-5 h-5 text-purple-400" />
+                      <Users className="w-5 h-5 text-red-400" />
                     </div>
                     <p className="text-3xl font-bold text-foreground">124,567</p>
                     <p className="text-green-400 text-sm mt-1">+8.3% this month</p>
@@ -462,7 +462,7 @@ export default function InfluencerAnalyticsPage() {
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <p className="text-gray-400">Engagement Rate</p>
-                      <Target className="w-5 h-5 text-purple-400" />
+                      <Target className="w-5 h-5 text-red-400" />
                     </div>
                     <p className="text-3xl font-bold text-foreground">6.8%</p>
                     <p className="text-green-400 text-sm mt-1">Above average</p>
@@ -471,7 +471,7 @@ export default function InfluencerAnalyticsPage() {
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <p className="text-gray-400">Avg Order Value</p>
-                      <DollarSign className="w-5 h-5 text-purple-400" />
+                      <DollarSign className="w-5 h-5 text-red-400" />
                     </div>
                     <p className="text-3xl font-bold text-foreground">$68.45</p>
                     <p className="text-gray-400 text-sm mt-1">From your referrals</p>
@@ -492,7 +492,7 @@ export default function InfluencerAnalyticsPage() {
                   placeholder="Enter promo code (e.g., SUMMER25)"
                   className="flex-1 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400"
                 />
-                <Button onClick={handleGenerateLink} className="bg-gradient-to-r from-purple-500 to-pink-500">
+                <Button onClick={handleGenerateLink} className="bg-gradient-to-r from-red-500 to-orange-500">
                   <LinkIcon className="w-4 h-4 mr-2" />
                   Generate Link
                 </Button>

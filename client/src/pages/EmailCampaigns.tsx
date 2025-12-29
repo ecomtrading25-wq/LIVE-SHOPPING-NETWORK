@@ -124,7 +124,7 @@ function EmailCampaignsContent() {
             </div>
             <Button
               onClick={() => setShowCreateModal(true)}
-              className="bg-purple-600 hover:bg-purple-700"
+              className="bg-red-600 hover:bg-red-700"
             >
               <Plus className="w-4 h-4 mr-2" />
               Create Campaign
@@ -159,8 +159,8 @@ function EmailCampaignsContent() {
 
             <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-purple-500/20 rounded-lg">
-                  <TrendingUp className="w-5 h-5 text-purple-400" />
+                <div className="p-2 bg-red-500/20 rounded-lg">
+                  <TrendingUp className="w-5 h-5 text-red-400" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-foreground">{clickRate}%</p>
@@ -191,7 +191,7 @@ function EmailCampaignsContent() {
             <Card key={campaign.id} className="p-6 bg-background text-foreground/5 border-white/10">
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-purple-500/20 rounded-lg">
+                  <div className="p-3 bg-red-500/20 rounded-lg">
                     {getCampaignIcon(campaign.type)}
                   </div>
                   <div>
@@ -220,7 +220,7 @@ function EmailCampaignsContent() {
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <Button size="sm" variant="ghost" className="text-purple-400">
+                  <Button size="sm" variant="ghost" className="text-red-400">
                     <Edit2 className="w-4 h-4" />
                   </Button>
                   {campaign.status === "active" ? (
@@ -301,7 +301,7 @@ function EmailCampaignsContent() {
 
             <button className="p-4 bg-background text-foreground/5 hover:bg-background text-foreground/10 rounded-lg border border-white/10 transition-colors text-left">
               <div className="flex items-center gap-3 mb-2">
-                <Gift className="w-5 h-5 text-purple-400" />
+                <Gift className="w-5 h-5 text-red-400" />
                 <h4 className="font-semibold text-foreground">Recommendations</h4>
               </div>
               <p className="text-sm text-gray-400">

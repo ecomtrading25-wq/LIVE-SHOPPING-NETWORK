@@ -50,7 +50,7 @@ export function RecentlyViewed() {
     <div className="mb-12">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
-          <Eye className="w-6 h-6 text-purple-400" />
+          <Eye className="w-6 h-6 text-red-400" />
           Recently Viewed
         </h2>
         <div className="flex gap-2">
@@ -80,7 +80,7 @@ export function RecentlyViewed() {
       >
         {products.map((product) => (
           <Link key={product.id} href={`/products/${product.id}`}>
-            <Card className="min-w-[200px] bg-white/10 backdrop-blur-xl border-white/20 hover:border-purple-500/50 transition-all overflow-hidden cursor-pointer group">
+            <Card className="min-w-[200px] bg-white/10 backdrop-blur-xl border-white/20 hover:border-red-500/50 transition-all overflow-hidden cursor-pointer group">
               <div className="relative h-40 overflow-hidden">
                 <img
                   src={product.image}
@@ -89,7 +89,7 @@ export function RecentlyViewed() {
                 />
               </div>
               <div className="p-3">
-                <h3 className="text-foreground font-semibold text-sm mb-2 line-clamp-2 group-hover:text-purple-400 transition-colors">
+                <h3 className="text-foreground font-semibold text-sm mb-2 line-clamp-2 group-hover:text-red-400 transition-colors">
                   {product.name}
                 </h3>
                 <p className="text-lg font-bold text-foreground">${product.price}</p>

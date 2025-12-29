@@ -220,7 +220,7 @@ export default function AdvancedOrdersPage() {
     const styles = {
       pending: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
       processing: "bg-blue-500/20 text-blue-400 border-blue-500/30",
-      shipped: "bg-purple-500/20 text-purple-400 border-purple-500/30",
+      shipped: "bg-red-500/20 text-red-400 border-red-500/30",
       delivered: "bg-green-500/20 text-green-400 border-green-500/30",
       cancelled: "bg-gray-500/20 text-gray-400 border-gray-500/30",
       refunded: "bg-red-500/20 text-red-400 border-red-500/30",
@@ -255,7 +255,7 @@ export default function AdvancedOrdersPage() {
       case "processing":
         return <Clock className="w-5 h-5 text-yellow-400" />;
       case "shipped":
-        return <Truck className="w-5 h-5 text-purple-400" />;
+        return <Truck className="w-5 h-5 text-red-400" />;
       case "delivered":
         return <CheckCircle className="w-5 h-5 text-green-400" />;
       case "note_added":
@@ -292,7 +292,7 @@ export default function AdvancedOrdersPage() {
         {[
           { label: "Pending", count: orders.filter((o) => o.status === "pending").length, color: "yellow" },
           { label: "Processing", count: orders.filter((o) => o.status === "processing").length, color: "blue" },
-          { label: "Shipped", count: orders.filter((o) => o.status === "shipped").length, color: "purple" },
+          { label: "Shipped", count: orders.filter((o) => o.status === "shipped").length, color: "red" },
           { label: "Delivered", count: orders.filter((o) => o.status === "delivered").length, color: "green" },
           { label: "Refunded", count: orders.filter((o) => o.status === "refunded").length, color: "red" },
         ].map((stat) => (
@@ -334,7 +334,7 @@ export default function AdvancedOrdersPage() {
 
       {/* Bulk Actions */}
       {selectedOrders.length > 0 && (
-        <Card className="p-4 bg-purple-500/10 border-purple-500/30">
+        <Card className="p-4 bg-red-500/10 border-red-500/30">
           <div className="flex items-center justify-between">
             <p className="text-foreground font-medium">{selectedOrders.length} orders selected</p>
             <div className="flex items-center gap-2">
@@ -413,7 +413,7 @@ export default function AdvancedOrdersPage() {
                   </td>
                   <td className="p-4">
                     {order.notes.length > 0 && (
-                      <div className="flex items-center gap-1 text-purple-400">
+                      <div className="flex items-center gap-1 text-red-400">
                         <MessageSquare className="w-4 h-4" />
                         <span className="text-sm">{order.notes.length}</span>
                       </div>

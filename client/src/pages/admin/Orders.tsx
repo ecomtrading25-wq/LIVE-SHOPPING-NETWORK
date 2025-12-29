@@ -42,7 +42,7 @@ export default function OrdersPage() {
       case "processing":
         return <Package className="w-4 h-4 text-blue-500" />;
       case "shipped":
-        return <Truck className="w-4 h-4 text-purple-500" />;
+        return <Truck className="w-4 h-4 text-red-500" />;
       case "delivered":
         return <CheckCircle className="w-4 h-4 text-green-500" />;
       case "cancelled":
@@ -59,7 +59,7 @@ export default function OrdersPage() {
       case "processing":
         return "bg-blue-600";
       case "shipped":
-        return "bg-purple-600";
+        return "bg-red-600";
       case "delivered":
         return "bg-green-600";
       case "cancelled":
@@ -129,7 +129,7 @@ export default function OrdersPage() {
                   {order.customerName || "Guest"}
                 </TableCell>
                 <TableCell>
-                  <Badge className="bg-purple-600">
+                  <Badge className="bg-red-600">
                     {order.channelId}
                   </Badge>
                 </TableCell>
@@ -201,8 +201,8 @@ export default function OrdersPage() {
 
         <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center">
-              <Truck className="w-5 h-5 text-purple-500" />
+            <div className="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center">
+              <Truck className="w-5 h-5 text-red-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Shipped</p>

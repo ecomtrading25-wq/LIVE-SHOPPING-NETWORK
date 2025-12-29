@@ -39,10 +39,10 @@ export function SizeGuide({ isOpen, onClose, productCategory = "clothing" }: Siz
 
   return (
     <div className="fixed inset-0 bg-background/80 z-50 flex items-center justify-center p-4 text-foreground">
-      <Card className="max-w-4xl w-full max-h-[90vh] overflow-y-auto bg-gradient-to-br from-purple-900/95 via-black/95 to-pink-900/95 backdrop-blur-xl border-white/20">
-        <div className="sticky top-0 bg-gradient-to-r from-purple-900 to-pink-900 p-6 border-b border-white/20 flex items-center justify-between">
+      <Card className="max-w-4xl w-full max-h-[90vh] overflow-y-auto bg-gradient-to-br from-red-900/95 via-black/95 to-pink-900/95 backdrop-blur-xl border-white/20">
+        <div className="sticky top-0 bg-gradient-to-r from-red-900 to-orange-900 p-6 border-b border-white/20 flex items-center justify-between">
           <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
-            <Ruler className="w-6 h-6 text-purple-400" />
+            <Ruler className="w-6 h-6 text-red-400" />
             Size Guide
           </h2>
           <Button
@@ -66,7 +66,7 @@ export function SizeGuide({ isOpen, onClose, productCategory = "clothing" }: Siz
                 onClick={() => setSelectedUnit("in")}
                 className={
                   selectedUnit === "in"
-                    ? "bg-gradient-to-r from-pink-500 to-purple-600"
+                    ? "bg-gradient-to-r from-orange-500 to-red-600"
                     : "border-white/20 text-foreground hover:bg-white/10"
                 }
               >
@@ -78,7 +78,7 @@ export function SizeGuide({ isOpen, onClose, productCategory = "clothing" }: Siz
                 onClick={() => setSelectedUnit("cm")}
                 className={
                   selectedUnit === "cm"
-                    ? "bg-gradient-to-r from-pink-500 to-purple-600"
+                    ? "bg-gradient-to-r from-orange-500 to-red-600"
                     : "border-white/20 text-foreground hover:bg-white/10"
                 }
               >
@@ -109,7 +109,7 @@ export function SizeGuide({ isOpen, onClose, productCategory = "clothing" }: Siz
                     className="border-b border-white/10 hover:bg-white/5 transition-colors"
                   >
                     <td className="py-3 px-4">
-                      <Badge className="bg-purple-600">{row.size}</Badge>
+                      <Badge className="bg-red-600">{row.size}</Badge>
                     </td>
                     <td className="py-3 px-4 text-muted-foreground">
                       {row.chest} {selectedUnit}
@@ -132,7 +132,7 @@ export function SizeGuide({ isOpen, onClose, productCategory = "clothing" }: Siz
           {/* Fit Recommendations */}
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-purple-400" />
+              <TrendingUp className="w-5 h-5 text-red-400" />
               Fit Recommendations
             </h3>
             <Card className="p-4 bg-white/5 border-white/10">
@@ -149,7 +149,7 @@ export function SizeGuide({ isOpen, onClose, productCategory = "clothing" }: Siz
                     </div>
                     <div className="w-full bg-white/10 rounded-full h-2">
                       <div
-                        className="bg-gradient-to-r from-pink-500 to-purple-600 h-2 rounded-full transition-all"
+                        className="bg-gradient-to-r from-orange-500 to-red-600 h-2 rounded-full transition-all"
                         style={{ width: `${rec.percentage}%` }}
                       />
                     </div>
@@ -191,7 +191,7 @@ export function SizeGuide({ isOpen, onClose, productCategory = "clothing" }: Siz
           </div>
 
           {/* Tips */}
-          <Card className="p-4 bg-purple-600/20 border-purple-500/30">
+          <Card className="p-4 bg-red-600/20 border-red-500/30">
             <h4 className="text-foreground font-semibold mb-2">💡 Pro Tips</h4>
             <ul className="space-y-2 text-muted-foreground text-sm">
               <li>• Measure over your undergarments for the most accurate fit</li>

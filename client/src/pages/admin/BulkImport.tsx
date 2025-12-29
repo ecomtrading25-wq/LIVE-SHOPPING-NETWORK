@@ -173,14 +173,14 @@ export default function BulkImportPage() {
             key={type.id}
             className={`p-6 cursor-pointer transition-all ${
               selectedType === type.id
-                ? "bg-purple-600 border-purple-500"
-                : "bg-background text-foreground/50 border-border hover:border-purple-500"
+                ? "bg-red-600 border-red-500"
+                : "bg-background text-foreground/50 border-border hover:border-red-500"
             }`}
             onClick={() => setSelectedType(type.id)}
           >
             <type.icon
               className={`w-8 h-8 mb-3 ${
-                selectedType === type.id ? "text-foreground" : "text-purple-400"
+                selectedType === type.id ? "text-foreground" : "text-red-400"
               }`}
             />
             <h3
@@ -216,7 +216,7 @@ export default function BulkImportPage() {
             <h3 className="font-semibold text-foreground mb-3">Required Fields:</h3>
             <div className="flex flex-wrap gap-2">
               {selectedImportType.fields.map((field) => (
-                <Badge key={field} className="bg-purple-600">
+                <Badge key={field} className="bg-red-600">
                   {field}
                 </Badge>
               ))}
@@ -252,7 +252,7 @@ export default function BulkImportPage() {
             <label className="block text-sm font-medium text-muted-foreground mb-3">
               Upload CSV or Excel File
             </label>
-            <div className="border-2 border-dashed border-zinc-700 rounded-lg p-8 text-center hover:border-purple-500 transition-colors">
+            <div className="border-2 border-dashed border-zinc-700 rounded-lg p-8 text-center hover:border-red-500 transition-colors">
               <input
                 type="file"
                 accept=".csv,.xlsx,.xls"
@@ -288,7 +288,7 @@ export default function BulkImportPage() {
           <Button
             onClick={handleImport}
             disabled={!file || importing}
-            className="w-full bg-purple-600 hover:bg-purple-700 h-12 text-lg"
+            className="w-full bg-red-600 hover:bg-red-700 h-12 text-lg"
           >
             {importing ? (
               <>Processing...</>

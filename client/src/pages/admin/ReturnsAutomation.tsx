@@ -196,7 +196,7 @@ export default function ReturnsAutomationPage() {
       case "change_of_mind":
         return "bg-blue-500/20 text-blue-400";
       case "damaged":
-        return "bg-purple-500/20 text-purple-400";
+        return "bg-red-500/20 text-red-400";
       default:
         return "bg-gray-500/20 text-gray-400";
     }
@@ -281,7 +281,7 @@ export default function ReturnsAutomationPage() {
         <Card className="p-6">
           <div className="flex items-center justify-between mb-2">
             <p className="text-sm text-muted-foreground">Avg Processing Time</p>
-            <Clock className="w-5 h-5 text-purple-500" />
+            <Clock className="w-5 h-5 text-red-500" />
           </div>
           <p className="text-3xl font-bold mb-1">{avgProcessingTime}</p>
           <p className="text-xs text-green-500">-45% from last month</p>

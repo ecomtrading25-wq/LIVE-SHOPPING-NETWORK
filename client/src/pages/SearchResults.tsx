@@ -139,7 +139,7 @@ export default function SearchResultsPage() {
                       setMinRating(0);
                       setPriceRange([0, 1000]);
                     }}
-                    className="text-purple-400 hover:text-purple-300"
+                    className="text-red-400 hover:text-red-300"
                   >
                     Clear All
                   </Button>
@@ -220,7 +220,7 @@ export default function SearchResultsPage() {
                   We couldn't find any products matching your search.
                 </p>
                 <Link href="/products">
-                  <Button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700">
+                  <Button className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-pink-600 hover:to-red-700">
                     Browse All Products
                   </Button>
                 </Link>
@@ -230,7 +230,7 @@ export default function SearchResultsPage() {
                 {sortedProducts.map((product) => (
                   <Card
                     key={product.id}
-                    className="group bg-background text-foreground/10 backdrop-blur-xl border-white/20 hover:border-purple-500/50 transition-all overflow-hidden"
+                    className="group bg-background text-foreground/10 backdrop-blur-xl border-white/20 hover:border-red-500/50 transition-all overflow-hidden"
                   >
                     <Link href={`/products/${product.id}`}>
                       <div className="relative h-64 overflow-hidden">
@@ -249,7 +249,7 @@ export default function SearchResultsPage() {
 
                     <div className="p-4">
                       <Link href={`/products/${product.id}`}>
-                        <h3 className="text-lg font-bold text-foreground group-hover:text-purple-400 transition-colors mb-2">
+                        <h3 className="text-lg font-bold text-foreground group-hover:text-red-400 transition-colors mb-2">
                           {product.name}
                         </h3>
                       </Link>
@@ -280,7 +280,7 @@ export default function SearchResultsPage() {
                       </div>
 
                       <div className="flex gap-2">
-                        <Button className="flex-1 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700">
+                        <Button className="flex-1 bg-gradient-to-r from-orange-500 to-red-600 hover:from-pink-600 hover:to-red-700">
                           <ShoppingCart className="w-4 h-4 mr-2" />
                           Add to Cart
                         </Button>

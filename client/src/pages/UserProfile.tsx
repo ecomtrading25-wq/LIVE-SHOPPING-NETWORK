@@ -163,7 +163,7 @@ export default function UserProfile() {
   return (
     <div className="min-h-screen bg-background text-foreground dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Cover Image */}
-      <div className="relative h-64 bg-gradient-to-r from-purple-600 to-blue-600">
+      <div className="relative h-64 bg-gradient-to-r from-red-600 to-blue-600">
         <div className="absolute inset-0 bg-background/20 text-foreground" />
       </div>
 
@@ -174,7 +174,7 @@ export default function UserProfile() {
             <div className="flex flex-col md:flex-row gap-6">
               {/* Avatar */}
               <div className="relative">
-                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 p-1">
+                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-red-500 to-blue-500 p-1">
                   <div className="w-full h-full rounded-full bg-background text-foreground dark:bg-card flex items-center justify-center text-card-foreground">
                     <User className="w-16 h-16 text-gray-400" />
                   </div>
@@ -193,7 +193,7 @@ export default function UserProfile() {
                     <div className="flex items-center gap-2 mb-1">
                       <h1 className="text-3xl font-bold">{profile.displayName}</h1>
                       {profile.isInfluencer && (
-                        <Badge className="bg-gradient-to-r from-purple-500 to-pink-500">
+                        <Badge className="bg-gradient-to-r from-red-500 to-orange-500">
                           <Award className="w-3 h-3 mr-1" />
                           Influencer
                         </Badge>
@@ -211,14 +211,14 @@ export default function UserProfile() {
                         </div>
                       )}
                       {profile.website && (
-                        <a href={profile.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-purple-600">
+                        <a href={profile.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-red-600">
                           <LinkIcon className="w-4 h-4" />
                           {profile.website.replace('https://', '')}
                         </a>
                       )}
                       <div className="flex items-center gap-3">
                         {profile.socialLinks.instagram && (
-                          <Instagram className="w-4 h-4 hover:text-purple-600 cursor-pointer" />
+                          <Instagram className="w-4 h-4 hover:text-red-600 cursor-pointer" />
                         )}
                         {profile.socialLinks.twitter && (
                           <Twitter className="w-4 h-4 hover:text-blue-500 cursor-pointer" />
@@ -408,7 +408,7 @@ export default function UserProfile() {
                   <div className="h-48 bg-gray-200 dark:bg-gray-700" />
                   <div className="p-4">
                     <h3 className="font-semibold mb-2">Product Name</h3>
-                    <p className="text-2xl font-bold text-purple-600 mb-3">$299.99</p>
+                    <p className="text-2xl font-bold text-red-600 mb-3">$299.99</p>
                     <Button className="w-full">Add to Cart</Button>
                   </div>
                 </Card>

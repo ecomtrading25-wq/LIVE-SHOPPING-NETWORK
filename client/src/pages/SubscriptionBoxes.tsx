@@ -116,7 +116,7 @@ export default function SubscriptionBoxesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-red-900 to-pink-900">
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-12">
@@ -150,7 +150,7 @@ export default function SubscriptionBoxesPage() {
           ].map((item) => (
             <Card key={item.step} className="bg-background text-foreground/10 border-white/20 backdrop-blur-xl">
               <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-foreground text-2xl font-bold">{item.step}</span>
                 </div>
                 <h3 className="text-foreground font-bold text-lg mb-2">{item.title}</h3>
@@ -164,7 +164,7 @@ export default function SubscriptionBoxesPage() {
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {boxes.map((box) => (
             <Card key={box.id} className="bg-background text-foreground/10 border-white/20 backdrop-blur-xl overflow-hidden">
-              <div className="h-48 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
+              <div className="h-48 bg-gradient-to-br from-red-600 to-orange-600 flex items-center justify-center">
                 <Package className="w-24 h-24 text-white/80" />
               </div>
 
@@ -205,7 +205,7 @@ export default function SubscriptionBoxesPage() {
                         key={cycle.value}
                         className={`p-3 rounded-lg border-2 transition-all ${
                           selectedCycle === cycle.value && selectedBox === box.id
-                            ? "border-purple-500 bg-purple-500/20"
+                            ? "border-red-500 bg-red-500/20"
                             : "border-white/20 bg-background text-foreground/5 hover:bg-background text-foreground/10"
                         }`}
                         onClick={() => {
@@ -229,7 +229,7 @@ export default function SubscriptionBoxesPage() {
                   <Dialog open={isSubscribeDialogOpen && selectedBox === box.id} onOpenChange={setIsSubscribeDialogOpen}>
                     <DialogTrigger asChild>
                       <Button
-                        className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+                        className="w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-pink-700"
                         onClick={() => setSelectedBox(box.id)}
                       >
                         Subscribe Now
@@ -329,7 +329,7 @@ export default function SubscriptionBoxesPage() {
                             Cancel
                           </Button>
                           <Button
-                            className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600"
+                            className="flex-1 bg-gradient-to-r from-red-600 to-orange-600"
                             onClick={handleSubscribe}
                           >
                             Confirm Subscription

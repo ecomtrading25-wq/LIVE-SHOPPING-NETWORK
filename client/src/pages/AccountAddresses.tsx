@@ -329,13 +329,13 @@ export default function AccountAddressesPage() {
             <Card
               key={address.id}
               className={`p-6 bg-background text-foreground/5 border-white/10 hover:bg-background text-foreground/10 transition-colors relative ${
-                address.isDefault ? "ring-2 ring-purple-500" : ""
+                address.isDefault ? "ring-2 ring-red-500" : ""
               }`}
             >
               {/* Default Badge */}
               {address.isDefault && (
                 <div className="absolute top-4 right-4">
-                  <div className="flex items-center gap-1 bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-xs font-medium">
+                  <div className="flex items-center gap-1 bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-xs font-medium">
                     <Star className="w-3 h-3 fill-current" />
                     Default
                   </div>
@@ -344,7 +344,7 @@ export default function AccountAddressesPage() {
 
               {/* Address Label */}
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-purple-500/20 rounded-lg text-purple-400">
+                <div className="p-2 bg-red-500/20 rounded-lg text-red-400">
                   {getLabelIcon(address.label)}
                 </div>
                 <div>

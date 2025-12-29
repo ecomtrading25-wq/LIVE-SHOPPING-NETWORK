@@ -257,7 +257,7 @@ export default function DemandForecastDashboard() {
           <Card className="p-6">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm text-muted-foreground">Avg Daily Sales</span>
-              <ShoppingCart className="w-5 h-5 text-purple-500" />
+              <ShoppingCart className="w-5 h-5 text-red-500" />
             </div>
             {overviewLoading ? (
               <Skeleton className="h-9 w-16" />
@@ -315,7 +315,7 @@ export default function DemandForecastDashboard() {
                     key={product.id}
                     className={`p-4 cursor-pointer transition-colors ${
                       selectedProduct?.id === product.id
-                        ? 'border-purple-500 bg-purple-50 dark:bg-purple-950'
+                        ? 'border-red-500 bg-red-50 dark:bg-red-950'
                         : 'hover:bg-accent'
                     }`}
                     onClick={() => setSelectedProduct(product)}
@@ -363,7 +363,7 @@ export default function DemandForecastDashboard() {
                     </span>
                   </div>
                 </div>
-                <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
+                <Button size="lg" className="bg-red-600 hover:bg-red-700">
                   Generate Purchase Order
                 </Button>
               </div>
@@ -459,9 +459,9 @@ export default function DemandForecastDashboard() {
                   </div>
                   <div className="text-sm text-muted-foreground mt-1">units</div>
                 </div>
-                <div className="text-center p-4 bg-purple-50 dark:bg-purple-950 rounded-lg">
+                <div className="text-center p-4 bg-red-50 dark:bg-red-950 rounded-lg">
                   <div className="text-sm text-muted-foreground mb-1">Next 14 Days</div>
-                  <div className="text-3xl font-bold text-purple-600">
+                  <div className="text-3xl font-bold text-red-600">
                     {selectedProduct.forecastedDemand.next14Days}
                   </div>
                   <div className="text-sm text-muted-foreground mt-1">units</div>
@@ -477,28 +477,28 @@ export default function DemandForecastDashboard() {
             </Card>
 
             {/* Recommendations */}
-            <Card className="p-6 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-950 dark:to-pink-950 border-purple-200 dark:border-purple-800">
+            <Card className="p-6 bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-950 dark:to-pink-950 border-red-200 dark:border-red-800">
               <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
-                <AlertTriangle className="w-5 h-5 text-purple-600" />
+                <AlertTriangle className="w-5 h-5 text-red-600" />
                 AI Recommendations
               </h3>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mt-2" />
+                  <div className="w-2 h-2 bg-red-600 rounded-full mt-2" />
                   <span>
                     <strong>Urgent:</strong> Current stock will last only {daysUntilStockout.toFixed(1)} days at current sales rate. 
                     Recommend ordering {selectedProduct.recommendedQuantity} units immediately.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mt-2" />
+                  <div className="w-2 h-2 bg-red-600 rounded-full mt-2" />
                   <span>
                     <strong>Trend Analysis:</strong> Sales are {selectedProduct.trendDirection}. 
                     Consider adjusting safety stock levels by 15%.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mt-2" />
+                  <div className="w-2 h-2 bg-red-600 rounded-full mt-2" />
                   <span>
                     <strong>Cost Optimization:</strong> EOQ analysis suggests ordering {selectedProduct.recommendedQuantity} units 
                     to minimize total inventory costs.

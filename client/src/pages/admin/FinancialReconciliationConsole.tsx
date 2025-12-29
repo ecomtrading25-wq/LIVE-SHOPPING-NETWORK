@@ -139,7 +139,7 @@ export default function FinancialReconciliationConsole() {
 
             <div className="flex gap-3">
               <Button
-                className="bg-purple-600 hover:bg-purple-700"
+                className="bg-red-600 hover:bg-red-700"
                 onClick={() => runReconciliation.mutate({ dateRange })}
                 disabled={runReconciliation.isLoading}
               >
@@ -301,7 +301,7 @@ export default function FinancialReconciliationConsole() {
                         {txn.providerTransactionId}
                       </TableCell>
                       <TableCell className="text-foreground">
-                        <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/50">
+                        <Badge className="bg-red-500/20 text-red-400 border-red-500/50">
                           {txn.provider}
                         </Badge>
                       </TableCell>

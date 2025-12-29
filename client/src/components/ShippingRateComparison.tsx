@@ -186,7 +186,7 @@ export default function ShippingRateComparison({
       case "UPS":
         return "bg-yellow-600";
       case "FedEx":
-        return "bg-purple-600";
+        return "bg-red-600";
       case "DHL":
         return "bg-red-600";
       default:
@@ -199,7 +199,7 @@ export default function ShippingRateComparison({
       <Card className="p-6">
         <h3 className="text-lg font-semibold mb-4">Shipping Options</h3>
         <div className="flex items-center justify-center py-8">
-          <Loader2 className="w-8 h-8 animate-spin text-purple-600" />
+          <Loader2 className="w-8 h-8 animate-spin text-red-600" />
           <span className="ml-3 text-muted-foreground">
             Comparing rates from 4 carriers...
           </span>
@@ -229,14 +229,14 @@ export default function ShippingRateComparison({
               onClick={() => onSelectRate(rate)}
               className={`relative border rounded-lg p-4 cursor-pointer transition-all ${
                 isSelected
-                  ? "border-purple-600 bg-purple-50 dark:bg-purple-950/20"
-                  : "border-gray-200 hover:border-purple-300 dark:border-border dark:hover:border-purple-700"
+                  ? "border-red-600 bg-red-50 dark:bg-red-950/20"
+                  : "border-gray-200 hover:border-red-300 dark:border-border dark:hover:border-red-700"
               }`}
             >
               {/* Selection indicator */}
               {isSelected && (
                 <div className="absolute top-4 right-4">
-                  <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
+                  <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
                     <Check className="w-4 h-4 text-foreground" />
                   </div>
                 </div>

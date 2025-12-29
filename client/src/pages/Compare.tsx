@@ -154,7 +154,7 @@ export default function ComparePage() {
                         className="w-32 h-32 object-cover rounded-lg mx-auto mb-3"
                       />
                       <Link href={`/products/${product.id}`}>
-                        <h3 className="font-semibold text-foreground hover:text-purple-400 transition-colors">
+                        <h3 className="font-semibold text-foreground hover:text-red-400 transition-colors">
                           {product.name}
                         </h3>
                       </Link>
@@ -268,7 +268,7 @@ export default function ComparePage() {
                       className="p-4 bg-background text-foreground/30 border border-border text-center"
                     >
                       <Button
-                        className="w-full bg-purple-600 hover:bg-purple-700"
+                        className="w-full bg-red-600 hover:bg-red-700"
                         onClick={() => handleAddToCart(product)}
                       >
                         <ShoppingCart className="w-4 h-4 mr-2" />
@@ -283,8 +283,8 @@ export default function ComparePage() {
         ) : (
           <Card className="p-12 bg-background text-foreground/50 border-border text-center">
             <div className="max-w-md mx-auto">
-              <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Search className="w-8 h-8 text-purple-400" />
+              <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Search className="w-8 h-8 text-red-400" />
               </div>
               <h2 className="text-2xl font-semibold text-foreground mb-2">
                 No products selected
@@ -293,7 +293,7 @@ export default function ComparePage() {
                 Search and add products above to start comparing
               </p>
               <Link href="/products">
-                <Button className="bg-purple-600 hover:bg-purple-700">
+                <Button className="bg-red-600 hover:bg-red-700">
                   Browse All Products
                 </Button>
               </Link>

@@ -357,7 +357,7 @@ export default function ReturnsPage() {
                         <Button
                           size="sm"
                           onClick={() => handleProcess(returnItem)}
-                          className="bg-purple-600 hover:bg-purple-700"
+                          className="bg-red-600 hover:bg-red-700"
                         >
                           Process
                         </Button>
@@ -507,7 +507,7 @@ export default function ReturnsPage() {
               <div className="flex gap-3 pt-4">
                 <Button
                   onClick={handleSubmitDecision}
-                  className="flex-1 bg-purple-600 hover:bg-purple-700"
+                  className="flex-1 bg-red-600 hover:bg-red-700"
                 >
                   {processData.decision === "approve"
                     ? "Approve & Process Refund"

@@ -76,14 +76,14 @@ export default function DownloadPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Content */}
           <div>
-            <Badge className="bg-purple-600 mb-4">
+            <Badge className="bg-red-600 mb-4">
               <Smartphone className="w-4 h-4 mr-2" />
               Download Our App
             </Badge>
             <h1 className="text-6xl font-bold text-foreground mb-6">
               Shop Live,
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-pink-400">
                 Anywhere
               </span>
             </h1>
@@ -122,7 +122,7 @@ export default function DownloadPage() {
               {stats.map((stat, index) => (
                 <div key={index}>
                   <div className="flex items-center gap-2 mb-1">
-                    <stat.icon className="w-5 h-5 text-purple-400" />
+                    <stat.icon className="w-5 h-5 text-red-400" />
                     <p className="text-3xl font-bold text-foreground">{stat.value}</p>
                   </div>
                   <p className="text-sm text-gray-400">{stat.label}</p>
@@ -143,7 +143,7 @@ export default function DownloadPage() {
                 {/* Mini Header */}
                 <div className="px-6 py-8 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-purple-600 rounded-lg"></div>
+                    <div className="w-8 h-8 bg-red-600 rounded-lg"></div>
                     <span className="text-foreground font-bold text-sm">LSN</span>
                   </div>
                   <Badge className="bg-red-600 text-foreground animate-pulse">LIVE</Badge>
@@ -152,16 +152,16 @@ export default function DownloadPage() {
                 {/* Mini Video Player */}
                 <div className="px-6 mb-4">
                   <div className="aspect-video bg-card rounded-2xl overflow-hidden relative text-card-foreground">
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/50 to-pink-600/50"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-red-600/50 to-orange-600/50"></div>
                     <div className="absolute bottom-4 left-4 right-4">
                       <div className="bg-background/60 backdrop-blur-sm rounded-lg p-3 text-foreground">
                         <div className="flex items-center gap-3">
-                          <div className="w-12 h-12 bg-purple-600 rounded-lg"></div>
+                          <div className="w-12 h-12 bg-red-600 rounded-lg"></div>
                           <div className="flex-1">
                             <div className="h-3 bg-background text-foreground/80 rounded w-24 mb-1"></div>
                             <div className="h-2 bg-background text-foreground/60 rounded w-16"></div>
                           </div>
-                          <div className="px-3 py-1 bg-purple-600 rounded text-foreground text-xs font-bold">
+                          <div className="px-3 py-1 bg-red-600 rounded text-foreground text-xs font-bold">
                             BUY
                           </div>
                         </div>
@@ -209,9 +209,9 @@ export default function DownloadPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <Card key={index} className="p-8 bg-background/50 border-border hover:border-purple-500 transition-all text-foreground">
-              <div className="w-14 h-14 bg-purple-600/20 rounded-xl flex items-center justify-center mb-4">
-                <feature.icon className="w-7 h-7 text-purple-400" />
+            <Card key={index} className="p-8 bg-background/50 border-border hover:border-red-500 transition-all text-foreground">
+              <div className="w-14 h-14 bg-red-600/20 rounded-xl flex items-center justify-center mb-4">
+                <feature.icon className="w-7 h-7 text-red-400" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-3">{feature.title}</h3>
               <p className="text-gray-400">{feature.description}</p>
@@ -222,7 +222,7 @@ export default function DownloadPage() {
 
       {/* Benefits Section */}
       <div className="container mx-auto px-4 py-20">
-        <Card className="p-12 bg-gradient-to-r from-purple-600 to-pink-600 border-0">
+        <Card className="p-12 bg-gradient-to-r from-red-600 to-orange-600 border-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-foreground mb-6">
@@ -237,7 +237,7 @@ export default function DownloadPage() {
                 {benefits.map((benefit, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <div className="w-6 h-6 bg-background text-foreground rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-4 h-4 text-purple-600" />
+                      <Check className="w-4 h-4 text-red-600" />
                     </div>
                     <p className="text-foreground text-lg">{benefit}</p>
                   </div>

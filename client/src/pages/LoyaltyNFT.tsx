@@ -231,7 +231,7 @@ export default function LoyaltyNFTPage() {
       case "bronze": return "from-amber-700 to-amber-900";
       case "silver": return "from-gray-400 to-gray-600";
       case "gold": return "from-yellow-400 to-yellow-600";
-      case "platinum": return "from-purple-400 to-pink-600";
+      case "platinum": return "from-red-400 to-pink-600";
       default: return "from-gray-500 to-gray-700";
     }
   };
@@ -261,7 +261,7 @@ export default function LoyaltyNFTPage() {
             <Button
               size="lg"
               onClick={handleConnectWallet}
-              className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+              className="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600"
             >
               <Wallet className="w-5 h-5 mr-2" />
               Connect Wallet
@@ -291,10 +291,10 @@ export default function LoyaltyNFTPage() {
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-          <Card className="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-purple-500/30">
+          <Card className="p-6 bg-gradient-to-br from-red-500/20 to-pink-500/20 border-red-500/30">
             <div className="flex items-center justify-between mb-2">
               <p className="text-muted-foreground text-sm">Loyalty Points</p>
-              <TrendingUp className="w-5 h-5 text-purple-400" />
+              <TrendingUp className="w-5 h-5 text-red-400" />
             </div>
             <p className="text-3xl font-bold text-foreground">{loyaltyPoints.toLocaleString()}</p>
           </Card>
@@ -394,7 +394,7 @@ export default function LoyaltyNFTPage() {
                             <span className="text-foreground font-bold">{badge.requiredPoints.toLocaleString()}</span>
                           </div>
                           <Button
-                            className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                            className="w-full bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600"
                             onClick={() => handleMintNFT(badge)}
                             disabled={loyaltyPoints < badge.requiredPoints}
                           >
@@ -434,7 +434,7 @@ export default function LoyaltyNFTPage() {
                         </div>
                       )}
                       {product.exclusive && (
-                        <Badge className="absolute top-3 left-3 bg-purple-500/80 text-foreground">
+                        <Badge className="absolute top-3 left-3 bg-red-500/80 text-foreground">
                           Exclusive
                         </Badge>
                       )}
@@ -483,11 +483,11 @@ export default function LoyaltyNFTPage() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                          tx.type === 'mint' ? 'bg-purple-500/20' :
+                          tx.type === 'mint' ? 'bg-red-500/20' :
                           tx.type === 'reward' ? 'bg-green-500/20' :
                           'bg-blue-500/20'
                         }`}>
-                          {tx.type === 'mint' && <Award className="w-5 h-5 text-purple-400" />}
+                          {tx.type === 'mint' && <Award className="w-5 h-5 text-red-400" />}
                           {tx.type === 'reward' && <Gift className="w-5 h-5 text-green-400" />}
                           {tx.type === 'transfer' && <ExternalLink className="w-5 h-5 text-blue-400" />}
                         </div>

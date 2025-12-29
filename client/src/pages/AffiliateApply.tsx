@@ -34,7 +34,7 @@ export default function AffiliateApply() {
     { name: "Bronze", rate: 5, sales: "0-10K", color: "bg-orange-600", icon: Star },
     { name: "Silver", rate: 10, sales: "10K-50K", color: "bg-gray-400", icon: Star },
     { name: "Gold", rate: 15, sales: "50K-100K", color: "bg-yellow-500", icon: Star },
-    { name: "Platinum", rate: 20, sales: "100K+", color: "bg-purple-500", icon: Star },
+    { name: "Platinum", rate: 20, sales: "100K+", color: "bg-red-500", icon: Star },
   ];
 
   const benefits = [

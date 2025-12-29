@@ -60,7 +60,7 @@ export default function PWAInstallPrompt() {
 
   return (
     <div className="fixed bottom-4 left-4 right-4 z-50 md:left-auto md:right-4 md:max-w-md">
-      <Card className="p-4 bg-white dark:bg-background shadow-2xl border-2 border-purple-600 text-foreground">
+      <Card className="p-4 bg-white dark:bg-background shadow-2xl border-2 border-red-600 text-foreground">
         <button
           onClick={handleDismiss}
           className="absolute top-2 right-2 p-1 hover:bg-zinc-100 dark:hover:bg-card rounded-full transition-colors text-card-foreground"
@@ -69,7 +69,7 @@ export default function PWAInstallPrompt() {
         </button>
 
         <div className="flex items-start gap-4">
-          <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+          <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center flex-shrink-0">
             <Download className="w-6 h-6 text-foreground" />
           </div>
 
@@ -84,7 +84,7 @@ export default function PWAInstallPrompt() {
             <div className="flex gap-2">
               <Button
                 onClick={handleInstall}
-                className="flex-1 h-10 bg-purple-600 hover:bg-purple-700"
+                className="flex-1 h-10 bg-red-600 hover:bg-red-700"
               >
                 Install App
               </Button>

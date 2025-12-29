@@ -158,7 +158,7 @@ export default function AdminExecutiveDashboard() {
           trend: metrics.activeCreatorsChange > 0 ? "up" : metrics.activeCreatorsChange < 0 ? "down" : "flat",
           format: "number",
           icon: Users,
-          color: "text-purple-500",
+          color: "text-red-500",
         },
         {
           label: "Live Shows",
@@ -214,7 +214,7 @@ export default function AdminExecutiveDashboard() {
       <div className="mb-8">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
               Executive Dashboard
             </h1>
             <p className="text-slate-600 dark:text-slate-400 mt-2">
@@ -358,7 +358,7 @@ export default function AdminExecutiveDashboard() {
             {/* Top SKUs */}
             <Card className="p-6">
               <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                <Package className="w-5 h-5 text-purple-500" />
+                <Package className="w-5 h-5 text-red-500" />
                 Top Performing SKUs
               </h3>
               <div className="space-y-3">
@@ -368,7 +368,7 @@ export default function AdminExecutiveDashboard() {
                     className="flex items-center justify-between p-3 rounded-lg bg-background text-foreground dark:bg-card hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors text-card-foreground"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-foreground font-bold text-sm">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-foreground font-bold text-sm">
                         {index + 1}
                       </div>
                       <div>
@@ -734,7 +734,7 @@ export default function AdminExecutiveDashboard() {
               <h3 className="text-sm font-medium text-slate-600 dark:text-slate-400 mb-2">
                 Projected Orders (30d)
               </h3>
-              <p className="text-3xl font-bold text-purple-600 dark:text-purple-400">
+              <p className="text-3xl font-bold text-red-600 dark:text-red-400">
                 {metrics?.projectedOrders30d?.toLocaleString() || "0"}
               </p>
               <p className="text-sm text-slate-500 mt-2">

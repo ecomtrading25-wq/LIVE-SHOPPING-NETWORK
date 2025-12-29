@@ -33,7 +33,7 @@ export default function LoginPage() {
     <div className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
       <Card className="w-full max-w-md p-8 bg-background text-foreground/10 backdrop-blur-xl border-white/20">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
             <LogIn className="w-8 h-8 text-foreground" />
           </div>
           <h1 className="text-3xl font-bold text-foreground mb-2">Welcome Back</h1>
@@ -108,7 +108,7 @@ export default function LoginPage() {
               </label>
             </div>
             <Link href="/forgot-password">
-              <a className="text-sm text-purple-400 hover:text-purple-300">
+              <a className="text-sm text-red-400 hover:text-red-300">
                 Forgot password?
               </a>
             </Link>
@@ -116,7 +116,7 @@ export default function LoginPage() {
 
           <Button
             type="submit"
-            className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700"
+            className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-pink-600 hover:to-red-700"
             size="lg"
             disabled={isLoading}
           >
@@ -128,7 +128,7 @@ export default function LoginPage() {
           <p className="text-muted-foreground">
             Don't have an account?{" "}
             <Link href="/signup">
-              <a className="text-purple-400 hover:text-purple-300 font-medium">
+              <a className="text-red-400 hover:text-red-300 font-medium">
                 Sign up
               </a>
             </Link>

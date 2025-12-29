@@ -559,7 +559,7 @@ const mockSentimentData = {
         </Card>
 
         {/* AI Insights */}
-        <Card className="p-6 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 border-blue-200 dark:border-blue-800">
+        <Card className="p-6 bg-gradient-to-r from-blue-50 to-red-50 dark:from-blue-950 dark:to-red-950 border-blue-200 dark:border-blue-800">
           <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
             <MessageSquare className="w-5 h-5 text-blue-600" />
             AI Insights & Recommendations

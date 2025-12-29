@@ -116,7 +116,7 @@ function LiveSessionManagementContent() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
-        <Loader2 className="w-12 h-12 text-purple-400 animate-spin" />
+        <Loader2 className="w-12 h-12 text-red-400 animate-spin" />
       </div>
     );
   }
@@ -133,7 +133,7 @@ function LiveSessionManagementContent() {
 
           <Dialog open={createDialogOpen} onOpenChange={setCreateDialogOpen}>
             <DialogTrigger asChild>
-              <Button className="bg-purple-600 hover:bg-purple-700">
+              <Button className="bg-red-600 hover:bg-red-700">
                 <Plus className="w-5 h-5 mr-2" />
                 Create Live Session
               </Button>
@@ -207,7 +207,7 @@ function LiveSessionManagementContent() {
                   <Button
                     onClick={handleCreateSession}
                     disabled={createSession.isPending}
-                    className="flex-1 bg-purple-600 hover:bg-purple-700"
+                    className="flex-1 bg-red-600 hover:bg-red-700"
                   >
                     {createSession.isPending ? (
                       <>
@@ -253,8 +253,8 @@ function LiveSessionManagementContent() {
 
           <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-2">
-              <Users className="w-8 h-8 text-purple-400" />
-              <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30">
+              <Users className="w-8 h-8 text-red-400" />
+              <Badge className="bg-red-500/20 text-red-400 border-red-500/30">
                 {sessions?.reduce((sum: number, s: any) => sum + (s.viewerCount || 0), 0) || 0}
               </Badge>
             </div>
@@ -285,7 +285,7 @@ function LiveSessionManagementContent() {
               </p>
               <Button
                 onClick={() => setCreateDialogOpen(true)}
-                className="bg-purple-600 hover:bg-purple-700"
+                className="bg-red-600 hover:bg-red-700"
               >
                 <Plus className="w-5 h-5 mr-2" />
                 Create Your First Session

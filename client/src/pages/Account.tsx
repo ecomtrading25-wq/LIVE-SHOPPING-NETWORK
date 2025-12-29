@@ -37,7 +37,7 @@ export default function AccountPage() {
     const colors: Record<string, string> = {
       pending: "bg-yellow-100 text-yellow-800",
       processing: "bg-blue-100 text-blue-800",
-      shipped: "bg-purple-100 text-purple-800",
+      shipped: "bg-red-100 text-red-800",
       delivered: "bg-green-100 text-green-800",
       cancelled: "bg-red-100 text-red-800",
       refunded: "bg-gray-100 text-gray-800",
@@ -55,7 +55,7 @@ export default function AccountPage() {
             Please sign in to view your account and order history
           </p>
           <Link href="/">
-            <Button className="w-full bg-purple-600 hover:bg-purple-700">
+            <Button className="w-full bg-red-600 hover:bg-red-700">
               Go to Home
             </Button>
           </Link>
@@ -71,7 +71,7 @@ export default function AccountPage() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/">
-              <a className="text-2xl font-bold text-foreground hover:text-purple-400 transition-colors">
+              <a className="text-2xl font-bold text-foreground hover:text-red-400 transition-colors">
                 Live Shopping Network
               </a>
             </Link>
@@ -98,7 +98,7 @@ export default function AccountPage() {
           <div className="lg:col-span-1">
             <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <div className="text-center mb-6">
-                <div className="w-24 h-24 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-24 h-24 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <User className="w-12 h-12 text-foreground" />
                 </div>
                 <h2 className="text-xl font-bold text-foreground">{user.name || "User"}</h2>
@@ -159,7 +159,7 @@ export default function AccountPage() {
                   Start shopping to see your orders here
                 </p>
                 <Link href="/products">
-                  <Button className="bg-purple-600 hover:bg-purple-700">
+                  <Button className="bg-red-600 hover:bg-red-700">
                     Browse Products
                   </Button>
                 </Link>

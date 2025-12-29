@@ -132,7 +132,7 @@ export default function UsersPage() {
   const getRoleBadgeColor = (role: string) => {
     switch (role) {
       case "founder":
-        return "bg-purple-600 text-foreground";
+        return "bg-red-600 text-foreground";
       case "admin":
         return "bg-blue-600 text-foreground";
       case "ops":
@@ -177,7 +177,7 @@ export default function UsersPage() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-96">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600"></div>
       </div>
     );
   }
@@ -198,7 +198,7 @@ export default function UsersPage() {
         <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
           <DialogTrigger asChild>
             <Button
-              className="bg-purple-600 hover:bg-purple-700"
+              className="bg-red-600 hover:bg-red-700"
               onClick={() => {
                 setEditingUser(null);
                 resetForm();
@@ -286,7 +286,7 @@ export default function UsersPage() {
               <div className="flex gap-3 pt-4">
                 <Button
                   type="submit"
-                  className="flex-1 bg-purple-600 hover:bg-purple-700"
+                  className="flex-1 bg-red-600 hover:bg-red-700"
                   disabled={createUser.isPending || updateUser.isPending}
                 >
                   {editingUser ? "Update User" : "Create User"}
@@ -312,8 +312,8 @@ export default function UsersPage() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <Card className="p-6">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/20 rounded-xl flex items-center justify-center">
-              <Shield className="w-6 h-6 text-purple-600" />
+            <div className="w-12 h-12 bg-red-100 dark:bg-red-900/20 rounded-xl flex items-center justify-center">
+              <Shield className="w-6 h-6 text-red-600" />
             </div>
             <div>
               <p className="text-2xl font-bold text-zinc-900 dark:text-foreground">
@@ -426,7 +426,7 @@ export default function UsersPage() {
                   >
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                        <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center">
                           <UsersIcon className="w-5 h-5 text-foreground" />
                         </div>
                         <div>

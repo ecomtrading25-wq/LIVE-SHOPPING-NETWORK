@@ -126,7 +126,7 @@ export default function VoiceSearch() {
               <div
                 className={`w-32 h-32 rounded-full flex items-center justify-center ${
                   isListening
-                    ? "bg-gradient-to-r from-purple-600 to-pink-600 animate-pulse"
+                    ? "bg-gradient-to-r from-red-600 to-orange-600 animate-pulse"
                     : "bg-card"
                 }`}
               >
@@ -177,7 +177,7 @@ export default function VoiceSearch() {
               ) : (
                 <Button
                   onClick={startListening}
-                  className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600"
+                  className="flex-1 bg-gradient-to-r from-red-600 to-orange-600"
                   disabled={isProcessing}
                 >
                   <Mic className="w-4 h-4 mr-2" />

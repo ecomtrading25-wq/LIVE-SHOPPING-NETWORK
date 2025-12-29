@@ -173,7 +173,7 @@ export default function PersonalizedRecommendations({
 
               <div className="p-4 space-y-3">
                 <Link href={`/products/${product.productId}`}>
-                  <h3 className="font-medium line-clamp-2 hover:text-purple-600">
+                  <h3 className="font-medium line-clamp-2 hover:text-red-600">
                     {product.productName}
                   </h3>
                 </Link>

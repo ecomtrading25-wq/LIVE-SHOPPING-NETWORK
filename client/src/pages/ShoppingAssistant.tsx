@@ -164,7 +164,7 @@ What can I help you with today?`,
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-4">
-            <div className="p-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl">
+            <div className="p-4 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl">
               <Bot className="w-8 h-8 text-foreground" />
             </div>
             <div>
@@ -193,8 +193,8 @@ What can I help you with today?`,
                     <div
                       className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${
                         message.role === "user"
-                          ? "bg-purple-600"
-                          : "bg-gradient-to-br from-purple-500 to-pink-500"
+                          ? "bg-red-600"
+                          : "bg-gradient-to-br from-red-500 to-orange-500"
                       }`}
                     >
                       {message.role === "user" ? (
@@ -209,7 +209,7 @@ What can I help you with today?`,
                       <div
                         className={`inline-block max-w-3xl p-4 rounded-2xl ${
                           message.role === "user"
-                            ? "bg-purple-600 text-foreground"
+                            ? "bg-red-600 text-foreground"
                             : "bg-background/10 text-foreground"
                         }`}
                       >
@@ -295,12 +295,12 @@ What can I help you with today?`,
 
                 {isLoading && (
                   <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
                       <Bot className="w-5 h-5 text-foreground" />
                     </div>
                     <div className="flex-1">
                       <div className="inline-block p-4 rounded-2xl bg-background text-foreground/10">
-                        <Loader2 className="w-5 h-5 text-purple-400 animate-spin" />
+                        <Loader2 className="w-5 h-5 text-red-400 animate-spin" />
                       </div>
                     </div>
                   </div>
@@ -323,7 +323,7 @@ What can I help you with today?`,
                   <Button
                     onClick={handleSend}
                     disabled={!input.trim() || isLoading}
-                    className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                    className="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600"
                   >
                     {isLoading ? (
                       <Loader2 className="w-5 h-5 animate-spin" />
@@ -341,7 +341,7 @@ What can I help you with today?`,
             {/* Quick Actions */}
             <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-purple-400" />
+                <Sparkles className="w-5 h-5 text-red-400" />
                 Quick Actions
               </h2>
               <div className="space-y-3">
@@ -355,7 +355,7 @@ What can I help you with today?`,
                       onClick={() => handleQuickAction(action.query)}
                       disabled={isLoading}
                     >
-                      <Icon className="w-4 h-4 mr-3 text-purple-400" />
+                      <Icon className="w-4 h-4 mr-3 text-red-400" />
                       {action.label}
                     </Button>
                   );
@@ -366,28 +366,28 @@ What can I help you with today?`,
             {/* Tips */}
             <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-                <MessageSquare className="w-5 h-5 text-purple-400" />
+                <MessageSquare className="w-5 h-5 text-red-400" />
                 Tips
               </h2>
               <ul className="space-y-3 text-muted-foreground text-sm">
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400 mt-1">•</span>
+                  <span className="text-red-400 mt-1">•</span>
                   <span>Ask about specific product categories or features</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400 mt-1">•</span>
+                  <span className="text-red-400 mt-1">•</span>
                   <span>Request personalized recommendations based on your history</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400 mt-1">•</span>
+                  <span className="text-red-400 mt-1">•</span>
                   <span>Track multiple orders at once</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400 mt-1">•</span>
+                  <span className="text-red-400 mt-1">•</span>
                   <span>Compare products and get buying advice</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400 mt-1">•</span>
+                  <span className="text-red-400 mt-1">•</span>
                   <span>Ask about return policies and warranties</span>
                 </li>
               </ul>

@@ -163,7 +163,7 @@ export default function ProductsPage() {
                   </div>
                 </TableCell>
                 <TableCell>
-                  <Badge className="bg-purple-600">{product.variantCount || 0}</Badge>
+                  <Badge className="bg-red-600">{product.variantCount || 0}</Badge>
                 </TableCell>
                 <TableCell>
                   <div className="flex gap-2">
@@ -235,8 +235,8 @@ export default function ProductsPage() {
 
         <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center">
-              <Package className="w-5 h-5 text-purple-500" />
+            <div className="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center">
+              <Package className="w-5 h-5 text-red-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Total Variants</p>

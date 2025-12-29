@@ -238,7 +238,7 @@ export default function CustomerServicePage() {
       case "open":
         return "bg-blue-500/20 text-blue-400";
       case "in_progress":
-        return "bg-purple-500/20 text-purple-400";
+        return "bg-red-500/20 text-red-400";
       case "waiting":
         return "bg-yellow-500/20 text-yellow-400";
       case "resolved":
@@ -301,7 +301,7 @@ export default function CustomerServicePage() {
         <Card className="p-6">
           <div className="flex items-center justify-between mb-2">
             <p className="text-sm text-muted-foreground">In Progress</p>
-            <Clock className="w-5 h-5 text-purple-500" />
+            <Clock className="w-5 h-5 text-red-500" />
           </div>
           <p className="text-3xl font-bold mb-1">{inProgressTickets}</p>
           <p className="text-xs text-muted-foreground">Being handled</p>
@@ -479,7 +479,7 @@ export default function CustomerServicePage() {
                         message.sender === "customer"
                           ? "bg-blue-500"
                           : message.sender === "bot"
-                          ? "bg-purple-500"
+                          ? "bg-red-500"
                           : "bg-green-500"
                       }`}
                     >
@@ -497,7 +497,7 @@ export default function CustomerServicePage() {
                           message.sender === "customer"
                             ? "bg-muted"
                             : message.sender === "bot"
-                            ? "bg-purple-500/20"
+                            ? "bg-red-500/20"
                             : "bg-green-500/20"
                         }`}
                       >

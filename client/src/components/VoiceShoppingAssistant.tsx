@@ -196,7 +196,7 @@ export default function VoiceShoppingAssistant() {
       {/* Voice Assistant Floating Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-24 right-4 z-40 w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
+        className="fixed bottom-24 right-4 z-40 w-14 h-14 bg-gradient-to-r from-red-600 to-orange-600 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
         title="Voice Shopping Assistant"
       >
         <Mic className="w-6 h-6 text-foreground" />
@@ -210,11 +210,11 @@ export default function VoiceShoppingAssistant() {
             onClick={() => setIsOpen(false)}
           />
           <div className="fixed inset-x-4 bottom-4 z-50 max-w-md mx-auto md:bottom-auto md:top-1/2 md:-translate-y-1/2">
-            <Card className="p-6 bg-background border-purple-500/30 text-foreground">
+            <Card className="p-6 bg-background border-red-500/30 text-foreground">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-purple-500/20 rounded-lg">
-                    <Mic className="w-6 h-6 text-purple-400" />
+                  <div className="p-2 bg-red-500/20 rounded-lg">
+                    <Mic className="w-6 h-6 text-red-400" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-foreground">Voice Assistant</h3>
@@ -238,7 +238,7 @@ export default function VoiceShoppingAssistant() {
                     w-24 h-24 rounded-full flex items-center justify-center transition-all
                     ${isListening
                       ? "bg-red-600 hover:bg-red-700 animate-pulse"
-                      : "bg-purple-600 hover:bg-purple-700"
+                      : "bg-red-600 hover:bg-red-700"
                     }
                     ${isProcessing ? "opacity-50 cursor-not-allowed" : ""}
                   `}
@@ -270,9 +270,9 @@ export default function VoiceShoppingAssistant() {
 
               {/* Feedback */}
               {feedback && (
-                <div className="mb-4 p-4 bg-purple-500/20 rounded-lg border border-purple-500/30">
+                <div className="mb-4 p-4 bg-red-500/20 rounded-lg border border-red-500/30">
                   <div className="flex items-start gap-2">
-                    <Volume2 className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                    <Volume2 className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
                     <p className="text-foreground text-sm">{feedback}</p>
                   </div>
                 </div>
@@ -293,7 +293,7 @@ export default function VoiceShoppingAssistant() {
                         }}
                         className="w-full flex items-center gap-3 p-3 bg-white/5 hover:bg-white/10 rounded-lg transition-colors text-left"
                       >
-                        <Icon className="w-4 h-4 text-purple-400" />
+                        <Icon className="w-4 h-4 text-red-400" />
                         <span className="text-sm text-muted-foreground">{cmd.text}</span>
                       </button>
                     );

@@ -369,9 +369,9 @@ const mockRFMData = {
           <Card className="p-6">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm text-muted-foreground">Avg Frequency</span>
-              <ShoppingCart className="w-5 h-5 text-purple-500" />
+              <ShoppingCart className="w-5 h-5 text-red-500" />
             </div>
-            <div className="text-3xl font-bold text-purple-600">
+            <div className="text-3xl font-bold text-red-600">
               {mockRFMData.avgFrequency}
             </div>
             <div className="text-sm text-muted-foreground mt-1">
@@ -601,7 +601,7 @@ const mockRFMData = {
 
         {/* Recommended Actions */}
         {selectedSegment && (
-          <Card className="p-6 bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-950 dark:to-purple-950 border-pink-200 dark:border-pink-800">
+          <Card className="p-6 bg-gradient-to-r from-pink-50 to-red-50 dark:from-pink-950 dark:to-red-950 border-pink-200 dark:border-pink-800">
             <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
               <Target className="w-5 h-5" style={{ color: getSegmentColor(selectedSegment) }} />
               Recommended Actions for {selectedSegment}
@@ -621,26 +621,26 @@ const mockRFMData = {
         )}
 
         {/* AI Insights */}
-        <Card className="p-6 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-950 dark:to-pink-950 border-purple-200 dark:border-purple-800">
+        <Card className="p-6 bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-950 dark:to-pink-950 border-red-200 dark:border-red-800">
           <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
-            <PieChartIcon className="w-5 h-5 text-purple-600" />
+            <PieChartIcon className="w-5 h-5 text-red-600" />
             AI Insights & Recommendations
           </h3>
           <div className="space-y-2">
             <div className="flex items-start gap-2 text-sm">
-              <div className="w-2 h-2 bg-purple-600 rounded-full mt-1.5" />
+              <div className="w-2 h-2 bg-red-600 rounded-full mt-1.5" />
               <span>
                 <strong>Champions retention:</strong> 95% retention rate among Champions - maintain VIP treatment and exclusive benefits to preserve this valuable segment.
               </span>
             </div>
             <div className="flex items-start gap-2 text-sm">
-              <div className="w-2 h-2 bg-purple-600 rounded-full mt-1.5" />
+              <div className="w-2 h-2 bg-red-600 rounded-full mt-1.5" />
               <span>
                 <strong>At Risk opportunity:</strong> 1,709 customers at risk with $367K revenue potential. Launch win-back campaign with 20% discount to recover this segment.
               </span>
             </div>
             <div className="flex items-start gap-2 text-sm">
-              <div className="w-2 h-2 bg-purple-600 rounded-full mt-1.5" />
+              <div className="w-2 h-2 bg-red-600 rounded-full mt-1.5" />
               <span>
                 <strong>Potential growth:</strong> 30% of customers in Potential segment - focus on engagement campaigns to convert them into Loyal customers.
               </span>

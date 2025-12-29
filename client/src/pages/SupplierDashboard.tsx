@@ -237,7 +237,7 @@ export default function SupplierDashboardPage() {
           <Card className="p-6">
             <div className="flex items-center justify-between mb-2">
               <p className="text-sm text-muted-foreground">Active Products</p>
-              <Package className="w-5 h-5 text-purple-500" />
+              <Package className="w-5 h-5 text-red-500" />
             </div>
             <p className="text-3xl font-bold mb-1">{stats.activeProducts}</p>
             <p className="text-xs text-muted-foreground">3 out of stock</p>

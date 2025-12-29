@@ -404,7 +404,7 @@ export default function LiveSchedulerPage() {
         <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between mb-2">
             <p className="text-gray-400 text-sm">Total Sessions</p>
-            <Calendar className="w-5 h-5 text-purple-400" />
+            <Calendar className="w-5 h-5 text-red-400" />
           </div>
           <p className="text-3xl font-bold text-foreground">{sessions.length}</p>
         </Card>
@@ -466,7 +466,7 @@ export default function LiveSchedulerPage() {
                   day ? "bg-background text-foreground/5 hover:bg-background text-foreground/10" : "bg-transparent"
                 } ${
                   day && day.toDateString() === new Date().toDateString()
-                    ? "ring-2 ring-purple-500"
+                    ? "ring-2 ring-red-500"
                     : ""
                 }`}
               >
@@ -477,7 +477,7 @@ export default function LiveSchedulerPage() {
                       {daySessions.map((session) => (
                         <div
                           key={session.id}
-                          className="text-xs p-1 bg-purple-500/20 text-purple-400 rounded cursor-pointer hover:bg-purple-500/30"
+                          className="text-xs p-1 bg-red-500/20 text-red-400 rounded cursor-pointer hover:bg-red-500/30"
                           onClick={() => openEditDialog(session)}
                         >
                           <p className="font-medium truncate">{session.startTime}</p>

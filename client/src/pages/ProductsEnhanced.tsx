@@ -71,7 +71,7 @@ export default function ProductsEnhanced() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-foreground py-20">
+      <div className="bg-gradient-to-r from-indigo-600 via-red-600 to-pink-600 text-foreground py-20">
         <div className="container">
           <h1 className="text-5xl font-bold mb-4">Discover Amazing Products</h1>
           <p className="text-xl text-indigo-100 mb-8">

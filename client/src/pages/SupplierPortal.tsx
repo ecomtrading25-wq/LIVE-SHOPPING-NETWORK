@@ -154,7 +154,7 @@ function SupplierPortalContent() {
               <p className="text-gray-400 mt-1">Manage suppliers and purchase orders</p>
             </div>
             <div className="flex items-center gap-2">
-              <Button className="bg-purple-600 hover:bg-purple-700">
+              <Button className="bg-red-600 hover:bg-red-700">
                 <Plus className="w-4 h-4 mr-2" />
                 Add Supplier
               </Button>
@@ -193,8 +193,8 @@ function SupplierPortalContent() {
 
             <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-purple-500/20 rounded-lg">
-                  <DollarSign className="w-5 h-5 text-purple-400" />
+                <div className="p-2 bg-red-500/20 rounded-lg">
+                  <DollarSign className="w-5 h-5 text-red-400" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-foreground">
@@ -291,7 +291,7 @@ function SupplierPortalContent() {
                       <span>• {supplier.totalOrders} orders</span>
                     </div>
                   </div>
-                  <Button size="sm" variant="outline" className="border-purple-500/30">
+                  <Button size="sm" variant="outline" className="border-red-500/30">
                     View Details
                   </Button>
                 </div>

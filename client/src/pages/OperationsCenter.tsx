@@ -153,7 +153,7 @@ export default function OperationsCenter() {
                 variant={timeRange === "today" ? "default" : "outline"}
                 onClick={() => setTimeRange("today")}
                 size="sm"
-                className={timeRange === "today" ? "bg-purple-600" : "border-border"}
+                className={timeRange === "today" ? "bg-red-600" : "border-border"}
               >
                 Today
               </Button>
@@ -161,7 +161,7 @@ export default function OperationsCenter() {
                 variant={timeRange === "week" ? "default" : "outline"}
                 onClick={() => setTimeRange("week")}
                 size="sm"
-                className={timeRange === "week" ? "bg-purple-600" : "border-border"}
+                className={timeRange === "week" ? "bg-red-600" : "border-border"}
               >
                 Week
               </Button>
@@ -169,7 +169,7 @@ export default function OperationsCenter() {
                 variant={timeRange === "month" ? "default" : "outline"}
                 onClick={() => setTimeRange("month")}
                 size="sm"
-                className={timeRange === "month" ? "bg-purple-600" : "border-border"}
+                className={timeRange === "month" ? "bg-red-600" : "border-border"}
               >
                 Month
               </Button>
@@ -255,8 +255,8 @@ export default function OperationsCenter() {
 
           <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-start justify-between mb-4">
-              <div className="p-3 bg-purple-500/20 rounded-lg">
-                <Users className="w-6 h-6 text-purple-400" />
+              <div className="p-3 bg-red-500/20 rounded-lg">
+                <Users className="w-6 h-6 text-red-400" />
               </div>
               {metrics.customers.trend === "up" ? (
                 <TrendingUp className="w-5 h-5 text-green-400" />
@@ -313,7 +313,7 @@ export default function OperationsCenter() {
           <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-xl font-bold text-foreground">Recent Orders</h3>
-              <ShoppingCart className="w-5 h-5 text-purple-400" />
+              <ShoppingCart className="w-5 h-5 text-red-400" />
             </div>
             <div className="space-y-3">
               {recentOrders.map((order) => (
@@ -348,7 +348,7 @@ export default function OperationsCenter() {
           <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-xl font-bold text-foreground">Inventory Status</h3>
-              <Package className="w-5 h-5 text-purple-400" />
+              <Package className="w-5 h-5 text-red-400" />
             </div>
             <div className="space-y-3">
               {topProducts.map((product, index) => (
@@ -378,9 +378,9 @@ export default function OperationsCenter() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <Button
               variant="outline"
-              className="h-auto flex-col gap-2 py-4 border-purple-500/30"
+              className="h-auto flex-col gap-2 py-4 border-red-500/30"
             >
-              <BarChart3 className="w-6 h-6 text-purple-400" />
+              <BarChart3 className="w-6 h-6 text-red-400" />
               <span className="text-sm">Analytics</span>
             </Button>
             <Button

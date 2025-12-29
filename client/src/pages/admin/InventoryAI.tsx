@@ -260,7 +260,7 @@ export default function InventoryAIPage() {
         <Card className="p-6">
           <div className="flex items-center justify-between mb-2">
             <p className="text-sm text-muted-foreground">Forecast Confidence</p>
-            <Brain className="w-5 h-5 text-purple-500" />
+            <Brain className="w-5 h-5 text-red-500" />
           </div>
           <p className="text-3xl font-bold mb-1">{avgConfidence.toFixed(1)}%</p>
           <p className="text-xs text-green-500">+2.3% from last month</p>
@@ -338,7 +338,7 @@ export default function InventoryAIPage() {
                     </div>
                     <div className="text-right">
                       <p className="text-sm text-muted-foreground mb-1">ML Confidence</p>
-                      <p className="text-2xl font-bold text-purple-500">{forecast.confidence}%</p>
+                      <p className="text-2xl font-bold text-red-500">{forecast.confidence}%</p>
                     </div>
                   </div>
 
@@ -353,7 +353,7 @@ export default function InventoryAIPage() {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground mb-1">30-Day Forecast</p>
-                      <p className="text-xl font-bold text-purple-500">{forecast.predicted30Day}</p>
+                      <p className="text-xl font-bold text-red-500">{forecast.predicted30Day}</p>
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground mb-1">Reorder Point</p>
@@ -448,9 +448,9 @@ export default function InventoryAIPage() {
                 <p className="text-sm text-muted-foreground">+15% month-over-month</p>
               </Card>
 
-              <Card className="p-4 bg-purple-500/10 border-purple-500/20">
+              <Card className="p-4 bg-red-500/10 border-red-500/20">
                 <div className="flex items-center gap-3 mb-2">
-                  <Brain className="w-5 h-5 text-purple-500" />
+                  <Brain className="w-5 h-5 text-red-500" />
                   <h3 className="font-bold">AI Prediction</h3>
                 </div>
                 <p className="text-2xl font-bold mb-1">+28% YoY</p>

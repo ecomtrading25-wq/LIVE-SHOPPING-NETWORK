@@ -40,7 +40,7 @@ export default function CategoriesPage() {
       icon: Sparkles,
       productCount: 892,
       description: "Skincare, makeup, and wellness products",
-      color: "from-purple-500 to-pink-500",
+      color: "from-red-500 to-orange-500",
       image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400",
     },
     {
@@ -67,7 +67,7 @@ export default function CategoriesPage() {
       icon: Book,
       productCount: 3421,
       description: "Books, movies, music, and games",
-      color: "from-indigo-500 to-purple-500",
+      color: "from-indigo-500 to-red-500",
       image: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=400",
     },
     {
@@ -107,7 +107,7 @@ export default function CategoriesPage() {
             const Icon = category.icon;
             return (
               <Link key={category.id} href={`/products?category=${category.id}`}>
-                <Card className="group bg-background text-foreground/10 backdrop-blur-xl border-white/20 hover:border-purple-500/50 transition-all duration-300 overflow-hidden cursor-pointer h-full">
+                <Card className="group bg-background text-foreground/10 backdrop-blur-xl border-white/20 hover:border-red-500/50 transition-all duration-300 overflow-hidden cursor-pointer h-full">
                   {/* Category Image */}
                   <div className="relative h-48 overflow-hidden">
                     <div
@@ -125,15 +125,15 @@ export default function CategoriesPage() {
                   {/* Category Info */}
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-2">
-                      <h3 className="text-xl font-bold text-foreground group-hover:text-purple-400 transition-colors">
+                      <h3 className="text-xl font-bold text-foreground group-hover:text-red-400 transition-colors">
                         {category.name}
                       </h3>
-                      <Badge className="bg-purple-600">{category.productCount}</Badge>
+                      <Badge className="bg-red-600">{category.productCount}</Badge>
                     </div>
                     <p className="text-muted-foreground text-sm mb-4">{category.description}</p>
                     <Button
                       variant="ghost"
-                      className="w-full border-white/20 text-foreground hover:bg-background/10 group-hover:bg-purple-600 group-hover:border-purple-600 transition-colors"
+                      className="w-full border-white/20 text-foreground hover:bg-background/10 group-hover:bg-red-600 group-hover:border-red-600 transition-colors"
                     >
                       Browse
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -147,7 +147,7 @@ export default function CategoriesPage() {
 
         {/* Featured Categories Banner */}
         <div className="mt-16">
-          <Card className="p-8 bg-gradient-to-r from-purple-600 to-pink-600 border-0 text-center">
+          <Card className="p-8 bg-gradient-to-r from-red-600 to-orange-600 border-0 text-center">
             <h2 className="text-3xl font-bold text-foreground mb-4">
               Can't find what you're looking for?
             </h2>
@@ -155,7 +155,7 @@ export default function CategoriesPage() {
               Use our advanced search to find exactly what you need
             </p>
             <Link href="/products">
-              <Button className="bg-background text-foreground text-purple-600 hover:bg-gray-100">
+              <Button className="bg-background text-foreground text-red-600 hover:bg-gray-100">
                 Browse All Products
               </Button>
             </Link>
@@ -172,7 +172,7 @@ export default function CategoriesPage() {
               const Icon = category.icon;
               return (
                 <Link key={category.id} href={`/products?category=${category.id}`}>
-                  <Card className="p-6 bg-background text-foreground/10 backdrop-blur-xl border-white/20 hover:border-purple-500/50 transition-all cursor-pointer text-center">
+                  <Card className="p-6 bg-background text-foreground/10 backdrop-blur-xl border-white/20 hover:border-red-500/50 transition-all cursor-pointer text-center">
                     <div className={`w-16 h-16 bg-gradient-to-br ${category.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
                       <Icon className="w-8 h-8 text-foreground" />
                     </div>

@@ -126,7 +126,7 @@ export default function AffiliateDashboard() {
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-red-600 to-blue-600 bg-clip-text text-transparent">
             Affiliate Dashboard
           </h1>
           <p className="text-gray-600 dark:text-gray-400">
@@ -135,7 +135,7 @@ export default function AffiliateDashboard() {
         </div>
 
         {/* Tier Badge */}
-        <Card className="mb-6 p-6 bg-gradient-to-r from-purple-600 to-blue-600 text-foreground">
+        <Card className="mb-6 p-6 bg-gradient-to-r from-red-600 to-blue-600 text-foreground">
           <div className="flex items-center justify-between">
             <div>
               <div className="flex items-center gap-3 mb-2">
@@ -199,10 +199,10 @@ export default function AffiliateDashboard() {
 
           <Card className="p-6 hover:shadow-lg transition-shadow">
             <div className="flex items-center justify-between mb-4">
-              <div className="p-3 bg-purple-100 dark:bg-purple-900/20 rounded-lg">
-                <ShoppingCart className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+              <div className="p-3 bg-red-100 dark:bg-red-900/20 rounded-lg">
+                <ShoppingCart className="w-6 h-6 text-red-600 dark:text-red-400" />
               </div>
-              <TrendingUp className="w-5 h-5 text-purple-500" />
+              <TrendingUp className="w-5 h-5 text-red-500" />
             </div>
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Conversions</p>
             <p className="text-3xl font-bold">{affiliateData.thisMonth.conversions}</p>
@@ -387,7 +387,7 @@ export default function AffiliateDashboard() {
                   <h4 className="font-medium mb-3">Banner Ads</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {['728x90 Leaderboard', '300x250 Medium Rectangle', '160x600 Skyscraper', '300x600 Half Page'].map((size) => (
-                      <div key={size} className="p-4 border rounded-lg hover:border-purple-500 transition-colors">
+                      <div key={size} className="p-4 border rounded-lg hover:border-red-500 transition-colors">
                         <div className="bg-gray-200 dark:bg-gray-700 h-24 rounded mb-3 flex items-center justify-center">
                           <p className="text-sm text-gray-500">{size}</p>
                         </div>
@@ -461,7 +461,7 @@ export default function AffiliateDashboard() {
                 {affiliateData.payouts.map((payout) => (
                   <div
                     key={payout.payoutId}
-                    className="flex items-center justify-between p-4 border rounded-lg hover:border-purple-500 transition-colors"
+                    className="flex items-center justify-between p-4 border rounded-lg hover:border-red-500 transition-colors"
                   >
                     <div>
                       <p className="font-medium">${payout.amount.toFixed(2)}</p>

@@ -99,7 +99,7 @@ export default function RequestReturnPage() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 py-12">
+      <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-pink-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 py-12">
         <div className="container max-w-2xl">
           <Card className="p-12 text-center">
             <div className="w-20 h-20 bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -140,7 +140,7 @@ export default function RequestReturnPage() {
               </p>
               <ol className="text-left space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
                 <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-purple-100 dark:bg-purple-900/20 rounded-full flex items-center justify-center text-purple-600 font-medium">
+                  <span className="flex-shrink-0 w-6 h-6 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center text-red-600 font-medium">
                     1
                   </span>
                   <span>
@@ -148,7 +148,7 @@ export default function RequestReturnPage() {
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-purple-100 dark:bg-purple-900/20 rounded-full flex items-center justify-center text-purple-600 font-medium">
+                  <span className="flex-shrink-0 w-6 h-6 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center text-red-600 font-medium">
                     2
                   </span>
                   <span>
@@ -156,7 +156,7 @@ export default function RequestReturnPage() {
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-purple-100 dark:bg-purple-900/20 rounded-full flex items-center justify-center text-purple-600 font-medium">
+                  <span className="flex-shrink-0 w-6 h-6 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center text-red-600 font-medium">
                     3
                   </span>
                   <span>
@@ -164,7 +164,7 @@ export default function RequestReturnPage() {
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-purple-100 dark:bg-purple-900/20 rounded-full flex items-center justify-center text-purple-600 font-medium">
+                  <span className="flex-shrink-0 w-6 h-6 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center text-red-600 font-medium">
                     4
                   </span>
                   <span>
@@ -177,7 +177,7 @@ export default function RequestReturnPage() {
             <div className="flex gap-4 mt-8">
               <Button
                 onClick={() => (window.location.href = "/account")}
-                className="flex-1 bg-purple-600 hover:bg-purple-700"
+                className="flex-1 bg-red-600 hover:bg-red-700"
               >
                 View My Orders
               </Button>
@@ -196,7 +196,7 @@ export default function RequestReturnPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-pink-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 py-12">
       <div className="container max-w-4xl">
         {/* Header */}
         <div className="mb-8">
@@ -394,7 +394,7 @@ export default function RequestReturnPage() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="flex-1 h-12 bg-purple-600 hover:bg-purple-700 text-base"
+                    className="flex-1 h-12 bg-red-600 hover:bg-red-700 text-base"
                   >
                     {isSubmitting ? (
                       <>

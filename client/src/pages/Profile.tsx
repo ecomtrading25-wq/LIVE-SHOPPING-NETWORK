@@ -97,7 +97,7 @@ export default function ProfilePage() {
                 {/* Avatar Upload */}
                 <div className="flex items-center gap-6 mb-6">
                   <div className="relative">
-                    <div className="w-24 h-24 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center overflow-hidden">
+                    <div className="w-24 h-24 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center overflow-hidden">
                       {profileData.avatar ? (
                         <img
                           src={profileData.avatar}
@@ -111,7 +111,7 @@ export default function ProfilePage() {
                     {isEditing && (
                       <label
                         htmlFor="avatar-upload"
-                        className="absolute bottom-0 right-0 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center cursor-pointer hover:bg-purple-700 transition-colors"
+                        className="absolute bottom-0 right-0 w-8 h-8 bg-red-600 rounded-full flex items-center justify-center cursor-pointer hover:bg-red-700 transition-colors"
                       >
                         <Camera className="w-4 h-4 text-foreground" />
                         <input
@@ -127,7 +127,7 @@ export default function ProfilePage() {
                   <div>
                     <h3 className="text-xl font-bold text-foreground">{profileData.name}</h3>
                     <p className="text-muted-foreground">{profileData.email}</p>
-                    <Badge className="mt-2 bg-purple-600">Premium Member</Badge>
+                    <Badge className="mt-2 bg-red-600">Premium Member</Badge>
                   </div>
                 </div>
 
@@ -199,7 +199,7 @@ export default function ProfilePage() {
                   {isEditing && (
                     <Button
                       onClick={handleSaveProfile}
-                      className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700"
+                      className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-pink-600 hover:to-red-700"
                     >
                       Save Changes
                     </Button>
@@ -267,7 +267,7 @@ export default function ProfilePage() {
 
                   <Button
                     onClick={handleChangePassword}
-                    className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700"
+                    className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-pink-600 hover:to-red-700"
                   >
                     Change Password
                   </Button>
@@ -298,11 +298,11 @@ export default function ProfilePage() {
                 <div className="space-y-4">
                   {activityLog.map((activity) => (
                     <div key={activity.id} className="flex items-start gap-3">
-                      <div className="w-10 h-10 bg-purple-600/20 rounded-full flex items-center justify-center flex-shrink-0">
+                      <div className="w-10 h-10 bg-red-600/20 rounded-full flex items-center justify-center flex-shrink-0">
                         {activity.type === "login" ? (
-                          <Activity className="w-5 h-5 text-purple-400" />
+                          <Activity className="w-5 h-5 text-red-400" />
                         ) : (
-                          <ShoppingBag className="w-5 h-5 text-purple-400" />
+                          <ShoppingBag className="w-5 h-5 text-red-400" />
                         )}
                       </div>
                       <div className="flex-1">

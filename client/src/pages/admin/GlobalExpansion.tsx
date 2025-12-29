@@ -210,7 +210,7 @@ export default function GlobalExpansionPage() {
         <Card className="p-6">
           <div className="flex items-center justify-between mb-2">
             <p className="text-sm text-muted-foreground">Shipping Zones</p>
-            <Package className="w-5 h-5 text-purple-500" />
+            <Package className="w-5 h-5 text-red-500" />
           </div>
           <p className="text-3xl font-bold mb-1">{enabledZones}</p>
           <p className="text-xs text-muted-foreground">of {shippingZones.length} configured</p>
@@ -469,9 +469,9 @@ export default function GlobalExpansionPage() {
               ))}
             </div>
 
-            <Card className="p-4 mt-6 bg-purple-500/10 border-purple-500/20">
+            <Card className="p-4 mt-6 bg-red-500/10 border-red-500/20">
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-purple-500 mt-0.5" />
+                <MapPin className="w-5 h-5 text-red-500 mt-0.5" />
                 <div>
                   <h3 className="font-bold mb-1">Dynamic Pricing Strategy</h3>
                   <p className="text-sm text-muted-foreground">

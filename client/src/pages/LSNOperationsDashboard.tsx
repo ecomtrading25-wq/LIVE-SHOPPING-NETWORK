@@ -115,21 +115,21 @@ function LSNOperationsDashboardContent() {
             <Button
               variant={timeRange === "today" ? "default" : "outline"}
               onClick={() => setTimeRange("today")}
-              className={timeRange === "today" ? "bg-purple-600" : "border-border"}
+              className={timeRange === "today" ? "bg-red-600" : "border-border"}
             >
               Today
             </Button>
             <Button
               variant={timeRange === "week" ? "default" : "outline"}
               onClick={() => setTimeRange("week")}
-              className={timeRange === "week" ? "bg-purple-600" : "border-border"}
+              className={timeRange === "week" ? "bg-red-600" : "border-border"}
             >
               Week
             </Button>
             <Button
               variant={timeRange === "month" ? "default" : "outline"}
               onClick={() => setTimeRange("month")}
-              className={timeRange === "month" ? "bg-purple-600" : "border-border"}
+              className={timeRange === "month" ? "bg-red-600" : "border-border"}
             >
               Month
             </Button>
@@ -141,7 +141,7 @@ function LSNOperationsDashboardContent() {
           <MetricCard
             title="Live Viewers"
             value={metrics.liveViewers.toLocaleString()}
-            icon={<Eye className="h-5 w-5 text-purple-400" />}
+            icon={<Eye className="h-5 w-5 text-red-400" />}
             trend={{ value: 15.3, isPositive: true }}
             subtitle={`${liveShows?.length || 0} shows live`}
           />
@@ -203,19 +203,19 @@ function LSNOperationsDashboardContent() {
         {/* Main Content Tabs */}
         <Tabs defaultValue="live" className="space-y-6">
           <TabsList className="bg-background border border-border text-foreground">
-            <TabsTrigger value="live" className="data-[state=active]:bg-purple-600">
+            <TabsTrigger value="live" className="data-[state=active]:bg-red-600">
               Live Shows
             </TabsTrigger>
-            <TabsTrigger value="creators" className="data-[state=active]:bg-purple-600">
+            <TabsTrigger value="creators" className="data-[state=active]:bg-red-600">
               Creators
             </TabsTrigger>
-            <TabsTrigger value="orders" className="data-[state=active]:bg-purple-600">
+            <TabsTrigger value="orders" className="data-[state=active]:bg-red-600">
               Orders
             </TabsTrigger>
-            <TabsTrigger value="inventory" className="data-[state=active]:bg-purple-600">
+            <TabsTrigger value="inventory" className="data-[state=active]:bg-red-600">
               Inventory
             </TabsTrigger>
-            <TabsTrigger value="suppliers" className="data-[state=active]:bg-purple-600">
+            <TabsTrigger value="suppliers" className="data-[state=active]:bg-red-600">
               Suppliers
             </TabsTrigger>
           </TabsList>
@@ -251,7 +251,7 @@ function LSNOperationsDashboardContent() {
               <Card className="border-border bg-background text-foreground">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Clock className="h-5 w-5 text-purple-400" />
+                    <Clock className="h-5 w-5 text-red-400" />
                     Upcoming Shows
                   </CardTitle>
                 </CardHeader>
@@ -352,7 +352,7 @@ function LSNOperationsDashboardContent() {
                       label="Total Creators"
                       value="156"
                       change="+12"
-                      icon={<Users className="h-4 w-4 text-purple-400" />}
+                      icon={<Users className="h-4 w-4 text-red-400" />}
                     />
                     <StatRow
                       label="Diamond Tier"
@@ -394,7 +394,7 @@ function LSNOperationsDashboardContent() {
               <CardHeader>
                 <CardTitle className="flex items-center justify-between">
                   <span>Pending Payouts</span>
-                  <Button size="sm" className="bg-purple-600 hover:bg-purple-700">
+                  <Button size="sm" className="bg-red-600 hover:bg-red-700">
                     Process Batch
                   </Button>
                 </CardTitle>
@@ -584,7 +584,7 @@ function LSNOperationsDashboardContent() {
                       <TableCell>TechSupply Co.</TableCell>
                       <TableCell>14 days</TableCell>
                       <TableCell>
-                        <Button size="sm" className="bg-purple-600 hover:bg-purple-700">
+                        <Button size="sm" className="bg-red-600 hover:bg-red-700">
                           Create PO
                         </Button>
                       </TableCell>
@@ -619,7 +619,7 @@ function LSNOperationsDashboardContent() {
                     <TableRow className="border-border">
                       <TableCell className="font-medium">TechSupply Co.</TableCell>
                       <TableCell>
-                        <Badge className="bg-purple-600">Strategic</Badge>
+                        <Badge className="bg-red-600">Strategic</Badge>
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center gap-2">
@@ -744,7 +744,7 @@ function LiveShowMonitorCard({ show }: { show: any }) {
             <p className="text-sm text-gray-400 mb-2">{show.creator?.name}</p>
             <div className="flex items-center gap-4 text-sm">
               <div className="flex items-center gap-1">
-                <Eye className="h-4 w-4 text-purple-400" />
+                <Eye className="h-4 w-4 text-red-400" />
                 <span>{show.currentViewers?.toLocaleString() || 0}</span>
               </div>
               <div className="flex items-center gap-1">
@@ -777,7 +777,7 @@ function UpcomingShowCard({ show }: { show: any }) {
     <Card className="border-border bg-card/50 text-card-foreground">
       <CardContent className="p-4">
         <div className="flex items-start gap-3">
-          <Avatar className="h-10 w-10 border-2 border-purple-500">
+          <Avatar className="h-10 w-10 border-2 border-red-500">
             <AvatarImage src={show.creator?.avatarUrl} />
             <AvatarFallback>{show.creator?.name?.[0]}</AvatarFallback>
           </Avatar>
@@ -802,14 +802,14 @@ function CreatorPerformanceCard({ creator, rank }: { creator: any; rank: number 
     <Card className="border-border bg-card/50 text-card-foreground">
       <CardContent className="p-4">
         <div className="flex items-center gap-3">
-          <div className="text-2xl font-bold text-purple-400 w-8">#{rank}</div>
-          <Avatar className="h-12 w-12 border-2 border-purple-500">
+          <div className="text-2xl font-bold text-red-400 w-8">#{rank}</div>
+          <Avatar className="h-12 w-12 border-2 border-red-500">
             <AvatarImage src={creator.avatarUrl} />
             <AvatarFallback>{creator.name?.[0]}</AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0">
             <h4 className="font-semibold truncate">{creator.name}</h4>
-            <Badge variant="outline" className="border-purple-500/50 text-purple-400">
+            <Badge variant="outline" className="border-red-500/50 text-red-400">
               {creator.tier}
             </Badge>
           </div>

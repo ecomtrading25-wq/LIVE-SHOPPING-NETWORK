@@ -47,7 +47,7 @@ export function ViewerCounter({ count = 23 }: { count?: number }) {
 
 export function TrendingBadge({ category }: { category: string }) {
   return (
-    <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/20">
+    <Badge className="bg-red-500/20 text-red-400 border-red-500/20">
       <TrendingUp className="w-3 h-3 mr-1" />
       Trending in {category}
     </Badge>

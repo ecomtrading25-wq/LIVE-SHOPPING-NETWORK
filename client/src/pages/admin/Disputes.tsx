@@ -159,8 +159,8 @@ export default function DisputesPage() {
 
         <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center">
-              <Sparkles className="w-5 h-5 text-purple-500" />
+            <div className="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center">
+              <Sparkles className="w-5 h-5 text-red-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">AI Resolved</p>
@@ -225,7 +225,7 @@ export default function DisputesPage() {
                 <TableCell className="text-muted-foreground">{dispute.customerName}</TableCell>
                 <TableCell className="text-red-400 font-medium">${dispute.amount}</TableCell>
                 <TableCell>
-                  <Badge className="bg-purple-600">{dispute.reason}</Badge>
+                  <Badge className="bg-red-600">{dispute.reason}</Badge>
                 </TableCell>
                 <TableCell>
                   <Badge className={getSeverityColor(dispute.severity)}>{dispute.severity}</Badge>
@@ -297,7 +297,7 @@ function AIResolutionPanel({
     return (
       <div className="flex items-center justify-center py-12">
         <div className="flex items-center gap-3">
-          <Sparkles className="w-5 h-5 text-purple-500 animate-pulse" />
+          <Sparkles className="w-5 h-5 text-red-500 animate-pulse" />
           <p className="text-gray-400">AI analyzing dispute...</p>
         </div>
       </div>
@@ -315,9 +315,9 @@ function AIResolutionPanel({
       {/* AI Analysis */}
       <Card className="p-4 bg-card border-zinc-700 text-card-foreground">
         <div className="flex items-center gap-2 mb-3">
-          <Sparkles className="w-5 h-5 text-purple-500" />
+          <Sparkles className="w-5 h-5 text-red-500" />
           <h3 className="font-bold text-foreground">AI Analysis</h3>
-          <Badge className="bg-purple-600 ml-auto">
+          <Badge className="bg-red-600 ml-auto">
             {resolution.confidence}% Confidence
           </Badge>
         </div>

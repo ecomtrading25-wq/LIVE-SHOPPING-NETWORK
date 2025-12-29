@@ -30,7 +30,7 @@ export default function GiftCardsPage() {
       id: "birthday",
       name: "Happy Birthday",
       icon: PartyPopper,
-      gradient: "from-pink-500 to-purple-500",
+      gradient: "from-pink-500 to-red-500",
       category: "celebration",
     },
     {
@@ -58,7 +58,7 @@ export default function GiftCardsPage() {
       id: "default",
       name: "Classic",
       icon: Gift,
-      gradient: "from-purple-500 to-indigo-500",
+      gradient: "from-red-500 to-indigo-500",
       category: "general",
     },
   ];
@@ -187,7 +187,7 @@ export default function GiftCardsPage() {
                       variant={selectedAmount === amount && !customAmount ? "default" : "outline"}
                       className={
                         selectedAmount === amount && !customAmount
-                          ? "bg-purple-600"
+                          ? "bg-red-600"
                           : "bg-background/10 border-white/20 text-foreground hover:bg-background/20"
                       }
                       onClick={() => {
@@ -223,7 +223,7 @@ export default function GiftCardsPage() {
                         key={design.id}
                         className={`relative cursor-pointer rounded-lg border-2 transition-all ${
                           selectedDesign === design.id
-                            ? "border-purple-500 bg-purple-500/20"
+                            ? "border-red-500 bg-red-500/20"
                             : "border-white/20 bg-background text-foreground/5 hover:bg-background text-foreground/10"
                         }`}
                       >
@@ -333,7 +333,7 @@ export default function GiftCardsPage() {
                 </div>
                 <Button
                   size="lg"
-                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+                  className="w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-pink-700"
                   onClick={handlePurchase}
                 >
                   Purchase Gift Card

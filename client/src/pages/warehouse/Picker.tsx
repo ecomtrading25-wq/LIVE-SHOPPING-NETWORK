@@ -77,9 +77,9 @@ export default function PickerPage() {
   return (
     <div className="min-h-screen bg-background text-foreground pb-20">
       {/* Header */}
-      <div className="bg-purple-600 text-foreground p-4 sticky top-0 z-10 shadow-lg">
+      <div className="bg-red-600 text-foreground p-4 sticky top-0 z-10 shadow-lg">
         <h1 className="text-2xl font-bold">Picker Dashboard</h1>
-        <p className="text-sm text-purple-100">
+        <p className="text-sm text-red-100">
           {tasks?.length || 0} pending tasks
         </p>
       </div>
@@ -92,12 +92,12 @@ export default function PickerPage() {
             {warehouses?.map((warehouse) => (
               <Card
                 key={warehouse.id}
-                className="p-4 cursor-pointer hover:bg-purple-50 transition-colors"
+                className="p-4 cursor-pointer hover:bg-red-50 transition-colors"
                 onClick={() => setSelectedWarehouse(warehouse.id)}
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <MapPin className="w-6 h-6 text-purple-600" />
+                    <MapPin className="w-6 h-6 text-red-600" />
                     <div>
                       <p className="font-semibold">{warehouse.name}</p>
                       <p className="text-sm text-gray-500">{warehouse.address}</p>
@@ -114,9 +114,9 @@ export default function PickerPage() {
       {/* Active Task View */}
       {selectedWarehouse && activeTask && (
         <div className="p-4">
-          <Card className="p-6 mb-4 bg-purple-50 border-purple-200">
+          <Card className="p-6 mb-4 bg-red-50 border-red-200">
             <div className="flex items-center gap-3 mb-4">
-              <Package className="w-8 h-8 text-purple-600" />
+              <Package className="w-8 h-8 text-red-600" />
               <div>
                 <p className="font-semibold text-lg">Active Pick Task</p>
                 <p className="text-sm text-gray-600">Order #{activeTask.orderId}</p>
@@ -145,7 +145,7 @@ export default function PickerPage() {
                   <Button
                     size="lg"
                     onClick={handleScanBarcode}
-                    className="bg-purple-600 hover:bg-purple-700"
+                    className="bg-red-600 hover:bg-red-700"
                   >
                     <Scan className="w-5 h-5" />
                   </Button>
@@ -227,10 +227,10 @@ export default function PickerPage() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3 flex-1">
                       <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                        task.priority > 5 ? "bg-red-100" : "bg-purple-100"
+                        task.priority > 5 ? "bg-red-100" : "bg-red-100"
                       }`}>
                         <Package className={`w-6 h-6 ${
-                          task.priority > 5 ? "text-red-600" : "text-purple-600"
+                          task.priority > 5 ? "text-red-600" : "text-red-600"
                         }`} />
                       </div>
                       <div className="flex-1">

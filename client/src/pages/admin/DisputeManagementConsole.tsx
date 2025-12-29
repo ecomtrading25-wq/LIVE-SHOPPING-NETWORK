@@ -91,7 +91,7 @@ export default function DisputeManagementConsole() {
       case "EVIDENCE_BUILDING":
         return "bg-orange-500/20 text-orange-400 border-orange-500/50";
       case "EVIDENCE_READY":
-        return "bg-purple-500/20 text-purple-400 border-purple-500/50";
+        return "bg-red-500/20 text-red-400 border-red-500/50";
       case "SUBMITTED":
         return "bg-indigo-500/20 text-indigo-400 border-indigo-500/50";
       case "WON":
@@ -171,10 +171,10 @@ export default function DisputeManagementConsole() {
             </div>
           </Card>
 
-          <Card className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 border-purple-500/30 p-6">
+          <Card className="bg-gradient-to-br from-red-900/30 to-red-800/30 border-red-500/30 p-6">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-purple-400 text-sm font-medium">Total at Risk</span>
-              <DollarSign className="w-5 h-5 text-purple-400" />
+              <span className="text-red-400 text-sm font-medium">Total at Risk</span>
+              <DollarSign className="w-5 h-5 text-red-400" />
             </div>
             <div className="text-3xl font-bold text-foreground mb-1">
               ${((stats?.totalAtRisk || 0) / 100).toLocaleString()}
@@ -231,7 +231,7 @@ export default function DisputeManagementConsole() {
         {/* Disputes List */}
         {isLoading ? (
           <div className="text-center py-20">
-            <div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
             <p className="text-foreground">Loading disputes...</p>
           </div>
         ) : disputes && disputes.length > 0 ? (
@@ -334,7 +334,7 @@ export default function DisputeManagementConsole() {
                           <DialogTrigger asChild>
                             <Button
                               size="sm"
-                              className="bg-purple-600 hover:bg-purple-700 text-foreground"
+                              className="bg-red-600 hover:bg-red-700 text-foreground"
                               onClick={() => setSelectedDispute(dispute)}
                             >
                               <Eye className="w-4 h-4 mr-2" />
@@ -413,7 +413,7 @@ export default function DisputeManagementConsole() {
                                 <div className="space-y-2">
                                   {dispute.timeline?.map((event: any) => (
                                     <div key={event.id} className="flex gap-3 text-sm">
-                                      <div className="w-2 h-2 rounded-full bg-purple-500 mt-2"></div>
+                                      <div className="w-2 h-2 rounded-full bg-red-500 mt-2"></div>
                                       <div className="flex-1">
                                         <p className="text-foreground">{event.message}</p>
                                         <p className="text-gray-400 text-xs">

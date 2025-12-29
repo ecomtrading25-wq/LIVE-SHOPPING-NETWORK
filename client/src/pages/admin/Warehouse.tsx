@@ -115,7 +115,7 @@ export default function WarehousePage() {
         </div>
         <Dialog open={newWarehouseOpen} onOpenChange={setNewWarehouseOpen}>
           <DialogTrigger asChild>
-            <Button className="bg-purple-600 hover:bg-purple-700">
+            <Button className="bg-red-600 hover:bg-red-700">
               <Plus className="w-4 h-4 mr-2" />
               New Warehouse
             </Button>
@@ -168,7 +168,7 @@ export default function WarehousePage() {
             key={warehouse.id}
             className={`p-6 cursor-pointer transition-all ${
               selectedWarehouse === warehouse.id
-                ? "bg-purple-600 border-purple-500"
+                ? "bg-red-600 border-red-500"
                 : "bg-background text-foreground border-border hover:bg-card"
             }`}
             onClick={() => setSelectedWarehouse(warehouse.id)}
@@ -178,14 +178,14 @@ export default function WarehousePage() {
                 className={`w-12 h-12 rounded-lg flex items-center justify-center ${
                   selectedWarehouse === warehouse.id
                     ? "bg-background text-foreground/20"
-                    : "bg-purple-500/20"
+                    : "bg-red-500/20"
                 }`}
               >
                 <WarehouseIcon
                   className={`w-6 h-6 ${
                     selectedWarehouse === warehouse.id
                       ? "text-foreground"
-                      : "text-purple-400"
+                      : "text-red-400"
                   }`}
                 />
               </div>
@@ -404,7 +404,7 @@ export default function WarehousePage() {
                     <tr key={bin.id} className="border-b border-border">
                       <td className="py-3 px-4">
                         <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4 text-purple-400" />
+                          <MapPin className="w-4 h-4 text-red-400" />
                           <span className="font-mono text-foreground">{bin.code}</span>
                         </div>
                       </td>

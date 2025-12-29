@@ -99,7 +99,7 @@ export default function AdvancedAnalyticsPage() {
 
   // Customer segments
   const segments = [
-    { name: "VIP Customers", count: 156, revenue: 131423, avgSpend: 842, color: "purple" },
+    { name: "VIP Customers", count: 156, revenue: 131423, avgSpend: 842, color: "red" },
     { name: "Frequent Buyers", count: 487, revenue: 97450, avgSpend: 200, color: "blue" },
     { name: "Occasional Shoppers", count: 892, revenue: 71380, avgSpend: 80, color: "green" },
     { name: "New Customers", count: 621, revenue: 37245, avgSpend: 60, color: "yellow" },
@@ -178,8 +178,8 @@ export default function AdvancedAnalyticsPage() {
 
         <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between mb-4">
-            <div className="p-3 bg-purple-500/20 rounded-lg">
-              <Users className="w-6 h-6 text-purple-400" />
+            <div className="p-3 bg-red-500/20 rounded-lg">
+              <Users className="w-6 h-6 text-red-400" />
             </div>
             <div className={`flex items-center gap-1 text-sm ${metrics.customers.change >= 0 ? "text-green-400" : "text-red-400"}`}>
               {metrics.customers.change >= 0 ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
@@ -214,18 +214,18 @@ export default function AdvancedAnalyticsPage() {
             <div key={channel.name}>
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                   <span className="text-foreground font-medium">{channel.name}</span>
                 </div>
                 <div className="flex items-center gap-6">
                   <span className="text-gray-400 text-sm">{channel.orders.toLocaleString()} orders</span>
                   <span className="text-foreground font-bold">{formatCurrency(channel.revenue)}</span>
-                  <span className="text-purple-400 text-sm w-12 text-right">{channel.percentage}%</span>
+                  <span className="text-red-400 text-sm w-12 text-right">{channel.percentage}%</span>
                 </div>
               </div>
               <div className="w-full bg-background text-foreground/10 rounded-full h-2">
                 <div
-                  className="bg-purple-500 h-2 rounded-full"
+                  className="bg-red-500 h-2 rounded-full"
                   style={{ width: `${channel.percentage}%` }}
                 ></div>
               </div>
@@ -245,13 +245,13 @@ export default function AdvancedAnalyticsPage() {
                   <span className="text-foreground font-medium">{stage.stage}</span>
                   <div className="flex items-center gap-4">
                     <span className="text-foreground">{stage.count.toLocaleString()}</span>
-                    <span className="text-purple-400 text-sm w-12 text-right">{stage.percentage}%</span>
+                    <span className="text-red-400 text-sm w-12 text-right">{stage.percentage}%</span>
                   </div>
                 </div>
                 <div className="relative">
                   <div className="w-full bg-background text-foreground/10 rounded-full h-8 flex items-center px-4">
                     <div
-                      className="bg-gradient-to-r from-purple-500 to-pink-500 h-8 rounded-full absolute left-0 top-0 flex items-center justify-center"
+                      className="bg-gradient-to-r from-red-500 to-orange-500 h-8 rounded-full absolute left-0 top-0 flex items-center justify-center"
                       style={{ width: `${stage.percentage * 10}%` }}
                     >
                       {index > 0 && stage.dropoff > 0 && (

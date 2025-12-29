@@ -205,10 +205,10 @@ export default function LiveShowsBrowse() {
       {/* Hero Section */}
       <div className="container py-8">
         <div className="text-center mb-8">
-          <h1 className="text-5xl font-bold text-foreground mb-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-300 to-purple-300">
+          <h1 className="text-5xl font-bold text-foreground mb-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-300 to-red-300">
             Live Shopping Shows
           </h1>
-          <p className="text-xl text-purple-200 mb-8">
+          <p className="text-xl text-red-200 mb-8">
             Watch, shop, and interact with creators in real-time
           </p>
 
@@ -319,7 +319,7 @@ export default function LiveShowsBrowse() {
                   {/* Upcoming Badge */}
                   {show.status === "upcoming" && (
                     <div className="absolute top-3 left-3">
-                      <Badge className="bg-purple-500 text-foreground border-0 font-bold px-3 py-1">
+                      <Badge className="bg-red-500 text-foreground border-0 font-bold px-3 py-1">
                         <Calendar className="w-3 h-3 mr-1" />
                         {formatUpcoming(show.scheduledFor!)}
                       </Badge>
@@ -356,7 +356,7 @@ export default function LiveShowsBrowse() {
                   {/* Play Overlay */}
                   <div className="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-foreground">
                     <div className="w-20 h-20 rounded-full bg-background text-foreground/90 flex items-center justify-center transform group-hover:scale-110 transition-transform">
-                      <Play className="w-10 h-10 text-purple-600 ml-1" fill="currentColor" />
+                      <Play className="w-10 h-10 text-red-600 ml-1" fill="currentColor" />
                     </div>
                   </div>
                 </div>
@@ -384,7 +384,7 @@ export default function LiveShowsBrowse() {
                       <p className="text-sm font-semibold text-foreground truncate">
                         {show.creator.name}
                       </p>
-                      <div className="flex items-center gap-2 text-xs text-purple-200">
+                      <div className="flex items-center gap-2 text-xs text-red-200">
                         <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
                         <span>{show.creator.rating}</span>
                         <span>•</span>
@@ -395,7 +395,7 @@ export default function LiveShowsBrowse() {
 
                   {/* Stats (for live shows) */}
                   {show.status === "live" && (
-                    <div className="flex items-center justify-between pt-3 border-t border-white/10 text-xs text-purple-200">
+                    <div className="flex items-center justify-between pt-3 border-t border-white/10 text-xs text-red-200">
                       <span>${(show.totalSales / 1000).toFixed(1)}K sales</span>
                       <span>Avg ${show.avgPrice}</span>
                     </div>
@@ -415,7 +415,7 @@ export default function LiveShowsBrowse() {
             <h3 className="text-2xl font-semibold text-foreground mb-2">
               No {filter} shows in {category === "all" ? "any category" : category}
             </h3>
-            <p className="text-purple-200 mb-6">
+            <p className="text-red-200 mb-6">
               Try adjusting your filters or check back soon!
             </p>
             <div className="flex gap-3 justify-center">

@@ -314,7 +314,7 @@ export default function MarketingAutomationPage() {
         <Card className="p-6">
           <div className="flex items-center justify-between mb-2">
             <p className="text-sm text-muted-foreground">Avg Open Rate</p>
-            <TrendingUp className="w-5 h-5 text-purple-500" />
+            <TrendingUp className="w-5 h-5 text-red-500" />
           </div>
           <p className="text-3xl font-bold mb-1">{avgOpenRate.toFixed(1)}%</p>
           <p className="text-xs text-green-500">+2.3% from last month</p>
@@ -413,7 +413,7 @@ export default function MarketingAutomationPage() {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground mb-1">Clicked</p>
-                      <p className="text-xl font-bold text-purple-500">
+                      <p className="text-xl font-bold text-red-500">
                         {campaign.clicked.toLocaleString()}
                       </p>
                       <p className="text-xs text-muted-foreground">
@@ -465,8 +465,8 @@ export default function MarketingAutomationPage() {
                 <Card key={workflow.id} className="p-4">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-purple-500/10 rounded-full flex items-center justify-center">
-                        <Zap className="w-5 h-5 text-purple-500" />
+                      <div className="w-10 h-10 bg-red-500/10 rounded-full flex items-center justify-center">
+                        <Zap className="w-5 h-5 text-red-500" />
                       </div>
                       <div>
                         <div className="flex items-center gap-2 mb-1">
@@ -574,7 +574,7 @@ export default function MarketingAutomationPage() {
                           </div>
                           <div>
                             <p className="text-muted-foreground mb-1">Click Rate</p>
-                            <p className="font-bold text-purple-500">
+                            <p className="font-bold text-red-500">
                               {((variant.clicked / variant.sent) * 100).toFixed(1)}%
                             </p>
                           </div>

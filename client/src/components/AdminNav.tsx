@@ -89,7 +89,7 @@ export default function AdminNav() {
         <DropdownMenuLabel className="text-gray-400">AI Analytics</DropdownMenuLabel>
         
         <Link href="/admin/demand-forecast">
-          <DropdownMenuItem className="cursor-pointer text-purple-400 hover:text-purple-300 hover:bg-purple-500/10">
+          <DropdownMenuItem className="cursor-pointer text-red-400 hover:text-red-300 hover:bg-red-500/10">
             <Brain className="w-4 h-4 mr-2" />
             Demand Forecast
           </DropdownMenuItem>
@@ -133,7 +133,7 @@ export default function AdminNav() {
         <DropdownMenuSeparator className="bg-card text-card-foreground" />
         
         <Link href="/operations-center">
-          <DropdownMenuItem className="cursor-pointer text-purple-400 hover:text-purple-300 hover:bg-purple-500/10">
+          <DropdownMenuItem className="cursor-pointer text-red-400 hover:text-red-300 hover:bg-red-500/10">
             <Activity className="w-4 h-4 mr-2" />
             Operations Center
           </DropdownMenuItem>

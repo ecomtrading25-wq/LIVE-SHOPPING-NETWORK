@@ -52,7 +52,7 @@ export default function LiveShow() {
           <Card className="p-4">
             <div className="flex items-start justify-between">
               <div className="flex gap-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500"></div>
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-orange-500"></div>
                 <div>
                   <h2 className="text-xl font-bold">StyleQueen</h2>
                   <p className="text-sm text-muted-foreground">Fashion & Lifestyle</p>
@@ -174,7 +174,7 @@ function ChatMessage({ user, message, timestamp, isCreator }: any) {
   return (
     <div className="space-y-1">
       <div className="flex items-center gap-2">
-        <span className={`font-semibold text-sm ${isCreator ? 'text-purple-500' : ''}`}>
+        <span className={`font-semibold text-sm ${isCreator ? 'text-red-500' : ''}`}>
           {user}
         </span>
         {isCreator && <Badge variant="secondary" className="text-xs">Creator</Badge>}

@@ -11,7 +11,7 @@ export function InstallPromptBanner() {
 
   return (
     <div className="fixed bottom-4 left-4 right-4 z-50 md:left-auto md:right-4 md:w-96 animate-in slide-in-from-bottom">
-      <Card className="bg-gradient-to-br from-purple-600 to-pink-600 border-0 text-foreground shadow-2xl">
+      <Card className="bg-gradient-to-br from-red-600 to-orange-600 border-0 text-foreground shadow-2xl">
         <div className="p-4">
           <div className="flex items-start gap-3">
             <div className="flex-shrink-0 w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
@@ -30,7 +30,7 @@ export function InstallPromptBanner() {
                 <Button
                   onClick={handleInstall}
                   size="sm"
-                  className="bg-white text-purple-600 hover:bg-white/90"
+                  className="bg-white text-red-600 hover:bg-white/90"
                 >
                   Install
                 </Button>

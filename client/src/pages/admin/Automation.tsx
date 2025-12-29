@@ -146,7 +146,7 @@ export default function AutomationPage() {
             Configure and monitor automated workflows
           </p>
         </div>
-        <Button className="bg-gradient-to-r from-purple-600 to-pink-600">
+        <Button className="bg-gradient-to-r from-red-600 to-orange-600">
           <Zap className="w-4 h-4 mr-2" />
           Create Rule
         </Button>
@@ -194,8 +194,8 @@ export default function AutomationPage() {
                 </p>
                 <p className="text-xs text-gray-500 mt-1">average across all rules</p>
               </div>
-              <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center">
-                <Zap className="w-6 h-6 text-purple-500" />
+              <div className="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center">
+                <Zap className="w-6 h-6 text-red-500" />
               </div>
             </div>
           </CardContent>
@@ -245,7 +245,7 @@ export default function AutomationPage() {
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
                       <p className="text-gray-500">Trigger</p>
-                      <code className="text-purple-400 bg-card px-2 py-1 rounded text-xs">
+                      <code className="text-red-400 bg-card px-2 py-1 rounded text-xs">
                         {rule.trigger}
                       </code>
                     </div>
@@ -333,7 +333,7 @@ export default function AutomationPage() {
             />
           </div>
 
-          <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600">
+          <Button className="w-full bg-gradient-to-r from-red-600 to-orange-600">
             <Zap className="w-4 h-4 mr-2" />
             Create Automation Rule
           </Button>

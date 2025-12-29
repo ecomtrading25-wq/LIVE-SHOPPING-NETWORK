@@ -241,7 +241,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
                 playsInline
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-900 to-pink-900">
+              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-red-900 to-orange-900">
                 <div className="text-center text-foreground">
                   <Play className="w-24 h-24 mx-auto mb-4 opacity-50" />
                   <p className="text-2xl font-bold mb-2">Stream Starting Soon</p>
@@ -276,7 +276,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
 
               {/* Host Info */}
               <div className="mt-4 flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-foreground font-bold text-xl">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-red-500 flex items-center justify-center text-foreground font-bold text-xl">
                   {show.hostName?.charAt(0) || "H"}
                 </div>
                 <div>
@@ -363,7 +363,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
         <div className="w-full lg:w-96 xl:w-[28rem] bg-background flex flex-col text-foreground">
           {/* Pinned Products Section */}
           <div className="border-b border-border">
-            <div className="p-4 bg-gradient-to-r from-pink-600 to-purple-600">
+            <div className="p-4 bg-gradient-to-r from-pink-600 to-red-600">
               <h3 className="text-foreground font-bold text-lg flex items-center gap-2">
                 <Zap className="w-5 h-5" />
                 Featured Products
@@ -501,7 +501,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
               <div className="space-y-3">
                 {messages.map((msg, idx) => (
                   <div key={idx} className="flex gap-2">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-foreground font-bold text-sm flex-shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-red-500 flex items-center justify-center text-foreground font-bold text-sm flex-shrink-0">
                       {msg.userName?.charAt(0) || "?"}
                     </div>
                     <div className="flex-1 min-w-0">
@@ -563,7 +563,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
 
           {/* Cart Summary */}
           {cartItems.size > 0 && (
-            <div className="p-4 border-t border-border bg-gradient-to-r from-pink-600 to-purple-600">
+            <div className="p-4 border-t border-border bg-gradient-to-r from-pink-600 to-red-600">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-foreground font-bold">
                   {Array.from(cartItems.values()).reduce((a, b) => a + b, 0)} items in cart

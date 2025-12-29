@@ -414,7 +414,7 @@ export default function LiveStudio() {
                     <input
                       type="text"
                       placeholder="Send a message..."
-                      className="w-full px-3 py-2 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-3 py-2 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                       disabled={!isLive}
                     />
                   </div>
@@ -430,7 +430,7 @@ export default function LiveStudio() {
                         key={product.id}
                         className={`p-4 rounded-lg border-2 transition-colors ${
                           product.isPinned
-                            ? 'border-purple-500 bg-purple-500/10'
+                            ? 'border-red-500 bg-red-500/10'
                             : 'border-border bg-gray-700/50'
                         }`}
                       >
@@ -440,7 +440,7 @@ export default function LiveStudio() {
                             <h4 className="font-semibold text-sm mb-1 truncate">
                               {product.name}
                             </h4>
-                            <p className="text-lg font-bold text-purple-400">
+                            <p className="text-lg font-bold text-red-400">
                               ${product.price}
                             </p>
                             <p className="text-xs text-gray-400">

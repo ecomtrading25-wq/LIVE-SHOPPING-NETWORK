@@ -155,7 +155,7 @@ async function handleImageRequest(request) {
     
     // Return placeholder image
     return new Response(
-      '<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="#1a0b2e"/><text x="50%" y="50%" text-anchor="middle" fill="#9333ea" font-size="20">Image Unavailable</text></svg>',
+      '<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="#1a0b2e"/><text x="50%" y="50%" text-anchor="middle" fill="#E42313" font-size="20">Image Unavailable</text></svg>',
       { headers: { 'Content-Type': 'image/svg+xml' } }
     );
   }

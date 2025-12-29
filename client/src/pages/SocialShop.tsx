@@ -328,7 +328,7 @@ export default function SocialShopPage() {
                           handleProductClick(product);
                         }}
                       >
-                        <ShoppingBag className="w-4 h-4 text-purple-600" />
+                        <ShoppingBag className="w-4 h-4 text-red-600" />
                       </button>
                     ))}
 
@@ -376,15 +376,15 @@ export default function SocialShopPage() {
 
                     {/* Tagged Products */}
                     <div className="flex items-center gap-2 mb-3">
-                      <Tag className="w-4 h-4 text-purple-400" />
-                      <span className="text-purple-400 text-sm font-medium">
+                      <Tag className="w-4 h-4 text-red-400" />
+                      <span className="text-red-400 text-sm font-medium">
                         {post.products.length} {post.products.length === 1 ? "product" : "products"}
                       </span>
                     </div>
 
                     <Button
                       size="sm"
-                      className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                      className="w-full bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600"
                       onClick={(e) => {
                         e.stopPropagation();
                         handleBuyFromPost();
@@ -404,7 +404,7 @@ export default function SocialShopPage() {
             {/* Top Influencers */}
             <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-                <TrendingUp className="w-6 h-6 text-purple-400" />
+                <TrendingUp className="w-6 h-6 text-red-400" />
                 Top Influencers
               </h2>
               <div className="space-y-4">
@@ -416,7 +416,7 @@ export default function SocialShopPage() {
                         alt={influencer.username}
                         className="w-12 h-12 rounded-full"
                       />
-                      <div className="absolute -top-1 -left-1 w-6 h-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-foreground text-xs font-bold">
+                      <div className="absolute -top-1 -left-1 w-6 h-6 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center text-foreground text-xs font-bold">
                         {index + 1}
                       </div>
                     </div>
@@ -430,7 +430,7 @@ export default function SocialShopPage() {
                         )}
                       </div>
                       <p className="text-gray-400 text-xs">{influencer.category}</p>
-                      <p className="text-purple-400 text-xs font-medium">
+                      <p className="text-red-400 text-xs font-medium">
                         ${formatNumber(influencer.totalSales)} sales
                       </p>
                     </div>
@@ -440,7 +440,7 @@ export default function SocialShopPage() {
             </Card>
 
             {/* Social Proof */}
-            <Card className="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-purple-500/30">
+            <Card className="p-6 bg-gradient-to-br from-red-500/20 to-pink-500/20 border-red-500/30">
               <h3 className="text-xl font-bold text-foreground mb-4">Social Shopping Stats</h3>
               <div className="space-y-4">
                 <div>
@@ -469,35 +469,35 @@ export default function SocialShopPage() {
               <h3 className="text-xl font-bold text-foreground mb-4">Features</h3>
               <ul className="space-y-3 text-sm">
                 <li className="flex items-start gap-2 text-muted-foreground">
-                  <ShoppingBag className="w-4 h-4 text-purple-400 mt-0.5" />
+                  <ShoppingBag className="w-4 h-4 text-red-400 mt-0.5" />
                   <span>One-tap checkout from posts</span>
                 </li>
                 <li className="flex items-start gap-2 text-muted-foreground">
-                  <Tag className="w-4 h-4 text-purple-400 mt-0.5" />
+                  <Tag className="w-4 h-4 text-red-400 mt-0.5" />
                   <span>Interactive product tags</span>
                 </li>
                 <li className="flex items-start gap-2 text-muted-foreground">
-                  <Users className="w-4 h-4 text-purple-400 mt-0.5" />
+                  <Users className="w-4 h-4 text-red-400 mt-0.5" />
                   <span>Follow your favorite creators</span>
                 </li>
                 <li className="flex items-start gap-2 text-muted-foreground">
-                  <Star className="w-4 h-4 text-purple-400 mt-0.5" />
+                  <Star className="w-4 h-4 text-red-400 mt-0.5" />
                   <span>Exclusive influencer discounts</span>
                 </li>
                 <li className="flex items-start gap-2 text-muted-foreground">
-                  <ExternalLink className="w-4 h-4 text-purple-400 mt-0.5" />
+                  <ExternalLink className="w-4 h-4 text-red-400 mt-0.5" />
                   <span>Direct Instagram/TikTok sync</span>
                 </li>
               </ul>
             </Card>
 
             {/* Become an Influencer */}
-            <Card className="p-6 bg-gradient-to-br from-purple-600 to-pink-600 border-0">
+            <Card className="p-6 bg-gradient-to-br from-red-600 to-orange-600 border-0">
               <h3 className="text-xl font-bold text-foreground mb-3">Become an Influencer</h3>
               <p className="text-white/90 text-sm mb-4">
                 Earn commission by sharing products with your followers
               </p>
-              <Button className="w-full bg-background text-foreground text-purple-600 hover:bg-gray-100">
+              <Button className="w-full bg-background text-foreground text-red-600 hover:bg-gray-100">
                 Apply Now
               </Button>
             </Card>

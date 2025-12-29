@@ -237,7 +237,7 @@ export default function CustomerServiceChatbot() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-50 animate-bounce"
+          className="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-r from-red-600 to-orange-600 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-50 animate-bounce"
         >
           <MessageCircle className="w-8 h-8 text-foreground" />
           <Badge className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-red-600 flex items-center justify-center p-0">
@@ -249,7 +249,7 @@ export default function CustomerServiceChatbot() {
       {/* Chat Window */}
       {isOpen && (
         <Card className="fixed bottom-6 right-6 w-96 h-[600px] shadow-2xl z-50 flex flex-col">
-          <CardHeader className="bg-gradient-to-r from-purple-600 to-pink-600 text-foreground rounded-t-lg">
+          <CardHeader className="bg-gradient-to-r from-red-600 to-orange-600 text-foreground rounded-t-lg">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Bot className="w-6 h-6" />
@@ -280,7 +280,7 @@ export default function CustomerServiceChatbot() {
                   }`}
                 >
                   {message.role === "assistant" && (
-                    <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
                       <Bot className="w-5 h-5 text-foreground" />
                     </div>
                   )}
@@ -288,7 +288,7 @@ export default function CustomerServiceChatbot() {
                   <div
                     className={`max-w-[75%] rounded-lg p-3 ${
                       message.role === "user"
-                        ? "bg-purple-600 text-foreground"
+                        ? "bg-red-600 text-foreground"
                         : "bg-gray-100 dark:bg-card"
                     }`}
                   >
@@ -328,7 +328,7 @@ export default function CustomerServiceChatbot() {
 
               {isLoading && (
                 <div className="flex gap-2">
-                  <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
                     <Bot className="w-5 h-5 text-foreground" />
                   </div>
                   <div className="bg-gray-100 dark:bg-card rounded-lg p-3 text-card-foreground">
@@ -376,7 +376,7 @@ export default function CustomerServiceChatbot() {
                 <Button
                   onClick={handleSend}
                   disabled={!input.trim() || isLoading}
-                  className="bg-gradient-to-r from-purple-600 to-pink-600"
+                  className="bg-gradient-to-r from-red-600 to-orange-600"
                 >
                   <Send className="w-4 h-4" />
                 </Button>

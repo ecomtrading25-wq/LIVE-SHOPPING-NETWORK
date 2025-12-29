@@ -196,8 +196,8 @@ export default function DisputeManagementConsole() {
 
             <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between mb-2">
-                <Shield className="w-8 h-8 text-purple-500" />
-                <Badge className="bg-purple-600">{stats?.automationRate?.toFixed(1) || 0}%</Badge>
+                <Shield className="w-8 h-8 text-red-500" />
+                <Badge className="bg-red-600">{stats?.automationRate?.toFixed(1) || 0}%</Badge>
               </div>
               <p className="text-muted-foreground text-sm mb-1">Automation Rate</p>
               <p className="text-foreground text-2xl font-bold">{stats?.evidencePacksGenerated || 0}</p>
@@ -509,7 +509,7 @@ export default function DisputeManagementConsole() {
                           <Button
                             size="sm"
                             onClick={() => generateEvidencePackMutation.mutate({ disputeId: selectedDispute.id })}
-                            className="bg-purple-600 hover:bg-purple-700"
+                            className="bg-red-600 hover:bg-red-700"
                           >
                             <Zap className="w-4 h-4 mr-1" />
                             Generate Pack
@@ -546,7 +546,7 @@ export default function DisputeManagementConsole() {
                                 <div key={idx} className="p-3 bg-background text-foreground/5 rounded-lg flex items-center justify-between">
                                   <div className="flex items-center gap-3">
                                     {item.type === "image" && <Image className="w-5 h-5 text-blue-500" />}
-                                    {item.type === "document" && <FileText className="w-5 h-5 text-purple-500" />}
+                                    {item.type === "document" && <FileText className="w-5 h-5 text-red-500" />}
                                     {item.type === "tracking" && <Package className="w-5 h-5 text-green-500" />}
                                     <div>
                                       <p className="text-foreground font-medium">{item.name}</p>
@@ -590,7 +590,7 @@ export default function DisputeManagementConsole() {
                               className={`p-4 rounded-lg ${
                                 message.sender === "customer"
                                   ? "bg-blue-500/20 ml-8"
-                                  : "bg-purple-500/20 mr-8"
+                                  : "bg-red-500/20 mr-8"
                               }`}
                             >
                               <div className="flex items-center justify-between mb-2">
@@ -636,7 +636,7 @@ export default function DisputeManagementConsole() {
                               message: responseMessage,
                             })}
                             disabled={!responseMessage.trim() || respondMutation.isLoading}
-                            className="bg-purple-600 hover:bg-purple-700"
+                            className="bg-red-600 hover:bg-red-700"
                           >
                             <Send className="w-4 h-4 mr-1" />
                             Send Response

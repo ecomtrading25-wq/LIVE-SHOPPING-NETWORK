@@ -153,7 +153,7 @@ function AdminDashboardContent({ location, sidebarOpen, setSidebarOpen }: { loca
                   <a
                     className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
                       active
-                        ? "bg-purple-600 text-foreground"
+                        ? "bg-red-600 text-foreground"
                         : "text-gray-400 hover:bg-card hover:text-foreground"
                     }`}
                   >

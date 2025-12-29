@@ -209,7 +209,7 @@ function AnalyticsDashboardContent() {
                 variant={timeRange === "today" ? "default" : "outline"}
                 onClick={() => setTimeRange("today")}
                 size="sm"
-                className={timeRange === "today" ? "bg-purple-600" : "border-border"}
+                className={timeRange === "today" ? "bg-red-600" : "border-border"}
               >
                 Today
               </Button>
@@ -217,7 +217,7 @@ function AnalyticsDashboardContent() {
                 variant={timeRange === "week" ? "default" : "outline"}
                 onClick={() => setTimeRange("week")}
                 size="sm"
-                className={timeRange === "week" ? "bg-purple-600" : "border-border"}
+                className={timeRange === "week" ? "bg-red-600" : "border-border"}
               >
                 Week
               </Button>
@@ -225,7 +225,7 @@ function AnalyticsDashboardContent() {
                 variant={timeRange === "month" ? "default" : "outline"}
                 onClick={() => setTimeRange("month")}
                 size="sm"
-                className={timeRange === "month" ? "bg-purple-600" : "border-border"}
+                className={timeRange === "month" ? "bg-red-600" : "border-border"}
               >
                 Month
               </Button>
@@ -233,7 +233,7 @@ function AnalyticsDashboardContent() {
                 variant={timeRange === "year" ? "default" : "outline"}
                 onClick={() => setTimeRange("year")}
                 size="sm"
-                className={timeRange === "year" ? "bg-purple-600" : "border-border"}
+                className={timeRange === "year" ? "bg-red-600" : "border-border"}
               >
                 Year
               </Button>
@@ -287,8 +287,8 @@ function AnalyticsDashboardContent() {
 
           <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-start justify-between mb-4">
-              <div className="p-3 bg-purple-500/20 rounded-lg">
-                <Users className="w-6 h-6 text-purple-400" />
+              <div className="p-3 bg-red-500/20 rounded-lg">
+                <Users className="w-6 h-6 text-red-400" />
               </div>
               {getChangeIcon(metrics.customers.change)}
             </div>
@@ -329,7 +329,7 @@ function AnalyticsDashboardContent() {
           <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-foreground">Top Products</h3>
-              <Package className="w-5 h-5 text-purple-400" />
+              <Package className="w-5 h-5 text-red-400" />
             </div>
             <div className="space-y-4">
               {topProducts.map((product, index) => (
@@ -337,8 +337,8 @@ function AnalyticsDashboardContent() {
                   key={product.id}
                   className="flex items-center gap-4 p-3 bg-background text-foreground/5 rounded-lg"
                 >
-                  <div className="flex items-center justify-center w-8 h-8 bg-purple-500/20 rounded-full">
-                    <span className="text-sm font-bold text-purple-400">
+                  <div className="flex items-center justify-center w-8 h-8 bg-red-500/20 rounded-full">
+                    <span className="text-sm font-bold text-red-400">
                       #{index + 1}
                     </span>
                   </div>
@@ -362,7 +362,7 @@ function AnalyticsDashboardContent() {
           <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-foreground">Customer Segments</h3>
-              <Users className="w-5 h-5 text-purple-400" />
+              <Users className="w-5 h-5 text-red-400" />
             </div>
             <div className="space-y-4">
               {customerSegments.map((segment) => (
@@ -374,7 +374,7 @@ function AnalyticsDashboardContent() {
                           segment.name === "VIP"
                             ? "bg-yellow-500/20 text-yellow-400"
                             : segment.name === "Loyal"
-                            ? "bg-purple-500/20 text-purple-400"
+                            ? "bg-red-500/20 text-red-400"
                             : segment.name === "Regular"
                             ? "bg-blue-500/20 text-blue-400"
                             : "bg-green-500/20 text-green-400"
@@ -396,7 +396,7 @@ function AnalyticsDashboardContent() {
                         segment.name === "VIP"
                           ? "bg-yellow-500"
                           : segment.name === "Loyal"
-                          ? "bg-purple-500"
+                          ? "bg-red-500"
                           : segment.name === "Regular"
                           ? "bg-blue-500"
                           : "bg-green-500"
@@ -416,7 +416,7 @@ function AnalyticsDashboardContent() {
           <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-foreground">Sales Trend</h3>
-              <TrendingUp className="w-5 h-5 text-purple-400" />
+              <TrendingUp className="w-5 h-5 text-red-400" />
             </div>
             <div className="h-64">
               <Line data={salesTrendData} options={chartOptions} />
@@ -427,7 +427,7 @@ function AnalyticsDashboardContent() {
           <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-foreground">Product Performance</h3>
-              <Package className="w-5 h-5 text-purple-400" />
+              <Package className="w-5 h-5 text-red-400" />
             </div>
             <div className="h-64">
               <Bar data={topProductsData} options={chartOptions} />
@@ -438,7 +438,7 @@ function AnalyticsDashboardContent() {
           <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-foreground">Customer Distribution</h3>
-              <Users className="w-5 h-5 text-purple-400" />
+              <Users className="w-5 h-5 text-red-400" />
             </div>
             <div className="h-64 flex items-center justify-center">
               <div className="w-64 h-64">
@@ -451,7 +451,7 @@ function AnalyticsDashboardContent() {
           <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-foreground">Revenue Sources</h3>
-              <DollarSign className="w-5 h-5 text-purple-400" />
+              <DollarSign className="w-5 h-5 text-red-400" />
             </div>
             <div className="h-64 flex items-center justify-center">
               <div className="w-64 h-64">

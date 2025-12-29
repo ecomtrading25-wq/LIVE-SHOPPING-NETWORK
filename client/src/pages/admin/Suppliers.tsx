@@ -144,7 +144,7 @@ export default function SuppliersPage() {
           </Dialog>
           <Dialog open={newSupplierOpen} onOpenChange={setNewSupplierOpen}>
             <DialogTrigger asChild>
-              <Button className="bg-purple-600 hover:bg-purple-700">
+              <Button className="bg-red-600 hover:bg-red-700">
                 <Plus className="w-4 h-4 mr-2" />
                 New Supplier
               </Button>
@@ -249,8 +249,8 @@ export default function SuppliersPage() {
                 {suppliers?.length || 0}
               </p>
             </div>
-            <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
-              <Building2 className="w-6 h-6 text-purple-400" />
+            <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
+              <Building2 className="w-6 h-6 text-red-400" />
             </div>
           </div>
         </Card>
@@ -320,7 +320,7 @@ export default function SuppliersPage() {
               key={supplier.id}
               className={`p-6 cursor-pointer transition-all ${
                 selectedSupplier === supplier.id
-                  ? "bg-purple-600 border-purple-500"
+                  ? "bg-red-600 border-red-500"
                   : "bg-card border-zinc-700 hover:bg-zinc-750"
               }`}
               onClick={() => setSelectedSupplier(supplier.id)}
@@ -330,14 +330,14 @@ export default function SuppliersPage() {
                   className={`w-12 h-12 rounded-lg flex items-center justify-center ${
                     selectedSupplier === supplier.id
                       ? "bg-background text-foreground/20"
-                      : "bg-purple-500/20"
+                      : "bg-red-500/20"
                   }`}
                 >
                   <Building2
                     className={`w-6 h-6 ${
                       selectedSupplier === supplier.id
                         ? "text-foreground"
-                        : "text-purple-400"
+                        : "text-red-400"
                     }`}
                   />
                 </div>

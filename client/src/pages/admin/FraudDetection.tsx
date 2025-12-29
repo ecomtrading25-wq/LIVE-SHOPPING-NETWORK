@@ -308,7 +308,7 @@ export default function FraudDetectionPage() {
         <Card className="p-6">
           <div className="flex items-center justify-between mb-2">
             <p className="text-sm text-muted-foreground">Avg Risk Score</p>
-            <Shield className="w-5 h-5 text-purple-500" />
+            <Shield className="w-5 h-5 text-red-500" />
           </div>
           <p className="text-3xl font-bold mb-1">{avgRiskScore.toFixed(0)}</p>
           <p className="text-xs text-green-500">-12% from last week</p>

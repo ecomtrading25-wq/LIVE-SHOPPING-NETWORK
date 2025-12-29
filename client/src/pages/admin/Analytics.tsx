@@ -213,13 +213,13 @@ export default function AnalyticsPage() {
               <p className="text-3xl font-bold text-foreground mt-2">
                 {metrics?.totalProducts?.toLocaleString() || 0}
               </p>
-              <p className="text-sm text-purple-400 mt-2 flex items-center">
+              <p className="text-sm text-red-400 mt-2 flex items-center">
                 <Package className="w-4 h-4 mr-1" />
                 {metrics?.lowStockCount || 0} low stock
               </p>
             </div>
-            <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
-              <Package className="w-6 h-6 text-purple-400" />
+            <div className="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
+              <Package className="w-6 h-6 text-red-400" />
             </div>
           </div>
         </Card>

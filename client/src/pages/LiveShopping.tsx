@@ -51,7 +51,7 @@ export default function LiveShopping() {
             <div className="text-foreground text-sm">
               👁️ {viewerCount.toLocaleString()} watching
             </div>
-            <Button variant="outline" className="border-purple-500 text-purple-300">
+            <Button variant="outline" className="border-red-500 text-red-300">
               Share
             </Button>
           </div>
@@ -64,7 +64,7 @@ export default function LiveShopping() {
           <div className="lg:col-span-2 space-y-6">
             {/* Video Player */}
             <Card className="bg-card border-border overflow-hidden text-card-foreground">
-              <div className="aspect-video bg-gradient-to-br from-purple-900 to-pink-900 relative">
+              <div className="aspect-video bg-gradient-to-br from-red-900 to-orange-900 relative">
                 {/* Video placeholder */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center space-y-4">
@@ -134,13 +134,13 @@ export default function LiveShopping() {
               <div className="grid sm:grid-cols-2 gap-4">
                 {pinnedProducts.length > 0 ? (
                   pinnedProducts.map((pin: any) => (
-                    <Card key={pin.pinId} className="bg-card border-border hover:border-purple-500 transition-all text-card-foreground">
+                    <Card key={pin.pinId} className="bg-card border-border hover:border-red-500 transition-all text-card-foreground">
                       <div className="p-4 space-y-3">
-                        <div className="aspect-square bg-gradient-to-br from-purple-900 to-pink-900 rounded-lg"></div>
+                        <div className="aspect-square bg-gradient-to-br from-red-900 to-orange-900 rounded-lg"></div>
                         <div>
                           <h4 className="text-foreground font-bold">{pin.product?.name || 'Product'}</h4>
                           <div className="flex items-center gap-2 mt-2">
-                            <span className="text-2xl font-bold text-purple-400">
+                            <span className="text-2xl font-bold text-red-400">
                               ${(pin.displayPriceCents / 100).toFixed(2)}
                             </span>
                             {pin.displayPriceCents < pin.originalPriceCents && (
@@ -158,7 +158,7 @@ export default function LiveShopping() {
                             {pin.stockAvailable} left in stock
                           </div>
                         </div>
-                        <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-foreground font-bold">
+                        <Button className="w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-pink-700 text-foreground font-bold">
                           Add to Cart - ${(pin.displayPriceCents / 100).toFixed(2)}
                         </Button>
                       </div>
@@ -181,19 +181,19 @@ export default function LiveShopping() {
               </p>
               <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-border">
                 <div>
-                  <div className="text-2xl font-bold text-purple-400">
+                  <div className="text-2xl font-bold text-red-400">
                     {showState?.show?.totalOrders || 0}
                   </div>
                   <div className="text-sm text-gray-400">Orders</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-purple-400">
+                  <div className="text-2xl font-bold text-red-400">
                     ${((showState?.show?.totalRevenueCents || 0) / 100).toFixed(0)}
                   </div>
                   <div className="text-sm text-gray-400">Revenue</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-purple-400">
+                  <div className="text-2xl font-bold text-red-400">
                     {showState?.show?.peakViewerCount || 0}
                   </div>
                   <div className="text-sm text-gray-400">Peak Viewers</div>
@@ -222,7 +222,7 @@ export default function LiveShopping() {
                 ].map((msg, i) => (
                   <div key={i} className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center text-foreground text-xs font-bold">
+                      <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center text-foreground text-xs font-bold">
                         {msg.user[0]}
                       </div>
                       <span className="text-foreground font-semibold text-sm">{msg.user}</span>
@@ -242,7 +242,7 @@ export default function LiveShopping() {
                     placeholder="Type a message..."
                     className="bg-gray-700 border-gray-600 text-foreground placeholder:text-gray-400"
                   />
-                  <Button className="bg-purple-600 hover:bg-purple-700 text-foreground">
+                  <Button className="bg-red-600 hover:bg-red-700 text-foreground">
                     Send
                   </Button>
                 </div>
@@ -252,13 +252,13 @@ export default function LiveShopping() {
             {/* Quick Actions */}
             <Card className="bg-card border-border p-4 space-y-3 text-card-foreground">
               <h3 className="text-foreground font-bold text-sm uppercase tracking-wide">Quick Actions</h3>
-              <Button variant="outline" className="w-full border-purple-500 text-purple-300 hover:bg-purple-500/10">
+              <Button variant="outline" className="w-full border-red-500 text-red-300 hover:bg-red-500/10">
                 🔔 Set Reminder
               </Button>
-              <Button variant="outline" className="w-full border-purple-500 text-purple-300 hover:bg-purple-500/10">
+              <Button variant="outline" className="w-full border-red-500 text-red-300 hover:bg-red-500/10">
                 ❤️ Add to Favorites
               </Button>
-              <Button variant="outline" className="w-full border-purple-500 text-purple-300 hover:bg-purple-500/10">
+              <Button variant="outline" className="w-full border-red-500 text-red-300 hover:bg-red-500/10">
                 📤 Share Show
               </Button>
             </Card>
@@ -278,7 +278,7 @@ export default function LiveShopping() {
                       <div className="text-foreground font-semibold text-sm">{show.topic}</div>
                       <div className="text-gray-400 text-xs">{show.time}</div>
                     </div>
-                    <Button size="sm" variant="outline" className="border-purple-500 text-purple-300 text-xs">
+                    <Button size="sm" variant="outline" className="border-red-500 text-red-300 text-xs">
                       Notify Me
                     </Button>
                   </div>

@@ -280,7 +280,7 @@ export default function AffiliateProgramPage() {
         <Card className="p-6">
           <div className="flex items-center justify-between mb-2">
             <p className="text-sm text-muted-foreground">Avg Conversion</p>
-            <Target className="w-5 h-5 text-purple-500" />
+            <Target className="w-5 h-5 text-red-500" />
           </div>
           <p className="text-3xl font-bold mb-1">{avgConversionRate.toFixed(1)}%</p>
           <p className="text-xs text-green-500">+1.2% from last month</p>

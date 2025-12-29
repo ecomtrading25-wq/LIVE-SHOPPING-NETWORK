@@ -37,7 +37,7 @@ export default function FAQPage() {
     {
       icon: Video,
       title: "Live Shopping",
-      color: "text-purple-600",
+      color: "text-red-600",
       items: [
         {
           question: "What is live shopping?",
@@ -255,7 +255,7 @@ export default function FAQPage() {
         </div>
 
         {/* Still Have Questions CTA */}
-        <Card className="max-w-4xl mx-auto mt-16 p-12 bg-gradient-to-br from-purple-600 to-pink-600 border-0 text-center">
+        <Card className="max-w-4xl mx-auto mt-16 p-12 bg-gradient-to-br from-red-600 to-orange-600 border-0 text-center">
           <h2 className="text-3xl font-bold text-foreground mb-4">
             Still Have Questions?
           </h2>
@@ -265,7 +265,7 @@ export default function FAQPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-background text-foreground text-purple-600 hover:bg-zinc-100"
+              className="bg-background text-foreground text-red-600 hover:bg-zinc-100"
             >
               <MessageCircle className="w-5 h-5 mr-2" />
               Start Live Chat

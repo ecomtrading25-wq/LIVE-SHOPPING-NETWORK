@@ -139,7 +139,7 @@ export default function ProductRecommendations({
   const getIcon = () => {
     switch (type) {
       case "for-you":
-        return <Star className="w-5 h-5 text-purple-400" />;
+        return <Star className="w-5 h-5 text-red-400" />;
       case "trending":
         return <TrendingUp className="w-5 h-5 text-green-400" />;
       case "frequently-bought":
@@ -182,7 +182,7 @@ export default function ProductRecommendations({
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                   {product.badge && (
-                    <Badge className="absolute top-3 left-3 bg-purple-600 text-foreground">
+                    <Badge className="absolute top-3 left-3 bg-red-600 text-foreground">
                       {product.badge}
                     </Badge>
                   )}
@@ -195,7 +195,7 @@ export default function ProductRecommendations({
 
                 {/* Content */}
                 <div className="p-4">
-                  <h3 className="text-foreground font-semibold mb-2 line-clamp-2 group-hover:text-purple-400 transition-colors">
+                  <h3 className="text-foreground font-semibold mb-2 line-clamp-2 group-hover:text-red-400 transition-colors">
                     {product.name}
                   </h3>
 
@@ -225,7 +225,7 @@ export default function ProductRecommendations({
                   </div>
 
                   {/* Add to Cart Button */}
-                  <Button className="w-full bg-purple-600 hover:bg-purple-700">
+                  <Button className="w-full bg-red-600 hover:bg-red-700">
                     Add to Cart
                   </Button>
                 </div>
@@ -287,7 +287,7 @@ export function FrequentlyBoughtTogether({
           <h4 className="text-foreground font-semibold mb-2 line-clamp-2">
             {mainProduct.name}
           </h4>
-          <p className="text-purple-400 font-bold">${mainProduct.price}</p>
+          <p className="text-red-400 font-bold">${mainProduct.price}</p>
         </Card>
 
         {/* Plus Sign */}
@@ -309,7 +309,7 @@ export function FrequentlyBoughtTogether({
                   <h5 className="text-foreground text-sm font-medium line-clamp-1">
                     {product.name}
                   </h5>
-                  <p className="text-purple-400 font-bold">${product.price}</p>
+                  <p className="text-red-400 font-bold">${product.price}</p>
                 </div>
               </div>
             </Card>
@@ -336,7 +336,7 @@ export function FrequentlyBoughtTogether({
               )}
             </div>
           </div>
-          <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
+          <Button size="lg" className="bg-red-600 hover:bg-red-700">
             Add Bundle to Cart
           </Button>
         </div>

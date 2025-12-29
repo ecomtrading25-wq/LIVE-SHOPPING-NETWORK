@@ -292,7 +292,7 @@ export default function LSNHomepage() {
       </section>
 
       {/* Trust Section */}
-      <section className="py-16 bg-gradient-to-br from-purple-50 to-pink-50">
+      <section className="py-16 bg-gradient-to-br from-red-50 to-pink-50">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Why Shop With Us?</h2>
@@ -330,7 +330,7 @@ export default function LSNHomepage() {
       <section className="py-16">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="bg-gradient-to-br from-purple-100 to-pink-100 border border-black rounded-2xl p-12">
+            <div className="bg-gradient-to-br from-red-100 to-orange-100 border border-black rounded-2xl p-12">
               <Gift className="h-12 w-12 mx-auto mb-6 text-[#E42313]" />
               <h2 className="text-3xl font-bold mb-4">Never Miss a Deal</h2>
               <p className="text-gray-700 mb-8">
@@ -441,7 +441,7 @@ function LiveShowCard({ show, featured = false }: { show: any; featured?: boolea
 
         <CardContent className="p-6">
           <div className="flex items-start gap-4 mb-4">
-            <Avatar className="h-12 w-12 border-2 border-purple-500">
+            <Avatar className="h-12 w-12 border-2 border-red-500">
               <AvatarImage src={show.creator?.avatarUrl} />
               <AvatarFallback>{show.creator?.name?.[0]}</AvatarFallback>
             </Avatar>
@@ -498,7 +498,7 @@ function NextShowCountdown({ show, currentTime }: { show: any; currentTime: Date
   const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
   return (
-    <Card className="h-[500px] border-black bg-gradient-to-br from-purple-100 to-pink-100 overflow-hidden">
+    <Card className="h-[500px] border-black bg-gradient-to-br from-red-100 to-orange-100 overflow-hidden">
       <CardContent className="p-8 h-full flex flex-col justify-center items-center text-center">
         <Clock className="h-16 w-16 text-[#E42313] mb-6" />
         
@@ -527,7 +527,7 @@ function NextShowCountdown({ show, currentTime }: { show: any; currentTime: Date
 
         {/* Creator */}
         <div className="flex items-center gap-3 mb-6">
-          <Avatar className="h-12 w-12 border-2 border-purple-500">
+          <Avatar className="h-12 w-12 border-2 border-red-500">
             <AvatarImage src={show.creator?.avatarUrl} />
             <AvatarFallback>{show.creator?.name?.[0]}</AvatarFallback>
           </Avatar>
@@ -567,7 +567,7 @@ function UpcomingShowCard({ show }: { show: any }) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
           
           <div className="absolute bottom-4 left-4 right-4">
-            <Badge className="bg-purple-600 mb-2">
+            <Badge className="bg-red-600 mb-2">
               {startTime.toLocaleDateString()} at {startTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
             </Badge>
           </div>
@@ -575,7 +575,7 @@ function UpcomingShowCard({ show }: { show: any }) {
 
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <Avatar className="h-10 w-10 border-2 border-purple-500">
+            <Avatar className="h-10 w-10 border-2 border-red-500">
               <AvatarImage src={show.creator?.avatarUrl} />
               <AvatarFallback>{show.creator?.name?.[0]}</AvatarFallback>
             </Avatar>
@@ -602,7 +602,7 @@ function CreatorCard({ creator }: { creator: any }) {
       <Card className="group border-black bg-background text-foreground hover:border-black transition-all duration-300 cursor-pointer">
         <CardContent className="p-6">
           <div className="flex items-start gap-4">
-            <Avatar className="h-16 w-16 border-2 border-purple-500">
+            <Avatar className="h-16 w-16 border-2 border-red-500">
               <AvatarImage src={creator.avatarUrl} />
               <AvatarFallback>{creator.name?.[0]}</AvatarFallback>
             </Avatar>
@@ -659,7 +659,7 @@ function ProductCard({ product }: { product: any }) {
           )}
 
           {product.seenLive && (
-            <Badge className="absolute top-2 left-2 bg-purple-600">
+            <Badge className="absolute top-2 left-2 bg-red-600">
               <Zap className="h-3 w-3 mr-1" />
               As Seen Live
             </Badge>

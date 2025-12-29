@@ -162,7 +162,7 @@ export default function BlogPage() {
       {featuredPosts.length > 0 && (
         <div className="container mx-auto px-4 py-16">
           <div className="flex items-center gap-2 mb-8">
-            <div className="w-1 h-8 bg-purple-600 rounded-full"></div>
+            <div className="w-1 h-8 bg-red-600 rounded-full"></div>
             <h2 className="text-3xl font-bold text-zinc-900 dark:text-foreground">
               Featured Articles
             </h2>
@@ -172,21 +172,21 @@ export default function BlogPage() {
             {featuredPosts.map((post) => (
               <Card
                 key={post.id}
-                className="overflow-hidden bg-background dark:bg-background border-zinc-200 dark:border-border hover:border-purple-500 transition-all group cursor-pointer text-foreground"
+                className="overflow-hidden bg-background dark:bg-background border-zinc-200 dark:border-border hover:border-red-500 transition-all group cursor-pointer text-foreground"
               >
-                <div className="aspect-video bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/50 to-pink-600/50 group-hover:opacity-75 transition-opacity"></div>
+                <div className="aspect-video bg-gradient-to-br from-red-100 to-orange-100 dark:from-red-900/20 dark:to-pink-900/20 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-600/50 to-orange-600/50 group-hover:opacity-75 transition-opacity"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <Video className="w-16 h-16 text-foreground" />
                   </div>
-                  <Badge className="absolute top-4 left-4 bg-purple-600 text-foreground">
+                  <Badge className="absolute top-4 left-4 bg-red-600 text-foreground">
                     Featured
                   </Badge>
                 </div>
 
                 <div className="p-6">
                   <Badge className="mb-3">{post.category}</Badge>
-                  <h3 className="text-2xl font-bold text-zinc-900 dark:text-foreground mb-3 group-hover:text-purple-600 transition-colors">
+                  <h3 className="text-2xl font-bold text-zinc-900 dark:text-foreground mb-3 group-hover:text-red-600 transition-colors">
                     {post.title}
                   </h3>
                   <p className="text-zinc-600 dark:text-zinc-400 mb-4">
@@ -211,7 +211,7 @@ export default function BlogPage() {
 
                     <Button
                       variant="ghost"
-                      className="text-purple-600 hover:text-purple-700"
+                      className="text-red-600 hover:text-red-700"
                     >
                       Read More
                       <ArrowRight className="w-4 h-4 ml-2" />
@@ -219,7 +219,7 @@ export default function BlogPage() {
                   </div>
 
                   <div className="flex items-center gap-2 mt-4 pt-4 border-t border-zinc-200 dark:border-border">
-                    <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center">
                       <User className="w-4 h-4 text-foreground" />
                     </div>
                     <span className="text-sm font-medium text-zinc-900 dark:text-foreground">
@@ -243,7 +243,7 @@ export default function BlogPage() {
               onClick={() => setSelectedCategory(category)}
               className={
                 selectedCategory === category
-                  ? "bg-purple-600 hover:bg-purple-700"
+                  ? "bg-red-600 hover:bg-red-700"
                   : ""
               }
             >
@@ -259,10 +259,10 @@ export default function BlogPage() {
           {filteredPosts.map((post) => (
             <Card
               key={post.id}
-              className="overflow-hidden bg-background dark:bg-background border-zinc-200 dark:border-border hover:border-purple-500 transition-all group cursor-pointer text-foreground"
+              className="overflow-hidden bg-background dark:bg-background border-zinc-200 dark:border-border hover:border-red-500 transition-all group cursor-pointer text-foreground"
             >
               <div className="aspect-video bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 to-pink-600/30 group-hover:opacity-75 transition-opacity"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-red-600/30 to-pink-600/30 group-hover:opacity-75 transition-opacity"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <ShoppingBag className="w-12 h-12 text-white/60" />
                 </div>
@@ -272,7 +272,7 @@ export default function BlogPage() {
                 <Badge className="mb-3" variant="secondary">
                   {post.category}
                 </Badge>
-                <h3 className="text-xl font-bold text-zinc-900 dark:text-foreground mb-2 group-hover:text-purple-600 transition-colors line-clamp-2">
+                <h3 className="text-xl font-bold text-zinc-900 dark:text-foreground mb-2 group-hover:text-red-600 transition-colors line-clamp-2">
                   {post.title}
                 </h3>
                 <p className="text-zinc-600 dark:text-zinc-400 mb-4 line-clamp-3">
@@ -295,7 +295,7 @@ export default function BlogPage() {
 
                 <div className="flex items-center justify-between pt-4 border-t border-zinc-200 dark:border-border">
                   <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                    <div className="w-6 h-6 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center">
                       <User className="w-3 h-3 text-foreground" />
                     </div>
                     <span className="text-sm text-zinc-600 dark:text-zinc-400">
@@ -303,7 +303,7 @@ export default function BlogPage() {
                     </span>
                   </div>
 
-                  <Button variant="ghost" size="sm" className="text-purple-600">
+                  <Button variant="ghost" size="sm" className="text-red-600">
                     Read
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </Button>
@@ -316,7 +316,7 @@ export default function BlogPage() {
 
       {/* Newsletter CTA */}
       <div className="container mx-auto px-4 pb-16">
-        <Card className="p-12 bg-gradient-to-br from-purple-600 to-pink-600 border-0 text-center">
+        <Card className="p-12 bg-gradient-to-br from-red-600 to-orange-600 border-0 text-center">
           <h2 className="text-3xl font-bold text-foreground mb-4">
             Never Miss an Update
           </h2>

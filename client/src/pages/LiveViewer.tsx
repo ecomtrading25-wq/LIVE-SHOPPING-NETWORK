@@ -365,7 +365,7 @@ export default function LiveViewer() {
             {/* Pinned Product Overlay */}
             {pinnedProduct && (
               <div className="absolute bottom-20 left-4 right-4 lg:left-4 lg:right-auto lg:w-96 pointer-events-auto">
-                <Card className="bg-background/80 backdrop-blur-md border-purple-500/50 text-foreground">
+                <Card className="bg-background/80 backdrop-blur-md border-red-500/50 text-foreground">
                   <div className="p-4">
                     <div className="flex items-start gap-3">
                       <img
@@ -379,7 +379,7 @@ export default function LiveViewer() {
                           {pinnedProduct.description}
                         </p>
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="text-lg font-bold text-purple-400">
+                          <span className="text-lg font-bold text-red-400">
                             {formatCurrency(pinnedProduct.price)}
                           </span>
                           {pinnedProduct.originalPrice && (
@@ -390,7 +390,7 @@ export default function LiveViewer() {
                         </div>
                         <Button
                           size="sm"
-                          className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+                          className="w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-pink-700"
                           onClick={() => handleBuyNow(pinnedProduct)}
                         >
                           <ShoppingCart className="w-4 h-4 mr-2" />
@@ -482,7 +482,7 @@ export default function LiveViewer() {
                       </Avatar>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
-                          <span className={`text-sm font-medium ${msg.isHost ? 'text-purple-400' : 'text-muted-foreground'}`}>
+                          <span className={`text-sm font-medium ${msg.isHost ? 'text-red-400' : 'text-muted-foreground'}`}>
                             {msg.userName}
                           </span>
                           {msg.isHost && <Crown className="w-3 h-3 text-yellow-500" />}
@@ -500,7 +500,7 @@ export default function LiveViewer() {
                   <Button
                     size="sm"
                     variant="outline"
-                    className="border-purple-500 text-purple-400 hover:bg-purple-500/10"
+                    className="border-red-500 text-red-400 hover:bg-red-500/10"
                     onClick={() => setShowGifts(!showGifts)}
                   >
                     <Gift className="w-4 h-4 mr-2" />
@@ -537,7 +537,7 @@ export default function LiveViewer() {
                     size="icon"
                     onClick={handleSendMessage}
                     disabled={!user || !chatInput.trim()}
-                    className="bg-purple-600 hover:bg-purple-700"
+                    className="bg-red-600 hover:bg-red-700"
                   >
                     <Send className="w-4 h-4" />
                   </Button>
@@ -557,7 +557,7 @@ export default function LiveViewer() {
                         className="w-full h-48 object-cover"
                       />
                       {product.isPinned && (
-                        <Badge className="absolute top-2 right-2 bg-purple-600">
+                        <Badge className="absolute top-2 right-2 bg-red-600">
                           Pinned
                         </Badge>
                       )}
@@ -568,7 +568,7 @@ export default function LiveViewer() {
                         {product.description}
                       </p>
                       <div className="flex items-center gap-2 mb-3">
-                        <span className="text-xl font-bold text-purple-400">
+                        <span className="text-xl font-bold text-red-400">
                           {formatCurrency(product.price)}
                         </span>
                         {product.originalPrice && (
@@ -588,7 +588,7 @@ export default function LiveViewer() {
                         </Badge>
                       </div>
                       <Button
-                        className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+                        className="w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-pink-700"
                         onClick={() => handleBuyNow(product)}
                       >
                         <ShoppingCart className="w-4 h-4 mr-2" />

@@ -40,7 +40,7 @@ export default function OrderTrackingPage() {
     const colors: Record<string, string> = {
       pending: "text-yellow-600 bg-yellow-100",
       processing: "text-blue-600 bg-blue-100",
-      shipped: "text-purple-600 bg-purple-100",
+      shipped: "text-red-600 bg-red-100",
       delivered: "text-green-600 bg-green-100",
       cancelled: "text-red-600 bg-red-100",
     };
@@ -83,7 +83,7 @@ export default function OrderTrackingPage() {
             We couldn't find the order you're looking for
           </p>
           <Link href="/account">
-            <Button className="bg-purple-600 hover:bg-purple-700">
+            <Button className="bg-red-600 hover:bg-red-700">
               View All Orders
             </Button>
           </Link>
@@ -102,7 +102,7 @@ export default function OrderTrackingPage() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/">
-              <a className="text-2xl font-bold text-foreground hover:text-purple-400 transition-colors">
+              <a className="text-2xl font-bold text-foreground hover:text-red-400 transition-colors">
                 Live Shopping Network
               </a>
             </Link>
@@ -175,7 +175,7 @@ export default function OrderTrackingPage() {
               <div className="relative">
                 <div className="absolute top-6 left-0 right-0 h-1 bg-background text-foreground/10"></div>
                 <div
-                  className="absolute top-6 left-0 h-1 bg-purple-600 transition-all duration-500"
+                  className="absolute top-6 left-0 h-1 bg-red-600 transition-all duration-500"
                   style={{ width: `${(currentStep / 3) * 100}%` }}
                 ></div>
 
@@ -190,9 +190,9 @@ export default function OrderTrackingPage() {
                         <div
                           className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 transition-all ${
                             isCompleted
-                              ? "bg-purple-600 text-foreground"
+                              ? "bg-red-600 text-foreground"
                               : "bg-background text-foreground/10 text-gray-400"
-                          } ${isCurrent ? "ring-4 ring-purple-400" : ""}`}
+                          } ${isCurrent ? "ring-4 ring-red-400" : ""}`}
                         >
                           <Icon className="w-6 h-6" />
                         </div>
@@ -210,7 +210,7 @@ export default function OrderTrackingPage() {
           {/* Shipping Address */}
           <Card className="p-6 bg-background text-foreground/5 border-white/10 mb-6">
             <div className="flex items-start gap-4">
-              <MapPin className="w-6 h-6 text-purple-400 mt-1" />
+              <MapPin className="w-6 h-6 text-red-400 mt-1" />
               <div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">Shipping Address</h3>
                 <div className="text-muted-foreground">

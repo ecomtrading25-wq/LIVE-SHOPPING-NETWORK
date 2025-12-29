@@ -105,7 +105,7 @@ export default function BrowseShows() {
                 <Link key={show.id} href={`/live/${show.id}`}>
                   <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer border-red-500/50">
                     {/* Thumbnail */}
-                    <div className="relative aspect-video bg-gradient-to-br from-purple-500 to-pink-500">
+                    <div className="relative aspect-video bg-gradient-to-br from-red-500 to-orange-500">
                       {show.thumbnailUrl ? (
                         <img
                           src={show.thumbnailUrl}

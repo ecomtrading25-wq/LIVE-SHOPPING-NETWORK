@@ -109,7 +109,7 @@ function InventoryManagementContent() {
               <p className="text-gray-400 mt-1">Track and manage product stock</p>
             </div>
             <div className="flex items-center gap-2">
-              <Button className="bg-purple-600 hover:bg-purple-700">
+              <Button className="bg-red-600 hover:bg-red-700">
                 <Plus className="w-4 h-4 mr-2" />
                 Add Product
               </Button>
@@ -214,7 +214,7 @@ function InventoryManagementContent() {
                       <span className="text-foreground font-medium">{item.name}</span>
                     </td>
                     <td className="p-3">
-                      <Badge className="bg-purple-500/20 text-purple-400">
+                      <Badge className="bg-red-500/20 text-red-400">
                         {item.category}
                       </Badge>
                     </td>
@@ -240,7 +240,7 @@ function InventoryManagementContent() {
                       </span>
                     </td>
                     <td className="p-3">
-                      <Button size="sm" variant="ghost" className="text-purple-400">
+                      <Button size="sm" variant="ghost" className="text-red-400">
                         <Edit2 className="w-4 h-4" />
                       </Button>
                     </td>

@@ -214,7 +214,7 @@ export default function AIChatbot({
 
   const themeClasses = {
     light: 'bg-white text-gray-900',
-    dark: 'bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-foreground',
+    dark: 'bg-gradient-to-br from-slate-900 via-red-900 to-slate-900 text-foreground',
   };
 
   if (!isOpen) {
@@ -222,7 +222,7 @@ export default function AIChatbot({
       <div className={`fixed ${positionClasses[position]} z-50`}>
         <Button
           size="lg"
-          className="rounded-full w-16 h-16 shadow-2xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 relative group"
+          className="rounded-full w-16 h-16 shadow-2xl bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-pink-700 relative group"
           onClick={() => setIsOpen(true)}
         >
           <Bot className="w-8 h-8 text-foreground" />
@@ -245,12 +245,12 @@ export default function AIChatbot({
         }`}
       >
         {/* Header */}
-        <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-4 flex items-center justify-between">
+        <div className="bg-gradient-to-r from-red-600 to-orange-600 p-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="relative">
               <Avatar className="w-10 h-10 bg-white">
                 <AvatarFallback>
-                  <Bot className="w-6 h-6 text-purple-600" />
+                  <Bot className="w-6 h-6 text-red-600" />
                 </AvatarFallback>
               </Avatar>
               <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white" />
@@ -301,7 +301,7 @@ export default function AIChatbot({
                     }`}
                   >
                     {message.role === 'assistant' && (
-                      <Avatar className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500">
+                      <Avatar className="w-8 h-8 bg-gradient-to-br from-red-500 to-orange-500">
                         <AvatarFallback>
                           <Bot className="w-5 h-5 text-foreground" />
                         </AvatarFallback>
@@ -321,7 +321,7 @@ export default function AIChatbot({
                       <div
                         className={`p-3 rounded-lg ${
                           message.role === 'user'
-                            ? 'bg-purple-600 text-foreground ml-auto max-w-[80%]'
+                            ? 'bg-red-600 text-foreground ml-auto max-w-[80%]'
                             : 'bg-white/10 backdrop-blur text-foreground'
                         }`}
                       >
@@ -351,7 +351,7 @@ export default function AIChatbot({
                                   <p className="text-foreground font-semibold text-sm">
                                     {product.name}
                                   </p>
-                                  <p className="text-purple-300 font-bold">
+                                  <p className="text-red-300 font-bold">
                                     ${product.price.toFixed(2)}
                                   </p>
                                 </div>
@@ -458,7 +458,7 @@ export default function AIChatbot({
                 {/* Typing Indicator */}
                 {isTyping && (
                   <div className="flex gap-3">
-                    <Avatar className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500">
+                    <Avatar className="w-8 h-8 bg-gradient-to-br from-red-500 to-orange-500">
                       <AvatarFallback>
                         <Bot className="w-5 h-5 text-foreground" />
                       </AvatarFallback>
@@ -539,7 +539,7 @@ export default function AIChatbot({
                 <Button
                   onClick={handleSend}
                   disabled={!input.trim() || isTyping}
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+                  className="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-pink-700"
                 >
                   <Send className="w-5 h-5" />
                 </Button>

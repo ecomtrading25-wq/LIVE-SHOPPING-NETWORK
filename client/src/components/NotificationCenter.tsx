@@ -77,7 +77,7 @@ export default function NotificationCenter() {
       case "task":
         return <CheckCircle className="w-5 h-5 text-green-400" />;
       case "payment":
-        return <DollarSign className="w-5 h-5 text-purple-400" />;
+        return <DollarSign className="w-5 h-5 text-red-400" />;
       default:
         return <Bell className="w-5 h-5 text-gray-400" />;
     }

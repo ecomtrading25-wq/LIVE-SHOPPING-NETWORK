@@ -243,7 +243,7 @@ export default function LSNLiveShowViewer() {
 
                 {/* Viewer count */}
                 <div className="absolute top-4 right-4 bg-background/70 backdrop-blur-sm px-4 py-2 rounded-full flex items-center gap-2 text-foreground">
-                  <Eye className="h-5 w-5 text-purple-400" />
+                  <Eye className="h-5 w-5 text-red-400" />
                   <span className="text-lg font-bold">
                     {show.currentViewers?.toLocaleString() || 0}
                   </span>
@@ -317,7 +317,7 @@ export default function LSNLiveShowViewer() {
             <Card className="border-border bg-background text-foreground">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <Avatar className="h-16 w-16 border-2 border-purple-500">
+                  <Avatar className="h-16 w-16 border-2 border-red-500">
                     <AvatarImage src={show.creator?.avatarUrl} />
                     <AvatarFallback>{show.creator?.name?.[0]}</AvatarFallback>
                   </Avatar>
@@ -326,11 +326,11 @@ export default function LSNLiveShowViewer() {
                     <h1 className="text-2xl font-bold mb-2">{show.title}</h1>
                     <div className="flex items-center gap-3 mb-3">
                       <Link href={`/creator/${show.creator?.id}`}>
-                        <span className="text-purple-400 hover:text-purple-300 font-semibold">
+                        <span className="text-red-400 hover:text-red-300 font-semibold">
                           {show.creator?.name}
                         </span>
                       </Link>
-                      <Badge variant="outline" className="border-purple-500/50 text-purple-400">
+                      <Badge variant="outline" className="border-red-500/50 text-red-400">
                         {show.creator?.tier}
                       </Badge>
                     </div>
@@ -417,7 +417,7 @@ export default function LSNLiveShowViewer() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-border hover:bg-purple-500/20"
+                    className="border-border hover:bg-red-500/20"
                     onClick={() => sendReaction("✨")}
                   >
                     ✨
@@ -430,7 +430,7 @@ export default function LSNLiveShowViewer() {
             <Card className="border-border bg-background flex flex-col h-[600px] text-foreground">
               <div className="p-4 border-b border-border">
                 <h3 className="font-bold flex items-center gap-2">
-                  <Users className="h-5 w-5 text-purple-400" />
+                  <Users className="h-5 w-5 text-red-400" />
                   Live Chat
                   <Badge variant="outline" className="ml-auto">
                     {show.currentViewers || 0} online
@@ -478,7 +478,7 @@ export default function LSNLiveShowViewer() {
                   <Button
                     type="submit"
                     size="icon"
-                    className="bg-purple-600 hover:bg-purple-700"
+                    className="bg-red-600 hover:bg-red-700"
                   >
                     <Send className="h-4 w-4" />
                   </Button>
@@ -580,7 +580,7 @@ function PinnedProductCard({
   const isOutOfStock = stock === 0;
 
   return (
-    <Card className="border-border bg-background hover:border-purple-500/50 transition-all text-foreground">
+    <Card className="border-border bg-background hover:border-red-500/50 transition-all text-foreground">
       <div className="relative aspect-square overflow-hidden">
         <img
           src={product.imageUrl || "/placeholder-product.jpg"}
@@ -613,7 +613,7 @@ function PinnedProductCard({
         <h3 className="font-bold mb-2 line-clamp-2">{product.name}</h3>
 
         <div className="flex items-center gap-2 mb-4">
-          <span className="text-2xl font-bold text-purple-400">${price}</span>
+          <span className="text-2xl font-bold text-red-400">${price}</span>
           {product.compareAtPrice && product.compareAtPrice > price && (
             <>
               <span className="text-sm text-gray-500 line-through">
@@ -637,7 +637,7 @@ function PinnedProductCard({
               Add
             </Button>
             <Button
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+              className="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-pink-700"
               onClick={() => onBuyNow(product)}
             >
               Buy Now
@@ -666,18 +666,18 @@ function ChatMessage({
 }) {
   return (
     <div className="flex gap-3">
-      <Avatar className={cn("h-8 w-8", isCreator && "border-2 border-purple-500")}>
+      <Avatar className={cn("h-8 w-8", isCreator && "border-2 border-red-500")}>
         <AvatarImage src={user.avatar} />
         <AvatarFallback>{user.name?.[0] || 'U'}</AvatarFallback>
       </Avatar>
 
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-1">
-          <span className={cn("font-semibold text-sm", isCreator && "text-purple-400")}>
+          <span className={cn("font-semibold text-sm", isCreator && "text-red-400")}>
             {user.name}
           </span>
           {isCreator && (
-            <Badge className="bg-purple-600 text-xs px-2 py-0">
+            <Badge className="bg-red-600 text-xs px-2 py-0">
               Host
             </Badge>
           )}

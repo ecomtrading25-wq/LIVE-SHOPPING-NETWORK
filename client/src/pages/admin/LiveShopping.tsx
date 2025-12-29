@@ -117,8 +117,8 @@ export default function LiveShoppingPage() {
 
         <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center">
-              <DollarSign className="w-5 h-5 text-purple-500" />
+            <div className="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center">
+              <DollarSign className="w-5 h-5 text-red-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Live Revenue</p>
@@ -201,7 +201,7 @@ function SessionRow({ session, onUpdate }: { session: any; onUpdate: () => void 
       <TableCell>
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-card rounded-lg flex items-center justify-center text-card-foreground">
-            <Video className="w-5 h-5 text-purple-500" />
+            <Video className="w-5 h-5 text-red-500" />
           </div>
           <div>
             <p className="font-medium text-foreground">{session.title}</p>
@@ -222,7 +222,7 @@ function SessionRow({ session, onUpdate }: { session: any; onUpdate: () => void 
       </TableCell>
       <TableCell>
         {session.pinnedProductId ? (
-          <Badge className="bg-purple-600">
+          <Badge className="bg-red-600">
             <Pin className="w-3 h-3 mr-1" />
             Pinned
           </Badge>

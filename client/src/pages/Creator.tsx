@@ -67,7 +67,7 @@ export default function CreatorDashboard() {
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <Badge className={`${creatorData?.tier === "platinum" ? "bg-purple-600" : creatorData?.tier === "gold" ? "bg-yellow-600" : creatorData?.tier === "silver" ? "bg-gray-400" : "bg-orange-600"}`}>
+              <Badge className={`${creatorData?.tier === "platinum" ? "bg-red-600" : creatorData?.tier === "gold" ? "bg-yellow-600" : creatorData?.tier === "silver" ? "bg-gray-400" : "bg-orange-600"}`}>
                 {creatorData?.tier?.toUpperCase() || "BRONZE"} Creator
               </Badge>
               <Button variant="outline" size="sm">
@@ -110,15 +110,15 @@ export default function CreatorDashboard() {
 
           <Card className="p-6 bg-background/50 border-border text-foreground">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
-                <DollarSign className="w-5 h-5 text-purple-400" />
+              <div className="w-10 h-10 bg-red-500/20 rounded-full flex items-center justify-center">
+                <DollarSign className="w-5 h-5 text-red-400" />
               </div>
               <p className="text-sm text-gray-400">Total Earnings</p>
             </div>
             <p className="text-3xl font-bold text-foreground">
               ${earnings?.totalEarnings?.toFixed(2) || "0.00"}
             </p>
-            <p className="text-sm text-purple-400 mt-1">
+            <p className="text-sm text-red-400 mt-1">
               ${earnings?.pendingPayout?.toFixed(2) || "0.00"} pending
             </p>
           </Card>
@@ -144,7 +144,7 @@ export default function CreatorDashboard() {
               key={tab.id}
               variant={activeTab === tab.id ? "default" : "outline"}
               onClick={() => setActiveTab(tab.id)}
-              className={activeTab === tab.id ? "bg-purple-600" : ""}
+              className={activeTab === tab.id ? "bg-red-600" : ""}
             >
               <tab.icon className="w-4 h-4 mr-2" />
               {tab.label}
@@ -202,8 +202,8 @@ export default function CreatorDashboard() {
                       className="flex items-center justify-between p-4 bg-card rounded-lg text-card-foreground"
                     >
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                          <Video className="w-6 h-6 text-purple-400" />
+                        <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
+                          <Video className="w-6 h-6 text-red-400" />
                         </div>
                         <div>
                           <p className="font-semibold text-foreground">{session.title}</p>
@@ -220,7 +220,7 @@ export default function CreatorDashboard() {
                         </div>
                       </div>
                       <Button
-                        className="bg-purple-600 hover:bg-purple-700"
+                        className="bg-red-600 hover:bg-red-700"
                         onClick={() => startSessionMutation.mutate({ sessionId: session.id })}
                       >
                         <Play className="w-4 h-4 mr-2" />
@@ -234,7 +234,7 @@ export default function CreatorDashboard() {
                   </p>
                 )}
               </div>
-              <Button className="w-full mt-4 bg-purple-600 hover:bg-purple-700">
+              <Button className="w-full mt-4 bg-red-600 hover:bg-red-700">
                 <Calendar className="w-4 h-4 mr-2" />
                 Schedule New Session
               </Button>
@@ -321,7 +321,7 @@ export default function CreatorDashboard() {
                 />
               </div>
 
-              <Button className="w-full bg-purple-600 hover:bg-purple-700">
+              <Button className="w-full bg-red-600 hover:bg-red-700">
                 <Calendar className="w-4 h-4 mr-2" />
                 Schedule Session
               </Button>

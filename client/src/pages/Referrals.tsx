@@ -55,14 +55,14 @@ export default function ReferralsPage() {
       <div className="min-h-screen bg-background text-foreground py-12">
         <div className="container mx-auto px-4">
           <Card className="max-w-md mx-auto p-8 bg-background text-foreground/50 border-border text-center">
-            <Users className="w-16 h-16 text-purple-500 mx-auto mb-4" />
+            <Users className="w-16 h-16 text-red-500 mx-auto mb-4" />
             <h2 className="text-2xl font-bold text-foreground mb-4">
               Sign In to Access Referrals
             </h2>
             <p className="text-gray-400 mb-6">
               Create an account to start earning rewards by referring friends!
             </p>
-            <Button className="w-full bg-purple-600 hover:bg-purple-700">
+            <Button className="w-full bg-red-600 hover:bg-red-700">
               Sign In
             </Button>
           </Card>
@@ -117,8 +117,8 @@ export default function ReferralsPage() {
 
           <Card className="p-6 bg-background/50 border-border text-foreground">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center">
-                <Gift className="w-6 h-6 text-purple-400" />
+              <div className="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center">
+                <Gift className="w-6 h-6 text-red-400" />
               </div>
               <div>
                 <p className="text-sm text-gray-400">Pending Rewards</p>
@@ -145,7 +145,7 @@ export default function ReferralsPage() {
         </div>
 
         {/* Referral Link Section */}
-        <Card className="p-8 bg-gradient-to-r from-purple-600 to-pink-600 border-0 mb-12">
+        <Card className="p-8 bg-gradient-to-r from-red-600 to-orange-600 border-0 mb-12">
           <div className="text-center mb-6">
             <h2 className="text-3xl font-bold text-foreground mb-2">
               Your Unique Referral Link
@@ -165,7 +165,7 @@ export default function ReferralsPage() {
               />
               <Button
                 onClick={handleCopyLink}
-                className="bg-background text-foreground text-purple-600 hover:bg-gray-100 px-8"
+                className="bg-background text-foreground text-red-600 hover:bg-gray-100 px-8"
               >
                 {copied ? (
                   <>
@@ -224,7 +224,7 @@ export default function ReferralsPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-foreground text-2xl font-bold">
+              <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 text-foreground text-2xl font-bold">
                 1
               </div>
               <h3 className="text-xl font-bold text-foreground mb-2">Share Your Link</h3>
@@ -235,7 +235,7 @@ export default function ReferralsPage() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-foreground text-2xl font-bold">
+              <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 text-foreground text-2xl font-bold">
                 2
               </div>
               <h3 className="text-xl font-bold text-foreground mb-2">
@@ -248,7 +248,7 @@ export default function ReferralsPage() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-foreground text-2xl font-bold">
+              <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 text-foreground text-2xl font-bold">
                 3
               </div>
               <h3 className="text-xl font-bold text-foreground mb-2">Earn 10% Commission</h3>
@@ -272,8 +272,8 @@ export default function ReferralsPage() {
                   className="flex items-center justify-between p-4 bg-card rounded-lg text-card-foreground"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center">
-                      <Users className="w-6 h-6 text-purple-400" />
+                    <div className="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center">
+                      <Users className="w-6 h-6 text-red-400" />
                     </div>
                     <div>
                       <p className="font-semibold text-foreground">{referral.name}</p>

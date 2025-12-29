@@ -69,7 +69,7 @@ export default function ProductComparePage() {
       <div className="border-b bg-card text-card-foreground">
         <div className="container py-6">
           <div className="flex items-center gap-3 mb-2">
-            <GitCompare className="w-8 h-8 text-purple-500" />
+            <GitCompare className="w-8 h-8 text-red-500" />
             <h1 className="text-3xl font-bold">Product Comparison</h1>
           </div>
           <p className="text-muted-foreground">

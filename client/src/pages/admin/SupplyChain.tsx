@@ -264,7 +264,7 @@ export default function SupplyChainPage() {
       case "out_for_delivery":
         return "bg-blue-500/20 text-blue-400";
       case "in_transit":
-        return "bg-purple-500/20 text-purple-400";
+        return "bg-red-500/20 text-red-400";
       case "delayed":
         return "bg-yellow-500/20 text-yellow-400";
       case "exception":
@@ -281,7 +281,7 @@ export default function SupplyChainPage() {
       case "out_for_delivery":
         return <Truck className="w-5 h-5 text-blue-500" />;
       case "in_transit":
-        return <Navigation className="w-5 h-5 text-purple-500" />;
+        return <Navigation className="w-5 h-5 text-red-500" />;
       case "delayed":
         return <Clock className="w-5 h-5 text-yellow-500" />;
       case "exception":
@@ -321,7 +321,7 @@ export default function SupplyChainPage() {
         <Card className="p-6">
           <div className="flex items-center justify-between mb-2">
             <p className="text-sm text-muted-foreground">In Transit</p>
-            <Truck className="w-5 h-5 text-purple-500" />
+            <Truck className="w-5 h-5 text-red-500" />
           </div>
           <p className="text-3xl font-bold mb-1">{inTransit}</p>
           <p className="text-xs text-muted-foreground">Currently moving</p>

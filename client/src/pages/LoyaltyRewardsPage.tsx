@@ -67,7 +67,7 @@ export default function LoyaltyRewardsPage() {
       case 'gold':
         return <Trophy className="w-8 h-8 text-yellow-500" />;
       case 'platinum':
-        return <Crown className="w-8 h-8 text-purple-500" />;
+        return <Crown className="w-8 h-8 text-red-500" />;
       default:
         return <Star className="w-8 h-8 text-gray-400" />;
     }
@@ -82,7 +82,7 @@ export default function LoyaltyRewardsPage() {
       case 'gold':
         return 'from-yellow-500 to-yellow-700';
       case 'platinum':
-        return 'from-purple-500 to-purple-700';
+        return 'from-red-500 to-red-700';
       default:
         return 'from-gray-400 to-gray-600';
     }
@@ -223,7 +223,7 @@ export default function LoyaltyRewardsPage() {
                     !reward.available ? 'opacity-50' : ''
                   }`}
                 >
-                  <div className="relative h-48 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
+                  <div className="relative h-48 bg-gradient-to-br from-red-600 to-orange-600 flex items-center justify-center">
                     {reward.imageUrl ? (
                       <img src={reward.imageUrl} alt={reward.name} className="w-full h-full object-cover" />
                     ) : (

@@ -196,7 +196,7 @@ export default function ARPreviewPage() {
                           }}
                         />
                       </div>
-                      <Badge className="bg-purple-500/20 text-purple-400">
+                      <Badge className="bg-red-500/20 text-red-400">
                         <Sparkles className="w-3 h-3 mr-1" />
                         Interactive 3D Model
                       </Badge>
@@ -240,8 +240,8 @@ export default function ARPreviewPage() {
                   <div className="relative bg-background aspect-[4/3] flex items-center justify-center text-foreground">
                     {/* AR Camera View Placeholder */}
                     <div className="text-center">
-                      <div className="w-32 h-32 border-4 border-dashed border-purple-500 rounded-lg mx-auto mb-6 flex items-center justify-center">
-                        <Eye className="w-16 h-16 text-purple-400" />
+                      <div className="w-32 h-32 border-4 border-dashed border-red-500 rounded-lg mx-auto mb-6 flex items-center justify-center">
+                        <Eye className="w-16 h-16 text-red-400" />
                       </div>
                       <p className="text-foreground text-lg font-bold mb-2">Point at a flat surface</p>
                       <p className="text-gray-400 text-sm">Move your device to detect surfaces</p>
@@ -251,7 +251,7 @@ export default function ARPreviewPage() {
                     <div className="absolute bottom-4 left-0 right-0 px-4">
                       <Card className="p-4 bg-background/80 backdrop-blur border-white/10 text-foreground">
                         <div className="flex items-center gap-3">
-                          <Sparkles className="w-5 h-5 text-purple-400" />
+                          <Sparkles className="w-5 h-5 text-red-400" />
                           <p className="text-foreground text-sm">Tap on a surface to place the product</p>
                         </div>
                       </Card>
@@ -282,7 +282,7 @@ export default function ARPreviewPage() {
                       <Card className="p-4 bg-background/80 backdrop-blur border-white/10 text-foreground">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <Move className="w-5 h-5 text-purple-400" />
+                            <Move className="w-5 h-5 text-red-400" />
                             <p className="text-foreground text-sm">Drag to reposition</p>
                           </div>
                           <Button size="sm" variant="outline">
@@ -319,7 +319,7 @@ export default function ARPreviewPage() {
                       key={index}
                       onClick={() => setSelectedColor(index)}
                       className={`w-12 h-12 rounded-full border-4 transition-all ${
-                        selectedColor === index ? 'border-purple-500 scale-110' : 'border-white/20'
+                        selectedColor === index ? 'border-red-500 scale-110' : 'border-white/20'
                       }`}
                       style={{ backgroundColor: color }}
                     />
@@ -329,7 +329,7 @@ export default function ARPreviewPage() {
 
               {/* Actions */}
               <div className="flex gap-3">
-                <Button className="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
+                <Button className="flex-1 bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600">
                   Add to Cart
                 </Button>
                 <Button variant="outline" onClick={handleShare}>
@@ -351,7 +351,7 @@ export default function ARPreviewPage() {
                     onClick={() => setSelectedProduct(product)}
                     className={`w-full p-3 rounded-lg transition-all ${
                       selectedProduct.id === product.id
-                        ? 'bg-purple-500/20 border-2 border-purple-500'
+                        ? 'bg-red-500/20 border-2 border-red-500'
                         : 'bg-background text-foreground/5 border-2 border-transparent hover:bg-background text-foreground/10'
                     }`}
                   >
@@ -363,7 +363,7 @@ export default function ARPreviewPage() {
                       />
                       <div className="flex-1 text-left">
                         <p className="text-foreground font-medium text-sm mb-1">{product.name}</p>
-                        <p className="text-purple-400 font-bold">${product.price}</p>
+                        <p className="text-red-400 font-bold">${product.price}</p>
                       </div>
                     </div>
                   </button>
@@ -372,30 +372,30 @@ export default function ARPreviewPage() {
             </Card>
 
             {/* AR Features */}
-            <Card className="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-purple-500/30">
+            <Card className="p-6 bg-gradient-to-br from-red-500/20 to-pink-500/20 border-red-500/30">
               <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-purple-400" />
+                <Sparkles className="w-5 h-5 text-red-400" />
                 AR Features
               </h3>
               <ul className="space-y-3 text-sm">
                 <li className="flex items-start gap-2 text-foreground">
-                  <Box className="w-4 h-4 text-purple-400 mt-0.5" />
+                  <Box className="w-4 h-4 text-red-400 mt-0.5" />
                   <span>360° interactive 3D models</span>
                 </li>
                 <li className="flex items-start gap-2 text-foreground">
-                  <Eye className="w-4 h-4 text-purple-400 mt-0.5" />
+                  <Eye className="w-4 h-4 text-red-400 mt-0.5" />
                   <span>Virtual try-on with face tracking</span>
                 </li>
                 <li className="flex items-start gap-2 text-foreground">
-                  <Home className="w-4 h-4 text-purple-400 mt-0.5" />
+                  <Home className="w-4 h-4 text-red-400 mt-0.5" />
                   <span>See products in your actual space</span>
                 </li>
                 <li className="flex items-start gap-2 text-foreground">
-                  <Ruler className="w-4 h-4 text-purple-400 mt-0.5" />
+                  <Ruler className="w-4 h-4 text-red-400 mt-0.5" />
                   <span>Real-time dimension overlay</span>
                 </li>
                 <li className="flex items-start gap-2 text-foreground">
-                  <Camera className="w-4 h-4 text-purple-400 mt-0.5" />
+                  <Camera className="w-4 h-4 text-red-400 mt-0.5" />
                   <span>Capture and share AR scenes</span>
                 </li>
               </ul>

@@ -93,8 +93,8 @@ export default function ReviewsPage() {
                 {reviews?.length || 0}
               </p>
             </div>
-            <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
-              <MessageSquare className="w-6 h-6 text-purple-400" />
+            <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
+              <MessageSquare className="w-6 h-6 text-red-400" />
             </div>
           </div>
         </Card>
@@ -202,8 +202,8 @@ export default function ReviewsPage() {
             <div className="flex items-start justify-between">
               <div className="flex-1">
                 <div className="flex items-center gap-4 mb-3">
-                  <div className="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
-                    <span className="text-purple-400 font-semibold">
+                  <div className="w-10 h-10 bg-red-500/20 rounded-full flex items-center justify-center">
+                    <span className="text-red-400 font-semibold">
                       {review.userName?.charAt(0).toUpperCase() || "U"}
                     </span>
                   </div>

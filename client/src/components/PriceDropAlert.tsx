@@ -100,7 +100,7 @@ export default function PriceDropAlert({
               <strong>{productName}</strong> drops to <strong>${targetPrice}</strong> or lower.
             </p>
             <div className="flex items-center gap-4 text-sm">
-              <Badge className="bg-purple-500/20 text-purple-400">
+              <Badge className="bg-red-500/20 text-red-400">
                 <DollarSign className="w-3 h-3 mr-1" />
                 Current: ${currentPrice}
               </Badge>
@@ -138,7 +138,7 @@ export default function PriceDropAlert({
           <p className="text-muted-foreground text-sm mb-2">
             Get notified when <strong>{productName}</strong> drops to your target price
           </p>
-          <Badge className="bg-purple-500/20 text-purple-400">
+          <Badge className="bg-red-500/20 text-red-400">
             <DollarSign className="w-3 h-3 mr-1" />
             Current Price: ${currentPrice}
           </Badge>

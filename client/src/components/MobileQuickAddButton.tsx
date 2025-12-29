@@ -70,7 +70,7 @@ export default function MobileQuickAddButton({
           w-14 h-14 rounded-full shadow-lg transition-all duration-300
           ${isAdded
             ? "bg-green-600 hover:bg-green-600 scale-110"
-            : "bg-purple-600 hover:bg-purple-700"
+            : "bg-red-600 hover:bg-red-700"
           }
           ${!inStock ? "opacity-50 cursor-not-allowed" : ""}
         `}

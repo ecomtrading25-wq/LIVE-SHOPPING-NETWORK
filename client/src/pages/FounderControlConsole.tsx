@@ -306,7 +306,7 @@ export default function FounderControlConsole() {
               <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
                 <p className="text-gray-400 text-sm mb-1">Active Creators</p>
                 <p className="text-3xl font-bold text-foreground">{kpis?.activeCreators || 0}</p>
-                <p className="text-purple-500 text-xs mt-1">Online now</p>
+                <p className="text-red-500 text-xs mt-1">Online now</p>
               </Card>
               <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
                 <p className="text-gray-400 text-sm mb-1">Dispute Rate</p>
@@ -522,13 +522,13 @@ export default function FounderControlConsole() {
                 </p>
               </Card>
 
-              <Card className="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-purple-500/30">
-                <ShoppingCart className="w-8 h-8 text-purple-500 mb-3" />
+              <Card className="p-6 bg-gradient-to-br from-red-500/20 to-pink-500/20 border-red-500/30">
+                <ShoppingCart className="w-8 h-8 text-red-500 mb-3" />
                 <p className="text-muted-foreground text-sm mb-1">Total Orders</p>
                 <p className="text-4xl font-bold text-foreground mb-2">
                   {kpis?.totalOrders?.toLocaleString() || "0"}
                 </p>
-                <p className="text-purple-400 text-sm">
+                <p className="text-red-400 text-sm">
                   ${kpis?.avgOrderValue?.toFixed(2) || "0"} AOV
                 </p>
               </Card>

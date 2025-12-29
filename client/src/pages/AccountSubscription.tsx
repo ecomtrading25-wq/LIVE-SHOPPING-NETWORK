@@ -187,7 +187,7 @@ export default function AccountSubscriptionPage() {
             Please sign in to manage your subscription
           </p>
           <Link href="/">
-            <Button className="w-full bg-purple-600 hover:bg-purple-700">
+            <Button className="w-full bg-red-600 hover:bg-red-700">
               Go to Home
             </Button>
           </Link>
@@ -321,9 +321,9 @@ export default function AccountSubscriptionPage() {
               {plans?.map((plan) => (
                 <Card
                   key={plan.id}
-                  className={`p-6 bg-background text-foreground/5 border-white/10 hover:border-purple-500/50 transition-all ${
+                  className={`p-6 bg-background text-foreground/5 border-white/10 hover:border-red-500/50 transition-all ${
                     subscription?.planId === plan.id
-                      ? "border-purple-500 ring-2 ring-purple-500/20"
+                      ? "border-red-500 ring-2 ring-red-500/20"
                       : ""
                   }`}
                 >
@@ -355,14 +355,14 @@ export default function AccountSubscriptionPage() {
 
                   {subscription ? (
                     subscription.planId === plan.id ? (
-                      <Badge className="w-full justify-center bg-purple-600 text-foreground">
+                      <Badge className="w-full justify-center bg-red-600 text-foreground">
                         Current Plan
                       </Badge>
                     ) : (
                       <Button
                         onClick={() => handleChangePlan(plan.id)}
                         disabled={changePlanMutation.isPending}
-                        className="w-full bg-purple-600 hover:bg-purple-700"
+                        className="w-full bg-red-600 hover:bg-red-700"
                       >
                         Change to This Plan
                       </Button>
@@ -371,7 +371,7 @@ export default function AccountSubscriptionPage() {
                     <Button
                       onClick={() => handleSubscribe(plan.id)}
                       disabled={createCheckoutMutation.isPending}
-                      className="w-full bg-purple-600 hover:bg-purple-700"
+                      className="w-full bg-red-600 hover:bg-red-700"
                     >
                       Subscribe Now
                     </Button>
@@ -427,7 +427,7 @@ export default function AccountSubscriptionPage() {
                             href={item.hostedInvoiceUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-purple-400 hover:text-purple-300 inline-flex items-center gap-1"
+                            className="text-red-400 hover:text-red-300 inline-flex items-center gap-1"
                           >
                             View
                             <ExternalLink className="w-4 h-4" />

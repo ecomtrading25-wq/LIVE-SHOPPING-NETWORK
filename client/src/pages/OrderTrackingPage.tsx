@@ -49,7 +49,7 @@ export default function OrderTrackingPage() {
       case 'processing':
         return <Package className="w-6 h-6 text-blue-500" />;
       case 'shipped':
-        return <Truck className="w-6 h-6 text-purple-500" />;
+        return <Truck className="w-6 h-6 text-red-500" />;
       case 'delivered':
         return <CheckCircle className="w-6 h-6 text-green-500" />;
       default:
@@ -79,7 +79,7 @@ export default function OrderTrackingPage() {
       case 'processing':
         return 'bg-blue-500/20 text-blue-400';
       case 'shipped':
-        return 'bg-purple-500/20 text-purple-400';
+        return 'bg-red-500/20 text-red-400';
       case 'delivered':
         return 'bg-green-500/20 text-green-400';
       case 'cancelled':

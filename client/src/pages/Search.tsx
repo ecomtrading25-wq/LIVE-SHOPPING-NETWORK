@@ -110,7 +110,7 @@ export default function SearchPage() {
                     variant="ghost"
                     size="sm"
                     onClick={clearFilters}
-                    className="text-xs text-purple-400 hover:text-purple-300"
+                    className="text-xs text-red-400 hover:text-red-300"
                   >
                     Clear All
                   </Button>
@@ -181,7 +181,7 @@ export default function SearchPage() {
                       onClick={() => setMinRating(rating)}
                       className={`flex items-center gap-2 w-full p-2 rounded-lg transition-colors ${
                         minRating === rating
-                          ? "bg-purple-600 text-foreground"
+                          ? "bg-red-600 text-foreground"
                           : "text-muted-foreground hover:bg-card"
                       }`}
                     >
@@ -219,7 +219,7 @@ export default function SearchPage() {
                   {searchQuery && ` for "${searchQuery}"`}
                 </p>
                 {activeFilterCount > 0 && (
-                  <Badge className="bg-purple-600">
+                  <Badge className="bg-red-600">
                     {activeFilterCount} {activeFilterCount === 1 ? "filter" : "filters"} active
                   </Badge>
                 )}
@@ -258,45 +258,45 @@ export default function SearchPage() {
                 {selectedCategories.map((category) => (
                   <Badge
                     key={category}
-                    className="bg-purple-600 pr-1 flex items-center gap-2"
+                    className="bg-red-600 pr-1 flex items-center gap-2"
                   >
                     {category}
                     <button
                       onClick={() => handleCategoryToggle(category)}
-                      className="hover:bg-purple-700 rounded-full p-0.5"
+                      className="hover:bg-red-700 rounded-full p-0.5"
                     >
                       <X className="w-3 h-3" />
                     </button>
                   </Badge>
                 ))}
                 {(priceRange[0] > 0 || priceRange[1] < 1000) && (
-                  <Badge className="bg-purple-600 pr-1 flex items-center gap-2">
+                  <Badge className="bg-red-600 pr-1 flex items-center gap-2">
                     ${priceRange[0]} - ${priceRange[1]}
                     <button
                       onClick={() => setPriceRange([0, 1000])}
-                      className="hover:bg-purple-700 rounded-full p-0.5"
+                      className="hover:bg-red-700 rounded-full p-0.5"
                     >
                       <X className="w-3 h-3" />
                     </button>
                   </Badge>
                 )}
                 {minRating > 0 && (
-                  <Badge className="bg-purple-600 pr-1 flex items-center gap-2">
+                  <Badge className="bg-red-600 pr-1 flex items-center gap-2">
                     {minRating}+ stars
                     <button
                       onClick={() => setMinRating(0)}
-                      className="hover:bg-purple-700 rounded-full p-0.5"
+                      className="hover:bg-red-700 rounded-full p-0.5"
                     >
                       <X className="w-3 h-3" />
                     </button>
                   </Badge>
                 )}
                 {inStockOnly && (
-                  <Badge className="bg-purple-600 pr-1 flex items-center gap-2">
+                  <Badge className="bg-red-600 pr-1 flex items-center gap-2">
                     In Stock
                     <button
                       onClick={() => setInStockOnly(false)}
-                      className="hover:bg-purple-700 rounded-full p-0.5"
+                      className="hover:bg-red-700 rounded-full p-0.5"
                     >
                       <X className="w-3 h-3" />
                     </button>
@@ -315,7 +315,7 @@ export default function SearchPage() {
                 {searchResults.map((product: any) => (
                   <Card
                     key={product.id}
-                    className="bg-background/50 border-border overflow-hidden hover:border-purple-500 transition-colors text-foreground"
+                    className="bg-background/50 border-border overflow-hidden hover:border-red-500 transition-colors text-foreground"
                   >
                     <Link href={`/products/${product.id}`}>
                       <div className="aspect-square bg-card relative cursor-pointer text-card-foreground">
@@ -340,7 +340,7 @@ export default function SearchPage() {
 
                     <div className="p-4">
                       <Link href={`/products/${product.id}`}>
-                        <h3 className="font-semibold text-foreground mb-2 hover:text-purple-400 transition-colors cursor-pointer line-clamp-2">
+                        <h3 className="font-semibold text-foreground mb-2 hover:text-red-400 transition-colors cursor-pointer line-clamp-2">
                           {product.name}
                         </h3>
                       </Link>
@@ -367,7 +367,7 @@ export default function SearchPage() {
                       </div>
 
                       <Button
-                        className="w-full bg-purple-600 hover:bg-purple-700"
+                        className="w-full bg-red-600 hover:bg-red-700"
                         onClick={() => handleAddToCart(product)}
                         disabled={product.status !== "active"}
                       >
@@ -389,7 +389,7 @@ export default function SearchPage() {
                 </p>
                 <Button
                   onClick={clearFilters}
-                  className="bg-purple-600 hover:bg-purple-700"
+                  className="bg-red-600 hover:bg-red-700"
                 >
                   Clear All Filters
                 </Button>

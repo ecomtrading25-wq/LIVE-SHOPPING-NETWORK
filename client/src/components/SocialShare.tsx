@@ -207,7 +207,7 @@ export default function SocialShare({
                 className="justify-start gap-3 h-auto py-3"
                 onClick={copyLink}
               >
-                <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
+                <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
                   {copied ? (
                     <CheckCircle className="w-5 h-5 text-foreground" />
                   ) : (
@@ -253,7 +253,7 @@ export function SocialProofWidget() {
               key={share.platform}
               className="flex items-center gap-3 p-3 bg-card rounded-lg text-card-foreground"
             >
-              <Icon className="w-5 h-5 text-purple-500" />
+              <Icon className="w-5 h-5 text-red-500" />
               <div>
                 <p className="text-sm font-medium text-foreground">{share.count}</p>
                 <p className="text-xs text-gray-400">{share.platform}</p>

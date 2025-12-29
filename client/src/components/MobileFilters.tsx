@@ -116,10 +116,10 @@ export default function MobileFilters({
         <div className="px-6 pb-4 border-b border-border">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <SlidersHorizontal className="w-6 h-6 text-purple-400" />
+              <SlidersHorizontal className="w-6 h-6 text-red-400" />
               <h2 className="text-2xl font-bold text-foreground">Filters</h2>
               {activeFilterCount > 0 && (
-                <Badge className="bg-purple-600">{activeFilterCount}</Badge>
+                <Badge className="bg-red-600">{activeFilterCount}</Badge>
               )}
             </div>
             <button
@@ -144,7 +144,7 @@ export default function MobileFilters({
                   className={`
                     p-4 rounded-xl border-2 transition-all text-left
                     ${filters.categories.includes(category)
-                      ? "border-purple-500 bg-purple-500/20 text-foreground"
+                      ? "border-red-500 bg-red-500/20 text-foreground"
                       : "border-border text-gray-400 active:scale-95"
                     }
                   `}
@@ -152,7 +152,7 @@ export default function MobileFilters({
                   <div className="flex items-center justify-between">
                     <span className="font-medium">{category}</span>
                     {filters.categories.includes(category) && (
-                      <Check className="w-5 h-5 text-purple-400" />
+                      <Check className="w-5 h-5 text-red-400" />
                     )}
                   </div>
                 </button>
@@ -195,7 +195,7 @@ export default function MobileFilters({
                   className={`
                     px-6 py-3 rounded-full border-2 transition-all
                     ${filters.brands.includes(brand)
-                      ? "border-purple-500 bg-purple-500/20 text-foreground"
+                      ? "border-red-500 bg-red-500/20 text-foreground"
                       : "border-border text-gray-400 active:scale-95"
                     }
                   `}
@@ -224,7 +224,7 @@ export default function MobileFilters({
                   className={`
                     w-full p-4 rounded-xl border-2 transition-all flex items-center justify-between
                     ${filters.ratings.includes(rating)
-                      ? "border-purple-500 bg-purple-500/20"
+                      ? "border-red-500 bg-red-500/20"
                       : "border-border active:scale-95"
                     }
                   `}
@@ -234,7 +234,7 @@ export default function MobileFilters({
                     <span className="text-foreground font-medium">& Up</span>
                   </div>
                   {filters.ratings.includes(rating) && (
-                    <Check className="w-5 h-5 text-purple-400" />
+                    <Check className="w-5 h-5 text-red-400" />
                   )}
                 </button>
               ))}
@@ -250,14 +250,14 @@ export default function MobileFilters({
               className={`
                 w-full p-4 rounded-xl border-2 transition-all flex items-center justify-between
                 ${filters.inStockOnly
-                  ? "border-purple-500 bg-purple-500/20"
+                  ? "border-red-500 bg-red-500/20"
                   : "border-border active:scale-95"
                 }
               `}
             >
               <span className="text-foreground font-medium">In Stock Only</span>
               {filters.inStockOnly && (
-                <Check className="w-5 h-5 text-purple-400" />
+                <Check className="w-5 h-5 text-red-400" />
               )}
             </button>
           </div>
@@ -275,7 +275,7 @@ export default function MobileFilters({
             </Button>
             <Button
               onClick={handleApply}
-              className="flex-1 h-14 text-lg bg-purple-600 hover:bg-purple-700"
+              className="flex-1 h-14 text-lg bg-red-600 hover:bg-red-700"
             >
               Apply Filters
               {activeFilterCount > 0 && ` (${activeFilterCount})`}

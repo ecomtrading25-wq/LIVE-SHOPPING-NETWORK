@@ -159,8 +159,8 @@ export default function SettlementsPage() {
 
         <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center">
-              <TrendingUp className="w-5 h-5 text-purple-500" />
+            <div className="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center">
+              <TrendingUp className="w-5 h-5 text-red-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Reconciliation Rate</p>
@@ -233,7 +233,7 @@ export default function SettlementsPage() {
                   {settlement.id.substring(0, 8)}
                 </TableCell>
                 <TableCell>
-                  <Badge className="bg-purple-600">{settlement.platform}</Badge>
+                  <Badge className="bg-red-600">{settlement.platform}</Badge>
                 </TableCell>
                 <TableCell className="text-muted-foreground">{settlement.period}</TableCell>
                 <TableCell className="text-foreground font-medium">

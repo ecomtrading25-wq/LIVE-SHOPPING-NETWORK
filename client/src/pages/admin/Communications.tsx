@@ -265,7 +265,7 @@ export default function CommunicationsPage() {
       case "transactional":
         return "bg-blue-500/20 text-blue-400";
       case "promotional":
-        return "bg-purple-500/20 text-purple-400";
+        return "bg-red-500/20 text-red-400";
       case "lifecycle":
         return "bg-orange-500/20 text-orange-400";
       default:
@@ -318,7 +318,7 @@ export default function CommunicationsPage() {
         <Card className="p-6">
           <div className="flex items-center justify-between mb-2">
             <p className="text-sm text-muted-foreground">Open Rate</p>
-            <TrendingUp className="w-5 h-5 text-purple-500" />
+            <TrendingUp className="w-5 h-5 text-red-500" />
           </div>
           <p className="text-3xl font-bold mb-1">{((totalOpened / totalDelivered) * 100).toFixed(1)}%</p>
           <p className="text-xs text-green-500">+3.5% from last week</p>
@@ -400,7 +400,7 @@ export default function CommunicationsPage() {
                       </div>
                       <div>
                         <p className="text-xs text-muted-foreground mb-1">Clicked</p>
-                        <p className="text-xl font-bold text-purple-500">{message.clicked.toLocaleString()}</p>
+                        <p className="text-xl font-bold text-red-500">{message.clicked.toLocaleString()}</p>
                         <p className="text-xs text-muted-foreground">
                           {((message.clicked / message.opened) * 100).toFixed(1)}%
                         </p>
@@ -516,7 +516,7 @@ export default function CommunicationsPage() {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground mb-1">Clicked</p>
-                      <p className="text-2xl font-bold text-purple-500">{metric.clicked.toLocaleString()}</p>
+                      <p className="text-2xl font-bold text-red-500">{metric.clicked.toLocaleString()}</p>
                       <p className="text-xs text-muted-foreground">{metric.clickRate}%</p>
                     </div>
                     <div>
@@ -529,7 +529,7 @@ export default function CommunicationsPage() {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground mb-1">Click Rate</p>
-                      <p className="text-2xl font-bold text-purple-500">{metric.clickRate}%</p>
+                      <p className="text-2xl font-bold text-red-500">{metric.clickRate}%</p>
                     </div>
                   </div>
                 </Card>

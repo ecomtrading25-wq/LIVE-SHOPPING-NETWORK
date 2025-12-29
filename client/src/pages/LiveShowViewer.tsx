@@ -313,7 +313,7 @@ export default function LiveShowViewer() {
               >
                 {messages?.map((msg) => (
                   <div key={msg.id} className="flex items-start gap-2">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-xs font-bold">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-xs font-bold">
                       {msg.userId?.toString().slice(0, 2).toUpperCase()}
                     </div>
                     <div className="flex-1 min-w-0">

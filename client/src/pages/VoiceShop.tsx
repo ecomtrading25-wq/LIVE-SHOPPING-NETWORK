@@ -260,7 +260,7 @@ export default function VoiceShopPage() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full mb-4">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-red-500 to-orange-500 rounded-full mb-4">
             <Mic className="w-10 h-10 text-foreground" />
           </div>
           <h1 className="text-5xl font-bold text-foreground mb-4">Voice Shopping</h1>
@@ -268,7 +268,7 @@ export default function VoiceShopPage() {
           
           {/* Wake Word Status */}
           {wakeWordActive && (
-            <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 px-4 py-2">
+            <Badge className="bg-red-500/20 text-red-400 border-red-500/30 px-4 py-2">
               <Sparkles className="w-4 h-4 mr-2" />
               Say "Hey Shopping" to activate
             </Badge>
@@ -286,7 +286,7 @@ export default function VoiceShopPage() {
                   className={`w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 transition-all ${
                     isListening
                       ? 'bg-gradient-to-br from-red-500 to-pink-500 animate-pulse'
-                      : 'bg-gradient-to-br from-purple-500 to-pink-500 hover:scale-110'
+                      : 'bg-gradient-to-br from-red-500 to-orange-500 hover:scale-110'
                   }`}
                 >
                   {isListening ? (
@@ -305,7 +305,7 @@ export default function VoiceShopPage() {
                   <div className="mt-6 p-4 bg-background text-foreground/10 rounded-lg">
                     <p className="text-foreground text-lg">{transcript}</p>
                     {isProcessing && (
-                      <Loader2 className="w-5 h-5 text-purple-400 animate-spin mx-auto mt-2" />
+                      <Loader2 className="w-5 h-5 text-red-400 animate-spin mx-auto mt-2" />
                     )}
                   </div>
                 )}
@@ -344,14 +344,14 @@ export default function VoiceShopPage() {
                           command.action === 'search' ? 'bg-blue-500/20' :
                           command.action === 'add_to_cart' ? 'bg-green-500/20' :
                           command.action === 'remove_from_cart' ? 'bg-red-500/20' :
-                          command.action === 'checkout' ? 'bg-purple-500/20' :
+                          command.action === 'checkout' ? 'bg-red-500/20' :
                           command.action === 'info' ? 'bg-yellow-500/20' :
                           'bg-gray-500/20'
                         }`}>
                           {command.action === 'search' && <Search className="w-5 h-5 text-blue-400" />}
                           {command.action === 'add_to_cart' && <Plus className="w-5 h-5 text-green-400" />}
                           {command.action === 'remove_from_cart' && <Minus className="w-5 h-5 text-red-400" />}
-                          {command.action === 'checkout' && <ShoppingCart className="w-5 h-5 text-purple-400" />}
+                          {command.action === 'checkout' && <ShoppingCart className="w-5 h-5 text-red-400" />}
                           {command.action === 'info' && <Package className="w-5 h-5 text-yellow-400" />}
                           {command.action === 'unknown' && <X className="w-5 h-5 text-gray-400" />}
                         </div>
@@ -378,7 +378,7 @@ export default function VoiceShopPage() {
             <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-bold text-foreground">Your Cart</h2>
-                <Badge className="bg-purple-500/20 text-purple-400">
+                <Badge className="bg-red-500/20 text-red-400">
                   {cartItemCount} items
                 </Badge>
               </div>
@@ -402,7 +402,7 @@ export default function VoiceShopPage() {
                         <div className="flex-1">
                           <p className="text-foreground font-medium text-sm mb-1">{item.name}</p>
                           <p className="text-gray-400 text-sm">Qty: {item.quantity}</p>
-                          <p className="text-purple-400 font-bold">${item.price}</p>
+                          <p className="text-red-400 font-bold">${item.price}</p>
                         </div>
                       </div>
                     ))}
@@ -423,7 +423,7 @@ export default function VoiceShopPage() {
                     </div>
                   </div>
 
-                  <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
+                  <Button className="w-full bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600">
                     <ShoppingCart className="w-4 h-4 mr-2" />
                     Proceed to Checkout
                   </Button>
@@ -467,7 +467,7 @@ export default function VoiceShopPage() {
                   <button
                     onClick={() => setWakeWordActive(!wakeWordActive)}
                     className={`w-12 h-6 rounded-full transition-colors ${
-                      wakeWordActive ? 'bg-purple-500' : 'bg-gray-600'
+                      wakeWordActive ? 'bg-red-500' : 'bg-gray-600'
                     }`}
                   >
                     <div

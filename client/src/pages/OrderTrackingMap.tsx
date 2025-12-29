@@ -117,7 +117,7 @@ export default function OrderTrackingMap() {
             <div className="relative bg-gray-100 dark:bg-card rounded-lg overflow-hidden text-card-foreground" style={{ height: '500px' }}>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center space-y-4">
-                  <MapPin className="w-16 h-16 text-purple-500 mx-auto" />
+                  <MapPin className="w-16 h-16 text-red-500 mx-auto" />
                   <div>
                     <div className="font-bold text-lg">Map View</div>
                     <div className="text-sm text-muted-foreground">
@@ -147,7 +147,7 @@ export default function OrderTrackingMap() {
               {/* ETA Badge */}
               <div className="absolute top-4 left-4 bg-background dark:bg-background rounded-lg shadow-lg p-3 text-foreground">
                 <div className="text-sm text-muted-foreground">Estimated Arrival</div>
-                <div className="text-2xl font-bold text-purple-600">{trackingData.estimatedArrival}</div>
+                <div className="text-2xl font-bold text-red-600">{trackingData.estimatedArrival}</div>
               </div>
             </div>
 
@@ -188,7 +188,7 @@ export default function OrderTrackingMap() {
               </h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-foreground font-bold text-lg">
+                  <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-foreground font-bold text-lg">
                     {trackingData.driver.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div className="flex-1">
@@ -226,7 +226,7 @@ export default function OrderTrackingMap() {
                 <p>{trackingData.destination.address}</p>
                 <div className="pt-3 border-t">
                   <div className="font-medium mb-1">Estimated Delivery</div>
-                  <div className="text-lg font-bold text-purple-600">
+                  <div className="text-lg font-bold text-red-600">
                     {trackingData.estimatedArrival}
                   </div>
                 </div>

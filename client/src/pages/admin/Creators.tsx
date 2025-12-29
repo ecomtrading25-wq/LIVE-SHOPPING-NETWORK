@@ -92,8 +92,8 @@ export default function CreatorsPage() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card className="p-4 bg-background border-border text-foreground">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center">
-              <Users className="w-5 h-5 text-purple-500" />
+            <div className="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center">
+              <Users className="w-5 h-5 text-red-500" />
             </div>
             <div>
               <p className="text-sm text-gray-400">Total Creators</p>
@@ -191,7 +191,7 @@ export default function CreatorsPage() {
               <TableRow key={creator.id} className="border-border hover:bg-card/50 text-card-foreground">
                 <TableCell>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center">
                       <span className="text-foreground font-bold">
                         {creator.name.substring(0, 2).toUpperCase()}
                       </span>
@@ -206,7 +206,7 @@ export default function CreatorsPage() {
                   <Badge
                     className={
                       creator.tier === "platinum"
-                        ? "bg-purple-600"
+                        ? "bg-red-600"
                         : creator.tier === "gold"
                           ? "bg-yellow-600"
                           : creator.tier === "silver"
@@ -310,8 +310,8 @@ export default function CreatorsPage() {
 
         <Card className="p-6 bg-background border-border text-foreground">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-purple-600/10 rounded-lg flex items-center justify-center">
-              <Award className="w-6 h-6 text-purple-600" />
+            <div className="w-12 h-12 bg-red-600/10 rounded-lg flex items-center justify-center">
+              <Award className="w-6 h-6 text-red-600" />
             </div>
             <div>
               <h3 className="text-lg font-bold text-foreground">Platinum</h3>
