@@ -200,14 +200,43 @@ const priceImpactData = [
   { price: 104.99, revenue: 9449, profit: 4820, volume: 90 }
 ];
 
-  const [selectedProduct, setSelectedProduct] = useState(filteredProducts[0] || null);
+  const [selectedProduct, setSelectedProduct] = useState(filteredProducts[0] || mockPricingData[0] || null);
 
   const totalRevenueIncrease = mockPricingData.reduce((sum, p) => sum + (p.projectedRevenue - p.currentRevenue), 0);
   const avgPriceChange = mockPricingData.reduce((sum, p) => sum + ((p.recommendedPrice - p.currentPrice) / p.currentPrice * 100), 0) / mockPricingData.length;
   const productsNeedingAdjustment = mockPricingData.filter(p => p.recommendedPrice !== p.currentPrice).length;
 
-  const priceChange = selectedProduct.recommendedPrice - selectedProduct.currentPrice;
-  const priceChangePercent = (priceChange / selectedProduct.currentPrice * 100);
+  const priceChange = selectedProduct ? selectedProduct.recommendedPrice - selectedProduct.currentPrice : 0;
+  const priceChangePercent = selectedProduct ? (priceChange / selectedProduct.currentPrice * 100) : 0;
+
+  // Show loading state if no product selected
+  if (!selectedProduct && !isLoading) {
+    return (
+      <div className="min-h-screen bg-background p-6">
+        <div className="max-w-7xl mx-auto">
+          <Card className="p-12 text-center">
+            <Target className="w-16 h-16 mx-auto text-muted-foreground mb-4" />
+            <h2 className="text-2xl font-bold mb-2">No Products Available</h2>
+            <p className="text-muted-foreground">Add products to start optimizing prices.</p>
+          </Card>
+        </div>
+      </div>
+    );
+  }
+
+  if (!selectedProduct) {
+    return (
+      <div className="min-h-screen bg-background p-6">
+        <div className="max-w-7xl mx-auto">
+          <Card className="p-12 text-center">
+            <Skeleton className="h-16 w-16 mx-auto mb-4" />
+            <Skeleton className="h-8 w-64 mx-auto mb-2" />
+            <Skeleton className="h-4 w-48 mx-auto" />
+          </Card>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background p-6">

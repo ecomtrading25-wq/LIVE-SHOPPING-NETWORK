@@ -64,15 +64,18 @@ export default function RFMSegmentationDashboard() {
 
   // Fetch overview data
   const { data: overview, isLoading: overviewLoading, error: overviewError, refetch: refetchOverview } = 
-    trpc.aiDashboards.rfmSegmentation.overview.useQuery();
+    trpc.aiDashboards.rfmSegmentation.getOverview.useQuery();
 
   // Fetch customers data
   const { data: customers, isLoading: customersLoading, error: customersError, refetch: refetchCustomers } = 
-    trpc.aiDashboards.rfmSegmentation.customers.useQuery();
+    trpc.aiDashboards.rfmSegmentation.getCustomers.useQuery({ 
+      searchQuery: debouncedSearchQuery,
+      segmentFilter: segmentFilter === 'all' ? 'all' : segmentFilter === 'champions' ? 'Champions' : segmentFilter === 'loyal' ? 'Loyal' : segmentFilter === 'potential' ? 'Potential' : segmentFilter === 'at_risk' ? 'At Risk' : 'Lost'
+    });
 
   // Fetch distribution data
   const { data: distribution, isLoading: distributionLoading, error: distributionError, refetch: refetchDistribution } = 
-    trpc.aiDashboards.rfmSegmentation.distribution.useQuery();
+    trpc.aiDashboards.rfmSegmentation.getSegmentDistribution.useQuery();
 
   const isLoading = overviewLoading || customersLoading || distributionLoading;
   const hasError = overviewError || customersError || distributionError;

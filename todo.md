@@ -7772,3 +7772,11 @@ Next: Configure external services and deploy to production.
 - [x] Fix nested anchor tag issues in frontend components
 - [x] Fix undefined monthlyForecast property error in Revenue Forecast Dashboard (/admin/revenue-forecast)
 - [x] Fix toISOString error in Revenue Forecast Dashboard export functionality
+
+## Bug Fixes
+- [x] Fix date serialization error in demand forecast tRPC queries (value.toISOString is not a function)
+- [x] Add missing Select component import in DemandForecastDashboard
+- [x] Fix null reference error in PricingOptimizationDashboard (Cannot read properties of null reading 'recommendedPrice')
+- [x] Fix missing tRPC procedures for RFM segmentation (overview, customers, distribution)
+- [x] Fix React hooks error in RFMSegmentationDashboard (early return causing fewer hooks)
+- [x] Fix /admin route returning 404 error (route exists as wildcard)
