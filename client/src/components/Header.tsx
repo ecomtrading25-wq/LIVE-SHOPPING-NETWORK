@@ -49,7 +49,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/">
             <div className="flex items-center gap-2 cursor-pointer">
-              <img src="/logo.png" alt="Live Selling Network" className="h-16 w-auto" />
+              <img src="/logo.png" alt="Live Selling Network" className="h-32 w-auto" />
             </div>
           </Link>
 

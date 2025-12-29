@@ -14,7 +14,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img src="/logo.png" alt="Live Selling Network" className="h-12 w-auto" />
+              <img src="/logo.png" alt="Live Selling Network" className="h-24 w-auto" />
 
             </div>
             <p className="text-gray-700 text-sm mb-4">
