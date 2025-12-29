@@ -303,8 +303,7 @@ export default function Header() {
             {user ? (
               <Button
                 variant="ghost"
-                className="w-full justify-start text-muted-foreground hover:text-foreground"
-                onClick={() => setMobileMenuOpen(false)}
+                className="w-full justify-start text-black hover:text-[#E42313]"
                 asChild
               >
                 <Link href="/account">

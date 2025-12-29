@@ -204,7 +204,7 @@ function Router() {
       <Route path="/purchasing-dashboard" component={PurchasingDashboard} />
       <Route path="/creator-dashboard" component={CreatorDashboard} />
       <Route path="/creator/dashboard" component={CreatorDashboardEnhanced} />
-      <Route path="/login" component={Login} />
+      {/* Login removed - using OAuth flow only */}
       <Route path="/signup" component={Signup} />
       <Route path="/profile" component={Profile} />
       <Route path="/forgot-password" component={ForgotPassword} />

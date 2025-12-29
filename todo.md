@@ -8323,3 +8323,7 @@ Next: Configure external services and deploy to production.
 - [x] Make logo even bigger on homepage
 - [x] Move login functionality from homepage to header button
 - [x] Make logo even bigger on homepage
+
+
+## 🔧 User Requested Changes
+- [x] Remove standalone login page route (keep OAuth login flow in Header)
