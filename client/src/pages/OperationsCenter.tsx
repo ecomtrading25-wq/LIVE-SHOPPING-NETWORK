@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
+import { useLocation } from "wouter";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -27,7 +29,23 @@ interface Alert {
 }
 
 export default function OperationsCenter() {
+  const { user, isLoading } = useAuth();
+  const [, setLocation] = useLocation();
   const [timeRange, setTimeRange] = useState<"today" | "week" | "month">("today");
+
+  // Redirect non-admin users
+  if (!isLoading && (!user || user.role !== "admin")) {
+    setLocation("/");
+    return null;
+  }
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-950 flex items-center justify-center">
+        <div className="text-white">Loading...</div>
+      </div>
+    );
+  }
 
   const [alerts] = useState<Alert[]>([
     {

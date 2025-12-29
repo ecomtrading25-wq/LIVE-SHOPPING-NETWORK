@@ -60,7 +60,16 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+import AdminProtectedRoute from "@/components/AdminProtectedRoute";
 export default function LSNOperationsDashboard() {
+  return (
+    <AdminProtectedRoute>
+      <LSNOperationsDashboardContent />
+    </AdminProtectedRoute>
+  );
+}
+
+function LSNOperationsDashboardContent() {
   const [timeRange, setTimeRange] = useState<"today" | "week" | "month">("today");
 
   // Fetch live shows

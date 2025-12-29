@@ -5,7 +5,16 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TrendingUp, TrendingDown, DollarSign, ShoppingCart, Package, Users, AlertTriangle, Shield } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
+import AdminProtectedRoute from "@/components/AdminProtectedRoute";
 export default function ExecutiveDashboard() {
+  return (
+    <AdminProtectedRoute>
+      <ExecutiveDashboardContent />
+    </AdminProtectedRoute>
+  );
+}
+
+function ExecutiveDashboardContent() {
   const [dateRange] = useState({
     startDate: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(),
     endDate: new Date().toISOString(),

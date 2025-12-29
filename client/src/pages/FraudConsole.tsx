@@ -10,7 +10,16 @@ import { Shield, AlertTriangle, CheckCircle, XCircle, TrendingUp, DollarSign, Fi
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
 
+import AdminProtectedRoute from "@/components/AdminProtectedRoute";
 export default function FraudConsole() {
+  return (
+    <AdminProtectedRoute>
+      <FraudConsoleContent />
+    </AdminProtectedRoute>
+  );
+}
+
+function FraudConsoleContent() {
   const [orderId, setOrderId] = useState("");
   const [dateRange] = useState({
     startDate: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(),

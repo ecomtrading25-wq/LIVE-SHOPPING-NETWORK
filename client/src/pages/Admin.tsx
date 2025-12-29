@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link, Route, Switch, useLocation } from "wouter";
+import { useAuth } from "@/contexts/AuthContext";
+import AdminProtectedRoute from "@/components/AdminProtectedRoute";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -48,6 +50,15 @@ import {
 export default function AdminDashboard() {
   const [location] = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  
+  return (
+    <AdminProtectedRoute>
+      <AdminDashboardContent location={location} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+    </AdminProtectedRoute>
+  );
+}
+
+function AdminDashboardContent({ location, sidebarOpen, setSidebarOpen }: { location: string; sidebarOpen: boolean; setSidebarOpen: (open: boolean) => void }) {
 
   // Fetch dashboard metrics
   const { data: dashboard } = trpc.operations.dashboard.useQuery(undefined, {

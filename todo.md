@@ -7255,3 +7255,27 @@ Next: Configure external services and deploy to production.
 - [ ] Add proper error handling for all webhooks
 - [ ] Add request validation for all endpoints
 - [ ] Improve error messages and logging
+
+
+## 🔐 NEW REQUIREMENTS - Authentication & Access Control
+
+### Admin Access Security
+- [x] Hide admin dashboard navigation from non-admin users
+- [x] Create hidden admin access route (not visible in public navigation)
+- [x] Add role-based middleware to protect admin procedures
+- [x] Verify customer users cannot access admin endpoints
+- [ ] Test admin-only features are properly secured
+
+### User Role Management
+- [x] Verify user role field exists in database schema
+- [x] Ensure default role is 'customer' for new signups
+- [x] Create admin promotion functionality (via database or admin panel)
+- [x] Add role checking to all admin procedures
+- [x] Display appropriate UI based on user role
+
+### Authentication Flow Testing
+- [x] Test customer sign-in flow
+- [x] Test admin sign-in flow
+- [x] Verify admin can access admin dashboard
+- [x] Verify customer cannot access admin dashboard
+- [x] Test role-based navigation rendering

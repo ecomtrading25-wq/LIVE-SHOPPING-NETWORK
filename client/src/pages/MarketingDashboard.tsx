@@ -38,6 +38,14 @@ import {
 } from 'lucide-react';
 
 export default function MarketingDashboard() {
+  return (
+    <AdminProtectedRoute>
+      <MarketingDashboardContent />
+    </AdminProtectedRoute>
+  );
+}
+
+function MarketingDashboardContent() {
   const [selectedCampaign, setSelectedCampaign] = useState<string | null>(null);
   const [showCampaignBuilder, setShowCampaignBuilder] = useState(false);
 

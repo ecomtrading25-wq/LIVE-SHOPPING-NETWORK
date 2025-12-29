@@ -47,6 +47,14 @@ import {
  * Real-time business intelligence and sales metrics
  */
 export default function AnalyticsDashboard() {
+  return (
+    <AdminProtectedRoute>
+      <AnalyticsDashboardContent />
+    </AdminProtectedRoute>
+  );
+}
+
+function AnalyticsDashboardContent() {
   const [timeRange, setTimeRange] = useState<"today" | "week" | "month" | "year">("month");
 
   const metrics = {

@@ -14,7 +14,16 @@ import { Users, DollarSign, TrendingUp, Calendar, Play, Pause, Plus } from "luci
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
 
+import AdminProtectedRoute from "@/components/AdminProtectedRoute";
 export default function CreatorDashboard() {
+  return (
+    <AdminProtectedRoute>
+      <CreatorDashboardContent />
+    </AdminProtectedRoute>
+  );
+}
+
+function CreatorDashboardContent() {
   const [onboardingForm, setOnboardingForm] = useState({
     userId: 0,
     stageName: "",

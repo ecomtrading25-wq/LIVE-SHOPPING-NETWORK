@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
+import AdminProtectedRoute from "@/components/AdminProtectedRoute";
 interface Referral {
   id: string;
   name: string;
@@ -28,6 +29,14 @@ interface Referral {
 }
 
 export default function ReferralDashboard() {
+  return (
+    <AdminProtectedRoute>
+      <ReferralDashboardContent />
+    </AdminProtectedRoute>
+  );
+}
+
+function ReferralDashboardContent() {
   const [copied, setCopied] = useState(false);
   const referralCode = "LIVE2024XYZ";
   const referralLink = `https://liveshoppingnetwork.com/ref/${referralCode}`;

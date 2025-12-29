@@ -40,6 +40,14 @@ interface Supplier {
 }
 
 export default function SupplierPortal() {
+  return (
+    <AdminProtectedRoute>
+      <SupplierPortalContent />
+    </AdminProtectedRoute>
+  );
+}
+
+function SupplierPortalContent() {
   const [searchQuery, setSearchQuery] = useState("");
   
   const [suppliers] = useState<Supplier[]>([

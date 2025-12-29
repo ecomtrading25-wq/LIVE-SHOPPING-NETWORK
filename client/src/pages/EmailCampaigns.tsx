@@ -35,6 +35,14 @@ interface Campaign {
 }
 
 export default function EmailCampaigns() {
+  return (
+    <AdminProtectedRoute>
+      <EmailCampaignsContent />
+    </AdminProtectedRoute>
+  );
+}
+
+function EmailCampaignsContent() {
   const [campaigns] = useState<Campaign[]>([
     {
       id: "1",

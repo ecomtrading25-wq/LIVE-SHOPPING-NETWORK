@@ -28,6 +28,14 @@ interface InventoryItem {
 }
 
 export default function InventoryManagement() {
+  return (
+    <AdminProtectedRoute>
+      <InventoryManagementContent />
+    </AdminProtectedRoute>
+  );
+}
+
+function InventoryManagementContent() {
   const [searchQuery, setSearchQuery] = useState("");
   const [inventory] = useState<InventoryItem[]>([
     {

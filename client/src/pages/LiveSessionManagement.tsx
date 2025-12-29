@@ -24,7 +24,16 @@ import {
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
+import AdminProtectedRoute from "@/components/AdminProtectedRoute";
 export default function LiveSessionManagement() {
+  return (
+    <AdminProtectedRoute>
+      <LiveSessionManagementContent />
+    </AdminProtectedRoute>
+  );
+}
+
+function LiveSessionManagementContent() {
   const [createDialogOpen, setCreateDialogOpen] = useState(false);
   const [formData, setFormData] = useState({
     title: "",

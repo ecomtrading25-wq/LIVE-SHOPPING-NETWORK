@@ -83,6 +83,14 @@ import {
  */
 
 export default function LiveShowManagement() {
+  return (
+    <AdminProtectedRoute>
+      <LiveShowManagementContent />
+    </AdminProtectedRoute>
+  );
+}
+
+function LiveShowManagementContent() {
   const [channelId] = useState("default-channel");
   const [selectedTab, setSelectedTab] = useState("upcoming");
   

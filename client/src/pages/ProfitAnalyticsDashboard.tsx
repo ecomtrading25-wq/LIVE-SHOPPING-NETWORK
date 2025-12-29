@@ -61,6 +61,14 @@ import {
  */
 
 export default function ProfitAnalyticsDashboard() {
+  return (
+    <AdminProtectedRoute>
+      <ProfitAnalyticsDashboardContent />
+    </AdminProtectedRoute>
+  );
+}
+
+function ProfitAnalyticsDashboardContent() {
   const [channelId] = useState("default-channel");
   const [selectedTab, setSelectedTab] = useState("overview");
   const [timeRange, setTimeRange] = useState("7d");

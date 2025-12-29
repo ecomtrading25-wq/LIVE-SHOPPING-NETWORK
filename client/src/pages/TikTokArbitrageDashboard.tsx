@@ -79,6 +79,14 @@ import {
  */
 
 export default function TikTokArbitrageDashboard() {
+  return (
+    <AdminProtectedRoute>
+      <TikTokArbitrageDashboardContent />
+    </AdminProtectedRoute>
+  );
+}
+
+function TikTokArbitrageDashboardContent() {
   const [channelId] = useState("default-channel"); // In production, get from context
   const [selectedTab, setSelectedTab] = useState("overview");
   

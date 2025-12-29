@@ -13,7 +13,16 @@ import { Package, TrendingUp, DollarSign, CheckCircle, AlertCircle, Plus, Calcul
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
 
+import AdminProtectedRoute from "@/components/AdminProtectedRoute";
 export default function PurchasingDashboard() {
+  return (
+    <AdminProtectedRoute>
+      <PurchasingDashboardContent />
+    </AdminProtectedRoute>
+  );
+}
+
+function PurchasingDashboardContent() {
   const [dateRange] = useState({
     startDate: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(),
     endDate: new Date().toISOString(),

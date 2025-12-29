@@ -83,6 +83,14 @@ import {
  */
 
 export default function AutomationWorkflows() {
+  return (
+    <AdminProtectedRoute>
+      <AutomationWorkflowsContent />
+    </AdminProtectedRoute>
+  );
+}
+
+function AutomationWorkflowsContent() {
   const [channelId] = useState("default-channel");
   const [selectedTab, setSelectedTab] = useState("overview");
   
