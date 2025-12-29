@@ -91,20 +91,20 @@ export default function LSNHomepage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white">
+    <div className="min-h-screen bg-white text-black">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         {/* Animated background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/20 to-blue-900/20" />
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+        <div className="absolute inset-0 bg-white" />
+
         
         <div className="container relative z-10 py-20 md:py-32">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             {/* Left: Hero content */}
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-full">
-                <Sparkles className="h-4 w-4 text-purple-400" />
-                <span className="text-sm font-medium text-purple-300">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-black rounded-full">
+                <Sparkles className="h-4 w-4 text-[#E42313]" />
+                <span className="text-sm font-medium text-[#E42313]">
                   Live Shopping Revolution
                 </span>
               </div>
@@ -112,25 +112,25 @@ export default function LSNHomepage() {
               <h1 className="text-5xl md:text-7xl font-bold leading-tight">
                 Shop Live.
                 <br />
-                <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+                <span className="text-[#E42313]">
                   Save Big.
                 </span>
               </h1>
 
-              <p className="text-xl text-gray-300 leading-relaxed">
+              <p className="text-xl text-gray-700 leading-relaxed">
                 Join thousands of shoppers discovering exclusive deals through live shopping shows.
                 Real products, real people, real savings.
               </p>
 
               <div className="flex flex-wrap gap-4">
                 <Link href="/live">
-                  <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold px-8">
+                  <Button size="lg" className="bg-[#E42313] hover:bg-[#C01F10] text-white font-semibold px-8">
                     <Play className="mr-2 h-5 w-5" />
                     Watch Live Now
                   </Button>
                 </Link>
                 <Link href="/browse-shows">
-                  <Button size="lg" variant="outline" className="border-gray-700 hover:bg-gray-800">
+                  <Button size="lg" variant="outline" className="border-black hover:bg-gray-100">
                     Browse Shows
                     <ChevronRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -138,18 +138,18 @@ export default function LSNHomepage() {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-800">
+              <div className="grid grid-cols-3 gap-6 pt-8 border-t-2 border-black">
                 <div>
-                  <div className="text-3xl font-bold text-purple-400">50K+</div>
-                  <div className="text-sm text-gray-400">Active Viewers</div>
+                  <div className="text-3xl font-bold text-[#E42313]">50K+</div>
+                  <div className="text-sm text-gray-600">Active Viewers</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-pink-400">200+</div>
-                  <div className="text-sm text-gray-400">Live Shows Daily</div>
+                  <div className="text-3xl font-bold text-[#E42313]">200+</div>
+                  <div className="text-sm text-gray-600">Live Shows Daily</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-blue-400">$2M+</div>
-                  <div className="text-sm text-gray-400">Saved This Month</div>
+                  <div className="text-3xl font-bold text-black">$2M+</div>
+                  <div className="text-sm text-gray-600">Saved This Month</div>
                 </div>
               </div>
             </div>
@@ -163,10 +163,10 @@ export default function LSNHomepage() {
               ) : upcomingShows && upcomingShows.length > 0 ? (
                 <NextShowCountdown show={upcomingShows[0]} currentTime={currentTime} />
               ) : (
-                <div className="h-[500px] flex items-center justify-center bg-gray-900 rounded-2xl border border-gray-800">
+                <div className="h-[500px] flex items-center justify-center bg-white rounded-2xl border border-black">
                   <div className="text-center space-y-4">
                     <Calendar className="h-16 w-16 mx-auto text-gray-600" />
-                    <p className="text-gray-400">No upcoming shows scheduled</p>
+                    <p className="text-gray-600">No upcoming shows scheduled</p>
                   </div>
                 </div>
               )}
@@ -177,15 +177,15 @@ export default function LSNHomepage() {
 
       {/* Live Now Section */}
       {liveShows && liveShows.length > 0 && (
-        <section className="py-16 bg-gray-950/50">
+        <section className="py-16 bg-white">
           <div className="container">
             <div className="flex items-center justify-between mb-8">
               <div>
                 <h2 className="text-3xl font-bold mb-2">🔴 Live Now</h2>
-                <p className="text-gray-400">Join the excitement - shop exclusive deals</p>
+                <p className="text-gray-600">Join the excitement - shop exclusive deals</p>
               </div>
               <Link href="/live">
-                <Button variant="ghost" className="text-purple-400 hover:text-purple-300">
+                <Button variant="ghost" className="text-[#E42313] hover:text-[#E42313]">
                   View All
                   <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -207,10 +207,10 @@ export default function LSNHomepage() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h2 className="text-3xl font-bold mb-2">📅 Upcoming Shows</h2>
-              <p className="text-gray-400">Mark your calendar for these exclusive events</p>
+              <p className="text-gray-600">Mark your calendar for these exclusive events</p>
             </div>
             <Link href="/browse-shows">
-              <Button variant="ghost" className="text-purple-400 hover:text-purple-300">
+              <Button variant="ghost" className="text-[#E42313] hover:text-[#E42313]">
                 Full Schedule
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
@@ -234,11 +234,11 @@ export default function LSNHomepage() {
       </section>
 
       {/* Top Creators Section */}
-      <section className="py-16 bg-gray-950/50">
+      <section className="py-16 bg-white">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">⭐ Top Creators</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto">
               Meet our star hosts bringing you the best deals and entertainment
             </p>
           </div>
@@ -265,10 +265,10 @@ export default function LSNHomepage() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h2 className="text-3xl font-bold mb-2">🔥 As Seen Live</h2>
-              <p className="text-gray-400">Trending products from recent shows</p>
+              <p className="text-gray-600">Trending products from recent shows</p>
             </div>
             <Link href="/products">
-              <Button variant="ghost" className="text-purple-400 hover:text-purple-300">
+              <Button variant="ghost" className="text-[#E42313] hover:text-[#E42313]">
                 Shop All
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
@@ -296,19 +296,19 @@ export default function LSNHomepage() {
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Why Shop With Us?</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto">
               Your satisfaction is our priority
             </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <TrustCard
-              icon={<Shield className="h-8 w-8 text-purple-400" />}
+              icon={<Shield className="h-8 w-8 text-[#E42313]" />}
               title="Secure Payments"
               description="100% secure checkout with buyer protection"
             />
             <TrustCard
-              icon={<Truck className="h-8 w-8 text-blue-400" />}
+              icon={<Truck className="h-8 w-8 text-black" />}
               title="Fast Shipping"
               description="Free shipping on orders over $50"
             />
@@ -318,7 +318,7 @@ export default function LSNHomepage() {
               description="30-day hassle-free return policy"
             />
             <TrustCard
-              icon={<CheckCircle className="h-8 w-8 text-pink-400" />}
+              icon={<CheckCircle className="h-8 w-8 text-[#E42313]" />}
               title="Quality Guaranteed"
               description="Authentic products, verified quality"
             />
@@ -330,10 +330,10 @@ export default function LSNHomepage() {
       <section className="py-16">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-purple-500/30 rounded-2xl p-12">
-              <Gift className="h-12 w-12 mx-auto mb-6 text-purple-400" />
+            <div className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-black rounded-2xl p-12">
+              <Gift className="h-12 w-12 mx-auto mb-6 text-[#E42313]" />
               <h2 className="text-3xl font-bold mb-4">Never Miss a Deal</h2>
-              <p className="text-gray-300 mb-8">
+              <p className="text-gray-700 mb-8">
                 Get exclusive show alerts, early access, and special discounts delivered to your inbox
               </p>
 
@@ -343,13 +343,13 @@ export default function LSNHomepage() {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-500"
+                  className="bg-white border-black text-white placeholder:text-gray-500"
                   required
                 />
                 <Button
                   type="submit"
                   disabled={newsletterMutation.isPending}
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+                  className="bg-[#E42313] hover:bg-[#C01F10]"
                 >
                   {newsletterMutation.isPending ? "Subscribing..." : "Subscribe"}
                 </Button>
@@ -364,7 +364,7 @@ export default function LSNHomepage() {
       </section>
 
       {/* Social Proof Section */}
-      <section className="py-16 bg-gray-950/50">
+      <section className="py-16 bg-white">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">What Our Shoppers Say</h2>
@@ -372,7 +372,7 @@ export default function LSNHomepage() {
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="h-6 w-6 fill-current" />
               ))}
-              <span className="ml-2 text-gray-300">4.9 out of 5 (12,450 reviews)</span>
+              <span className="ml-2 text-gray-700">4.9 out of 5 (12,450 reviews)</span>
             </div>
           </div>
 
@@ -410,7 +410,7 @@ function LiveShowCard({ show, featured = false }: { show: any; featured?: boolea
   return (
     <Link href={`/live/${show.id}`}>
       <Card className={cn(
-        "group relative overflow-hidden border-gray-800 bg-gray-900 hover:border-purple-500/50 transition-all duration-300 cursor-pointer",
+        "group relative overflow-hidden border-black bg-white hover:border-black transition-all duration-300 cursor-pointer",
         featured && "h-[500px]"
       )}>
         {/* Thumbnail */}
@@ -431,7 +431,7 @@ function LiveShowCard({ show, featured = false }: { show: any; featured?: boolea
 
           {/* Viewer count */}
           <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-2">
-            <Eye className="h-4 w-4 text-purple-400" />
+            <Eye className="h-4 w-4 text-[#E42313]" />
             <span className="text-sm font-medium">{show.viewerCount?.toLocaleString() || 0}</span>
           </div>
 
@@ -446,15 +446,15 @@ function LiveShowCard({ show, featured = false }: { show: any; featured?: boolea
               <AvatarFallback>{show.creator?.name?.[0]}</AvatarFallback>
             </Avatar>
             <div className="flex-1 min-w-0">
-              <h3 className="font-bold text-lg mb-1 truncate group-hover:text-purple-400 transition-colors">
+              <h3 className="font-bold text-lg mb-1 truncate group-hover:text-[#E42313] transition-colors">
                 {show.title}
               </h3>
-              <p className="text-sm text-gray-400">{show.creator?.name}</p>
+              <p className="text-sm text-gray-600">{show.creator?.name}</p>
             </div>
           </div>
 
           {featured && show.description && (
-            <p className="text-gray-400 mb-4 line-clamp-2">{show.description}</p>
+            <p className="text-gray-600 mb-4 line-clamp-2">{show.description}</p>
           )}
 
           {/* Pinned products */}
@@ -468,13 +468,13 @@ function LiveShowCard({ show, featured = false }: { show: any; featured?: boolea
                     className="w-full aspect-square object-cover rounded mb-2"
                   />
                   <p className="text-xs truncate">{product.name}</p>
-                  <p className="text-sm font-bold text-purple-400">${product.price}</p>
+                  <p className="text-sm font-bold text-[#E42313]">${product.price}</p>
                 </div>
               ))}
             </div>
           )}
 
-          <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700">
+          <Button className="w-full bg-[#E42313] hover:bg-[#C01F10]">
             <Play className="mr-2 h-4 w-4" />
             Watch Now
           </Button>
@@ -498,28 +498,28 @@ function NextShowCountdown({ show, currentTime }: { show: any; currentTime: Date
   const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
   return (
-    <Card className="h-[500px] border-gray-800 bg-gradient-to-br from-purple-950/50 to-pink-950/50 overflow-hidden">
+    <Card className="h-[500px] border-black bg-gradient-to-br from-purple-950/50 to-pink-950/50 overflow-hidden">
       <CardContent className="p-8 h-full flex flex-col justify-center items-center text-center">
-        <Clock className="h-16 w-16 text-purple-400 mb-6" />
+        <Clock className="h-16 w-16 text-[#E42313] mb-6" />
         
         <h3 className="text-2xl font-bold mb-2">Next Show Starting Soon</h3>
-        <p className="text-gray-400 mb-8">{show.title}</p>
+        <p className="text-gray-600 mb-8">{show.title}</p>
 
         {/* Countdown */}
         <div className="grid grid-cols-4 gap-4 mb-8">
-          <div className="bg-gray-900 rounded-lg p-4">
-            <div className="text-4xl font-bold text-purple-400">{days}</div>
+          <div className="bg-white rounded-lg p-4">
+            <div className="text-4xl font-bold text-[#E42313]">{days}</div>
             <div className="text-xs text-gray-500 uppercase">Days</div>
           </div>
-          <div className="bg-gray-900 rounded-lg p-4">
-            <div className="text-4xl font-bold text-pink-400">{hours}</div>
+          <div className="bg-white rounded-lg p-4">
+            <div className="text-4xl font-bold text-[#E42313]">{hours}</div>
             <div className="text-xs text-gray-500 uppercase">Hours</div>
           </div>
-          <div className="bg-gray-900 rounded-lg p-4">
-            <div className="text-4xl font-bold text-blue-400">{minutes}</div>
+          <div className="bg-white rounded-lg p-4">
+            <div className="text-4xl font-bold text-black">{minutes}</div>
             <div className="text-xs text-gray-500 uppercase">Minutes</div>
           </div>
-          <div className="bg-gray-900 rounded-lg p-4">
+          <div className="bg-white rounded-lg p-4">
             <div className="text-4xl font-bold text-green-400">{seconds}</div>
             <div className="text-xs text-gray-500 uppercase">Seconds</div>
           </div>
@@ -532,13 +532,13 @@ function NextShowCountdown({ show, currentTime }: { show: any; currentTime: Date
             <AvatarFallback>{show.creator?.name?.[0]}</AvatarFallback>
           </Avatar>
           <div className="text-left">
-            <p className="text-sm text-gray-400">Hosted by</p>
+            <p className="text-sm text-gray-600">Hosted by</p>
             <p className="font-semibold">{show.creator?.name}</p>
           </div>
         </div>
 
         <Link href={`/show/${show.id}`}>
-          <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700">
+          <Button size="lg" className="bg-[#E42313] hover:bg-[#C01F10]">
             <Calendar className="mr-2 h-5 w-5" />
             Set Reminder
           </Button>
@@ -557,7 +557,7 @@ function UpcomingShowCard({ show }: { show: any }) {
 
   return (
     <Link href={`/show/${show.id}`}>
-      <Card className="group border-gray-800 bg-gray-900 hover:border-purple-500/50 transition-all duration-300 cursor-pointer overflow-hidden">
+      <Card className="group border-black bg-white hover:border-black transition-all duration-300 cursor-pointer overflow-hidden">
         <div className="relative aspect-video overflow-hidden">
           <img
             src={show.thumbnailUrl || "/placeholder-show.jpg"}
@@ -580,10 +580,10 @@ function UpcomingShowCard({ show }: { show: any }) {
               <AvatarFallback>{show.creator?.name?.[0]}</AvatarFallback>
             </Avatar>
             <div className="flex-1 min-w-0">
-              <h3 className="font-semibold mb-1 truncate group-hover:text-purple-400 transition-colors">
+              <h3 className="font-semibold mb-1 truncate group-hover:text-[#E42313] transition-colors">
                 {show.title}
               </h3>
-              <p className="text-sm text-gray-400">{show.creator?.name}</p>
+              <p className="text-sm text-gray-600">{show.creator?.name}</p>
             </div>
           </div>
         </CardContent>
@@ -599,7 +599,7 @@ function UpcomingShowCard({ show }: { show: any }) {
 function CreatorCard({ creator }: { creator: any }) {
   return (
     <Link href={`/creator/${creator.id}`}>
-      <Card className="group border-gray-800 bg-gray-900 hover:border-purple-500/50 transition-all duration-300 cursor-pointer">
+      <Card className="group border-black bg-white hover:border-black transition-all duration-300 cursor-pointer">
         <CardContent className="p-6">
           <div className="flex items-start gap-4">
             <Avatar className="h-16 w-16 border-2 border-purple-500">
@@ -608,24 +608,24 @@ function CreatorCard({ creator }: { creator: any }) {
             </Avatar>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-1">
-                <h3 className="font-bold truncate group-hover:text-purple-400 transition-colors">
+                <h3 className="font-bold truncate group-hover:text-[#E42313] transition-colors">
                   {creator.name}
                 </h3>
                 {creator.verified && (
-                  <CheckCircle className="h-4 w-4 text-blue-400 flex-shrink-0" />
+                  <CheckCircle className="h-4 w-4 text-black flex-shrink-0" />
                 )}
               </div>
-              <Badge variant="outline" className="border-purple-500/50 text-purple-400 mb-3">
+              <Badge variant="outline" className="border-black text-[#E42313] mb-3">
                 {creator.tier}
               </Badge>
               
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <div className="text-gray-400">Total Shows</div>
+                  <div className="text-gray-600">Total Shows</div>
                   <div className="font-semibold">{creator.totalShows}</div>
                 </div>
                 <div>
-                  <div className="text-gray-400">Avg Viewers</div>
+                  <div className="text-gray-600">Avg Viewers</div>
                   <div className="font-semibold">{creator.avgViewers?.toLocaleString()}</div>
                 </div>
               </div>
@@ -644,7 +644,7 @@ function CreatorCard({ creator }: { creator: any }) {
 function ProductCard({ product }: { product: any }) {
   return (
     <Link href={`/products/${product.id}`}>
-      <Card className="group border-gray-800 bg-gray-900 hover:border-purple-500/50 transition-all duration-300 cursor-pointer overflow-hidden">
+      <Card className="group border-black bg-white hover:border-black transition-all duration-300 cursor-pointer overflow-hidden">
         <div className="relative aspect-square overflow-hidden">
           <img
             src={product.imageUrl || "/placeholder-product.jpg"}
@@ -667,7 +667,7 @@ function ProductCard({ product }: { product: any }) {
         </div>
 
         <CardContent className="p-4">
-          <h3 className="font-semibold mb-2 line-clamp-2 group-hover:text-purple-400 transition-colors">
+          <h3 className="font-semibold mb-2 line-clamp-2 group-hover:text-[#E42313] transition-colors">
             {product.name}
           </h3>
           
@@ -681,14 +681,14 @@ function ProductCard({ product }: { product: any }) {
 
           <div className="flex items-center justify-between">
             <div>
-              <span className="text-xl font-bold text-purple-400">${product.price}</span>
+              <span className="text-xl font-bold text-[#E42313]">${product.price}</span>
               {product.compareAtPrice && (
                 <span className="ml-2 text-sm text-gray-500 line-through">
                   ${product.compareAtPrice}
                 </span>
               )}
             </div>
-            <Button size="sm" variant="ghost" className="text-pink-400 hover:text-pink-300">
+            <Button size="sm" variant="ghost" className="text-[#E42313] hover:text-[#E42313]">
               <Heart className="h-4 w-4" />
             </Button>
           </div>
@@ -704,11 +704,11 @@ function ProductCard({ product }: { product: any }) {
 
 function TrustCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
   return (
-    <Card className="border-gray-800 bg-gray-900/50 text-center">
+    <Card className="border-black bg-white/50 text-center">
       <CardContent className="p-6">
         <div className="mb-4 flex justify-center">{icon}</div>
         <h3 className="font-bold mb-2">{title}</h3>
-        <p className="text-sm text-gray-400">{description}</p>
+        <p className="text-sm text-gray-600">{description}</p>
       </CardContent>
     </Card>
   );
@@ -720,7 +720,7 @@ function TrustCard({ icon, title, description }: { icon: React.ReactNode; title:
 
 function TestimonialCard({ name, avatar, rating, text }: { name: string; avatar: string; rating: number; text: string }) {
   return (
-    <Card className="border-gray-800 bg-gray-900">
+    <Card className="border-black bg-white">
       <CardContent className="p-6">
         <div className="flex items-center gap-1 text-yellow-400 mb-4">
           {[...Array(rating)].map((_, i) => (
@@ -728,7 +728,7 @@ function TestimonialCard({ name, avatar, rating, text }: { name: string; avatar:
           ))}
         </div>
         
-        <p className="text-gray-300 mb-4">"{text}"</p>
+        <p className="text-gray-700 mb-4">"{text}"</p>
         
         <div className="flex items-center gap-3">
           <Avatar>
