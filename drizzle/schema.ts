@@ -2129,3 +2129,161 @@ export const avatarQcChecks = mysqlTable("avatar_qc_checks", {
   checkTypeIdx: index("qc_check_type_idx").on(table.checkType),
 }));
 
+
+// ============================================================================
+// STRIPE SUBSCRIPTIONS & CUSTOMER PORTAL
+// ============================================================================
+
+export const stripeSubscriptionPlans = mysqlTable("stripe_subscription_plans", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  stripeProductId: varchar("stripe_product_id", { length: 255 }).notNull().unique(),
+  stripePriceId: varchar("stripe_price_id", { length: 255 }).notNull().unique(),
+  
+  name: varchar("name", { length: 255 }).notNull(),
+  description: text("description"),
+  
+  // Pricing
+  amount: decimal("amount", { precision: 10, scale: 2 }).notNull(),
+  currency: varchar("currency", { length: 3 }).default("USD").notNull(),
+  interval: mysqlEnum("interval", ["month", "year"]).notNull(),
+  intervalCount: int("interval_count").default(1).notNull(),
+  
+  // Features
+  features: json("features").$type<string[]>(),
+  
+  // Status
+  active: boolean("active").default(true).notNull(),
+  
+  // Metadata
+  metadata: json("metadata").$type<Record<string, any>>(),
+  
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  activeIdx: index("plan_active_idx").on(table.active),
+}));
+
+export const stripeSubscriptions = mysqlTable("stripe_subscriptions", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  userId: int("user_id").notNull().references(() => users.id),
+  
+  // Stripe IDs
+  stripeCustomerId: varchar("stripe_customer_id", { length: 255 }).notNull(),
+  stripeSubscriptionId: varchar("stripe_subscription_id", { length: 255 }).notNull().unique(),
+  
+  // Plan
+  planId: varchar("plan_id", { length: 64 }).notNull().references(() => stripeSubscriptionPlans.id),
+  
+  // Status
+  status: mysqlEnum("status", [
+    "incomplete",
+    "incomplete_expired",
+    "trialing",
+    "active",
+    "past_due",
+    "canceled",
+    "unpaid"
+  ]).notNull(),
+  
+  // Billing
+  currentPeriodStart: timestamp("current_period_start").notNull(),
+  currentPeriodEnd: timestamp("current_period_end").notNull(),
+  cancelAtPeriodEnd: boolean("cancel_at_period_end").default(false).notNull(),
+  canceledAt: timestamp("canceled_at"),
+  cancelReason: text("cancel_reason"),
+  
+  // Trial
+  trialStart: timestamp("trial_start"),
+  trialEnd: timestamp("trial_end"),
+  
+  // Metadata
+  metadata: json("metadata").$type<Record<string, any>>(),
+  
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("subscription_user_id_idx").on(table.userId),
+  statusIdx: index("subscription_status_idx").on(table.status),
+  stripeCustomerIdIdx: index("subscription_stripe_customer_id_idx").on(table.stripeCustomerId),
+}));
+
+export const stripePaymentMethods = mysqlTable("stripe_payment_methods", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  userId: int("user_id").notNull().references(() => users.id),
+  
+  // Stripe IDs
+  stripeCustomerId: varchar("stripe_customer_id", { length: 255 }).notNull(),
+  stripePaymentMethodId: varchar("stripe_payment_method_id", { length: 255 }).notNull().unique(),
+  
+  // Card Details (last 4 digits only for display)
+  type: varchar("type", { length: 50 }).notNull(), // card, bank_account, etc.
+  brand: varchar("brand", { length: 50 }), // visa, mastercard, etc.
+  last4: varchar("last4", { length: 4 }),
+  expMonth: int("exp_month"),
+  expYear: int("exp_year"),
+  
+  // Status
+  isDefault: boolean("is_default").default(false).notNull(),
+  
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("payment_method_user_id_idx").on(table.userId),
+  stripeCustomerIdIdx: index("payment_method_stripe_customer_id_idx").on(table.stripeCustomerId),
+}));
+
+export const stripeBillingHistory = mysqlTable("stripe_billing_history", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  userId: int("user_id").notNull().references(() => users.id),
+  subscriptionId: varchar("subscription_id", { length: 64 }).notNull().references(() => stripeSubscriptions.id),
+  
+  // Stripe IDs
+  stripeInvoiceId: varchar("stripe_invoice_id", { length: 255 }).notNull().unique(),
+  stripePaymentIntentId: varchar("stripe_payment_intent_id", { length: 255 }),
+  
+  // Invoice Details
+  amount: decimal("amount", { precision: 10, scale: 2 }).notNull(),
+  currency: varchar("currency", { length: 3 }).default("USD").notNull(),
+  status: mysqlEnum("status", ["draft", "open", "paid", "uncollectible", "void"]).notNull(),
+  
+  // Dates
+  invoiceDate: timestamp("invoice_date").notNull(),
+  dueDate: timestamp("due_date"),
+  paidAt: timestamp("paid_at"),
+  
+  // Invoice URL
+  hostedInvoiceUrl: text("hosted_invoice_url"),
+  invoicePdf: text("invoice_pdf"),
+  
+  // Metadata
+  metadata: json("metadata").$type<Record<string, any>>(),
+  
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("billing_user_id_idx").on(table.userId),
+  subscriptionIdIdx: index("billing_subscription_id_idx").on(table.subscriptionId),
+  statusIdx: index("billing_status_idx").on(table.status),
+}));
+
+export const stripeWebhookEvents = mysqlTable("stripe_webhook_events", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  
+  // Stripe Event
+  stripeEventId: varchar("stripe_event_id", { length: 255 }).notNull().unique(),
+  eventType: varchar("event_type", { length: 255 }).notNull(),
+  
+  // Processing
+  processed: boolean("processed").default(false).notNull(),
+  processedAt: timestamp("processed_at"),
+  error: text("error"),
+  
+  // Event Data
+  eventData: json("event_data").$type<Record<string, any>>(),
+  
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  processedIdx: index("webhook_processed_idx").on(table.processed),
+  eventTypeIdx: index("webhook_event_type_idx").on(table.eventType),
+}));
+

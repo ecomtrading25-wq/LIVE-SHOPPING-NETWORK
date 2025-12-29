@@ -116,10 +116,12 @@ export default function AccountPage() {
                     Addresses
                   </Button>
                 </Link>
-                <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10">
-                  <CreditCard className="w-5 h-5 mr-3" />
-                  Payment Methods
-                </Button>
+                <Link href="/account/subscription">
+                  <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10">
+                    <CreditCard className="w-5 h-5 mr-3" />
+                    Subscription & Billing
+                  </Button>
+                </Link>
                 <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10">
                   <Settings className="w-5 h-5 mr-3" />
                   Settings

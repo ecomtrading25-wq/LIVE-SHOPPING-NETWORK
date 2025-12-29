@@ -141,6 +141,13 @@
       "when": 1766973772650,
       "tag": "0019_shiny_jack_power",
       "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "5",
+      "when": 1766975777563,
+      "tag": "0020_sturdy_firelord",
+      "breakpoints": true
     }
   ]
 }

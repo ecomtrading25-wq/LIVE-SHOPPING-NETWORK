@@ -7473,3 +7473,34 @@ Next: Configure external services and deploy to production.
 ### Frontend Errors
 - [x] Fix undefined data.map() error in RevenueForecastDashboard component
 - [x] Fix notifications?.filter error in NotificationCenter component
+
+
+## 🆕 NEW REQUIREMENT: Customer Portal Subscription Management
+
+### Stripe Subscription in Customer Portal
+- [x] Create customer portal page for subscription management
+- [x] Design subscription database schema (stripe_subscription_plans, stripe_subscriptions, stripe_payment_methods, stripe_billing_history, stripe_webhook_events)
+- [x] Build subscription plan selection UI
+- [x] Implement subscription checkout flow
+- [x] Add subscription status display
+- [x] Create billing history page
+- [x] Build payment method management UI (via Stripe Customer Portal)
+- [x] Implement subscription upgrade/downgrade flows
+- [x] Add subscription cancellation flow
+- [x] Create proration handling logic (handled by Stripe)
+- [x] Build webhook handlers for subscription events (subscription.created, subscription.updated, subscription.deleted)
+- [x] Add webhook route to Express server (/api/webhooks/stripe/subscriptions)
+- [x] Implement invoice webhook handlers (invoice.paid, invoice.payment_failed, invoice.finalized)
+- [x] Implement payment method webhook handlers (payment_method.attached, payment_method.detached)
+- [x] Implement subscription status tracking in database
+- [x] Add subscription tier access control
+- [x] Create subscription middleware for feature gating
+- [x] Implement tier hierarchy (free, basic, pro, enterprise)
+- [x] Add feature limits per tier
+- [x] Create subscription status endpoint
+- [x] Create comprehensive test suite for subscription features
+- [x] Test subscription tier hierarchy and feature limits
+- [x] Verify subscription service functions
+- [ ] Create subscription renewal reminders (future enhancement)
+- [ ] Build failed payment retry logic (future enhancement)
+- [ ] Implement dunning management for failed payments (future enhancement)
