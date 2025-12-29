@@ -2287,3 +2287,9 @@ export const stripeWebhookEvents = mysqlTable("stripe_webhook_events", {
   eventTypeIdx: index("webhook_event_type_idx").on(table.eventType),
 }));
 
+
+// ============================================================================
+// BUSINESS OS: Autonomous Operations & Intelligence
+// ============================================================================
+
+export * from './business-os-schema';

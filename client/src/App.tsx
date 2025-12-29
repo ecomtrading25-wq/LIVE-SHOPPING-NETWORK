@@ -5,6 +5,7 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import OpsConsole from "./pages/OpsConsole";
 import Products from "./pages/Products";
 import ProductsEnhanced from "./pages/ProductsEnhanced";
 import CartEnhanced from "./pages/CartEnhanced";
@@ -180,9 +181,6 @@ function Router() {
       <Route path="/account/analytics" component={OrderAnalytics} />
       <Route path="/registry" component={GiftRegistry} />
       <Route path="/account/notifications" component={NotificationPreferences} />
-      <Route path="/wishlist" component={Wishlist} />
-      <Route path="/cart" component={Cart} />
-      <Route path="/products/:id" component={ProductDetail} />
       <Route path="/checkout" component={Checkout} />
       <Route path="/order-confirmation" component={OrderConfirmation} />
         <Route path="/live" component={LSNBrowseShows} />
@@ -241,12 +239,10 @@ function Router() {
     </>
   );
 }
-
 // NOTE: About Theme
 // - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
 //   to keep consistent foreground/background color across components
 // - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
 function App() {
   return (
     <ErrorBoundary>

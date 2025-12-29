@@ -36,6 +36,7 @@ import { liveShowsRouter } from "./routers-live-shows";
 import { creatorsRouter } from "./routers-creators";
 import { subscriptionsRouter } from "./routers-subscriptions";
 import { rewardsRouter } from "./routers-rewards";
+import { businessOSRouter } from "./business-os-routers";
 
 /**
  * Live Shopping Network - Complete API Router
@@ -58,6 +59,7 @@ export const appRouter = router({
   cart: cartRouter,
   checkout: checkoutRouter,
   subscriptions: subscriptionsRouter,
+  businessOS: businessOSRouter,
   rewards: rewardsRouter,
   
   // LSN-specific routers - Full enterprise live commerce platform
