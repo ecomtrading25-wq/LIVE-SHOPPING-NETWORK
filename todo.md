@@ -8319,3 +8319,7 @@ Next: Configure external services and deploy to production.
 - [x] Ensure all pages scroll to top on load (add scroll restoration to router)
 - [x] Remove logo from header and place it as large centered element below header on homepage
 - [x] Integrate login functionality directly into homepage
+- [x] Move login functionality from homepage to header button
+- [x] Make logo even bigger on homepage
+- [x] Move login functionality from homepage to header button
+- [x] Make logo even bigger on homepage

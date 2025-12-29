@@ -6,6 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/contexts/CartContext";
 import NotificationCenter from "@/components/NotificationCenter";
+import { useAuth } from "@/contexts/AuthContext";
+import { getLoginUrl } from "@/const";
 import {
   Search,
   ShoppingCart,
@@ -31,6 +33,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const { items } = useCart();
+  const { user } = useAuth();
 
   const cartCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -133,12 +136,23 @@ export default function Header() {
               </Link>
             </Button>
 
-            {/* Account */}
-            <Button variant="ghost" size="icon" asChild>
-              <Link href="/account">
-                <User className="w-5 h-5" />
-              </Link>
-            </Button>
+            {/* Account / Login */}
+            {user ? (
+              <Button variant="ghost" size="icon" asChild>
+                <Link href="/account">
+                  <User className="w-5 h-5" />
+                </Link>
+              </Button>
+            ) : (
+              <Button 
+                size="sm" 
+                className="bg-[#E42313] hover:bg-[#C01F10] text-white font-bold"
+                onClick={() => window.location.href = getLoginUrl()}
+              >
+                <User className="w-4 h-4 mr-2" />
+                Login
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -286,17 +300,27 @@ export default function Header() {
               </Link>
             </Button>
 
-            <Button
-              variant="ghost"
-              className="w-full justify-start text-muted-foreground hover:text-foreground"
-              onClick={() => setMobileMenuOpen(false)}
-              asChild
-            >
-              <Link href="/account">
+            {user ? (
+              <Button
+                variant="ghost"
+                className="w-full justify-start text-muted-foreground hover:text-foreground"
+                onClick={() => setMobileMenuOpen(false)}
+                asChild
+              >
+                <Link href="/account">
+                  <User className="w-4 h-4 mr-3" />
+                  Account
+                </Link>
+              </Button>
+            ) : (
+              <Button
+                className="w-full bg-[#E42313] hover:bg-[#C01F10] text-white font-bold"
+                onClick={() => window.location.href = getLoginUrl()}
+              >
                 <User className="w-4 h-4 mr-3" />
-                Account
-              </Link>
-            </Button>
+                Login
+              </Button>
+            )}
           </div>
         </div>
       )}
