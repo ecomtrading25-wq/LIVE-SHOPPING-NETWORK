@@ -39,10 +39,13 @@ interface Notification {
 export default function NotificationCenter() {
   const [open, setOpen] = useState(false);
   
-  const { data: notifications, refetch } = trpc.notifications.list.useQuery(
+  const { data: notificationsData, refetch } = trpc.notifications.list.useQuery(
     { limit: 20 },
     { refetchInterval: 30000 } // Poll every 30 seconds
   );
+
+  const notifications = notificationsData?.notifications || [];
+  const unreadCount = notificationsData?.unreadCount || 0;
 
   const markAsReadMutation = trpc.notifications.markAsRead.useMutation({
     onSuccess: () => {
@@ -57,13 +60,11 @@ export default function NotificationCenter() {
     },
   });
 
-  const deleteNotificationMutation = trpc.notifications.delete.useMutation({
+  const deleteNotificationMutation = trpc.notifications.delete?.useMutation?.({
     onSuccess: () => {
       refetch();
     },
   });
-
-  const unreadCount = notifications?.filter((n) => !n.read).length || 0;
 
   const getIcon = (type: NotificationType) => {
     switch (type) {

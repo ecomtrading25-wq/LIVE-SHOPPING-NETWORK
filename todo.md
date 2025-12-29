@@ -7459,3 +7459,17 @@ Next: Configure external services and deploy to production.
 ---
 
 **Next Step:** Add credentials via Settings → Secrets, then start first live show! 🚀
+
+
+## 🐛 CRITICAL BUG FIXES (Dec 29, 2025)
+
+### Missing tRPC Procedures
+- [x] Fix missing notifications.list procedure
+- [x] Fix missing liveShows.getLive procedure
+- [x] Fix missing liveShows.getUpcoming procedure
+- [x] Fix missing creators.getLeaderboard procedure
+- [x] Fix missing products.getTrending procedure
+
+### Frontend Errors
+- [x] Fix undefined data.map() error in RevenueForecastDashboard component
+- [x] Fix notifications?.filter error in NotificationCenter component

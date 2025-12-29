@@ -111,6 +111,35 @@ export const productsRouter = router({
       
       return trending.map(t => t.product);
     }),
+
+  // Alias for getTrending (some components use this name)
+  getTrending: publicProcedure
+    .input(z.object({
+      limit: z.number().default(8),
+    }))
+    .query(async ({ input }) => {
+      const db = await getDb();
+      
+      // Get products with most orders in last 7 days
+      const trending = await db.select({
+        product: products,
+        orderCount: sql<number>`COUNT(DISTINCT ${orderItems.orderId})`,
+      })
+        .from(products)
+        .leftJoin(orderItems, eq(products.id, orderItems.productId))
+        .leftJoin(orders, eq(orderItems.orderId, orders.id))
+        .where(
+          and(
+            eq(products.status, "active"),
+            sql`${orders.createdAt} >= DATE_SUB(NOW(), INTERVAL 7 DAY)`
+          )
+        )
+        .groupBy(products.id)
+        .orderBy(desc(sql`COUNT(DISTINCT ${orderItems.orderId})`))
+        .limit(input.limit);
+      
+      return trending.map(t => t.product);
+    }),
 });
 
 // ============================================================================

@@ -31,6 +31,9 @@ import { paypalWebhookRouter } from "./paypal-webhooks";
 import { wiseWebhookRouter } from "./wise-webhooks";
 import { twilioLiveCompleteRouter } from "./twilio-live-complete";
 import { avatarStudioRouter } from "./avatar-studio-router";
+import { notificationsRouter } from "./routers-notifications";
+import { liveShowsRouter } from "./routers-live-shows";
+import { creatorsRouter } from "./routers-creators";
 
 /**
  * Live Shopping Network - Complete API Router
@@ -81,6 +84,15 @@ export const appRouter = router({
   
   // Founder Incident Console & Policy Autonomy
   founderIncidents: founderIncidentRouter,
+  
+  // Notifications
+  notifications: notificationsRouter,
+  
+  // Live Shows
+  liveShows: liveShowsRouter,
+  
+  // Creators
+  creators: creatorsRouter,
   
   // Wave 8: Advanced Features (Bulk Ops, Search, Export, Webhooks, Notifications, Jobs, Reporting)
   advancedFeatures: advancedFeaturesRouter,
