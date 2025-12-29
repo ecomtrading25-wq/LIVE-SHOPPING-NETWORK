@@ -84,6 +84,23 @@ export const productsRouter = router({
       return featured;
     }),
 
+  // Alias for backward compatibility
+  getFeatured: publicProcedure
+    .input(z.object({
+      limit: z.number().default(8),
+    }))
+    .query(async ({ input }) => {
+      const db = await getDb();
+      
+      const featured = await db.select()
+        .from(products)
+        .where(eq(products.status, "active"))
+        .orderBy(desc(products.createdAt))
+        .limit(input.limit);
+      
+      return featured;
+    }),
+
   trending: publicProcedure
     .input(z.object({
       limit: z.number().default(8),

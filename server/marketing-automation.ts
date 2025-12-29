@@ -35,7 +35,7 @@ export const marketingSchemas = {
   }),
   
   trackEvent: z.object({
-    userId: z.string(),
+    userId: z.number(),
     event: z.string(),
     properties: z.record(z.any()).optional(),
   }),

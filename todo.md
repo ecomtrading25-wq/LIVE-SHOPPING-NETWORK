@@ -7765,3 +7765,8 @@ Next: Configure external services and deploy to production.
 - [x] Fix missing tRPC procedure: liveShows.trackPurchase
 - [x] Fix ChatMessage component null reference error (reading '0')
 - [x] Add null checks for user.name in ChatMessage component
+
+## 🐛 Bug Fixes (Current)
+- [x] Fix userId type mismatch - change from number to string in schema and procedures
+- [x] Add missing products.getFeatured procedure
+- [x] Fix nested anchor tag issues in frontend components

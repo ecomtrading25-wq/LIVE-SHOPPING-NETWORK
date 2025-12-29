@@ -7,7 +7,7 @@ import { z } from "zod";
 
 export const notificationSchemas = {
   sendNotification: z.object({
-    userId: z.string(),
+    userId: z.number(),
     type: z.enum(['order', 'show', 'message', 'system', 'marketing']),
     title: z.string(),
     body: z.string(),
@@ -17,7 +17,7 @@ export const notificationSchemas = {
   }),
   
   sendBulkNotification: z.object({
-    userIds: z.array(z.string()),
+    userIds: z.array(z.number()),
     type: z.string(),
     title: z.string(),
     body: z.string(),
@@ -25,7 +25,7 @@ export const notificationSchemas = {
   }),
   
   getNotifications: z.object({
-    userId: z.string(),
+    userId: z.number(),
     limit: z.number().int().max(100).default(20),
     offset: z.number().int().default(0),
     unreadOnly: z.boolean().default(false),
@@ -36,7 +36,7 @@ export const notificationSchemas = {
   }),
   
   updatePreferences: z.object({
-    userId: z.string(),
+    userId: z.number(),
     preferences: z.object({
       orderUpdates: z.boolean(),
       showReminders: z.boolean(),

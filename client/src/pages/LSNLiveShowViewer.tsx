@@ -199,9 +199,9 @@ export default function LSNLiveShowViewer() {
           <AlertCircle className="h-16 w-16 text-gray-600 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-white mb-2">Show Not Found</h2>
           <p className="text-gray-400 mb-6">This show may have ended or doesn't exist.</p>
-          <Link href="/live">
-            <Button>Browse Live Shows</Button>
-          </Link>
+          <Button asChild>
+            <Link href="/live">Browse Live Shows</Link>
+          </Button>
         </div>
       </div>
     );

@@ -78,47 +78,47 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-2">
-            <Link href="/">
-              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white">
+            <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white" asChild>
+              <Link href="/">
                 <Home className="w-4 h-4 mr-2" />
                 Home
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
-            <Link href="/products">
-              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white">
+            <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white" asChild>
+              <Link href="/products">
                 <Package className="w-4 h-4 mr-2" />
                 Products
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
-            <Link href="/categories">
-              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white">
+            <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white" asChild>
+              <Link href="/categories">
                 <Package className="w-4 h-4 mr-2" />
                 Categories
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
-            <Link href="/rewards">
-              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white">
+            <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white" asChild>
+              <Link href="/rewards">
                 <Trophy className="w-4 h-4 mr-2" />
                 Rewards
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
-            <Link href="/saved-searches">
-              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white">
+            <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white" asChild>
+              <Link href="/saved-searches">
                 <Bookmark className="w-4 h-4 mr-2" />
                 Saved
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
-            <Link href="/subscriptions">
-              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white">
+            <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white" asChild>
+              <Link href="/subscriptions">
                 <Calendar className="w-4 h-4 mr-2" />
                 Subscriptions
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
             <AdminNav />
 
@@ -128,30 +128,30 @@ export default function Header() {
             <NotificationCenter />
 
             {/* Wishlist */}
-            <Link href="/wishlist">
-              <Button variant="ghost" size="icon" className="relative">
+            <Button variant="ghost" size="icon" className="relative" asChild>
+              <Link href="/wishlist">
                 <Heart className="w-5 h-5" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
             {/* Cart */}
-            <Link href="/cart">
-              <Button variant="ghost" size="icon" className="relative">
+            <Button variant="ghost" size="icon" className="relative" asChild>
+              <Link href="/cart">
                 <ShoppingCart className="w-5 h-5" />
                 {cartCount > 0 && (
                   <Badge className="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center p-0 bg-purple-600 text-xs">
                     {cartCount > 9 ? "9+" : cartCount}
                   </Badge>
                 )}
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
             {/* Account */}
-            <Link href="/account">
-              <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" asChild>
+              <Link href="/account">
                 <User className="w-5 h-5" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -186,100 +186,109 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-zinc-800 bg-zinc-900">
           <div className="container mx-auto px-4 py-4 space-y-2">
-            <Link href="/">
-              <Button
-                variant="ghost"
-                className="w-full justify-start text-gray-300 hover:text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
+            <Button
+              variant="ghost"
+              className="w-full justify-start text-gray-300 hover:text-white"
+              onClick={() => setMobileMenuOpen(false)}
+              asChild
+            >
+              <Link href="/">
                 <Home className="w-4 h-4 mr-3" />
                 Home
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
-            <Link href="/products">
-              <Button
-                variant="ghost"
-                className="w-full justify-start text-gray-300 hover:text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
+            <Button
+              variant="ghost"
+              className="w-full justify-start text-gray-300 hover:text-white"
+              onClick={() => setMobileMenuOpen(false)}
+              asChild
+            >
+              <Link href="/products">
                 <Package className="w-4 h-4 mr-3" />
                 Products
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
-            <Link href="/rewards">
-              <Button
-                variant="ghost"
-                className="w-full justify-start text-gray-300 hover:text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
+            <Button
+              variant="ghost"
+              className="w-full justify-start text-gray-300 hover:text-white"
+              onClick={() => setMobileMenuOpen(false)}
+              asChild
+            >
+              <Link href="/rewards">
                 <Trophy className="w-4 h-4 mr-3" />
                 Rewards
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
-            <Link href="/saved-searches">
-              <Button
-                variant="ghost"
-                className="w-full justify-start text-gray-300 hover:text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
+            <Button
+              variant="ghost"
+              className="w-full justify-start text-gray-300 hover:text-white"
+              onClick={() => setMobileMenuOpen(false)}
+              asChild
+            >
+              <Link href="/saved-searches">
                 <Bookmark className="w-4 h-4 mr-3" />
                 Saved Searches
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
-            <Link href="/subscriptions">
-              <Button
-                variant="ghost"
-                className="w-full justify-start text-gray-300 hover:text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
+            <Button
+              variant="ghost"
+              className="w-full justify-start text-gray-300 hover:text-white"
+              onClick={() => setMobileMenuOpen(false)}
+              asChild
+            >
+              <Link href="/subscriptions">
                 <Calendar className="w-4 h-4 mr-3" />
                 Subscriptions
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
-            <Link href="/alerts">
-              <Button
-                variant="ghost"
-                className="w-full justify-start text-gray-300 hover:text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
+            <Button
+              variant="ghost"
+              className="w-full justify-start text-gray-300 hover:text-white"
+              onClick={() => setMobileMenuOpen(false)}
+              asChild
+            >
+              <Link href="/alerts">
                 <Bell className="w-4 h-4 mr-3" />
                 Stock Alerts
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
-            <Link href="/analytics">
-              <Button
-                variant="ghost"
-                className="w-full justify-start text-gray-300 hover:text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
+            <Button
+              variant="ghost"
+              className="w-full justify-start text-gray-300 hover:text-white"
+              onClick={() => setMobileMenuOpen(false)}
+              asChild
+            >
+              <Link href="/analytics">
                 <BarChart3 className="w-4 h-4 mr-3" />
                 Analytics
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
-            <Link href="/wishlist">
-              <Button
-                variant="ghost"
-                className="w-full justify-start text-gray-300 hover:text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
+            <Button
+              variant="ghost"
+              className="w-full justify-start text-gray-300 hover:text-white"
+              onClick={() => setMobileMenuOpen(false)}
+              asChild
+            >
+              <Link href="/wishlist">
                 <Heart className="w-4 h-4 mr-3" />
                 Wishlist
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
-            <Link href="/cart">
-              <Button
-                variant="ghost"
-                className="w-full justify-start text-gray-300 hover:text-white relative"
-                onClick={() => setMobileMenuOpen(false)}
-              >
+            <Button
+              variant="ghost"
+              className="w-full justify-start text-gray-300 hover:text-white relative"
+              onClick={() => setMobileMenuOpen(false)}
+              asChild
+            >
+              <Link href="/cart">
                 <ShoppingCart className="w-4 h-4 mr-3" />
                 Cart
                 {cartCount > 0 && (
@@ -287,19 +296,20 @@ export default function Header() {
                     {cartCount}
                   </Badge>
                 )}
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
-            <Link href="/account">
-              <Button
-                variant="ghost"
-                className="w-full justify-start text-gray-300 hover:text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
+            <Button
+              variant="ghost"
+              className="w-full justify-start text-gray-300 hover:text-white"
+              onClick={() => setMobileMenuOpen(false)}
+              asChild
+            >
+              <Link href="/account">
                 <User className="w-4 h-4 mr-3" />
                 Account
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       )}

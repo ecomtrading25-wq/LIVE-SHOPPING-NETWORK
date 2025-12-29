@@ -321,7 +321,7 @@ export const moderationRouter = router({
    */
   moderateContent: protectedProcedure
     .input(z.object({
-      userId: z.string(),
+      userId: z.number(),
       content: z.string(),
       context: z.any().optional(),
     }))
@@ -339,7 +339,7 @@ export const moderationRouter = router({
    * Get user reputation
    */
   getUserReputation: publicProcedure
-    .input(z.object({ userId: z.string() }))
+    .input(z.object({ userId: z.number() }))
     .query(async ({ input }) => {
       // TODO: Implement with ModerationService
       return {
@@ -370,7 +370,7 @@ export const moderationRouter = router({
    */
   getUserReports: protectedProcedure
     .input(z.object({
-      userId: z.string().optional(),
+      userId: z.number().optional(),
       limit: z.number().default(50),
     }))
     .query(async ({ input, ctx }) => {
@@ -401,7 +401,7 @@ export const moderationRouter = router({
    */
   banUser: protectedProcedure
     .input(z.object({
-      userId: z.string(),
+      userId: z.number(),
       reason: z.string(),
     }))
     .mutation(async ({ input, ctx }) => {
@@ -417,7 +417,7 @@ export const moderationRouter = router({
    * Unban user (admin only)
    */
   unbanUser: protectedProcedure
-    .input(z.object({ userId: z.string() }))
+    .input(z.object({ userId: z.number() }))
     .mutation(async ({ input, ctx }) => {
       // Check admin role
       if (ctx.user.role !== 'admin') {
