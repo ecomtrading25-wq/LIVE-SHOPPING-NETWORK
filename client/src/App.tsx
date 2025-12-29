@@ -120,9 +120,8 @@ function Router() {
   return (
     <>
       <PWAInstallPrompt />
-      <CustomerServiceChatbot />
+      {/* Consolidated AI Assistant - combines customer service, shopping help, and voice */}
       <AIShoppingChatbot />
-      <VoiceShoppingAssistant />
       <MobileDeepLink />
       <Header />
       <Switch>

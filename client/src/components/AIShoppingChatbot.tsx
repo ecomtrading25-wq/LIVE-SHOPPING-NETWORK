@@ -198,7 +198,7 @@ export default function AIShoppingChatbot() {
       {/* Chatbot Floating Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-4 right-4 z-40 w-14 h-14 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
+        className="fixed bottom-4 left-4 z-40 w-14 h-14 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
         title="AI Shopping Assistant"
       >
         <MessageCircle className="w-6 h-6 text-white" />
@@ -207,7 +207,7 @@ export default function AIShoppingChatbot() {
 
       {/* Chatbot Window */}
       {isOpen && (
-        <div className="fixed bottom-20 right-4 z-50 w-96 max-w-[calc(100vw-2rem)] h-[600px] max-h-[calc(100vh-8rem)] flex flex-col bg-zinc-900 rounded-2xl shadow-2xl border border-purple-500/30">
+        <div className="fixed bottom-20 left-4 z-50 w-96 max-w-[calc(100vw-2rem)] h-[600px] max-h-[calc(100vh-8rem)] flex flex-col bg-zinc-900 rounded-2xl shadow-2xl border border-purple-500/30">
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-gray-800 bg-gradient-to-r from-blue-600 to-purple-600 rounded-t-2xl">
             <div className="flex items-center gap-3">
