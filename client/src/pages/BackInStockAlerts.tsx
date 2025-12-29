@@ -52,7 +52,7 @@ export default function BackInStockAlertsPage() {
   const notifiedAlerts = alerts.filter(a => a.notified);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="mb-8">
@@ -72,7 +72,7 @@ export default function BackInStockAlertsPage() {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-purple-500/20 rounded-lg">
                   <Bell className="w-5 h-5 text-purple-400" />
@@ -84,7 +84,7 @@ export default function BackInStockAlertsPage() {
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-green-500/20 rounded-lg">
                   <Check className="w-5 h-5 text-green-400" />
@@ -96,7 +96,7 @@ export default function BackInStockAlertsPage() {
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-blue-500/20 rounded-lg">
                   <Mail className="w-5 h-5 text-blue-400" />
@@ -119,7 +119,7 @@ export default function BackInStockAlertsPage() {
             </h2>
             <div className="space-y-4">
               {activeAlerts.map((alert) => (
-                <Card key={alert.id} className="p-6 bg-white/5 border-white/10">
+                <Card key={alert.id} className="p-6 bg-background text-foreground/5 border-white/10">
                   <div className="flex items-start gap-4">
                     <Link href={`/products/${alert.productId}`}>
                       <img
@@ -195,7 +195,7 @@ export default function BackInStockAlertsPage() {
             </h2>
             <div className="space-y-4">
               {notifiedAlerts.map((alert) => (
-                <Card key={alert.id} className="p-6 bg-white/5 border-white/10 opacity-60">
+                <Card key={alert.id} className="p-6 bg-background text-foreground/5 border-white/10 opacity-60">
                   <div className="flex items-start gap-4">
                     <Link href={`/products/${alert.productId}`}>
                       <img
@@ -256,7 +256,7 @@ export default function BackInStockAlertsPage() {
 
         {/* Empty State */}
         {alerts.length === 0 && (
-          <Card className="p-12 bg-white/5 border-white/10 text-center">
+          <Card className="p-12 bg-background text-foreground/5 border-white/10 text-center">
             <div className="flex flex-col items-center gap-4">
               <div className="p-6 bg-card rounded-full text-card-foreground">
                 <BellOff className="w-12 h-12 text-gray-400" />

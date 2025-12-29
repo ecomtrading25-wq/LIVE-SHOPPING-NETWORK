@@ -400,7 +400,7 @@ export default function UsersPage() {
       <Card>
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-zinc-50 dark:bg-background border-b border-zinc-200 dark:border-border text-foreground">
+            <thead className="bg-background dark:bg-background border-b border-zinc-200 dark:border-border text-foreground">
               <tr>
                 <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-foreground">
                   User
@@ -422,7 +422,7 @@ export default function UsersPage() {
                 return (
                   <tr
                     key={user.id}
-                    className="hover:bg-zinc-50 dark:hover:bg-background/50 text-foreground"
+                    className="hover:bg-background dark:hover:bg-background/50 text-foreground"
                   >
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">

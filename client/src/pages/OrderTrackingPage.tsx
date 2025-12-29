@@ -90,7 +90,7 @@ export default function OrderTrackingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-black to-purple-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container py-12">
         {/* Header */}
         <div className="mb-8">
@@ -99,7 +99,7 @@ export default function OrderTrackingPage() {
         </div>
 
         {/* Quick Track by Number */}
-        <Card className="bg-white/10 backdrop-blur border-white/20 mb-8">
+        <Card className="bg-background text-foreground/10 backdrop-blur border-white/20 mb-8">
           <CardContent className="p-6">
             <div className="flex gap-4">
               <div className="flex-1">
@@ -111,7 +111,7 @@ export default function OrderTrackingPage() {
                   placeholder="Enter your order or tracking number"
                   value={trackingNumber}
                   onChange={(e) => setTrackingNumber(e.target.value)}
-                  className="bg-white/10 border-white/20 text-foreground"
+                  className="bg-background/10 border-white/20 text-foreground"
                 />
               </div>
               <Button
@@ -126,7 +126,7 @@ export default function OrderTrackingPage() {
         </Card>
 
         <Tabs defaultValue="active" className="space-y-6">
-          <TabsList className="bg-white/10 backdrop-blur border-white/20">
+          <TabsList className="bg-background text-foreground/10 backdrop-blur border-white/20">
             <TabsTrigger value="active">Active Orders</TabsTrigger>
             <TabsTrigger value="delivered">Delivered</TabsTrigger>
             <TabsTrigger value="all">All Orders</TabsTrigger>
@@ -136,7 +136,7 @@ export default function OrderTrackingPage() {
             {orders?.filter((order) => !['delivered', 'cancelled'].includes(order.status.toLowerCase())).map((order) => (
               <Card
                 key={order.id}
-                className="bg-white/10 backdrop-blur border-white/20 cursor-pointer hover:bg-white/20 transition-colors"
+                className="bg-background text-foreground/10 backdrop-blur border-white/20 cursor-pointer hover:bg-background text-foreground/20 transition-colors"
                 onClick={() => setSelectedOrder(order.id)}
               >
                 <CardContent className="p-6">
@@ -192,7 +192,7 @@ export default function OrderTrackingPage() {
             {orders?.filter((order) => order.status.toLowerCase() === 'delivered').map((order) => (
               <Card
                 key={order.id}
-                className="bg-white/10 backdrop-blur border-white/20"
+                className="bg-background text-foreground/10 backdrop-blur border-white/20"
               >
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between">
@@ -224,7 +224,7 @@ export default function OrderTrackingPage() {
             {orders?.map((order) => (
               <Card
                 key={order.id}
-                className="bg-white/10 backdrop-blur border-white/20 cursor-pointer hover:bg-white/20 transition-colors"
+                className="bg-background text-foreground/10 backdrop-blur border-white/20 cursor-pointer hover:bg-background text-foreground/20 transition-colors"
                 onClick={() => setSelectedOrder(order.id)}
               >
                 <CardContent className="p-6">
@@ -250,7 +250,7 @@ export default function OrderTrackingPage() {
 
         {/* Detailed Tracking View */}
         {selectedOrder && trackingDetails && (
-          <Card className="bg-white/10 backdrop-blur border-white/20 mt-8">
+          <Card className="bg-background text-foreground/10 backdrop-blur border-white/20 mt-8">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle className="text-foreground">Tracking Details</CardTitle>
@@ -340,7 +340,7 @@ export default function OrderTrackingPage() {
                 <h4 className="font-semibold text-foreground mb-4">Order Items</h4>
                 <div className="space-y-3">
                   {trackingDetails.items?.map((item: any) => (
-                    <div key={item.id} className="flex items-center gap-4 p-3 bg-white/5 rounded-lg">
+                    <div key={item.id} className="flex items-center gap-4 p-3 bg-background text-foreground/5 rounded-lg">
                       <img
                         src={item.image || '/placeholder.jpg'}
                         alt={item.name}

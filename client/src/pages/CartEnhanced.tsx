@@ -101,7 +101,7 @@ export default function CartEnhanced() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-slate-50 py-12">
+      <div className="min-h-screen bg-background text-foreground py-12">
         <div className="container max-w-6xl">
           <Skeleton className="h-12 w-48 mb-8" />
           <div className="grid lg:grid-cols-3 gap-8">
@@ -119,9 +119,9 @@ export default function CartEnhanced() {
 
   if (!cart || cart.items.length === 0) {
     return (
-      <div className="min-h-screen bg-slate-50 py-12">
+      <div className="min-h-screen bg-background text-foreground py-12">
         <div className="container max-w-2xl text-center">
-          <div className="bg-white rounded-2xl shadow-lg p-12">
+          <div className="bg-background text-foreground rounded-2xl shadow-lg p-12">
             <ShoppingBag className="h-24 w-24 text-slate-300 mx-auto mb-6" />
             <h1 className="text-3xl font-bold mb-4">Your cart is empty</h1>
             <p className="text-slate-600 mb-8">
@@ -150,7 +150,7 @@ export default function CartEnhanced() {
   const total = subtotal + tax + shipping;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12">
+    <div className="min-h-screen bg-background text-foreground py-12">
       <div className="container max-w-6xl">
         <div className="mb-8">
           <h1 className="text-4xl font-bold mb-2">Shopping Cart</h1>

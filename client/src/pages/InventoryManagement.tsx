@@ -100,7 +100,7 @@ function InventoryManagementContent() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-12">
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
@@ -121,7 +121,7 @@ function InventoryManagementContent() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-blue-500/20 rounded-lg">
                   <Package className="w-5 h-5 text-blue-400" />
@@ -133,7 +133,7 @@ function InventoryManagementContent() {
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-yellow-500/20 rounded-lg">
                   <AlertTriangle className="w-5 h-5 text-yellow-400" />
@@ -145,7 +145,7 @@ function InventoryManagementContent() {
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-red-500/20 rounded-lg">
                   <TrendingDown className="w-5 h-5 text-red-400" />
@@ -157,7 +157,7 @@ function InventoryManagementContent() {
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-green-500/20 rounded-lg">
                   <Package className="w-5 h-5 text-green-400" />
@@ -173,7 +173,7 @@ function InventoryManagementContent() {
           </div>
         </div>
 
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center gap-4 mb-6">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -181,7 +181,7 @@ function InventoryManagementContent() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search by name or SKU..."
-                className="pl-10 bg-white/10 border-white/20 text-foreground"
+                className="pl-10 bg-background/10 border-white/20 text-foreground"
               />
             </div>
             <Button variant="outline" className="border-border">
@@ -206,7 +206,7 @@ function InventoryManagementContent() {
               </thead>
               <tbody>
                 {filteredInventory.map((item) => (
-                  <tr key={item.id} className="border-b border-border hover:bg-white/5">
+                  <tr key={item.id} className="border-b border-border hover:bg-background text-foreground/5">
                     <td className="p-3">
                       <span className="text-foreground font-mono text-sm">{item.sku}</span>
                     </td>

@@ -105,7 +105,7 @@ function ReferralDashboardContent() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-12">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-foreground mb-2">Referral Program</h1>
@@ -114,7 +114,7 @@ function ReferralDashboardContent() {
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-blue-500/20 rounded-lg">
                 <Users className="w-5 h-5 text-blue-400" />
@@ -124,7 +124,7 @@ function ReferralDashboardContent() {
             <p className="text-3xl font-bold text-foreground">{totalReferrals}</p>
           </Card>
 
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-green-500/20 rounded-lg">
                 <TrendingUp className="w-5 h-5 text-green-400" />
@@ -134,7 +134,7 @@ function ReferralDashboardContent() {
             <p className="text-3xl font-bold text-foreground">{successfulReferrals}</p>
           </Card>
 
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-purple-500/20 rounded-lg">
                 <Award className="w-5 h-5 text-purple-400" />
@@ -144,7 +144,7 @@ function ReferralDashboardContent() {
             <p className="text-3xl font-bold text-foreground">{conversionRate}%</p>
           </Card>
 
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-orange-500/20 rounded-lg">
                 <DollarSign className="w-5 h-5 text-orange-400" />
@@ -176,7 +176,7 @@ function ReferralDashboardContent() {
               <Input
                 value={referralLink}
                 readOnly
-                className="pl-10 bg-white/10 border-white/20 text-foreground font-mono"
+                className="pl-10 bg-background/10 border-white/20 text-foreground font-mono"
               />
             </div>
             <Button
@@ -239,7 +239,7 @@ function ReferralDashboardContent() {
         </Card>
 
         {/* How It Works */}
-        <Card className="p-6 bg-white/5 border-white/10 mb-8">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10 mb-8">
           <h3 className="text-xl font-bold text-foreground mb-4">How It Works</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
@@ -273,7 +273,7 @@ function ReferralDashboardContent() {
         </Card>
 
         {/* Referrals List */}
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <h3 className="text-xl font-bold text-foreground mb-4">Your Referrals</h3>
           {referrals.length === 0 ? (
             <div className="text-center py-12">
@@ -288,7 +288,7 @@ function ReferralDashboardContent() {
               {referrals.map((referral) => (
                 <div
                   key={referral.id}
-                  className="flex items-center justify-between p-4 bg-white/5 rounded-lg"
+                  className="flex items-center justify-between p-4 bg-background text-foreground/5 rounded-lg"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
@@ -326,7 +326,7 @@ function ReferralDashboardContent() {
         <Card className="mt-8 p-6 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border-yellow-500/30">
           <h3 className="text-xl font-bold text-foreground mb-4">Reward Tiers</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-4 bg-white/5 rounded-lg">
+            <div className="p-4 bg-background text-foreground/5 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <Award className="w-5 h-5 text-bronze-400" />
                 <h4 className="font-semibold text-foreground">Bronze</h4>
@@ -334,7 +334,7 @@ function ReferralDashboardContent() {
               <p className="text-2xl font-bold text-foreground mb-1">$10</p>
               <p className="text-sm text-gray-400">Per sign-up</p>
             </div>
-            <div className="p-4 bg-white/5 rounded-lg border-2 border-purple-500/50">
+            <div className="p-4 bg-background text-foreground/5 rounded-lg border-2 border-purple-500/50">
               <div className="flex items-center gap-2 mb-2">
                 <Award className="w-5 h-5 text-silver-400" />
                 <h4 className="font-semibold text-foreground">Silver</h4>
@@ -342,7 +342,7 @@ function ReferralDashboardContent() {
               <p className="text-2xl font-bold text-foreground mb-1">$25</p>
               <p className="text-sm text-gray-400">Per first purchase</p>
             </div>
-            <div className="p-4 bg-white/5 rounded-lg">
+            <div className="p-4 bg-background text-foreground/5 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <Award className="w-5 h-5 text-yellow-400" />
                 <h4 className="font-semibold text-foreground">Gold</h4>

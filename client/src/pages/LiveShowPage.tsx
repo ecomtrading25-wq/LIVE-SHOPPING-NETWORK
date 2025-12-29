@@ -149,7 +149,7 @@ export default function LiveShowPage() {
 
   if (showLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-black to-pink-900">
+      <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-pink-500 mx-auto mb-4"></div>
           <p className="text-foreground text-lg">Loading live show...</p>
@@ -160,7 +160,7 @@ export default function LiveShowPage() {
 
   if (!show) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-black to-pink-900">
+      <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
         <Card className="bg-background/50 border-pink-500/20 text-foreground">
           <CardContent className="p-8 text-center">
             <p className="text-foreground text-xl mb-4">Show not found</p>
@@ -174,7 +174,7 @@ export default function LiveShowPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main Video Section */}
@@ -198,7 +198,7 @@ export default function LiveShowPage() {
                 {show.status === 'LIVE' && (
                   <div className="absolute top-4 left-4">
                     <Badge className="bg-red-500 text-foreground animate-pulse">
-                      <div className="w-2 h-2 bg-white rounded-full mr-2 animate-ping"></div>
+                      <div className="w-2 h-2 bg-background text-foreground rounded-full mr-2 animate-ping"></div>
                       LIVE
                     </Badge>
                   </div>
@@ -298,7 +298,7 @@ export default function LiveShowPage() {
                   </h2>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     {products.map((product) => (
-                      <Card key={product.id} className="bg-white/5 border-pink-500/10 hover:border-pink-500/30 transition-all cursor-pointer group">
+                      <Card key={product.id} className="bg-background text-foreground/5 border-pink-500/10 hover:border-pink-500/30 transition-all cursor-pointer group">
                         <CardContent className="p-4">
                           <div className="aspect-square bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg mb-3 flex items-center justify-center">
                             <ShoppingCart className="w-12 h-12 text-pink-400 group-hover:scale-110 transition-transform" />
@@ -392,7 +392,7 @@ export default function LiveShowPage() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-                    className="bg-white/5 border-pink-500/20 text-foreground placeholder:text-gray-500"
+                    className="bg-background/5 border-pink-500/20 text-foreground placeholder:text-gray-500"
                   />
                   <Button
                     onClick={handleSendMessage}
@@ -431,7 +431,7 @@ export default function LiveShowPage() {
                 {gifts.map((gift) => (
                   <Card
                     key={gift.id}
-                    className={`bg-white/5 border-2 cursor-pointer hover:border-pink-500 transition-all ${
+                    className={`bg-background text-foreground/5 border-2 cursor-pointer hover:border-pink-500 transition-all ${
                       selectedGift === gift.id ? 'border-pink-500 bg-pink-500/10' : 'border-pink-500/10'
                     }`}
                     onClick={() => setSelectedGift(gift.id)}

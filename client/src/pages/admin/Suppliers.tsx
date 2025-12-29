@@ -329,7 +329,7 @@ export default function SuppliersPage() {
                 <div
                   className={`w-12 h-12 rounded-lg flex items-center justify-center ${
                     selectedSupplier === supplier.id
-                      ? "bg-white/20"
+                      ? "bg-background text-foreground/20"
                       : "bg-purple-500/20"
                   }`}
                 >

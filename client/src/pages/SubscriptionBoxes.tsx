@@ -148,7 +148,7 @@ export default function SubscriptionBoxesPage() {
               description: "Receive hand-picked products every month",
             },
           ].map((item) => (
-            <Card key={item.step} className="bg-white/10 border-white/20 backdrop-blur-xl">
+            <Card key={item.step} className="bg-background text-foreground/10 border-white/20 backdrop-blur-xl">
               <CardContent className="p-6 text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-foreground text-2xl font-bold">{item.step}</span>
@@ -163,7 +163,7 @@ export default function SubscriptionBoxesPage() {
         {/* Subscription Boxes */}
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {boxes.map((box) => (
-            <Card key={box.id} className="bg-white/10 border-white/20 backdrop-blur-xl overflow-hidden">
+            <Card key={box.id} className="bg-background text-foreground/10 border-white/20 backdrop-blur-xl overflow-hidden">
               <div className="h-48 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
                 <Package className="w-24 h-24 text-white/80" />
               </div>
@@ -206,7 +206,7 @@ export default function SubscriptionBoxesPage() {
                         className={`p-3 rounded-lg border-2 transition-all ${
                           selectedCycle === cycle.value && selectedBox === box.id
                             ? "border-purple-500 bg-purple-500/20"
-                            : "border-white/20 bg-white/5 hover:bg-white/10"
+                            : "border-white/20 bg-background text-foreground/5 hover:bg-background text-foreground/10"
                         }`}
                         onClick={() => {
                           setSelectedBox(box.id);
@@ -368,7 +368,7 @@ export default function SubscriptionBoxesPage() {
                 a: "We offer a satisfaction guarantee. Contact us within 14 days and we'll make it right with a refund or replacement.",
               },
             ].map((faq, idx) => (
-              <Card key={idx} className="bg-white/5 border-white/10 backdrop-blur-xl">
+              <Card key={idx} className="bg-background text-foreground/5 border-white/10 backdrop-blur-xl">
                 <CardContent className="p-4">
                   <p className="text-foreground font-medium mb-2">{faq.q}</p>
                   <p className="text-gray-400 text-sm">{faq.a}</p>

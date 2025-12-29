@@ -30,7 +30,7 @@ export default function Home() {
 
   if (liveLoading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <div className="text-gray-900 text-2xl">Loading live shows...</div>
       </div>
     );
@@ -39,7 +39,7 @@ export default function Home() {
   const hasLiveShows = liveShows && liveShows.length > 0;
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-12">
         {/* Hero Section */}
         <div className="max-w-4xl mx-auto text-center mb-16">
@@ -60,17 +60,17 @@ export default function Home() {
 
           {/* Feature Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            <Card className="p-6 bg-white border-2 border-black hover:border-[#E42313] hover:shadow-lg transition-all">
+            <Card className="p-6 bg-background text-foreground border-2 border-black hover:border-[#E42313] hover:shadow-lg transition-all">
               <div className="text-4xl mb-4">🛍️</div>
               <h3 className="text-xl font-bold mb-2">Shop Live</h3>
               <p className="text-gray-600">Watch live shows and shop exclusive deals in real-time</p>
             </Card>
-            <Card className="p-6 bg-white border-2 border-black hover:border-[#E42313] hover:shadow-lg transition-all">
+            <Card className="p-6 bg-background text-foreground border-2 border-black hover:border-[#E42313] hover:shadow-lg transition-all">
               <div className="text-4xl mb-4">⚡</div>
               <h3 className="text-xl font-bold mb-2">Instant Deals</h3>
               <p className="text-gray-600">Get special pricing only available during live shows</p>
             </Card>
-            <Card className="p-6 bg-white border-2 border-black hover:border-[#E42313] hover:shadow-lg transition-all">
+            <Card className="p-6 bg-background text-foreground border-2 border-black hover:border-[#E42313] hover:shadow-lg transition-all">
               <div className="text-4xl mb-4">💬</div>
               <h3 className="text-xl font-bold mb-2">Interactive</h3>
               <p className="text-gray-600">Ask questions and interact with hosts in real-time</p>
@@ -98,12 +98,12 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {liveShows.map((show) => (
                 <Link key={show.id} href={`/show/${show.id}`}>
-                  <Card className="group cursor-pointer overflow-hidden bg-white border-2 border-black hover:border-[#E42313] hover:shadow-xl transition-all hover:scale-105">
+                  <Card className="group cursor-pointer overflow-hidden bg-background text-foreground border-2 border-black hover:border-[#E42313] hover:shadow-xl transition-all hover:scale-105">
                     <div className="relative aspect-video bg-[#E42313] flex items-center justify-center">
                       <Play className="w-16 h-16 text-foreground opacity-80" />
                       <Badge className="absolute top-3 left-3 bg-red-500 text-foreground border-0 animate-pulse">
                         <span className="flex items-center gap-1">
-                          <span className="w-2 h-2 bg-white rounded-full"></span>
+                          <span className="w-2 h-2 bg-background text-foreground rounded-full"></span>
                           LIVE
                         </span>
                       </Badge>
@@ -147,7 +147,7 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {scheduledShows.map((show) => (
-                <Card key={show.id} className="overflow-hidden bg-white border-2 border-black hover:border-[#E42313] hover:shadow-lg transition-all">
+                <Card key={show.id} className="overflow-hidden bg-background text-foreground border-2 border-black hover:border-[#E42313] hover:shadow-lg transition-all">
                   <div className="relative aspect-video bg-background flex items-center justify-center text-foreground">
                     <Clock className="w-16 h-16 text-foreground opacity-60" />
                     <Badge className="absolute top-3 left-3 bg-[#E42313] text-foreground border-0">
@@ -197,7 +197,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {endedShows.slice(0, 6).map((show) => (
                 <Link key={show.id} href={`/show/${show.id}`}>
-                  <Card className="group cursor-pointer overflow-hidden bg-white border-2 border-black hover:border-[#E42313] hover:shadow-lg transition-all">
+                  <Card className="group cursor-pointer overflow-hidden bg-background text-foreground border-2 border-black hover:border-[#E42313] hover:shadow-lg transition-all">
                     <div className="relative aspect-video bg-background flex items-center justify-center text-foreground">
                       <Play className="w-12 h-12 text-foreground opacity-60" />
                       <Badge className="absolute top-3 left-3 bg-gray-600 text-foreground border-0">
@@ -247,7 +247,7 @@ export default function Home() {
                 </Button>
               </Link>
               <Link href="/host">
-                <Button size="lg" variant="outline" className="border-2 border-white text-foreground hover:bg-white hover:text-[#E42313] px-8 py-6 text-lg">
+                <Button size="lg" variant="outline" className="border-2 border-white text-foreground hover:bg-background hover:text-[#E42313] px-8 py-6 text-lg">
                   Become a Host
                 </Button>
               </Link>

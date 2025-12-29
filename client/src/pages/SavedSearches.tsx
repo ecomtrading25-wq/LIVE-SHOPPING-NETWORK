@@ -99,7 +99,7 @@ export default function SavedSearchesPage() {
   const totalNewResults = searches.reduce((sum, s) => sum + s.newResults, 0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="mb-8">
@@ -117,7 +117,7 @@ export default function SavedSearchesPage() {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-purple-500/20 rounded-lg">
                   <Search className="w-5 h-5 text-purple-400" />
@@ -131,7 +131,7 @@ export default function SavedSearchesPage() {
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-green-500/20 rounded-lg">
                   <Bell className="w-5 h-5 text-green-400" />
@@ -145,7 +145,7 @@ export default function SavedSearchesPage() {
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-blue-500/20 rounded-lg">
                   <Package className="w-5 h-5 text-blue-400" />
@@ -167,7 +167,7 @@ export default function SavedSearchesPage() {
             {searches.map((search) => (
               <Card
                 key={search.id}
-                className="p-6 bg-white/5 border-white/10 hover:bg-white/10 transition-all"
+                className="p-6 bg-background text-foreground/5 border-white/10 hover:bg-background text-foreground/10 transition-all"
               >
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-purple-500/20 rounded-lg">
@@ -181,7 +181,7 @@ export default function SavedSearchesPage() {
                         <Input
                           value={editQuery}
                           onChange={(e) => setEditQuery(e.target.value)}
-                          className="bg-white/10 border-white/20 text-foreground"
+                          className="bg-background/10 border-white/20 text-foreground"
                           autoFocus
                         />
                         <Button
@@ -324,7 +324,7 @@ export default function SavedSearchesPage() {
             ))}
           </div>
         ) : (
-          <Card className="p-12 bg-white/5 border-white/10 text-center">
+          <Card className="p-12 bg-background text-foreground/5 border-white/10 text-center">
             <div className="flex flex-col items-center gap-4">
               <div className="p-6 bg-card rounded-full text-card-foreground">
                 <Search className="w-12 h-12 text-gray-400" />

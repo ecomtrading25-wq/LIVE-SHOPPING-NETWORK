@@ -170,7 +170,7 @@ export default function AnalyticsPage() {
 
       {/* Key Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Total Revenue</p>
@@ -188,7 +188,7 @@ export default function AnalyticsPage() {
           </div>
         </Card>
 
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Total Orders</p>
@@ -206,7 +206,7 @@ export default function AnalyticsPage() {
           </div>
         </Card>
 
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Total Products</p>
@@ -224,7 +224,7 @@ export default function AnalyticsPage() {
           </div>
         </Card>
 
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Avg Order Value</p>
@@ -251,7 +251,7 @@ export default function AnalyticsPage() {
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Revenue Trend */}
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <h3 className="text-lg font-semibold text-foreground mb-4">Revenue Trend</h3>
           <div className="h-80">
             <Line data={revenueChartData} options={chartOptions} />
@@ -259,7 +259,7 @@ export default function AnalyticsPage() {
         </Card>
 
         {/* Orders Volume */}
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <h3 className="text-lg font-semibold text-foreground mb-4">Orders Volume</h3>
           <div className="h-80">
             <Bar data={ordersChartData} options={chartOptions} />
@@ -269,7 +269,7 @@ export default function AnalyticsPage() {
 
       {/* Order Status Distribution */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <h3 className="text-lg font-semibold text-foreground mb-4">
             Order Status Distribution
           </h3>
@@ -279,31 +279,31 @@ export default function AnalyticsPage() {
         </Card>
 
         {/* Top Metrics Summary */}
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <h3 className="text-lg font-semibold text-foreground mb-4">Performance Summary</h3>
           <div className="space-y-4">
-            <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg">
+            <div className="flex items-center justify-between p-4 bg-background text-foreground/5 rounded-lg">
               <div>
                 <p className="text-sm text-gray-400">Conversion Rate</p>
                 <p className="text-2xl font-bold text-foreground">3.2%</p>
               </div>
               <div className="text-green-400 text-sm">+0.5%</div>
             </div>
-            <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg">
+            <div className="flex items-center justify-between p-4 bg-background text-foreground/5 rounded-lg">
               <div>
                 <p className="text-sm text-gray-400">Fulfillment Rate</p>
                 <p className="text-2xl font-bold text-foreground">94.8%</p>
               </div>
               <div className="text-green-400 text-sm">+2.1%</div>
             </div>
-            <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg">
+            <div className="flex items-center justify-between p-4 bg-background text-foreground/5 rounded-lg">
               <div>
                 <p className="text-sm text-gray-400">Return Rate</p>
                 <p className="text-2xl font-bold text-foreground">2.1%</p>
               </div>
               <div className="text-red-400 text-sm">-0.3%</div>
             </div>
-            <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg">
+            <div className="flex items-center justify-between p-4 bg-background text-foreground/5 rounded-lg">
               <div>
                 <p className="text-sm text-gray-400">Customer Satisfaction</p>
                 <p className="text-2xl font-bold text-foreground">4.7/5.0</p>

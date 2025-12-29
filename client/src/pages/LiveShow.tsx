@@ -32,7 +32,7 @@ export default function LiveShow() {
             {/* Live Overlay */}
             <div className="absolute top-4 left-4 flex gap-2">
               <Badge className="bg-red-500 text-foreground">
-                <span className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></span>
+                <span className="w-2 h-2 bg-background text-foreground rounded-full mr-2 animate-pulse"></span>
                 LIVE
               </Badge>
               <Badge variant="secondary" className="bg-background/50 text-foreground">

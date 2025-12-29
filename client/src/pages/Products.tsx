@@ -36,9 +36,9 @@ export default function ProductsPage() {
   const { data: featuredProducts } = trpc.products.getFeatured.useQuery({});
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <header className="border-b-2 border-black bg-white">
+      <header className="border-b-2 border-black bg-background text-foreground">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="text-2xl font-bold text-black hover:text-[#E42313] transition-colors">
@@ -79,14 +79,14 @@ export default function ProductsPage() {
                   placeholder="Search products..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-12 h-14 bg-white border-2 border-black text-black placeholder:text-gray-500 text-lg"
+                  className="pl-12 h-14 bg-background text-foreground border-2 border-black text-black placeholder:text-gray-500 text-lg"
                 />
               </div>
               <Select value={sortBy} onValueChange={setSortBy}>
-                <SelectTrigger className="w-48 h-14 bg-white border-2 border-black text-black">
+                <SelectTrigger className="w-48 h-14 bg-background text-foreground border-2 border-black text-black">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent className="bg-white border-2 border-black">
+                <SelectContent className="bg-background text-foreground border-2 border-black">
                   <SelectItem value="featured">Featured</SelectItem>
                   <SelectItem value="price_low">Price: Low to High</SelectItem>
                   <SelectItem value="price_high">Price: High to Low</SelectItem>
@@ -133,7 +133,7 @@ export default function ProductsPage() {
           {isLoading ? (
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {[...Array(8)].map((_, i) => (
-                <Card key={i} className="h-96 bg-white/5 border-white/10 animate-pulse" />
+                <Card key={i} className="h-96 bg-background text-foreground/5 border-white/10 animate-pulse" />
               ))}
             </div>
           ) : products && products.length > 0 ? (
@@ -143,7 +143,7 @@ export default function ProductsPage() {
               ))}
             </div>
           ) : (
-            <Card className="p-12 bg-white/5 border-white/10 text-center">
+            <Card className="p-12 bg-background text-foreground/5 border-white/10 text-center">
               <p className="text-gray-400 text-lg">No products found</p>
             </Card>
           )}
@@ -177,7 +177,7 @@ function ProductCard({ product, featured = false }: { product: any; featured?: b
   return (
     <Link href={`/products/${product.id}`}>
       <Card
-        className={`group overflow-hidden bg-white/5 border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all cursor-pointer ${
+        className={`group overflow-hidden bg-background text-foreground/5 border-white/10 hover:bg-background text-foreground/10 hover:border-purple-500/50 transition-all cursor-pointer ${
           featured ? "ring-2 ring-yellow-500" : ""
         }`}
       >
@@ -195,7 +195,7 @@ function ProductCard({ product, featured = false }: { product: any; featured?: b
             </Badge>
           )}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-32 h-32 bg-white/10 rounded-full flex items-center justify-center">
+            <div className="w-32 h-32 bg-background text-foreground/10 rounded-full flex items-center justify-center">
               <ShoppingCart className="w-16 h-16 text-white/50" />
             </div>
           </div>

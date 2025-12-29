@@ -173,7 +173,7 @@ export default function AdminAnalyticsDashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container py-8 space-y-8">
         {/* Header */}
         <div className="flex items-center justify-between">
@@ -184,7 +184,7 @@ export default function AdminAnalyticsDashboard() {
 
           <div className="flex items-center gap-4">
             <Select value={timeRange} onValueChange={(value: any) => setTimeRange(value)}>
-              <SelectTrigger className="w-40 bg-white/10 border-white/20 text-foreground">
+              <SelectTrigger className="w-40 bg-background/10 border-white/20 text-foreground">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -210,7 +210,7 @@ export default function AdminAnalyticsDashboard() {
         {/* Metric Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {metricCards.map((metric, index) => (
-            <Card key={index} className="bg-white/10 backdrop-blur border-white/20">
+            <Card key={index} className="bg-background text-foreground/10 backdrop-blur border-white/20">
               <CardContent className="p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div className={metric.color}>{metric.icon}</div>
@@ -237,7 +237,7 @@ export default function AdminAnalyticsDashboard() {
         </div>
 
         <Tabs defaultValue="revenue" className="space-y-6">
-          <TabsList className="bg-white/10 backdrop-blur border-white/20">
+          <TabsList className="bg-background text-foreground/10 backdrop-blur border-white/20">
             <TabsTrigger value="revenue">Revenue</TabsTrigger>
             <TabsTrigger value="products">Products</TabsTrigger>
             <TabsTrigger value="customers">Customers</TabsTrigger>
@@ -249,7 +249,7 @@ export default function AdminAnalyticsDashboard() {
           <TabsContent value="revenue" className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Revenue Chart */}
-              <Card className="lg:col-span-2 bg-white/10 backdrop-blur border-white/20">
+              <Card className="lg:col-span-2 bg-background text-foreground/10 backdrop-blur border-white/20">
                 <CardHeader>
                   <CardTitle className="text-foreground">Revenue Trend</CardTitle>
                 </CardHeader>
@@ -279,7 +279,7 @@ export default function AdminAnalyticsDashboard() {
               </Card>
 
               {/* Revenue Breakdown */}
-              <Card className="bg-white/10 backdrop-blur border-white/20">
+              <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
                 <CardHeader>
                   <CardTitle className="text-foreground">Revenue Breakdown</CardTitle>
                 </CardHeader>
@@ -291,7 +291,7 @@ export default function AdminAnalyticsDashboard() {
                         {formatCurrency(revenueData?.breakdown?.products || 0)}
                       </span>
                     </div>
-                    <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-2 bg-background text-foreground/10 rounded-full overflow-hidden">
                       <div
                         className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
                         style={{
@@ -308,7 +308,7 @@ export default function AdminAnalyticsDashboard() {
                         {formatCurrency(revenueData?.breakdown?.liveStreams || 0)}
                       </span>
                     </div>
-                    <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-2 bg-background text-foreground/10 rounded-full overflow-hidden">
                       <div
                         className="h-full bg-gradient-to-r from-pink-500 to-red-500"
                         style={{
@@ -325,7 +325,7 @@ export default function AdminAnalyticsDashboard() {
                         {formatCurrency(revenueData?.breakdown?.subscriptions || 0)}
                       </span>
                     </div>
-                    <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-2 bg-background text-foreground/10 rounded-full overflow-hidden">
                       <div
                         className="h-full bg-gradient-to-r from-green-500 to-emerald-500"
                         style={{
@@ -342,7 +342,7 @@ export default function AdminAnalyticsDashboard() {
                         {formatCurrency(revenueData?.breakdown?.affiliate || 0)}
                       </span>
                     </div>
-                    <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-2 bg-background text-foreground/10 rounded-full overflow-hidden">
                       <div
                         className="h-full bg-gradient-to-r from-yellow-500 to-orange-500"
                         style={{
@@ -356,14 +356,14 @@ export default function AdminAnalyticsDashboard() {
             </div>
 
             {/* Revenue by Category */}
-            <Card className="bg-white/10 backdrop-blur border-white/20">
+            <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
               <CardHeader>
                 <CardTitle className="text-foreground">Revenue by Category</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {revenueData?.byCategory?.map((category: any, index: number) => (
-                    <div key={index} className="p-4 bg-white/5 rounded-lg">
+                    <div key={index} className="p-4 bg-background text-foreground/5 rounded-lg">
                       <p className="text-gray-400 text-sm mb-1">{category.name}</p>
                       <p className="text-2xl font-bold text-foreground mb-1">
                         {formatCurrency(category.revenue)}
@@ -380,14 +380,14 @@ export default function AdminAnalyticsDashboard() {
           <TabsContent value="products" className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Top Products */}
-              <Card className="bg-white/10 backdrop-blur border-white/20">
+              <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
                 <CardHeader>
                   <CardTitle className="text-foreground">Top Selling Products</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {productPerformance?.topSelling?.map((product: any, index: number) => (
-                      <div key={index} className="flex items-center gap-4 p-3 bg-white/5 rounded-lg">
+                      <div key={index} className="flex items-center gap-4 p-3 bg-background text-foreground/5 rounded-lg">
                         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-foreground font-bold">
                           {index + 1}
                         </div>
@@ -414,14 +414,14 @@ export default function AdminAnalyticsDashboard() {
               </Card>
 
               {/* Trending Products */}
-              <Card className="bg-white/10 backdrop-blur border-white/20">
+              <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
                 <CardHeader>
                   <CardTitle className="text-foreground">Trending Products</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {productPerformance?.trending?.map((product: any, index: number) => (
-                      <div key={index} className="flex items-center gap-4 p-3 bg-white/5 rounded-lg">
+                      <div key={index} className="flex items-center gap-4 p-3 bg-background text-foreground/5 rounded-lg">
                         <img
                           src={product.image || '/placeholder.jpg'}
                           alt={product.name}
@@ -446,7 +446,7 @@ export default function AdminAnalyticsDashboard() {
             </div>
 
             {/* Product Metrics */}
-            <Card className="bg-white/10 backdrop-blur border-white/20">
+            <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
               <CardHeader>
                 <CardTitle className="text-foreground">Product Metrics</CardTitle>
               </CardHeader>
@@ -485,7 +485,7 @@ export default function AdminAnalyticsDashboard() {
           <TabsContent value="customers" className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Customer Segments */}
-              <Card className="lg:col-span-2 bg-white/10 backdrop-blur border-white/20">
+              <Card className="lg:col-span-2 bg-background text-foreground/10 backdrop-blur border-white/20">
                 <CardHeader>
                   <CardTitle className="text-foreground">Customer Segments</CardTitle>
                 </CardHeader>
@@ -497,7 +497,7 @@ export default function AdminAnalyticsDashboard() {
                           <span className="text-foreground font-semibold">{segment.name}</span>
                           <span className="text-gray-400">{segment.count} customers</span>
                         </div>
-                        <div className="h-3 bg-white/10 rounded-full overflow-hidden">
+                        <div className="h-3 bg-background text-foreground/10 rounded-full overflow-hidden">
                           <div
                             className={`h-full bg-gradient-to-r ${segment.color}`}
                             style={{
@@ -516,7 +516,7 @@ export default function AdminAnalyticsDashboard() {
               </Card>
 
               {/* Customer Stats */}
-              <Card className="bg-white/10 backdrop-blur border-white/20">
+              <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
                 <CardHeader>
                   <CardTitle className="text-foreground">Customer Stats</CardTitle>
                 </CardHeader>
@@ -553,14 +553,14 @@ export default function AdminAnalyticsDashboard() {
             </div>
 
             {/* Top Customers */}
-            <Card className="bg-white/10 backdrop-blur border-white/20">
+            <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
               <CardHeader>
                 <CardTitle className="text-foreground">Top Customers</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {customerInsights?.topCustomers?.map((customer: any, index: number) => (
-                    <div key={index} className="flex items-center gap-4 p-4 bg-white/5 rounded-lg">
+                    <div key={index} className="flex items-center gap-4 p-4 bg-background text-foreground/5 rounded-lg">
                       <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-foreground font-bold text-lg">
                         {customer.name?.charAt(0) || 'U'}
                       </div>
@@ -583,7 +583,7 @@ export default function AdminAnalyticsDashboard() {
 
           {/* Conversion Funnel */}
           <TabsContent value="conversion" className="space-y-6">
-            <Card className="bg-white/10 backdrop-blur border-white/20">
+            <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
               <CardHeader>
                 <CardTitle className="text-foreground">Conversion Funnel</CardTitle>
               </CardHeader>
@@ -609,7 +609,7 @@ export default function AdminAnalyticsDashboard() {
                             <span className="text-gray-400 text-sm ml-2">({percentage.toFixed(1)}%)</span>
                           </div>
                         </div>
-                        <div className="h-12 bg-white/5 rounded-lg overflow-hidden relative">
+                        <div className="h-12 bg-background text-foreground/5 rounded-lg overflow-hidden relative">
                           <div
                             className="h-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-end px-4"
                             style={{ width: `${percentage}%` }}
@@ -630,7 +630,7 @@ export default function AdminAnalyticsDashboard() {
 
             {/* Conversion Metrics */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card className="bg-white/10 backdrop-blur border-white/20">
+              <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
                 <CardContent className="p-6 text-center">
                   <p className="text-gray-400 text-sm mb-2">Overall Conversion Rate</p>
                   <p className="text-4xl font-bold text-foreground mb-2">
@@ -643,7 +643,7 @@ export default function AdminAnalyticsDashboard() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 backdrop-blur border-white/20">
+              <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
                 <CardContent className="p-6 text-center">
                   <p className="text-gray-400 text-sm mb-2">Cart Abandonment Rate</p>
                   <p className="text-4xl font-bold text-foreground mb-2">
@@ -656,7 +656,7 @@ export default function AdminAnalyticsDashboard() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 backdrop-blur border-white/20">
+              <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
                 <CardContent className="p-6 text-center">
                   <p className="text-gray-400 text-sm mb-2">Avg Time to Purchase</p>
                   <p className="text-4xl font-bold text-foreground mb-2">
@@ -671,7 +671,7 @@ export default function AdminAnalyticsDashboard() {
           {/* Live Stream Analytics */}
           <TabsContent value="livestream" className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <Card className="bg-white/10 backdrop-blur border-white/20">
+              <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
                 <CardContent className="p-6 text-center">
                   <Eye className="w-8 h-8 text-red-500 mx-auto mb-2" />
                   <p className="text-gray-400 text-sm mb-1">Total Views</p>
@@ -681,7 +681,7 @@ export default function AdminAnalyticsDashboard() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 backdrop-blur border-white/20">
+              <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
                 <CardContent className="p-6 text-center">
                   <Users className="w-8 h-8 text-blue-500 mx-auto mb-2" />
                   <p className="text-gray-400 text-sm mb-1">Peak Viewers</p>
@@ -691,7 +691,7 @@ export default function AdminAnalyticsDashboard() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 backdrop-blur border-white/20">
+              <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
                 <CardContent className="p-6 text-center">
                   <ShoppingCart className="w-8 h-8 text-green-500 mx-auto mb-2" />
                   <p className="text-gray-400 text-sm mb-1">Live Sales</p>
@@ -701,7 +701,7 @@ export default function AdminAnalyticsDashboard() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 backdrop-blur border-white/20">
+              <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
                 <CardContent className="p-6 text-center">
                   <TrendingUp className="w-8 h-8 text-purple-500 mx-auto mb-2" />
                   <p className="text-gray-400 text-sm mb-1">Conversion Rate</p>
@@ -713,14 +713,14 @@ export default function AdminAnalyticsDashboard() {
             </div>
 
             {/* Recent Live Streams */}
-            <Card className="bg-white/10 backdrop-blur border-white/20">
+            <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
               <CardHeader>
                 <CardTitle className="text-foreground">Recent Live Streams</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   {liveStreamAnalytics?.recentStreams?.map((stream: any, index: number) => (
-                    <div key={index} className="flex items-center gap-4 p-4 bg-white/5 rounded-lg">
+                    <div key={index} className="flex items-center gap-4 p-4 bg-background text-foreground/5 rounded-lg">
                       <img
                         src={stream.thumbnail || '/placeholder.jpg'}
                         alt={stream.title}

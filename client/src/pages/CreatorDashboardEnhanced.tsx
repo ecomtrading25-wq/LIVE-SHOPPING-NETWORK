@@ -92,7 +92,7 @@ export default function CreatorDashboardEnhanced() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <div className="border-b border-white/10 bg-background/30 backdrop-blur-xl text-foreground">
         <div className="container py-6">
@@ -138,7 +138,7 @@ export default function CreatorDashboardEnhanced() {
                         name="title"
                         placeholder="e.g., Beauty Essentials Flash Sale"
                         required
-                        className="bg-white/5 border-white/10 text-foreground"
+                        className="bg-background/5 border-white/10 text-foreground"
                       />
                     </div>
 
@@ -149,7 +149,7 @@ export default function CreatorDashboardEnhanced() {
                         placeholder="Describe what you'll be featuring..."
                         rows={3}
                         required
-                        className="bg-white/5 border-white/10 text-foreground"
+                        className="bg-background/5 border-white/10 text-foreground"
                       />
                     </div>
 
@@ -160,14 +160,14 @@ export default function CreatorDashboardEnhanced() {
                           name="scheduledFor"
                           type="datetime-local"
                           required
-                          className="bg-white/5 border-white/10 text-foreground"
+                          className="bg-background/5 border-white/10 text-foreground"
                         />
                       </div>
 
                       <div>
                         <label className="text-foreground text-sm font-medium mb-2 block">Category</label>
                         <Select name="category" required>
-                          <SelectTrigger className="bg-white/5 border-white/10 text-foreground">
+                          <SelectTrigger className="bg-background/5 border-white/10 text-foreground">
                             <SelectValue placeholder="Select category" />
                           </SelectTrigger>
                           <SelectContent>
@@ -190,7 +190,7 @@ export default function CreatorDashboardEnhanced() {
                         name="thumbnailUrl"
                         type="url"
                         placeholder="https://..."
-                        className="bg-white/5 border-white/10 text-foreground"
+                        className="bg-background/5 border-white/10 text-foreground"
                       />
                     </div>
 
@@ -205,7 +205,7 @@ export default function CreatorDashboardEnhanced() {
                       <Button
                         type="button"
                         variant="outline"
-                        className="border-white/20 text-foreground hover:bg-white/10"
+                        className="border-white/20 text-foreground hover:bg-background/10"
                         onClick={() => setShowScheduleDialog(false)}
                       >
                         Cancel
@@ -216,7 +216,7 @@ export default function CreatorDashboardEnhanced() {
               </Dialog>
 
               <Link href="/live/studio">
-                <Button variant="outline" className="border-white/20 text-foreground hover:bg-white/10">
+                <Button variant="outline" className="border-white/20 text-foreground hover:bg-background/10">
                   <Video className="w-4 h-4 mr-2" />
                   Go Live
                 </Button>
@@ -228,7 +228,7 @@ export default function CreatorDashboardEnhanced() {
 
       <div className="container py-8">
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="bg-white/5 border border-white/10">
+          <TabsList className="bg-background text-foreground/5 border border-white/10">
             <TabsTrigger value="overview" className="data-[state=active]:bg-purple-600">
               <BarChart3 className="w-4 h-4 mr-2" />
               Overview
@@ -305,7 +305,7 @@ export default function CreatorDashboardEnhanced() {
             </div>
 
             {/* Upcoming Shows */}
-            <Card className="bg-white/5 border-white/10">
+            <Card className="bg-background text-foreground/5 border-white/10">
               <div className="p-6 border-b border-white/10">
                 <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
                   <Calendar className="w-6 h-6 text-purple-500" />
@@ -319,7 +319,7 @@ export default function CreatorDashboardEnhanced() {
               <div className="p-6 space-y-4">
                 {upcomingShows && upcomingShows.length > 0 ? (
                   upcomingShows.map((show: any) => (
-                    <Card key={show.id} className="bg-white/5 border-white/10 p-4">
+                    <Card key={show.id} className="bg-background text-foreground/5 border-white/10 p-4">
                       <div className="flex items-start justify-between">
                         <div className="flex gap-4 flex-1">
                           <img
@@ -355,7 +355,7 @@ export default function CreatorDashboardEnhanced() {
                           <Button
                             size="sm"
                             variant="outline"
-                            className="border-white/20 text-foreground hover:bg-white/10"
+                            className="border-white/20 text-foreground hover:bg-background/10"
                           >
                             <Edit className="w-4 h-4" />
                           </Button>
@@ -389,7 +389,7 @@ export default function CreatorDashboardEnhanced() {
 
             {/* Quick Actions */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <Card className="bg-white/5 border-white/10 p-6 hover:bg-white/10 transition-colors cursor-pointer">
+              <Card className="bg-background text-foreground/5 border-white/10 p-6 hover:bg-background text-foreground/10 transition-colors cursor-pointer">
                 <Upload className="w-8 h-8 text-purple-400 mb-3" />
                 <h3 className="text-foreground font-semibold mb-2">Upload Content</h3>
                 <p className="text-gray-400 text-sm">
@@ -397,7 +397,7 @@ export default function CreatorDashboardEnhanced() {
                 </p>
               </Card>
 
-              <Card className="bg-white/5 border-white/10 p-6 hover:bg-white/10 transition-colors cursor-pointer">
+              <Card className="bg-background text-foreground/5 border-white/10 p-6 hover:bg-background text-foreground/10 transition-colors cursor-pointer">
                 <Users className="w-8 h-8 text-blue-400 mb-3" />
                 <h3 className="text-foreground font-semibold mb-2">Engage Followers</h3>
                 <p className="text-gray-400 text-sm">
@@ -405,7 +405,7 @@ export default function CreatorDashboardEnhanced() {
                 </p>
               </Card>
 
-              <Card className="bg-white/5 border-white/10 p-6 hover:bg-white/10 transition-colors cursor-pointer">
+              <Card className="bg-background text-foreground/5 border-white/10 p-6 hover:bg-background text-foreground/10 transition-colors cursor-pointer">
                 <Settings className="w-8 h-8 text-green-400 mb-3" />
                 <h3 className="text-foreground font-semibold mb-2">Creator Settings</h3>
                 <p className="text-gray-400 text-sm">
@@ -417,7 +417,7 @@ export default function CreatorDashboardEnhanced() {
 
           {/* Shows Tab */}
           <TabsContent value="shows" className="space-y-6">
-            <Card className="bg-white/5 border-white/10">
+            <Card className="bg-background text-foreground/5 border-white/10">
               <div className="p-6 border-b border-white/10">
                 <h2 className="text-2xl font-bold text-foreground">Past Shows</h2>
               </div>
@@ -425,7 +425,7 @@ export default function CreatorDashboardEnhanced() {
               <div className="p-6 space-y-4">
                 {pastShows && pastShows.length > 0 ? (
                   pastShows.map((show: any) => (
-                    <Card key={show.id} className="bg-white/5 border-white/10 p-4">
+                    <Card key={show.id} className="bg-background text-foreground/5 border-white/10 p-4">
                       <div className="flex items-start gap-4">
                         <img
                           src={show.thumbnailUrl || "/placeholder-show.jpg"}
@@ -474,7 +474,7 @@ export default function CreatorDashboardEnhanced() {
                         <Button
                           size="sm"
                           variant="outline"
-                          className="border-white/20 text-foreground hover:bg-white/10"
+                          className="border-white/20 text-foreground hover:bg-background/10"
                         >
                           <Eye className="w-4 h-4 mr-2" />
                           View Analytics
@@ -519,7 +519,7 @@ export default function CreatorDashboardEnhanced() {
                 )}
               </Card>
 
-              <Card className="bg-white/5 border-white/10 p-6">
+              <Card className="bg-background text-foreground/5 border-white/10 p-6">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-gray-400 text-sm font-medium">Pending</span>
                   <Clock className="w-5 h-5 text-yellow-400" />
@@ -530,7 +530,7 @@ export default function CreatorDashboardEnhanced() {
                 <p className="text-xs text-gray-400">Processing payouts</p>
               </Card>
 
-              <Card className="bg-white/5 border-white/10 p-6">
+              <Card className="bg-background text-foreground/5 border-white/10 p-6">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-gray-400 text-sm font-medium">Lifetime Earnings</span>
                   <TrendingUp className="w-5 h-5 text-purple-400" />
@@ -543,7 +543,7 @@ export default function CreatorDashboardEnhanced() {
             </div>
 
             {/* Payout History */}
-            <Card className="bg-white/5 border-white/10">
+            <Card className="bg-background text-foreground/5 border-white/10">
               <div className="p-6 border-b border-white/10">
                 <h2 className="text-2xl font-bold text-foreground">Payout History</h2>
               </div>
@@ -562,7 +562,7 @@ export default function CreatorDashboardEnhanced() {
                   <tbody>
                     {payouts && payouts.length > 0 ? (
                       payouts.map((payout: any) => (
-                        <tr key={payout.id} className="border-b border-white/10 hover:bg-white/5">
+                        <tr key={payout.id} className="border-b border-white/10 hover:bg-background text-foreground/5">
                           <td className="p-4 text-foreground">
                             {new Date(payout.createdAt).toLocaleDateString()}
                           </td>
@@ -603,7 +603,7 @@ export default function CreatorDashboardEnhanced() {
 
           {/* Analytics Tab */}
           <TabsContent value="analytics" className="space-y-6">
-            <Card className="bg-white/5 border-white/10 p-6">
+            <Card className="bg-background text-foreground/5 border-white/10 p-6">
               <h2 className="text-2xl font-bold text-foreground mb-4">Performance Analytics</h2>
               <p className="text-gray-400">
                 Detailed analytics and insights coming soon! Track your growth, engagement metrics,

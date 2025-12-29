@@ -228,7 +228,7 @@ export default function InfluencerAnalyticsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 py-12">
+    <div className="min-h-screen bg-background text-foreground py-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
@@ -257,7 +257,7 @@ export default function InfluencerAnalyticsPage() {
 
         {/* Earnings Overview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-2">
               <p className="text-gray-400 text-sm">This Month</p>
               <DollarSign className="w-5 h-5 text-green-400" />
@@ -268,7 +268,7 @@ export default function InfluencerAnalyticsPage() {
             </p>
           </Card>
 
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-2">
               <p className="text-gray-400 text-sm">Pending</p>
               <Calendar className="w-5 h-5 text-yellow-400" />
@@ -277,7 +277,7 @@ export default function InfluencerAnalyticsPage() {
             <p className="text-gray-400 text-sm">Payout on Jan 15, 2026</p>
           </Card>
 
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-2">
               <p className="text-gray-400 text-sm">Lifetime Earnings</p>
               <Award className="w-5 h-5 text-purple-400" />
@@ -286,7 +286,7 @@ export default function InfluencerAnalyticsPage() {
             <p className="text-gray-400 text-sm">Since joining</p>
           </Card>
 
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-2">
               <p className="text-gray-400 text-sm">Avg Commission</p>
               <TrendingUp className="w-5 h-5 text-blue-400" />
@@ -297,7 +297,7 @@ export default function InfluencerAnalyticsPage() {
         </div>
 
         <Tabs defaultValue="earnings" className="space-y-6">
-          <TabsList className="bg-white/5 border border-white/10">
+          <TabsList className="bg-background text-foreground/5 border border-white/10">
             <TabsTrigger value="earnings">Earnings</TabsTrigger>
             <TabsTrigger value="content">Content Performance</TabsTrigger>
             <TabsTrigger value="audience">Audience</TabsTrigger>
@@ -306,7 +306,7 @@ export default function InfluencerAnalyticsPage() {
 
           {/* Earnings Tab */}
           <TabsContent value="earnings" className="space-y-6">
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h2 className="text-2xl font-bold text-foreground mb-6">Earnings Breakdown</h2>
               <div className="overflow-x-auto">
                 <table className="w-full">
@@ -322,7 +322,7 @@ export default function InfluencerAnalyticsPage() {
                   </thead>
                   <tbody>
                     {earningsBreakdown.map((earning) => (
-                      <tr key={earning.period} className="border-b border-white/5 hover:bg-white/5">
+                      <tr key={earning.period} className="border-b border-white/5 hover:bg-background text-foreground/5">
                         <td className="p-4 text-foreground font-medium">{earning.period}</td>
                         <td className="p-4 text-right text-foreground">${earning.commission.toFixed(2)}</td>
                         <td className="p-4 text-right text-green-400">${earning.bonus.toFixed(2)}</td>
@@ -339,14 +339,14 @@ export default function InfluencerAnalyticsPage() {
             <Card className="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-purple-500/30">
               <h3 className="text-xl font-bold text-foreground mb-4">Payout History</h3>
               <div className="space-y-3">
-                <div className="flex items-center justify-between p-4 bg-white/10 rounded-lg">
+                <div className="flex items-center justify-between p-4 bg-background text-foreground/10 rounded-lg">
                   <div>
                     <p className="text-foreground font-medium">December 2025 Payout</p>
                     <p className="text-gray-400 text-sm">Paid on Dec 15, 2025</p>
                   </div>
                   <p className="text-green-400 font-bold text-lg">$4,234.18</p>
                 </div>
-                <div className="flex items-center justify-between p-4 bg-white/10 rounded-lg">
+                <div className="flex items-center justify-between p-4 bg-background text-foreground/10 rounded-lg">
                   <div>
                     <p className="text-foreground font-medium">November 2025 Payout</p>
                     <p className="text-gray-400 text-sm">Paid on Nov 15, 2025</p>
@@ -359,11 +359,11 @@ export default function InfluencerAnalyticsPage() {
 
           {/* Content Performance Tab */}
           <TabsContent value="content" className="space-y-6">
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h2 className="text-2xl font-bold text-foreground mb-6">Top Performing Content</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {contentPerformance.map((content) => (
-                  <Card key={content.id} className="p-6 bg-white/5 border-white/10">
+                  <Card key={content.id} className="p-6 bg-background text-foreground/5 border-white/10">
                     <div className="flex gap-4 mb-4">
                       <img
                         src={content.thumbnail}
@@ -424,7 +424,7 @@ export default function InfluencerAnalyticsPage() {
           {/* Audience Tab */}
           <TabsContent value="audience" className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card className="p-6 bg-white/5 border-white/10">
+              <Card className="p-6 bg-background text-foreground/5 border-white/10">
                 <h2 className="text-2xl font-bold text-foreground mb-6">Age Demographics</h2>
                 <div className="space-y-4">
                   {audienceDemographics.map((demo) => (
@@ -436,7 +436,7 @@ export default function InfluencerAnalyticsPage() {
                           <span className="text-purple-400 font-bold">{demo.percentage}%</span>
                         </div>
                       </div>
-                      <div className="w-full bg-white/10 rounded-full h-2">
+                      <div className="w-full bg-background text-foreground/10 rounded-full h-2">
                         <div
                           className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full"
                           style={{ width: `${demo.percentage}%` }}
@@ -447,7 +447,7 @@ export default function InfluencerAnalyticsPage() {
                 </div>
               </Card>
 
-              <Card className="p-6 bg-white/5 border-white/10">
+              <Card className="p-6 bg-background text-foreground/5 border-white/10">
                 <h2 className="text-2xl font-bold text-foreground mb-6">Audience Insights</h2>
                 <div className="space-y-6">
                   <div>
@@ -483,14 +483,14 @@ export default function InfluencerAnalyticsPage() {
 
           {/* Promo Links Tab */}
           <TabsContent value="links" className="space-y-6">
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h2 className="text-2xl font-bold text-foreground mb-6">Generate New Promo Link</h2>
               <div className="flex gap-3">
                 <Input
                   value={newLinkCode}
                   onChange={(e) => setNewLinkCode(e.target.value)}
                   placeholder="Enter promo code (e.g., SUMMER25)"
-                  className="flex-1 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
+                  className="flex-1 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400"
                 />
                 <Button onClick={handleGenerateLink} className="bg-gradient-to-r from-purple-500 to-pink-500">
                   <LinkIcon className="w-4 h-4 mr-2" />
@@ -499,11 +499,11 @@ export default function InfluencerAnalyticsPage() {
               </div>
             </Card>
 
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h2 className="text-2xl font-bold text-foreground mb-6">Your Promo Links</h2>
               <div className="space-y-4">
                 {promoLinks.map((link) => (
-                  <Card key={link.id} className="p-6 bg-white/5 border-white/10">
+                  <Card key={link.id} className="p-6 bg-background text-foreground/5 border-white/10">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
@@ -519,7 +519,7 @@ export default function InfluencerAnalyticsPage() {
                           </Badge>
                         </div>
                         <div className="flex items-center gap-2 text-gray-400 text-sm mb-3">
-                          <code className="bg-white/10 px-2 py-1 rounded">{link.url}</code>
+                          <code className="bg-background text-foreground/10 px-2 py-1 rounded">{link.url}</code>
                           <Button
                             size="sm"
                             variant="ghost"

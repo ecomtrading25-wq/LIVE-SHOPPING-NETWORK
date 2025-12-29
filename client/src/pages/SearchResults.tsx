@@ -80,7 +80,7 @@ export default function SearchResultsPage() {
   const brands = ["TechPro", "FitTech"];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 py-8">
+    <div className="min-h-screen bg-background text-foreground py-8">
       <div className="container mx-auto px-4">
         <div className="mb-8">
           <div className="flex items-center gap-4 mb-4">
@@ -90,13 +90,13 @@ export default function SearchResultsPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search products..."
-                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
+                className="pl-10 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400"
               />
             </div>
             <Button
               variant="outline"
               onClick={() => setShowFilters(!showFilters)}
-              className="border-white/20 text-foreground hover:bg-white/10"
+              className="border-white/20 text-foreground hover:bg-background/10"
             >
               <SlidersHorizontal className="w-4 h-4 mr-2" />
               Filters
@@ -113,7 +113,7 @@ export default function SearchResultsPage() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="bg-white/10 border border-white/20 text-foreground rounded px-3 py-1 text-sm"
+                className="bg-background/10 border border-white/20 text-foreground rounded px-3 py-1 text-sm"
               >
                 <option value="relevance">Relevance</option>
                 <option value="price-low">Price: Low to High</option>
@@ -127,7 +127,7 @@ export default function SearchResultsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {showFilters && (
             <div className="lg:col-span-1">
-              <Card className="p-6 bg-white/10 backdrop-blur-xl border-white/20 sticky top-4">
+              <Card className="p-6 bg-background text-foreground/10 backdrop-blur-xl border-white/20 sticky top-4">
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-xl font-bold text-foreground">Filters</h3>
                   <Button
@@ -160,7 +160,7 @@ export default function SearchResultsPage() {
                               setSelectedCategories(selectedCategories.filter((c) => c !== category));
                             }
                           }}
-                          className="w-4 h-4 rounded border-white/20 bg-white/10"
+                          className="w-4 h-4 rounded border-white/20 bg-background text-foreground/10"
                         />
                         <span className="text-muted-foreground capitalize">{category}</span>
                       </label>
@@ -213,7 +213,7 @@ export default function SearchResultsPage() {
 
           <div className={showFilters ? "lg:col-span-3" : "lg:col-span-4"}>
             {sortedProducts.length === 0 ? (
-              <Card className="p-12 bg-white/10 backdrop-blur-xl border-white/20 text-center">
+              <Card className="p-12 bg-background text-foreground/10 backdrop-blur-xl border-white/20 text-center">
                 <Package className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                 <h2 className="text-2xl font-bold text-foreground mb-2">No Results Found</h2>
                 <p className="text-muted-foreground mb-6">
@@ -230,7 +230,7 @@ export default function SearchResultsPage() {
                 {sortedProducts.map((product) => (
                   <Card
                     key={product.id}
-                    className="group bg-white/10 backdrop-blur-xl border-white/20 hover:border-purple-500/50 transition-all overflow-hidden"
+                    className="group bg-background text-foreground/10 backdrop-blur-xl border-white/20 hover:border-purple-500/50 transition-all overflow-hidden"
                   >
                     <Link href={`/products/${product.id}`}>
                       <div className="relative h-64 overflow-hidden">
@@ -287,7 +287,7 @@ export default function SearchResultsPage() {
                         <Button
                           variant="outline"
                           size="icon"
-                          className="border-white/20 text-foreground hover:bg-white/10"
+                          className="border-white/20 text-foreground hover:bg-background/10"
                         >
                           <Heart className="w-4 h-4" />
                         </Button>

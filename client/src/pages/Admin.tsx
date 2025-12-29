@@ -125,10 +125,10 @@ function AdminDashboardContent({ location, sidebarOpen, setSidebarOpen }: { loca
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full bg-background border-r border-border transition-all duration-300 z-50 ${
+        className={`fixed top-0 left-0 h-full bg-background text-foreground border-r border-border transition-all duration-300 z-50 ${
           sidebarOpen ? "w-64" : "w-0"
         } overflow-hidden`}
       >
@@ -217,7 +217,7 @@ function AdminDashboardContent({ location, sidebarOpen, setSidebarOpen }: { loca
 
             <div className="flex items-center gap-4">
               <Badge className="bg-green-600">
-                <span className="inline-block w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></span>
+                <span className="inline-block w-2 h-2 bg-background text-foreground rounded-full mr-2 animate-pulse"></span>
                 System Online
               </Badge>
             </div>

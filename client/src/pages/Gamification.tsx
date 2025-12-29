@@ -295,7 +295,7 @@ export default function GamificationPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-950 via-zinc-900 to-zinc-950 p-8">
+    <div className="min-h-screen bg-background text-foreground p-8">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -438,7 +438,7 @@ export default function GamificationPage() {
                     className={`p-4 relative overflow-hidden ${
                       achievement.unlocked
                         ? "bg-gradient-to-br from-zinc-800 to-zinc-900 border-zinc-700"
-                        : "bg-background/50 border-border opacity-60"
+                        : "bg-background text-foreground/50 border-border opacity-60"
                     }`}
                   >
                     {achievement.unlocked && (

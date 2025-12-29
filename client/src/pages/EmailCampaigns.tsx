@@ -114,7 +114,7 @@ function EmailCampaignsContent() {
   const clickRate = totalOpened > 0 ? ((totalClicked / totalOpened) * 100).toFixed(1) : "0";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-12">
         <div className="mb-8">
           <div className="flex items-center justify-between mb-6">
@@ -133,7 +133,7 @@ function EmailCampaignsContent() {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-blue-500/20 rounded-lg">
                   <Send className="w-5 h-5 text-blue-400" />
@@ -145,7 +145,7 @@ function EmailCampaignsContent() {
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-green-500/20 rounded-lg">
                   <Mail className="w-5 h-5 text-green-400" />
@@ -157,7 +157,7 @@ function EmailCampaignsContent() {
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-purple-500/20 rounded-lg">
                   <TrendingUp className="w-5 h-5 text-purple-400" />
@@ -169,7 +169,7 @@ function EmailCampaignsContent() {
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-orange-500/20 rounded-lg">
                   <BarChart3 className="w-5 h-5 text-orange-400" />
@@ -188,7 +188,7 @@ function EmailCampaignsContent() {
         {/* Campaigns List */}
         <div className="space-y-4">
           {campaigns.map((campaign) => (
-            <Card key={campaign.id} className="p-6 bg-white/5 border-white/10">
+            <Card key={campaign.id} className="p-6 bg-background text-foreground/5 border-white/10">
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-purple-500/20 rounded-lg">
@@ -239,7 +239,7 @@ function EmailCampaignsContent() {
               </div>
 
               {/* Campaign Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-white/5 rounded-lg">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-background text-foreground/5 rounded-lg">
                 <div>
                   <p className="text-sm text-gray-400 mb-1">Sent</p>
                   <p className="text-xl font-bold text-foreground">
@@ -276,10 +276,10 @@ function EmailCampaignsContent() {
         </div>
 
         {/* Campaign Templates */}
-        <Card className="mt-8 p-6 bg-white/5 border-white/10">
+        <Card className="mt-8 p-6 bg-background text-foreground/5 border-white/10">
           <h3 className="text-xl font-bold text-foreground mb-4">Campaign Templates</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <button className="p-4 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 transition-colors text-left">
+            <button className="p-4 bg-background text-foreground/5 hover:bg-background text-foreground/10 rounded-lg border border-white/10 transition-colors text-left">
               <div className="flex items-center gap-3 mb-2">
                 <ShoppingCart className="w-5 h-5 text-blue-400" />
                 <h4 className="font-semibold text-foreground">Abandoned Cart</h4>
@@ -289,7 +289,7 @@ function EmailCampaignsContent() {
               </p>
             </button>
 
-            <button className="p-4 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 transition-colors text-left">
+            <button className="p-4 bg-background text-foreground/5 hover:bg-background text-foreground/10 rounded-lg border border-white/10 transition-colors text-left">
               <div className="flex items-center gap-3 mb-2">
                 <Heart className="w-5 h-5 text-pink-400" />
                 <h4 className="font-semibold text-foreground">Win-Back</h4>
@@ -299,7 +299,7 @@ function EmailCampaignsContent() {
               </p>
             </button>
 
-            <button className="p-4 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 transition-colors text-left">
+            <button className="p-4 bg-background text-foreground/5 hover:bg-background text-foreground/10 rounded-lg border border-white/10 transition-colors text-left">
               <div className="flex items-center gap-3 mb-2">
                 <Gift className="w-5 h-5 text-purple-400" />
                 <h4 className="font-semibold text-foreground">Recommendations</h4>
@@ -309,7 +309,7 @@ function EmailCampaignsContent() {
               </p>
             </button>
 
-            <button className="p-4 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 transition-colors text-left">
+            <button className="p-4 bg-background text-foreground/5 hover:bg-background text-foreground/10 rounded-lg border border-white/10 transition-colors text-left">
               <div className="flex items-center gap-3 mb-2">
                 <TrendingUp className="w-5 h-5 text-green-400" />
                 <h4 className="font-semibold text-foreground">Promotional</h4>

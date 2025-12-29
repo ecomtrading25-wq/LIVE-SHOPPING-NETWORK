@@ -104,7 +104,7 @@ export default function LoyaltyRewardsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container py-12">
         {/* Header */}
         <div className="mb-8">
@@ -143,7 +143,7 @@ export default function LoyaltyRewardsPage() {
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <Card className="bg-white/10 backdrop-blur border-white/20">
+          <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -157,7 +157,7 @@ export default function LoyaltyRewardsPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-white/10 backdrop-blur border-white/20">
+          <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -171,7 +171,7 @@ export default function LoyaltyRewardsPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-white/10 backdrop-blur border-white/20">
+          <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -185,7 +185,7 @@ export default function LoyaltyRewardsPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-white/10 backdrop-blur border-white/20">
+          <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -206,7 +206,7 @@ export default function LoyaltyRewardsPage() {
         </div>
 
         <Tabs defaultValue="rewards" className="space-y-6">
-          <TabsList className="bg-white/10 backdrop-blur border-white/20">
+          <TabsList className="bg-background text-foreground/10 backdrop-blur border-white/20">
             <TabsTrigger value="rewards">Available Rewards</TabsTrigger>
             <TabsTrigger value="achievements">Achievements</TabsTrigger>
             <TabsTrigger value="history">Points History</TabsTrigger>
@@ -219,7 +219,7 @@ export default function LoyaltyRewardsPage() {
               {rewards?.map((reward: Reward) => (
                 <Card
                   key={reward.id}
-                  className={`bg-white/10 backdrop-blur border-white/20 overflow-hidden ${
+                  className={`bg-background text-foreground/10 backdrop-blur border-white/20 overflow-hidden ${
                     !reward.available ? 'opacity-50' : ''
                   }`}
                 >
@@ -291,7 +291,7 @@ export default function LoyaltyRewardsPage() {
               {achievements?.map((achievement: Achievement) => (
                 <Card
                   key={achievement.id}
-                  className={`bg-white/10 backdrop-blur border-white/20 ${
+                  className={`bg-background text-foreground/10 backdrop-blur border-white/20 ${
                     achievement.unlocked ? 'border-yellow-500/50' : ''
                   }`}
                 >
@@ -344,7 +344,7 @@ export default function LoyaltyRewardsPage() {
 
           {/* Points History */}
           <TabsContent value="history" className="space-y-4">
-            <Card className="bg-white/10 backdrop-blur border-white/20">
+            <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
               <CardHeader>
                 <CardTitle className="text-foreground">Recent Transactions</CardTitle>
               </CardHeader>
@@ -353,7 +353,7 @@ export default function LoyaltyRewardsPage() {
                   {transactions?.map((transaction: any) => (
                     <div
                       key={transaction.id}
-                      className="flex items-center justify-between p-4 bg-white/5 rounded-lg"
+                      className="flex items-center justify-between p-4 bg-background text-foreground/5 rounded-lg"
                     >
                       <div className="flex items-center gap-4">
                         <div
@@ -411,7 +411,7 @@ export default function LoyaltyRewardsPage() {
                       {getTierIcon(tier)}
                       <h3 className="text-2xl font-bold text-foreground mt-2">{tier}</h3>
                       {loyaltyData?.tier?.toLowerCase() === tier.toLowerCase() && (
-                        <Badge className="mt-2 bg-white/20 text-foreground">Current Tier</Badge>
+                        <Badge className="mt-2 bg-background/20 text-foreground">Current Tier</Badge>
                       )}
                     </div>
 

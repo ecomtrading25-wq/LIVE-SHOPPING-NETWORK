@@ -202,7 +202,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center text-foreground">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center text-foreground">
         <div className="text-foreground text-2xl">Loading show...</div>
       </div>
     );
@@ -210,7 +210,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
 
   if (!show) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center text-foreground">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center text-foreground">
         <Card className="p-8 max-w-md">
           <AlertCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-center mb-2">Show Not Found</h2>
@@ -267,7 +267,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
                     variant="ghost"
                     size="icon"
                     onClick={() => navigate("/")}
-                    className="text-foreground hover:bg-white/20"
+                    className="text-foreground hover:bg-background/20"
                   >
                     <X className="w-5 h-5" />
                   </Button>
@@ -294,7 +294,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
                     variant="ghost"
                     size="icon"
                     onClick={togglePlay}
-                    className="text-foreground hover:bg-white/20"
+                    className="text-foreground hover:bg-background/20"
                   >
                     {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
                   </Button>
@@ -302,7 +302,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
                     variant="ghost"
                     size="icon"
                     onClick={toggleMute}
-                    className="text-foreground hover:bg-white/20"
+                    className="text-foreground hover:bg-background/20"
                   >
                     {isMuted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
                   </Button>
@@ -311,7 +311,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
                   variant="ghost"
                   size="icon"
                   onClick={toggleFullscreen}
-                  className="text-foreground hover:bg-white/20"
+                  className="text-foreground hover:bg-background/20"
                 >
                   <Maximize className="w-6 h-6" />
                 </Button>
@@ -324,7 +324,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
                 variant="ghost"
                 size="icon"
                 onClick={() => toggleLikeMutation.mutate({ showId })}
-                className={`rounded-full w-14 h-14 ${hasLiked ? "bg-red-500 text-foreground" : "bg-white/20 text-foreground"} hover:bg-red-600`}
+                className={`rounded-full w-14 h-14 ${hasLiked ? "bg-red-500 text-foreground" : "bg-background/20 text-foreground"} hover:bg-red-600`}
               >
                 <div className="flex flex-col items-center">
                   <Heart className={`w-6 h-6 ${hasLiked ? "fill-current" : ""}`} />
@@ -335,7 +335,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full w-14 h-14 bg-white/20 text-foreground hover:bg-white/30"
+                className="rounded-full w-14 h-14 bg-background/20 text-foreground hover:bg-background/30"
                 onClick={() => {
                   navigator.share?.({
                     title: show.title,
@@ -350,7 +350,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full w-14 h-14 bg-white/20 text-foreground hover:bg-white/30"
+                className="rounded-full w-14 h-14 bg-background/20 text-foreground hover:bg-background/30"
                 onClick={() => handleSendGift("star", 100)}
               >
                 <Gift className="w-6 h-6" />
@@ -570,7 +570,7 @@ export default function LiveShoppingExperience({ showId }: LiveShowExperiencePro
                 </span>
                 <Button
                   onClick={() => navigate("/cart")}
-                  className="bg-white text-pink-600 hover:bg-gray-100 font-bold"
+                  className="bg-background text-foreground text-pink-600 hover:bg-gray-100 font-bold"
                 >
                   <ShoppingCart className="w-4 h-4 mr-2" />
                   Checkout

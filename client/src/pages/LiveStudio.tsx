@@ -244,7 +244,7 @@ export default function LiveStudio() {
           <div className="flex items-center gap-4">
             {isLive && (
               <Badge className="bg-red-500 animate-pulse px-4 py-2 text-lg">
-                <div className="w-3 h-3 bg-white rounded-full mr-2" />
+                <div className="w-3 h-3 bg-background text-foreground rounded-full mr-2" />
                 LIVE
               </Badge>
             )}
@@ -293,10 +293,10 @@ export default function LiveStudio() {
                       </div>
                     </div>
                     <div className="text-right space-y-2">
-                      <div className="bg-background/60 backdrop-blur px-3 py-1 rounded-full text-sm">
+                      <div className="bg-background text-foreground/60 backdrop-blur px-3 py-1 rounded-full text-sm">
                         {Math.floor(streamStats.duration / 60)}:{(streamStats.duration % 60).toString().padStart(2, '0')}
                       </div>
-                      <div className="bg-background/60 backdrop-blur px-3 py-1 rounded-full text-sm">
+                      <div className="bg-background text-foreground/60 backdrop-blur px-3 py-1 rounded-full text-sm">
                         {streamStats.bitrate} kbps
                       </div>
                     </div>

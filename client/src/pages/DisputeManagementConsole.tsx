@@ -124,7 +124,7 @@ export default function DisputeManagementConsole() {
   const COLORS = ['#10b981', '#ef4444', '#f59e0b', '#3b82f6', '#8b5cf6'];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-red-900 to-slate-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
@@ -138,7 +138,7 @@ export default function DisputeManagementConsole() {
                 variant="outline"
                 size="sm"
                 onClick={() => refetch()}
-                className="border-white/20 text-foreground hover:bg-white/10"
+                className="border-white/20 text-foreground hover:bg-background/10"
               >
                 <RefreshCw className="w-4 h-4 mr-2" />
                 Refresh
@@ -146,7 +146,7 @@ export default function DisputeManagementConsole() {
               <Button
                 variant="outline"
                 size="sm"
-                className="border-white/20 text-foreground hover:bg-white/10"
+                className="border-white/20 text-foreground hover:bg-background/10"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Export
@@ -156,7 +156,7 @@ export default function DisputeManagementConsole() {
 
           {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
-            <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between mb-2">
                 <AlertTriangle className="w-8 h-8 text-yellow-500" />
                 <Badge variant="secondary">{stats?.openDisputes || 0}</Badge>
@@ -175,7 +175,7 @@ export default function DisputeManagementConsole() {
               <p className="text-gray-400 text-xs mt-1">disputes won</p>
             </Card>
 
-            <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between mb-2">
                 <Clock className="w-8 h-8 text-blue-500" />
                 <Badge variant="secondary">{stats?.avgResolutionTime || 0}h</Badge>
@@ -185,7 +185,7 @@ export default function DisputeManagementConsole() {
               <p className="text-gray-400 text-xs mt-1">auto-resolved</p>
             </Card>
 
-            <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between mb-2">
                 <DollarSign className="w-8 h-8 text-red-500" />
                 <Badge variant="destructive">${stats?.atRisk?.toLocaleString() || 0}</Badge>
@@ -194,7 +194,7 @@ export default function DisputeManagementConsole() {
               <p className="text-foreground text-2xl font-bold">${stats?.totalAmount?.toLocaleString() || 0}</p>
             </Card>
 
-            <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between mb-2">
                 <Shield className="w-8 h-8 text-purple-500" />
                 <Badge className="bg-purple-600">{stats?.automationRate?.toFixed(1) || 0}%</Badge>
@@ -207,7 +207,7 @@ export default function DisputeManagementConsole() {
         </div>
 
         {/* Filters */}
-        <Card className="p-4 bg-white/10 backdrop-blur border-white/20 mb-6">
+        <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20 mb-6">
           <div className="flex flex-wrap items-center gap-4">
             <div className="flex-1 min-w-[200px]">
               <div className="relative">
@@ -216,13 +216,13 @@ export default function DisputeManagementConsole() {
                   placeholder="Search disputes..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 bg-white/5 border-white/20 text-foreground placeholder:text-gray-400"
+                  className="pl-10 bg-background/5 border-white/20 text-foreground placeholder:text-gray-400"
                 />
               </div>
             </div>
 
             <Select value={filterStatus} onValueChange={setFilterStatus}>
-              <SelectTrigger className="w-[160px] bg-white/5 border-white/20 text-foreground">
+              <SelectTrigger className="w-[160px] bg-background/5 border-white/20 text-foreground">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -236,7 +236,7 @@ export default function DisputeManagementConsole() {
             </Select>
 
             <Select value={filterPriority} onValueChange={setFilterPriority}>
-              <SelectTrigger className="w-[160px] bg-white/5 border-white/20 text-foreground">
+              <SelectTrigger className="w-[160px] bg-background/5 border-white/20 text-foreground">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -254,7 +254,7 @@ export default function DisputeManagementConsole() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Disputes List */}
           <div className="lg:col-span-1">
-            <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <h3 className="text-lg font-bold text-foreground mb-4">Active Disputes</h3>
               <ScrollArea className="h-[600px]">
                 <div className="space-y-3">
@@ -263,8 +263,8 @@ export default function DisputeManagementConsole() {
                       key={dispute.id}
                       className={`p-4 cursor-pointer transition-all ${
                         selectedDispute?.id === dispute.id
-                          ? "bg-white/20 border-white/40"
-                          : "bg-white/5 border-white/10 hover:bg-white/10"
+                          ? "bg-background text-foreground/20 border-white/40"
+                          : "bg-background text-foreground/5 border-white/10 hover:bg-background text-foreground/10"
                       }`}
                       onClick={() => setSelectedDispute(dispute)}
                     >
@@ -326,7 +326,7 @@ export default function DisputeManagementConsole() {
             {selectedDispute ? (
               <div className="space-y-6">
                 {/* Dispute Header */}
-                <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+                <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <div className="flex items-center gap-3 mb-2">
@@ -348,7 +348,7 @@ export default function DisputeManagementConsole() {
                             size="sm"
                             variant="outline"
                             onClick={() => escalateMutation.mutate({ disputeId: selectedDispute.id })}
-                            className="border-white/20 text-foreground hover:bg-white/10"
+                            className="border-white/20 text-foreground hover:bg-background/10"
                           >
                             <Zap className="w-4 h-4 mr-1" />
                             Escalate
@@ -396,20 +396,20 @@ export default function DisputeManagementConsole() {
 
                 {/* Tabs */}
                 <Tabs defaultValue="details" className="space-y-6">
-                  <TabsList className="bg-white/10 backdrop-blur border-white/20">
-                    <TabsTrigger value="details" className="data-[state=active]:bg-white/20">
+                  <TabsList className="bg-background text-foreground/10 backdrop-blur border-white/20">
+                    <TabsTrigger value="details" className="data-[state=active]:bg-background text-foreground/20">
                       <FileText className="w-4 h-4 mr-2" />
                       Details
                     </TabsTrigger>
-                    <TabsTrigger value="timeline" className="data-[state=active]:bg-white/20">
+                    <TabsTrigger value="timeline" className="data-[state=active]:bg-background text-foreground/20">
                       <Clock className="w-4 h-4 mr-2" />
                       Timeline
                     </TabsTrigger>
-                    <TabsTrigger value="evidence" className="data-[state=active]:bg-white/20">
+                    <TabsTrigger value="evidence" className="data-[state=active]:bg-background text-foreground/20">
                       <Shield className="w-4 h-4 mr-2" />
                       Evidence Pack
                     </TabsTrigger>
-                    <TabsTrigger value="communication" className="data-[state=active]:bg-white/20">
+                    <TabsTrigger value="communication" className="data-[state=active]:bg-background text-foreground/20">
                       <MessageSquare className="w-4 h-4 mr-2" />
                       Communication
                     </TabsTrigger>
@@ -417,7 +417,7 @@ export default function DisputeManagementConsole() {
 
                   {/* Details Tab */}
                   <TabsContent value="details" className="space-y-6">
-                    <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+                    <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
                       <h3 className="text-lg font-bold text-foreground mb-4">Dispute Description</h3>
                       <p className="text-muted-foreground mb-4">{disputeDetails?.description}</p>
 
@@ -438,7 +438,7 @@ export default function DisputeManagementConsole() {
                       )}
                     </Card>
 
-                    <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+                    <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
                       <h3 className="text-lg font-bold text-foreground mb-4">Order Information</h3>
                       <div className="grid grid-cols-2 gap-4">
                         <div>
@@ -463,7 +463,7 @@ export default function DisputeManagementConsole() {
 
                   {/* Timeline Tab */}
                   <TabsContent value="timeline" className="space-y-6">
-                    <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+                    <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
                       <h3 className="text-lg font-bold text-foreground mb-4">Dispute Timeline</h3>
                       <div className="space-y-4">
                         {disputeDetails?.timeline?.map((event: any, idx: number) => (
@@ -481,7 +481,7 @@ export default function DisputeManagementConsole() {
                                 {event.type === "message" && <MessageSquare className="w-5 h-5 text-gray-500" />}
                               </div>
                               {idx < (disputeDetails?.timeline?.length || 0) - 1 && (
-                                <div className="w-0.5 h-full bg-white/20 mt-2" />
+                                <div className="w-0.5 h-full bg-background text-foreground/20 mt-2" />
                               )}
                             </div>
                             <div className="flex-1 pb-6">
@@ -502,7 +502,7 @@ export default function DisputeManagementConsole() {
 
                   {/* Evidence Pack Tab */}
                   <TabsContent value="evidence" className="space-y-6">
-                    <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+                    <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
                       <div className="flex items-center justify-between mb-4">
                         <h3 className="text-lg font-bold text-foreground">Evidence Pack</h3>
                         {!evidencePack && (
@@ -519,7 +519,7 @@ export default function DisputeManagementConsole() {
                           <Button
                             size="sm"
                             variant="outline"
-                            className="border-white/20 text-foreground hover:bg-white/10"
+                            className="border-white/20 text-foreground hover:bg-background/10"
                           >
                             <Download className="w-4 h-4 mr-1" />
                             Download
@@ -543,7 +543,7 @@ export default function DisputeManagementConsole() {
                             <h4 className="text-foreground font-semibold mb-2">Included Evidence</h4>
                             <div className="space-y-2">
                               {evidencePack.items?.map((item: any, idx: number) => (
-                                <div key={idx} className="p-3 bg-white/5 rounded-lg flex items-center justify-between">
+                                <div key={idx} className="p-3 bg-background text-foreground/5 rounded-lg flex items-center justify-between">
                                   <div className="flex items-center gap-3">
                                     {item.type === "image" && <Image className="w-5 h-5 text-blue-500" />}
                                     {item.type === "document" && <FileText className="w-5 h-5 text-purple-500" />}
@@ -553,7 +553,7 @@ export default function DisputeManagementConsole() {
                                       <p className="text-gray-400 text-xs">{item.description}</p>
                                     </div>
                                   </div>
-                                  <Button size="sm" variant="ghost" className="text-foreground hover:bg-white/10">
+                                  <Button size="sm" variant="ghost" className="text-foreground hover:bg-background/10">
                                     <Eye className="w-4 h-4" />
                                   </Button>
                                 </div>
@@ -563,7 +563,7 @@ export default function DisputeManagementConsole() {
 
                           <div>
                             <h4 className="text-foreground font-semibold mb-2">Recommended Response</h4>
-                            <div className="p-4 bg-white/5 rounded-lg">
+                            <div className="p-4 bg-background text-foreground/5 rounded-lg">
                               <p className="text-muted-foreground text-sm whitespace-pre-wrap">{evidencePack.recommendedResponse}</p>
                             </div>
                           </div>
@@ -580,7 +580,7 @@ export default function DisputeManagementConsole() {
 
                   {/* Communication Tab */}
                   <TabsContent value="communication" className="space-y-6">
-                    <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+                    <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
                       <h3 className="text-lg font-bold text-foreground mb-4">Communication History</h3>
                       <ScrollArea className="h-[400px] mb-4">
                         <div className="space-y-4">
@@ -619,13 +619,13 @@ export default function DisputeManagementConsole() {
                           value={responseMessage}
                           onChange={(e) => setResponseMessage(e.target.value)}
                           rows={4}
-                          className="bg-white/5 border-white/20 text-foreground placeholder:text-gray-400"
+                          className="bg-background/5 border-white/20 text-foreground placeholder:text-gray-400"
                         />
                         <div className="flex items-center justify-between">
                           <Button
                             variant="outline"
                             size="sm"
-                            className="border-white/20 text-foreground hover:bg-white/10"
+                            className="border-white/20 text-foreground hover:bg-background/10"
                           >
                             <Paperclip className="w-4 h-4 mr-1" />
                             Attach File
@@ -648,7 +648,7 @@ export default function DisputeManagementConsole() {
                 </Tabs>
               </div>
             ) : (
-              <Card className="p-12 bg-white/10 backdrop-blur border-white/20 text-center h-full flex items-center justify-center">
+              <Card className="p-12 bg-background text-foreground/10 backdrop-blur border-white/20 text-center h-full flex items-center justify-center">
                 <div>
                   <AlertTriangle className="w-16 h-16 text-gray-500 mx-auto mb-4 opacity-50" />
                   <h3 className="text-2xl font-bold text-foreground mb-2">No Dispute Selected</h3>

@@ -144,7 +144,7 @@ export default function LiveShowViewer() {
   
   if (showLoading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center text-foreground">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center text-foreground">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-muted-foreground">Loading show...</p>
@@ -155,7 +155,7 @@ export default function LiveShowViewer() {
   
   if (!show) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center text-foreground">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center text-foreground">
         <Card className="p-8 text-center">
           <h2 className="text-2xl font-bold mb-2">Show Not Found</h2>
           <p className="text-muted-foreground">This live show doesn't exist or has been removed.</p>
@@ -177,7 +177,7 @@ export default function LiveShowViewer() {
               <h1 className="text-lg font-bold">{show.title}</h1>
               <div className="flex items-center gap-2 text-sm text-gray-400">
                 <Badge variant="destructive" className="animate-pulse">
-                  <span className="w-2 h-2 bg-white rounded-full mr-1"></span>
+                  <span className="w-2 h-2 bg-background text-foreground rounded-full mr-1"></span>
                   LIVE
                 </Badge>
                 <span className="flex items-center gap-1">

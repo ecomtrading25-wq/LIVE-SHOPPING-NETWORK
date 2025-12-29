@@ -295,7 +295,7 @@ export default function ReportsPage() {
                       {selectedReport.fields.map((field) => (
                         <span
                           key={field}
-                          className="px-3 py-1 bg-background rounded-full text-xs text-zinc-300"
+                          className="px-3 py-1 bg-background text-foreground rounded-full text-xs text-zinc-300"
                         >
                           {field}
                         </span>
@@ -350,7 +350,7 @@ export default function ReportsPage() {
                 className={`p-4 cursor-pointer transition-all ${
                   reportType === type.id
                     ? "bg-purple-600/10 border-purple-600"
-                    : "bg-background border-border hover:border-zinc-700"
+                    : "bg-background text-foreground border-border hover:border-zinc-700"
                 }`}
                 onClick={() => setReportType(type.id)}
               >

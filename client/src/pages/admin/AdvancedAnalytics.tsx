@@ -147,7 +147,7 @@ export default function AdvancedAnalyticsPage() {
 
       {/* Key Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-green-500/20 rounded-lg">
               <DollarSign className="w-6 h-6 text-green-400" />
@@ -162,7 +162,7 @@ export default function AdvancedAnalyticsPage() {
           <p className="text-gray-400 text-xs">Forecast: {formatCurrency(metrics.revenue.forecast)}</p>
         </Card>
 
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-blue-500/20 rounded-lg">
               <ShoppingCart className="w-6 h-6 text-blue-400" />
@@ -176,7 +176,7 @@ export default function AdvancedAnalyticsPage() {
           <p className="text-3xl font-bold text-foreground">{metrics.orders.current.toLocaleString()}</p>
         </Card>
 
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-purple-500/20 rounded-lg">
               <Users className="w-6 h-6 text-purple-400" />
@@ -191,7 +191,7 @@ export default function AdvancedAnalyticsPage() {
           <p className="text-gray-400 text-xs">{metrics.customers.new} new, {metrics.customers.returning} returning</p>
         </Card>
 
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-yellow-500/20 rounded-lg">
               <Target className="w-6 h-6 text-yellow-400" />
@@ -207,7 +207,7 @@ export default function AdvancedAnalyticsPage() {
       </div>
 
       {/* Revenue by Channel */}
-      <Card className="p-6 bg-white/5 border-white/10">
+      <Card className="p-6 bg-background text-foreground/5 border-white/10">
         <h2 className="text-2xl font-bold text-foreground mb-6">Revenue by Channel</h2>
         <div className="space-y-4">
           {channelData.map((channel) => (
@@ -223,7 +223,7 @@ export default function AdvancedAnalyticsPage() {
                   <span className="text-purple-400 text-sm w-12 text-right">{channel.percentage}%</span>
                 </div>
               </div>
-              <div className="w-full bg-white/10 rounded-full h-2">
+              <div className="w-full bg-background text-foreground/10 rounded-full h-2">
                 <div
                   className="bg-purple-500 h-2 rounded-full"
                   style={{ width: `${channel.percentage}%` }}
@@ -236,7 +236,7 @@ export default function AdvancedAnalyticsPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Sales Funnel */}
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <h2 className="text-2xl font-bold text-foreground mb-6">Sales Funnel</h2>
           <div className="space-y-4">
             {funnelData.map((stage, index) => (
@@ -249,7 +249,7 @@ export default function AdvancedAnalyticsPage() {
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="w-full bg-white/10 rounded-full h-8 flex items-center px-4">
+                  <div className="w-full bg-background text-foreground/10 rounded-full h-8 flex items-center px-4">
                     <div
                       className="bg-gradient-to-r from-purple-500 to-pink-500 h-8 rounded-full absolute left-0 top-0 flex items-center justify-center"
                       style={{ width: `${stage.percentage * 10}%` }}
@@ -266,7 +266,7 @@ export default function AdvancedAnalyticsPage() {
         </Card>
 
         {/* Customer Cohort Analysis */}
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <h2 className="text-2xl font-bold text-foreground mb-6">Customer Cohort Retention</h2>
           <div className="overflow-x-auto">
             <table className="w-full">
@@ -316,7 +316,7 @@ export default function AdvancedAnalyticsPage() {
       </div>
 
       {/* Top Products */}
-      <Card className="p-6 bg-white/5 border-white/10">
+      <Card className="p-6 bg-background text-foreground/5 border-white/10">
         <h2 className="text-2xl font-bold text-foreground mb-6">Top Products by Revenue</h2>
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -363,11 +363,11 @@ export default function AdvancedAnalyticsPage() {
       </Card>
 
       {/* Customer Segments */}
-      <Card className="p-6 bg-white/5 border-white/10">
+      <Card className="p-6 bg-background text-foreground/5 border-white/10">
         <h2 className="text-2xl font-bold text-foreground mb-6">Customer Segments</h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {segments.map((segment) => (
-            <Card key={segment.name} className="p-6 bg-white/5 border-white/10">
+            <Card key={segment.name} className="p-6 bg-background text-foreground/5 border-white/10">
               <h3 className={`text-lg font-bold text-${segment.color}-400 mb-3`}>{segment.name}</h3>
               <div className="space-y-2">
                 <div>

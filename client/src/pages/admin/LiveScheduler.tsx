@@ -401,28 +401,28 @@ export default function LiveSchedulerPage() {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between mb-2">
             <p className="text-gray-400 text-sm">Total Sessions</p>
             <Calendar className="w-5 h-5 text-purple-400" />
           </div>
           <p className="text-3xl font-bold text-foreground">{sessions.length}</p>
         </Card>
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between mb-2">
             <p className="text-gray-400 text-sm">Scheduled</p>
             <Clock className="w-5 h-5 text-blue-400" />
           </div>
           <p className="text-3xl font-bold text-foreground">{sessions.filter((s) => s.status === "scheduled").length}</p>
         </Card>
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between mb-2">
             <p className="text-gray-400 text-sm">Active Creators</p>
             <Users className="w-5 h-5 text-green-400" />
           </div>
           <p className="text-3xl font-bold text-foreground">{creators.length}</p>
         </Card>
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between mb-2">
             <p className="text-gray-400 text-sm">Recurring Shows</p>
             <Video className="w-5 h-5 text-yellow-400" />
@@ -432,7 +432,7 @@ export default function LiveSchedulerPage() {
       </div>
 
       {/* Calendar Navigation */}
-      <Card className="p-6 bg-white/5 border-white/10">
+      <Card className="p-6 bg-background text-foreground/5 border-white/10">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-4">
             <Button variant="outline" size="sm" onClick={() => navigateMonth("prev")}>
@@ -463,7 +463,7 @@ export default function LiveSchedulerPage() {
               <div
                 key={index}
                 className={`min-h-24 p-2 border border-white/10 rounded-lg ${
-                  day ? "bg-white/5 hover:bg-white/10" : "bg-transparent"
+                  day ? "bg-background text-foreground/5 hover:bg-background text-foreground/10" : "bg-transparent"
                 } ${
                   day && day.toDateString() === new Date().toDateString()
                     ? "ring-2 ring-purple-500"
@@ -494,7 +494,7 @@ export default function LiveSchedulerPage() {
       </Card>
 
       {/* Upcoming Sessions List */}
-      <Card className="bg-white/5 border-white/10">
+      <Card className="bg-background text-foreground/5 border-white/10">
         <div className="p-6 border-b border-white/10">
           <h2 className="text-2xl font-bold text-foreground">Upcoming Sessions</h2>
         </div>
@@ -503,7 +503,7 @@ export default function LiveSchedulerPage() {
             .filter((s) => s.status === "scheduled")
             .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
             .map((session) => (
-              <div key={session.id} className="p-6 hover:bg-white/5">
+              <div key={session.id} className="p-6 hover:bg-background text-foreground/5">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">

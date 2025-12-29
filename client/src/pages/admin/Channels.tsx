@@ -65,7 +65,7 @@ export default function ChannelsPage() {
         ))}
 
         {!channels || channels.length === 0 ? (
-          <Card className="col-span-full p-12 bg-background border-border text-center">
+          <Card className="col-span-full p-12 bg-background text-foreground border-border text-center">
             <p className="text-gray-400 mb-4">No channels connected yet</p>
             <Button onClick={() => setDialogOpen(true)}>
               <Plus className="w-4 h-4 mr-2" />

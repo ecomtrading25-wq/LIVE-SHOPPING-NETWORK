@@ -47,8 +47,8 @@ export default function AccountPage() {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 flex items-center justify-center p-4">
-        <Card className="max-w-md w-full p-8 bg-white/5 border-white/10 text-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
+        <Card className="max-w-md w-full p-8 bg-background text-foreground/5 border-white/10 text-center">
           <User className="w-16 h-16 text-gray-400 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-foreground mb-4">Sign In Required</h2>
           <p className="text-muted-foreground mb-6">
@@ -65,7 +65,7 @@ export default function AccountPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="bg-background/30 border-b border-white/10 backdrop-blur-sm sticky top-0 z-10 text-foreground">
         <div className="container mx-auto px-4 py-4">
@@ -96,7 +96,7 @@ export default function AccountPage() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <div className="text-center mb-6">
                 <div className="w-24 h-24 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <User className="w-12 h-12 text-foreground" />
@@ -106,23 +106,23 @@ export default function AccountPage() {
               </div>
 
               <div className="space-y-2">
-                <Button variant="ghost" className="w-full justify-start text-foreground hover:bg-white/10">
+                <Button variant="ghost" className="w-full justify-start text-foreground hover:bg-background/10">
                   <Package className="w-5 h-5 mr-3" />
                   Orders
                 </Button>
                 <Link href="/account/addresses">
-                  <Button variant="ghost" className="w-full justify-start text-foreground hover:bg-white/10">
+                  <Button variant="ghost" className="w-full justify-start text-foreground hover:bg-background/10">
                     <MapPin className="w-5 h-5 mr-3" />
                     Addresses
                   </Button>
                 </Link>
                 <Link href="/account/subscription">
-                  <Button variant="ghost" className="w-full justify-start text-foreground hover:bg-white/10">
+                  <Button variant="ghost" className="w-full justify-start text-foreground hover:bg-background/10">
                     <CreditCard className="w-5 h-5 mr-3" />
                     Subscription & Billing
                   </Button>
                 </Link>
-                <Button variant="ghost" className="w-full justify-start text-foreground hover:bg-white/10">
+                <Button variant="ghost" className="w-full justify-start text-foreground hover:bg-background/10">
                   <Settings className="w-5 h-5 mr-3" />
                   Settings
                 </Button>
@@ -145,14 +145,14 @@ export default function AccountPage() {
             {isLoading ? (
               <div className="grid gap-4">
                 {[1, 2, 3].map((i) => (
-                  <Card key={i} className="p-6 bg-white/5 border-white/10 animate-pulse">
-                    <div className="h-6 bg-white/10 rounded w-1/3 mb-4"></div>
-                    <div className="h-4 bg-white/10 rounded w-1/2"></div>
+                  <Card key={i} className="p-6 bg-background text-foreground/5 border-white/10 animate-pulse">
+                    <div className="h-6 bg-background text-foreground/10 rounded w-1/3 mb-4"></div>
+                    <div className="h-4 bg-background text-foreground/10 rounded w-1/2"></div>
                   </Card>
                 ))}
               </div>
             ) : !orders || orders.length === 0 ? (
-              <Card className="p-12 bg-white/5 border-white/10 text-center">
+              <Card className="p-12 bg-background text-foreground/5 border-white/10 text-center">
                 <Package className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-foreground mb-2">No Orders Yet</h3>
                 <p className="text-gray-400 mb-6">
@@ -167,7 +167,7 @@ export default function AccountPage() {
             ) : (
               <div className="grid gap-4">
                 {orders.map((order) => (
-                  <Card key={order.id} className="p-6 bg-white/5 border-white/10 hover:bg-white/10 transition-colors">
+                  <Card key={order.id} className="p-6 bg-background text-foreground/5 border-white/10 hover:bg-background text-foreground/10 transition-colors">
                     <div className="flex items-start justify-between mb-4">
                       <div>
                         <h3 className="text-lg font-semibold text-foreground mb-1">

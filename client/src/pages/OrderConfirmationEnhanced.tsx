@@ -25,7 +25,7 @@ export default function OrderConfirmationEnhanced() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-slate-50 py-12">
+      <div className="min-h-screen bg-background text-foreground py-12">
         <div className="container max-w-4xl">
           <Skeleton className="h-24 w-full mb-8" />
           <div className="space-y-6">
@@ -39,9 +39,9 @@ export default function OrderConfirmationEnhanced() {
 
   if (!order) {
     return (
-      <div className="min-h-screen bg-slate-50 py-12">
+      <div className="min-h-screen bg-background text-foreground py-12">
         <div className="container max-w-2xl text-center">
-          <div className="bg-white rounded-2xl shadow-lg p-12">
+          <div className="bg-background text-foreground rounded-2xl shadow-lg p-12">
             <h1 className="text-3xl font-bold mb-4">Order not found</h1>
             <p className="text-slate-600 mb-8">
               We couldn't find the order you're looking for
@@ -56,7 +56,7 @@ export default function OrderConfirmationEnhanced() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 py-12">
+    <div className="min-h-screen bg-background text-foreground py-12">
       <div className="container max-w-4xl">
         {/* Success Banner */}
         <Card className="mb-8 border-green-200 bg-gradient-to-r from-green-50 to-emerald-50">

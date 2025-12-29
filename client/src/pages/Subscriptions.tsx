@@ -61,7 +61,7 @@ export default function SubscriptionsPage() {
     .reduce((sum, s) => sum + s.savings, 0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-12">
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
@@ -83,7 +83,7 @@ export default function SubscriptionsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-green-500/20 rounded-lg">
                   <Check className="w-5 h-5 text-green-400" />
@@ -97,7 +97,7 @@ export default function SubscriptionsPage() {
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-blue-500/20 rounded-lg">
                   <TrendingUp className="w-5 h-5 text-blue-400" />
@@ -111,7 +111,7 @@ export default function SubscriptionsPage() {
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-purple-500/20 rounded-lg">
                   <DollarSign className="w-5 h-5 text-purple-400" />
@@ -127,7 +127,7 @@ export default function SubscriptionsPage() {
 
         <div className="space-y-4">
           {subscriptions.map((subscription) => (
-            <Card key={subscription.id} className="p-6 bg-white/5 border-white/10">
+            <Card key={subscription.id} className="p-6 bg-background text-foreground/5 border-white/10">
               <div className="flex items-start gap-4">
                 <img
                   src={subscription.productImage}

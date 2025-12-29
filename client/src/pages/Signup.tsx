@@ -48,8 +48,8 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md p-8 bg-white/10 backdrop-blur-xl border-white/20">
+    <div className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
+      <Card className="w-full max-w-md p-8 bg-background text-foreground/10 backdrop-blur-xl border-white/20">
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
             <UserPlus className="w-8 h-8 text-foreground" />
@@ -62,7 +62,7 @@ export default function SignupPage() {
         <Button
           onClick={handleOAuthSignup}
           variant="outline"
-          className="w-full mb-6 bg-white hover:bg-gray-100 text-black border-0"
+          className="w-full mb-6 bg-background text-foreground hover:bg-gray-100 text-black border-0"
           size="lg"
         >
           <Chrome className="w-5 h-5 mr-2" />
@@ -91,7 +91,7 @@ export default function SignupPage() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="John Doe"
-                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
+                className="pl-10 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400"
                 required
               />
             </div>
@@ -108,7 +108,7 @@ export default function SignupPage() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder="you@example.com"
-                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
+                className="pl-10 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400"
                 required
               />
             </div>
@@ -125,14 +125,14 @@ export default function SignupPage() {
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 placeholder="••••••••"
-                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
+                className="pl-10 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400"
                 required
               />
             </div>
             {formData.password && (
               <div className="mt-2">
                 <div className="flex items-center gap-2 mb-1">
-                  <div className="flex-1 h-2 bg-white/10 rounded-full overflow-hidden">
+                  <div className="flex-1 h-2 bg-background text-foreground/10 rounded-full overflow-hidden">
                     <div
                       className={`h-full transition-all ${
                         passwordStrength === "weak"
@@ -160,7 +160,7 @@ export default function SignupPage() {
                 value={formData.confirmPassword}
                 onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                 placeholder="••••••••"
-                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
+                className="pl-10 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400"
                 required
               />
               {formData.confirmPassword && (

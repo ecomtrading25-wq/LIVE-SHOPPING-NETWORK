@@ -296,7 +296,7 @@ export default function AdvancedOrdersPage() {
           { label: "Delivered", count: orders.filter((o) => o.status === "delivered").length, color: "green" },
           { label: "Refunded", count: orders.filter((o) => o.status === "refunded").length, color: "red" },
         ].map((stat) => (
-          <Card key={stat.label} className="p-4 bg-white/5 border-white/10">
+          <Card key={stat.label} className="p-4 bg-background text-foreground/5 border-white/10">
             <p className="text-gray-400 text-sm mb-1">{stat.label}</p>
             <p className={`text-2xl font-bold text-${stat.color}-400`}>{stat.count}</p>
           </Card>
@@ -304,7 +304,7 @@ export default function AdvancedOrdersPage() {
       </div>
 
       {/* Filters and Search */}
-      <Card className="p-6 bg-white/5 border-white/10">
+      <Card className="p-6 bg-background text-foreground/5 border-white/10">
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex-1 relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -354,7 +354,7 @@ export default function AdvancedOrdersPage() {
       )}
 
       {/* Orders Table */}
-      <Card className="bg-white/5 border-white/10 overflow-hidden">
+      <Card className="bg-background text-foreground/5 border-white/10 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
@@ -377,7 +377,7 @@ export default function AdvancedOrdersPage() {
             </thead>
             <tbody>
               {filteredOrders.map((order) => (
-                <tr key={order.id} className="border-b border-white/5 hover:bg-white/5">
+                <tr key={order.id} className="border-b border-white/5 hover:bg-background text-foreground/5">
                   <td className="p-4">
                     <Checkbox
                       checked={selectedOrders.includes(order.id)}
@@ -443,12 +443,12 @@ export default function AdvancedOrdersPage() {
             <div className="space-y-6">
               {/* Order Info */}
               <div className="grid grid-cols-2 gap-4">
-                <Card className="p-4 bg-white/5 border-white/10">
+                <Card className="p-4 bg-background text-foreground/5 border-white/10">
                   <p className="text-gray-400 text-sm mb-1">Customer</p>
                   <p className="text-foreground font-medium">{viewingOrder.customerName}</p>
                   <p className="text-gray-400 text-sm">{viewingOrder.customerEmail}</p>
                 </Card>
-                <Card className="p-4 bg-white/5 border-white/10">
+                <Card className="p-4 bg-background text-foreground/5 border-white/10">
                   <p className="text-gray-400 text-sm mb-1">Shipping Address</p>
                   <p className="text-foreground text-sm">{viewingOrder.shippingAddress}</p>
                 </Card>
@@ -461,9 +461,9 @@ export default function AdvancedOrdersPage() {
                   {viewingOrder.timeline.map((event, index) => (
                     <div key={event.id} className="flex gap-4">
                       <div className="flex flex-col items-center">
-                        <div className="p-2 bg-white/10 rounded-full">{getTimelineIcon(event.type)}</div>
+                        <div className="p-2 bg-background text-foreground/10 rounded-full">{getTimelineIcon(event.type)}</div>
                         {index < viewingOrder.timeline.length - 1 && (
-                          <div className="w-0.5 h-full bg-white/10 mt-2" />
+                          <div className="w-0.5 h-full bg-background text-foreground/10 mt-2" />
                         )}
                       </div>
                       <div className="flex-1 pb-6">

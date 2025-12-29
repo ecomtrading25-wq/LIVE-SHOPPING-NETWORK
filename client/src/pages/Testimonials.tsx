@@ -138,7 +138,7 @@ export default function TestimonialsPage() {
     testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-12">
@@ -150,7 +150,7 @@ export default function TestimonialsPage() {
           </p>
 
           {/* Rating Summary */}
-          <Card className="inline-block bg-white/10 border-white/20 backdrop-blur-xl">
+          <Card className="inline-block bg-background text-foreground/10 border-white/20 backdrop-blur-xl">
             <CardContent className="p-8">
               <div className="flex items-center gap-8">
                 <div>
@@ -199,7 +199,7 @@ export default function TestimonialsPage() {
                 className={
                   selectedCategory === cat.id
                     ? "bg-purple-600"
-                    : "bg-white/10 border-white/20 text-foreground hover:bg-white/20"
+                    : "bg-background/10 border-white/20 text-foreground hover:bg-background/20"
                 }
               >
                 {cat.label} ({cat.count})
@@ -220,7 +220,7 @@ export default function TestimonialsPage() {
                 className={
                   selectedRating === rating
                     ? "bg-purple-600 border-purple-600"
-                    : "bg-white/10 border-white/20 text-foreground hover:bg-white/20"
+                    : "bg-background/10 border-white/20 text-foreground hover:bg-background/20"
                 }
               >
                 {rating} <Star className="w-4 h-4 ml-1 fill-yellow-400 text-yellow-400" />
@@ -234,7 +234,7 @@ export default function TestimonialsPage() {
           {filteredTestimonials.map((testimonial) => (
             <Card
               key={testimonial.id}
-              className="bg-white/5 border-white/10 hover:bg-white/10 transition-all backdrop-blur-xl"
+              className="bg-background text-foreground/5 border-white/10 hover:bg-background text-foreground/10 transition-all backdrop-blur-xl"
             >
               <CardContent className="p-6">
                 {/* Customer Info */}
@@ -290,7 +290,7 @@ export default function TestimonialsPage() {
                     {testimonial.images.map((img, idx) => (
                       <div
                         key={idx}
-                        className="w-20 h-20 bg-white/10 rounded-lg flex items-center justify-center"
+                        className="w-20 h-20 bg-background text-foreground/10 rounded-lg flex items-center justify-center"
                       >
                         <ImageIcon className="w-8 h-8 text-gray-400" />
                       </div>
@@ -299,7 +299,7 @@ export default function TestimonialsPage() {
                 )}
 
                 {testimonial.videoUrl && (
-                  <div className="mb-4 bg-white/10 rounded-lg p-4 flex items-center gap-3">
+                  <div className="mb-4 bg-background text-foreground/10 rounded-lg p-4 flex items-center gap-3">
                     <Video className="w-6 h-6 text-purple-400" />
                     <span className="text-foreground text-sm">Video Review</span>
                   </div>
@@ -321,7 +321,7 @@ export default function TestimonialsPage() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="bg-white/10 border-white/20 text-foreground hover:bg-white/20"
+                    className="bg-background/10 border-white/20 text-foreground hover:bg-background/20"
                   >
                     <ThumbsUp className="w-4 h-4 mr-2" />
                     Helpful ({testimonial.helpful})
@@ -344,7 +344,7 @@ export default function TestimonialsPage() {
               </p>
               <Button
                 size="lg"
-                className="bg-white text-purple-600 hover:bg-gray-100"
+                className="bg-background text-foreground text-purple-600 hover:bg-gray-100"
               >
                 Start Shopping Live
               </Button>

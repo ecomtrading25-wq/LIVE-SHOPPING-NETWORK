@@ -274,7 +274,7 @@ export default function ReturnsPage() {
       <Card>
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-zinc-50 dark:bg-background border-b border-zinc-200 dark:border-border text-foreground">
+            <thead className="bg-background dark:bg-background border-b border-zinc-200 dark:border-border text-foreground">
               <tr>
                 <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 dark:text-foreground">
                   Return ID
@@ -303,7 +303,7 @@ export default function ReturnsPage() {
               {filteredReturns.map((returnItem) => (
                 <tr
                   key={returnItem.id}
-                  className="hover:bg-zinc-50 dark:hover:bg-background/50 text-foreground"
+                  className="hover:bg-background dark:hover:bg-background/50 text-foreground"
                 >
                   <td className="px-6 py-4">
                     <div>
@@ -388,7 +388,7 @@ export default function ReturnsPage() {
           {selectedReturn && (
             <div className="space-y-6">
               {/* Return Details */}
-              <div className="bg-zinc-50 dark:bg-background p-4 rounded-lg space-y-2 text-foreground">
+              <div className="bg-background dark:bg-background p-4 rounded-lg space-y-2 text-foreground">
                 <div className="flex justify-between">
                   <span className="text-sm text-zinc-600 dark:text-zinc-400">
                     Return ID:

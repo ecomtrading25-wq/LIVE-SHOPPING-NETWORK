@@ -251,7 +251,7 @@ export default function VendorDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container py-8 space-y-8">
         {/* Header */}
         <div className="flex items-center justify-between">
@@ -262,7 +262,7 @@ export default function VendorDashboard() {
 
           <div className="flex items-center gap-4">
             <Select value={timeRange} onValueChange={(value: any) => setTimeRange(value)}>
-              <SelectTrigger className="w-40 bg-white/10 border-white/20 text-foreground">
+              <SelectTrigger className="w-40 bg-background/10 border-white/20 text-foreground">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -286,7 +286,7 @@ export default function VendorDashboard() {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card className="bg-white/10 backdrop-blur border-white/20">
+          <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
             <CardContent className="p-6">
               <div className="flex items-start justify-between mb-4">
                 <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center">
@@ -301,7 +301,7 @@ export default function VendorDashboard() {
             </CardContent>
           </Card>
 
-          <Card className="bg-white/10 backdrop-blur border-white/20">
+          <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
             <CardContent className="p-6">
               <div className="flex items-start justify-between mb-4">
                 <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
@@ -316,7 +316,7 @@ export default function VendorDashboard() {
             </CardContent>
           </Card>
 
-          <Card className="bg-white/10 backdrop-blur border-white/20">
+          <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
             <CardContent className="p-6">
               <div className="flex items-start justify-between mb-4">
                 <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
@@ -331,7 +331,7 @@ export default function VendorDashboard() {
             </CardContent>
           </Card>
 
-          <Card className="bg-white/10 backdrop-blur border-white/20">
+          <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
             <CardContent className="p-6">
               <div className="flex items-start justify-between mb-4">
                 <div className="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center">
@@ -349,7 +349,7 @@ export default function VendorDashboard() {
 
         {/* Quick Actions */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Card className="bg-white/10 backdrop-blur border-white/20 hover:bg-white/20 transition-colors cursor-pointer">
+          <Card className="bg-background text-foreground/10 backdrop-blur border-white/20 hover:bg-background text-foreground/20 transition-colors cursor-pointer">
             <CardContent className="p-6">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center">
@@ -363,7 +363,7 @@ export default function VendorDashboard() {
             </CardContent>
           </Card>
 
-          <Card className="bg-white/10 backdrop-blur border-white/20 hover:bg-white/20 transition-colors cursor-pointer">
+          <Card className="bg-background text-foreground/10 backdrop-blur border-white/20 hover:bg-background text-foreground/20 transition-colors cursor-pointer">
             <CardContent className="p-6">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
@@ -377,7 +377,7 @@ export default function VendorDashboard() {
             </CardContent>
           </Card>
 
-          <Card className="bg-white/10 backdrop-blur border-white/20 hover:bg-white/20 transition-colors cursor-pointer">
+          <Card className="bg-background text-foreground/10 backdrop-blur border-white/20 hover:bg-background text-foreground/20 transition-colors cursor-pointer">
             <CardContent className="p-6">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
@@ -393,7 +393,7 @@ export default function VendorDashboard() {
         </div>
 
         {/* Revenue Chart */}
-        <Card className="bg-white/10 backdrop-blur border-white/20">
+        <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
           <CardHeader>
             <CardTitle className="text-foreground">Revenue Overview</CardTitle>
           </CardHeader>
@@ -424,7 +424,7 @@ export default function VendorDashboard() {
         </Card>
 
         <Tabs defaultValue="products" className="space-y-6">
-          <TabsList className="bg-white/10 backdrop-blur border-white/20">
+          <TabsList className="bg-background text-foreground/10 backdrop-blur border-white/20">
             <TabsTrigger value="products">Products</TabsTrigger>
             <TabsTrigger value="orders">Orders</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
@@ -437,10 +437,10 @@ export default function VendorDashboard() {
               <div className="flex items-center gap-4">
                 <Input
                   placeholder="Search products..."
-                  className="w-80 bg-white/10 border-white/20 text-foreground"
+                  className="w-80 bg-background/10 border-white/20 text-foreground"
                 />
                 <Select value={productFilter} onValueChange={(value: any) => setProductFilter(value)}>
-                  <SelectTrigger className="w-40 bg-white/10 border-white/20 text-foreground">
+                  <SelectTrigger className="w-40 bg-background/10 border-white/20 text-foreground">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -464,7 +464,7 @@ export default function VendorDashboard() {
               </div>
             </div>
 
-            <Card className="bg-white/10 backdrop-blur border-white/20">
+            <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
               <Table>
                 <TableHeader>
                   <TableRow className="border-white/20">
@@ -547,10 +547,10 @@ export default function VendorDashboard() {
               <div className="flex items-center gap-4">
                 <Input
                   placeholder="Search orders..."
-                  className="w-80 bg-white/10 border-white/20 text-foreground"
+                  className="w-80 bg-background/10 border-white/20 text-foreground"
                 />
                 <Select value={orderFilter} onValueChange={(value: any) => setOrderFilter(value)}>
-                  <SelectTrigger className="w-40 bg-white/10 border-white/20 text-foreground">
+                  <SelectTrigger className="w-40 bg-background/10 border-white/20 text-foreground">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -570,7 +570,7 @@ export default function VendorDashboard() {
 
             <div className="space-y-4">
               {orders?.map((order: Order) => (
-                <Card key={order.id} className="bg-white/10 backdrop-blur border-white/20">
+                <Card key={order.id} className="bg-background text-foreground/10 backdrop-blur border-white/20">
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between mb-4">
                       <div>
@@ -595,7 +595,7 @@ export default function VendorDashboard() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                       {order.items.map((item, idx) => (
-                        <div key={idx} className="flex items-center gap-3 p-3 bg-white/5 rounded">
+                        <div key={idx} className="flex items-center gap-3 p-3 bg-background text-foreground/5 rounded">
                           <img
                             src={item.image || '/placeholder.jpg'}
                             alt={item.productName}
@@ -619,7 +619,7 @@ export default function VendorDashboard() {
                             updateOrderStatus.mutate({ orderId: order.id, status: value })
                           }
                         >
-                          <SelectTrigger className="w-40 bg-white/10 border-white/20 text-foreground">
+                          <SelectTrigger className="w-40 bg-background/10 border-white/20 text-foreground">
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
@@ -655,7 +655,7 @@ export default function VendorDashboard() {
           {/* Analytics Tab */}
           <TabsContent value="analytics" className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card className="bg-white/10 backdrop-blur border-white/20">
+              <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
                 <CardHeader>
                   <CardTitle className="text-foreground">Top Selling Products</CardTitle>
                 </CardHeader>
@@ -684,7 +684,7 @@ export default function VendorDashboard() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 backdrop-blur border-white/20">
+              <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
                 <CardHeader>
                   <CardTitle className="text-foreground">Performance Metrics</CardTitle>
                 </CardHeader>
@@ -728,7 +728,7 @@ export default function VendorDashboard() {
 
           {/* Settings Tab */}
           <TabsContent value="settings" className="space-y-6">
-            <Card className="bg-white/10 backdrop-blur border-white/20">
+            <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
               <CardHeader>
                 <CardTitle className="text-foreground">Store Settings</CardTitle>
               </CardHeader>
@@ -738,7 +738,7 @@ export default function VendorDashboard() {
                   <Input
                     id="store-name"
                     placeholder="Your Store Name"
-                    className="bg-white/10 border-white/20 text-foreground"
+                    className="bg-background/10 border-white/20 text-foreground"
                   />
                 </div>
 
@@ -748,14 +748,14 @@ export default function VendorDashboard() {
                     id="store-description"
                     placeholder="Describe your store..."
                     rows={4}
-                    className="bg-white/10 border-white/20 text-foreground"
+                    className="bg-background/10 border-white/20 text-foreground"
                   />
                 </div>
 
                 <div>
                   <Label htmlFor="store-logo" className="text-foreground">Store Logo</Label>
                   <div className="flex items-center gap-4 mt-2">
-                    <div className="w-24 h-24 bg-white/10 rounded-lg flex items-center justify-center">
+                    <div className="w-24 h-24 bg-background text-foreground/10 rounded-lg flex items-center justify-center">
                       <ImageIcon className="w-8 h-8 text-gray-400" />
                     </div>
                     <Button variant="outline">

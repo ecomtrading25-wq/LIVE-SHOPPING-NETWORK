@@ -155,10 +155,10 @@ export default function ProductDetailEnhancedPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container py-8">
         <Link href="/products">
-          <Button variant="ghost" className="mb-4 text-foreground hover:bg-white/10">
+          <Button variant="ghost" className="mb-4 text-foreground hover:bg-background/10">
             <ChevronLeft className="w-4 h-4 mr-2" />
             Back to Products
           </Button>
@@ -168,7 +168,7 @@ export default function ProductDetailEnhancedPage() {
           {/* Image Gallery with Zoom */}
           <div>
             <div
-              className="aspect-square bg-white/10 backdrop-blur-xl rounded-lg overflow-hidden mb-4 relative group cursor-zoom-in"
+              className="aspect-square bg-background text-foreground/10 backdrop-blur-xl rounded-lg overflow-hidden mb-4 relative group cursor-zoom-in"
               onClick={() => setShowLightbox(true)}
             >
               <img
@@ -299,7 +299,7 @@ export default function ProductDetailEnhancedPage() {
                   variant="outline"
                   size="icon"
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="border-white/20 text-foreground hover:bg-white/10"
+                  className="border-white/20 text-foreground hover:bg-background/10"
                 >
                   -
                 </Button>
@@ -310,7 +310,7 @@ export default function ProductDetailEnhancedPage() {
                   variant="outline"
                   size="icon"
                   onClick={() => setQuantity(quantity + 1)}
-                  className="border-white/20 text-foreground hover:bg-white/10"
+                  className="border-white/20 text-foreground hover:bg-background/10"
                 >
                   +
                 </Button>
@@ -329,14 +329,14 @@ export default function ProductDetailEnhancedPage() {
               <Button
                 variant="outline"
                 size="icon"
-                className="border-white/20 text-foreground hover:bg-white/10 h-auto"
+                className="border-white/20 text-foreground hover:bg-background/10 h-auto"
               >
                 <Heart className="w-5 h-5" />
               </Button>
             </div>
 
             {/* Features */}
-            <Card className="p-4 bg-white/10 backdrop-blur-xl border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur-xl border-white/20">
               <h3 className="text-foreground font-semibold mb-3">Key Features</h3>
               <ul className="space-y-2">
                 {product.features.map((feature, index) => (
@@ -351,7 +351,7 @@ export default function ProductDetailEnhancedPage() {
         </div>
 
         {/* Customer Q&A Section */}
-        <Card className="p-6 bg-white/10 backdrop-blur-xl border-white/20 mb-8">
+        <Card className="p-6 bg-background text-foreground/10 backdrop-blur-xl border-white/20 mb-8">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold text-foreground">Customer Questions & Answers</h2>
             <Button
@@ -364,12 +364,12 @@ export default function ProductDetailEnhancedPage() {
           </div>
 
           {showQAForm && (
-            <Card className="p-4 bg-white/5 border-white/10 mb-6">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10 mb-6">
               <Textarea
                 value={newQuestion}
                 onChange={(e) => setNewQuestion(e.target.value)}
                 placeholder="What would you like to know about this product?"
-                className="mb-3 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
+                className="mb-3 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400"
                 rows={3}
               />
               <div className="flex gap-2">
@@ -383,7 +383,7 @@ export default function ProductDetailEnhancedPage() {
                 <Button
                   variant="outline"
                   onClick={() => setShowQAForm(false)}
-                  className="border-white/20 text-foreground hover:bg-white/10"
+                  className="border-white/20 text-foreground hover:bg-background/10"
                 >
                   Cancel
                 </Button>
@@ -407,7 +407,7 @@ export default function ProductDetailEnhancedPage() {
                 </div>
 
                 {qa.answer && (
-                  <div className="ml-8 p-4 bg-white/5 rounded-lg">
+                  <div className="ml-8 p-4 bg-background text-foreground/5 rounded-lg">
                     <div className="flex items-start gap-2 mb-2">
                       {qa.verified && (
                         <Badge className="bg-green-600">
@@ -438,7 +438,7 @@ export default function ProductDetailEnhancedPage() {
         </Card>
 
         {/* Reviews Section */}
-        <Card className="p-6 bg-white/10 backdrop-blur-xl border-white/20">
+        <Card className="p-6 bg-background text-foreground/10 backdrop-blur-xl border-white/20">
           <h2 className="text-2xl font-bold text-foreground mb-6">Customer Reviews</h2>
           <div className="space-y-6">
             {reviews.map((review) => (
@@ -534,7 +534,7 @@ export default function ProductDetailEnhancedPage() {
                 key={index}
                 onClick={() => setSelectedImage(index)}
                 className={`w-2 h-2 rounded-full transition-all ${
-                  selectedImage === index ? "bg-white w-8" : "bg-white/50"
+                  selectedImage === index ? "bg-background text-foreground w-8" : "bg-background text-foreground/50"
                 }`}
               />
             ))}

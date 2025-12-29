@@ -22,8 +22,8 @@ export default function CheckoutSuccessPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 flex items-center justify-center p-4">
-      <Card className="max-w-2xl w-full p-12 bg-white/5 border-white/10 text-center">
+    <div className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
+      <Card className="max-w-2xl w-full p-12 bg-background text-foreground/5 border-white/10 text-center">
         <div className="mb-8">
           <div className="w-24 h-24 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="w-16 h-16 text-foreground" />
@@ -39,7 +39,7 @@ export default function CheckoutSuccessPage() {
           )}
         </div>
 
-        <div className="bg-white/10 rounded-lg p-6 mb-8">
+        <div className="bg-background text-foreground/10 rounded-lg p-6 mb-8">
           <div className="flex items-center justify-center gap-4 text-muted-foreground">
             <Package className="w-6 h-6" />
             <div className="text-left">

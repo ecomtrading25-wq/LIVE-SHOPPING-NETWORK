@@ -112,7 +112,7 @@ export default function LSNHome() {
 
   if (liveLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-950 via-black to-pink-950 flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-pink-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-foreground text-xl">Loading amazing deals...</p>
@@ -122,7 +122,7 @@ export default function LSNHome() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-950 via-black to-pink-950">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         {/* Animated background elements */}
@@ -178,7 +178,7 @@ export default function LSNHome() {
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="border-2 border-white/30 text-foreground hover:bg-white/10 font-bold px-8 py-6 text-lg backdrop-blur"
+                  className="border-2 border-white/30 text-foreground hover:bg-background/10 font-bold px-8 py-6 text-lg backdrop-blur"
                 >
                   <ShoppingBag className="w-6 h-6 mr-2" />
                   Shop Products
@@ -221,7 +221,7 @@ export default function LSNHome() {
                 <p className="text-gray-400">Don't miss out on these exclusive deals</p>
               </div>
               <Link href="/live">
-                <Button variant="ghost" className="text-foreground hover:bg-white/10">
+                <Button variant="ghost" className="text-foreground hover:bg-background/10">
                   View All
                   <ChevronRight className="w-4 h-4 ml-1" />
                 </Button>
@@ -241,7 +241,7 @@ export default function LSNHome() {
                       />
                       {/* Live badge */}
                       <div className="absolute top-3 left-3 bg-red-500 text-foreground px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 animate-pulse">
-                        <span className="w-2 h-2 bg-white rounded-full"></span>
+                        <span className="w-2 h-2 bg-background text-foreground rounded-full"></span>
                         LIVE
                       </div>
                       {/* Viewer count */}
@@ -251,7 +251,7 @@ export default function LSNHome() {
                       </div>
                       {/* Play overlay */}
                       <div className="absolute inset-0 bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-foreground">
-                        <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center">
+                        <div className="w-16 h-16 bg-background text-foreground/90 rounded-full flex items-center justify-center">
                           <Play className="w-8 h-8 text-black fill-current ml-1" />
                         </div>
                       </div>
@@ -316,9 +316,9 @@ export default function LSNHome() {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
               {featuredProducts.map((product) => (
                 <Link key={product.id} href={`/product/${product.id}`}>
-                  <Card className="group relative overflow-hidden bg-white/5 border-white/10 hover:border-pink-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-pink-500/10 cursor-pointer">
+                  <Card className="group relative overflow-hidden bg-background text-foreground/5 border-white/10 hover:border-pink-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-pink-500/10 cursor-pointer">
                     {/* Product image */}
-                    <div className="relative aspect-square overflow-hidden bg-white/5">
+                    <div className="relative aspect-square overflow-hidden bg-background text-foreground/5">
                       <img 
                         src={product.images?.[0] || '/placeholder-product.jpg'}
                         alt={product.name}
@@ -454,7 +454,7 @@ export default function LSNHome() {
 
             <div className="max-w-4xl mx-auto space-y-4">
               {scheduledShows.map((show) => (
-                <Card key={show.id} className="bg-white/5 border-white/10 hover:border-pink-500/50 transition-all hover:bg-white/10">
+                <Card key={show.id} className="bg-background text-foreground/5 border-white/10 hover:border-pink-500/50 transition-all hover:bg-background text-foreground/10">
                   <div className="p-6 flex flex-col md:flex-row gap-4 items-start md:items-center">
                     {/* Date/Time */}
                     <div className="flex-shrink-0 text-center bg-gradient-to-br from-pink-500 to-purple-600 rounded-lg p-4 min-w-[100px]">
@@ -504,7 +504,7 @@ export default function LSNHome() {
 
             <div className="text-center mt-8">
               <Link href="/schedule">
-                <Button variant="ghost" className="text-foreground hover:bg-white/10">
+                <Button variant="ghost" className="text-foreground hover:bg-background/10">
                   View Full Schedule
                   <ChevronRight className="w-4 h-4 ml-1" />
                 </Button>
@@ -565,7 +565,7 @@ export default function LSNHome() {
                     className={`w-2 h-2 rounded-full transition-all ${
                       i === currentTestimonial 
                         ? 'bg-pink-500 w-8' 
-                        : 'bg-white/30 hover:bg-white/50'
+                        : 'bg-background text-foreground/30 hover:bg-background text-foreground/50'
                     }`}
                   />
                 ))}
@@ -581,8 +581,8 @@ export default function LSNHome() {
           <Card className="bg-gradient-to-r from-pink-500 to-purple-600 border-0 overflow-hidden">
             <div className="p-8 md:p-12 text-center relative">
               {/* Decorative elements */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-background text-foreground/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-background text-foreground/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
 
               <div className="relative z-10">
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
@@ -598,7 +598,7 @@ export default function LSNHome() {
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="bg-white/90 border-0 text-black placeholder:text-gray-500 flex-grow"
+                    className="bg-background text-foreground/90 border-0 text-black placeholder:text-gray-500 flex-grow"
                     required
                   />
                   <Button 

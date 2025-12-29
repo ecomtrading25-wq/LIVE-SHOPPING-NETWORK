@@ -115,14 +115,14 @@ function LiveSessionManagementContent() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <Loader2 className="w-12 h-12 text-purple-400 animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
@@ -151,7 +151,7 @@ function LiveSessionManagementContent() {
                     value={formData.title}
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                     placeholder="Tech Tuesday - Amazing Deals on Electronics"
-                    className="bg-white/10 border-white/20 text-foreground"
+                    className="bg-background/10 border-white/20 text-foreground"
                   />
                 </div>
 
@@ -162,7 +162,7 @@ function LiveSessionManagementContent() {
                     value={formData.description}
                     onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                     placeholder="Join us for exclusive deals on the latest tech gadgets!"
-                    className="bg-white/10 border-white/20 text-foreground min-h-[100px]"
+                    className="bg-background/10 border-white/20 text-foreground min-h-[100px]"
                   />
                 </div>
 
@@ -174,7 +174,7 @@ function LiveSessionManagementContent() {
                       type="datetime-local"
                       value={formData.scheduledAt}
                       onChange={(e) => setFormData({ ...formData, scheduledAt: e.target.value })}
-                      className="bg-white/10 border-white/20 text-foreground"
+                      className="bg-background/10 border-white/20 text-foreground"
                     />
                   </div>
 
@@ -184,7 +184,7 @@ function LiveSessionManagementContent() {
                       value={formData.status}
                       onValueChange={(value: any) => setFormData({ ...formData, status: value })}
                     >
-                      <SelectTrigger className="bg-white/10 border-white/20 text-foreground">
+                      <SelectTrigger className="bg-background/10 border-white/20 text-foreground">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent className="bg-background border-white/10 text-foreground">
@@ -200,7 +200,7 @@ function LiveSessionManagementContent() {
                   <Button
                     variant="outline"
                     onClick={() => setCreateDialogOpen(false)}
-                    className="flex-1 border-white/20 text-foreground hover:bg-white/10"
+                    className="flex-1 border-white/20 text-foreground hover:bg-background/10"
                   >
                     Cancel
                   </Button>
@@ -229,7 +229,7 @@ function LiveSessionManagementContent() {
 
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-2">
               <Video className="w-8 h-8 text-green-400" />
               <Badge className="bg-green-500/20 text-green-400 border-green-500/30">
@@ -240,7 +240,7 @@ function LiveSessionManagementContent() {
             <p className="text-sm text-gray-400">Active sessions</p>
           </Card>
 
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-2">
               <Calendar className="w-8 h-8 text-blue-400" />
               <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30">
@@ -251,7 +251,7 @@ function LiveSessionManagementContent() {
             <p className="text-sm text-gray-400">Upcoming shows</p>
           </Card>
 
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-2">
               <Users className="w-8 h-8 text-purple-400" />
               <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30">
@@ -262,7 +262,7 @@ function LiveSessionManagementContent() {
             <p className="text-sm text-gray-400">All sessions</p>
           </Card>
 
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-2">
               <TrendingUp className="w-8 h-8 text-pink-400" />
               <Badge className="bg-pink-500/20 text-pink-400 border-pink-500/30">
@@ -277,7 +277,7 @@ function LiveSessionManagementContent() {
         {/* Sessions List */}
         <div className="space-y-4">
           {sessions && sessions.length === 0 ? (
-            <Card className="p-12 bg-white/5 border-white/10 text-center">
+            <Card className="p-12 bg-background text-foreground/5 border-white/10 text-center">
               <Video className="w-16 h-16 text-gray-400 mx-auto mb-4" />
               <h2 className="text-2xl font-bold text-foreground mb-2">No Live Sessions Yet</h2>
               <p className="text-gray-400 mb-6">
@@ -293,7 +293,7 @@ function LiveSessionManagementContent() {
             </Card>
           ) : (
             sessions?.map((session: any) => (
-              <Card key={session.id} className="p-6 bg-white/5 border-white/10">
+              <Card key={session.id} className="p-6 bg-background text-foreground/5 border-white/10">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
@@ -358,7 +358,7 @@ function LiveSessionManagementContent() {
                     <Button
                       size="sm"
                       variant="outline"
-                      className="border-white/20 text-foreground hover:bg-white/10"
+                      className="border-white/20 text-foreground hover:bg-background/10"
                     >
                       <Eye className="w-4 h-4 mr-1" />
                       View
@@ -367,7 +367,7 @@ function LiveSessionManagementContent() {
                     <Button
                       size="sm"
                       variant="outline"
-                      className="border-white/20 text-foreground hover:bg-white/10"
+                      className="border-white/20 text-foreground hover:bg-background/10"
                     >
                       <Edit className="w-4 h-4 mr-1" />
                       Edit

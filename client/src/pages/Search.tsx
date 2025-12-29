@@ -77,7 +77,7 @@ export default function SearchPage() {
     (inStockOnly ? 1 : 0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-zinc-900 to-black py-8">
+    <div className="min-h-screen bg-background text-foreground py-8">
       <div className="container mx-auto px-4">
         {/* Search Header */}
         <div className="mb-8">
@@ -379,7 +379,7 @@ export default function SearchPage() {
                 ))}
               </div>
             ) : (
-              <Card className="p-12 bg-background/50 border-border text-center">
+              <Card className="p-12 bg-background text-foreground/50 border-border text-center">
                 <SearchIcon className="w-16 h-16 text-gray-600 mx-auto mb-4" />
                 <h3 className="text-2xl font-semibold text-foreground mb-2">
                   No results found

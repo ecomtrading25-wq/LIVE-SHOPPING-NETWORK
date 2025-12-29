@@ -91,7 +91,7 @@ export default function InfluencerPage() {
                 <Video className="w-5 h-5 mr-2" />
                 Schedule Live Show
               </Button>
-              <Button size="lg" variant="outline" className="bg-white/10 border-white/20 text-foreground hover:bg-white/20">
+              <Button size="lg" variant="outline" className="bg-background/10 border-white/20 text-foreground hover:bg-background/20">
                 <Share2 className="w-5 h-5 mr-2" />
                 Share Products
               </Button>
@@ -260,12 +260,12 @@ export default function InfluencerPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="p-3 bg-white/10 rounded-lg">
+                <div className="p-3 bg-background text-foreground/10 rounded-lg">
                   <p className="text-sm text-white/90 break-all">{referralLink}</p>
                 </div>
                 <Button
                   onClick={copyReferralLink}
-                  className="w-full bg-white text-purple-600 hover:bg-white/90"
+                  className="w-full bg-background text-foreground text-purple-600 hover:bg-background text-foreground/90"
                 >
                   {copied ? (
                     <>
@@ -333,7 +333,7 @@ export default function InfluencerPage() {
                 <div className="p-3 bg-gradient-to-r from-yellow-600 to-yellow-500 rounded-lg">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-sm font-medium text-foreground">Gold (Current)</span>
-                    <Badge className="bg-white text-yellow-600">15-20%</Badge>
+                    <Badge className="bg-background text-foreground text-yellow-600">15-20%</Badge>
                   </div>
                   <p className="text-xs text-white/90">$20,000 - $50,000 sales</p>
                 </div>

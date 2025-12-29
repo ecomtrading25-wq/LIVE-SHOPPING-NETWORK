@@ -240,7 +240,7 @@ function LiveShowCard({ show }: { show: any }) {
           {/* Live badge */}
           <div className="absolute top-3 left-3">
             <Badge className="bg-red-600 text-foreground animate-pulse">
-              <div className="h-2 w-2 bg-white rounded-full mr-2" />
+              <div className="h-2 w-2 bg-background text-foreground rounded-full mr-2" />
               LIVE
             </Badge>
           </div>

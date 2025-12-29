@@ -89,7 +89,7 @@ export default function GiftCardsPage() {
   const selectedDesignData = designs.find((d) => d.id === selectedDesign);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-12">
@@ -105,7 +105,7 @@ export default function GiftCardsPage() {
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Left: Gift Card Preview */}
           <div className="space-y-6">
-            <Card className="bg-white/10 border-white/20 backdrop-blur-xl overflow-hidden">
+            <Card className="bg-background text-foreground/10 border-white/20 backdrop-blur-xl overflow-hidden">
               <CardContent className="p-0">
                 <div
                   className={`relative h-80 bg-gradient-to-br ${selectedDesignData?.gradient} p-8 flex flex-col justify-between`}
@@ -125,7 +125,7 @@ export default function GiftCardsPage() {
 
                   {/* Message Preview */}
                   {message && (
-                    <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                    <div className="bg-background text-foreground/20 backdrop-blur-sm rounded-lg p-4">
                       <p className="text-foreground text-sm italic">"{message}"</p>
                     </div>
                   )}
@@ -152,7 +152,7 @@ export default function GiftCardsPage() {
 
             {/* Features */}
             <div className="grid grid-cols-2 gap-4">
-              <Card className="bg-white/5 border-white/10 backdrop-blur-xl">
+              <Card className="bg-background text-foreground/5 border-white/10 backdrop-blur-xl">
                 <CardContent className="p-4 text-center">
                   <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
                     <Check className="w-6 h-6 text-green-400" />
@@ -162,7 +162,7 @@ export default function GiftCardsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/5 border-white/10 backdrop-blur-xl">
+              <Card className="bg-background text-foreground/5 border-white/10 backdrop-blur-xl">
                 <CardContent className="p-4 text-center">
                   <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
                     <Gift className="w-6 h-6 text-blue-400" />
@@ -175,7 +175,7 @@ export default function GiftCardsPage() {
           </div>
 
           {/* Right: Purchase Form */}
-          <Card className="bg-white/10 border-white/20 backdrop-blur-xl">
+          <Card className="bg-background text-foreground/10 border-white/20 backdrop-blur-xl">
             <CardContent className="p-6 space-y-6">
               {/* Amount Selection */}
               <div>
@@ -188,7 +188,7 @@ export default function GiftCardsPage() {
                       className={
                         selectedAmount === amount && !customAmount
                           ? "bg-purple-600"
-                          : "bg-white/10 border-white/20 text-foreground hover:bg-white/20"
+                          : "bg-background/10 border-white/20 text-foreground hover:bg-background/20"
                       }
                       onClick={() => {
                         setSelectedAmount(amount);
@@ -206,7 +206,7 @@ export default function GiftCardsPage() {
                     placeholder="Enter custom amount"
                     value={customAmount}
                     onChange={(e) => setCustomAmount(e.target.value)}
-                    className="bg-white/10 border-white/20 text-foreground"
+                    className="bg-background/10 border-white/20 text-foreground"
                     min="10"
                     max="500"
                   />
@@ -224,7 +224,7 @@ export default function GiftCardsPage() {
                         className={`relative cursor-pointer rounded-lg border-2 transition-all ${
                           selectedDesign === design.id
                             ? "border-purple-500 bg-purple-500/20"
-                            : "border-white/20 bg-white/5 hover:bg-white/10"
+                            : "border-white/20 bg-background text-foreground/5 hover:bg-background text-foreground/10"
                         }`}
                       >
                         <div className="p-4">
@@ -256,7 +256,7 @@ export default function GiftCardsPage() {
                     placeholder="recipient@example.com"
                     value={recipientEmail}
                     onChange={(e) => setRecipientEmail(e.target.value)}
-                    className="bg-white/10 border-white/20 text-foreground"
+                    className="bg-background/10 border-white/20 text-foreground"
                   />
                 </div>
 
@@ -266,7 +266,7 @@ export default function GiftCardsPage() {
                     placeholder="John Doe"
                     value={recipientName}
                     onChange={(e) => setRecipientName(e.target.value)}
-                    className="bg-white/10 border-white/20 text-foreground"
+                    className="bg-background/10 border-white/20 text-foreground"
                   />
                 </div>
 
@@ -276,7 +276,7 @@ export default function GiftCardsPage() {
                     placeholder="Your name"
                     value={senderName}
                     onChange={(e) => setSenderName(e.target.value)}
-                    className="bg-white/10 border-white/20 text-foreground"
+                    className="bg-background/10 border-white/20 text-foreground"
                   />
                 </div>
 
@@ -286,7 +286,7 @@ export default function GiftCardsPage() {
                     placeholder="Add a personal message..."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="bg-white/10 border-white/20 text-foreground"
+                    className="bg-background/10 border-white/20 text-foreground"
                     rows={3}
                     maxLength={200}
                   />
@@ -301,20 +301,20 @@ export default function GiftCardsPage() {
                 <Label className="text-foreground text-lg mb-3 block">Delivery</Label>
                 <RadioGroup value={deliveryDate} onValueChange={setDeliveryDate}>
                   <div className="space-y-2">
-                    <label className="flex items-center gap-3 p-3 rounded-lg border border-white/20 bg-white/5 hover:bg-white/10 cursor-pointer">
+                    <label className="flex items-center gap-3 p-3 rounded-lg border border-white/20 bg-background text-foreground/5 hover:bg-background text-foreground/10 cursor-pointer">
                       <RadioGroupItem value="now" />
                       <div>
                         <p className="text-foreground font-medium">Send Now</p>
                         <p className="text-gray-400 text-sm">Instant email delivery</p>
                       </div>
                     </label>
-                    <label className="flex items-center gap-3 p-3 rounded-lg border border-white/20 bg-white/5 hover:bg-white/10 cursor-pointer">
+                    <label className="flex items-center gap-3 p-3 rounded-lg border border-white/20 bg-background text-foreground/5 hover:bg-background text-foreground/10 cursor-pointer">
                       <RadioGroupItem value="schedule" />
                       <div className="flex-1">
                         <p className="text-foreground font-medium">Schedule Delivery</p>
                         <Input
                           type="date"
-                          className="mt-2 bg-white/10 border-white/20 text-foreground"
+                          className="mt-2 bg-background/10 border-white/20 text-foreground"
                           disabled={deliveryDate !== "schedule"}
                         />
                       </div>
@@ -370,7 +370,7 @@ export default function GiftCardsPage() {
                 a: "Yes, recipients can check their balance anytime by entering their gift card code on our balance checker page.",
               },
             ].map((faq, idx) => (
-              <Card key={idx} className="bg-white/5 border-white/10 backdrop-blur-xl">
+              <Card key={idx} className="bg-background text-foreground/5 border-white/10 backdrop-blur-xl">
                 <CardContent className="p-4">
                   <p className="text-foreground font-medium mb-2">{faq.q}</p>
                   <p className="text-gray-400 text-sm">{faq.a}</p>

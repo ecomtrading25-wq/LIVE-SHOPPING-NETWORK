@@ -115,7 +115,7 @@ export default function RequestReturnPage() {
               You'll receive an email confirmation shortly with next steps.
             </p>
 
-            <div className="bg-zinc-50 dark:bg-background p-6 rounded-lg mb-8 text-foreground">
+            <div className="bg-background dark:bg-background p-6 rounded-lg mb-8 text-foreground">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm text-zinc-600 dark:text-zinc-400">
                   Order Number:

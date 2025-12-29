@@ -67,7 +67,7 @@ export default function FounderControlConsole() {
   // Check if user is founder
   if (!user || user.role !== "admin") {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <Card className="p-8 max-w-md">
           <AlertTriangle className="w-12 h-12 text-red-500 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-center mb-2">Access Denied</h2>
@@ -83,7 +83,7 @@ export default function FounderControlConsole() {
   const highEscalations = escalations?.filter(e => e.severity === "high") || [];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
@@ -97,7 +97,7 @@ export default function FounderControlConsole() {
                 variant="outline"
                 size="sm"
                 onClick={() => window.location.reload()}
-                className="border-white/20 text-foreground hover:bg-white/10"
+                className="border-white/20 text-foreground hover:bg-background/10"
               >
                 <RefreshCw className="w-4 h-4 mr-2" />
                 Refresh
@@ -105,7 +105,7 @@ export default function FounderControlConsole() {
               <Button
                 variant="outline"
                 size="sm"
-                className="border-white/20 text-foreground hover:bg-white/10"
+                className="border-white/20 text-foreground hover:bg-background/10"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Export Report
@@ -125,7 +125,7 @@ export default function FounderControlConsole() {
 
           {/* System Health Status */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-            <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-gray-400 text-sm">System Status</p>
@@ -137,7 +137,7 @@ export default function FounderControlConsole() {
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-gray-400 text-sm">Open Escalations</p>
@@ -147,7 +147,7 @@ export default function FounderControlConsole() {
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-gray-400 text-sm">GMV (24h)</p>
@@ -159,7 +159,7 @@ export default function FounderControlConsole() {
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-gray-400 text-sm">Net Profit (24h)</p>
@@ -175,26 +175,26 @@ export default function FounderControlConsole() {
 
         {/* Main Content Tabs */}
         <Tabs value={selectedTab} onValueChange={setSelectedTab}>
-          <TabsList className="bg-white/10 backdrop-blur border-white/20 mb-6">
-            <TabsTrigger value="overview" className="data-[state=active]:bg-white/20">
+          <TabsList className="bg-background text-foreground/10 backdrop-blur border-white/20 mb-6">
+            <TabsTrigger value="overview" className="data-[state=active]:bg-background text-foreground/20">
               <Eye className="w-4 h-4 mr-2" />
               Overview
             </TabsTrigger>
-            <TabsTrigger value="escalations" className="data-[state=active]:bg-white/20">
+            <TabsTrigger value="escalations" className="data-[state=active]:bg-background text-foreground/20">
               <AlertTriangle className="w-4 h-4 mr-2" />
               Escalations {criticalEscalations.length > 0 && (
                 <Badge variant="destructive" className="ml-2">{criticalEscalations.length}</Badge>
               )}
             </TabsTrigger>
-            <TabsTrigger value="incidents" className="data-[state=active]:bg-white/20">
+            <TabsTrigger value="incidents" className="data-[state=active]:bg-background text-foreground/20">
               <Shield className="w-4 h-4 mr-2" />
               Incidents
             </TabsTrigger>
-            <TabsTrigger value="kpis" className="data-[state=active]:bg-white/20">
+            <TabsTrigger value="kpis" className="data-[state=active]:bg-background text-foreground/20">
               <BarChart3 className="w-4 h-4 mr-2" />
               KPIs
             </TabsTrigger>
-            <TabsTrigger value="controls" className="data-[state=active]:bg-white/20">
+            <TabsTrigger value="controls" className="data-[state=active]:bg-background text-foreground/20">
               <Settings className="w-4 h-4 mr-2" />
               Controls
             </TabsTrigger>
@@ -204,7 +204,7 @@ export default function FounderControlConsole() {
           <TabsContent value="overview" className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Critical Escalations */}
-              <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+              <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
                 <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                   <AlertTriangle className="w-5 h-5 text-red-500" />
                   Critical Escalations
@@ -236,7 +236,7 @@ export default function FounderControlConsole() {
                               size="sm"
                               variant="outline"
                               onClick={() => acknowledgeEscalation.mutate({ id: esc.id })}
-                              className="border-white/30 text-foreground hover:bg-white/10"
+                              className="border-white/30 text-foreground hover:bg-background/10"
                             >
                               Ack
                             </Button>
@@ -247,7 +247,7 @@ export default function FounderControlConsole() {
                                 id: esc.id, 
                                 notes: "Reviewed by founder" 
                               })}
-                              className="border-white/30 text-foreground hover:bg-white/10"
+                              className="border-white/30 text-foreground hover:bg-background/10"
                             >
                               Close
                             </Button>
@@ -260,14 +260,14 @@ export default function FounderControlConsole() {
               </Card>
 
               {/* Recent Incidents */}
-              <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+              <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
                 <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                   <Shield className="w-5 h-5 text-yellow-500" />
                   Recent Incidents
                 </h3>
                 <div className="space-y-2 max-h-96 overflow-y-auto">
                   {incidents?.slice(0, 10).map((inc, idx) => (
-                    <Card key={idx} className="p-3 bg-white/5 border-white/10">
+                    <Card key={idx} className="p-3 bg-background text-foreground/5 border-white/10">
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-1">
@@ -293,22 +293,22 @@ export default function FounderControlConsole() {
 
             {/* Quick Stats Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+              <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
                 <p className="text-gray-400 text-sm mb-1">Active Orders</p>
                 <p className="text-3xl font-bold text-foreground">{kpis?.activeOrders || 0}</p>
                 <p className="text-green-500 text-xs mt-1">↑ Processing</p>
               </Card>
-              <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+              <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
                 <p className="text-gray-400 text-sm mb-1">Live Shows</p>
                 <p className="text-3xl font-bold text-foreground">{kpis?.liveShows || 0}</p>
                 <p className="text-blue-500 text-xs mt-1">● Broadcasting</p>
               </Card>
-              <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+              <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
                 <p className="text-gray-400 text-sm mb-1">Active Creators</p>
                 <p className="text-3xl font-bold text-foreground">{kpis?.activeCreators || 0}</p>
                 <p className="text-purple-500 text-xs mt-1">Online now</p>
               </Card>
-              <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+              <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
                 <p className="text-gray-400 text-sm mb-1">Dispute Rate</p>
                 <p className="text-3xl font-bold text-foreground">{kpis?.disputeRate || "0.0"}%</p>
                 <p className={`text-xs mt-1 ${(kpis?.disputeRate || 0) < 1 ? "text-green-500" : "text-red-500"}`}>
@@ -326,7 +326,7 @@ export default function FounderControlConsole() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="border-white/20 text-foreground hover:bg-white/10"
+                  className="border-white/20 text-foreground hover:bg-background/10"
                   onClick={() => refetchEscalations()}
                 >
                   <RefreshCw className="w-4 h-4 mr-2" />
@@ -339,7 +339,7 @@ export default function FounderControlConsole() {
               <Card key={esc.id} className={`p-6 ${
                 esc.severity === "critical" 
                   ? "bg-red-500/10 border-red-500/30" 
-                  : "bg-white/10 border-white/20"
+                  : "bg-background text-foreground/10 border-white/20"
               } backdrop-blur`}>
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
@@ -401,7 +401,7 @@ export default function FounderControlConsole() {
                           notes: "Reviewed and resolved by founder" 
                         })}
                         variant="outline"
-                        className="border-white/30 text-foreground hover:bg-white/10"
+                        className="border-white/30 text-foreground hover:bg-background/10"
                       >
                         Close
                       </Button>
@@ -410,7 +410,7 @@ export default function FounderControlConsole() {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="w-full border-white/30 text-foreground hover:bg-white/10"
+                        className="w-full border-white/30 text-foreground hover:bg-background/10"
                       >
                         <Eye className="w-4 h-4 mr-2" />
                         Details
@@ -422,7 +422,7 @@ export default function FounderControlConsole() {
             ))}
 
             {escalations?.length === 0 && (
-              <Card className="p-12 bg-white/10 backdrop-blur border-white/20 text-center">
+              <Card className="p-12 bg-background text-foreground/10 backdrop-blur border-white/20 text-center">
                 <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-foreground mb-2">All Clear</h3>
                 <p className="text-gray-400">No escalations require attention at this time.</p>
@@ -438,7 +438,7 @@ export default function FounderControlConsole() {
 
             <div className="grid grid-cols-1 gap-4">
               {incidents?.map((inc, idx) => (
-                <Card key={idx} className="p-4 bg-white/10 backdrop-blur border-white/20">
+                <Card key={idx} className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
@@ -475,7 +475,7 @@ export default function FounderControlConsole() {
                   variant={timeRange === "24h" ? "default" : "outline"}
                   size="sm"
                   onClick={() => setTimeRange("24h")}
-                  className={timeRange === "24h" ? "" : "border-white/20 text-foreground hover:bg-white/10"}
+                  className={timeRange === "24h" ? "" : "border-white/20 text-foreground hover:bg-background/10"}
                 >
                   24h
                 </Button>
@@ -483,7 +483,7 @@ export default function FounderControlConsole() {
                   variant={timeRange === "7d" ? "default" : "outline"}
                   size="sm"
                   onClick={() => setTimeRange("7d")}
-                  className={timeRange === "7d" ? "" : "border-white/20 text-foreground hover:bg-white/10"}
+                  className={timeRange === "7d" ? "" : "border-white/20 text-foreground hover:bg-background/10"}
                 >
                   7d
                 </Button>
@@ -491,7 +491,7 @@ export default function FounderControlConsole() {
                   variant={timeRange === "30d" ? "default" : "outline"}
                   size="sm"
                   onClick={() => setTimeRange("30d")}
-                  className={timeRange === "30d" ? "" : "border-white/20 text-foreground hover:bg-white/10"}
+                  className={timeRange === "30d" ? "" : "border-white/20 text-foreground hover:bg-background/10"}
                 >
                   30d
                 </Button>
@@ -535,7 +535,7 @@ export default function FounderControlConsole() {
             </div>
 
             {/* Operational Health */}
-            <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
               <h3 className="text-xl font-bold text-foreground mb-4">Operational Health</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
@@ -569,11 +569,11 @@ export default function FounderControlConsole() {
 
             {/* Top Performers */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+              <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
                 <h3 className="text-xl font-bold text-foreground mb-4">Top SKUs by Profit</h3>
                 <div className="space-y-3">
                   {kpis?.topSkus?.slice(0, 5).map((sku, idx) => (
-                    <div key={idx} className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                    <div key={idx} className="flex items-center justify-between p-3 bg-background text-foreground/5 rounded-lg">
                       <div className="flex items-center gap-3">
                         <span className="text-2xl font-bold text-gray-500">#{idx + 1}</span>
                         <div>
@@ -590,11 +590,11 @@ export default function FounderControlConsole() {
                 </div>
               </Card>
 
-              <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+              <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
                 <h3 className="text-xl font-bold text-foreground mb-4">Top Creators by GMV</h3>
                 <div className="space-y-3">
                   {kpis?.topCreators?.slice(0, 5).map((creator, idx) => (
-                    <div key={idx} className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                    <div key={idx} className="flex items-center justify-between p-3 bg-background text-foreground/5 rounded-lg">
                       <div className="flex items-center gap-3">
                         <span className="text-2xl font-bold text-gray-500">#{idx + 1}</span>
                         <div>
@@ -615,7 +615,7 @@ export default function FounderControlConsole() {
 
           {/* Controls Tab */}
           <TabsContent value="controls" className="space-y-6">
-            <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
               <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                 <Shield className="w-5 h-5 text-red-500" />
                 Emergency Controls
@@ -646,7 +646,7 @@ export default function FounderControlConsole() {
                       <Button
                         onClick={() => disableSafeMode.mutate()}
                         variant="outline"
-                        className="w-full mt-2 border-white/30 text-foreground hover:bg-white/10"
+                        className="w-full mt-2 border-white/30 text-foreground hover:bg-background/10"
                       >
                         Disable Safe Mode
                       </Button>
@@ -661,7 +661,7 @@ export default function FounderControlConsole() {
                     <Link href="/founder/policy-packs">
                       <Button
                         variant="outline"
-                        className="w-full border-white/30 text-foreground hover:bg-white/10"
+                        className="w-full border-white/30 text-foreground hover:bg-background/10"
                       >
                         <Settings className="w-4 h-4 mr-2" />
                         Manage Policy Packs
@@ -672,13 +672,13 @@ export default function FounderControlConsole() {
               </div>
             </Card>
 
-            <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
               <h3 className="text-xl font-bold text-foreground mb-4">System Configuration</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Link href="/founder/audit-log">
                   <Button
                     variant="outline"
-                    className="w-full border-white/30 text-foreground hover:bg-white/10"
+                    className="w-full border-white/30 text-foreground hover:bg-background/10"
                   >
                     View Audit Log
                   </Button>
@@ -686,7 +686,7 @@ export default function FounderControlConsole() {
                 <Link href="/founder/reconciliation">
                   <Button
                     variant="outline"
-                    className="w-full border-white/30 text-foreground hover:bg-white/10"
+                    className="w-full border-white/30 text-foreground hover:bg-background/10"
                   >
                     Financial Reconciliation
                   </Button>
@@ -694,7 +694,7 @@ export default function FounderControlConsole() {
                 <Link href="/founder/creator-payouts">
                   <Button
                     variant="outline"
-                    className="w-full border-white/30 text-foreground hover:bg-white/10"
+                    className="w-full border-white/30 text-foreground hover:bg-background/10"
                   >
                     Creator Payouts
                   </Button>
@@ -702,7 +702,7 @@ export default function FounderControlConsole() {
                 <Link href="/founder/fraud-review">
                   <Button
                     variant="outline"
-                    className="w-full border-white/30 text-foreground hover:bg-white/10"
+                    className="w-full border-white/30 text-foreground hover:bg-background/10"
                   >
                     Fraud Review Queue
                   </Button>

@@ -194,7 +194,7 @@ export default function LSNLiveShowViewer() {
 
   if (!show) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <div className="text-center">
           <AlertCircle className="h-16 w-16 text-gray-600 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-foreground mb-2">Show Not Found</h2>
@@ -236,7 +236,7 @@ export default function LSNLiveShowViewer() {
                 {/* Live badge */}
                 <div className="absolute top-4 left-4">
                   <Badge className="bg-red-600 text-foreground animate-pulse px-4 py-2 text-lg">
-                    <div className="h-3 w-3 bg-white rounded-full mr-2" />
+                    <div className="h-3 w-3 bg-background text-foreground rounded-full mr-2" />
                     LIVE
                   </Badge>
                 </div>
@@ -263,7 +263,7 @@ export default function LSNLiveShowViewer() {
                       size="icon"
                       variant="ghost"
                       onClick={togglePlay}
-                      className="text-foreground hover:bg-white/20"
+                      className="text-foreground hover:bg-background/20"
                     >
                       {isPlaying ? (
                         <Pause className="h-6 w-6" />
@@ -276,7 +276,7 @@ export default function LSNLiveShowViewer() {
                       size="icon"
                       variant="ghost"
                       onClick={toggleMute}
-                      className="text-foreground hover:bg-white/20"
+                      className="text-foreground hover:bg-background/20"
                     >
                       {isMuted ? (
                         <VolumeX className="h-6 w-6" />
@@ -300,7 +300,7 @@ export default function LSNLiveShowViewer() {
                       size="icon"
                       variant="ghost"
                       onClick={toggleFullscreen}
-                      className="text-foreground hover:bg-white/20"
+                      className="text-foreground hover:bg-background/20"
                     >
                       {isFullscreen ? (
                         <Minimize className="h-6 w-6" />
@@ -549,7 +549,7 @@ function PriceDropAlert({ priceDrop }: { priceDrop: any }) {
           </p>
         )}
 
-        <Button size="lg" className="w-full bg-white text-red-600 hover:bg-gray-100 font-bold">
+        <Button size="lg" className="w-full bg-background text-foreground text-red-600 hover:bg-gray-100 font-bold">
           <ShoppingCart className="mr-2 h-5 w-5" />
           Grab This Deal
         </Button>
@@ -697,7 +697,7 @@ function ChatMessage({
 
 function LoadingSkeleton() {
   return (
-    <div className="min-h-screen bg-background p-4">
+    <div className="min-h-screen bg-background text-foreground p-4">
       <div className="container max-w-[1920px] mx-auto">
         <div className="grid lg:grid-cols-[1fr_400px] gap-6">
           <div className="space-y-6">

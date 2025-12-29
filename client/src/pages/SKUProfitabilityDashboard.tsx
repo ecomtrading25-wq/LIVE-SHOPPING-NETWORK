@@ -78,7 +78,7 @@ export default function SKUProfitabilityDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
@@ -92,7 +92,7 @@ export default function SKUProfitabilityDashboard() {
                 variant="outline"
                 size="sm"
                 onClick={() => refetch()}
-                className="border-white/20 text-foreground hover:bg-white/10"
+                className="border-white/20 text-foreground hover:bg-background/10"
               >
                 <RefreshCw className="w-4 h-4 mr-2" />
                 Refresh
@@ -100,7 +100,7 @@ export default function SKUProfitabilityDashboard() {
               <Button
                 variant="outline"
                 size="sm"
-                className="border-white/20 text-foreground hover:bg-white/10"
+                className="border-white/20 text-foreground hover:bg-background/10"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Export
@@ -122,7 +122,7 @@ export default function SKUProfitabilityDashboard() {
               <p className="text-foreground text-2xl font-bold">${summary?.totalProfit?.toLocaleString() || "0"}</p>
             </Card>
 
-            <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between mb-2">
                 <Package className="w-8 h-8 text-blue-500" />
                 <Badge variant="secondary">{summary?.totalSKUs || 0}</Badge>
@@ -132,7 +132,7 @@ export default function SKUProfitabilityDashboard() {
               <p className="text-gray-400 text-xs mt-1">profitable</p>
             </Card>
 
-            <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between mb-2">
                 <Target className="w-8 h-8 text-purple-500" />
                 <Badge className="bg-purple-600">{summary?.avgMargin?.toFixed(1) || 0}%</Badge>
@@ -142,7 +142,7 @@ export default function SKUProfitabilityDashboard() {
               <p className="text-gray-400 text-xs mt-1">target</p>
             </Card>
 
-            <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between mb-2">
                 <AlertTriangle className="w-8 h-8 text-yellow-500" />
                 <Badge variant="destructive">{summary?.killRecommendations || 0}</Badge>
@@ -155,7 +155,7 @@ export default function SKUProfitabilityDashboard() {
         </div>
 
         {/* Filters & Search */}
-        <Card className="p-4 bg-white/10 backdrop-blur border-white/20 mb-6">
+        <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20 mb-6">
           <div className="flex flex-wrap items-center gap-4">
             <div className="flex-1 min-w-[200px]">
               <div className="relative">
@@ -164,13 +164,13 @@ export default function SKUProfitabilityDashboard() {
                   placeholder="Search SKUs..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 bg-white/5 border-white/20 text-foreground placeholder:text-gray-400"
+                  className="pl-10 bg-background/5 border-white/20 text-foreground placeholder:text-gray-400"
                 />
               </div>
             </div>
 
             <Select value={timeRange} onValueChange={(v: any) => setTimeRange(v)}>
-              <SelectTrigger className="w-[140px] bg-white/5 border-white/20 text-foreground">
+              <SelectTrigger className="w-[140px] bg-background/5 border-white/20 text-foreground">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -181,7 +181,7 @@ export default function SKUProfitabilityDashboard() {
             </Select>
 
             <Select value={sortBy} onValueChange={(v: any) => setSortBy(v)}>
-              <SelectTrigger className="w-[160px] bg-white/5 border-white/20 text-foreground">
+              <SelectTrigger className="w-[160px] bg-background/5 border-white/20 text-foreground">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -193,7 +193,7 @@ export default function SKUProfitabilityDashboard() {
             </Select>
 
             <Select value={filterStatus} onValueChange={(v: any) => setFilterStatus(v)}>
-              <SelectTrigger className="w-[160px] bg-white/5 border-white/20 text-foreground">
+              <SelectTrigger className="w-[160px] bg-background/5 border-white/20 text-foreground">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -208,16 +208,16 @@ export default function SKUProfitabilityDashboard() {
 
         {/* Main Content */}
         <Tabs defaultValue="skus" className="space-y-6">
-          <TabsList className="bg-white/10 backdrop-blur border-white/20">
-            <TabsTrigger value="skus" className="data-[state=active]:bg-white/20">
+          <TabsList className="bg-background text-foreground/10 backdrop-blur border-white/20">
+            <TabsTrigger value="skus" className="data-[state=active]:bg-background text-foreground/20">
               <Package className="w-4 h-4 mr-2" />
               SKUs
             </TabsTrigger>
-            <TabsTrigger value="recommendations" className="data-[state=active]:bg-white/20">
+            <TabsTrigger value="recommendations" className="data-[state=active]:bg-background text-foreground/20">
               <Zap className="w-4 h-4 mr-2" />
               Recommendations
             </TabsTrigger>
-            <TabsTrigger value="trends" className="data-[state=active]:bg-white/20">
+            <TabsTrigger value="trends" className="data-[state=active]:bg-background text-foreground/20">
               <BarChart3 className="w-4 h-4 mr-2" />
               Trends
             </TabsTrigger>
@@ -226,7 +226,7 @@ export default function SKUProfitabilityDashboard() {
           {/* SKUs Tab */}
           <TabsContent value="skus" className="space-y-4">
             {analytics?.skus?.map((sku) => (
-              <Card key={sku.id} className="p-6 bg-white/10 backdrop-blur border-white/20">
+              <Card key={sku.id} className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
                 <div className="flex items-start gap-4">
                   {/* Product Image */}
                   <div className="w-24 h-24 rounded-lg overflow-hidden bg-card flex-shrink-0 text-card-foreground">
@@ -279,7 +279,7 @@ export default function SKUProfitabilityDashboard() {
                         <Button
                           size="sm"
                           variant="outline"
-                          className="border-white/20 text-foreground hover:bg-white/10"
+                          className="border-white/20 text-foreground hover:bg-background/10"
                         >
                           <Eye className="w-4 h-4" />
                         </Button>
@@ -327,7 +327,7 @@ export default function SKUProfitabilityDashboard() {
                     </div>
 
                     {/* Cost Breakdown */}
-                    <div className="grid grid-cols-2 md:grid-cols-5 gap-3 p-3 bg-white/5 rounded-lg">
+                    <div className="grid grid-cols-2 md:grid-cols-5 gap-3 p-3 bg-background text-foreground/5 rounded-lg">
                       <div>
                         <p className="text-gray-400 text-xs mb-1">Shipping</p>
                         <p className="text-muted-foreground text-sm">${sku.shippingCost?.toFixed(2)}</p>
@@ -375,7 +375,7 @@ export default function SKUProfitabilityDashboard() {
             ))}
 
             {(!analytics?.skus || analytics.skus.length === 0) && (
-              <Card className="p-12 bg-white/10 backdrop-blur border-white/20 text-center">
+              <Card className="p-12 bg-background text-foreground/10 backdrop-blur border-white/20 text-center">
                 <Package className="w-16 h-16 text-gray-500 mx-auto mb-4 opacity-50" />
                 <h3 className="text-2xl font-bold text-foreground mb-2">No SKUs Found</h3>
                 <p className="text-gray-400">Try adjusting your filters or search query.</p>
@@ -394,7 +394,7 @@ export default function SKUProfitabilityDashboard() {
                 </h3>
                 <div className="space-y-3">
                   {recommendations.kill.map((rec) => (
-                    <Card key={rec.skuId} className="p-4 bg-white/5 border-white/10">
+                    <Card key={rec.skuId} className="p-4 bg-background text-foreground/5 border-white/10">
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
                           <h4 className="text-foreground font-semibold mb-1">{rec.skuName}</h4>
@@ -426,7 +426,7 @@ export default function SKUProfitabilityDashboard() {
                 </h3>
                 <div className="space-y-3">
                   {recommendations.scale.map((rec) => (
-                    <Card key={rec.skuId} className="p-4 bg-white/5 border-white/10">
+                    <Card key={rec.skuId} className="p-4 bg-background text-foreground/5 border-white/10">
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
                           <h4 className="text-foreground font-semibold mb-1">{rec.skuName}</h4>
@@ -459,7 +459,7 @@ export default function SKUProfitabilityDashboard() {
                 </h3>
                 <div className="space-y-3">
                   {recommendations.monitor.map((rec) => (
-                    <Card key={rec.skuId} className="p-4 bg-white/5 border-white/10">
+                    <Card key={rec.skuId} className="p-4 bg-background text-foreground/5 border-white/10">
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
                           <h4 className="text-foreground font-semibold mb-1">{rec.skuName}</h4>
@@ -481,7 +481,7 @@ export default function SKUProfitabilityDashboard() {
               (!recommendations.scale || recommendations.scale.length === 0) &&
               (!recommendations.monitor || recommendations.monitor.length === 0)
             )) && (
-              <Card className="p-12 bg-white/10 backdrop-blur border-white/20 text-center">
+              <Card className="p-12 bg-background text-foreground/10 backdrop-blur border-white/20 text-center">
                 <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-foreground mb-2">All Clear</h3>
                 <p className="text-gray-400">No immediate actions required. All SKUs are performing within acceptable ranges.</p>
@@ -491,7 +491,7 @@ export default function SKUProfitabilityDashboard() {
 
           {/* Trends Tab */}
           <TabsContent value="trends" className="space-y-6">
-            <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
               <h3 className="text-xl font-bold text-foreground mb-4">Profitability Trend</h3>
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={analytics?.profitabilityTrend || []}>
@@ -510,7 +510,7 @@ export default function SKUProfitabilityDashboard() {
             </Card>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+              <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
                 <h3 className="text-xl font-bold text-foreground mb-4">Top Profit Contributors</h3>
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={analytics?.topProfitContributors || []}>
@@ -526,7 +526,7 @@ export default function SKUProfitabilityDashboard() {
                 </ResponsiveContainer>
               </Card>
 
-              <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+              <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
                 <h3 className="text-xl font-bold text-foreground mb-4">Margin Distribution</h3>
                 <div className="space-y-3">
                   <div>
@@ -534,7 +534,7 @@ export default function SKUProfitabilityDashboard() {
                       <span className="text-muted-foreground">High Margin (&gt;30%)</span>
                       <span className="text-green-500 font-bold">{analytics?.marginDistribution?.high || 0} SKUs</span>
                     </div>
-                    <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-2 bg-background text-foreground/10 rounded-full overflow-hidden">
                       <div 
                         className="h-full bg-green-500" 
                         style={{ width: `${(analytics?.marginDistribution?.high || 0) / (summary?.totalSKUs || 1) * 100}%` }}
@@ -547,7 +547,7 @@ export default function SKUProfitabilityDashboard() {
                       <span className="text-muted-foreground">Medium Margin (15-30%)</span>
                       <span className="text-blue-500 font-bold">{analytics?.marginDistribution?.medium || 0} SKUs</span>
                     </div>
-                    <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-2 bg-background text-foreground/10 rounded-full overflow-hidden">
                       <div 
                         className="h-full bg-blue-500" 
                         style={{ width: `${(analytics?.marginDistribution?.medium || 0) / (summary?.totalSKUs || 1) * 100}%` }}
@@ -560,7 +560,7 @@ export default function SKUProfitabilityDashboard() {
                       <span className="text-muted-foreground">Low Margin (&lt;15%)</span>
                       <span className="text-yellow-500 font-bold">{analytics?.marginDistribution?.low || 0} SKUs</span>
                     </div>
-                    <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-2 bg-background text-foreground/10 rounded-full overflow-hidden">
                       <div 
                         className="h-full bg-yellow-500" 
                         style={{ width: `${(analytics?.marginDistribution?.low || 0) / (summary?.totalSKUs || 1) * 100}%` }}
@@ -573,7 +573,7 @@ export default function SKUProfitabilityDashboard() {
                       <span className="text-muted-foreground">Negative Margin</span>
                       <span className="text-red-500 font-bold">{analytics?.marginDistribution?.negative || 0} SKUs</span>
                     </div>
-                    <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-2 bg-background text-foreground/10 rounded-full overflow-hidden">
                       <div 
                         className="h-full bg-red-500" 
                         style={{ width: `${(analytics?.marginDistribution?.negative || 0) / (summary?.totalSKUs || 1) * 100}%` }}

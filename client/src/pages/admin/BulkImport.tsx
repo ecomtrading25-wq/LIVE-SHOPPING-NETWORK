@@ -174,7 +174,7 @@ export default function BulkImportPage() {
             className={`p-6 cursor-pointer transition-all ${
               selectedType === type.id
                 ? "bg-purple-600 border-purple-500"
-                : "bg-background/50 border-border hover:border-purple-500"
+                : "bg-background text-foreground/50 border-border hover:border-purple-500"
             }`}
             onClick={() => setSelectedType(type.id)}
           >

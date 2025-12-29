@@ -127,7 +127,7 @@ export default function PurchasingSupplierOS() {
   const COLORS = ['#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6'];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
@@ -148,7 +148,7 @@ export default function PurchasingSupplierOS() {
                 variant="outline"
                 size="sm"
                 onClick={() => refetchLots()}
-                className="border-white/20 text-foreground hover:bg-white/10"
+                className="border-white/20 text-foreground hover:bg-background/10"
               >
                 <RefreshCw className="w-4 h-4 mr-2" />
                 Refresh
@@ -156,7 +156,7 @@ export default function PurchasingSupplierOS() {
               <Button
                 variant="outline"
                 size="sm"
-                className="border-white/20 text-foreground hover:bg-white/10"
+                className="border-white/20 text-foreground hover:bg-background/10"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Export
@@ -166,7 +166,7 @@ export default function PurchasingSupplierOS() {
 
           {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
-            <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between mb-2">
                 <Package className="w-8 h-8 text-blue-500" />
                 <Badge variant="secondary">{stats?.activeLots || 0}</Badge>
@@ -175,7 +175,7 @@ export default function PurchasingSupplierOS() {
               <p className="text-foreground text-2xl font-bold">{stats?.totalLots || 0}</p>
             </Card>
 
-            <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between mb-2">
                 <DollarSign className="w-8 h-8 text-green-500" />
                 <Badge className="bg-green-600">
@@ -187,7 +187,7 @@ export default function PurchasingSupplierOS() {
               <p className="text-foreground text-2xl font-bold">${stats?.totalSpend?.toLocaleString() || "0"}</p>
             </Card>
 
-            <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between mb-2">
                 <Users className="w-8 h-8 text-purple-500" />
                 <Badge className="bg-purple-600">{stats?.activeSuppliers || 0}</Badge>
@@ -196,7 +196,7 @@ export default function PurchasingSupplierOS() {
               <p className="text-foreground text-2xl font-bold">{stats?.totalSuppliers || 0}</p>
             </Card>
 
-            <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between mb-2">
                 <Target className="w-8 h-8 text-yellow-500" />
                 <Badge className="bg-yellow-600">{stats?.avgLandedCost?.toFixed(2) || 0}</Badge>
@@ -205,7 +205,7 @@ export default function PurchasingSupplierOS() {
               <p className="text-foreground text-2xl font-bold">${stats?.totalLandedCost?.toLocaleString() || "0"}</p>
             </Card>
 
-            <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex items-center justify-between mb-2">
                 <CheckCircle className="w-8 h-8 text-emerald-500" />
                 <Badge className="bg-emerald-600">{stats?.qcPassRate?.toFixed(1) || 0}%</Badge>
@@ -219,16 +219,16 @@ export default function PurchasingSupplierOS() {
 
         {/* Main Content */}
         <Tabs value={selectedTab} onValueChange={setSelectedTab}>
-          <TabsList className="bg-white/10 backdrop-blur border-white/20 mb-6">
-            <TabsTrigger value="lots" className="data-[state=active]:bg-white/20">
+          <TabsList className="bg-background text-foreground/10 backdrop-blur border-white/20 mb-6">
+            <TabsTrigger value="lots" className="data-[state=active]:bg-background text-foreground/20">
               <Package className="w-4 h-4 mr-2" />
               Lots
             </TabsTrigger>
-            <TabsTrigger value="suppliers" className="data-[state=active]:bg-white/20">
+            <TabsTrigger value="suppliers" className="data-[state=active]:bg-background text-foreground/20">
               <Users className="w-4 h-4 mr-2" />
               Suppliers
             </TabsTrigger>
-            <TabsTrigger value="analytics" className="data-[state=active]:bg-white/20">
+            <TabsTrigger value="analytics" className="data-[state=active]:bg-background text-foreground/20">
               <BarChart3 className="w-4 h-4 mr-2" />
               Analytics
             </TabsTrigger>
@@ -237,7 +237,7 @@ export default function PurchasingSupplierOS() {
           {/* Lots Tab */}
           <TabsContent value="lots" className="space-y-6">
             {/* Filters */}
-            <Card className="p-4 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-4 bg-background text-foreground/10 backdrop-blur border-white/20">
               <div className="flex flex-wrap items-center gap-4">
                 <div className="flex-1 min-w-[200px]">
                   <div className="relative">
@@ -246,13 +246,13 @@ export default function PurchasingSupplierOS() {
                       placeholder="Search lots..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-10 bg-white/5 border-white/20 text-foreground placeholder:text-gray-400"
+                      className="pl-10 bg-background/5 border-white/20 text-foreground placeholder:text-gray-400"
                     />
                   </div>
                 </div>
 
                 <Select value={filterStatus} onValueChange={setFilterStatus}>
-                  <SelectTrigger className="w-[160px] bg-white/5 border-white/20 text-foreground">
+                  <SelectTrigger className="w-[160px] bg-background/5 border-white/20 text-foreground">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -272,7 +272,7 @@ export default function PurchasingSupplierOS() {
             {/* Lots List */}
             <div className="space-y-4">
               {lots?.map((lot) => (
-                <Card key={lot.id} className="p-6 bg-white/10 backdrop-blur border-white/20">
+                <Card key={lot.id} className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
                   <div className="flex items-start gap-4">
                     {/* Product Image */}
                     <div className="w-24 h-24 rounded-lg overflow-hidden bg-card flex-shrink-0 text-card-foreground">
@@ -346,7 +346,7 @@ export default function PurchasingSupplierOS() {
                             size="sm"
                             variant="outline"
                             onClick={() => setSelectedLot(lot)}
-                            className="border-white/20 text-foreground hover:bg-white/10"
+                            className="border-white/20 text-foreground hover:bg-background/10"
                           >
                             <Eye className="w-4 h-4" />
                           </Button>
@@ -387,7 +387,7 @@ export default function PurchasingSupplierOS() {
                       </div>
 
                       {/* Cost Breakdown */}
-                      <div className="grid grid-cols-2 md:grid-cols-5 gap-3 p-3 bg-white/5 rounded-lg">
+                      <div className="grid grid-cols-2 md:grid-cols-5 gap-3 p-3 bg-background text-foreground/5 rounded-lg">
                         <div>
                           <p className="text-gray-400 text-xs mb-1">Product Cost</p>
                           <p className="text-muted-foreground text-sm">${lot.productCost?.toLocaleString()}</p>
@@ -435,7 +435,7 @@ export default function PurchasingSupplierOS() {
               ))}
 
               {(!lots || lots.length === 0) && (
-                <Card className="p-12 bg-white/10 backdrop-blur border-white/20 text-center">
+                <Card className="p-12 bg-background text-foreground/10 backdrop-blur border-white/20 text-center">
                   <Package className="w-16 h-16 text-gray-500 mx-auto mb-4 opacity-50" />
                   <h3 className="text-2xl font-bold text-foreground mb-2">No Lots Found</h3>
                   <p className="text-gray-400 mb-4">Create your first purchase lot to get started.</p>
@@ -452,7 +452,7 @@ export default function PurchasingSupplierOS() {
           <TabsContent value="suppliers" className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {suppliers?.map((supplier) => (
-                <Card key={supplier.id} className="p-6 bg-white/10 backdrop-blur border-white/20">
+                <Card key={supplier.id} className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <h3 className="text-foreground font-bold text-lg mb-1">{supplier.name}</h3>
@@ -526,7 +526,7 @@ export default function PurchasingSupplierOS() {
                       size="sm"
                       variant="outline"
                       onClick={() => setSelectedSupplier(supplier)}
-                      className="flex-1 border-white/20 text-foreground hover:bg-white/10"
+                      className="flex-1 border-white/20 text-foreground hover:bg-background/10"
                     >
                       <Eye className="w-4 h-4 mr-1" />
                       View Details
@@ -542,7 +542,7 @@ export default function PurchasingSupplierOS() {
               ))}
 
               {(!suppliers || suppliers.length === 0) && (
-                <Card className="p-12 bg-white/10 backdrop-blur border-white/20 text-center col-span-full">
+                <Card className="p-12 bg-background text-foreground/10 backdrop-blur border-white/20 text-center col-span-full">
                   <Users className="w-16 h-16 text-gray-500 mx-auto mb-4 opacity-50" />
                   <h3 className="text-2xl font-bold text-foreground mb-2">No Suppliers Found</h3>
                   <p className="text-gray-400">Add suppliers to start managing your supply chain.</p>
@@ -554,7 +554,7 @@ export default function PurchasingSupplierOS() {
           {/* Analytics Tab */}
           <TabsContent value="analytics" className="space-y-6">
             {/* Spend Trend */}
-            <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
               <h3 className="text-xl font-bold text-foreground mb-4">Purchasing Spend Trend</h3>
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={stats?.spendTrend || []}>
@@ -574,7 +574,7 @@ export default function PurchasingSupplierOS() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Top Suppliers by Spend */}
-              <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+              <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
                 <h3 className="text-xl font-bold text-foreground mb-4">Top Suppliers by Spend</h3>
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={stats?.topSuppliers || []}>
@@ -591,7 +591,7 @@ export default function PurchasingSupplierOS() {
               </Card>
 
               {/* Cost Breakdown */}
-              <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+              <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
                 <h3 className="text-xl font-bold text-foreground mb-4">Cost Breakdown</h3>
                 <ResponsiveContainer width="100%" height={300}>
                   <PieChart>
@@ -618,11 +618,11 @@ export default function PurchasingSupplierOS() {
             </div>
 
             {/* QC Performance */}
-            <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
+            <Card className="p-6 bg-background text-foreground/10 backdrop-blur border-white/20">
               <h3 className="text-xl font-bold text-foreground mb-4">QC Performance by Supplier</h3>
               <div className="space-y-3">
                 {stats?.qcBySupplier?.map((supplier: any) => (
-                  <div key={supplier.id} className="p-4 bg-white/5 rounded-lg">
+                  <div key={supplier.id} className="p-4 bg-background text-foreground/5 rounded-lg">
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-foreground font-semibold">{supplier.name}</span>
                       <span className={`font-bold ${
@@ -633,7 +633,7 @@ export default function PurchasingSupplierOS() {
                         {supplier.passRate?.toFixed(1)}%
                       </span>
                     </div>
-                    <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-2 bg-background text-foreground/10 rounded-full overflow-hidden">
                       <div 
                         className={`h-full ${
                           supplier.passRate >= 95 ? "bg-green-500" :

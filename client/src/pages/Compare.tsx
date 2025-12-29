@@ -76,7 +76,7 @@ export default function ComparePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-zinc-900 to-black py-12">
+    <div className="min-h-screen bg-background text-foreground py-12">
       <div className="container mx-auto px-4">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-foreground mb-2">Compare Products</h1>
@@ -134,7 +134,7 @@ export default function ComparePage() {
             <table className="w-full border-collapse">
               <thead>
                 <tr>
-                  <th className="p-4 text-left bg-background/50 border border-border text-gray-400 font-medium">
+                  <th className="p-4 text-left bg-background text-foreground/50 border border-border text-gray-400 font-medium">
                     Feature
                   </th>
                   {comparisonProducts.map((product) => (
@@ -165,13 +165,13 @@ export default function ComparePage() {
               <tbody>
                 {/* Price */}
                 <tr>
-                  <td className="p-4 bg-background/30 border border-border text-muted-foreground font-medium">
+                  <td className="p-4 bg-background text-foreground/30 border border-border text-muted-foreground font-medium">
                     Price
                   </td>
                   {comparisonProducts.map((product) => (
                     <td
                       key={product.id}
-                      className="p-4 bg-background/30 border border-border text-center"
+                      className="p-4 bg-background text-foreground/30 border border-border text-center"
                     >
                       <div>
                         <span className="text-2xl font-bold text-foreground">
@@ -189,13 +189,13 @@ export default function ComparePage() {
 
                 {/* Rating */}
                 <tr>
-                  <td className="p-4 bg-background/30 border border-border text-muted-foreground font-medium">
+                  <td className="p-4 bg-background text-foreground/30 border border-border text-muted-foreground font-medium">
                     Rating
                   </td>
                   {comparisonProducts.map((product) => (
                     <td
                       key={product.id}
-                      className="p-4 bg-background/30 border border-border text-center"
+                      className="p-4 bg-background text-foreground/30 border border-border text-center"
                     >
                       <div className="flex items-center justify-center gap-1">
                         {[1, 2, 3, 4, 5].map((star) => (
@@ -212,13 +212,13 @@ export default function ComparePage() {
 
                 {/* Stock Status */}
                 <tr>
-                  <td className="p-4 bg-background/30 border border-border text-muted-foreground font-medium">
+                  <td className="p-4 bg-background text-foreground/30 border border-border text-muted-foreground font-medium">
                     Availability
                   </td>
                   {comparisonProducts.map((product) => (
                     <td
                       key={product.id}
-                      className="p-4 bg-background/30 border border-border text-center"
+                      className="p-4 bg-background text-foreground/30 border border-border text-center"
                     >
                       <Badge
                         variant={product.status === "active" ? "default" : "secondary"}
@@ -231,13 +231,13 @@ export default function ComparePage() {
 
                 {/* Description */}
                 <tr>
-                  <td className="p-4 bg-background/30 border border-border text-muted-foreground font-medium">
+                  <td className="p-4 bg-background text-foreground/30 border border-border text-muted-foreground font-medium">
                     Description
                   </td>
                   {comparisonProducts.map((product) => (
                     <td
                       key={product.id}
-                      className="p-4 bg-background/30 border border-border text-muted-foreground text-sm"
+                      className="p-4 bg-background text-foreground/30 border border-border text-muted-foreground text-sm"
                     >
                       {product.description || "No description available"}
                     </td>
@@ -246,13 +246,13 @@ export default function ComparePage() {
 
                 {/* SKU */}
                 <tr>
-                  <td className="p-4 bg-background/30 border border-border text-muted-foreground font-medium">
+                  <td className="p-4 bg-background text-foreground/30 border border-border text-muted-foreground font-medium">
                     SKU
                   </td>
                   {comparisonProducts.map((product) => (
                     <td
                       key={product.id}
-                      className="p-4 bg-background/30 border border-border text-center text-muted-foreground font-mono text-sm"
+                      className="p-4 bg-background text-foreground/30 border border-border text-center text-muted-foreground font-mono text-sm"
                     >
                       {product.sku || "—"}
                     </td>
@@ -265,7 +265,7 @@ export default function ComparePage() {
                   {comparisonProducts.map((product) => (
                     <td
                       key={product.id}
-                      className="p-4 bg-background/30 border border-border text-center"
+                      className="p-4 bg-background text-foreground/30 border border-border text-center"
                     >
                       <Button
                         className="w-full bg-purple-600 hover:bg-purple-700"
@@ -281,7 +281,7 @@ export default function ComparePage() {
             </table>
           </div>
         ) : (
-          <Card className="p-12 bg-background/50 border-border text-center">
+          <Card className="p-12 bg-background text-foreground/50 border-border text-center">
             <div className="max-w-md mx-auto">
               <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Search className="w-8 h-8 text-purple-400" />

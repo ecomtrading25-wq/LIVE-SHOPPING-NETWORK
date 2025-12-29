@@ -52,9 +52,9 @@ export default function ReferralsPage() {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-zinc-900 to-black py-12">
+      <div className="min-h-screen bg-background text-foreground py-12">
         <div className="container mx-auto px-4">
-          <Card className="max-w-md mx-auto p-8 bg-background/50 border-border text-center">
+          <Card className="max-w-md mx-auto p-8 bg-background text-foreground/50 border-border text-center">
             <Users className="w-16 h-16 text-purple-500 mx-auto mb-4" />
             <h2 className="text-2xl font-bold text-foreground mb-4">
               Sign In to Access Referrals
@@ -72,7 +72,7 @@ export default function ReferralsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-zinc-900 to-black py-12">
+    <div className="min-h-screen bg-background text-foreground py-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
@@ -161,11 +161,11 @@ export default function ReferralsPage() {
                 type="text"
                 value={referralLink}
                 readOnly
-                className="flex-1 bg-white/20 border-white/30 text-foreground text-lg font-mono"
+                className="flex-1 bg-background/20 border-white/30 text-foreground text-lg font-mono"
               />
               <Button
                 onClick={handleCopyLink}
-                className="bg-white text-purple-600 hover:bg-gray-100 px-8"
+                className="bg-background text-foreground text-purple-600 hover:bg-gray-100 px-8"
               >
                 {copied ? (
                   <>
@@ -184,14 +184,14 @@ export default function ReferralsPage() {
             <div className="flex justify-center gap-4">
               <Button
                 onClick={handleShareEmail}
-                className="bg-white/20 hover:bg-white/30 text-foreground border border-white/30"
+                className="bg-background/20 hover:bg-background/30 text-foreground border border-white/30"
               >
                 <Mail className="w-5 h-5 mr-2" />
                 Share via Email
               </Button>
               <Button
                 onClick={handleShareSMS}
-                className="bg-white/20 hover:bg-white/30 text-foreground border border-white/30"
+                className="bg-background/20 hover:bg-background/30 text-foreground border border-white/30"
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Share via SMS
@@ -208,7 +208,7 @@ export default function ReferralsPage() {
                     handleCopyLink();
                   }
                 }}
-                className="bg-white/20 hover:bg-white/30 text-foreground border border-white/30"
+                className="bg-background/20 hover:bg-background/30 text-foreground border border-white/30"
               >
                 <Share2 className="w-5 h-5 mr-2" />
                 Share

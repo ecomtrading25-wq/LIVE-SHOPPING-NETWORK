@@ -218,7 +218,7 @@ export default function SubscriptionManagePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 py-12">
+    <div className="min-h-screen bg-background text-foreground py-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-8">
@@ -230,7 +230,7 @@ export default function SubscriptionManagePage() {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
             {/* Subscription Overview */}
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <div className="flex items-start justify-between mb-6">
                 <div>
                   <h2 className="text-2xl font-bold text-foreground mb-2">{subscription.name}</h2>
@@ -322,11 +322,11 @@ export default function SubscriptionManagePage() {
             </Card>
 
             {/* Upcoming Deliveries */}
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h2 className="text-2xl font-bold text-foreground mb-6">Upcoming Deliveries</h2>
               <div className="space-y-6">
                 {upcomingDeliveries.map((delivery) => (
-                  <Card key={delivery.id} className="p-6 bg-white/5 border-white/10">
+                  <Card key={delivery.id} className="p-6 bg-background text-foreground/5 border-white/10">
                     <div className="flex items-center justify-between mb-4">
                       <div>
                         <p className="text-foreground font-bold text-lg">
@@ -390,7 +390,7 @@ export default function SubscriptionManagePage() {
             </Card>
 
             {/* Preferences */}
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-bold text-foreground">Preferences</h2>
                 <Button
@@ -413,7 +413,7 @@ export default function SubscriptionManagePage() {
                         className={`cursor-pointer ${
                           subscription.preferences.categories.includes(category)
                             ? "bg-purple-500/30 text-purple-400 border-purple-500/50"
-                            : "bg-white/10 text-gray-400 border-white/20"
+                            : "bg-background text-foreground/10 text-gray-400 border-white/20"
                         }`}
                         onClick={() => isEditingPreferences && handleToggleCategory(category)}
                       >
@@ -434,7 +434,7 @@ export default function SubscriptionManagePage() {
                         type="number"
                         value={subscription.preferences.priceRange.min}
                         disabled={!isEditingPreferences}
-                        className="bg-white/10 border-white/20 text-foreground"
+                        className="bg-background/10 border-white/20 text-foreground"
                       />
                     </div>
                     <span className="text-gray-400">to</span>
@@ -443,7 +443,7 @@ export default function SubscriptionManagePage() {
                         type="number"
                         value={subscription.preferences.priceRange.max}
                         disabled={!isEditingPreferences}
-                        className="bg-white/10 border-white/20 text-foreground"
+                        className="bg-background/10 border-white/20 text-foreground"
                       />
                     </div>
                   </div>
@@ -459,7 +459,7 @@ export default function SubscriptionManagePage() {
                       </Badge>
                     ))}
                     {isEditingPreferences && (
-                      <Badge className="bg-white/10 text-gray-400 border-white/20 cursor-pointer">
+                      <Badge className="bg-background text-foreground/10 text-gray-400 border-white/20 cursor-pointer">
                         <Plus className="w-3 h-3 mr-1" />
                         Add
                       </Badge>
@@ -473,7 +473,7 @@ export default function SubscriptionManagePage() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Stats */}
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h3 className="text-xl font-bold text-foreground mb-4">Subscription Stats</h3>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
@@ -515,11 +515,11 @@ export default function SubscriptionManagePage() {
             </Card>
 
             {/* Payment Method */}
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h3 className="text-xl font-bold text-foreground mb-4">Payment Method</h3>
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div className="p-3 bg-white/10 rounded-lg">
+                  <div className="p-3 bg-background text-foreground/10 rounded-lg">
                     <CreditCard className="w-6 h-6 text-purple-400" />
                   </div>
                   <div>

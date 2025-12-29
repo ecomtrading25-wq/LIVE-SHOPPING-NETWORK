@@ -68,7 +68,7 @@ export default function LiveShopping() {
                 {/* Video placeholder */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center space-y-4">
-                    <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mx-auto">
+                    <div className="w-24 h-24 bg-background text-foreground/10 rounded-full flex items-center justify-center mx-auto">
                       <svg className="w-12 h-12 text-foreground" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
                       </svg>
@@ -91,13 +91,13 @@ export default function LiveShopping() {
                       </p>
                     </div>
                     <div className="flex gap-2">
-                      <Button size="sm" variant="outline" className="border-white/30 text-foreground hover:bg-white/10">
+                      <Button size="sm" variant="outline" className="border-white/30 text-foreground hover:bg-background/10">
                         🔊
                       </Button>
-                      <Button size="sm" variant="outline" className="border-white/30 text-foreground hover:bg-white/10">
+                      <Button size="sm" variant="outline" className="border-white/30 text-foreground hover:bg-background/10">
                         ⚙️
                       </Button>
-                      <Button size="sm" variant="outline" className="border-white/30 text-foreground hover:bg-white/10">
+                      <Button size="sm" variant="outline" className="border-white/30 text-foreground hover:bg-background/10">
                         ⛶
                       </Button>
                     </div>

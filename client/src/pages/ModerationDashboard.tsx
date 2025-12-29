@@ -127,7 +127,7 @@ export default function ModerationDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50 py-8">
+    <div className="min-h-screen bg-background text-foreground py-8">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-8">
@@ -220,7 +220,7 @@ export default function ModerationDashboard() {
                 {reports.map((report: any) => (
                   <div
                     key={report.id}
-                    className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
+                    className="flex items-center justify-between p-4 bg-background text-foreground rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
                     onClick={() => setSelectedReport(report)}
                   >
                     <div className="flex items-center gap-4 flex-1">
@@ -303,7 +303,7 @@ export default function ModerationDashboard() {
             </DialogHeader>
             {selectedReport && (
               <div className="space-y-4 mt-4">
-                <div className="bg-gray-50 rounded-lg p-4">
+                <div className="bg-background text-foreground rounded-lg p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Badge className={`${getSeverityColor(selectedReport.severity)} text-foreground`}>
                       {selectedReport.severity}
@@ -313,7 +313,7 @@ export default function ModerationDashboard() {
                   <h3 className="font-bold text-lg mb-2">{selectedReport.title}</h3>
                   <p className="text-gray-700 mb-3">{selectedReport.description}</p>
                   {selectedReport.content && (
-                    <div className="bg-white rounded p-3 border border-gray-200">
+                    <div className="bg-background text-foreground rounded p-3 border border-gray-200">
                       <p className="text-sm font-medium text-gray-500 mb-1">Reported Content:</p>
                       <p className="text-sm">{selectedReport.content}</p>
                     </div>

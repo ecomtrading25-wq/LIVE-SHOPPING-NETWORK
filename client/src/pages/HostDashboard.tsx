@@ -288,7 +288,7 @@ export default function HostDashboard() {
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
                         <Badge variant="destructive" className="animate-pulse">
-                          <span className="w-2 h-2 bg-white rounded-full mr-1"></span>
+                          <span className="w-2 h-2 bg-background text-foreground rounded-full mr-1"></span>
                           LIVE
                         </Badge>
                         <h3 className="text-xl font-bold">{show.title}</h3>

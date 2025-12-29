@@ -332,7 +332,7 @@ export default function LiveViewer() {
             <div className="absolute top-0 left-0 right-0 p-4 flex items-center justify-between pointer-events-auto">
               <div className="flex items-center gap-3">
                 <Badge variant="destructive" className="animate-pulse">
-                  <div className="w-2 h-2 bg-white rounded-full mr-2" />
+                  <div className="w-2 h-2 bg-background text-foreground rounded-full mr-2" />
                   LIVE
                 </Badge>
                 <div className="flex items-center gap-2 bg-background/50 backdrop-blur-sm px-3 py-1.5 rounded-full text-foreground">
@@ -420,12 +420,12 @@ export default function LiveViewer() {
                 <Button
                   size="icon"
                   variant="ghost"
-                  className={`bg-background/50 backdrop-blur-sm hover:bg-background/70 ${hasLiked ? 'text-red-500' : ''}`}
+                  className={`bg-background text-foreground/50 backdrop-blur-sm hover:bg-background text-foreground/70 ${hasLiked ? 'text-red-500' : ''}`}
                   onClick={handleLike}
                 >
                   <Heart className={`w-5 h-5 ${hasLiked ? 'fill-current' : ''}`} />
                 </Button>
-                <span className="text-sm font-medium bg-background/50 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                <span className="text-sm font-medium bg-background text-foreground/50 backdrop-blur-sm px-3 py-1.5 rounded-full">
                   {likeCount}
                 </span>
               </div>

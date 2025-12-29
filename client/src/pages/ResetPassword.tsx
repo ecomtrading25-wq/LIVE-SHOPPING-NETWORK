@@ -42,8 +42,8 @@ export default function ResetPasswordPage() {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 flex items-center justify-center p-4">
-        <Card className="w-full max-w-md p-8 bg-white/10 backdrop-blur-xl border-white/20 text-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
+        <Card className="w-full max-w-md p-8 bg-background text-foreground/10 backdrop-blur-xl border-white/20 text-center">
           <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
             <CheckCircle className="w-8 h-8 text-green-500" />
           </div>
@@ -59,8 +59,8 @@ export default function ResetPasswordPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md p-8 bg-white/10 backdrop-blur-xl border-white/20">
+    <div className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
+      <Card className="w-full max-w-md p-8 bg-background text-foreground/10 backdrop-blur-xl border-white/20">
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
             <Lock className="w-8 h-8 text-foreground" />
@@ -83,14 +83,14 @@ export default function ResetPasswordPage() {
                   setPasswordData({ ...passwordData, password: e.target.value })
                 }
                 placeholder="••••••••"
-                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
+                className="pl-10 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400"
                 required
               />
             </div>
             {passwordData.password && (
               <div className="mt-2">
                 <div className="flex items-center gap-2 mb-1">
-                  <div className="flex-1 h-2 bg-white/10 rounded-full overflow-hidden">
+                  <div className="flex-1 h-2 bg-background text-foreground/10 rounded-full overflow-hidden">
                     <div
                       className={`h-full transition-all ${
                         passwordStrength === "weak"
@@ -120,7 +120,7 @@ export default function ResetPasswordPage() {
                   setPasswordData({ ...passwordData, confirmPassword: e.target.value })
                 }
                 placeholder="••••••••"
-                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
+                className="pl-10 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400"
                 required
               />
               {passwordData.confirmPassword && (

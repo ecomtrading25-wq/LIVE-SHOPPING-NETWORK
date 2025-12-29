@@ -186,7 +186,7 @@ export default function DisputeManagementConsole() {
         </div>
 
         {/* Filters and Search */}
-        <Card className="bg-white/5 border-white/10 p-6 mb-6">
+        <Card className="bg-background text-foreground/5 border-white/10 p-6 mb-6">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1">
               <div className="relative">
@@ -195,13 +195,13 @@ export default function DisputeManagementConsole() {
                   placeholder="Search by order ID, case ID, or customer..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 bg-white/5 border-white/10 text-foreground"
+                  className="pl-10 bg-background/5 border-white/10 text-foreground"
                 />
               </div>
             </div>
 
             <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="w-[200px] bg-white/5 border-white/10 text-foreground">
+              <SelectTrigger className="w-[200px] bg-background/5 border-white/10 text-foreground">
                 <Filter className="w-4 h-4 mr-2" />
                 <SelectValue placeholder="Filter by status" />
               </SelectTrigger>
@@ -220,7 +220,7 @@ export default function DisputeManagementConsole() {
 
             <Button
               variant="outline"
-              className="border-white/20 text-foreground hover:bg-white/10"
+              className="border-white/20 text-foreground hover:bg-background/10"
               onClick={() => refetch()}
             >
               Refresh
@@ -241,7 +241,7 @@ export default function DisputeManagementConsole() {
               return (
                 <Card
                   key={dispute.id}
-                  className="bg-white/5 border-white/10 hover:bg-white/10 transition-colors p-6"
+                  className="bg-background text-foreground/5 border-white/10 hover:bg-background text-foreground/10 transition-colors p-6"
                 >
                   <div className="flex flex-col lg:flex-row gap-6">
                     {/* Left: Main Info */}
@@ -261,7 +261,7 @@ export default function DisputeManagementConsole() {
                                 MANUAL REVIEW
                               </Badge>
                             )}
-                            <Badge className={`${priority.color} bg-white/10`}>
+                            <Badge className={`${priority.color} bg-background text-foreground/10`}>
                               {priority.level}
                             </Badge>
                           </div>
@@ -301,7 +301,7 @@ export default function DisputeManagementConsole() {
 
                       {/* Evidence Pack Status */}
                       {dispute.evidencePack && (
-                        <div className="bg-white/5 rounded-lg p-4 mb-4">
+                        <div className="bg-background text-foreground/5 rounded-lg p-4 mb-4">
                           <div className="flex items-center justify-between mb-2">
                             <span className="text-foreground font-semibold flex items-center gap-2">
                               <FileText className="w-4 h-4" />
@@ -381,7 +381,7 @@ export default function DisputeManagementConsole() {
                               {dispute.evidencePack && (
                                 <div>
                                   <h4 className="text-foreground font-semibold mb-3">Evidence Pack</h4>
-                                  <div className="bg-white/5 rounded-lg p-4 space-y-3">
+                                  <div className="bg-background text-foreground/5 rounded-lg p-4 space-y-3">
                                     <div>
                                       <span className="text-gray-400 text-sm">Tracking Number:</span>
                                       <p className="text-foreground">{dispute.evidencePack.trackingNumber || "N/A"}</p>
@@ -496,7 +496,7 @@ export default function DisputeManagementConsole() {
                       <Button
                         size="sm"
                         variant="outline"
-                        className="w-full border-white/20 text-foreground hover:bg-white/10"
+                        className="w-full border-white/20 text-foreground hover:bg-background/10"
                       >
                         <Package className="w-4 h-4 mr-2" />
                         View Order
@@ -504,7 +504,7 @@ export default function DisputeManagementConsole() {
                       <Button
                         size="sm"
                         variant="outline"
-                        className="w-full border-white/20 text-foreground hover:bg-white/10"
+                        className="w-full border-white/20 text-foreground hover:bg-background/10"
                       >
                         <MessageSquare className="w-4 h-4 mr-2" />
                         Add Note
@@ -516,7 +516,7 @@ export default function DisputeManagementConsole() {
             })}
           </div>
         ) : (
-          <Card className="bg-white/5 border-white/10 p-12 text-center">
+          <Card className="bg-background text-foreground/5 border-white/10 p-12 text-center">
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-foreground mb-2">
               No disputes found

@@ -124,7 +124,7 @@ export default function PerformancePage() {
       case "low":
         return "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400";
       default:
-        return "bg-zinc-100 text-zinc-800 dark:bg-background/20 dark:text-zinc-400";
+        return "bg-zinc-100 text-zinc-800 dark:bg-background text-foreground/20 dark:text-zinc-400";
     }
   };
 
@@ -163,7 +163,7 @@ export default function PerformancePage() {
           </div>
 
           <Badge className={getStatusColor(metrics.systemHealth)}>
-            <span className="inline-block w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></span>
+            <span className="inline-block w-2 h-2 bg-background text-foreground rounded-full mr-2 animate-pulse"></span>
             {metrics.systemHealth === "healthy" && "All Systems Operational"}
             {metrics.systemHealth === "degraded" && "Degraded Performance"}
             {metrics.systemHealth === "down" && "System Down"}

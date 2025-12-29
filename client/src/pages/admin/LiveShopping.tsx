@@ -175,7 +175,7 @@ function SessionRow({ session, onUpdate }: { session: any; onUpdate: () => void 
       case "live":
         return (
           <Badge className="bg-red-600 animate-pulse">
-            <div className="w-2 h-2 bg-white rounded-full mr-2" />
+            <div className="w-2 h-2 bg-background text-foreground rounded-full mr-2" />
             LIVE
           </Badge>
         );

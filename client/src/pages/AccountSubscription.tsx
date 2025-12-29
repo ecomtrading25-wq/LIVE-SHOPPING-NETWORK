@@ -177,8 +177,8 @@ export default function AccountSubscriptionPage() {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 flex items-center justify-center p-4">
-        <Card className="max-w-md w-full p-8 bg-white/5 border-white/10 text-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
+        <Card className="max-w-md w-full p-8 bg-background text-foreground/5 border-white/10 text-center">
           <CreditCard className="w-16 h-16 text-gray-400 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-foreground mb-4">
             Sign In Required
@@ -197,7 +197,7 @@ export default function AccountSubscriptionPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="bg-background/30 border-b border-white/10 backdrop-blur-sm sticky top-0 z-10 text-foreground">
         <div className="container mx-auto px-4 py-4">
@@ -219,7 +219,7 @@ export default function AccountSubscriptionPage() {
       <div className="container mx-auto px-4 py-8">
         {/* Current Subscription */}
         {subscription && (
-          <Card className="p-6 bg-white/5 border-white/10 mb-8">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10 mb-8">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-2xl font-bold text-foreground">
                 Current Subscription
@@ -321,7 +321,7 @@ export default function AccountSubscriptionPage() {
               {plans?.map((plan) => (
                 <Card
                   key={plan.id}
-                  className={`p-6 bg-white/5 border-white/10 hover:border-purple-500/50 transition-all ${
+                  className={`p-6 bg-background text-foreground/5 border-white/10 hover:border-purple-500/50 transition-all ${
                     subscription?.planId === plan.id
                       ? "border-purple-500 ring-2 ring-purple-500/20"
                       : ""
@@ -384,7 +384,7 @@ export default function AccountSubscriptionPage() {
 
         {/* Billing History */}
         {billingHistory && billingHistory.length > 0 && (
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <h2 className="text-2xl font-bold text-foreground mb-6">
               Billing History
             </h2>

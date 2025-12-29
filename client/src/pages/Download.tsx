@@ -70,7 +70,7 @@ export default function DownloadPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-zinc-900 to-black">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -136,10 +136,10 @@ export default function DownloadPage() {
             {/* Phone Frame */}
             <div className="relative mx-auto w-80 h-[640px] bg-background rounded-[3rem] border-8 border-border shadow-2xl overflow-hidden text-foreground">
               {/* Notch */}
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-40 h-6 bg-background rounded-b-3xl z-10"></div>
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-40 h-6 bg-background text-foreground rounded-b-3xl z-10"></div>
               
               {/* Screen Content - Homepage Preview */}
-              <div className="w-full h-full bg-gradient-to-br from-purple-900 via-zinc-900 to-black overflow-hidden">
+              <div className="w-full h-full bg-background text-foreground overflow-hidden">
                 {/* Mini Header */}
                 <div className="px-6 py-8 flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -158,8 +158,8 @@ export default function DownloadPage() {
                         <div className="flex items-center gap-3">
                           <div className="w-12 h-12 bg-purple-600 rounded-lg"></div>
                           <div className="flex-1">
-                            <div className="h-3 bg-white/80 rounded w-24 mb-1"></div>
-                            <div className="h-2 bg-white/60 rounded w-16"></div>
+                            <div className="h-3 bg-background text-foreground/80 rounded w-24 mb-1"></div>
+                            <div className="h-2 bg-background text-foreground/60 rounded w-16"></div>
                           </div>
                           <div className="px-3 py-1 bg-purple-600 rounded text-foreground text-xs font-bold">
                             BUY
@@ -186,7 +186,7 @@ export default function DownloadPage() {
             </div>
 
             {/* QR Code Card */}
-            <Card className="absolute -right-8 top-1/2 transform -translate-y-1/2 p-6 bg-white shadow-2xl hidden lg:block">
+            <Card className="absolute -right-8 top-1/2 transform -translate-y-1/2 p-6 bg-background text-foreground shadow-2xl hidden lg:block">
               <div className="text-center">
                 <QrCode className="w-32 h-32 mx-auto mb-3 text-zinc-900" />
                 <p className="text-sm font-medium text-zinc-900">Scan to Download</p>
@@ -236,7 +236,7 @@ export default function DownloadPage() {
               <div className="space-y-4">
                 {benefits.map((benefit, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-6 h-6 bg-background text-foreground rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Check className="w-4 h-4 text-purple-600" />
                     </div>
                     <p className="text-foreground text-lg">{benefit}</p>
@@ -246,7 +246,7 @@ export default function DownloadPage() {
             </div>
 
             <div className="text-center">
-              <div className="inline-block p-8 bg-white rounded-3xl shadow-2xl">
+              <div className="inline-block p-8 bg-background text-foreground rounded-3xl shadow-2xl">
                 <QrCode className="w-64 h-64 text-zinc-900" />
                 <p className="text-zinc-900 font-bold text-xl mt-4">
                   Scan to Download Now

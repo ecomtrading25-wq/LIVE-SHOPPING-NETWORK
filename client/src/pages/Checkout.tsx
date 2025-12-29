@@ -164,8 +164,8 @@ function CheckoutForm() {
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 flex items-center justify-center">
-        <Card className="p-12 bg-white/5 border-white/10 text-center max-w-md">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
+        <Card className="p-12 bg-background text-foreground/5 border-white/10 text-center max-w-md">
           <AlertCircle className="w-16 h-16 text-yellow-500 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-foreground mb-2">Cart is Empty</h2>
           <p className="text-gray-400 mb-6">
@@ -180,7 +180,7 @@ function CheckoutForm() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-12">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-foreground mb-2">Checkout</h1>
@@ -192,7 +192,7 @@ function CheckoutForm() {
             {/* Left Column - Forms */}
             <div className="lg:col-span-2 space-y-6">
               {/* Customer Information */}
-              <Card className="p-6 bg-white/5 border-white/10">
+              <Card className="p-6 bg-background text-foreground/5 border-white/10">
                 <div className="flex items-center gap-3 mb-6">
                   <User className="w-6 h-6 text-purple-400" />
                   <h2 className="text-2xl font-bold text-foreground">Customer Information</h2>
@@ -207,7 +207,7 @@ function CheckoutForm() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="bg-white/10 border-white/20 text-foreground"
+                      className="bg-background/10 border-white/20 text-foreground"
                       placeholder="John Doe"
                     />
                   </div>
@@ -221,7 +221,7 @@ function CheckoutForm() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="bg-white/10 border-white/20 text-foreground"
+                      className="bg-background/10 border-white/20 text-foreground"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -234,7 +234,7 @@ function CheckoutForm() {
                       type="tel"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="bg-white/10 border-white/20 text-foreground"
+                      className="bg-background/10 border-white/20 text-foreground"
                       placeholder="+1 (555) 123-4567"
                     />
                   </div>
@@ -242,7 +242,7 @@ function CheckoutForm() {
               </Card>
 
               {/* Shipping Address */}
-              <Card className="p-6 bg-white/5 border-white/10">
+              <Card className="p-6 bg-background text-foreground/5 border-white/10">
                 <div className="flex items-center gap-3 mb-6">
                   <MapPin className="w-6 h-6 text-purple-400" />
                   <h2 className="text-2xl font-bold text-foreground">Shipping Address</h2>
@@ -257,7 +257,7 @@ function CheckoutForm() {
                       value={formData.address}
                       onChange={handleInputChange}
                       required
-                      className="bg-white/10 border-white/20 text-foreground"
+                      className="bg-background/10 border-white/20 text-foreground"
                       placeholder="123 Main St"
                     />
                   </div>
@@ -271,7 +271,7 @@ function CheckoutForm() {
                         value={formData.city}
                         onChange={handleInputChange}
                         required
-                        className="bg-white/10 border-white/20 text-foreground"
+                        className="bg-background/10 border-white/20 text-foreground"
                         placeholder="San Francisco"
                       />
                     </div>
@@ -283,7 +283,7 @@ function CheckoutForm() {
                         name="state"
                         value={formData.state}
                         onChange={handleInputChange}
-                        className="bg-white/10 border-white/20 text-foreground"
+                        className="bg-background/10 border-white/20 text-foreground"
                         placeholder="CA"
                       />
                     </div>
@@ -296,7 +296,7 @@ function CheckoutForm() {
                         value={formData.zipCode}
                         onChange={handleInputChange}
                         required
-                        className="bg-white/10 border-white/20 text-foreground"
+                        className="bg-background/10 border-white/20 text-foreground"
                         placeholder="94102"
                       />
                     </div>
@@ -305,7 +305,7 @@ function CheckoutForm() {
               </Card>
 
               {/* Payment Information */}
-              <Card className="p-6 bg-white/5 border-white/10">
+              <Card className="p-6 bg-background text-foreground/5 border-white/10">
                 <div className="flex items-center gap-3 mb-6">
                   <CreditCard className="w-6 h-6 text-purple-400" />
                   <h2 className="text-2xl font-bold text-foreground">Payment Information</h2>
@@ -313,7 +313,7 @@ function CheckoutForm() {
 
                 <div className="mb-4">
                   <Label className="text-foreground mb-2 block">Card Details *</Label>
-                  <div className="p-4 bg-white/10 border border-white/20 rounded-lg">
+                  <div className="p-4 bg-background text-foreground/10 border border-white/20 rounded-lg">
                     <CardElement options={CARD_ELEMENT_OPTIONS} />
                   </div>
                 </div>
@@ -336,13 +336,13 @@ function CheckoutForm() {
 
             {/* Right Column - Order Summary */}
             <div>
-              <Card className="p-6 bg-white/5 border-white/10 sticky top-4">
+              <Card className="p-6 bg-background text-foreground/5 border-white/10 sticky top-4">
                 <h2 className="text-2xl font-bold text-foreground mb-6">Order Summary</h2>
 
                 <div className="space-y-4 mb-6">
                   {items.map((item) => (
                     <div key={item.id} className="flex gap-3">
-                      <div className="w-16 h-16 bg-white/10 rounded-lg overflow-hidden flex-shrink-0">
+                      <div className="w-16 h-16 bg-background text-foreground/10 rounded-lg overflow-hidden flex-shrink-0">
                         <img
                           src={item.image || "/placeholder.jpg"}
                           alt={item.name}

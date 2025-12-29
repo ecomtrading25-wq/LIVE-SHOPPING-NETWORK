@@ -247,7 +247,7 @@ export default function FulfillmentAutomationPage() {
           <p className="text-gray-400 mt-2">Smart routing, batch picking, and automated workflows</p>
         </div>
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-3 px-4 py-2 bg-white/5 rounded-lg border border-white/10">
+          <div className="flex items-center gap-3 px-4 py-2 bg-background text-foreground/5 rounded-lg border border-white/10">
             <Label htmlFor="automation-toggle" className="text-foreground">
               Automation
             </Label>
@@ -266,7 +266,7 @@ export default function FulfillmentAutomationPage() {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between mb-2">
             <p className="text-gray-400 text-sm">Active Orders</p>
             <Package className="w-5 h-5 text-blue-400" />
@@ -275,7 +275,7 @@ export default function FulfillmentAutomationPage() {
           <p className="text-green-400 text-sm mt-1">+12% from yesterday</p>
         </Card>
 
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between mb-2">
             <p className="text-gray-400 text-sm">Avg Processing Time</p>
             <Clock className="w-5 h-5 text-yellow-400" />
@@ -284,7 +284,7 @@ export default function FulfillmentAutomationPage() {
           <p className="text-green-400 text-sm mt-1">-18% improvement</p>
         </Card>
 
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between mb-2">
             <p className="text-gray-400 text-sm">Automation Rate</p>
             <Zap className="w-5 h-5 text-purple-400" />
@@ -293,7 +293,7 @@ export default function FulfillmentAutomationPage() {
           <p className="text-green-400 text-sm mt-1">+5% this week</p>
         </Card>
 
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between mb-2">
             <p className="text-gray-400 text-sm">Time Saved Today</p>
             <TrendingUp className="w-5 h-5 text-green-400" />
@@ -304,11 +304,11 @@ export default function FulfillmentAutomationPage() {
       </div>
 
       {/* Warehouse Status */}
-      <Card className="p-6 bg-white/5 border-white/10">
+      <Card className="p-6 bg-background text-foreground/5 border-white/10">
         <h2 className="text-2xl font-bold text-foreground mb-6">Warehouse Status</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {warehouses.map((warehouse) => (
-            <Card key={warehouse.id} className="p-6 bg-white/5 border-white/10">
+            <Card key={warehouse.id} className="p-6 bg-background text-foreground/5 border-white/10">
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <h3 className="text-lg font-bold text-foreground mb-1">{warehouse.name}</h3>
@@ -330,7 +330,7 @@ export default function FulfillmentAutomationPage() {
                       {warehouse.currentLoad.toLocaleString()} / {warehouse.capacity.toLocaleString()}
                     </span>
                   </div>
-                  <div className="w-full bg-white/10 rounded-full h-2">
+                  <div className="w-full bg-background text-foreground/10 rounded-full h-2">
                     <div
                       className={`h-2 rounded-full ${
                         (warehouse.currentLoad / warehouse.capacity) * 100 > 80
@@ -372,11 +372,11 @@ export default function FulfillmentAutomationPage() {
       </Card>
 
       {/* Automation Rules */}
-      <Card className="p-6 bg-white/5 border-white/10">
+      <Card className="p-6 bg-background text-foreground/5 border-white/10">
         <h2 className="text-2xl font-bold text-foreground mb-6">Automation Rules</h2>
         <div className="space-y-4">
           {rules.map((rule) => (
-            <Card key={rule.id} className="p-6 bg-white/5 border-white/10">
+            <Card key={rule.id} className="p-6 bg-background text-foreground/5 border-white/10">
               <div className="flex items-start justify-between">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-3">
@@ -424,7 +424,7 @@ export default function FulfillmentAutomationPage() {
       </Card>
 
       {/* Batch Picking Tasks */}
-      <Card className="p-6 bg-white/5 border-white/10">
+      <Card className="p-6 bg-background text-foreground/5 border-white/10">
         <h2 className="text-2xl font-bold text-foreground mb-6">Batch Picking Tasks</h2>
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -443,7 +443,7 @@ export default function FulfillmentAutomationPage() {
             </thead>
             <tbody>
               {batchTasks.map((task) => (
-                <tr key={task.id} className="border-b border-white/5 hover:bg-white/5">
+                <tr key={task.id} className="border-b border-white/5 hover:bg-background text-foreground/5">
                   <td className="p-4">
                     <span className="text-foreground font-medium">{task.batchId}</span>
                   </td>
@@ -473,7 +473,7 @@ export default function FulfillmentAutomationPage() {
                   </td>
                   <td className="p-4">
                     <div className="flex items-center gap-2">
-                      <div className="w-24 bg-white/10 rounded-full h-2">
+                      <div className="w-24 bg-background text-foreground/10 rounded-full h-2">
                         <div
                           className="bg-purple-500 h-2 rounded-full"
                           style={{ width: `${task.progress}%` }}

@@ -328,7 +328,7 @@ export default function LoyaltyPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 py-12">
+    <div className="min-h-screen bg-background text-foreground py-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
@@ -338,7 +338,7 @@ export default function LoyaltyPage() {
 
         {/* Current Tier & Points */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <Card className="p-6 bg-white/5 border-white/10 col-span-1 md:col-span-2">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10 col-span-1 md:col-span-2">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <p className="text-gray-400 text-sm mb-1">Current Tier</p>
@@ -390,7 +390,7 @@ export default function LoyaltyPage() {
             )}
           </Card>
 
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="space-y-4">
               <div>
                 <p className="text-gray-400 text-sm mb-1">Lifetime Points</p>
@@ -409,7 +409,7 @@ export default function LoyaltyPage() {
         </div>
 
         {/* Achievements */}
-        <Card className="p-6 bg-white/5 border-white/10 mb-8">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10 mb-8">
           <h2 className="text-2xl font-bold text-foreground mb-6">Achievements</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {achievements.map((achievement) => {
@@ -420,13 +420,13 @@ export default function LoyaltyPage() {
                   className={`p-4 border ${
                     achievement.unlocked
                       ? "bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-purple-500/30"
-                      : "bg-white/5 border-white/10"
+                      : "bg-background text-foreground/5 border-white/10"
                   }`}
                 >
                   <div className="flex items-start justify-between mb-3">
                     <div
                       className={`p-3 rounded-lg ${
-                        achievement.unlocked ? "bg-purple-500/30" : "bg-white/10"
+                        achievement.unlocked ? "bg-purple-500/30" : "bg-background text-foreground/10"
                       }`}
                     >
                       <AchievementIcon
@@ -470,11 +470,11 @@ export default function LoyaltyPage() {
         </Card>
 
         {/* Rewards Catalog */}
-        <Card className="p-6 bg-white/5 border-white/10 mb-8">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10 mb-8">
           <h2 className="text-2xl font-bold text-foreground mb-6">Redeem Rewards</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {rewards.map((reward) => (
-              <Card key={reward.id} className="p-6 bg-white/5 border-white/10">
+              <Card key={reward.id} className="p-6 bg-background text-foreground/5 border-white/10">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 bg-purple-500/20 rounded-lg">
                     <Gift className="w-6 h-6 text-purple-400" />
@@ -499,13 +499,13 @@ export default function LoyaltyPage() {
         </Card>
 
         {/* Recent Activity */}
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <h2 className="text-2xl font-bold text-foreground mb-6">Recent Activity</h2>
           <div className="space-y-4">
             {recentActivity.map((activity) => (
               <div
                 key={activity.id}
-                className="flex items-center justify-between p-4 bg-white/5 rounded-lg"
+                className="flex items-center justify-between p-4 bg-background text-foreground/5 rounded-lg"
               >
                 <div className="flex items-center gap-4">
                   <div className="p-2 bg-purple-500/20 rounded-lg text-purple-400">
@@ -525,7 +525,7 @@ export default function LoyaltyPage() {
         </Card>
 
         {/* How to Earn Points */}
-        <Card className="p-6 bg-white/5 border-white/10 mt-8">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10 mt-8">
           <h2 className="text-2xl font-bold text-foreground mb-6">How to Earn Points</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">

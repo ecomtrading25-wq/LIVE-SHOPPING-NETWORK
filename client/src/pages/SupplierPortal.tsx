@@ -145,7 +145,7 @@ function SupplierPortalContent() {
   ).toFixed(1);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-12">
         <div className="mb-8">
           <div className="flex items-center justify-between mb-6">
@@ -167,7 +167,7 @@ function SupplierPortalContent() {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-blue-500/20 rounded-lg">
                   <Package className="w-5 h-5 text-blue-400" />
@@ -179,7 +179,7 @@ function SupplierPortalContent() {
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-green-500/20 rounded-lg">
                   <CheckCircle className="w-5 h-5 text-green-400" />
@@ -191,7 +191,7 @@ function SupplierPortalContent() {
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-purple-500/20 rounded-lg">
                   <DollarSign className="w-5 h-5 text-purple-400" />
@@ -205,7 +205,7 @@ function SupplierPortalContent() {
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/5 border-white/10">
+            <Card className="p-4 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-orange-500/20 rounded-lg">
                   <Truck className="w-5 h-5 text-orange-400" />
@@ -220,13 +220,13 @@ function SupplierPortalContent() {
         </div>
 
         {/* Purchase Orders */}
-        <Card className="p-6 bg-white/5 border-white/10 mb-6">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10 mb-6">
           <h3 className="text-xl font-bold text-foreground mb-4">Recent Purchase Orders</h3>
           <div className="space-y-3">
             {purchaseOrders.map((po) => (
               <div
                 key={po.id}
-                className="flex items-center justify-between p-4 bg-white/5 rounded-lg"
+                className="flex items-center justify-between p-4 bg-background text-foreground/5 rounded-lg"
               >
                 <div className="flex items-center gap-4">
                   <div className="p-2 bg-blue-500/20 rounded-lg">
@@ -260,7 +260,7 @@ function SupplierPortalContent() {
         </Card>
 
         {/* Suppliers */}
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-xl font-bold text-foreground">Suppliers</h3>
             <div className="relative w-64">
@@ -269,14 +269,14 @@ function SupplierPortalContent() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search suppliers..."
-                className="pl-10 bg-white/10 border-white/20 text-foreground"
+                className="pl-10 bg-background/10 border-white/20 text-foreground"
               />
             </div>
           </div>
 
           <div className="space-y-4">
             {filteredSuppliers.map((supplier) => (
-              <Card key={supplier.id} className="p-5 bg-white/5 border-white/10">
+              <Card key={supplier.id} className="p-5 bg-background text-foreground/5 border-white/10">
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <div className="flex items-center gap-3 mb-2">
@@ -297,21 +297,21 @@ function SupplierPortalContent() {
                 </div>
 
                 <div className="grid grid-cols-3 gap-4">
-                  <div className="p-3 bg-white/5 rounded-lg">
+                  <div className="p-3 bg-background text-foreground/5 rounded-lg">
                     <div className="flex items-center gap-2 mb-1">
                       <Truck className="w-4 h-4 text-blue-400" />
                       <p className="text-xs text-gray-400">On-Time Delivery</p>
                     </div>
                     <p className="text-xl font-bold text-foreground">{supplier.onTimeDelivery}%</p>
                   </div>
-                  <div className="p-3 bg-white/5 rounded-lg">
+                  <div className="p-3 bg-background text-foreground/5 rounded-lg">
                     <div className="flex items-center gap-2 mb-1">
                       <Star className="w-4 h-4 text-yellow-400" />
                       <p className="text-xs text-gray-400">Quality Score</p>
                     </div>
                     <p className="text-xl font-bold text-foreground">{supplier.qualityScore}</p>
                   </div>
-                  <div className="p-3 bg-white/5 rounded-lg">
+                  <div className="p-3 bg-background text-foreground/5 rounded-lg">
                     <div className="flex items-center gap-2 mb-1">
                       <DollarSign className="w-4 h-4 text-green-400" />
                       <p className="text-xs text-gray-400">Total Spend</p>

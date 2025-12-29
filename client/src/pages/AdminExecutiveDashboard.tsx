@@ -365,7 +365,7 @@ export default function AdminExecutiveDashboard() {
                 {topSKUs?.map((sku: any, index: number) => (
                   <div
                     key={sku.id}
-                    className="flex items-center justify-between p-3 rounded-lg bg-slate-50 dark:bg-card hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors text-card-foreground"
+                    className="flex items-center justify-between p-3 rounded-lg bg-background text-foreground dark:bg-card hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors text-card-foreground"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-foreground font-bold text-sm">
@@ -403,7 +403,7 @@ export default function AdminExecutiveDashboard() {
                 {topCreators?.map((creator: any, index: number) => (
                   <div
                     key={creator.id}
-                    className="flex items-center justify-between p-3 rounded-lg bg-slate-50 dark:bg-card hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors text-card-foreground"
+                    className="flex items-center justify-between p-3 rounded-lg bg-background text-foreground dark:bg-card hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors text-card-foreground"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-foreground font-bold text-sm">
@@ -438,7 +438,7 @@ export default function AdminExecutiveDashboard() {
               <BarChart3 className="w-5 h-5 text-green-500" />
               Revenue Trend ({timeRange})
             </h3>
-            <div className="h-64 flex items-center justify-center bg-slate-50 dark:bg-card rounded-lg text-card-foreground">
+            <div className="h-64 flex items-center justify-center bg-background text-foreground dark:bg-card rounded-lg text-card-foreground">
               <p className="text-slate-500 dark:text-slate-400">
                 Chart visualization (integrate with charting library)
               </p>
@@ -514,7 +514,7 @@ export default function AdminExecutiveDashboard() {
                   -${metrics?.opex.toLocaleString() || "0"}
                 </span>
               </div>
-              <div className="flex items-center justify-between py-3 bg-slate-50 dark:bg-card rounded-lg px-4 text-card-foreground">
+              <div className="flex items-center justify-between py-3 bg-background text-foreground dark:bg-card rounded-lg px-4 text-card-foreground">
                 <span className="font-bold text-slate-900 dark:text-slate-100">Net Profit</span>
                 <span className="font-bold text-2xl text-blue-600 dark:text-blue-400">
                   ${metrics?.netProfit.toLocaleString() || "0"}
@@ -698,7 +698,7 @@ export default function AdminExecutiveDashboard() {
         <TabsContent value="forecasting" className="space-y-6">
           <Card className="p-6">
             <h3 className="text-lg font-semibold mb-4">Revenue Forecast (Next 30 Days)</h3>
-            <div className="h-64 flex items-center justify-center bg-slate-50 dark:bg-card rounded-lg text-card-foreground">
+            <div className="h-64 flex items-center justify-center bg-background text-foreground dark:bg-card rounded-lg text-card-foreground">
               <p className="text-slate-500 dark:text-slate-400">
                 Forecasting chart (integrate with ML predictions)
               </p>

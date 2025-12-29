@@ -70,7 +70,7 @@ export default function ProductsEnhanced() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-foreground py-20">
         <div className="container">
           <h1 className="text-5xl font-bold mb-4">Discover Amazing Products</h1>
@@ -86,7 +86,7 @@ export default function ProductsEnhanced() {
                 placeholder="Search products..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="pl-12 pr-4 py-6 text-lg bg-white text-slate-900 border-0 shadow-xl"
+                className="pl-12 pr-4 py-6 text-lg bg-background text-foreground text-slate-900 border-0 shadow-xl"
               />
             </div>
           </div>

@@ -138,7 +138,7 @@ export default function ARPreviewPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 py-12">
+    <div className="min-h-screen bg-background text-foreground py-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">
@@ -150,10 +150,10 @@ export default function ARPreviewPage() {
           {/* Main Viewer */}
           <div className="lg:col-span-2 space-y-6">
             {/* 3D/AR Viewer */}
-            <Card className="overflow-hidden bg-white/5 border-white/10">
+            <Card className="overflow-hidden bg-background text-foreground/5 border-white/10">
               <Tabs value={viewMode} onValueChange={(v) => setViewMode(v as any)}>
                 <div className="p-4 border-b border-white/10 flex items-center justify-between">
-                  <TabsList className="bg-white/5">
+                  <TabsList className="bg-background text-foreground/5">
                     <TabsTrigger value="3d">
                       <Box className="w-4 h-4 mr-2" />
                       3D View
@@ -298,7 +298,7 @@ export default function ARPreviewPage() {
             </Card>
 
             {/* Product Info */}
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <div className="flex items-start justify-between mb-6">
                 <div>
                   <h2 className="text-3xl font-bold text-foreground mb-2">{selectedProduct.name}</h2>
@@ -342,7 +342,7 @@ export default function ARPreviewPage() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Product Gallery */}
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h3 className="text-xl font-bold text-foreground mb-4">More Products</h3>
               <div className="space-y-3">
                 {products.map((product) => (
@@ -352,7 +352,7 @@ export default function ARPreviewPage() {
                     className={`w-full p-3 rounded-lg transition-all ${
                       selectedProduct.id === product.id
                         ? 'bg-purple-500/20 border-2 border-purple-500'
-                        : 'bg-white/5 border-2 border-transparent hover:bg-white/10'
+                        : 'bg-background text-foreground/5 border-2 border-transparent hover:bg-background text-foreground/10'
                     }`}
                   >
                     <div className="flex gap-3">
@@ -402,7 +402,7 @@ export default function ARPreviewPage() {
             </Card>
 
             {/* Device Support */}
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h3 className="text-xl font-bold text-foreground mb-4">Device Support</h3>
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -423,7 +423,7 @@ export default function ARPreviewPage() {
             </Card>
 
             {/* Tips */}
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h3 className="text-xl font-bold text-foreground mb-4">Tips</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>• Use two fingers to rotate the 3D model</li>

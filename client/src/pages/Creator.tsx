@@ -55,7 +55,7 @@ export default function CreatorDashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-zinc-900 to-black">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <div className="bg-background/50 border-b border-border text-foreground">
         <div className="container mx-auto px-4 py-6">
@@ -160,7 +160,7 @@ export default function CreatorDashboard() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
+                    <div className="w-3 h-3 bg-background text-foreground rounded-full animate-pulse"></div>
                     <h2 className="text-2xl font-bold text-foreground">LIVE NOW</h2>
                   </div>
                   <p className="text-white/90 mb-4">
@@ -168,13 +168,13 @@ export default function CreatorDashboard() {
                   </p>
                   <div className="flex items-center gap-4">
                     <Button
-                      className="bg-white text-red-600 hover:bg-gray-100"
+                      className="bg-background text-foreground text-red-600 hover:bg-gray-100"
                       onClick={() => endSessionMutation.mutate({ sessionId: "current" })}
                     >
                       <Square className="w-4 h-4 mr-2" />
                       End Session
                     </Button>
-                    <Button variant="outline" className="border-white text-foreground hover:bg-white/20">
+                    <Button variant="outline" className="border-white text-foreground hover:bg-background/20">
                       <Package className="w-4 h-4 mr-2" />
                       Manage Products
                     </Button>

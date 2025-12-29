@@ -88,7 +88,7 @@ export default function WishlistPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container py-12">
         {/* Header */}
         <div className="mb-8">
@@ -126,7 +126,7 @@ export default function WishlistPage() {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <Card className="bg-white/10 backdrop-blur border-white/20">
+          <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -140,7 +140,7 @@ export default function WishlistPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-white/10 backdrop-blur border-white/20">
+          <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -154,7 +154,7 @@ export default function WishlistPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-white/10 backdrop-blur border-white/20">
+          <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -168,7 +168,7 @@ export default function WishlistPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-white/10 backdrop-blur border-white/20">
+          <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -187,7 +187,7 @@ export default function WishlistPage() {
         {items && items.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {items.map((item) => (
-              <Card key={item.id} className="bg-white/10 backdrop-blur border-white/20 overflow-hidden group">
+              <Card key={item.id} className="bg-background text-foreground/10 backdrop-blur border-white/20 overflow-hidden group">
                 <div className="relative">
                   <img
                     src={item.productImage || '/placeholder.jpg'}
@@ -277,7 +277,7 @@ export default function WishlistPage() {
             ))}
           </div>
         ) : (
-          <Card className="bg-white/10 backdrop-blur border-white/20">
+          <Card className="bg-background text-foreground/10 backdrop-blur border-white/20">
             <CardContent className="py-12 text-center">
               <Heart className="w-16 h-16 text-gray-400 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-foreground mb-2">Your wishlist is empty</h3>

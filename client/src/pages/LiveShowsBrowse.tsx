@@ -201,7 +201,7 @@ export default function LiveShowsBrowse() {
   const totalSales = liveShows.reduce((acc, show) => acc + show.totalSales, 0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
       <div className="container py-8">
         <div className="text-center mb-8">
@@ -214,19 +214,19 @@ export default function LiveShowsBrowse() {
 
           {/* Stats Bar */}
           <div className="flex flex-wrap justify-center gap-8 text-white/90 mb-8">
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
+            <div className="flex items-center gap-2 bg-background text-foreground/10 backdrop-blur-sm px-6 py-3 rounded-full">
               <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
               <span className="font-semibold">{liveShows.length} Live Now</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
+            <div className="flex items-center gap-2 bg-background text-foreground/10 backdrop-blur-sm px-6 py-3 rounded-full">
               <Users className="w-5 h-5" />
               <span className="font-semibold">{totalViewers.toLocaleString()} watching</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
+            <div className="flex items-center gap-2 bg-background text-foreground/10 backdrop-blur-sm px-6 py-3 rounded-full">
               <ShoppingBag className="w-5 h-5" />
               <span className="font-semibold">{totalProducts} products</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
+            <div className="flex items-center gap-2 bg-background text-foreground/10 backdrop-blur-sm px-6 py-3 rounded-full">
               <TrendingUp className="w-5 h-5" />
               <span className="font-semibold">${(totalSales / 1000).toFixed(1)}K sold today</span>
             </div>
@@ -239,22 +239,22 @@ export default function LiveShowsBrowse() {
               <Button
                 variant={filter === "all" ? "default" : "outline"}
                 onClick={() => setFilter("all")}
-                className={filter === "all" ? "bg-pink-500 hover:bg-pink-600 text-foreground" : "bg-white/10 hover:bg-white/20 border-white/20 text-foreground"}
+                className={filter === "all" ? "bg-pink-500 hover:bg-pink-600 text-foreground" : "bg-background/10 hover:bg-background/20 border-white/20 text-foreground"}
               >
                 All Shows
               </Button>
               <Button
                 variant={filter === "live" ? "default" : "outline"}
                 onClick={() => setFilter("live")}
-                className={filter === "live" ? "bg-pink-500 hover:bg-pink-600 text-foreground" : "bg-white/10 hover:bg-white/20 border-white/20 text-foreground"}
+                className={filter === "live" ? "bg-pink-500 hover:bg-pink-600 text-foreground" : "bg-background/10 hover:bg-background/20 border-white/20 text-foreground"}
               >
-                <span className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse" />
+                <span className="w-2 h-2 bg-background text-foreground rounded-full mr-2 animate-pulse" />
                 Live ({liveShows.length})
               </Button>
               <Button
                 variant={filter === "upcoming" ? "default" : "outline"}
                 onClick={() => setFilter("upcoming")}
-                className={filter === "upcoming" ? "bg-pink-500 hover:bg-pink-600 text-foreground" : "bg-white/10 hover:bg-white/20 border-white/20 text-foreground"}
+                className={filter === "upcoming" ? "bg-pink-500 hover:bg-pink-600 text-foreground" : "bg-background/10 hover:bg-background/20 border-white/20 text-foreground"}
               >
                 <Clock className="w-4 h-4 mr-2" />
                 Upcoming ({upcomingShows.length})
@@ -263,7 +263,7 @@ export default function LiveShowsBrowse() {
 
             {/* Category Filter */}
             <Select value={category} onValueChange={setCategory}>
-              <SelectTrigger className="w-[180px] bg-white/10 border-white/20 text-foreground">
+              <SelectTrigger className="w-[180px] bg-background/10 border-white/20 text-foreground">
                 <Filter className="w-4 h-4 mr-2" />
                 <SelectValue placeholder="Category" />
               </SelectTrigger>
@@ -278,7 +278,7 @@ export default function LiveShowsBrowse() {
 
             {/* Sort */}
             <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-[180px] bg-white/10 border-white/20 text-foreground">
+              <SelectTrigger className="w-[180px] bg-background/10 border-white/20 text-foreground">
                 <SelectValue placeholder="Sort by" />
               </SelectTrigger>
               <SelectContent>
@@ -294,7 +294,7 @@ export default function LiveShowsBrowse() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredShows.map((show) => (
             <Link key={show.id} href={`/live/${show.id}`}>
-              <Card className="group cursor-pointer overflow-hidden bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl">
+              <Card className="group cursor-pointer overflow-hidden bg-background text-foreground/10 backdrop-blur-sm border-white/20 hover:bg-background text-foreground/20 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl">
                 {/* Thumbnail */}
                 <div className="relative aspect-video overflow-hidden">
                   <img
@@ -310,7 +310,7 @@ export default function LiveShowsBrowse() {
                   {show.status === "live" && (
                     <div className="absolute top-3 left-3">
                       <Badge className="bg-red-500 text-foreground border-0 animate-pulse font-bold px-3 py-1">
-                        <span className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse" />
+                        <span className="w-2 h-2 bg-background text-foreground rounded-full mr-2 animate-pulse" />
                         LIVE
                       </Badge>
                     </div>
@@ -355,7 +355,7 @@ export default function LiveShowsBrowse() {
 
                   {/* Play Overlay */}
                   <div className="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-foreground">
-                    <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center transform group-hover:scale-110 transition-transform">
+                    <div className="w-20 h-20 rounded-full bg-background text-foreground/90 flex items-center justify-center transform group-hover:scale-110 transition-transform">
                       <Play className="w-10 h-10 text-purple-600 ml-1" fill="currentColor" />
                     </div>
                   </div>
@@ -409,7 +409,7 @@ export default function LiveShowsBrowse() {
         {/* Empty State */}
         {filteredShows.length === 0 && (
           <div className="text-center py-20">
-            <div className="w-24 h-24 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6">
+            <div className="w-24 h-24 rounded-full bg-background text-foreground/10 flex items-center justify-center mx-auto mb-6">
               <Play className="w-12 h-12 text-white/50" />
             </div>
             <h3 className="text-2xl font-semibold text-foreground mb-2">
@@ -421,7 +421,7 @@ export default function LiveShowsBrowse() {
             <div className="flex gap-3 justify-center">
               <Button
                 onClick={() => setCategory("all")}
-                className="bg-white/10 hover:bg-white/20 text-foreground"
+                className="bg-background/10 hover:bg-background/20 text-foreground"
               >
                 Clear Filters
               </Button>

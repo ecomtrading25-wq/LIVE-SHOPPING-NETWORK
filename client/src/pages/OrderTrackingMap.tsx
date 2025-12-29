@@ -90,7 +90,7 @@ export default function OrderTrackingMap() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background p-6 text-foreground">
+    <div className="min-h-screen bg-background text-foreground p-6 text-foreground">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
@@ -145,7 +145,7 @@ export default function OrderTrackingMap() {
               </svg>
 
               {/* ETA Badge */}
-              <div className="absolute top-4 left-4 bg-white dark:bg-background rounded-lg shadow-lg p-3 text-foreground">
+              <div className="absolute top-4 left-4 bg-background dark:bg-background rounded-lg shadow-lg p-3 text-foreground">
                 <div className="text-sm text-muted-foreground">Estimated Arrival</div>
                 <div className="text-2xl font-bold text-purple-600">{trackingData.estimatedArrival}</div>
               </div>
@@ -163,7 +163,7 @@ export default function OrderTrackingMap() {
                       {milestone.completed ? (
                         <CheckCircle2 className="w-6 h-6 text-foreground" />
                       ) : (
-                        <div className="w-3 h-3 bg-white rounded-full" />
+                        <div className="w-3 h-3 bg-background text-foreground rounded-full" />
                       )}
                     </div>
                     <div className="flex-1">

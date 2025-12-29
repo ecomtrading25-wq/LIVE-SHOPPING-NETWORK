@@ -169,7 +169,7 @@ export default function WarehousePage() {
             className={`p-6 cursor-pointer transition-all ${
               selectedWarehouse === warehouse.id
                 ? "bg-purple-600 border-purple-500"
-                : "bg-background border-border hover:bg-card"
+                : "bg-background text-foreground border-border hover:bg-card"
             }`}
             onClick={() => setSelectedWarehouse(warehouse.id)}
           >
@@ -177,7 +177,7 @@ export default function WarehousePage() {
               <div
                 className={`w-12 h-12 rounded-lg flex items-center justify-center ${
                   selectedWarehouse === warehouse.id
-                    ? "bg-white/20"
+                    ? "bg-background text-foreground/20"
                     : "bg-purple-500/20"
                 }`}
               >

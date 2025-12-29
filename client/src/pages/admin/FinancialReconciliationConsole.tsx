@@ -158,7 +158,7 @@ export default function FinancialReconciliationConsole() {
 
               <Button
                 variant="outline"
-                className="border-white/20 text-foreground hover:bg-white/10"
+                className="border-white/20 text-foreground hover:bg-background/10"
                 onClick={() => exportLedger.mutate({ dateRange })}
               >
                 <Download className="w-4 h-4 mr-2" />
@@ -224,7 +224,7 @@ export default function FinancialReconciliationConsole() {
         </div>
 
         {/* Filters */}
-        <Card className="bg-white/5 border-white/10 p-6 mb-6">
+        <Card className="bg-background text-foreground/5 border-white/10 p-6 mb-6">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1">
               <div className="relative">
@@ -233,13 +233,13 @@ export default function FinancialReconciliationConsole() {
                   placeholder="Search by transaction ID, order ID, or amount..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 bg-white/5 border-white/10 text-foreground"
+                  className="pl-10 bg-background/5 border-white/10 text-foreground"
                 />
               </div>
             </div>
 
             <Select value={dateRange} onValueChange={setDateRange}>
-              <SelectTrigger className="w-[180px] bg-white/5 border-white/10 text-foreground">
+              <SelectTrigger className="w-[180px] bg-background/5 border-white/10 text-foreground">
                 <Calendar className="w-4 h-4 mr-2" />
                 <SelectValue placeholder="Date range" />
               </SelectTrigger>
@@ -251,7 +251,7 @@ export default function FinancialReconciliationConsole() {
             </Select>
 
             <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="w-[180px] bg-white/5 border-white/10 text-foreground">
+              <SelectTrigger className="w-[180px] bg-background/5 border-white/10 text-foreground">
                 <Filter className="w-4 h-4 mr-2" />
                 <SelectValue placeholder="Status" />
               </SelectTrigger>
@@ -266,7 +266,7 @@ export default function FinancialReconciliationConsole() {
         </Card>
 
         {/* Unmatched Transactions */}
-        <Card className="bg-white/5 border-white/10 mb-6">
+        <Card className="bg-background text-foreground/5 border-white/10 mb-6">
           <div className="p-6 border-b border-white/10">
             <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
               <AlertCircle className="w-6 h-6 text-yellow-500" />
@@ -283,7 +283,7 @@ export default function FinancialReconciliationConsole() {
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
-                <TableRow className="border-white/10 hover:bg-white/5">
+                <TableRow className="border-white/10 hover:bg-background text-foreground/5">
                   <TableHead className="text-gray-400">Transaction ID</TableHead>
                   <TableHead className="text-gray-400">Provider</TableHead>
                   <TableHead className="text-gray-400">Amount</TableHead>
@@ -296,7 +296,7 @@ export default function FinancialReconciliationConsole() {
               <TableBody>
                 {unmatchedTransactions && unmatchedTransactions.length > 0 ? (
                   unmatchedTransactions.map((txn: any) => (
-                    <TableRow key={txn.id} className="border-white/10 hover:bg-white/5">
+                    <TableRow key={txn.id} className="border-white/10 hover:bg-background text-foreground/5">
                       <TableCell className="font-mono text-foreground text-sm">
                         {txn.providerTransactionId}
                       </TableCell>
@@ -328,7 +328,7 @@ export default function FinancialReconciliationConsole() {
                               <Button
                                 size="sm"
                                 variant="outline"
-                                className="border-white/20 text-foreground hover:bg-white/10"
+                                className="border-white/20 text-foreground hover:bg-background/10"
                                 onClick={() => setSelectedTransaction(txn)}
                               >
                                 <Eye className="w-4 h-4" />
@@ -379,7 +379,7 @@ export default function FinancialReconciliationConsole() {
                                 {txn.metadata && (
                                   <div>
                                     <span className="text-gray-400 text-sm">Metadata:</span>
-                                    <pre className="mt-2 bg-white/5 rounded p-3 text-foreground text-xs overflow-auto">
+                                    <pre className="mt-2 bg-background/5 rounded p-3 text-foreground text-xs overflow-auto">
                                       {JSON.stringify(txn.metadata, null, 2)}
                                     </pre>
                                   </div>
@@ -430,7 +430,7 @@ export default function FinancialReconciliationConsole() {
         </Card>
 
         {/* Ledger Entries */}
-        <Card className="bg-white/5 border-white/10">
+        <Card className="bg-background text-foreground/5 border-white/10">
           <div className="p-6 border-b border-white/10">
             <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
               <DollarSign className="w-6 h-6 text-green-500" />
@@ -444,7 +444,7 @@ export default function FinancialReconciliationConsole() {
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
-                <TableRow className="border-white/10 hover:bg-white/5">
+                <TableRow className="border-white/10 hover:bg-background text-foreground/5">
                   <TableHead className="text-gray-400">
                     <Button variant="ghost" size="sm" className="text-gray-400 hover:text-foreground">
                       Date <ArrowUpDown className="w-3 h-3 ml-1" />
@@ -461,7 +461,7 @@ export default function FinancialReconciliationConsole() {
               <TableBody>
                 {ledgerEntries && ledgerEntries.length > 0 ? (
                   ledgerEntries.map((entry: any) => (
-                    <TableRow key={entry.id} className="border-white/10 hover:bg-white/5">
+                    <TableRow key={entry.id} className="border-white/10 hover:bg-background text-foreground/5">
                       <TableCell className="text-gray-400 text-sm">
                         {new Date(entry.createdAt).toLocaleDateString()}
                       </TableCell>

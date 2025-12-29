@@ -122,7 +122,7 @@ export default function AffiliateDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="min-h-screen bg-background text-foreground dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
@@ -152,7 +152,7 @@ export default function AffiliateDashboard() {
             <div className="text-right">
               <p className="text-sm opacity-90 mb-1">Your Affiliate Code</p>
               <div className="flex items-center gap-2">
-                <code className="text-2xl font-mono font-bold bg-white/20 px-4 py-2 rounded">
+                <code className="text-2xl font-mono font-bold bg-background text-foreground/20 px-4 py-2 rounded">
                   {affiliateData.overview.affiliateCode}
                 </code>
                 <Button
@@ -251,7 +251,7 @@ export default function AffiliateDashboard() {
                       type="text"
                       value={affiliateData.overview.referralLink}
                       readOnly
-                      className="flex-1 px-3 py-2 border rounded-md bg-gray-50 dark:bg-card text-sm"
+                      className="flex-1 px-3 py-2 border rounded-md bg-background text-foreground dark:bg-card text-sm"
                     />
                     <Button
                       variant="outline"
@@ -308,7 +308,7 @@ export default function AffiliateDashboard() {
               <h3 className="text-lg font-semibold mb-4">Top Performing Products</h3>
               <div className="space-y-4">
                 {affiliateData.topPerformers.map((product, idx) => (
-                  <div key={idx} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-card rounded-lg text-card-foreground">
+                  <div key={idx} className="flex items-center justify-between p-4 bg-background text-foreground dark:bg-card rounded-lg text-card-foreground">
                     <div>
                       <p className="font-medium">{product.productName}</p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -343,7 +343,7 @@ export default function AffiliateDashboard() {
                   ))}
                 </div>
               </div>
-              <div className="h-64 flex items-center justify-center bg-gray-50 dark:bg-card rounded-lg text-card-foreground">
+              <div className="h-64 flex items-center justify-center bg-background text-foreground dark:bg-card rounded-lg text-card-foreground">
                 <p className="text-gray-500">Performance chart would go here</p>
               </div>
             </Card>
@@ -409,7 +409,7 @@ export default function AffiliateDashboard() {
                       'Exclusive products',
                       'Limited time offer',
                     ].map((text, idx) => (
-                      <div key={idx} className="flex items-center gap-2 p-3 bg-gray-50 dark:bg-card rounded text-card-foreground">
+                      <div key={idx} className="flex items-center gap-2 p-3 bg-background text-foreground dark:bg-card rounded text-card-foreground">
                         <code className="flex-1 text-sm">{text}</code>
                         <Button size="sm" variant="ghost">
                           <Copy className="w-4 h-4" />

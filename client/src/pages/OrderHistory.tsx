@@ -94,13 +94,13 @@ export default function OrderHistoryPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 py-12">
+    <div className="min-h-screen bg-background text-foreground py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl font-bold text-foreground mb-8">Order History</h1>
 
           {/* Filters */}
-          <Card className="p-6 bg-white/10 backdrop-blur-xl border-white/20 mb-6">
+          <Card className="p-6 bg-background text-foreground/10 backdrop-blur-xl border-white/20 mb-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Search */}
               <div className="relative">
@@ -109,7 +109,7 @@ export default function OrderHistoryPage() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search by order ID or tracking number..."
-                  className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
+                  className="pl-10 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400"
                 />
               </div>
 
@@ -123,7 +123,7 @@ export default function OrderHistoryPage() {
                     className={
                       statusFilter === status
                         ? "bg-purple-600"
-                        : "border-white/20 text-foreground hover:bg-white/10"
+                        : "border-white/20 text-foreground hover:bg-background/10"
                     }
                   >
                     {status.charAt(0).toUpperCase() + status.slice(1)}
@@ -136,7 +136,7 @@ export default function OrderHistoryPage() {
           {/* Orders List */}
           <div className="space-y-4">
             {filteredOrders.length === 0 ? (
-              <Card className="p-12 bg-white/10 backdrop-blur-xl border-white/20 text-center">
+              <Card className="p-12 bg-background text-foreground/10 backdrop-blur-xl border-white/20 text-center">
                 <Package className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                 <h2 className="text-2xl font-bold text-foreground mb-2">No Orders Found</h2>
                 <p className="text-muted-foreground mb-6">
@@ -154,7 +154,7 @@ export default function OrderHistoryPage() {
               filteredOrders.map((order) => (
                 <Card
                   key={order.id}
-                  className="p-6 bg-white/10 backdrop-blur-xl border-white/20 hover:border-purple-500/50 transition-colors"
+                  className="p-6 bg-background text-foreground/10 backdrop-blur-xl border-white/20 hover:border-purple-500/50 transition-colors"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
@@ -189,7 +189,7 @@ export default function OrderHistoryPage() {
 
                   <div className="flex gap-2">
                     <Link href={`/orders/${order.id}`}>
-                      <Button variant="outline" className="border-white/20 text-foreground hover:bg-white/10">
+                      <Button variant="outline" className="border-white/20 text-foreground hover:bg-background/10">
                         <Eye className="w-4 h-4 mr-2" />
                         View Details
                       </Button>
@@ -197,7 +197,7 @@ export default function OrderHistoryPage() {
                     {order.status === "delivered" && (
                       <Button
                         variant="outline"
-                        className="border-white/20 text-foreground hover:bg-white/10"
+                        className="border-white/20 text-foreground hover:bg-background/10"
                       >
                         <RefreshCw className="w-4 h-4 mr-2" />
                         Reorder
@@ -207,7 +207,7 @@ export default function OrderHistoryPage() {
                       <Link href={`/orders/${order.id}/track-map`}>
                         <Button
                           variant="outline"
-                          className="border-white/20 text-foreground hover:bg-white/10"
+                          className="border-white/20 text-foreground hover:bg-background/10"
                         >
                           <Truck className="w-4 h-4 mr-2" />
                           Track
@@ -222,7 +222,7 @@ export default function OrderHistoryPage() {
 
           {/* Summary Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-            <Card className="p-6 bg-white/10 backdrop-blur-xl border-white/20">
+            <Card className="p-6 bg-background text-foreground/10 backdrop-blur-xl border-white/20">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-400">Total Orders</p>
@@ -232,7 +232,7 @@ export default function OrderHistoryPage() {
               </div>
             </Card>
 
-            <Card className="p-6 bg-white/10 backdrop-blur-xl border-white/20">
+            <Card className="p-6 bg-background text-foreground/10 backdrop-blur-xl border-white/20">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-400">Total Spent</p>
@@ -244,7 +244,7 @@ export default function OrderHistoryPage() {
               </div>
             </Card>
 
-            <Card className="p-6 bg-white/10 backdrop-blur-xl border-white/20">
+            <Card className="p-6 bg-background text-foreground/10 backdrop-blur-xl border-white/20">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-400">Items Purchased</p>

@@ -220,7 +220,7 @@ const priceImpactData = [
   // Show loading state if no product selected
   if (!selectedProduct && isLoading) {
     return (
-      <div className="min-h-screen bg-background p-6 text-foreground">
+      <div className="min-h-screen bg-background text-foreground p-6 text-foreground">
         <div className="max-w-7xl mx-auto">
           <Card className="p-12 text-center">
             <Skeleton className="h-16 w-16 mx-auto mb-4" />
@@ -234,7 +234,7 @@ const priceImpactData = [
 
   if (!selectedProduct && !isLoading) {
     return (
-      <div className="min-h-screen bg-background p-6 text-foreground">
+      <div className="min-h-screen bg-background text-foreground p-6 text-foreground">
         <div className="max-w-7xl mx-auto">
           <Card className="p-12 text-center">
             <Target className="w-16 h-16 mx-auto text-muted-foreground mb-4" />
@@ -247,7 +247,7 @@ const priceImpactData = [
   }
 
   return (
-    <div className="min-h-screen bg-background p-6 text-foreground">
+    <div className="min-h-screen bg-background text-foreground p-6 text-foreground">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
@@ -508,7 +508,7 @@ const priceImpactData = [
             <Card className="p-6">
               <h3 className="text-lg font-bold mb-4">Revenue & Profit Impact</h3>
               <div className="grid grid-cols-2 gap-4">
-                <div className="p-4 bg-gray-50 dark:bg-background rounded-lg text-foreground">
+                <div className="p-4 bg-background dark:bg-background rounded-lg text-foreground">
                   <div className="text-sm text-muted-foreground mb-1">Current Revenue</div>
                   <div className="text-2xl font-bold">${selectedProduct.currentRevenue.toLocaleString()}</div>
                   <div className="text-sm text-muted-foreground mt-1">

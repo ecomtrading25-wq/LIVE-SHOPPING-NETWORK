@@ -90,7 +90,7 @@ export default function PackerPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-20">
+    <div className="min-h-screen bg-background text-foreground pb-20">
       {/* Header */}
       <div className="bg-green-600 text-foreground p-4 sticky top-0 z-10 shadow-lg">
         <h1 className="text-2xl font-bold">Packer Dashboard</h1>
@@ -169,7 +169,7 @@ export default function PackerPage() {
 
               {/* Scanned Items */}
               {scannedItems.length > 0 && (
-                <div className="bg-white rounded-lg p-4">
+                <div className="bg-background text-foreground rounded-lg p-4">
                   <p className="text-sm font-medium mb-2">
                     Scanned Items ({scannedItems.length})
                   </p>
@@ -177,7 +177,7 @@ export default function PackerPage() {
                     {scannedItems.map((item, index) => (
                       <div
                         key={index}
-                        className="flex items-center justify-between p-2 bg-gray-50 rounded"
+                        className="flex items-center justify-between p-2 bg-background text-foreground rounded"
                       >
                         <span className="text-sm font-mono">{item}</span>
                         <CheckCircle className="w-4 h-4 text-green-600" />
@@ -282,7 +282,7 @@ export default function PackerPage() {
       )}
 
       {/* Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 shadow-lg">
+      <div className="fixed bottom-0 left-0 right-0 bg-background text-foreground border-t border-gray-200 p-4 shadow-lg">
         <div className="flex justify-around">
           <Button variant="ghost" className="flex-1" onClick={refetchTasks}>
             <Package className="w-5 h-5 mr-2" />

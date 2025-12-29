@@ -195,7 +195,7 @@ function AnalyticsDashboardContent() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="mb-8">
@@ -247,7 +247,7 @@ function AnalyticsDashboardContent() {
 
         {/* Key Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-start justify-between mb-4">
               <div className="p-3 bg-green-500/20 rounded-lg">
                 <DollarSign className="w-6 h-6 text-green-400" />
@@ -266,7 +266,7 @@ function AnalyticsDashboardContent() {
             </div>
           </Card>
 
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-start justify-between mb-4">
               <div className="p-3 bg-blue-500/20 rounded-lg">
                 <ShoppingCart className="w-6 h-6 text-blue-400" />
@@ -285,7 +285,7 @@ function AnalyticsDashboardContent() {
             </div>
           </Card>
 
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-start justify-between mb-4">
               <div className="p-3 bg-purple-500/20 rounded-lg">
                 <Users className="w-6 h-6 text-purple-400" />
@@ -304,7 +304,7 @@ function AnalyticsDashboardContent() {
             </div>
           </Card>
 
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-start justify-between mb-4">
               <div className="p-3 bg-orange-500/20 rounded-lg">
                 <Target className="w-6 h-6 text-orange-400" />
@@ -326,7 +326,7 @@ function AnalyticsDashboardContent() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Top Products */}
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-foreground">Top Products</h3>
               <Package className="w-5 h-5 text-purple-400" />
@@ -335,7 +335,7 @@ function AnalyticsDashboardContent() {
               {topProducts.map((product, index) => (
                 <div
                   key={product.id}
-                  className="flex items-center gap-4 p-3 bg-white/5 rounded-lg"
+                  className="flex items-center gap-4 p-3 bg-background text-foreground/5 rounded-lg"
                 >
                   <div className="flex items-center justify-center w-8 h-8 bg-purple-500/20 rounded-full">
                     <span className="text-sm font-bold text-purple-400">
@@ -359,7 +359,7 @@ function AnalyticsDashboardContent() {
           </Card>
 
           {/* Customer Segments */}
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-foreground">Customer Segments</h3>
               <Users className="w-5 h-5 text-purple-400" />
@@ -413,7 +413,7 @@ function AnalyticsDashboardContent() {
         {/* Chart.js Visualizations */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
           {/* Sales Trend Line Chart */}
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-foreground">Sales Trend</h3>
               <TrendingUp className="w-5 h-5 text-purple-400" />
@@ -424,7 +424,7 @@ function AnalyticsDashboardContent() {
           </Card>
 
           {/* Top Products Bar Chart */}
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-foreground">Product Performance</h3>
               <Package className="w-5 h-5 text-purple-400" />
@@ -435,7 +435,7 @@ function AnalyticsDashboardContent() {
           </Card>
 
           {/* Customer Segment Pie Chart */}
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-foreground">Customer Distribution</h3>
               <Users className="w-5 h-5 text-purple-400" />
@@ -448,7 +448,7 @@ function AnalyticsDashboardContent() {
           </Card>
 
           {/* Revenue Breakdown Doughnut Chart */}
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-foreground">Revenue Sources</h3>
               <DollarSign className="w-5 h-5 text-purple-400" />

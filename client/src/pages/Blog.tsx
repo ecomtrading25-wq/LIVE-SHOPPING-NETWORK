@@ -140,11 +140,11 @@ export default function BlogPage() {
       : regularPosts.filter((post) => post.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-background">
+    <div className="min-h-screen bg-background text-foreground dark:bg-background">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-purple-600 via-purple-700 to-pink-600 py-20">
+      <div className="bg-background text-foreground py-20">
         <div className="container mx-auto px-4 text-center">
-          <Badge className="bg-white/20 text-foreground mb-4">
+          <Badge className="bg-background/20 text-foreground mb-4">
             <TrendingUp className="w-4 h-4 mr-2" />
             Live Shopping Blog
           </Badge>
@@ -172,7 +172,7 @@ export default function BlogPage() {
             {featuredPosts.map((post) => (
               <Card
                 key={post.id}
-                className="overflow-hidden bg-white dark:bg-background border-zinc-200 dark:border-border hover:border-purple-500 transition-all group cursor-pointer text-foreground"
+                className="overflow-hidden bg-background dark:bg-background border-zinc-200 dark:border-border hover:border-purple-500 transition-all group cursor-pointer text-foreground"
               >
                 <div className="aspect-video bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-600/50 to-pink-600/50 group-hover:opacity-75 transition-opacity"></div>
@@ -259,7 +259,7 @@ export default function BlogPage() {
           {filteredPosts.map((post) => (
             <Card
               key={post.id}
-              className="overflow-hidden bg-white dark:bg-background border-zinc-200 dark:border-border hover:border-purple-500 transition-all group cursor-pointer text-foreground"
+              className="overflow-hidden bg-background dark:bg-background border-zinc-200 dark:border-border hover:border-purple-500 transition-all group cursor-pointer text-foreground"
             >
               <div className="aspect-video bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 to-pink-600/30 group-hover:opacity-75 transition-opacity"></div>
@@ -328,7 +328,7 @@ export default function BlogPage() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg bg-white text-zinc-900 placeholder:text-zinc-500"
+              className="flex-1 px-4 py-3 rounded-lg bg-background text-foreground text-zinc-900 placeholder:text-zinc-500"
             />
             <Button size="lg" className="bg-background hover:bg-card text-foreground">
               Subscribe

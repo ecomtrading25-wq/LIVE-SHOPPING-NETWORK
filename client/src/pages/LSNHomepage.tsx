@@ -91,18 +91,18 @@ export default function LSNHomepage() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-background text-foreground text-black">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         {/* Animated background */}
-        <div className="absolute inset-0 bg-white" />
+        <div className="absolute inset-0 bg-background text-foreground" />
 
         
         <div className="container relative z-10 py-20 md:py-32">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             {/* Left: Hero content */}
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-black rounded-full">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-background text-foreground border border-black rounded-full">
                 <Sparkles className="h-4 w-4 text-[#E42313]" />
                 <span className="text-sm font-medium text-[#E42313]">
                   Live Shopping Revolution
@@ -163,7 +163,7 @@ export default function LSNHomepage() {
               ) : upcomingShows && upcomingShows.length > 0 ? (
                 <NextShowCountdown show={upcomingShows[0]} currentTime={currentTime} />
               ) : (
-                <div className="h-[500px] flex items-center justify-center bg-white rounded-2xl border border-black">
+                <div className="h-[500px] flex items-center justify-center bg-background text-foreground rounded-2xl border border-black">
                   <div className="text-center space-y-4">
                     <Calendar className="h-16 w-16 mx-auto text-gray-600" />
                     <p className="text-gray-600">No upcoming shows scheduled</p>
@@ -177,7 +177,7 @@ export default function LSNHomepage() {
 
       {/* Live Now Section */}
       {liveShows && liveShows.length > 0 && (
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-background text-foreground">
           <div className="container">
             <div className="flex items-center justify-between mb-8">
               <div>
@@ -234,7 +234,7 @@ export default function LSNHomepage() {
       </section>
 
       {/* Top Creators Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-background text-foreground">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">⭐ Top Creators</h2>
@@ -343,7 +343,7 @@ export default function LSNHomepage() {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="bg-white border-black text-foreground placeholder:text-gray-500"
+                  className="bg-background border-black text-foreground placeholder:text-gray-500"
                   required
                 />
                 <Button
@@ -364,7 +364,7 @@ export default function LSNHomepage() {
       </section>
 
       {/* Social Proof Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-background text-foreground">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">What Our Shoppers Say</h2>
@@ -410,7 +410,7 @@ function LiveShowCard({ show, featured = false }: { show: any; featured?: boolea
   return (
     <Link href={`/live/${show.id}`}>
       <Card className={cn(
-        "group relative overflow-hidden border-black bg-white hover:border-black transition-all duration-300 cursor-pointer",
+        "group relative overflow-hidden border-black bg-background text-foreground hover:border-black transition-all duration-300 cursor-pointer",
         featured && "h-[500px]"
       )}>
         {/* Thumbnail */}
@@ -424,7 +424,7 @@ function LiveShowCard({ show, featured = false }: { show: any; featured?: boolea
           {/* Live badge */}
           <div className="absolute top-4 left-4">
             <Badge className="bg-red-600 text-foreground animate-pulse">
-              <div className="h-2 w-2 bg-white rounded-full mr-2" />
+              <div className="h-2 w-2 bg-background text-foreground rounded-full mr-2" />
               LIVE
             </Badge>
           </div>
@@ -507,19 +507,19 @@ function NextShowCountdown({ show, currentTime }: { show: any; currentTime: Date
 
         {/* Countdown */}
         <div className="grid grid-cols-4 gap-4 mb-8">
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-background text-foreground rounded-lg p-4">
             <div className="text-4xl font-bold text-[#E42313]">{days}</div>
             <div className="text-xs text-gray-500 uppercase">Days</div>
           </div>
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-background text-foreground rounded-lg p-4">
             <div className="text-4xl font-bold text-[#E42313]">{hours}</div>
             <div className="text-xs text-gray-500 uppercase">Hours</div>
           </div>
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-background text-foreground rounded-lg p-4">
             <div className="text-4xl font-bold text-black">{minutes}</div>
             <div className="text-xs text-gray-500 uppercase">Minutes</div>
           </div>
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-background text-foreground rounded-lg p-4">
             <div className="text-4xl font-bold text-green-400">{seconds}</div>
             <div className="text-xs text-gray-500 uppercase">Seconds</div>
           </div>
@@ -557,7 +557,7 @@ function UpcomingShowCard({ show }: { show: any }) {
 
   return (
     <Link href={`/show/${show.id}`}>
-      <Card className="group border-black bg-white hover:border-black transition-all duration-300 cursor-pointer overflow-hidden">
+      <Card className="group border-black bg-background text-foreground hover:border-black transition-all duration-300 cursor-pointer overflow-hidden">
         <div className="relative aspect-video overflow-hidden">
           <img
             src={show.thumbnailUrl || "/placeholder-show.jpg"}
@@ -599,7 +599,7 @@ function UpcomingShowCard({ show }: { show: any }) {
 function CreatorCard({ creator }: { creator: any }) {
   return (
     <Link href={`/creator/${creator.id}`}>
-      <Card className="group border-black bg-white hover:border-black transition-all duration-300 cursor-pointer">
+      <Card className="group border-black bg-background text-foreground hover:border-black transition-all duration-300 cursor-pointer">
         <CardContent className="p-6">
           <div className="flex items-start gap-4">
             <Avatar className="h-16 w-16 border-2 border-purple-500">
@@ -644,7 +644,7 @@ function CreatorCard({ creator }: { creator: any }) {
 function ProductCard({ product }: { product: any }) {
   return (
     <Link href={`/products/${product.id}`}>
-      <Card className="group border-black bg-white hover:border-black transition-all duration-300 cursor-pointer overflow-hidden">
+      <Card className="group border-black bg-background text-foreground hover:border-black transition-all duration-300 cursor-pointer overflow-hidden">
         <div className="relative aspect-square overflow-hidden">
           <img
             src={product.imageUrl || "/placeholder-product.jpg"}
@@ -704,7 +704,7 @@ function ProductCard({ product }: { product: any }) {
 
 function TrustCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
   return (
-    <Card className="border-black bg-white/50 text-center">
+    <Card className="border-black bg-background text-foreground/50 text-center">
       <CardContent className="p-6">
         <div className="mb-4 flex justify-center">{icon}</div>
         <h3 className="font-bold mb-2">{title}</h3>
@@ -720,7 +720,7 @@ function TrustCard({ icon, title, description }: { icon: React.ReactNode; title:
 
 function TestimonialCard({ name, avatar, rating, text }: { name: string; avatar: string; rating: number; text: string }) {
   return (
-    <Card className="border-black bg-white">
+    <Card className="border-black bg-background text-foreground">
       <CardContent className="p-6">
         <div className="flex items-center gap-1 text-yellow-400 mb-4">
           {[...Array(rating)].map((_, i) => (

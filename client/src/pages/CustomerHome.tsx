@@ -19,7 +19,7 @@ export default function CustomerHome() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section with Live Stream */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Animated background */}
@@ -86,7 +86,7 @@ export default function CustomerHome() {
                 <div className="aspect-video bg-gradient-to-br from-purple-900 to-pink-900 relative">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center space-y-4">
-                      <div className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto">
+                      <div className="w-20 h-20 bg-background text-foreground/10 rounded-full flex items-center justify-center mx-auto">
                         <svg className="w-10 h-10 text-foreground" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M8 5v14l11-7z" />
                         </svg>
@@ -284,12 +284,12 @@ export default function CustomerHome() {
           </p>
           <div className="flex gap-4 justify-center">
             <Link href="/live">
-              <Button size="lg" className="bg-white text-purple-900 hover:bg-gray-100 font-bold px-8 py-6 text-lg rounded-xl shadow-2xl">
+              <Button size="lg" className="bg-background text-foreground text-purple-900 hover:bg-gray-100 font-bold px-8 py-6 text-lg rounded-xl shadow-2xl">
                 Watch Live Now
               </Button>
             </Link>
             <Link href="/register">
-              <Button size="lg" variant="outline" className="border-2 border-white text-foreground hover:bg-white/10 font-bold px-8 py-6 text-lg rounded-xl">
+              <Button size="lg" variant="outline" className="border-2 border-white text-foreground hover:bg-background/10 font-bold px-8 py-6 text-lg rounded-xl">
                 Create Account
               </Button>
             </Link>

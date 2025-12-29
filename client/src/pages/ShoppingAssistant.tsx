@@ -159,7 +159,7 @@ What can I help you with today?`,
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
@@ -181,7 +181,7 @@ What can I help you with today?`,
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Chat Area */}
           <div className="lg:col-span-3">
-            <Card className="bg-white/5 border-white/10 overflow-hidden flex flex-col" style={{ height: "calc(100vh - 250px)" }}>
+            <Card className="bg-background text-foreground/5 border-white/10 overflow-hidden flex flex-col" style={{ height: "calc(100vh - 250px)" }}>
               {/* Messages */}
               <div className="flex-1 overflow-y-auto p-6 space-y-6">
                 {messages.map((message) => (
@@ -210,7 +210,7 @@ What can I help you with today?`,
                         className={`inline-block max-w-3xl p-4 rounded-2xl ${
                           message.role === "user"
                             ? "bg-purple-600 text-foreground"
-                            : "bg-white/10 text-foreground"
+                            : "bg-background/10 text-foreground"
                         }`}
                       >
                         {message.role === "assistant" ? (
@@ -225,7 +225,7 @@ What can I help you with today?`,
                         <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                           {message.products.map((product) => (
                             <Link key={product.id} href={`/products/${product.id}`}>
-                              <Card className="p-4 bg-white/10 border-white/20 hover:bg-white/20 transition-colors cursor-pointer">
+                              <Card className="p-4 bg-background text-foreground/10 border-white/20 hover:bg-background text-foreground/20 transition-colors cursor-pointer">
                                 <div className="flex gap-3">
                                   <img
                                     src={product.image}
@@ -265,7 +265,7 @@ What can I help you with today?`,
                         <div className="mt-4 space-y-3">
                           {message.orders.map((order) => (
                             <Link key={order.id} href={`/orders/${order.id}`}>
-                              <Card className="p-4 bg-white/10 border-white/20 hover:bg-white/20 transition-colors cursor-pointer">
+                              <Card className="p-4 bg-background text-foreground/10 border-white/20 hover:bg-background text-foreground/20 transition-colors cursor-pointer">
                                 <div className="flex items-center justify-between">
                                   <div>
                                     <p className="text-foreground font-semibold">Order #{order.orderNumber}</p>
@@ -299,7 +299,7 @@ What can I help you with today?`,
                       <Bot className="w-5 h-5 text-foreground" />
                     </div>
                     <div className="flex-1">
-                      <div className="inline-block p-4 rounded-2xl bg-white/10">
+                      <div className="inline-block p-4 rounded-2xl bg-background text-foreground/10">
                         <Loader2 className="w-5 h-5 text-purple-400 animate-spin" />
                       </div>
                     </div>
@@ -317,7 +317,7 @@ What can I help you with today?`,
                     onChange={(e) => setInput(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Ask me anything about products, orders, or recommendations..."
-                    className="flex-1 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
+                    className="flex-1 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400"
                     disabled={isLoading}
                   />
                   <Button
@@ -339,7 +339,7 @@ What can I help you with today?`,
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Quick Actions */}
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-purple-400" />
                 Quick Actions
@@ -364,7 +364,7 @@ What can I help you with today?`,
             </Card>
 
             {/* Tips */}
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                 <MessageSquare className="w-5 h-5 text-purple-400" />
                 Tips
@@ -395,7 +395,7 @@ What can I help you with today?`,
 
             {/* Stats */}
             {user && (
-              <Card className="p-6 bg-white/5 border-white/10">
+              <Card className="p-6 bg-background text-foreground/5 border-white/10">
                 <h2 className="text-xl font-bold text-foreground mb-4">Your Activity</h2>
                 <div className="space-y-4">
                   <div>

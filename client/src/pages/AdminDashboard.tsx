@@ -49,9 +49,9 @@ export default function AdminDashboard() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 px-6 py-4">
+      <div className="bg-background text-foreground border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">Executive Dashboard</h1>
@@ -116,7 +116,7 @@ export default function AdminDashboard() {
 
         {/* Main Content Tabs */}
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="bg-white border border-gray-200">
+          <TabsList className="bg-background text-foreground border border-gray-200">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="skus">SKU Performance</TabsTrigger>
             <TabsTrigger value="disputes">Disputes</TabsTrigger>
@@ -135,7 +135,7 @@ export default function AdminDashboard() {
                 </div>
                 <div className="space-y-4">
                   {topSKUs?.slice(0, 5).map((sku: any) => (
-                    <div key={sku.productId} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div key={sku.productId} className="flex items-center justify-between p-4 bg-background text-foreground rounded-lg">
                       <div className="flex-1">
                         <div className="font-semibold text-gray-900">{sku.productName}</div>
                         <div className="text-sm text-gray-500">SKU: {sku.sku}</div>
@@ -280,7 +280,7 @@ export default function AdminDashboard() {
                   </thead>
                   <tbody>
                     {topSKUs?.map((sku: any) => (
-                      <tr key={sku.productId} className="border-b border-gray-100 hover:bg-gray-50">
+                      <tr key={sku.productId} className="border-b border-gray-100 hover:bg-background text-foreground">
                         <td className="py-3 px-4">
                           <Badge className="bg-purple-100 text-purple-800 border-0">
                             #{sku.rank}

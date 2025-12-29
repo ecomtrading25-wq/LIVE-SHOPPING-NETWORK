@@ -238,7 +238,7 @@ export default function SocialShopPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 py-12">
+    <div className="min-h-screen bg-background text-foreground py-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
@@ -255,7 +255,7 @@ export default function SocialShopPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search posts, influencers, products..."
-                className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
+                className="pl-10 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400"
               />
             </div>
             <Button variant="outline">
@@ -267,7 +267,7 @@ export default function SocialShopPage() {
 
         {/* Platform Tabs */}
         <Tabs value={filterPlatform} onValueChange={(v) => setFilterPlatform(v as any)} className="mb-8">
-          <TabsList className="bg-white/5 border border-white/10 mx-auto">
+          <TabsList className="bg-background text-foreground/5 border border-white/10 mx-auto">
             <TabsTrigger value="all">All Posts</TabsTrigger>
             <TabsTrigger value="instagram">
               <Instagram className="w-4 h-4 mr-2" />
@@ -287,7 +287,7 @@ export default function SocialShopPage() {
               {filteredPosts.map((post) => (
                 <Card
                   key={post.id}
-                  className="overflow-hidden bg-white/5 border-white/10 hover:bg-white/10 transition-all cursor-pointer group"
+                  className="overflow-hidden bg-background text-foreground/5 border-white/10 hover:bg-background text-foreground/10 transition-all cursor-pointer group"
                   onClick={() => setSelectedPost(post)}
                 >
                   {/* Post Image/Video */}
@@ -321,7 +321,7 @@ export default function SocialShopPage() {
                     {post.products.map((product) => (
                       <button
                         key={product.id}
-                        className="absolute w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+                        className="absolute w-8 h-8 bg-background text-foreground rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
                         style={{ left: `${product.position.x}%`, top: `${product.position.y}%` }}
                         onClick={(e) => {
                           e.stopPropagation();
@@ -402,7 +402,7 @@ export default function SocialShopPage() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Top Influencers */}
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
                 <TrendingUp className="w-6 h-6 text-purple-400" />
                 Top Influencers
@@ -465,7 +465,7 @@ export default function SocialShopPage() {
             </Card>
 
             {/* Features */}
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h3 className="text-xl font-bold text-foreground mb-4">Features</h3>
               <ul className="space-y-3 text-sm">
                 <li className="flex items-start gap-2 text-muted-foreground">
@@ -497,7 +497,7 @@ export default function SocialShopPage() {
               <p className="text-white/90 text-sm mb-4">
                 Earn commission by sharing products with your followers
               </p>
-              <Button className="w-full bg-white text-purple-600 hover:bg-gray-100">
+              <Button className="w-full bg-background text-foreground text-purple-600 hover:bg-gray-100">
                 Apply Now
               </Button>
             </Card>

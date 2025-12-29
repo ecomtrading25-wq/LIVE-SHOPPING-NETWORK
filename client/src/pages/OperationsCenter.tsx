@@ -41,7 +41,7 @@ export default function OperationsCenter() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <div className="text-foreground">Loading...</div>
       </div>
     );
@@ -139,7 +139,7 @@ export default function OperationsCenter() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="mb-8">
@@ -199,7 +199,7 @@ export default function OperationsCenter() {
 
         {/* Key Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-start justify-between mb-4">
               <div className="p-3 bg-green-500/20 rounded-lg">
                 <DollarSign className="w-6 h-6 text-green-400" />
@@ -226,7 +226,7 @@ export default function OperationsCenter() {
             </Badge>
           </Card>
 
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-start justify-between mb-4">
               <div className="p-3 bg-blue-500/20 rounded-lg">
                 <ShoppingCart className="w-6 h-6 text-blue-400" />
@@ -253,7 +253,7 @@ export default function OperationsCenter() {
             </Badge>
           </Card>
 
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-start justify-between mb-4">
               <div className="p-3 bg-purple-500/20 rounded-lg">
                 <Users className="w-6 h-6 text-purple-400" />
@@ -280,7 +280,7 @@ export default function OperationsCenter() {
             </Badge>
           </Card>
 
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-start justify-between mb-4">
               <div className="p-3 bg-orange-500/20 rounded-lg">
                 <Package className="w-6 h-6 text-orange-400" />
@@ -310,7 +310,7 @@ export default function OperationsCenter() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
           {/* Recent Orders */}
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-xl font-bold text-foreground">Recent Orders</h3>
               <ShoppingCart className="w-5 h-5 text-purple-400" />
@@ -319,7 +319,7 @@ export default function OperationsCenter() {
               {recentOrders.map((order) => (
                 <div
                   key={order.id}
-                  className="flex items-center justify-between p-3 bg-white/5 rounded-lg"
+                  className="flex items-center justify-between p-3 bg-background text-foreground/5 rounded-lg"
                 >
                   <div>
                     <p className="text-foreground font-semibold">{order.id}</p>
@@ -345,7 +345,7 @@ export default function OperationsCenter() {
           </Card>
 
           {/* Top Products */}
-          <Card className="p-6 bg-white/5 border-white/10">
+          <Card className="p-6 bg-background text-foreground/5 border-white/10">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-xl font-bold text-foreground">Inventory Status</h3>
               <Package className="w-5 h-5 text-purple-400" />
@@ -354,7 +354,7 @@ export default function OperationsCenter() {
               {topProducts.map((product, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-3 bg-white/5 rounded-lg"
+                  className="flex items-center justify-between p-3 bg-background text-foreground/5 rounded-lg"
                 >
                   <div>
                     <p className="text-foreground font-semibold">{product.name}</p>
@@ -373,7 +373,7 @@ export default function OperationsCenter() {
         </div>
 
         {/* Quick Actions */}
-        <Card className="p-6 bg-white/5 border-white/10">
+        <Card className="p-6 bg-background text-foreground/5 border-white/10">
           <h3 className="text-xl font-bold text-foreground mb-4">Quick Actions</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <Button

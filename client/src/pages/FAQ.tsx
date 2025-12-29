@@ -177,11 +177,11 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-background">
+    <div className="min-h-screen bg-background text-foreground dark:bg-background">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-purple-600 via-purple-700 to-pink-600 py-20">
+      <div className="bg-background text-foreground py-20">
         <div className="container mx-auto px-4 text-center">
-          <div className="w-16 h-16 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <div className="w-16 h-16 bg-background text-foreground/20 backdrop-blur rounded-2xl flex items-center justify-center mx-auto mb-6">
             <HelpCircle className="w-8 h-8 text-foreground" />
           </div>
           <h1 className="text-5xl font-bold text-foreground mb-4">
@@ -223,11 +223,11 @@ export default function FAQPage() {
                   return (
                     <Card
                       key={itemIndex}
-                      className="overflow-hidden bg-white dark:bg-background border-zinc-200 dark:border-border text-foreground"
+                      className="overflow-hidden bg-background dark:bg-background border-zinc-200 dark:border-border text-foreground"
                     >
                       <button
                         onClick={() => toggleAccordion(categoryIndex, itemIndex)}
-                        className="w-full px-6 py-4 flex items-center justify-between hover:bg-zinc-50 dark:hover:bg-card/50 transition-colors text-card-foreground"
+                        className="w-full px-6 py-4 flex items-center justify-between hover:bg-background text-foreground dark:hover:bg-card/50 transition-colors text-card-foreground"
                       >
                         <h3 className="text-lg font-semibold text-zinc-900 dark:text-foreground text-left">
                           {item.question}
@@ -265,7 +265,7 @@ export default function FAQPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-white text-purple-600 hover:bg-zinc-100"
+              className="bg-background text-foreground text-purple-600 hover:bg-zinc-100"
             >
               <MessageCircle className="w-5 h-5 mr-2" />
               Start Live Chat
@@ -273,7 +273,7 @@ export default function FAQPage() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-foreground hover:bg-white/10"
+              className="border-white text-foreground hover:bg-background/10"
             >
               Email Support
             </Button>

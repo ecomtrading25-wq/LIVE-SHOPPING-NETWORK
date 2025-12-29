@@ -74,7 +74,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 py-12">
+    <div className="min-h-screen bg-background text-foreground py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold text-foreground mb-8">My Profile</h1>
@@ -82,7 +82,7 @@ export default function ProfilePage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Profile Card */}
             <div className="lg:col-span-2">
-              <Card className="p-6 bg-white/10 backdrop-blur-xl border-white/20">
+              <Card className="p-6 bg-background text-foreground/10 backdrop-blur-xl border-white/20">
                 <div className="flex items-start justify-between mb-6">
                   <h2 className="text-2xl font-bold text-foreground">Profile Information</h2>
                   <Button
@@ -145,7 +145,7 @@ export default function ProfilePage() {
                           setProfileData({ ...profileData, name: e.target.value })
                         }
                         disabled={!isEditing}
-                        className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400 disabled:opacity-50"
+                        className="pl-10 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400 disabled:opacity-50"
                       />
                     </div>
                   </div>
@@ -162,7 +162,7 @@ export default function ProfilePage() {
                           setProfileData({ ...profileData, email: e.target.value })
                         }
                         disabled={!isEditing}
-                        className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400 disabled:opacity-50"
+                        className="pl-10 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400 disabled:opacity-50"
                       />
                     </div>
                   </div>
@@ -179,7 +179,7 @@ export default function ProfilePage() {
                           setProfileData({ ...profileData, phone: e.target.value })
                         }
                         disabled={!isEditing}
-                        className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400 disabled:opacity-50"
+                        className="pl-10 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400 disabled:opacity-50"
                       />
                     </div>
                   </div>
@@ -192,7 +192,7 @@ export default function ProfilePage() {
                         setProfileData({ ...profileData, bio: e.target.value })
                       }
                       disabled={!isEditing}
-                      className="bg-white/10 border-white/20 text-foreground placeholder:text-gray-400 disabled:opacity-50"
+                      className="bg-background/10 border-white/20 text-foreground placeholder:text-gray-400 disabled:opacity-50"
                     />
                   </div>
 
@@ -208,7 +208,7 @@ export default function ProfilePage() {
               </Card>
 
               {/* Change Password */}
-              <Card className="p-6 bg-white/10 backdrop-blur-xl border-white/20 mt-6">
+              <Card className="p-6 bg-background text-foreground/10 backdrop-blur-xl border-white/20 mt-6">
                 <h2 className="text-2xl font-bold text-foreground mb-6">Change Password</h2>
                 <div className="space-y-4">
                   <div>
@@ -224,7 +224,7 @@ export default function ProfilePage() {
                           setPasswordData({ ...passwordData, current: e.target.value })
                         }
                         placeholder="••••••••"
-                        className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
+                        className="pl-10 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400"
                       />
                     </div>
                   </div>
@@ -242,7 +242,7 @@ export default function ProfilePage() {
                           setPasswordData({ ...passwordData, new: e.target.value })
                         }
                         placeholder="••••••••"
-                        className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
+                        className="pl-10 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400"
                       />
                     </div>
                   </div>
@@ -260,7 +260,7 @@ export default function ProfilePage() {
                           setPasswordData({ ...passwordData, confirm: e.target.value })
                         }
                         placeholder="••••••••"
-                        className="pl-10 bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
+                        className="pl-10 bg-background/10 border-white/20 text-foreground placeholder:text-gray-400"
                       />
                     </div>
                   </div>
@@ -293,7 +293,7 @@ export default function ProfilePage() {
 
             {/* Activity Sidebar */}
             <div className="lg:col-span-1">
-              <Card className="p-6 bg-white/10 backdrop-blur-xl border-white/20">
+              <Card className="p-6 bg-background text-foreground/10 backdrop-blur-xl border-white/20">
                 <h2 className="text-xl font-bold text-foreground mb-4">Recent Activity</h2>
                 <div className="space-y-4">
                   {activityLog.map((activity) => (

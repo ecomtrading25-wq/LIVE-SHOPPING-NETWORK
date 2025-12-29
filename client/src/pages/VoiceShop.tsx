@@ -256,7 +256,7 @@ export default function VoiceShopPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 py-12">
+    <div className="min-h-screen bg-background text-foreground py-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
@@ -279,7 +279,7 @@ export default function VoiceShopPage() {
           {/* Voice Control */}
           <div className="lg:col-span-2 space-y-6">
             {/* Microphone Control */}
-            <Card className="p-8 bg-white/5 border-white/10">
+            <Card className="p-8 bg-background text-foreground/5 border-white/10">
               <div className="text-center">
                 <button
                   onClick={isListening ? stopListening : startListening}
@@ -302,7 +302,7 @@ export default function VoiceShopPage() {
                 
                 {/* Live Transcript */}
                 {transcript && (
-                  <div className="mt-6 p-4 bg-white/10 rounded-lg">
+                  <div className="mt-6 p-4 bg-background text-foreground/10 rounded-lg">
                     <p className="text-foreground text-lg">{transcript}</p>
                     {isProcessing && (
                       <Loader2 className="w-5 h-5 text-purple-400 animate-spin mx-auto mt-2" />
@@ -331,14 +331,14 @@ export default function VoiceShopPage() {
             </Card>
 
             {/* Command History */}
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h2 className="text-2xl font-bold text-foreground mb-6">Command History</h2>
               <div className="space-y-3">
                 {commands.length === 0 ? (
                   <p className="text-gray-400 text-center py-8">No commands yet. Start speaking to see your history.</p>
                 ) : (
                   commands.map((command) => (
-                    <Card key={command.id} className="p-4 bg-white/5 border-white/10">
+                    <Card key={command.id} className="p-4 bg-background text-foreground/5 border-white/10">
                       <div className="flex items-start gap-3">
                         <div className={`p-2 rounded-lg ${
                           command.action === 'search' ? 'bg-blue-500/20' :
@@ -375,7 +375,7 @@ export default function VoiceShopPage() {
           {/* Cart Sidebar */}
           <div className="space-y-6">
             {/* Cart Summary */}
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-bold text-foreground">Your Cart</h2>
                 <Badge className="bg-purple-500/20 text-purple-400">
@@ -432,7 +432,7 @@ export default function VoiceShopPage() {
             </Card>
 
             {/* Voice Tips */}
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h3 className="text-xl font-bold text-foreground mb-4">Voice Commands</h3>
               <ul className="space-y-3 text-sm">
                 <li className="flex items-start gap-2">
@@ -459,7 +459,7 @@ export default function VoiceShopPage() {
             </Card>
 
             {/* Settings */}
-            <Card className="p-6 bg-white/5 border-white/10">
+            <Card className="p-6 bg-background text-foreground/5 border-white/10">
               <h3 className="text-xl font-bold text-foreground mb-4">Settings</h3>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
@@ -471,7 +471,7 @@ export default function VoiceShopPage() {
                     }`}
                   >
                     <div
-                      className={`w-5 h-5 bg-white rounded-full transition-transform ${
+                      className={`w-5 h-5 bg-background text-foreground rounded-full transition-transform ${
                         wakeWordActive ? 'translate-x-6' : 'translate-x-1'
                       }`}
                     />

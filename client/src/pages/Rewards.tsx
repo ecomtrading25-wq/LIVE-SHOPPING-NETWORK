@@ -118,7 +118,7 @@ export default function RewardsPage() {
     : 1;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-zinc-900 to-black py-12">
+    <div className="min-h-screen bg-background text-foreground py-12">
       <div className="container mx-auto px-4">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-foreground mb-2">Rewards Program</h1>
@@ -131,7 +131,7 @@ export default function RewardsPage() {
         >
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-4">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 bg-background text-foreground/20 rounded-full flex items-center justify-center">
                 <currentTier.icon className="w-8 h-8 text-foreground" />
               </div>
               <div>
@@ -163,7 +163,7 @@ export default function RewardsPage() {
               </div>
               <Progress
                 value={progressToNextTier * 100}
-                className="h-3 bg-white/20"
+                className="h-3 bg-background text-foreground/20"
               />
             </div>
           )}
@@ -177,7 +177,7 @@ export default function RewardsPage() {
               className={`p-6 border-2 ${
                 tier.name === currentTier.name
                   ? "border-purple-500 bg-purple-500/10"
-                  : "border-border bg-background/50"
+                  : "border-border bg-background text-foreground/50"
               }`}
             >
               <div className="flex items-center gap-3 mb-4">

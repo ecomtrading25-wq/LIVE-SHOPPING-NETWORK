@@ -226,7 +226,7 @@ function ProductCard({ name, price, originalPrice, rating, reviews, image, badge
         <Button
           size="icon"
           variant="ghost"
-          className="absolute top-2 right-2 z-10 bg-white/80 hover:bg-white"
+          className="absolute top-2 right-2 z-10 bg-background text-foreground/80 hover:bg-background text-foreground"
           onClick={() => setIsWishlisted(!isWishlisted)}
         >
           <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-red-500 text-red-500' : ''}`} />

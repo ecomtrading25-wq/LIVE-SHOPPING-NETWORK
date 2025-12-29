@@ -315,7 +315,7 @@ export default function AccountAddressesPage() {
 
       {/* Addresses Grid */}
       {addresses.length === 0 ? (
-        <Card className="p-12 bg-white/5 border-white/10 text-center">
+        <Card className="p-12 bg-background text-foreground/5 border-white/10 text-center">
           <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
           <p className="text-gray-400 text-lg mb-6">No addresses saved yet</p>
           <Button onClick={() => setIsAddDialogOpen(true)}>
@@ -328,7 +328,7 @@ export default function AccountAddressesPage() {
           {addresses.map((address) => (
             <Card
               key={address.id}
-              className={`p-6 bg-white/5 border-white/10 hover:bg-white/10 transition-colors relative ${
+              className={`p-6 bg-background text-foreground/5 border-white/10 hover:bg-background text-foreground/10 transition-colors relative ${
                 address.isDefault ? "ring-2 ring-purple-500" : ""
               }`}
             >

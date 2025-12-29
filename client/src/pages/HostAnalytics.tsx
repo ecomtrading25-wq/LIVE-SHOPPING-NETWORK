@@ -53,7 +53,7 @@ export default function HostAnalytics() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8">
+    <div className="min-h-screen bg-background text-foreground py-8">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
@@ -209,7 +209,7 @@ export default function HostAnalytics() {
                 {topGifts?.map((gift: any, index: number) => (
                   <div
                     key={gift.id}
-                    className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                    className="flex items-center justify-between p-3 bg-background text-foreground rounded-lg"
                   >
                     <div className="flex items-center gap-3">
                       <Badge className="w-6 h-6 flex items-center justify-center">
@@ -241,7 +241,7 @@ export default function HostAnalytics() {
               {topShows?.map((show: any) => (
                 <div
                   key={show.id}
-                  className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                  className="flex items-center justify-between p-4 bg-background text-foreground rounded-lg hover:bg-gray-100 transition-colors"
                 >
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">

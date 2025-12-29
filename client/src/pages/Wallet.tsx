@@ -320,10 +320,10 @@ export default function Wallet() {
                 {transactions.map((transaction: any) => (
                   <div
                     key={transaction.id}
-                    className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                    className="flex items-center justify-between p-4 bg-background text-foreground rounded-lg hover:bg-gray-100 transition-colors"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-full bg-background text-foreground flex items-center justify-center">
                         {getTransactionIcon(transaction.type)}
                       </div>
                       <div>

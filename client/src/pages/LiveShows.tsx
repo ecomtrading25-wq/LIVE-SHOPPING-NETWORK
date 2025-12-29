@@ -46,7 +46,7 @@ export default function LiveShowsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="border-b border-white/10 bg-background/30 backdrop-blur-xl text-foreground">
         <div className="container mx-auto px-4 py-4">
@@ -58,7 +58,7 @@ export default function LiveShowsPage() {
             </Link>
             <div className="flex items-center gap-4">
               <Badge className="bg-red-600 animate-pulse">
-                <div className="w-2 h-2 bg-white rounded-full mr-2" />
+                <div className="w-2 h-2 bg-background text-foreground rounded-full mr-2" />
                 LIVE
               </Badge>
               <div className="flex items-center gap-2 text-foreground">
@@ -87,7 +87,7 @@ export default function LiveShowsPage() {
                 {/* Live Indicator */}
                 <div className="absolute top-4 left-4">
                   <Badge className="bg-red-600 text-foreground font-bold px-4 py-2">
-                    <div className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse" />
+                    <div className="w-2 h-2 bg-background text-foreground rounded-full mr-2 animate-pulse" />
                     LIVE
                   </Badge>
                 </div>
@@ -123,7 +123,7 @@ export default function LiveShowsPage() {
             </Card>
 
             {/* Featured Product Spotlight */}
-            <Card className="mt-6 bg-white/5 border-white/10 p-6">
+            <Card className="mt-6 bg-background text-foreground/5 border-white/10 p-6">
               <div className="flex items-center gap-3 mb-4">
                 <Zap className="w-6 h-6 text-yellow-500" />
                 <h2 className="text-xl font-bold text-foreground">Featured Product</h2>
@@ -172,7 +172,7 @@ export default function LiveShowsPage() {
 
           {/* Live Chat Sidebar */}
           <div className="lg:col-span-1">
-            <Card className="bg-white/5 border-white/10 h-[calc(100vh-12rem)] flex flex-col">
+            <Card className="bg-background text-foreground/5 border-white/10 h-[calc(100vh-12rem)] flex flex-col">
               <div className="p-4 border-b border-white/10">
                 <div className="flex items-center gap-2">
                   <MessageCircle className="w-5 h-5 text-purple-400" />
@@ -213,7 +213,7 @@ export default function LiveShowsPage() {
                     onChange={(e) => setChatMessage(e.target.value)}
                     onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
                     placeholder="Type a message..."
-                    className="bg-white/10 border-white/20 text-foreground placeholder:text-gray-400"
+                    className="bg-background/10 border-white/20 text-foreground placeholder:text-gray-400"
                   />
                   <Button
                     size="icon"

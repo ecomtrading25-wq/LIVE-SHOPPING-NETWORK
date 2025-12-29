@@ -91,7 +91,7 @@ export default function CategoriesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900 py-12">
+    <div className="min-h-screen bg-background text-foreground py-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
@@ -107,7 +107,7 @@ export default function CategoriesPage() {
             const Icon = category.icon;
             return (
               <Link key={category.id} href={`/products?category=${category.id}`}>
-                <Card className="group bg-white/10 backdrop-blur-xl border-white/20 hover:border-purple-500/50 transition-all duration-300 overflow-hidden cursor-pointer h-full">
+                <Card className="group bg-background text-foreground/10 backdrop-blur-xl border-white/20 hover:border-purple-500/50 transition-all duration-300 overflow-hidden cursor-pointer h-full">
                   {/* Category Image */}
                   <div className="relative h-48 overflow-hidden">
                     <div
@@ -116,7 +116,7 @@ export default function CategoriesPage() {
                     />
                     <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-60`} />
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                      <div className="w-20 h-20 bg-background text-foreground/20 backdrop-blur-sm rounded-full flex items-center justify-center">
                         <Icon className="w-10 h-10 text-foreground" />
                       </div>
                     </div>
@@ -133,7 +133,7 @@ export default function CategoriesPage() {
                     <p className="text-muted-foreground text-sm mb-4">{category.description}</p>
                     <Button
                       variant="ghost"
-                      className="w-full border-white/20 text-foreground hover:bg-white/10 group-hover:bg-purple-600 group-hover:border-purple-600 transition-colors"
+                      className="w-full border-white/20 text-foreground hover:bg-background/10 group-hover:bg-purple-600 group-hover:border-purple-600 transition-colors"
                     >
                       Browse
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -155,7 +155,7 @@ export default function CategoriesPage() {
               Use our advanced search to find exactly what you need
             </p>
             <Link href="/products">
-              <Button className="bg-white text-purple-600 hover:bg-gray-100">
+              <Button className="bg-background text-foreground text-purple-600 hover:bg-gray-100">
                 Browse All Products
               </Button>
             </Link>
@@ -172,7 +172,7 @@ export default function CategoriesPage() {
               const Icon = category.icon;
               return (
                 <Link key={category.id} href={`/products?category=${category.id}`}>
-                  <Card className="p-6 bg-white/10 backdrop-blur-xl border-white/20 hover:border-purple-500/50 transition-all cursor-pointer text-center">
+                  <Card className="p-6 bg-background text-foreground/10 backdrop-blur-xl border-white/20 hover:border-purple-500/50 transition-all cursor-pointer text-center">
                     <div className={`w-16 h-16 bg-gradient-to-br ${category.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
                       <Icon className="w-8 h-8 text-foreground" />
                     </div>

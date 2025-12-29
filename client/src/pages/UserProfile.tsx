@@ -161,7 +161,7 @@ export default function UserProfile() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="min-h-screen bg-background text-foreground dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Cover Image */}
       <div className="relative h-64 bg-gradient-to-r from-purple-600 to-blue-600">
         <div className="absolute inset-0 bg-background/20 text-foreground" />
@@ -175,7 +175,7 @@ export default function UserProfile() {
               {/* Avatar */}
               <div className="relative">
                 <div className="w-32 h-32 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 p-1">
-                  <div className="w-full h-full rounded-full bg-white dark:bg-card flex items-center justify-center text-card-foreground">
+                  <div className="w-full h-full rounded-full bg-background text-foreground dark:bg-card flex items-center justify-center text-card-foreground">
                     <User className="w-16 h-16 text-gray-400" />
                   </div>
                 </div>

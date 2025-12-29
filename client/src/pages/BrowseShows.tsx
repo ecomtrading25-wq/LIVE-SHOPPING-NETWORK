@@ -46,7 +46,7 @@ export default function BrowseShows() {
   
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center text-foreground">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center text-foreground">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-muted-foreground">Loading shows...</p>
@@ -121,7 +121,7 @@ export default function BrowseShows() {
                       {/* Live Badge */}
                       <div className="absolute top-3 left-3">
                         <Badge variant="destructive" className="animate-pulse">
-                          <span className="w-2 h-2 bg-white rounded-full mr-1"></span>
+                          <span className="w-2 h-2 bg-background text-foreground rounded-full mr-1"></span>
                           LIVE
                         </Badge>
                       </div>
