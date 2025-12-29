@@ -162,6 +162,22 @@ export const appRouter = router({
         return await db.updateChannel(input);
       }),
   }),
+
+  // ============================================================================
+  // SAVED SEARCHES
+  // ============================================================================
+  
+  savedSearches: router({
+    list: protectedProcedure.query(async ({ ctx }) => {
+      return await db.getSavedSearches(ctx.user.id);
+    }),
+    
+    delete: protectedProcedure
+      .input(z.object({ id: z.string() }))
+      .mutation(async ({ input, ctx }) => {
+        return await db.deleteSavedSearch(input.id, ctx.user.id);
+      }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;

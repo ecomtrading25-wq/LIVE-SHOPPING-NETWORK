@@ -36,12 +36,12 @@ export default function ProductsPage() {
   const { data: featuredProducts } = trpc.products.getFeatured.useQuery({});
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-pink-900">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="border-b border-white/10 bg-black/30 backdrop-blur-xl">
+      <header className="border-b-2 border-black bg-white">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <Link href="/" className="text-2xl font-bold text-white hover:text-purple-400 transition-colors">
+            <Link href="/" className="text-2xl font-bold text-black hover:text-[#E42313] transition-colors">
               Live Shopping Network
             </Link>
             <div className="flex items-center gap-4">
@@ -49,7 +49,7 @@ export default function ProductsPage() {
                 <Button variant="outline" className="relative">
                   <ShoppingCart className="w-5 h-5" />
                   {totalItems > 0 && (
-                    <span className="absolute -top-2 -right-2 w-5 h-5 bg-purple-600 rounded-full text-xs flex items-center justify-center">
+                    <span className="absolute -top-2 -right-2 w-5 h-5 bg-[#E42313] rounded-full text-white text-xs flex items-center justify-center">
                       {totalItems}
                     </span>
                   )}
@@ -63,10 +63,10 @@ export default function ProductsPage() {
       <div className="container mx-auto px-4 py-12">
         {/* Hero Section */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-white mb-4">
+          <h1 className="text-5xl font-bold text-black mb-4">
             Shop Exclusive Deals
           </h1>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-gray-700 mb-8">
             Discover products featured in our live shows
           </p>
 
@@ -74,19 +74,19 @@ export default function ProductsPage() {
           <div className="max-w-4xl mx-auto">
             <div className="flex gap-4 mb-6">
               <div className="flex-1 relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
                 <Input
                   placeholder="Search products..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-12 h-14 bg-white/10 border-white/20 text-white placeholder:text-gray-400 text-lg"
+                  className="pl-12 h-14 bg-white border-2 border-black text-black placeholder:text-gray-500 text-lg"
                 />
               </div>
               <Select value={sortBy} onValueChange={setSortBy}>
-                <SelectTrigger className="w-48 h-14 bg-white/10 border-white/20 text-white">
+                <SelectTrigger className="w-48 h-14 bg-white border-2 border-black text-black">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent className="bg-zinc-900 border-zinc-700">
+                <SelectContent className="bg-white border-2 border-black">
                   <SelectItem value="featured">Featured</SelectItem>
                   <SelectItem value="price_low">Price: Low to High</SelectItem>
                   <SelectItem value="price_high">Price: High to Low</SelectItem>

@@ -8116,3 +8116,9 @@ Next: Configure external services and deploy to production.
 - [x] Update global CSS theme variables
 - [x] Update homepage with new brand colors
 - [x] Update header/navigation with logo
+
+## 🐛 NEW BUGS & TASKS (2025-12-29)
+- [x] Fix missing savedSearches.list tRPC procedure error
+- [x] Remove all dark backgrounds and elements from entire site
+- [x] Update Footer to light theme
+- [x] Ensure all pages use clean light theme
