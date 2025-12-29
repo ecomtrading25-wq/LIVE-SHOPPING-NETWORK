@@ -112,7 +112,7 @@ export const liveShowsRouter = router({
   trackViewerJoin: protectedProcedure
     .input(z.object({
       showId: z.string(),
-      userId: z.string(),
+      userId: z.number(),
       metadata: z.object({
         userAgent: z.string().optional(),
         referrer: z.string().optional(),
@@ -130,7 +130,7 @@ export const liveShowsRouter = router({
     .input(z.object({
       showId: z.string(),
       productId: z.string(),
-      userId: z.string(),
+      userId: z.number(),
       amount: z.number(),
     }))
     .mutation(async ({ input }) => {

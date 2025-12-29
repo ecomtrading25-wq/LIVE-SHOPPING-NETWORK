@@ -7770,3 +7770,5 @@ Next: Configure external services and deploy to production.
 - [x] Fix userId type mismatch - change from number to string in schema and procedures
 - [x] Add missing products.getFeatured procedure
 - [x] Fix nested anchor tag issues in frontend components
+- [x] Fix undefined monthlyForecast property error in Revenue Forecast Dashboard (/admin/revenue-forecast)
+- [x] Fix toISOString error in Revenue Forecast Dashboard export functionality

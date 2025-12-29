@@ -66,6 +66,13 @@ export default function RevenueForecastDashboard() {
   const { data: channels, isLoading: channelsLoading, error: channelsError, refetch: refetchChannels } = 
     trpc.aiDashboards.revenueForecast.channels.useQuery();
 
+  // Debug logging
+  useEffect(() => {
+    if (overviewError) console.error('[Revenue Forecast] Overview error:', overviewError);
+    if (monthlyError) console.error('[Revenue Forecast] Monthly error:', monthlyError);
+    if (channelsError) console.error('[Revenue Forecast] Channels error:', channelsError);
+  }, [overviewError, monthlyError, channelsError]);
+
   const isLoading = overviewLoading || monthlyLoading || channelsLoading;
   const hasError = overviewError || monthlyError || channelsError;
 
@@ -154,6 +161,17 @@ const mockForecastData = overview || {
     { risk: 'Supply Chain Disruption', probability: 'Medium', impact: 'High', mitigation: 'Diversify suppliers' },
     { risk: 'Market Saturation', probability: 'Low', impact: 'Medium', mitigation: 'Expand to new categories' },
     { risk: 'Economic Downturn', probability: 'Medium', impact: 'High', mitigation: 'Focus on value products' }
+  ],
+  monthlyForecast: [
+    { month: 'Jan', actual: 245000, forecast: 245000, lowerBound: 230000, upperBound: 260000, confidence: 95 },
+    { month: 'Feb', actual: 268000, forecast: 268000, lowerBound: 252000, upperBound: 284000, confidence: 94 },
+    { month: 'Mar', actual: 289000, forecast: 289000, lowerBound: 271000, upperBound: 307000, confidence: 93 },
+    { month: 'Apr', actual: 312000, forecast: 312000, lowerBound: 292000, upperBound: 332000, confidence: 92 },
+    { month: 'May', actual: 298000, forecast: 298000, lowerBound: 279000, upperBound: 317000, confidence: 91 },
+    { month: 'Jun', actual: 325000, forecast: 325000, lowerBound: 304000, upperBound: 346000, confidence: 90 },
+    { month: 'Jul', actual: 0, forecast: 342000, lowerBound: 315000, upperBound: 369000, confidence: 87 },
+    { month: 'Aug', actual: 0, forecast: 358000, lowerBound: 328000, upperBound: 388000, confidence: 85 },
+    { month: 'Sep', actual: 0, forecast: 375000, lowerBound: 342000, upperBound: 408000, confidence: 82 }
   ]
 };
 
@@ -563,14 +581,14 @@ const mockForecastData = overview || {
         open={exportOpen}
         onOpenChange={setExportOpen}
         title="Revenue Forecast Report"
-        data={mockForecastData.monthlyForecast.map(m => ({
+        data={(monthlyData.length > 0 ? monthlyData : mockForecastData.monthlyForecast).map(m => ({
           month: m.month,
           actualRevenue: m.actual,
           forecastRevenue: m.forecast,
           lowerBound: m.lowerBound,
           upperBound: m.upperBound,
           confidence: m.confidence,
-          growthRate: ((m.forecast - m.actual) / m.actual * 100)
+          growthRate: m.actual ? ((m.forecast - m.actual) / m.actual * 100) : 0
         }))}
         columns={[
           { key: 'month', label: 'Month' },
