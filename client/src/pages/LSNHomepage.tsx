@@ -44,10 +44,22 @@ import {
   Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/contexts/AuthContext";
+import { getLoginUrl } from "@/const";
+import { LogIn } from "lucide-react";
 
 export default function LSNHomepage() {
+  const { user } = useAuth();
   const [email, setEmail] = useState("");
+  const [loginEmail, setLoginEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [currentTime, setCurrentTime] = useState(new Date());
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Redirect to Manus OAuth login
+    window.location.href = getLoginUrl();
+  };
 
   // Update time every second for countdown
   useEffect(() => {
@@ -92,6 +104,74 @@ export default function LSNHomepage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground text-black">
+      {/* Large Centered Logo and Login Section */}
+      <section className="bg-white border-b-2 border-black">
+        <div className="container py-16">
+          <div className="flex flex-col items-center justify-center space-y-8">
+            {/* Large Logo */}
+            <img 
+              src="/logo.png" 
+              alt="Live Shopping Network" 
+              className="w-[600px] h-auto max-w-full" 
+            />
+            
+            {/* Login Section - Only show if not logged in */}
+            {!user && (
+              <Card className="w-full max-w-md p-8 border-2 border-black">
+                <h2 className="text-2xl font-bold mb-6 text-center text-black">Welcome Back</h2>
+                <form onSubmit={handleLogin} className="space-y-4">
+                  <div>
+                    <Input
+                      type="email"
+                      placeholder="Email address"
+                      value={loginEmail}
+                      onChange={(e) => setLoginEmail(e.target.value)}
+                      className="border-2 border-black"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Input
+                      type="password"
+                      placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="border-2 border-black"
+                      required
+                    />
+                  </div>
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-[#E42313] hover:bg-[#C01F10] text-white font-bold"
+                  >
+                    <LogIn className="w-4 h-4 mr-2" />
+                    Sign In
+                  </Button>
+                </form>
+                <p className="text-center text-sm text-gray-600 mt-4">
+                  Don't have an account?{" "}
+                  <a href={getLoginUrl()} className="text-[#E42313] hover:underline font-semibold">
+                    Sign up
+                  </a>
+                </p>
+              </Card>
+            )}
+            
+            {/* Welcome message for logged in users */}
+            {user && (
+              <div className="text-center">
+                <h2 className="text-3xl font-bold text-black mb-2">
+                  Welcome back, {user.name}!
+                </h2>
+                <p className="text-xl text-gray-600">
+                  Ready to discover amazing live shopping experiences?
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         {/* Animated background */}

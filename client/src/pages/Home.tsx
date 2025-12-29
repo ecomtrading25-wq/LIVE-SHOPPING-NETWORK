@@ -1,15 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Play, Users, Eye, Clock, Calendar } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Play, Users, Eye, Clock, Calendar, LogIn } from "lucide-react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
+import { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
+import { getLoginUrl } from "@/const";
 
 /**
  * Live Shopping Network - Homepage
  * Displays live, scheduled, and past shows
  */
 export default function Home() {
+  const { user } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   // Fetch live shows
   const { data: liveShows, isLoading: liveLoading } = trpc.liveStreaming.listLiveShows.useQuery({
     status: 'live',
@@ -28,6 +36,12 @@ export default function Home() {
     limit: 6,
   });
 
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Redirect to Manus OAuth login
+    window.location.href = getLoginUrl();
+  };
+
   if (liveLoading) {
     return (
       <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
@@ -40,6 +54,69 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Large Centered Logo Section */}
+      <div className="flex flex-col items-center justify-center py-16 bg-white">
+        <img 
+          src="/logo.png" 
+          alt="Live Shopping Network" 
+          className="w-[600px] h-auto max-w-full mb-8" 
+        />
+        
+        {/* Login Section - Only show if not logged in */}
+        {!user && (
+          <Card className="w-full max-w-md p-8 border-2 border-black">
+            <h2 className="text-2xl font-bold mb-6 text-center text-black">Welcome Back</h2>
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div>
+                <Input
+                  type="email"
+                  placeholder="Email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="border-2 border-black"
+                  required
+                />
+              </div>
+              <div>
+                <Input
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="border-2 border-black"
+                  required
+                />
+              </div>
+              <Button 
+                type="submit" 
+                className="w-full bg-[#E42313] hover:bg-[#C01F10] text-white font-bold"
+              >
+                <LogIn className="w-4 h-4 mr-2" />
+                Sign In
+              </Button>
+            </form>
+            <p className="text-center text-sm text-gray-600 mt-4">
+              Don't have an account?{" "}
+              <a href={getLoginUrl()} className="text-[#E42313] hover:underline font-semibold">
+                Sign up
+              </a>
+            </p>
+          </Card>
+        )}
+        
+        {/* Welcome message for logged in users */}
+        {user && (
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-black mb-2">
+              Welcome back, {user.name}!
+            </h2>
+            <p className="text-xl text-gray-600">
+              Ready to discover amazing live shopping experiences?
+            </p>
+          </div>
+        )}
+      </div>
+      
       <div className="container mx-auto px-4 py-12">
         {/* Hero Section */}
         <div className="max-w-4xl mx-auto text-center mb-16">

@@ -8317,3 +8317,5 @@ Next: Configure external services and deploy to production.
 - [x] Double the logo size (from h-16 to h-32 in Header, from h-12 to h-24 in Footer)
 
 - [x] Ensure all pages scroll to top on load (add scroll restoration to router)
+- [x] Remove logo from header and place it as large centered element below header on homepage
+- [x] Integrate login functionality directly into homepage

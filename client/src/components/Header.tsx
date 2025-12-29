@@ -46,13 +46,6 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white backdrop-blur-sm border-b-2 border-black">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/">
-            <div className="flex items-center gap-2 cursor-pointer">
-              <img src="/logo.png" alt="Live Selling Network" className="h-32 w-auto" />
-            </div>
-          </Link>
-
           {/* Search Bar - Desktop */}
           <form
             onSubmit={handleSearch}
