@@ -531,13 +531,15 @@ export const aiDashboardsRouter = router({
   // ==================== REVENUE FORECAST ====================
   revenueForecast: router({
     overview: protectedProcedure.query(async () => {
-      // Get recent revenue data
+      // Get recent revenue data (last 30 days)
+      // Note: orders.createdAt is a timestamp field, we need to convert it for comparison
+      const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
       const recentOrders = await (await getDb())
         .select({
           total: sql<number>`SUM(${orders.total})`.as('total')
         })
         .from(orders)
-        .where(gte(orders.createdAt, Date.now() - 30 * 24 * 60 * 60 * 1000));
+        .where(gte(orders.createdAt, thirtyDaysAgo));
 
       const currentRevenue = Number(recentOrders[0]?.total) || 0;
       const forecastRevenue = currentRevenue * 1.185; // 18.5% growth

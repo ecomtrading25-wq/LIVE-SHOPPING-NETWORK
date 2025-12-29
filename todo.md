@@ -48,6 +48,7 @@
 - [x] Fix notificationId undefined error on /live/2 page
 - [x] Fix userId type mismatch (number vs string) in API calls
 - [x] Fix sentiment analysis API validation error (expects object, receives undefined)
+- [x] Fix Date serialization error in revenue forecast API (value.toISOString is not a function)
 - [ ] Fix 3303 TypeScript errors (non-critical files)
 - [ ] Add PayPal webhook handlers
 - [ ] Add Wise webhook handlers  
