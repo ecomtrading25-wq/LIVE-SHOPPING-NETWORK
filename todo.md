@@ -7793,3 +7793,250 @@ Next: Configure external services and deploy to production.
 - [x] Fix missing tRPC procedures: aiDashboards.pricingOptimization.overview/products
 - [x] Fix sentimentDistribution.map error - changed distribution from object to array format
 - [x] Add missing fields to demand forecast products (name, urgency, trendDirection, averageDailySales, forecastedDemand)
+
+
+---
+
+## 🧪 COMPREHENSIVE TESTING & BUG FIXES (Current Sprint)
+
+### Critical Data & Display Issues
+- [ ] Fix "Invalid Date" showing in Upcoming Shows section on homepage
+- [ ] Fix missing data for Top Creators (showing "Total Shows" and "Avg Viewers" without numbers)
+- [ ] Add seed data for live shows to database
+- [ ] Add seed data for creators/hosts to database
+- [ ] Verify all homepage data is loading correctly from tRPC
+
+### Live Streaming Core Functionality
+- [ ] Test clicking on live show cards navigates to viewer page
+- [ ] Test live show viewer page loads video player
+- [ ] Test real-time chat in live show viewer
+- [ ] Test product showcase panel during live shows
+- [ ] Test "Watch Now" buttons on homepage
+- [ ] Test "Browse Shows" navigation
+- [ ] Verify Twilio video integration is functional
+- [ ] Test viewer count updates in real-time
+- [ ] Test host controls for managing live shows
+
+### E-commerce Critical Path Testing
+- [ ] Test complete checkout flow: Browse → Product → Add to Cart → Checkout → Payment → Confirmation
+- [ ] Test Stripe payment processing end-to-end
+- [ ] Test guest checkout without login
+- [ ] Test authenticated user checkout
+- [ ] Test promo code application in cart
+- [ ] Test shipping calculation accuracy
+- [ ] Test tax calculation accuracy
+- [ ] Test order confirmation email/notification
+- [ ] Test order tracking page with real order data
+- [ ] Test order history page
+
+### Product Catalog & Search
+- [ ] Test product search functionality
+- [ ] Test product filtering (category, price, brand, rating)
+- [ ] Test product sorting (price, name, newest)
+- [ ] Test product pagination/infinite scroll
+- [ ] Test product detail page loads correctly
+- [ ] Test product variant selection (size, color)
+- [ ] Test product image gallery
+- [ ] Test product reviews display
+- [ ] Test "Add to Wishlist" functionality
+- [ ] Test "Compare Products" functionality
+
+### Shopping Cart Functionality
+- [ ] Test add to cart from product page
+- [ ] Test add to cart from product listing
+- [ ] Test cart quantity increase/decrease
+- [ ] Test remove item from cart
+- [ ] Test cart persists across sessions
+- [ ] Test cart badge count updates
+- [ ] Test cart total calculations
+- [ ] Test "Continue Shopping" navigation
+
+### User Authentication & Account Management
+- [ ] Test user login with Manus OAuth
+- [ ] Test user logout
+- [ ] Test user registration flow
+- [ ] Test password reset (if applicable)
+- [ ] Test user profile page
+- [ ] Test account settings page
+- [ ] Test address management
+- [ ] Test payment methods management
+- [ ] Test order history access
+- [ ] Test admin role access to admin pages
+
+### Admin Dashboard Testing
+- [ ] Test admin dashboard loads with correct permissions
+- [ ] Test analytics dashboard displays charts
+- [ ] Test product management CRUD operations
+- [ ] Test order management interface
+- [ ] Test inventory management interface
+- [ ] Test user management interface
+- [ ] Test creator management interface
+- [ ] Test live show management interface
+- [ ] Test fraud console functionality
+- [ ] Test executive dashboard metrics
+
+### Creator/Host Features
+- [ ] Test creator dashboard access
+- [ ] Test creator analytics display
+- [ ] Test creator earnings tracking
+- [ ] Test host dashboard for live shows
+- [ ] Test host can start/stop live shows
+- [ ] Test affiliate program functionality
+- [ ] Test creator profile pages
+
+### Navigation & UI/UX
+- [ ] Test all header navigation links work
+- [ ] Test all footer navigation links work
+- [ ] Test mobile responsive design
+- [ ] Test search bar functionality
+- [ ] Test category navigation
+- [ ] Test breadcrumb navigation
+- [ ] Test back button functionality
+- [ ] Test 404 page for invalid routes
+- [ ] Test loading states display correctly
+- [ ] Test error states display user-friendly messages
+
+### Advanced Features Testing
+- [ ] Test AI shopping chatbot opens and responds
+- [ ] Test voice shopping assistant (if implemented)
+- [ ] Test AR preview functionality (if implemented)
+- [ ] Test wishlist add/remove/view
+- [ ] Test product comparison tool
+- [ ] Test rewards/loyalty program
+- [ ] Test referral system
+- [ ] Test gift cards functionality
+- [ ] Test subscription boxes
+- [ ] Test flash sales
+
+### Database & API Testing
+- [ ] Verify database tables are properly created
+- [ ] Test all tRPC procedures return expected data
+- [ ] Add comprehensive seed data for testing
+- [ ] Test database migrations work correctly
+- [ ] Verify foreign key relationships
+- [ ] Test database queries are optimized
+- [ ] Test API error handling
+- [ ] Test API rate limiting (if implemented)
+
+### Performance & Security
+- [ ] Test page load times are acceptable
+- [ ] Test API response times
+- [ ] Test image loading and optimization
+- [ ] Test payment processing security
+- [ ] Test CSRF protection
+- [ ] Test XSS protection
+- [ ] Test SQL injection protection
+- [ ] Test authentication token security
+
+### Mobile & PWA
+- [ ] Test PWA installation prompt appears
+- [ ] Test PWA installs correctly
+- [ ] Test offline functionality (if implemented)
+- [ ] Test push notifications (if implemented)
+- [ ] Test mobile navigation
+- [ ] Test mobile touch interactions
+- [ ] Test mobile form inputs
+- [ ] Test mobile checkout flow
+
+### Multi-tenant & Channel Features
+- [ ] Test channel creation
+- [ ] Test channel switching
+- [ ] Test channel-specific products
+- [ ] Test channel accounts integration
+- [ ] Test multi-platform sync (TikTok Shop, Shopify, etc.)
+
+### Warehouse & Operations
+- [ ] Test warehouse management interface
+- [ ] Test zone and bin management
+- [ ] Test picker interface workflow
+- [ ] Test packer interface workflow
+- [ ] Test inventory adjustments
+- [ ] Test supplier portal access
+- [ ] Test purchase order creation
+
+### Notifications & Communications
+- [ ] Test email notifications send correctly
+- [ ] Test push notifications (if implemented)
+- [ ] Test in-app notifications display
+- [ ] Test notification preferences page
+- [ ] Test customer service chatbot
+
+### TypeScript & Build Issues
+- [ ] Fix TypeScript/LSP errors reported in health check
+- [ ] Fix any build errors
+- [ ] Fix any console errors in browser
+- [ ] Fix any console warnings in browser
+- [ ] Verify all imports resolve correctly
+
+### Vitest Unit Tests (Required)
+- [ ] Write tests for auth flow (login, logout, session)
+- [ ] Write tests for cart operations (add, remove, update)
+- [ ] Write tests for checkout flow
+- [ ] Write tests for product queries
+- [ ] Write tests for order creation
+- [ ] Write tests for payment processing
+- [ ] Write tests for live show operations
+- [ ] Write tests for creator operations
+- [ ] Write tests for admin operations
+- [ ] Run all tests and ensure they pass
+
+### Integration Testing
+- [ ] Test complete user journey: Browse → Register → Shop → Checkout → Track Order
+- [ ] Test complete creator journey: Register → Create Show → Go Live → Earn Commission
+- [ ] Test complete admin journey: Login → Manage Products → Process Orders → View Analytics
+- [ ] Test error recovery scenarios
+- [ ] Test edge cases (empty cart, out of stock, payment failure, etc.)
+
+### Documentation & Deployment Prep
+- [ ] Document all known issues
+- [ ] Document all placeholder features
+- [ ] Create user guide for key features
+- [ ] Create admin guide
+- [ ] Create deployment checklist
+- [ ] Verify all environment variables are set
+- [ ] Test production build locally
+- [ ] Create final checkpoint before delivery
+
+## 📋 Testing Priority Order
+1. **Critical Path:** Homepage → Products → Cart → Checkout (must work perfectly)
+2. **Authentication:** Login/Logout/Session management
+3. **Live Shows:** Browse → Watch → Interact
+4. **Admin:** Dashboard access and basic operations
+5. **Advanced Features:** Test as time permits
+
+## 🐛 Known Issues to Fix
+- TypeScript/LSP errors in health check (exit code 134)
+- Invalid Date display on homepage
+- Missing creator statistics data
+- Need to verify all tRPC procedures are wired to UI correctly
+
+
+---
+
+## 🧪 COMPREHENSIVE TESTING & BUG FIXES (Current Session)
+
+### Homepage Fixes
+- [x] Fixed "Invalid Date" display for upcoming shows (updated router to return scheduledStartTime)
+- [x] Fixed missing creator statistics (updated router to return proper avgViewers, totalShows, tier)
+- [x] Verified dates display correctly (29/12/2025 at 18:39 format)
+- [x] Verified creator cards show proper stats (Total Shows: 245, Avg Viewers: 5,100)
+
+### Testing Completed
+- [x] Test live show viewer page functionality - Page loads with video player, chat, reactions
+- [x] Test product browsing and filtering - 8 products display with proper pricing and discounts
+- [x] Test shopping cart add/remove/update - Cart working, items add successfully, badge updates
+- [x] Test checkout flow with Stripe - Checkout page loads with Stripe card element, order summary correct
+- [x] Test admin operations center - Dashboard loads with metrics, alerts, live shows, and tabs
+- [ ] Test user authentication (login/logout) - Need to test login flow
+- [ ] Test creator dashboard - Need to navigate and test
+- [ ] Test order tracking - Need to create test order
+- [ ] Test search functionality - Need to test search bar
+- [ ] Test mobile responsiveness - Need to test on mobile viewport
+
+### Known Issues to Fix
+- [ ] TypeScript compiler crashing (3410 errors) - schema file too large (178 tables)
+- [ ] Newsletter subscription endpoint not implemented
+- [ ] Trending products endpoint returning empty/mock data
+- [ ] Product images missing (need to add sample product images)
+- [ ] Live show streaming integration not connected
+- [ ] Chat functionality in live shows not implemented

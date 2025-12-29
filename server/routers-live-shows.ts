@@ -47,35 +47,44 @@ export const liveShowsRouter = router({
         {
           id: '3',
           title: 'Home Decor Showcase',
-          creatorName: 'Lisa Home',
-          creatorAvatar: '/avatars/lisa.jpg',
-          scheduledFor: Date.now() + 1000 * 60 * 60, // In 1 hour
-          thumbnail: '/thumbnails/home-decor.jpg',
+          description: 'Transform your living space with these amazing home decor items.',
+          scheduledStartTime: new Date(Date.now() + 1000 * 60 * 60 * 2), // In 2 hours
+          thumbnailUrl: 'https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=800',
           status: 'scheduled' as const,
           category: 'Home & Garden',
-          subscriberCount: 2341
+          creator: {
+            id: '3',
+            name: 'Lisa Home',
+            avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Lisa'
+          }
         },
         {
           id: '4',
           title: 'Sports Equipment Sale',
-          creatorName: 'Mike Fitness',
-          creatorAvatar: '/avatars/mike.jpg',
-          scheduledFor: Date.now() + 1000 * 60 * 60 * 3, // In 3 hours
-          thumbnail: '/thumbnails/sports.jpg',
+          description: 'Get fit with premium sports equipment at discounted prices.',
+          scheduledStartTime: new Date(Date.now() + 1000 * 60 * 60 * 4), // In 4 hours
+          thumbnailUrl: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800',
           status: 'scheduled' as const,
           category: 'Sports',
-          subscriberCount: 1876
+          creator: {
+            id: '4',
+            name: 'Mike Fitness',
+            avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Mike'
+          }
         },
         {
           id: '5',
           title: 'Beauty Products Review',
-          creatorName: 'Anna Beauty',
-          creatorAvatar: '/avatars/anna.jpg',
-          scheduledFor: Date.now() + 1000 * 60 * 60 * 6, // In 6 hours
-          thumbnail: '/thumbnails/beauty.jpg',
+          description: 'Discover the best beauty products and skincare essentials.',
+          scheduledStartTime: new Date(Date.now() + 1000 * 60 * 60 * 6), // In 6 hours
+          thumbnailUrl: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800',
           status: 'scheduled' as const,
           category: 'Beauty',
-          subscriberCount: 3102
+          creator: {
+            id: '5',
+            name: 'Anna Beauty',
+            avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Anna'
+          }
         }
       ];
 

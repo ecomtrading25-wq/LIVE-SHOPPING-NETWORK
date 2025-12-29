@@ -9,7 +9,8 @@ import { publicProcedure, protectedProcedure, router } from './_core/trpc';
 export const creatorsRouter = router({
   getLeaderboard: publicProcedure
     .input(z.object({
-      timeRange: z.enum(['day', 'week', 'month', 'all']).default('week'),
+      metric: z.enum(['revenue', 'viewers', 'shows']).default('revenue'),
+      period: z.enum(['day', 'week', 'month', 'all']).default('month'),
       limit: z.number().default(10)
     }))
     .query(async ({ input }) => {
@@ -18,62 +19,62 @@ export const creatorsRouter = router({
         {
           id: '1',
           name: 'Sarah Tech',
-          avatar: '/avatars/sarah.jpg',
-          rank: 1,
-          totalSales: 125000,
-          viewerCount: 45230,
-          showsCompleted: 28,
+          avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah',
+          tier: 'Gold',
+          totalShows: 245,
+          avgViewers: 5100,
+          totalRevenue: 125000,
           rating: 4.9,
-          badge: 'platinum' as const,
-          followers: 12450
+          verified: true,
+          followers: 15000
         },
         {
           id: '2',
           name: 'Emma Style',
-          avatar: '/avatars/emma.jpg',
-          rank: 2,
-          totalSales: 98000,
-          viewerCount: 38120,
-          showsCompleted: 24,
+          avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Emma',
+          tier: 'Silver',
+          totalShows: 189,
+          avgViewers: 4200,
+          totalRevenue: 98000,
           rating: 4.8,
-          badge: 'gold' as const,
-          followers: 9870
+          verified: true,
+          followers: 12000
         },
         {
           id: '3',
           name: 'Lisa Home',
-          avatar: '/avatars/lisa.jpg',
-          rank: 3,
-          totalSales: 87500,
-          viewerCount: 32450,
-          showsCompleted: 22,
+          avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Lisa',
+          tier: 'Silver',
+          totalShows: 156,
+          avgViewers: 3800,
+          totalRevenue: 87500,
           rating: 4.7,
-          badge: 'gold' as const,
-          followers: 8920
+          verified: true,
+          followers: 9500
         },
         {
           id: '4',
           name: 'Mike Fitness',
-          avatar: '/avatars/mike.jpg',
-          rank: 4,
-          totalSales: 76000,
-          viewerCount: 28900,
-          showsCompleted: 20,
+          avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Mike',
+          tier: 'Bronze',
+          totalShows: 134,
+          avgViewers: 3200,
+          totalRevenue: 76000,
           rating: 4.6,
-          badge: 'silver' as const,
-          followers: 7650
+          verified: false,
+          followers: 8200
         },
         {
           id: '5',
           name: 'Anna Beauty',
-          avatar: '/avatars/anna.jpg',
-          rank: 5,
-          totalSales: 68500,
-          viewerCount: 25670,
-          showsCompleted: 18,
-          rating: 4.7,
-          badge: 'silver' as const,
-          followers: 7120
+          avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Anna',
+          tier: 'Bronze',
+          totalShows: 98,
+          avgViewers: 2900,
+          totalRevenue: 68500,
+          rating: 4.8,
+          verified: false,
+          followers: 7800
         }
       ];
 
