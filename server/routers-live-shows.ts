@@ -107,4 +107,50 @@ export const liveShowsRouter = router({
         ]
       };
     }),
+
+  // Track viewer joining a live show
+  trackViewerJoin: protectedProcedure
+    .input(z.object({
+      showId: z.string(),
+      userId: z.string(),
+      metadata: z.object({
+        userAgent: z.string().optional(),
+        referrer: z.string().optional(),
+      }).optional(),
+    }))
+    .mutation(async ({ input }) => {
+      // Track viewer join event
+      // In production, this would log to analytics/database
+      console.log(`Viewer ${input.userId} joined show ${input.showId}`);
+      return { success: true };
+    }),
+
+  // Track purchase during live show
+  trackPurchase: protectedProcedure
+    .input(z.object({
+      showId: z.string(),
+      productId: z.string(),
+      userId: z.string(),
+      amount: z.number(),
+    }))
+    .mutation(async ({ input }) => {
+      // Track purchase event
+      console.log(`Purchase tracked: User ${input.userId} bought product ${input.productId} in show ${input.showId}`);
+      return { success: true };
+    }),
+
+  // Get live stock for products in a show
+  getLiveStock: publicProcedure
+    .input(z.object({
+      showId: z.string(),
+    }))
+    .query(async ({ input }) => {
+      // Mock live stock data
+      // In production, this would query real-time inventory
+      return [
+        { productId: '1', stock: 47, lowStock: false },
+        { productId: '2', stock: 8, lowStock: true },
+        { productId: '3', stock: 0, lowStock: false, soldOut: true },
+      ];
+    }),
 });

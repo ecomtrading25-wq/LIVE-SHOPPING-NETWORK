@@ -456,12 +456,14 @@ export default function LSNLiveShowViewer() {
                     message="How long is the price drop?"
                     timestamp={new Date()}
                   />
-                  <ChatMessage
-                    user={{ name: show.creator?.name, avatar: show.creator?.avatarUrl }}
-                    message="Only 5 minutes left on this deal! 🔥"
-                    timestamp={new Date()}
-                    isCreator
-                  />
+                  {show?.creator?.name && (
+                    <ChatMessage
+                      user={{ name: show.creator.name, avatar: show.creator.avatarUrl }}
+                      message="Only 5 minutes left on this deal! 🔥"
+                      timestamp={new Date()}
+                      isCreator
+                    />
+                  )}
                 </div>
               </ScrollArea>
 
@@ -666,7 +668,7 @@ function ChatMessage({
     <div className="flex gap-3">
       <Avatar className={cn("h-8 w-8", isCreator && "border-2 border-purple-500")}>
         <AvatarImage src={user.avatar} />
-        <AvatarFallback>{user.name[0]}</AvatarFallback>
+        <AvatarFallback>{user.name?.[0] || 'U'}</AvatarFallback>
       </Avatar>
 
       <div className="flex-1 min-w-0">
