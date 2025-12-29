@@ -33,6 +33,7 @@ import { twilioLiveCompleteRouter } from "./twilio-live-complete";
 import { avatarStudioRouter } from "./avatar-studio-router";
 import { notificationsRouter } from "./routers-notifications";
 import { liveShowsRouter } from "./routers-live-shows";
+import { liveSessionsRouter } from "./routers-live-sessions";
 import { creatorsRouter } from "./routers-creators";
 import { subscriptionsRouter } from "./routers-subscriptions";
 import { rewardsRouter } from "./routers-rewards";
@@ -96,6 +97,9 @@ export const appRouter = router({
   
   // Live Shows
   liveShows: liveShowsRouter,
+  
+  // Live Sessions (Admin Management)
+  liveSessions: liveSessionsRouter,
   
   // Creators
   creators: creatorsRouter,

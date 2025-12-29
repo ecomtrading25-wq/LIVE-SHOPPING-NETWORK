@@ -1,4 +1,5 @@
 import { useState } from "react";
+import AdminProtectedRoute from "@/components/AdminProtectedRoute";
 import { Line, Bar, Pie, Doughnut } from "react-chartjs-2";
 import {
   Chart as ChartJS,

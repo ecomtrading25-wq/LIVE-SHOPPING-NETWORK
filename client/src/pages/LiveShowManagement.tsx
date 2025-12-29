@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import AdminProtectedRoute from "@/components/AdminProtectedRoute";
 import { trpc } from "@/lib/trpc";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";

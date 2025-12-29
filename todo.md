@@ -8306,3 +8306,7 @@ Next: Configure external services and deploy to production.
 - [ ] Integration test with existing systems
 
 - [x] Increase logo size
+
+- [x] Fix AdminProtectedRoute undefined errors on /analytics, /inventory, /email-campaigns and other admin pages
+- [x] Fix missing tRPC procedure liveSessions.list on /admin/demand-forecast page
+- [x] Fix missing tRPC procedures: aiDashboards.churnRisk.distribution, aiDashboards.churnRisk.customers, aiDashboards.churnRisk.overview

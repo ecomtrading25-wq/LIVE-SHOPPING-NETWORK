@@ -1,4 +1,5 @@
 /**
+import AdminProtectedRoute from "@/components/AdminProtectedRoute";
  * MARKETING AUTOMATION DASHBOARD
  * Complete marketing campaign management with email/SMS/push campaigns,
  * A/B testing, audience segmentation, and analytics

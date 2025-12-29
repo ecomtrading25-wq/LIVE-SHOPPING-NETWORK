@@ -56,15 +56,15 @@ export default function ChurnRiskDashboard() {
 
   // Fetch overview data
   const { data: overview, isLoading: overviewLoading, error: overviewError, refetch: refetchOverview } = 
-    trpc.aiDashboards.churnRisk.overview.useQuery();
+    trpc.aiDashboards.churnRisk.getOverview.useQuery();
 
   // Fetch customers data
   const { data: customers, isLoading: customersLoading, error: customersError, refetch: refetchCustomers } = 
-    trpc.aiDashboards.churnRisk.customers.useQuery();
+    trpc.aiDashboards.churnRisk.getCustomers.useQuery({ searchQuery: debouncedSearchQuery, riskFilter, sortBy });
 
   // Fetch distribution data
   const { data: distribution, isLoading: distributionLoading, error: distributionError, refetch: refetchDistribution } = 
-    trpc.aiDashboards.churnRisk.distribution.useQuery();
+    trpc.aiDashboards.churnRisk.getRiskDistribution.useQuery();
 
   const isLoading = overviewLoading || customersLoading || distributionLoading;
   const hasError = overviewError || customersError || distributionError;
