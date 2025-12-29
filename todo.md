@@ -8304,3 +8304,5 @@ Next: Configure external services and deploy to production.
 - [ ] Validate incident management flows
 - [ ] Test policy gate enforcement
 - [ ] Integration test with existing systems
+
+- [x] Increase logo size
