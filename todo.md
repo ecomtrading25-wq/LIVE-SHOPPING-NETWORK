@@ -8081,3 +8081,17 @@ Next: Configure external services and deploy to production.
 - [ ] Security audit
 - [ ] Performance optimization review
 - [x] Create final deployment checkpoint
+
+## Bug Fixes - Churn Risk Page
+- [ ] Fix missing tRPC procedure: aiDashboards.churnRisk.distribution
+- [ ] Fix missing tRPC procedure: aiDashboards.churnRisk.customers
+- [ ] Fix missing tRPC procedure: aiDashboards.churnRisk.overview
+- [ ] Fix "Cannot convert undefined or null to object" error on churn-risk page
+- [ ] Fix validation error: expected object, received undefined on churn-risk page
+
+## Bug Fixes - Pricing Optimization Page
+- [x] Fix React hooks error: "Rendered fewer hooks than expected" in PricingOptimizationDashboard
+- [x] Fix tRPC validation error: expected object, received undefined on pricing-optimization page
+
+## Bug Fixes - Sentiment Analysis Page
+- [x] Fix tRPC validation error: Invalid timeRange value on sentiment-analysis page

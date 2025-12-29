@@ -508,7 +508,7 @@ const mockSentimentData = {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-64"
               />
-              <Select value={timeRange} onValueChange={setTimeRange}>
+              <Select value={timeRange} onValueChange={(v: '7d' | '30d' | '90d') => setTimeRange(v)}>
                 <SelectTrigger className="w-32">
                   <SelectValue />
                 </SelectTrigger>
@@ -516,7 +516,6 @@ const mockSentimentData = {
                   <SelectItem value="7d">Last 7 days</SelectItem>
                   <SelectItem value="30d">Last 30 days</SelectItem>
                   <SelectItem value="90d">Last 90 days</SelectItem>
-                  <SelectItem value="all">All time</SelectItem>
                 </SelectContent>
               </Select>
             </div>

@@ -57,56 +57,21 @@ export default function PricingOptimizationDashboard() {
 
   // Fetch overview data
   const { data: overview, isLoading: overviewLoading, error: overviewError, refetch: refetchOverview } = 
-    trpc.aiDashboards.pricingOptimization.overview.useQuery();
+    trpc.aiDashboards.pricingOptimization.overview.useQuery(undefined, {
+      refetchOnWindowFocus: false
+    });
 
   // Fetch products data
   const { data: products, isLoading: productsLoading, error: productsError, refetch: refetchProducts } = 
-    trpc.aiDashboards.pricingOptimization.products.useQuery();
+    trpc.aiDashboards.pricingOptimization.products.useQuery(
+      { searchQuery: debouncedSearchQuery, filterType: filterType as any },
+      { refetchOnWindowFocus: false }
+    );
 
   const isLoading = overviewLoading || productsLoading;
   const hasError = overviewError || productsError;
 
-  // Handle refresh
-  const handleRefresh = async () => {
-    try {
-      await Promise.all([refetchOverview(), refetchProducts()]);
-      toast({
-        title: 'Data Refreshed',
-        description: 'Dashboard data has been updated successfully.',
-      });
-    } catch (error) {
-      toast({
-        title: 'Refresh Failed',
-        description: 'Failed to refresh data. Please try again.',
-        variant: 'destructive',
-      });
-    }
-  };
-
-  // Error boundary
-  if (hasError) {
-    return (
-      <div className="container mx-auto py-8">
-        <Card className="border-red-500/50 bg-red-500/10">
-          <div className="p-6">
-            <div className="flex items-center gap-2 text-red-500 mb-2">
-              <X className="w-5 h-5" />
-              <h3 className="text-lg font-semibold">Failed to Load Dashboard</h3>
-            </div>
-            <p className="text-red-400 mb-4">
-              {overviewError?.message || productsError?.message || 'An error occurred while loading the dashboard.'}
-            </p>
-            <Button onClick={handleRefresh} variant="outline" className="border-red-500 text-red-500 hover:bg-red-500/20">
-              <RefreshCw className="w-4 h-4 mr-2" />
-              Retry
-            </Button>
-          </div>
-        </Card>
-      </div>
-    );
-  }
-
-  // Filter and sort products
+  // Filter and sort products (must be before any returns to avoid hooks violation)
   const filteredProducts = (products || [])
     .filter((p: any) => {
       const matchesSearch = p.productName.toLowerCase().includes(debouncedSearchQuery.toLowerCase());
@@ -201,6 +166,7 @@ const priceImpactData = [
   { price: 104.99, revenue: 9449, profit: 4820, volume: 90 }
 ];
 
+  // ALL HOOKS MUST BE CALLED BEFORE ANY RETURNS
   const [selectedProduct, setSelectedProduct] = useState(filteredProducts[0] || mockPricingData[0] || null);
 
   const totalRevenueIncrease = mockPricingData.reduce((sum, p) => sum + (p.projectedRevenue - p.currentRevenue), 0);
@@ -210,7 +176,62 @@ const priceImpactData = [
   const priceChange = selectedProduct ? selectedProduct.recommendedPrice - selectedProduct.currentPrice : 0;
   const priceChangePercent = selectedProduct ? (priceChange / selectedProduct.currentPrice * 100) : 0;
 
+  // Handle refresh
+  const handleRefresh = async () => {
+    try {
+      await Promise.all([refetchOverview(), refetchProducts()]);
+      toast({
+        title: 'Data Refreshed',
+        description: 'Dashboard data has been updated successfully.',
+      });
+    } catch (error) {
+      toast({
+        title: 'Refresh Failed',
+        description: 'Failed to refresh data. Please try again.',
+        variant: 'destructive',
+      });
+    }
+  };
+
+  // NOW WE CAN SAFELY RETURN EARLY
+  // Error boundary
+  if (hasError) {
+    return (
+      <div className="container mx-auto py-8">
+        <Card className="border-red-500/50 bg-red-500/10">
+          <div className="p-6">
+            <div className="flex items-center gap-2 text-red-500 mb-2">
+              <X className="w-5 h-5" />
+              <h3 className="text-lg font-semibold">Failed to Load Dashboard</h3>
+            </div>
+            <p className="text-red-400 mb-4">
+              {overviewError?.message || productsError?.message || 'An error occurred while loading the dashboard.'}
+            </p>
+            <Button onClick={handleRefresh} variant="outline" className="border-red-500 text-red-500 hover:bg-red-500/20">
+              <RefreshCw className="w-4 h-4 mr-2" />
+              Retry
+            </Button>
+          </div>
+        </Card>
+      </div>
+    );
+  }
+
   // Show loading state if no product selected
+  if (!selectedProduct && isLoading) {
+    return (
+      <div className="min-h-screen bg-background p-6">
+        <div className="max-w-7xl mx-auto">
+          <Card className="p-12 text-center">
+            <Skeleton className="h-16 w-16 mx-auto mb-4" />
+            <Skeleton className="h-8 w-64 mx-auto mb-2" />
+            <Skeleton className="h-4 w-48 mx-auto" />
+          </Card>
+        </div>
+      </div>
+    );
+  }
+
   if (!selectedProduct && !isLoading) {
     return (
       <div className="min-h-screen bg-background p-6">
@@ -219,20 +240,6 @@ const priceImpactData = [
             <Target className="w-16 h-16 mx-auto text-muted-foreground mb-4" />
             <h2 className="text-2xl font-bold mb-2">No Products Available</h2>
             <p className="text-muted-foreground">Add products to start optimizing prices.</p>
-          </Card>
-        </div>
-      </div>
-    );
-  }
-
-  if (!selectedProduct) {
-    return (
-      <div className="min-h-screen bg-background p-6">
-        <div className="max-w-7xl mx-auto">
-          <Card className="p-12 text-center">
-            <Skeleton className="h-16 w-16 mx-auto mb-4" />
-            <Skeleton className="h-8 w-64 mx-auto mb-2" />
-            <Skeleton className="h-4 w-48 mx-auto" />
           </Card>
         </div>
       </div>
