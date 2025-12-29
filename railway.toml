@@ -1,0 +1,33 @@
+[build]
+builder = "NIXPACKS"
+buildCommand = "pnpm install && pnpm db:push && pnpm build"
+
+[deploy]
+startCommand = "pnpm start"
+healthcheckPath = "/health"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+[[deploy.environmentVariables]]
+name = "NODE_ENV"
+value = "production"
+
+[[deploy.environmentVariables]]
+name = "PORT"
+value = "3000"
+
+[services.web]
+port = 3000
+protocol = "http"
+
+[services.web.domains]
+# Railway will auto-generate a domain
+# Custom domains can be added via Railway dashboard
+
+[services.web.healthcheck]
+path = "/health"
+interval = 30
+timeout = 10
+unhealthyThreshold = 3
+healthyThreshold = 2
