@@ -38,6 +38,7 @@ import { creatorsRouter } from "./routers-creators";
 import { subscriptionsRouter } from "./routers-subscriptions";
 import { rewardsRouter } from "./routers-rewards";
 import { businessOSRouter } from "./business-os-routers";
+import { xeroRouter } from "./xero-router";
 
 /**
  * Live Shopping Network - Complete API Router
@@ -62,6 +63,7 @@ export const appRouter = router({
   subscriptions: subscriptionsRouter,
   businessOS: businessOSRouter,
   rewards: rewardsRouter,
+  xero: xeroRouter,
   
   // LSN-specific routers - Full enterprise live commerce platform
   lsnAuth: lsnAuthRouter,

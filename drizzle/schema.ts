@@ -2289,6 +2289,110 @@ export const stripeWebhookEvents = mysqlTable("stripe_webhook_events", {
 
 
 // ============================================================================
+// XERO ACCOUNTING INTEGRATION
+// ============================================================================
+
+export const xeroTokens = mysqlTable("xero_tokens", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  
+  // OAuth Tokens
+  accessToken: text("access_token").notNull(),
+  refreshToken: text("refresh_token").notNull(),
+  expiresAt: timestamp("expires_at").notNull(),
+  
+  // Tenant Info
+  tenantId: varchar("tenant_id", { length: 255 }),
+  tenantName: varchar("tenant_name", { length: 255 }),
+  
+  // Scopes
+  scopes: text("scopes"),
+  
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  tenantIdIdx: index("xero_tenant_id_idx").on(table.tenantId),
+}));
+
+export const xeroContacts = mysqlTable("xero_contacts", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  
+  // LSN User
+  userId: int("user_id").notNull(),
+  
+  // Xero Contact
+  xeroContactId: varchar("xero_contact_id", { length: 255 }).notNull().unique(),
+  email: varchar("email", { length: 255 }).notNull(),
+  name: varchar("name", { length: 255 }).notNull(),
+  
+  // Sync
+  syncedAt: timestamp("synced_at").notNull(),
+  
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("xero_contact_user_id_idx").on(table.userId),
+}));
+
+export const xeroInvoices = mysqlTable("xero_invoices", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  
+  // LSN Order
+  orderId: varchar("order_id", { length: 64 }).notNull(),
+  
+  // Xero Invoice
+  xeroInvoiceId: varchar("xero_invoice_id", { length: 255 }).notNull().unique(),
+  invoiceNumber: varchar("invoice_number", { length: 255 }),
+  status: varchar("status", { length: 50 }).notNull(),
+  total: decimal("total", { precision: 10, scale: 2 }).notNull(),
+  
+  // Sync
+  syncedAt: timestamp("synced_at").notNull(),
+  
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  orderIdIdx: index("xero_invoice_order_id_idx").on(table.orderId),
+}));
+
+export const xeroPayments = mysqlTable("xero_payments", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  
+  // Xero Invoice
+  xeroInvoiceId: varchar("xero_invoice_id", { length: 255 }).notNull(),
+  
+  // Xero Payment
+  xeroPaymentId: varchar("xero_payment_id", { length: 255 }).notNull().unique(),
+  amount: decimal("amount", { precision: 10, scale: 2 }).notNull(),
+  paymentDate: timestamp("payment_date").notNull(),
+  reference: varchar("reference", { length: 255 }),
+  
+  // Sync
+  syncedAt: timestamp("synced_at").notNull(),
+  
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  invoiceIdIdx: index("xero_payment_invoice_id_idx").on(table.xeroInvoiceId),
+}));
+
+export const xeroSyncLogs = mysqlTable("xero_sync_logs", {
+  id: varchar("id", { length: 64 }).primaryKey(),
+  
+  // Entity
+  entityType: varchar("entity_type", { length: 50 }).notNull(),
+  entityId: varchar("entity_id", { length: 255 }).notNull(),
+  
+  // Status
+  status: mysqlEnum("status", ["SUCCESS", "ERROR"]).notNull(),
+  errorMessage: text("error_message"),
+  
+  // Metadata
+  metadata: json("metadata").$type<Record<string, any>>(),
+  
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  entityTypeIdx: index("xero_sync_entity_type_idx").on(table.entityType),
+  statusIdx: index("xero_sync_status_idx").on(table.status),
+}));
+
+// ============================================================================
 // BUSINESS OS: Autonomous Operations & Intelligence
 // ============================================================================
 

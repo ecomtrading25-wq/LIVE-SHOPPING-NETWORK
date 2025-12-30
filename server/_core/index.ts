@@ -46,6 +46,10 @@ async function startServer() {
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   // OAuth callback under /api/oauth/callback
   registerOAuthRoutes(app);
+  
+  // Xero OAuth callback
+  const { xeroCallbackRouter } = await import('../xero-callback');
+  app.use(xeroCallbackRouter);
   // tRPC API
   app.use(
     "/api/trpc",

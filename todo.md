@@ -8328,3 +8328,269 @@ Next: Configure external services and deploy to production.
 
 ## 🔧 User Requested Changes
 - [x] Remove standalone login page route (keep OAuth login flow in Header)
+
+
+## 🔌 External Service Integrations
+
+### ✅ Completed Integrations
+- [x] Xero Accounting (OAuth, invoices, payments, LSN business unit tracking)
+- [x] TikTok Shop (OAuth, products, orders, inventory, live shopping)
+- [x] Meta Commerce - Facebook & Instagram Shopping (OAuth, catalog, orders, live shopping)
+- [x] Amazon Seller Central (SP-API, products, inventory, orders, FBA/FBM)
+- [x] eBay (OAuth, inventory, offers, orders, fulfillment)
+- [x] Etsy (OAuth PKCE, shop, listings, receipts, inventory)
+- [x] Multi-Channel Integration Hub (unified product/order model, cross-channel sync)
+- [x] Stripe integration (already implemented)
+- [x] PayPal integration (already implemented)
+- [x] Wise integration (already implemented)
+
+### 🔧 Integration Modules Created
+- [x] server/xero-integration.ts - Xero API client
+- [x] server/xero-router.ts - Xero tRPC procedures
+- [x] server/xero-callback.ts - Xero OAuth callback handler
+- [x] server/tiktok-shop-integration.ts - TikTok Shop API client
+- [x] server/meta-commerce-integration.ts - Facebook/Instagram Shopping API client
+- [x] server/amazon-integration.ts - Amazon SP-API client
+- [x] server/ebay-integration.ts - eBay API client
+- [x] server/etsy-integration.ts - Etsy Open API v3 client
+- [x] server/multichannel-hub.ts - Unified integration orchestration
+
+### 📋 Next Steps - User Configuration Required (New Wave)
+
+### Accounting Integration - Xero
+- [ ] Set up Xero OAuth 2.0 authentication
+- [ ] Create Xero API client with token management
+- [ ] Sync invoices from LSN to Xero
+- [ ] Sync payments and receipts to Xero
+- [ ] Sync expenses and bills to Xero
+- [ ] Sync chart of accounts
+- [ ] Two-way contact/customer sync
+- [ ] Automated reconciliation with Xero bank feeds
+- [ ] Real-time financial reporting dashboard
+- [ ] Xero webhook handlers for updates
+
+### CRM Integration - HubSpot
+- [ ] Set up HubSpot OAuth 2.0 authentication
+- [ ] Create HubSpot API client
+- [ ] Sync customers to HubSpot contacts
+- [ ] Sync orders to HubSpot deals
+- [ ] Track customer lifecycle stages
+- [ ] Sync email campaigns and engagement
+- [ ] Create automated workflows in HubSpot
+- [ ] Sync support tickets to HubSpot
+- [ ] Lead scoring integration
+- [ ] HubSpot webhook handlers
+
+### Social Media Live Selling - TikTok Shop
+- [ ] Set up TikTok Shop API credentials
+- [ ] Product catalog sync to TikTok Shop
+- [ ] Order ingestion from TikTok Shop
+- [ ] Inventory sync with TikTok Shop
+- [ ] Live stream integration with TikTok
+- [ ] TikTok Shop analytics integration
+- [ ] Automated fulfillment for TikTok orders
+- [ ] TikTok Shop webhook handlers
+- [ ] Creator commission tracking for TikTok
+- [ ] TikTok Shop dispute management
+
+### Social Media Live Selling - Facebook/Instagram Shopping
+- [ ] Set up Meta Commerce Manager API
+- [ ] Product catalog sync to Facebook Shop
+- [ ] Product catalog sync to Instagram Shop
+- [ ] Facebook Live Shopping integration
+- [ ] Instagram Live Shopping integration
+- [ ] Order ingestion from Meta platforms
+- [ ] Inventory sync with Meta Commerce
+- [ ] Meta Commerce webhook handlers
+- [ ] Facebook/Instagram ad integration
+- [ ] Social commerce analytics
+
+### E-Commerce Platform - Shopify
+- [ ] Set up Shopify API credentials
+- [ ] Product sync from Shopify to LSN
+- [ ] Order sync from Shopify to LSN
+- [ ] Inventory sync (bidirectional)
+- [ ] Customer sync from Shopify
+- [ ] Shopify webhook handlers
+- [ ] Fulfillment status updates to Shopify
+- [ ] Shopify metafields integration
+- [ ] Multi-store Shopify support
+- [ ] Shopify POS integration
+
+### E-Commerce Platform - WooCommerce
+- [ ] Set up WooCommerce REST API
+- [ ] Product sync from WooCommerce to LSN
+- [ ] Order sync from WooCommerce to LSN
+- [ ] Inventory sync (bidirectional)
+- [ ] Customer sync from WooCommerce
+- [ ] WooCommerce webhook handlers
+- [ ] Fulfillment updates to WooCommerce
+- [ ] WooCommerce subscription integration
+- [ ] Multi-site WooCommerce support
+
+### E-Commerce Platform - Amazon
+- [ ] Set up Amazon MWS/SP-API credentials
+- [ ] Product listing sync to Amazon
+- [ ] Order ingestion from Amazon
+- [ ] Inventory sync with Amazon FBA
+- [ ] Amazon FBM fulfillment integration
+- [ ] Amazon pricing automation
+- [ ] Amazon review monitoring
+- [ ] Amazon advertising integration
+- [ ] Multi-marketplace Amazon support
+- [ ] Amazon Brand Registry integration
+
+### Payment Processing - Stripe (Enhanced)
+- [ ] Complete Stripe Connect for creator payouts
+- [ ] Stripe Terminal for in-person payments
+- [ ] Stripe Billing for subscriptions
+- [ ] Stripe Radar for fraud prevention
+- [ ] Stripe Tax for automated tax calculation
+- [ ] Stripe Identity for KYC verification
+- [ ] Stripe Issuing for virtual cards
+- [ ] Enhanced Stripe webhook handling
+- [ ] Stripe reporting and analytics
+- [ ] Multi-currency Stripe accounts
+
+### Payment Processing - PayPal (Enhanced)
+- [ ] Complete PayPal Checkout integration
+- [ ] PayPal Express Checkout
+- [ ] PayPal Subscriptions integration
+- [ ] PayPal Payouts API for creators
+- [ ] PayPal Invoicing integration
+- [ ] Enhanced PayPal dispute automation
+- [ ] PayPal Credit integration
+- [ ] PayPal webhook signature verification
+- [ ] PayPal multi-currency support
+- [ ] PayPal reporting dashboard
+
+### Payment Processing - Wise (Enhanced)
+- [ ] Set up Wise API credentials
+- [ ] Wise Borderless Account integration
+- [ ] International payout automation via Wise
+- [ ] Multi-currency wallet with Wise
+- [ ] Wise webhook handlers
+- [ ] Automated FX rate updates from Wise
+- [ ] Wise batch payout processing
+- [ ] Wise recipient management
+- [ ] Wise balance monitoring
+- [ ] Wise transaction reconciliation
+
+### Shipping & Logistics Integration
+- [ ] Australia Post API integration
+- [ ] DHL Express API integration
+- [ ] FedEx API integration
+- [ ] UPS API integration
+- [ ] Automated shipping label generation
+- [ ] Real-time shipping rate calculation
+- [ ] Tracking number sync and updates
+- [ ] Automated carrier selection
+- [ ] International customs documentation
+- [ ] Shipping analytics dashboard
+
+### Email Marketing Integration
+- [ ] Mailchimp API integration
+- [ ] SendGrid API integration
+- [ ] Customer list sync to email platforms
+- [ ] Automated email campaign triggers
+- [ ] Purchase behavior segmentation
+- [ ] Email engagement tracking
+- [ ] Abandoned cart email automation
+- [ ] Post-purchase email sequences
+- [ ] Email template management
+- [ ] Email analytics integration
+
+### SMS Marketing Integration
+- [ ] Twilio SMS API integration
+- [ ] SMS campaign management
+- [ ] Order status SMS notifications
+- [ ] Promotional SMS campaigns
+- [ ] SMS opt-in/opt-out management
+- [ ] SMS analytics and reporting
+- [ ] International SMS support
+- [ ] Two-way SMS conversations
+- [ ] SMS automation workflows
+
+### Analytics & BI Integration
+- [ ] Google Analytics 4 integration
+- [ ] Facebook Pixel integration
+- [ ] TikTok Pixel integration
+- [ ] Google Tag Manager setup
+- [ ] Custom event tracking
+- [ ] E-commerce tracking setup
+- [ ] Conversion funnel tracking
+- [ ] Attribution modeling
+- [ ] Real-time analytics dashboard
+- [ ] Data warehouse integration (BigQuery/Snowflake)
+
+### Customer Support Integration
+- [ ] Zendesk API integration
+- [ ] Intercom API integration
+- [ ] Ticket sync from support platforms
+- [ ] Customer context in support tickets
+- [ ] Order history in support interface
+- [ ] Automated ticket creation from disputes
+- [ ] Support analytics integration
+- [ ] Live chat integration
+- [ ] Knowledge base sync
+
+### Inventory Management Integration
+- [ ] TradeGecko/QuickBooks Commerce API
+- [ ] Cin7 API integration
+- [ ] DEAR Inventory API integration
+- [ ] Real-time inventory sync
+- [ ] Purchase order management
+- [ ] Supplier integration
+- [ ] Stock level alerts
+- [ ] Inventory forecasting
+- [ ] Multi-location inventory tracking
+- [ ] Inventory audit trails
+
+### Integration Dashboard & Monitoring
+- [ ] Central integration management dashboard
+- [ ] API health monitoring for all integrations
+- [ ] Integration error logging and alerts
+- [ ] Sync status tracking
+- [ ] Rate limit monitoring
+- [ ] Integration analytics (API calls, sync times)
+- [ ] Manual sync triggers for each integration
+- [ ] Integration configuration UI
+- [ ] Webhook delivery monitoring
+- [ ] Integration testing tools
+
+### Local Systems Integration
+- [ ] Document local POS systems in use
+- [ ] Document local inventory systems
+- [ ] Document local CRM systems
+- [ ] Create custom API adapters for local systems
+- [ ] Data migration tools for local systems
+- [ ] Scheduled sync jobs for local databases
+- [ ] Local file import/export automation
+- [ ] Legacy system compatibility layer
+- [ ] Local system backup integration
+- [ ] Local system monitoring
+
+
+
+## ✅ Xero Integration Progress (Phase 1 Complete)
+
+### Completed
+- [x] Xero OAuth 2.0 authentication module
+- [x] Token management with automatic refresh
+- [x] LSN Business Unit tracking category system
+- [x] Contact (customer) sync to Xero
+- [x] Invoice creation and sync
+- [x] Payment recording
+- [x] Sync logging and error tracking
+- [x] tRPC router with all endpoints
+- [x] OAuth callback handler
+- [x] Database schema for Xero tables
+
+### Next Steps (Requires User Configuration)
+- [ ] User needs to create Xero Developer App at https://developer.xero.com/
+- [ ] User needs to provide XERO_CLIENT_ID environment variable
+- [ ] User needs to provide XERO_CLIENT_SECRET environment variable
+- [ ] User needs to connect Xero account via OAuth flow
+- [ ] Test invoice sync with real order data
+- [ ] Configure automated sync schedules
+- [ ] Set up webhook listeners for Xero updates
