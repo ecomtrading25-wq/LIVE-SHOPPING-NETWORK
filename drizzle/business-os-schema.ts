@@ -259,7 +259,7 @@ export const incidents = mysqlTable("incidents", {
 // FINANCE: Ledger, Reconciliation, Disputes
 // ============================================================================
 
-export const ledgerAccounts = mysqlTable("ledger_accounts", {
+export const bosLedgerAccounts = mysqlTable("bos_ledger_accounts", {
   id: varchar("id", { length: 64 }).primaryKey(),
   code: varchar("code", { length: 32 }).notNull().unique(),
   name: varchar("name", { length: 255 }).notNull(),
@@ -272,7 +272,7 @@ export const ledgerAccounts = mysqlTable("ledger_accounts", {
   updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
 });
 
-export const ledgerEntries = mysqlTable("ledger_entries", {
+export const bosLedgerEntries = mysqlTable("bos_ledger_entries", {
   id: varchar("id", { length: 64 }).primaryKey(),
   transactionId: varchar("transaction_id", { length: 64 }).notNull(),
   accountId: varchar("account_id", { length: 64 }).notNull(),

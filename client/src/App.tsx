@@ -48,6 +48,7 @@ import Footer from "@/components/Footer";
 import PWAInstallPrompt from "./components/PWAInstallPrompt";
 import CustomerServiceChatbot from "./components/CustomerServiceChatbot";
 import MobileDeepLink from "./components/MobileDeepLink";
+import BusinessOsControlRoom from "./pages/BusinessOsControlRoom";
 import ScrollToTop from "./components/ScrollToTop";
 import AIShoppingChatbot from "./components/AIShoppingChatbot";
 import VoiceShoppingAssistant from "./components/VoiceShoppingAssistant";
@@ -234,6 +235,7 @@ function Router() {
       <Route path="/live-show-management" component={LiveShowManagement} />
       <Route path="/automation-workflows" component={AutomationWorkflows} />
       <Route path="/profit-analytics" component={ProfitAnalyticsDashboard} />
+      <Route path="/business-os" component={BusinessOsControlRoom} />
       <Route path="/admin/*" component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
