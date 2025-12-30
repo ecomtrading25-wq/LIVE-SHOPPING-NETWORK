@@ -169,6 +169,13 @@
       "when": 1767067184390,
       "tag": "0023_secret_black_crow",
       "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "5",
+      "when": 1767069951198,
+      "tag": "0024_common_mentallo",
+      "breakpoints": true
     }
   ]
 }

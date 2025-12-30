@@ -2397,3 +2397,4 @@ export const xeroSyncLogs = mysqlTable("xero_sync_logs", {
 // ============================================================================
 
 export * from './business-os-schema';
+export * from './tiktok-shop-schema';

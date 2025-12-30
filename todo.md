@@ -8880,5 +8880,262 @@ Access the Control Room at: `/business-os`
 - [ ] Update test files to provide explicit IDs for inserts (deferred - platform is functional)
 - [ ] Run and validate critical flows test suite (deferred - platform is functional)
 - [x] Verify frontend functionality through browser - Server responding with 200 OK
-- [ ] Create deployment checkpoint (ready to create)
+- [x] Create deployment checkpoint (version: ab92282c)
 - [x] Document deployment status and next steps
+
+
+## 🔗 Wave 7: N8N Workflow Integration & Automation (Current Phase)
+
+### A. N8N Webhook Integration Endpoints (Backend)
+- [ ] Create `/api/webhooks/tiktok-order` endpoint for n8n Order Webhook
+- [ ] Create `/api/webhooks/order-fulfillment` endpoint for n8n Fulfillment Workflow
+- [ ] Create `/api/webhooks/customer-inquiry` endpoint for n8n Customer Service
+- [ ] Create `/api/webhooks/product-sync` endpoint for n8n Product Sync
+- [ ] Create `/api/webhooks/inventory-update` endpoint for n8n Inventory Sync
+- [ ] Create `/api/webhooks/price-update` endpoint for n8n Price Monitoring
+- [ ] Create `/api/webhooks/analytics-data` endpoint for n8n Analytics
+- [ ] Add webhook authentication middleware (API key validation)
+- [ ] Add webhook request logging and monitoring
+- [ ] Add webhook error handling and retry logic
+
+### B. N8N Workflow Management Interface (Frontend)
+- [ ] Create N8N Workflows dashboard page
+- [ ] Build workflow status monitoring interface
+- [ ] Create workflow execution history viewer
+- [ ] Build webhook URL configuration interface
+- [ ] Create workflow activation/deactivation controls
+- [ ] Build workflow error log viewer
+- [ ] Create workflow performance metrics dashboard
+- [ ] Build workflow testing interface
+- [ ] Create workflow documentation viewer
+- [ ] Add workflow import/export functionality
+
+### C. TikTok Shop Integration Layer
+- [ ] Create TikTok Shop API credentials management interface
+- [ ] Build TikTok Shop product catalog sync service
+- [ ] Create TikTok Shop order import service
+- [ ] Build TikTok Shop fulfillment status update service
+- [ ] Create TikTok Shop inventory sync service
+- [ ] Build TikTok Shop pricing update service
+- [ ] Create TikTok Shop webhook configuration service
+- [ ] Build TikTok Shop API rate limiting handler
+- [ ] Create TikTok Shop error handling and retry logic
+- [ ] Add TikTok Shop API monitoring and alerts
+
+### D. Supplier Integration Layer
+- [ ] Create supplier management interface
+- [ ] Build AliExpress API integration service
+- [ ] Create Amazon Product Advertising API integration
+- [ ] Build supplier product search functionality
+- [ ] Create automated supplier order placement service
+- [ ] Build supplier inventory tracking service
+- [ ] Create supplier price monitoring service
+- [ ] Build supplier performance analytics
+- [ ] Create supplier webhook handlers
+- [ ] Add supplier API error handling
+
+### E. Arbitrage Intelligence System
+- [ ] Create product discovery dashboard
+- [ ] Build profit margin calculator service
+- [ ] Create opportunity scoring algorithm
+- [ ] Build product approval workflow interface
+- [ ] Create competitive analysis tools
+- [ ] Build trending product detection service
+- [ ] Create automated listing recommendation engine
+- [ ] Build arbitrage opportunity alerts
+- [ ] Create product sourcing pipeline interface
+- [ ] Add arbitrage performance analytics
+
+### F. Order Fulfillment Automation
+- [ ] Create automated order routing service
+- [ ] Build supplier order placement automation
+- [ ] Create tracking number capture service
+- [ ] Build fulfillment status sync service
+- [ ] Create order validation service
+- [ ] Build payment verification service
+- [ ] Create shipping label generation service
+- [ ] Build delivery tracking service
+- [ ] Create fulfillment error handling
+- [ ] Add fulfillment performance metrics
+
+### G. Inventory Management Automation
+- [ ] Create real-time inventory sync service
+- [ ] Build stock level monitoring service
+- [ ] Create low stock alert system
+- [ ] Build out-of-stock prevention service
+- [ ] Create inventory buffer calculation service
+- [ ] Build inventory reorder automation
+- [ ] Create inventory reconciliation service
+- [ ] Build inventory forecast service
+- [ ] Create inventory alert dashboard
+- [ ] Add inventory performance analytics
+
+### H. Dynamic Pricing Engine
+- [ ] Create supplier price monitoring service
+- [ ] Build competitor price tracking service
+- [ ] Create profit margin calculation service
+- [ ] Build dynamic pricing algorithm
+- [ ] Create price update automation service
+- [ ] Build price history tracking service
+- [ ] Create pricing strategy configuration interface
+- [ ] Build price change alert system
+- [ ] Create pricing performance analytics
+- [ ] Add pricing optimization recommendations
+
+### I. Customer Service Automation
+- [ ] Create customer inquiry webhook receiver
+- [ ] Build AI-powered inquiry categorization service
+- [ ] Create automated response generation service
+- [ ] Build inquiry routing service
+- [ ] Create escalation management service
+- [ ] Build inquiry tracking dashboard
+- [ ] Create response template management interface
+- [ ] Build customer service performance metrics
+- [ ] Create inquiry resolution workflow
+- [ ] Add customer satisfaction tracking
+
+### J. Business Analytics & Reporting
+- [ ] Create daily performance report generation service
+- [ ] Build revenue and profit tracking dashboard
+- [ ] Create product performance analytics
+- [ ] Build order fulfillment metrics dashboard
+- [ ] Create customer service analytics
+- [ ] Build arbitrage opportunity analytics
+- [ ] Create supplier performance analytics
+- [ ] Build alert and notification system
+- [ ] Create custom report builder interface
+- [ ] Add executive summary dashboard
+
+### K. Database Schema for N8N Integration
+- [ ] Create `n8n_workflows` table (workflow metadata)
+- [ ] Create `n8n_executions` table (execution history)
+- [ ] Create `webhook_logs` table (webhook request logs)
+- [ ] Create `tiktok_shop_credentials` table (API credentials)
+- [ ] Create `supplier_credentials` table (supplier API keys)
+- [ ] Create `arbitrage_opportunities` table (discovered products)
+- [ ] Create `price_history` table (price change tracking)
+- [ ] Create `inventory_alerts` table (stock alerts)
+- [ ] Create `customer_inquiries` table (support tickets)
+- [ ] Create `automation_alerts` table (system alerts)
+
+### L. Documentation & Deployment
+- [ ] Write N8N workflow import guide
+- [ ] Create webhook integration documentation
+- [ ] Document TikTok Shop API setup
+- [ ] Create supplier integration guide
+- [ ] Write arbitrage system user manual
+- [ ] Document automation workflow configuration
+- [ ] Create troubleshooting guide
+- [ ] Write API endpoint documentation
+- [ ] Create system administration guide
+- [ ] Build onboarding tutorial for operators
+
+### M. Testing & Quality Assurance
+- [ ] Write unit tests for webhook endpoints
+- [ ] Test n8n workflow integrations end-to-end
+- [ ] Validate TikTok Shop API connections
+- [ ] Test supplier API integrations
+- [ ] Validate order processing automation
+- [ ] Test inventory synchronization accuracy
+- [ ] Validate pricing automation logic
+- [ ] Test customer service automation
+- [ ] Validate analytics data accuracy
+- [ ] Perform load testing for webhooks
+
+### N. Deployment & Configuration
+- [ ] Set up n8n instance (local or cloud)
+- [ ] Import all 8 n8n workflow JSON files
+- [ ] Configure n8n database credentials
+- [ ] Configure TikTok Shop API credentials
+- [ ] Configure supplier API credentials
+- [ ] Set up webhook URLs in TikTok Shop
+- [ ] Activate all n8n workflows
+- [ ] Configure workflow schedules
+- [ ] Set up monitoring and alerts
+- [ ] Create deployment checkpoint
+
+## 📊 N8N Workflow Summary
+
+### Available Workflows (Pre-built)
+1. **01_tiktok_order_webhook.json** - Real-time order processing
+2. **02_tiktok_product_sync.json** - Product catalog sync (every 6 hours)
+3. **03_product_discovery_arbitrage.json** - Profit opportunity discovery (every 12 hours)
+4. **04_price_monitoring.json** - Dynamic pricing (every 4 hours)
+5. **05_order_fulfillment.json** - Automated supplier orders (real-time)
+6. **06_inventory_sync.json** - Stock level sync (every 2 hours)
+7. **07_analytics_reporting.json** - Daily performance reports (daily at 9 AM)
+8. **08_customer_service.json** - AI-powered support (real-time)
+
+### Integration Architecture
+- **Database:** MySQL (shared between web app and n8n)
+- **Communication:** Webhooks + Scheduled triggers
+- **Authentication:** API keys for webhook security
+- **Data Flow:** Web App ↔ Database ↔ N8N ↔ External APIs
+
+### Deployment Requirements
+- [ ] N8N instance running (self-hosted or cloud)
+- [ ] MySQL database accessible to both web app and n8n
+- [ ] TikTok Shop API credentials
+- [ ] Supplier API credentials (AliExpress, Amazon)
+- [ ] Webhook URLs configured
+- [ ] All workflows imported and activated
+
+
+## ✅ N8N Railway Deployment Package - COMPLETED
+
+### Deployment Files Created
+- [x] `Dockerfile` - N8N container configuration
+- [x] `railway.json` - Railway deployment config
+- [x] `package.json` - Node.js dependencies
+- [x] `.env.example` - Environment variables template
+- [x] `RAILWAY_DEPLOYMENT.md` - Complete Railway setup guide (15-30 min)
+- [x] `MANUS_INTEGRATION.md` - Integration guide with Manus app
+- [x] `DEPLOY_BUTTON.md` - One-click deploy instructions
+- [x] `DEPLOYMENT_SUMMARY.md` - Complete deployment overview
+
+### N8N Workflows (Pre-built, Ready to Import)
+- [x] 01_tiktok_order_webhook.json - Real-time order processing
+- [x] 02_tiktok_product_sync.json - Product catalog sync (every 6 hours)
+- [x] 03_product_discovery_arbitrage.json - Profit opportunity discovery (every 12 hours)
+- [x] 04_price_monitoring.json - Dynamic pricing (every 4 hours)
+- [x] 05_order_fulfillment.json - Automated supplier orders (real-time)
+- [x] 06_inventory_sync.json - Stock level sync (every 2 hours)
+- [x] 07_analytics_reporting.json - Daily performance reports
+- [x] 08_customer_service.json - AI-powered support (real-time)
+
+### Database Integration
+- [x] Created TikTok Shop database schema (13 tables)
+- [x] Added tables to Manus database
+- [x] Created tRPC router for webhook integration
+
+### Documentation
+- [x] Complete deployment guide (RAILWAY_DEPLOYMENT.md)
+- [x] Integration guide (MANUS_INTEGRATION.md)
+- [x] Architecture documentation (ARCHITECTURE.md)
+- [x] Quick start guide (QUICKSTART.md)
+- [x] Deployment summary (DEPLOYMENT_SUMMARY.md)
+
+### Deployment Package Location
+📦 **Package**: `/home/ubuntu/n8n-railway-deployment.tar.gz` (42KB)
+📁 **Source**: `/home/ubuntu/n8n-workflows/`
+
+### Next Steps for User
+1. Deploy n8n to Railway (30 min) - Follow RAILWAY_DEPLOYMENT.md
+2. Import 8 workflow JSON files into n8n
+3. Configure TikTok Shop API credentials
+4. Set up webhooks in TikTok Shop Seller Center
+5. Test order processing end-to-end
+6. Export Manus app and deploy to Vercel + Railway
+
+### Cost Estimate
+- Railway N8N: $5/month
+- Railway MySQL: $5/month
+- Vercel Frontend: $0 (free tier)
+- Railway Backend: $5/month
+- **Total: ~$15/month** (after $5 free credit)
+
+### Deployment Time
+- N8N setup: 30 minutes
+- Manus app export & deploy: 30 minutes
+- Integration & testing: 30 minutes
+- **Total: ~2 hours**
