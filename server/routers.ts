@@ -30,6 +30,7 @@ import { twilioLiveVideoRouter } from "./twilio-live-video";
 import { paypalWebhookRouter } from "./paypal-webhooks";
 import { wiseWebhookRouter } from "./wise-webhooks";
 import { twilioLiveCompleteRouter } from "./twilio-live-complete";
+import { twilioVideoRouter } from "./twilio-video-router";
 import { avatarStudioRouter } from "./avatar-studio-router";
 import { notificationsRouter } from "./routers-notifications";
 import { liveShowsRouter } from "./routers-live-shows";
@@ -122,6 +123,9 @@ export const appRouter = router({
   paypalWebhooks: paypalWebhookRouter,
   wiseWebhooks: wiseWebhookRouter,
   twilioLiveComplete: twilioLiveCompleteRouter,
+  
+  // Twilio Video Streaming (New Implementation)
+  twilioVideoStreaming: twilioVideoRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
