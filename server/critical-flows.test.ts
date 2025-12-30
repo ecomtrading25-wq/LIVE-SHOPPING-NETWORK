@@ -4,7 +4,9 @@
  */
 
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
-import * as db from './db';
+import { getDbSync } from './db';
+
+const db = getDbSync();
 import { 
   disputes, 
   orders, 
