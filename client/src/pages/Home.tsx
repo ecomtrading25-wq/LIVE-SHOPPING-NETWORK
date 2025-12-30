@@ -54,68 +54,33 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Large Centered Logo Section */}
-      <div className="flex flex-col items-center justify-center py-16 bg-white">
-        <img 
-          src="/logo.png" 
-          alt="Live Shopping Network" 
-          className="w-[600px] h-auto max-w-full mb-8" 
-        />
-        
-        {/* Login Section - Only show if not logged in */}
-        {!user && (
-          <Card className="w-full max-w-md p-8 border-2 border-black">
-            <h2 className="text-2xl font-bold mb-6 text-center text-black">Welcome Back</h2>
-            <form onSubmit={handleLogin} className="space-y-4">
-              <div>
-                <Input
-                  type="email"
-                  placeholder="Email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="border-2 border-black"
-                  required
-                />
-              </div>
-              <div>
-                <Input
-                  type="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="border-2 border-black"
-                  required
-                />
-              </div>
+      {/* Header with Logo */}
+      <header className="bg-white border-b-2 border-black py-4">
+        <div className="container mx-auto px-4 flex items-center justify-between">
+          <Link href="/">
+            <img 
+              src="/logo.png" 
+              alt="Live Shopping Network" 
+              className="h-16 w-auto cursor-pointer" 
+            />
+          </Link>
+          <div className="flex items-center gap-4">
+            {!user ? (
               <Button 
-                type="submit" 
-                className="w-full bg-[#E42313] hover:bg-[#C01F10] text-white font-bold"
+                onClick={() => window.location.href = getLoginUrl()}
+                className="bg-[#E42313] hover:bg-[#C01F10] text-white font-bold"
               >
                 <LogIn className="w-4 h-4 mr-2" />
                 Sign In
               </Button>
-            </form>
-            <p className="text-center text-sm text-gray-600 mt-4">
-              Don't have an account?{" "}
-              <a href={getLoginUrl()} className="text-[#E42313] hover:underline font-semibold">
-                Sign up
-              </a>
-            </p>
-          </Card>
-        )}
-        
-        {/* Welcome message for logged in users */}
-        {user && (
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-black mb-2">
-              Welcome back, {user.name}!
-            </h2>
-            <p className="text-xl text-gray-600">
-              Ready to discover amazing live shopping experiences?
-            </p>
+            ) : (
+              <div className="text-black font-semibold">
+                Welcome, {user.name}!
+              </div>
+            )}
           </div>
-        )}
-      </div>
+        </div>
+      </header>
       
       <div className="container mx-auto px-4 py-12">
         {/* Hero Section */}
