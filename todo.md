@@ -9752,3 +9752,9 @@ Access the Control Room at: `/business-os`
 - [ ] Deploy Metabase instance (user action required)
 - [ ] Connect to LSN database
 - [ ] Import pre-built dashboards
+
+
+## 🔄 GitHub Deployment
+- [ ] Clone GitHub repository ecomtrading25-wq/LIVE-SHOPPING-NETWORK
+- [ ] Push project code to GitHub
+- [ ] Verify GitHub repository contains all project files
