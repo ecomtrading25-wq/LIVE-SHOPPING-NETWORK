@@ -40,6 +40,7 @@ import { subscriptionsRouter } from "./routers-subscriptions";
 import { rewardsRouter } from "./routers-rewards";
 import { businessOSRouter } from "./business-os-routers";
 import { xeroRouter } from "./xero-router";
+import { autonomousRouter } from "./routers-autonomous";
 
 /**
  * Live Shopping Network - Complete API Router
@@ -126,6 +127,9 @@ export const appRouter = router({
   
   // Twilio Video Streaming (New Implementation)
   twilioVideoStreaming: twilioVideoRouter,
+  
+  // Autonomous Operations
+  autonomous: autonomousRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),

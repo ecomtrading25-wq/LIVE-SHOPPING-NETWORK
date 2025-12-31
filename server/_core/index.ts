@@ -8,6 +8,7 @@ import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { initializeSubscriptionWebhooks } from "../subscription-webhooks";
+import { initializeAutonomousServices } from "../autonomous-init";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -74,6 +75,11 @@ async function startServer() {
 
   server.listen(port, () => {
     console.log(`Server running on http://localhost:${port}/`);
+    
+    // Initialize autonomous operation system
+    setTimeout(() => {
+      initializeAutonomousServices();
+    }, 1000);
   });
 }
 
