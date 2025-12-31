@@ -9191,3 +9191,4 @@ Access the Control Room at: `/business-os`
 - [ ] Document API endpoints
 - [ ] Create troubleshooting guide
 - [x] Remove large logo from under header
+- [x] Remove large center logo image from homepage

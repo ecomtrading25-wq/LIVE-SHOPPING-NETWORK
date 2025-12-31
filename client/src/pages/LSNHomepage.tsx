@@ -104,21 +104,6 @@ export default function LSNHomepage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground text-black">
-      {/* Large Centered Logo and Login Section */}
-      <section className="bg-white border-b-2 border-black">
-        <div className="container py-16">
-          <div className="flex flex-col items-center justify-center space-y-8">
-            {/* Large Logo */}
-            <img 
-              src="/logo.png" 
-              alt="Live Shopping Network" 
-              className="w-[800px] h-auto max-w-full" 
-            />
-
-          </div>
-        </div>
-      </section>
-
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         {/* Animated background */}
