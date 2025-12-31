@@ -9190,3 +9190,4 @@ Access the Control Room at: `/business-os`
 - [ ] Create vendor user guide
 - [ ] Document API endpoints
 - [ ] Create troubleshooting guide
+- [x] Remove large logo from under header

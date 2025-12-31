@@ -85,9 +85,6 @@ export default function Home() {
       <div className="container mx-auto px-4 py-12">
         {/* Hero Section */}
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-6xl font-bold mb-6 text-black">
-            Live Shopping Network
-          </h1>
           <p className="text-2xl mb-8 text-gray-800">
             {hasLiveShows 
               ? `${liveShows.length} live show${liveShows.length > 1 ? 's' : ''} happening now!`
