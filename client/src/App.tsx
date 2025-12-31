@@ -118,6 +118,8 @@ import LSNLiveShowViewer from '@/pages/LSNLiveShowViewer';
 import LSNBrowseShows from '@/pages/LSNBrowseShows';
 import LSNOperationsDashboard from '@/pages/LSNOperationsDashboard';
 import OperationsConsole from '@/pages/admin/OperationsConsole';
+import AutonomousOperations from '@/pages/admin/AutonomousOperations';
+import ProductSourcing from '@/pages/admin/ProductSourcing';
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -230,6 +232,8 @@ function Router() {
       <Route path="/admin/revenue-forecast" component={RevenueForecastDashboard} />
       <Route path="/admin/rfm-segmentation" component={RFMSegmentationDashboard} />
       <Route path="/admin/operations-console" component={OperationsConsole} />
+      <Route path="/admin/autonomous-operations" component={AutonomousOperations} />
+      <Route path="/admin/product-sourcing" component={ProductSourcing} />
       <Route path="/tiktok-arbitrage" component={TikTokArbitrageDashboard} />
       <Route path="/live-show-management" component={LiveShowManagement} />
       <Route path="/automation-workflows" component={AutomationWorkflows} />

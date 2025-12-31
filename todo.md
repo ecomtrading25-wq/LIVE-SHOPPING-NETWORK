@@ -9487,3 +9487,28 @@ Access the Control Room at: `/business-os`
 - [ ] Add supplier verification checks
 - [ ] Build margin calculator UI
 - [ ] Create trade show reminder system
+
+
+## 🤖 NEW WAVE: Autonomous Operations & Product Sourcing (Current Focus)
+
+### Autonomous Operations Admin Dashboard
+- [x] Create autonomous operations router in server/routers.ts
+- [x] Build autonomous alerts monitoring page (view system alerts)
+- [x] Build autonomous task approval page (approve/reject high-risk tasks)
+- [x] Build kill switch control panel (emergency stop for operations)
+- [x] Build scheduled jobs viewer (view and manage scheduled tasks)
+- [x] Integrate dashboard with autonomous tRPC endpoints
+- [x] Add real-time status indicators for autonomous systems
+
+### Product Sourcing System (1688/Alibaba Integration)
+- [x] Review SOURCING_GUIDE.md for methodology
+- [x] Build product search interface for 1688.com
+- [x] Build product search interface for Alibaba
+- [x] Implement margin calculator (cost + shipping + fees vs selling price)
+- [x] Create trending product discovery tool
+- [x] Build supplier information management system
+- [x] Create sample order tracking system
+- [x] Add product catalog import from 1688/Alibaba
+- [x] Build supplier comparison tool
+- [x] Implement MOQ (Minimum Order Quantity) tracking
+- [x] Add landed cost calculator with shipping estimates
