@@ -268,17 +268,7 @@ export default function Header() {
               </Link>
             </Button>
 
-            <Button
-              variant="ghost"
-              className="w-full justify-start text-muted-foreground hover:text-foreground"
-              onClick={() => setMobileMenuOpen(false)}
-              asChild
-            >
-              <Link href="/analytics">
-                <BarChart3 className="w-4 h-4 mr-3" />
-                Analytics
-              </Link>
-            </Button>
+            {/* Analytics link hidden - admin only feature accessible via AdminNav */}
 
             <Button
               variant="ghost"

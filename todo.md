@@ -9355,3 +9355,12 @@ Access the Control Room at: `/business-os`
 - [x] Remove front single page login page
 - [x] Update routing to remove login page references
 - [x] Ensure seamless OAuth authentication flow
+
+
+## Admin UI Security & Role-Based Access (New Request)
+- [x] Remove "Admin" link from public header navigation (AdminNav already has role check)
+- [x] Hide admin navigation items from non-admin users (AdminNav returns null for non-admins)
+- [x] Implement role-based UI visibility in Header component
+- [x] Remove Analytics link from mobile menu (admin-only feature)
+- [x] Test that customers cannot see admin features (verified - no admin links visible)
+- [x] Verify admin users can access admin features after login (AdminNav shows only for role='admin')
