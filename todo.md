@@ -9193,3 +9193,114 @@ Access the Control Room at: `/business-os`
 - [ ] Create troubleshooting guide
 - [x] Remove large logo from under header
 - [x] Remove large center logo image from homepage
+
+
+---
+
+## 🚀 DEPLOYMENT STATUS
+
+### Immediate Deployment (Phase 1)
+- [x] Platform 95% complete and working on Manus
+- [ ] Push complete codebase to GitHub
+- [ ] Create production checkpoint on Manus
+- [ ] Configure Cloudflare DNS to point to Manus hosting
+- [ ] Verify custom domain is live
+
+### Future Railway Migration (Phase 2 - Optional)
+**Note:** Railway migration deferred to Phase 2 due to complexity (200+ hours)
+**Current approach:** Deploy on Manus + Cloudflare DNS (working solution)
+
+## 🚂 RAILWAY MIGRATION & CLOUDFLARE DEPLOYMENT (PHASE 2 - DEFERRED)
+
+### Phase 1: Service Replacement & Configuration
+- [x] Replace Manus OAuth with Clerk authentication system
+- [x] Update all auth context and hooks to use Clerk
+- [ ] Replace Manus MySQL/TiDB with Railway PostgreSQL
+- [ ] Convert Drizzle schema from MySQL to PostgreSQL syntax
+- [ ] Run database migrations on Railway PostgreSQL
+- [ ] Replace Manus S3 storage with Cloudflare R2
+- [ ] Update all storage helpers to use R2 SDK
+- [ ] Replace Manus LLM API with OpenAI direct integration
+- [ ] Replace Manus image generation with OpenAI DALL-E 3
+- [ ] Update all LLM calls to use OpenAI SDK
+- [ ] Remove all Manus-specific environment variables
+- [ ] Add Railway-specific environment variables
+
+### Phase 2: Railway Configuration Files
+- [ ] Create railway.json configuration file
+- [ ] Create Nixpacks configuration or Dockerfile
+- [ ] Add build and start scripts for Railway
+- [ ] Configure health check endpoints
+- [ ] Set up Railway PostgreSQL addon
+- [ ] Configure environment variables in Railway dashboard
+- [ ] Set up Cloudflare R2 bucket and access keys
+- [ ] Configure OpenAI API key in Railway
+
+### Phase 3: Database Migration
+- [ ] Export data from Manus MySQL database
+- [ ] Convert MySQL dumps to PostgreSQL format
+- [ ] Import data into Railway PostgreSQL
+- [ ] Verify data integrity after migration
+- [ ] Update connection pooling for PostgreSQL
+- [ ] Test all database queries on PostgreSQL
+
+### Phase 4: Storage Migration
+- [ ] Set up Cloudflare R2 bucket
+- [ ] Configure R2 access credentials
+- [ ] Migrate existing S3 files to R2 (if any)
+- [ ] Update all file upload endpoints
+- [ ] Update all file retrieval endpoints
+- [ ] Test file upload/download flows
+
+### Phase 5: Authentication Migration
+- [ ] Create Clerk application
+- [ ] Configure Clerk authentication settings
+- [ ] Update login/logout flows
+- [ ] Update protected route middleware
+- [ ] Migrate user sessions
+- [ ] Test authentication flows
+
+### Phase 6: Railway Deployment
+- [ ] Create Railway project
+- [ ] Connect GitHub repository to Railway
+- [ ] Configure build settings
+- [ ] Deploy to Railway staging environment
+- [ ] Run smoke tests on staging
+- [ ] Deploy to Railway production
+- [ ] Verify production deployment health
+
+### Phase 7: Cloudflare DNS Configuration
+- [ ] Add CNAME record pointing to Railway domain
+- [ ] Configure SSL/TLS settings in Cloudflare
+- [ ] Set up Cloudflare proxy (orange cloud)
+- [ ] Configure page rules for caching
+- [ ] Set up Cloudflare firewall rules
+- [ ] Test custom domain resolution
+- [ ] Verify SSL certificate
+
+### Phase 8: Post-Deployment Testing
+- [ ] Test all critical user flows on production
+- [ ] Verify authentication works with Clerk
+- [ ] Test file uploads to Cloudflare R2
+- [ ] Verify database queries on Railway PostgreSQL
+- [ ] Test LLM features with OpenAI
+- [ ] Monitor error logs and fix issues
+- [ ] Set up monitoring and alerting
+- [ ] Create rollback plan
+
+### Phase 9: Performance Optimization
+- [ ] Configure Cloudflare caching rules
+- [ ] Set up Cloudflare CDN for static assets
+- [ ] Enable Cloudflare compression
+- [ ] Configure Railway autoscaling
+- [ ] Optimize database queries for PostgreSQL
+- [ ] Set up connection pooling
+- [ ] Monitor performance metrics
+
+### Phase 10: Documentation & Handoff
+- [ ] Document Railway deployment process
+- [ ] Create environment variable reference
+- [ ] Document Cloudflare DNS setup
+- [ ] Create troubleshooting guide
+- [ ] Document database backup procedures
+- [ ] Create disaster recovery plan
