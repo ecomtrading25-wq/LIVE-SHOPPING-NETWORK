@@ -1,0 +1,18 @@
+{
+  "query": "SELECT \n  (SELECT COUNT(*) FROM warehouses) as warehouses_count,\n  (SELECT COUNT(*) FROM zones) as zones_count,\n  (SELECT COUNT(*) FROM bins) as bins_count,\n  (SELECT COUNT(*) FROM channels) as channels_count,\n  (SELECT COUNT(*) FROM products) as products_count,\n  (SELECT COUNT(*) FROM suppliers) as suppliers_count;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user EtySsGkjrhAADPH.c26166595007 --database 5y93bfJY8bAeZdQhyDRXRM --execute SELECT \n  (SELECT COUNT(*) FROM warehouses) as warehouses_count,\n  (SELECT COUNT(*) FROM zones) as zones_count,\n  (SELECT COUNT(*) FROM bins) as bins_count,\n  (SELECT COUNT(*) FROM channels) as channels_count,\n  (SELECT COUNT(*) FROM products) as products_count,\n  (SELECT COUNT(*) FROM suppliers) as suppliers_count;",
+  "rows": [
+    {
+      "warehouses_count": "1",
+      "zones_count": "0",
+      "bins_count": "0",
+      "channels_count": "4",
+      "products_count": "8",
+      "suppliers_count": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "warehouses_count\tzones_count\tbins_count\tchannels_count\tproducts_count\tsuppliers_count\n1\t0\t0\t4\t8\t0\n",
+  "stderr": "",
+  "execution_time_ms": 1528
+}

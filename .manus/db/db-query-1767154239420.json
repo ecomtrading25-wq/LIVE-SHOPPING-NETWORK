@@ -1,0 +1,19 @@
+{
+  "query": "SELECT * FROM warehouses LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user EtySsGkjrhAADPH.c26166595007 --database 5y93bfJY8bAeZdQhyDRXRM --execute SELECT * FROM warehouses LIMIT 5;",
+  "rows": [
+    {
+      "id": "bL4DjK7hHWrlON28JqsC2",
+      "code": "WH-MAIN",
+      "name": "Main Warehouse",
+      "address": "123 Commerce St, San Francisco, CA 94102",
+      "status": "active",
+      "created_at": "2025-12-27 03:43:56",
+      "updated_at": "2025-12-31 04:10:06"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcode\tname\taddress\tstatus\tcreated_at\tupdated_at\nbL4DjK7hHWrlON28JqsC2\tWH-MAIN\tMain Warehouse\t123 Commerce St, San Francisco, CA 94102\tactive\t2025-12-27 03:43:56\t2025-12-31 04:10:06\n",
+  "stderr": "",
+  "execution_time_ms": 1597
+}
