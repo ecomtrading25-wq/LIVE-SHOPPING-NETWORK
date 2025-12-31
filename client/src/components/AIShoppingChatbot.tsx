@@ -201,7 +201,7 @@ export default function AIShoppingChatbot() {
         className="fixed bottom-4 left-4 z-40 w-14 h-14 bg-gradient-to-r from-blue-600 to-red-600 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
         title="AI Shopping Assistant"
       >
-        <MessageCircle className="w-6 h-6 text-foreground" />
+        <MessageCircle className="w-6 h-6 text-white" />
         <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse" />
       </button>
 

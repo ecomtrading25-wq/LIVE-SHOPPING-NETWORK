@@ -51,6 +51,7 @@
 - [x] Fix missing rewards.getStatus procedure error
 - [x] Fix logo positioning - logo appears under header instead of properly positioned
 - [x] Fix API query errors on /admin/demand-forecast page (tRPC receiving undefined instead of object)
+- [x] Fix purple help button widget to match current color theme
 - [ ] Fix 3303 TypeScript errors (non-critical files)t API (value.toISOString is not a function)
 - [ ] Fix 3303 TypeScript errors (non-critical files)
 - [x] Add PayPal webhook handlers
