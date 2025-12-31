@@ -83,7 +83,6 @@ import GiftRegistry from "./pages/GiftRegistry";
 import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import LiveShows from "./pages/LiveShows";
-import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import ForgotPassword from "./pages/ForgotPassword";
