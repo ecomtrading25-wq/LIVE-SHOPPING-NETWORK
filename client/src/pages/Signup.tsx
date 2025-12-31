@@ -66,7 +66,7 @@ export default function SignupPage() {
           size="lg"
         >
           <Chrome className="w-5 h-5 mr-2" />
-          Continue with Manus OAuth
+          Continue with Live Shopping Network
         </Button>
 
         <div className="relative mb-6">

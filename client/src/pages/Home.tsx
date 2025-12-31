@@ -38,7 +38,7 @@ export default function Home() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Redirect to Manus OAuth login
+    // Redirect to authentication
     window.location.href = getLoginUrl();
   };
 

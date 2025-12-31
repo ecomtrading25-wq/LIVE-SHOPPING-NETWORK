@@ -57,7 +57,7 @@ export default function LSNHomepage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Redirect to Manus OAuth login
+    // Redirect to authentication
     window.location.href = getLoginUrl();
   };
 

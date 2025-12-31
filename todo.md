@@ -9304,3 +9304,47 @@ Access the Control Room at: `/business-os`
 - [ ] Create troubleshooting guide
 - [ ] Document database backup procedures
 - [ ] Create disaster recovery plan
+
+
+## 🚂 RAILWAY DEPLOYMENT STRATEGY
+
+### Database Migration (MySQL → PostgreSQL)
+- [ ] Update drizzle.config.ts to support PostgreSQL
+- [ ] Convert all MySQL-specific syntax to PostgreSQL
+- [ ] Update schema files for PostgreSQL compatibility
+- [ ] Test migrations with PostgreSQL locally
+- [ ] Export data from current MySQL database
+- [ ] Import data to Railway PostgreSQL
+
+### Railway Configuration
+- [ ] Create Railway project
+- [ ] Set up PostgreSQL database on Railway
+- [ ] Configure environment variables
+- [ ] Set up GitHub integration for auto-deploy
+- [ ] Configure build command and start command
+- [ ] Set up health check endpoints
+
+### Pre-Deployment Checklist
+- [ ] Run pnpm build - no TypeScript errors
+- [ ] Run pnpm test - all tests passing
+- [ ] Run pnpm audit - no critical vulnerabilities
+- [ ] Remove all Manus branding from UI
+- [ ] Update app metadata and branding
+- [ ] Test authentication flows
+- [ ] Verify all integrations (Stripe, Twilio)
+
+### Deployment Process
+- [ ] Push code to GitHub main branch
+- [ ] Railway auto-deploys from GitHub
+- [ ] Run database migrations on Railway
+- [ ] Verify health checks pass
+- [ ] Test live site functionality
+- [ ] Monitor error logs
+
+### Post-Deployment
+- [ ] Configure custom domain
+- [ ] Set up SSL certificates
+- [ ] Configure CDN for static assets
+- [ ] Set up monitoring and alerts
+- [ ] Create backup procedures
+- [ ] Document deployment process
