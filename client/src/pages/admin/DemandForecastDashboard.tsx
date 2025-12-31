@@ -53,7 +53,7 @@ export default function DemandForecastDashboard() {
 
   // Fetch overview data
   const { data: overview, isLoading: overviewLoading, error: overviewError, refetch: refetchOverview } = 
-    trpc.aiDashboards.demandForecast.overview.useQuery();
+    trpc.aiDashboards.demandForecast.overview.useQuery({ timeRange: '30d' });
 
   // Fetch products data
   const { data: products, isLoading: productsLoading, error: productsError, refetch: refetchProducts } = 
